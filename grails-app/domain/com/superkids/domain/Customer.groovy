@@ -4,23 +4,10 @@ class Customer {
 
 //	District Address
 	String district
-	String address1
-	String address2
-	String city
-	String state
-	Integer zip
-	Integer phone
-	Integer fax
+    Address address
+    Address deliveryAddress
 
 	String website
-
-
-//	Opt. Delivery Address
-	String deliveryAddress1
-	String deliveryAddress2
-	String deliveryCity
-	String deliveryState
-	String deliveryZip
 
 //	Food Service Director
 	String fsdName
@@ -49,10 +36,14 @@ class Customer {
 	Boolean doesPurchasePreparedFood
 	Boolean doesPurchaseFrozenFood
 	Boolean doesPurchaseBakedFood
+    String primaryFoodServiceDistributor
+
+    
 
 	static hasMany = [
 		orders: Order,
 		calls: Call,
+        brokerReps : BrokerRepresentative,    
 		]
 
     static constraints = {

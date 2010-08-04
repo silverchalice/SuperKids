@@ -3,8 +3,11 @@ package com.superkids.domain
 class Sponsor {
 
 	String name
+    Address address
 	String website
-	String logo
+	byte[] logo
+    String salesContact
+    String sampleContact
 
 	static hasMany = [products: Product]
 

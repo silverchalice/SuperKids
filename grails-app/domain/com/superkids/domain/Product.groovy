@@ -4,12 +4,13 @@ class Product {
 
 	String name
 	Byte brochure
-	Byte picture
-	Byte nutritionalInfoSheet
+	Byte imageAd
+    String description
+	String nutrition
+    String details
 
 	static belongsTo = [sponsor: Sponsor]
-
-
+    static hasMany = [assessments: Assessment]
 
 
     static constraints = {

@@ -1,12 +1,13 @@
 package com.superkids.domain
-
+                                                 
 class Order {
 
-	Boolean earlyShipping
+	Date shippingDate
+    Date orderedDate = new Date()
+
 
 	static hasMany = [
 		products:Product,
-		assessments:Assessment,
 		]
 
 	static belongsTo = [customer: Customer]
