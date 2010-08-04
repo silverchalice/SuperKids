@@ -1,0 +1,19 @@
+<atlassian-ide-plugin>
+  <project-configuration>
+    <servers>
+      <fisheye>
+        <server-id>5aa67dd8-1368-470c-bdb3-c1f9e342651e</server-id>
+        <name>fisheye.silver-chalice</name>
+        <url>http://207.223.253.11:8060</url>
+      </fisheye>
+      <jira>
+        <server-id>a220c36c-c85c-4e15-92dc-4edbb44923fd</server-id>
+        <name>jira.silver-chalice</name>
+        <url>http://207.223.253.11:8080</url>
+      </jira>
+    </servers>
+    <default-fisheye-server>5aa67dd8-1368-470c-bdb3-c1f9e342651e</default-fisheye-server>
+    <default-fisheye-repo>SuperKids</default-fisheye-repo>
+    <default-jira-server>a220c36c-c85c-4e15-92dc-4edbb44923fd</default-jira-server>
+  </project-configuration>
+</atlassian-ide-plugin>

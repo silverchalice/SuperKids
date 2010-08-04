@@ -1,0 +1,94 @@
+
+
+<%@ page import="com.superkids.domain.Assessment" %>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="layout" content="main" />
+        <g:set var="entityName" value="${message(code: 'assessment.label', default: 'Assessment')}" />
+        <title><g:message code="default.create.label" args="[entityName]" /></title>
+    </head>
+    <body>
+        <div class="nav">
+            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
+            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
+        </div>
+        <div class="body">
+            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <g:if test="${flash.message}">
+            <div class="message">${flash.message}</div>
+            </g:if>
+            <g:hasErrors bean="${assessmentInstance}">
+            <div class="errors">
+                <g:renderErrors bean="${assessmentInstance}" as="list" />
+            </div>
+            </g:hasErrors>
+            <g:form action="save" method="post" >
+                <div class="dialog">
+                    <table>
+                        <tbody>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="commentsChange"><g:message code="assessment.commentsChange.label" default="Comments Change" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'commentsChange', 'errors')}">
+                                    <g:textField name="commentsChange" value="${assessmentInstance?.commentsChange}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="commentsLike"><g:message code="assessment.commentsLike.label" default="Comments Like" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'commentsLike', 'errors')}">
+                                    <g:textField name="commentsLike" value="${assessmentInstance?.commentsLike}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="customer"><g:message code="assessment.customer.label" default="Customer" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'customer', 'errors')}">
+                                    <g:select name="customer.id" from="${com.superkids.domain.Customer.list()}" optionKey="id" value="${assessmentInstance?.customer?.id}"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="interest"><g:message code="assessment.interest.label" default="Interest" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'interest', 'errors')}">
+                                    <g:textField name="interest" value="${fieldValue(bean: assessmentInstance, field: 'interest')}" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="product"><g:message code="assessment.product.label" default="Product" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'product', 'errors')}">
+                                    <g:select name="product.id" from="${com.superkids.domain.Product.list()}" optionKey="id" value="${assessmentInstance?.product?.id}"  />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="rating"><g:message code="assessment.rating.label" default="Rating" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'rating', 'errors')}">
+                                    <g:textField name="rating" value="${fieldValue(bean: assessmentInstance, field: 'rating')}" />
+                                </td>
+                            </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="buttons">
+                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                </div>
+            </g:form>
+        </div>
+    </body>
+</html>
