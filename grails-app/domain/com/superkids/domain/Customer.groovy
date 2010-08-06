@@ -2,50 +2,67 @@ package com.superkids.domain
 
 class Customer {
 
-//	District Address
 	String district
-    Address address
-    Address deliveryAddress
+	Address address
+	Address deliveryAddress
 
-	String website
+	String phone
+	String fax
 
-//	Food Service Director
 	String fsdName
-	String fsdTitle
 	String fsdEmail
+	String fsdTitle
 
-//	Chief Dietitian
-	String cdName
-	String cdTitle
-	String cdEmail
-
-//	Nutritional Director
 	String ndName
-	String ndTitle
 	String ndEmail
+	String ndTitle
 
-//	Optional Stats
+	String cdName
+	String cdEmail
+	String cdTitle
+
+	boolean receivedCurrentMailing
+
+//	Misc. Stats
+
 	Integer studentsInDistrict
 	Integer facilities
 	Integer breakfastsServed
 	Integer lunchesServed
 	Integer snacksServed
+	boolean hasBakery
+	boolean purchaseFrozenBread
+	boolean purchaseFreshBread
+	boolean purchasePreparedFood
+	boolean purchaseFrozenFood
 
-	Boolean doesPrepareBreadFromScratch
-	Boolean doesPrepareBreadFromMix
-	Boolean doesPurchasePreparedFood
-	Boolean doesPurchaseFrozenFood
-	Boolean doesPurchaseBakedFood
-    String primaryFoodServiceDistributor
-
-    
-
-	static hasMany = [
-		orders: Order,
-		calls: Call,
-        brokerReps : BrokerRepresentative,    
-		]
 
     static constraints = {
+
+		district()
+		address()
+		deliveryAddress(nullable: true)
+
+		phone()
+		fax(nullable: true)
+
+		fsdName(nullable: true)
+		fsdEmail(nullable: true, email: true)
+		fsdTitle(nullable: true, inList: ["Mr.", "Mrs."])
+
+		ndName(nullable: true)
+		ndEmail(nullable: true, email: true)
+		ndTitle(nullable: true, inList: ["Mr.", "Mrs."])
+
+		cdName(nullable: true)
+		cdEmail(nullable: true, email: true)
+		cdTitle(nullable: true, inList: ["Mr.", "Mrs."])
+
+		studentsInDistrict(nullable: true)
+		facilities(nullable: true)
+		breakfastsServed(nullable: true)
+		lunchesServed(nullable: true)
+		snacksServed(nullable: true)
+
     }
 }

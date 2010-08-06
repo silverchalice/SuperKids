@@ -24,13 +24,13 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'address.id.label', default: 'Id')}" />
                         
+                            <g:sortableColumn property="street1" title="${message(code: 'address.street1.label', default: 'Street1')}" />
+                        
+                            <g:sortableColumn property="street2" title="${message(code: 'address.street2.label', default: 'Street2')}" />
+                        
                             <g:sortableColumn property="city" title="${message(code: 'address.city.label', default: 'City')}" />
                         
                             <g:sortableColumn property="state" title="${message(code: 'address.state.label', default: 'State')}" />
-                        
-                            <g:sortableColumn property="street" title="${message(code: 'address.street.label', default: 'Street')}" />
-                        
-                            <g:sortableColumn property="street2" title="${message(code: 'address.street2.label', default: 'Street2')}" />
                         
                             <g:sortableColumn property="zip" title="${message(code: 'address.zip.label', default: 'Zip')}" />
                         
@@ -42,13 +42,13 @@
                         
                             <td><g:link action="show" id="${addressInstance.id}">${fieldValue(bean: addressInstance, field: "id")}</g:link></td>
                         
+                            <td>${fieldValue(bean: addressInstance, field: "street1")}</td>
+                        
+                            <td>${fieldValue(bean: addressInstance, field: "street2")}</td>
+                        
                             <td>${fieldValue(bean: addressInstance, field: "city")}</td>
                         
                             <td>${fieldValue(bean: addressInstance, field: "state")}</td>
-                        
-                            <td>${fieldValue(bean: addressInstance, field: "street")}</td>
-                        
-                            <td>${fieldValue(bean: addressInstance, field: "street2")}</td>
                         
                             <td>${fieldValue(bean: addressInstance, field: "zip")}</td>
                         

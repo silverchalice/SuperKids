@@ -20,7 +20,9 @@ class CustomerController {
     }
 
     def save = {
+		println params
         def customerInstance = new Customer(params)
+
         if (customerInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
             redirect(action: "show", id: customerInstance.id)
@@ -58,7 +60,7 @@ class CustomerController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (customerInstance.version > version) {
-                    
+
                     customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'customer.label', default: 'Customer')] as Object[], "Another user has updated this Customer while you were editing")
                     render(view: "edit", model: [customerInstance: customerInstance])
                     return
