@@ -106,4 +106,11 @@ class ProductController {
 		response.contentLength = productInstance.image.size()
 		response.outputStream.write(productInstance.image)
 	}
+
+	def downloadSummary = {
+		def productInstance = Product.get(params.id)
+		response.contentType = "application/pdf"
+		response.contentLength = productInstance.summary.size()
+		response.outputStream.write(productInstance.summary)
+	}
 }

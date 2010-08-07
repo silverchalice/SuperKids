@@ -6,7 +6,6 @@ class HomeController {
 		render view:'home'
 	}
 
-
 	def ultragrain = {
 		render view:'ultragrain'
 	}

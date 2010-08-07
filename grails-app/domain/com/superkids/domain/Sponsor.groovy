@@ -24,4 +24,8 @@ class Sponsor {
 
 		products(nullable:true)
     }
+
+	String toString() {
+		name
+	}
 }

@@ -21,63 +21,63 @@
             <div class="dialog">
                 <table>
                     <tbody>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.id.label" default="Id" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: productInstance, field: "id")}</td>
-                            
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.name.label" default="Name" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: productInstance, field: "name")}</td>
-                            
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.description.label" default="Description" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: productInstance, field: "description")}</td>
-                            
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.details.label" default="Details" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: productInstance, field: "details")}</td>
-                            
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.nutrition.label" default="Nutrition" /></td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: productInstance, field: "nutrition")}</td>
-                            
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.image.label" default="Image" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: productInstance, field: "image")}</td>
-                            
+
+                            <td valign="top" class="value"><img src="${createLink(action:'displayImage', id:productInstance.id)}" /></td>
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.summary.label" default="Summary" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: productInstance, field: "summary")}</td>
-                            
+
+                            <td valign="top" class="value"><g:link action="downloadSummary" id="${productInstance.id}">Summary PDF</g:link></td>
+
                         </tr>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.sponsor.label" default="Sponsor" /></td>
-                            
+
                             <td valign="top" class="value"><g:link controller="sponsor" action="show" id="${productInstance?.sponsor?.id}">${productInstance?.sponsor?.encodeAsHTML()}</g:link></td>
-                            
+
                         </tr>
-                    
+
                     </tbody>
                 </table>
             </div>

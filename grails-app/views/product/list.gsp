@@ -22,8 +22,6 @@
                     <thead>
                         <tr>
 
-                            <g:sortableColumn property="id" title="${message(code: 'product.id.label', default: 'Id')}" />
-
                             <g:sortableColumn property="name" title="${message(code: 'product.name.label', default: 'Name')}" />
 
                             <g:sortableColumn property="description" title="${message(code: 'product.description.label', default: 'Description')}" />
@@ -40,9 +38,7 @@
                     <g:each in="${productInstanceList}" status="i" var="productInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:link action="show" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "id")}</g:link></td>
-
-                            <td>${fieldValue(bean: productInstance, field: "name")}</td>
+                            <td><g:link action="show" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</g:link></td>
 
                             <td>${fieldValue(bean: productInstance, field: "description")}</td>
 
@@ -50,7 +46,7 @@
 
                             <td>${fieldValue(bean: productInstance, field: "nutrition")}</td>
 
-                            <td><img src="${createLink(action:'displayImage', id:productInstance.id)}" /></td>
+                            <td><img style="width:50px;" src="${createLink(action:'displayImage', id:productInstance.id)}" /></td>
 
                         </tr>
                     </g:each>
