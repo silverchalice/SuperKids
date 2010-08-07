@@ -1,3 +1,4 @@
 web-app/WEB-INF/classes/
 target/
+target/*
 .idea
