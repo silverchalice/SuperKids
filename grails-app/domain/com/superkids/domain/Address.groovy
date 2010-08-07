@@ -8,7 +8,7 @@ class Address {
 	String state
 	Integer zip
 
-	static belongsTo = [customer: Customer]
+	static belongsTo = [customer: Customer, sponsor: Sponsor]
 
     static constraints = {
 		street1()
@@ -16,6 +16,8 @@ class Address {
 		city()
 		state()
 		zip()
+		customer(nullable:true)
+		sponsor(nullable:true)
     }
 
 	String toString() {
