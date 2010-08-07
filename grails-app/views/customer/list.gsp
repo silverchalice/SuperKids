@@ -21,37 +21,33 @@
                 <table>
                     <thead>
                         <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'customer.id.label', default: 'Id')}" />
-                        
+
                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
-                        
+
                             <th><g:message code="customer.address.label" default="Address" /></th>
-                        
+
                             <th><g:message code="customer.deliveryAddress.label" default="Delivery Address" /></th>
-                        
+
                             <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
-                        
+
                             <g:sortableColumn property="fax" title="${message(code: 'customer.fax.label', default: 'Fax')}" />
-                        
+
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: customerInstance, field: "district")}</td>
-                        
+
+                            <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
+
                             <td>${fieldValue(bean: customerInstance, field: "address")}</td>
-                        
+
                             <td>${fieldValue(bean: customerInstance, field: "deliveryAddress")}</td>
-                        
+
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
-                        
+
                             <td>${fieldValue(bean: customerInstance, field: "fax")}</td>
-                        
+
                         </tr>
                     </g:each>
                     </tbody>
