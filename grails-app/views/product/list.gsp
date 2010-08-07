@@ -28,8 +28,6 @@
 
                             <g:sortableColumn property="details" title="${message(code: 'product.details.label', default: 'Details')}" />
 
-                            <g:sortableColumn property="nutrition" title="${message(code: 'product.nutrition.label', default: 'Nutrition')}" />
-
                             <g:sortableColumn property="image" title="${message(code: 'product.image.label', default: 'Image')}" />
 
                         </tr>
@@ -43,8 +41,6 @@
                             <td>${fieldValue(bean: productInstance, field: "description")}</td>
 
                             <td>${fieldValue(bean: productInstance, field: "details")}</td>
-
-                            <td>${fieldValue(bean: productInstance, field: "nutrition")}</td>
 
                             <td><img style="width:50px;" src="${createLink(action:'displayImage', id:productInstance.id)}" /></td>
 

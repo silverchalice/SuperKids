@@ -110,6 +110,7 @@ class ProductController {
 	def downloadSummary = {
 		def productInstance = Product.get(params.id)
 		response.contentType = "application/pdf"
+		response.setHeader("Content-disposition", "${params.contentDisposition}; filename=${productInstance.name.replaceAll(' ', '-')}-Summary.pdf")
 		response.contentLength = productInstance.summary.size()
 		response.outputStream.write(productInstance.summary)
 	}

@@ -6,6 +6,10 @@ class Customer {
 	Address address
 	Address deliveryAddress
 
+	String email
+
+	Date dateCreated = new Date()
+
 	String phone
 	String fax
 
@@ -36,13 +40,15 @@ class Customer {
 	boolean purchasePreparedFood
 	boolean purchaseFrozenFood
 
+	boolean hasPlacedCurrentOrder
+	boolean hasCompletedCurrentAssessment
 
     static constraints = {
 
 		district()
 		address()
 		deliveryAddress(nullable: true)
-
+		email()
 		phone()
 		fax(nullable: true)
 

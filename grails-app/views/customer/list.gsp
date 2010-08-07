@@ -28,9 +28,15 @@
 
                             <th><g:message code="customer.deliveryAddress.label" default="Delivery Address" /></th>
 
+                            <th><g:message code="customer.email.label" default="Email" /></th>
+
                             <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
 
                             <g:sortableColumn property="fax" title="${message(code: 'customer.fax.label', default: 'Fax')}" />
+
+                            <g:sortableColumn property="studentsInDistrict" title="${message(code: 'customer.studentsInDistrict.label', default: 'Students')}" />
+
+                            <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Date Created')}" />
 
                         </tr>
                     </thead>
@@ -44,9 +50,15 @@
 
                             <td>${fieldValue(bean: customerInstance, field: "deliveryAddress")}</td>
 
+                            <td>${fieldValue(bean: customerInstance, field: "email")}</td>
+
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "fax")}</td>
+
+                            <td>${fieldValue(bean: customerInstance, field: "studentsInDistrict")}</td>
+
+                            <td>${fieldValue(bean: customerInstance, field: "dateCreated")}</td>
 
                         </tr>
                     </g:each>

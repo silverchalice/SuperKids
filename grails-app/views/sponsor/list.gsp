@@ -21,37 +21,33 @@
                 <table>
                     <thead>
                         <tr>
-                        
-                            <g:sortableColumn property="id" title="${message(code: 'sponsor.id.label', default: 'Id')}" />
-                        
+
                             <g:sortableColumn property="name" title="${message(code: 'sponsor.name.label', default: 'Name')}" />
-                        
+
                             <th><g:message code="sponsor.address.label" default="Address" /></th>
-                        
+
                             <g:sortableColumn property="phone" title="${message(code: 'sponsor.phone.label', default: 'Phone')}" />
-                        
+
                             <g:sortableColumn property="website" title="${message(code: 'sponsor.website.label', default: 'Website')}" />
-                        
+
                             <g:sortableColumn property="salesContact" title="${message(code: 'sponsor.salesContact.label', default: 'Sales Contact')}" />
-                        
+
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${sponsorInstanceList}" status="i" var="sponsorInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                        
-                            <td><g:link action="show" id="${sponsorInstance.id}">${fieldValue(bean: sponsorInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: sponsorInstance, field: "name")}</td>
-                        
+
+                            <td><g:link action="show" id="${sponsorInstance.id}">${fieldValue(bean: sponsorInstance, field: "name")}</g:link></td>
+
                             <td>${fieldValue(bean: sponsorInstance, field: "address")}</td>
-                        
+
                             <td>${fieldValue(bean: sponsorInstance, field: "phone")}</td>
-                        
+
                             <td>${fieldValue(bean: sponsorInstance, field: "website")}</td>
-                        
+
                             <td>${fieldValue(bean: sponsorInstance, field: "salesContact")}</td>
-                        
+
                         </tr>
                     </g:each>
                     </tbody>
