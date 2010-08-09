@@ -1,5 +1,6 @@
-web-app/WEB-INF/classes/
+web-app/WEB-INF/classes/*
 target/
 target/*
 .idea
 .settings
+
