@@ -2,8 +2,7 @@ package com.superkids.domain
 
 class Address {
 
-	String street1
-	String street2
+	String street
 	String city
 	String state
 	Integer zip
@@ -12,7 +11,6 @@ class Address {
 
     static constraints = {
 		street1()
-		street2(nullable: true)
 		city()
 		state()
 		zip()
@@ -21,6 +19,6 @@ class Address {
     }
 
 	String toString() {
-		"${street1}, ${city}, ${state} ${zip}"
+		"${street}, ${city}, ${state} ${zip}"
 	}
 }

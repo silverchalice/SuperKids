@@ -27,25 +27,16 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="street1"><g:message code="address.street1.label" default="Street1" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'street1', 'errors')}">
-                                    <g:textField name="street1" value="${addressInstance?.street1}" />
+                                    <g:textField name="street1" value="${addressInstance?.street}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="street2"><g:message code="address.street2.label" default="Street2" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'street2', 'errors')}">
-                                    <g:textField name="street2" value="${addressInstance?.street2}" />
-                                </td>
-                            </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="city"><g:message code="address.city.label" default="City" /></label>
@@ -54,7 +45,7 @@
                                     <g:textField name="city" value="${addressInstance?.city}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="state"><g:message code="address.state.label" default="State" /></label>
@@ -63,7 +54,7 @@
                                     <g:textField name="state" value="${addressInstance?.state}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="zip"><g:message code="address.zip.label" default="Zip" /></label>
@@ -72,7 +63,7 @@
                                     <g:textField name="zip" value="${fieldValue(bean: addressInstance, field: 'zip')}" />
                                 </td>
                             </tr>
-                        
+
                         </tbody>
                     </table>
                 </div>

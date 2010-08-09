@@ -6,7 +6,7 @@ class BootStrap {
 
 		def customer = new Customer(
 			district:'Silver Chalice Schools',
-			address:new Address(street1:'61 Harneywold Drive', city:'St Louis', state:'MO', zip:'63136'),
+			address:new Address(street:'61 Harneywold Drive', city:'St Louis', state:'MO', zip:'63136'),
 			phone:'(608) 617-3960',
 			email:'info@silver-chalice.com',
 			fsdName:'FSD',
@@ -27,7 +27,7 @@ class BootStrap {
 
 		def customer2 = new Customer(
 			district:'Green Plate Schools',
-			address:new Address(street1:'62 Harneywold Drive', city:'St Louis', state:'MO', zip:'63146'),
+			address:new Address(street:'62 Harneywold Drive', city:'St Louis', state:'MO', zip:'63146'),
 			phone:'(608) 617-3960',
 			email:'info@green-plate.com',
 			fsdName:'FSD',
@@ -47,7 +47,7 @@ class BootStrap {
 
 		def sponsor1 = new Sponsor(
 			name:'ACME Foods, Inc',
-			address: new Address(street1:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:'93456'),
+			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:'93456'),
 			phone:'1-800 123 4567',
 			website:'www.acmefoods.com',
 			salesContact:'John Doe, jdoe@acmefoods.com 123-456-7890',

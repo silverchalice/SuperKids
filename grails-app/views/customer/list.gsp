@@ -26,8 +26,6 @@
 
                             <th><g:message code="customer.address.label" default="Address" /></th>
 
-                            <th><g:message code="customer.deliveryAddress.label" default="Delivery Address" /></th>
-
                             <th><g:message code="customer.email.label" default="Email" /></th>
 
                             <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
@@ -48,8 +46,6 @@
 
                             <td>${fieldValue(bean: customerInstance, field: "address")}</td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "deliveryAddress")}</td>
-
                             <td>${fieldValue(bean: customerInstance, field: "email")}</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
@@ -58,7 +54,7 @@
 
                             <td>${fieldValue(bean: customerInstance, field: "studentsInDistrict")}</td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "dateCreated")}</td>
+                            <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
                         </tr>
                     </g:each>

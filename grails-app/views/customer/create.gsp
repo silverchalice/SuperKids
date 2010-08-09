@@ -195,19 +195,10 @@
                             </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="address.street1"><g:message code="address.street1.label" default="Street1" /></label>
+                                    <label for="address.street"><g:message code="address.street.label" default="Street" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street1', 'errors')}">
-                                    <g:textField name="address.street1" value="${customerInstance?.address?.street1}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="address.street2"><g:message code="address.street2.label" default="Street2" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street2', 'errors')}">
-                                    <g:textField name="address.street2" value="${customerInstance?.address?.street2}" />
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street', 'errors')}">
+                                    <g:textField name="address.street" value="${customerInstance?.address?.street}" />
                                 </td>
                             </tr>
 
