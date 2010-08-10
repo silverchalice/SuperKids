@@ -1,3 +1,5 @@
+import grails.plugins.springsecurity.SecurityConfigType
+
 // locations to search for config files that get merged into the main config
 // config files can either be Java properties files or ConfigSlurper scripts
 
@@ -81,3 +83,22 @@ log4j = {
 
     warn   'org.mortbay.log'
 }
+
+// Added by the Spring Security Core plugin:
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.superkids.domain.User'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.superkids.domain.UserRole'
+grails.plugins.springsecurity.authority.className = 'com.superkids.domain.Role'
+grails.plugins.springsecurity.requestMap.className = 'com.superkids.domain.Requestmap'
+grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
+
+grails.plugins.springsecurity.interceptUrlMap = [
+   '/js/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/css/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/images/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/admin':        ['ROLE_ADMIN'],
+   '/*':            ['ROLE_ADMIN'],
+   '/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/user/create':  ['IS_AUTHENTICATED_ANONYMOUSLY']
+]
+

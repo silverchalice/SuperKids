@@ -80,6 +80,11 @@ class BootStrap {
 
 		customer.save()
 		customer2.save()
+
+                def adminRole = new Role(authority:"ROLE_ADMIN").save()
+
+                def fredTheUser = new User(username:"fred", password:"youdneverguessit", enabled:true, accountExpired:false, accountLocked:false, passwordExpired:false).save()
+
     }
     def destroy = {
     }
