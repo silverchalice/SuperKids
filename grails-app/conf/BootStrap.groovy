@@ -1,8 +1,14 @@
-import com.superkids.domain.*
+import com.superkids.domain.Customer
+import com.superkids.domain.User
+import com.superkids.domain.Product
+import com.superkids.domain.Sponsor
+import com.superkids.domain.Role
+import com.superkids.domain.UserRole
+import com.superkids.domain.Address
 
 class BootStrap {
-
-    def init = { servletContext ->
+   def springSecurityService
+   def init = { servletContext ->
 
 		def customer = new Customer(
 			district:'Silver Chalice Schools',
@@ -60,8 +66,8 @@ class BootStrap {
 			description:'This hot dog is very healthy.',
 			details:'A Healthy Hot Dog is a great way to get healthy hot dogs into your diet.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Potassium:13g, Uranium:14g',
-			image:new File('/home/zak/builds/SuperKids/web-app/uploads/product1.png').readBytes(),
-			summary:new File('/home/zak/builds/SuperKids/web-app/uploads/product1.pdf').readBytes(),
+			image:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.png').readBytes(),
+			summary:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.pdf').readBytes(),
 			sponsor:sponsor1
 		).save()
 
@@ -70,8 +76,8 @@ class BootStrap {
 			description:'These waffles are made with whole wheat.',
 			details:'Whole Wheat Waffles are great waffles made with whole wheat.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Lithium:2g, Argon:12g',
-			image:new File('/home/zak/builds/SuperKids/web-app/uploads/product2.png').readBytes(),
-			summary:new File('/home/zak/builds/SuperKids/web-app/uploads/product2.pdf').readBytes(),
+			image:new File('/home/ben/dev/SuperKids/web-app/uploads/product2.png').readBytes(),
+			summary:new File('/home/ben/dev/SuperKids/web-app/uploads/product2.pdf').readBytes(),
 			sponsor:sponsor1
 		).save()
 
@@ -81,11 +87,19 @@ class BootStrap {
 		customer.save()
 		customer2.save()
 
-                def adminRole = new Role(authority:"ROLE_ADMIN").save()
 
-                def fredTheUser = new User(username:"fred", password:"youdneverguessit", enabled:true, accountExpired:false, accountLocked:false, passwordExpired:false).save()
+      def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+      def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+      String password = springSecurityService.encodePassword('password')
+      def testUser = new User(username: 'me', enabled: true, password: password)
+      testUser.save(flush: true)
+      UserRole.create testUser, adminRole, true
+      assert User.count() == 1
+      assert Role.count() == 2
+      assert UserRole.count() == 1
+   }
 
-    }
     def destroy = {
     }
+
 }
