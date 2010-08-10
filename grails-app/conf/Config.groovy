@@ -91,6 +91,7 @@ grails.plugins.springsecurity.authority.className = 'com.superkids.domain.Role'
 grails.plugins.springsecurity.requestMap.className = 'com.superkids.domain.Requestmap'
 grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 
+/*
 grails.plugins.springsecurity.interceptUrlMap = [
    '/js/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/css/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
@@ -101,4 +102,5 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/user/create':  ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]
+*/
 
