@@ -7,14 +7,31 @@ import com.superkids.domain.UserRole
 import com.superkids.domain.Address
 
 class BootStrap {
-   def springSecurityService
-   def init = { servletContext ->
+    def springSecurityService
+    def init = { servletContext ->
+
+		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+		def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+
+		String password = springSecurityService.encodePassword('password')
+		def testUser = new User(username: 'me', enabled: true, password: password)
+		testUser.save(flush: true)
+		UserRole.create testUser, adminRole, true
+
+		def user1 = new User(username: 'info@silver-chalice.com', enabled: true, password: password)
+	    user1.save(flush: true)
+		UserRole.create user1, userRole, true
+
+		def user2 = new User(username: 'info@green-plate.com', enabled: true, password: password)
+		user2.save(flush: true)
+		UserRole.create user2, userRole, true
 
 		def customer = new Customer(
 			district:'Silver Chalice Schools',
 			address:new Address(street:'61 Harneywold Drive', city:'St Louis', state:'MO', zip:'63136'),
 			phone:'(608) 617-3960',
 			email:'info@silver-chalice.com',
+			user:user1,
 			fsdName:'FSD',
 			fsdTitle:'Mr.',
 			fsdEmail:'fsd@silver-chalice.com',
@@ -36,6 +53,7 @@ class BootStrap {
 			address:new Address(street:'62 Harneywold Drive', city:'St Louis', state:'MO', zip:'63146'),
 			phone:'(608) 617-3960',
 			email:'info@green-plate.com',
+			user:user2,
 			fsdName:'FSD',
 			fsdTitle:'Mr.',
 			fsdEmail:'fsd@green-plate.com',
@@ -66,8 +84,10 @@ class BootStrap {
 			description:'This hot dog is very healthy.',
 			details:'A Healthy Hot Dog is a great way to get healthy hot dogs into your diet.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Potassium:13g, Uranium:14g',
-			image:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.png').readBytes(),
-			summary:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.pdf').readBytes(),
+			image:new File('/home/zak/builds/SuperKids/web-app/uploads/product1.png').readBytes(),
+			summary:new File('/home/zak/builds/SuperKids/web-app/uploads/product1.pdf').readBytes(),
+//			image:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.png').readBytes(),
+//			summary:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.pdf').readBytes(),
 			sponsor:sponsor1
 		).save()
 
@@ -76,8 +96,10 @@ class BootStrap {
 			description:'These waffles are made with whole wheat.',
 			details:'Whole Wheat Waffles are great waffles made with whole wheat.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Lithium:2g, Argon:12g',
-			image:new File('/home/ben/dev/SuperKids/web-app/uploads/product2.png').readBytes(),
-			summary:new File('/home/ben/dev/SuperKids/web-app/uploads/product2.pdf').readBytes(),
+			image:new File('/home/zak/builds/SuperKids/web-app/uploads/product2.png').readBytes(),
+			summary:new File('/home/zak/builds/SuperKids/web-app/uploads/product2.pdf').readBytes(),
+//			image:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.png').readBytes(),
+//			summary:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.pdf').readBytes(),
 			sponsor:sponsor1
 		).save()
 
@@ -87,17 +109,7 @@ class BootStrap {
 		customer.save()
 		customer2.save()
 
-
-      def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
-      def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
-      String password = springSecurityService.encodePassword('password')
-      def testUser = new User(username: 'me', enabled: true, password: password)
-      testUser.save(flush: true)
-      UserRole.create testUser, adminRole, true
-      assert User.count() == 1
-      assert Role.count() == 2
-      assert UserRole.count() == 1
-   }
+    }
 
     def destroy = {
     }

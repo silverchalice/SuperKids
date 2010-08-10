@@ -8,6 +8,9 @@ class Customer {
 
 	String email
 
+	User user
+
+
 	Date dateCreated = new Date()
 
 	String phone
@@ -48,6 +51,7 @@ class Customer {
 		district()
 		address()
 		deliveryAddress(nullable: true)
+		user()
 		email()
 		phone()
 		fax(nullable: true)
