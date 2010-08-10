@@ -27,7 +27,7 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="firstName"><g:message code="contactRequest.firstName.label" default="First Name" /></label>
@@ -36,7 +36,7 @@
                                     <g:textField name="firstName" value="${contactRequestInstance?.firstName}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="lastName"><g:message code="contactRequest.lastName.label" default="Last Name" /></label>
@@ -45,7 +45,7 @@
                                     <g:textField name="lastName" value="${contactRequestInstance?.lastName}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="email"><g:message code="contactRequest.email.label" default="Email" /></label>
@@ -54,7 +54,7 @@
                                     <g:textField name="email" value="${contactRequestInstance?.email}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="phone"><g:message code="contactRequest.phone.label" default="Phone" /></label>
@@ -63,7 +63,7 @@
                                     <g:textField name="phone" value="${contactRequestInstance?.phone}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="districtName"><g:message code="contactRequest.districtName.label" default="District Name" /></label>
@@ -72,16 +72,43 @@
                                     <g:textField name="districtName" value="${contactRequestInstance?.districtName}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="address"><g:message code="contactRequest.address.label" default="Address" /></label>
+                                    <label for="street"><g:message code="address.street.label" default="Street" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'address', 'errors')}">
-                                    <g:select name="address.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${contactRequestInstance?.address?.id}" noSelection="['null': '']" />
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance?.address, field: 'street', 'errors')}">
+                                    <g:textField name="street" value="${contactRequestInstance?.address?.street}" />
                                 </td>
                             </tr>
-                        
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="city"><g:message code="address.city.label" default="City" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance?.address, field: 'city', 'errors')}">
+                                    <g:textField name="city" value="${contactRequestInstance?.address?.city}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="state"><g:message code="address.state.label" default="State" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance?.address, field: 'state', 'errors')}">
+                                    <g:textField name="state" value="${contactRequestInstance?.address?.state}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="zip"><g:message code="address.zip.label" default="Zip" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance?.address, field: 'zip', 'errors')}">
+                                    <g:textField name="zip" value="${fieldValue(bean: contactRequestInstance?.address, field: 'zip')}" />
+                                </td>
+                            </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="message"><g:message code="contactRequest.message.label" default="Message" /></label>
@@ -90,7 +117,7 @@
                                     <g:textField name="message" value="${contactRequestInstance?.message}" />
                                 </td>
                             </tr>
-                        
+
                         </tbody>
                     </table>
                 </div>

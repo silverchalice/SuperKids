@@ -30,10 +30,10 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="street1"><g:message code="address.street1.label" default="Street1" /></label>
+                                    <label for="street"><g:message code="address.street.label" default="Street" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'street1', 'errors')}">
-                                    <g:textField name="street1" value="${addressInstance?.street}" />
+                                <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'street', 'errors')}">
+                                    <g:textField name="street" value="${addressInstance?.street}" />
                                 </td>
                             </tr>
 

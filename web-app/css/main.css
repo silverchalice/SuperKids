@@ -112,6 +112,12 @@ input:focus, select:focus, textarea:focus {
     list-style-type:none;
     margin-bottom:10px;
 }
+
+.homePagePanel .panelBody li {
+    margin-bottom:10px;
+	font-size:9pt;
+}
+
 .homePagePanel .panelBody h1 {
     text-transform:uppercase;
     font-size:1.1em;

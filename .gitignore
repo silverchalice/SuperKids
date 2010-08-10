@@ -3,4 +3,4 @@ target/
 target/*
 .idea
 .settings
-
+web-app/css/.*
