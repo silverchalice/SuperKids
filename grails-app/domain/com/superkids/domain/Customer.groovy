@@ -7,9 +7,7 @@ class Customer {
 	Address deliveryAddress
 
 	String email
-
 	User user
-
 
 	Date dateCreated = new Date()
 
