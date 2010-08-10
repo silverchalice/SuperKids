@@ -24,7 +24,14 @@ class EcardController {
         if (ecardInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'ecard.label', default: 'Ecard'), ecardInstance.id])}"
             redirect(action: "show", id: ecardInstance.id)
+
+			sendMail {
+                to ecardInstance?.recipientEmail
+                subject "ECard from SuperKidsSampling.com"
+                body 'How are you?'
+			}
         }
+
         else {
             render(view: "create", model: [ecardInstance: ecardInstance])
         }
@@ -58,7 +65,7 @@ class EcardController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (ecardInstance.version > version) {
-                    
+
                     ecardInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'ecard.label', default: 'Ecard')] as Object[], "Another user has updated this Ecard while you were editing")
                     render(view: "edit", model: [ecardInstance: ecardInstance])
                     return
