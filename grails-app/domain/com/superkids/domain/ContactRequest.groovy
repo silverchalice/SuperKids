@@ -18,7 +18,7 @@ class ContactRequest {
 		phone(nullable: true)
 		districtName(nullable: true)
 		address(nullable: true)
-		message(nullable: true)
-
+		message(nullable: true)    
+ 
     }
 }
