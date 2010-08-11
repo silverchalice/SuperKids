@@ -23,20 +23,11 @@
                 <g:renderErrors bean="${addressInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" method="post" >
+            <g:form action="save" >
                 <div class="dialog">
                     <table>
                         <tbody>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="street"><g:message code="address.street.label" default="Street" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'street', 'errors')}">
-                                    <g:textField name="street" value="${addressInstance?.street}" />
-                                </td>
-                            </tr>
-
+                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="city"><g:message code="address.city.label" default="City" /></label>
@@ -45,16 +36,16 @@
                                     <g:textField name="city" value="${addressInstance?.city}" />
                                 </td>
                             </tr>
-
+                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="state"><g:message code="address.state.label" default="State" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'state', 'errors')}">
-                                    <g:textField name="state" value="${addressInstance?.state}" />
+                                    <g:select name="state" from="${addressInstance.constraints.state.inList}" value="${addressInstance?.state}" valueMessagePrefix="address.state"  />
                                 </td>
                             </tr>
-
+                        
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="zip"><g:message code="address.zip.label" default="Zip" /></label>
@@ -63,7 +54,34 @@
                                     <g:textField name="zip" value="${fieldValue(bean: addressInstance, field: 'zip')}" />
                                 </td>
                             </tr>
-
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="customer"><g:message code="address.customer.label" default="Customer" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'customer', 'errors')}">
+                                    <g:select name="customer.id" from="${com.superkids.domain.Customer.list()}" optionKey="id" value="${addressInstance?.customer?.id}" noSelection="['null': '']" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="sponsor"><g:message code="address.sponsor.label" default="Sponsor" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'sponsor', 'errors')}">
+                                    <g:select name="sponsor.id" from="${com.superkids.domain.Sponsor.list()}" optionKey="id" value="${addressInstance?.sponsor?.id}" noSelection="['null': '']" />
+                                </td>
+                            </tr>
+                        
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="street"><g:message code="address.street.label" default="Street" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: addressInstance, field: 'street', 'errors')}">
+                                    <g:textField name="street" value="${addressInstance?.street}" />
+                                </td>
+                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>

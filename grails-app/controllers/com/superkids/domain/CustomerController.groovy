@@ -2,6 +2,8 @@ package com.superkids.domain
 
 class CustomerController {
 
+	def springSecurityService
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
@@ -15,6 +17,7 @@ class CustomerController {
 
     def create = {
         def customerInstance = new Customer()
+		customerInstance.address = new Address()
         customerInstance.properties = params
         return [customerInstance: customerInstance]
     }
@@ -23,7 +26,12 @@ class CustomerController {
 		println params
         def customerInstance = new Customer(params)
 
-        if (customerInstance.save(flush: true)) {
+		String password = springSecurityService.encodePassword(params?.password)
+		def user = new User(username: params.email, enabled: true, password: password)
+
+        if ((customerInstance.save(flush: true)) && (user.save(flush:true))) {
+			UserRole.create user, userRole, true
+			customerInstance.user = user
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
             redirect(action: "show", id: customerInstance.id)
         }

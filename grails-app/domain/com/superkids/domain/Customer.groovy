@@ -49,7 +49,7 @@ class Customer {
 		district()
 		address()
 		deliveryAddress(nullable: true)
-		user()
+		user(nullable:true)
 		email()
 		phone()
 		fax(nullable: true)

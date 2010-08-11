@@ -37,6 +37,14 @@
                                 </td>
                             </tr>
 
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="password"><g:message code="customer.password.label" default="Password" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.user, field: 'password', 'errors')}">
+                                    <g:textField name="password" value="${customerInstance?.user?.password}" />
+                                </td>
+                            </tr>
 
 
                             <tr class="prop">
@@ -213,10 +221,10 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="address.state"><g:message code="address.state.label" default="State" /></label>
+                                    <label for="state"><g:message code="address.state.label" default="State" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
-                                    <g:textField name="address.state" value="${customerInstance?.address?.state}" />
+                                    <g:select name="state" from="${customerInstance?.address?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
                                 </td>
                             </tr>
 
