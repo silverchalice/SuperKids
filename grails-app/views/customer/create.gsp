@@ -49,6 +49,15 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="email"><g:message code="customer.email.label" default="Email" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'email', 'errors')}">
+                                    <g:textField name="email" value="${customerInstance?.email}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="phone"><g:message code="customer.phone.label" default="Phone" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'phone', 'errors')}">
@@ -224,7 +233,7 @@
                                     <label for="state"><g:message code="address.state.label" default="State" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
-                                    <g:select name="state" from="${customerInstance?.address?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
+                                    <g:select name="address.state" from="${customerInstance?.address?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
                                 </td>
                             </tr>
 
@@ -243,19 +252,10 @@
                             </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="deliveryAddress.street1"><g:message code="address.street1.label" default="Street1" /></label>
+                                    <label for="deliveryAddress.street"><g:message code="address.street.label" default="Street" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'street1', 'errors')}">
-                                    <g:textField name="deliveryAddress.street1" value="${customerInstance?.deliveryAddress?.street1}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="deliveryAddress.street2"><g:message code="address.street2.label" default="Street2" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'street2', 'errors')}">
-                                    <g:textField name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" />
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'street', 'errors')}">
+                                    <g:textField name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" />
                                 </td>
                             </tr>
 
@@ -268,12 +268,13 @@
                                 </td>
                             </tr>
 
+
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="deliveryAddress.state"><g:message code="address.state.label" default="State" /></label>
+                                    <label for="state"><g:message code="address.state.label" default="State" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'state', 'errors')}">
-                                    <g:textField name="deliveryAddress.state" value="${customerInstance?.deliveryAddress?.state}" />
+                                    <g:select name="state" from="${customerInstance?.deliveryAddress?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
                                 </td>
                             </tr>
 
