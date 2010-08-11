@@ -8,7 +8,14 @@ class UrlMappings {
 		}
 
 		"/"(controller:"home", action:"index")
-		"/admin"(controller:"customer", action:"list")
+		"/admin" {
+                    controller = "customer"
+                    action = "list"
+                }
+                "/home/register/" {
+                    controller = "customer"
+                    action = "create"
+                }
 		"500"(view:'/error')
 	}
 }
