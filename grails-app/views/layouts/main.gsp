@@ -22,7 +22,6 @@
                         <li><g:link controller="contactRequest">Manage Contact Requests</g:link></li>
                         <li><g:link controller="ecard">View eCards</g:link></li>
                         <li><g:link controller="customer">Manage School Districts</g:link></li>
-                        <li><g:link controller="broker">Manage Brokers</g:link></li>
                         <li><hr /></li>
                         <li><g:link controller="sponsor">Manage Sponsors</g:link></li>
                         <li><g:link controller="product">Manage Products</g:link></li>
