@@ -10,7 +10,7 @@ class Address {
 	static belongsTo = [customer: Customer, sponsor: Sponsor]
 
     static constraints = {
-		street1()
+		street()
 		city()
 		state(inList:['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 			'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',

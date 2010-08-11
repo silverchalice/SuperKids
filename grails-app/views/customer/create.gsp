@@ -383,38 +383,38 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="broker.address.street"><g:message code="address.street.label" default="Street" /></label>
+                                    <label for="broker.street"><g:message code="address.street.label" default="Street" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.broker?.address, field: 'street', 'errors')}">
-                                    <g:textField name="broker.address.street" value="${customerInstance?.broker?.address?.street}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="broker.address.city"><g:message code="address.city.label" default="City" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.broker?.address, field: 'city', 'errors')}">
-                                    <g:textField name="broker.address.city" value="${customerInstance?.broker?.address?.city}" />
-                                </td>
-                            </tr>
-
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="broker.address.state"><g:message code="address.state.label" default="State" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.broker?.address, field: 'state', 'errors')}">
-                                    <g:select name="broker.address.state" from="${customerInstance?.broker?.address?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.broker, field: 'street', 'errors')}">
+                                    <g:textField name="broker.street" value="${customerInstance?.broker?.street}" />
                                 </td>
                             </tr>
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="broker.address.zip"><g:message code="address.zip.label" default="Zip" /></label>
+                                    <label for="broker.city"><g:message code="address.city.label" default="City" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.broker?.address, field: 'zip', 'errors')}">
-                                    <g:textField name="broker.address.zip" value="${fieldValue(bean: customerInstance?.broker?.address, field: 'zip')}" />
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.broker, field: 'city', 'errors')}">
+                                    <g:textField name="broker.city" value="${customerInstance?.broker?.city}" />
+                                </td>
+                            </tr>
+
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="broker.state"><g:message code="address.state.label" default="State" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.broker, field: 'state', 'errors')}">
+                                    <g:select name="broker.state" from="${customerInstance?.broker?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="broker.zip"><g:message code="address.zip.label" default="Zip" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.broker, field: 'zip', 'errors')}">
+                                    <g:textField name="broker.zip" value="${fieldValue(bean: customerInstance?.broker, field: 'zip')}" />
                                 </td>
                             </tr>
 

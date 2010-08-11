@@ -19,6 +19,8 @@ class CustomerController {
         def customerInstance = new Customer()
 		customerInstance.address = new Address()
 		customerInstance.deliveryAddress = new Address()
+		customerInstance.broker = new Broker()
+
         customerInstance.properties = params
         return [customerInstance: customerInstance]
     }
