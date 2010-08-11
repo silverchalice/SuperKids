@@ -30,6 +30,8 @@ class Customer {
 
 //	Misc. Stats
 
+	Broker broker
+
 	Integer studentsInDistrict
 	Integer facilities
 	Integer breakfastsServed
@@ -65,6 +67,8 @@ class Customer {
 		cdName(nullable: true)
 		cdEmail(nullable: true, email: true)
 		cdTitle(nullable: true, inList: ["Mr.", "Mrs."])
+
+		broker(nullable: true)
 
 		studentsInDistrict(nullable: true)
 		facilities(nullable: true)
