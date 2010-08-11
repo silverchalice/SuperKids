@@ -12,10 +12,6 @@ class UrlMappings {
                     controller = "customer"
                     action = "list"
                 }
-                "/home/register/" {
-                    controller = "customer"
-                    action = "create"
-                }
 		"500"(view:'/error')
 	}
 }
