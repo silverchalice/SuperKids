@@ -2,9 +2,11 @@ package com.superkids.domain
 
 class Caller {
 
+
+	String name
     User user
 
-    def scaffold = true
+	static hasMany = [calls: Call]
 
     static constraints = {
     }

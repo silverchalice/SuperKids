@@ -46,6 +46,8 @@ class Customer {
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
 
+	static hasMany = [calls: Call]
+
     static constraints = {
 
 		district()

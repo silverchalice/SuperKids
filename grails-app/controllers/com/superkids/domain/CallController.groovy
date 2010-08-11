@@ -1,6 +1,6 @@
 package com.superkids.domain
 
-class CallerController {
+class CallController {
 
     def scaffold = true
 }

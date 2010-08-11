@@ -9,7 +9,7 @@ class Broker {
 
 	Address address
 
-	static hasMany = [customers: Customer]
+	static belongsTo = [customer: Customer]
 
     static constraints = {
     }
