@@ -106,15 +106,16 @@ grails.plugins.springsecurity.requestMap.className = 'com.superkids.domain.Reque
 grails.plugins.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
 
 grails.plugins.springsecurity.interceptUrlMap = [
-   '/js/**':        ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/css/**':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/images/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/admin':        ['ROLE_ADMIN'],
-   '/':             ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/home/*':       ['ROLE_USER', 'ROLE_ADMIN'],
-   '/*':            ['ROLE_ADMIN'],
-   '/login/**':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/logout/**':    ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/user/create':  ['IS_AUTHENTICATED_ANONYMOUSLY']
+   '/js/**':             ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/css/**':            ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/images/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/admin':             ['ROLE_ADMIN'],
+   '/':                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/home/*':            ['ROLE_USER', 'ROLE_ADMIN'],
+   '/*':                 ['ROLE_ADMIN'],
+   '/login/**':          ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/logout/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/user/create':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/home/register':     ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]
 
