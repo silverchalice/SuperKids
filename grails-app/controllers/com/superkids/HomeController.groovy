@@ -35,5 +35,28 @@ class HomeController {
             return [customerInstance: customerInstance]
        }
 
+       def save = {
+           def customerInstance = new Customer(params)
+           customerInstance.username = params.email
+           customerInstance.password = springSecurityService.encodePassword(params.password)
+           customerInstance.enabled = true
+           customerInstance.accountExpired = false
+           customerInstance.accountLocked = false
+           customerInstance.passwordExpired = false
+           def userRole = Role.findByAuthority("ROLE_USER")
+           if(customerInstance.save()){
+               UserRole.create customerInstance, userRole, true
+               println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
+               flash.message = "Your account was created."
+               redirect(action:"index")
+           } else {
+               flash.message = "I was just flying along, and I blew up."
+               customerInstance.errors.allErrors.each {
+                   println it
+                   println " "
+               }
+               render(view:"register", customerInstance:customerInstance)
+           }
+       }
 
 }
