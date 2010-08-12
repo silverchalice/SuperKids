@@ -12,9 +12,13 @@ class HomeController {
     def springSecurityService
 
     def index = {
-                println springSecurityService.principal?.username
-		render view:'home'
-	}
+        if(springSecurityService.isLoggedIn()){
+            println springSecurityService.principal?.username
+            render(view:"landing")
+        } else {
+            render view:'home'
+        }
+    }
 
 	def ultragrain = {
 		render view:'ultragrain'
