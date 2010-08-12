@@ -10,6 +10,9 @@ import org.springframework.security.core.context.SecurityContextHolder as SCH
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 
+import com.superkids.domain.User
+import com.superkids.domain.Customer
+
 class LoginController {
 
 	/**
@@ -97,6 +100,8 @@ class LoginController {
 			else {
 				msg = SpringSecurityUtils.securityConfig.errors.login.fail
 			}
+                        User.list().each{ println it.username; println it.password }
+                        Customer.list().each{ println it.username }
 		}
 
 		if (springSecurityService.isAjax(request)) {
