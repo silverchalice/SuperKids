@@ -1,13 +1,12 @@
 package com.superkids.domain
 
-class Customer {
+class Customer extends User {
 
 	String district
 	Address address
 	Address deliveryAddress
 
 	String email
-	User user
 
 	Date dateCreated = new Date()
 
@@ -53,7 +52,6 @@ class Customer {
 		district()
 		address()
 		deliveryAddress(nullable: true)
-		user(nullable:true)
 		email()
 		phone()
 		fax(nullable: true)
