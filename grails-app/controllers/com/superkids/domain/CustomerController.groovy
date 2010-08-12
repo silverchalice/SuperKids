@@ -1,5 +1,7 @@
 package com.superkids.domain
 
+import com.superkids.domain.*;
+
 class CustomerController {
 
 	def springSecurityService
@@ -31,14 +33,18 @@ class CustomerController {
 
 		String password = springSecurityService.encodePassword(params?.password)
 		def user = new User(username: params.email, enabled: true, password: password)
+		def userRole = Role.findByAuthority("ROLE_USER")
 
         if ((customerInstance.save(flush: true)) && (user.save(flush:true))) {
+			println 'saved'
 			UserRole.create user, userRole, true
 			customerInstance.user = user
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
             redirect(action: "show", id: customerInstance.id)
         }
         else {
+			println 'not saved'
+			user.errors.allErrors.each { println it }
             render(view: "create", model: [customerInstance: customerInstance])
         }
     }
