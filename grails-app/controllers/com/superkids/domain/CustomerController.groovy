@@ -27,27 +27,30 @@ class CustomerController {
         return [customerInstance: customerInstance]
     }
 
-    def save = {
-		println params
-        def customerInstance = new Customer(params)
 
-		String password = springSecurityService.encodePassword(params?.password)
-		def user = new User(username: params.email, enabled: true, password: password)
+	def save = {
+		def customerInstance = new Customer(params)
+		customerInstance.username = params.email
+		customerInstance.password = springSecurityService.encodePassword(params.password)
+		customerInstance.enabled = true
+		customerInstance.accountExpired = false
+		customerInstance.accountLocked = false
+		customerInstance.passwordExpired = false
 		def userRole = Role.findByAuthority("ROLE_USER")
-
-        if ((customerInstance.save(flush: true)) && (user.save(flush:true))) {
-			println 'saved'
-			UserRole.create user, userRole, true
-			customerInstance.user = user
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
+		if(customerInstance.save()){
+			UserRole.create customerInstance, userRole, true
+			println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
+			flash.message = "Your account was created."
             redirect(action: "show", id: customerInstance.id)
-        }
-        else {
-			println 'not saved'
-			user.errors.allErrors.each { println it }
+		} else {
+			flash.message = "I was just flying along, and I blew up."
+			customerInstance.errors.allErrors.each {
+				println it
+				println " "
+			}
             render(view: "create", model: [customerInstance: customerInstance])
-        }
-    }
+		}
+	}
 
     def show = {
         def customerInstance = Customer.get(params.id)
