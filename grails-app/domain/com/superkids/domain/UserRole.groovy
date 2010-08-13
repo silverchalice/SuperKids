@@ -49,4 +49,7 @@ class UserRole implements Serializable {
 		id composite: ['role', 'user']
 		version false
 	}
+
+        String toString() { "User " + user + " (username '" + user.username + "') with role " + role }
+
 }
