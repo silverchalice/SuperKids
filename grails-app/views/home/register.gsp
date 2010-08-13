@@ -358,7 +358,6 @@
                             <tr>
                             <tr class="prop">
                                 <td valign="top">
-                                    <g:hiddenField name="username" value="foo" />
                                     <g:hiddenField name="deliveryAddress.state" value="Alaska" />
                                 </td>
                             </tr>
