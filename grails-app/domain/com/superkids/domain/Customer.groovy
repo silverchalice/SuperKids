@@ -49,8 +49,8 @@ class Customer extends User {
 
     static constraints = {
 
-		district()
-		address()
+		district(nullable:true, blank:true)
+		address(nullable:true, blank:true)
 		deliveryAddress(nullable: true)
 		email()
 		phone()
