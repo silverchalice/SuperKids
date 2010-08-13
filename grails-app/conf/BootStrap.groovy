@@ -18,20 +18,17 @@ class BootStrap {
 		testUser.save(flush: true)
 		UserRole.create testUser, adminRole, true
 
-		def user1 = new User(username: 'info@silver-chalice.com', enabled: true, password: password)
-	    user1.save(flush: true)
-		UserRole.create user1, userRole, true
-
-		def user2 = new User(username: 'info@green-plate.com', enabled: true, password: password)
-		user2.save(flush: true)
-		UserRole.create user2, userRole, true
-
 		def customer = new Customer(
 			district:'Silver Chalice Schools',
 			address:new Address(street:'61 Harneywold Drive', city:'St Louis', state:'Missouri', zip:'63136'),
 			phone:'(608) 617-3960',
 			email:'info@silver-chalice.com',
-			user:user1,
+			username:'info@silver-chalice.com',
+			password:password,
+			enabled : true,
+			accountExpired : false,
+			accountLocked : false,
+			passwordExpired : false,
 			fsdName:'FSD',
 			fsdTitle:'Mr.',
 			fsdEmail:'fsd@silver-chalice.com',
@@ -47,13 +44,17 @@ class BootStrap {
 			purchaseFrozenFood:true
 		)
 
-
 		def customer2 = new Customer(
 			district:'Green Plate Schools',
 			address:new Address(street:'62 Harneywold Drive', city:'St Louis', state:'Missouri', zip:'63146'),
 			phone:'(608) 617-3960',
 			email:'info@green-plate.com',
-			user:user2,
+			username:'info@green-plate.com',
+			password:password,
+			enabled : true,
+			accountExpired : false,
+			accountLocked : false,
+			passwordExpired : false,
 			fsdName:'FSD',
 			fsdTitle:'Mr.',
 			fsdEmail:'fsd@green-plate.com',
@@ -108,6 +109,9 @@ class BootStrap {
 
 		customer.save()
 		customer2.save()
+
+		UserRole.create customer, userRole, true
+		UserRole.create customer2, userRole, true
 
     }
 

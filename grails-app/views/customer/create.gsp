@@ -41,8 +41,8 @@
                                 <td valign="top" class="name">
                                     <label for="password"><g:message code="customer.password.label" default="Password" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.user, field: 'password', 'errors')}">
-                                    <g:passwordField name="password" value="${customerInstance?.user?.password}" />
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'password', 'errors')}">
+                                    <g:passwordField name="password" value="${customerInstance?.password}" />
                                 </td>
                             </tr>
 
