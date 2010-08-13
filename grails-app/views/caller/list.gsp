@@ -24,7 +24,15 @@
                         
                             <g:sortableColumn property="id" title="${message(code: 'caller.id.label', default: 'Id')}" />
                         
-                            <th><g:message code="caller.user.label" default="User" /></th>
+                            <g:sortableColumn property="username" title="${message(code: 'caller.username.label', default: 'Username')}" />
+                        
+                            <g:sortableColumn property="password" title="${message(code: 'caller.password.label', default: 'Password')}" />
+                        
+                            <g:sortableColumn property="accountExpired" title="${message(code: 'caller.accountExpired.label', default: 'Account Expired')}" />
+                        
+                            <g:sortableColumn property="accountLocked" title="${message(code: 'caller.accountLocked.label', default: 'Account Locked')}" />
+                        
+                            <g:sortableColumn property="enabled" title="${message(code: 'caller.enabled.label', default: 'Enabled')}" />
                         
                         </tr>
                     </thead>
@@ -34,7 +42,15 @@
                         
                             <td><g:link action="show" id="${callerInstance.id}">${fieldValue(bean: callerInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: callerInstance, field: "user")}</td>
+                            <td>${fieldValue(bean: callerInstance, field: "username")}</td>
+                        
+                            <td>${fieldValue(bean: callerInstance, field: "password")}</td>
+                        
+                            <td><g:formatBoolean boolean="${callerInstance.accountExpired}" /></td>
+                        
+                            <td><g:formatBoolean boolean="${callerInstance.accountLocked}" /></td>
+                        
+                            <td><g:formatBoolean boolean="${callerInstance.enabled}" /></td>
                         
                         </tr>
                     </g:each>

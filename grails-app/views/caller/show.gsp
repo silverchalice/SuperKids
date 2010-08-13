@@ -30,9 +30,57 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="caller.user.label" default="User" /></td>
+                            <td valign="top" class="name"><g:message code="caller.username.label" default="Username" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="user" action="show" id="${callerInstance?.user?.id}">${callerInstance?.user?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value">${fieldValue(bean: callerInstance, field: "username")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="caller.password.label" default="Password" /></td>
+                            
+                            <td valign="top" class="value">${fieldValue(bean: callerInstance, field: "password")}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="caller.calls.label" default="Calls" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                <ul>
+                                <g:each in="${callerInstance.calls}" var="c">
+                                    <li><g:link controller="call" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="caller.accountExpired.label" default="Account Expired" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${callerInstance?.accountExpired}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="caller.accountLocked.label" default="Account Locked" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${callerInstance?.accountLocked}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="caller.enabled.label" default="Enabled" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${callerInstance?.enabled}" /></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="caller.passwordExpired.label" default="Password Expired" /></td>
+                            
+                            <td valign="top" class="value"><g:formatBoolean boolean="${callerInstance?.passwordExpired}" /></td>
                             
                         </tr>
                     
