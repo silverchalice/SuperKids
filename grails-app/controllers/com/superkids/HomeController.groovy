@@ -86,4 +86,28 @@ class HomeController {
            }
        }
 
+       def update = {
+           def customerInstance = Customer.get(params.id)
+           if (customerInstance) {
+               if (params.version) {
+                   def version = params.version.toLong()
+                   if (customerInstance.version > version) {
+                       customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'customer.label', default: 'Customer')] as Object[], "Another user has updated this Customer while you were editing")
+                       render(view: "edit_profile", model: [customerInstance: customerInstance])
+                       return
+                   }
+               }
+               customerInstance.properties = params
+               if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
+               flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
+                   redirect(action: "index")
+               } else {
+                   render(view: "edit_profile", model: [customerInstance: customerInstance])
+               }
+           } else {
+               flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
+               redirect(action: "index")
+           }
+       }
+
 }
