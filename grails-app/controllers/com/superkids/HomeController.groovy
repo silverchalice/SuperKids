@@ -14,6 +14,8 @@ class HomeController {
     def index = {
         if(springSecurityService.isLoggedIn()){
             println springSecurityService.principal?.username
+            println "Users in system: "
+            Customer.list().each { println it.username }
             render(view:"landing")
         } else {
             render view:'home'
@@ -60,6 +62,27 @@ class HomeController {
                    println " "
                }
                render(view:"register", customerInstance:customerInstance)
+           }
+       }
+
+       def edit_profile = {         
+           if(springSecurityService.isLoggedIn()){
+               def user = Customer.findByUsername(springSecurityService.principal.username)
+               println "this user is of " + user.class + ", and its username is " + user.username
+               println "here's a list of the Customers: "
+               Customer.list().each { println it }
+               println "and here's a list of the Users: "
+               User.list().each{ println it }
+               println "and here is a list of the UserRoles: "
+               UserRole.list().each{ println it }
+               def userRole = Role.findByAuthority("ROLE_USER")
+               if (UserRole.findByUserAndRole(user, userRole)){
+                   return [customerInstance: user]
+               } else {
+                   redirect(action: "index")
+               }
+           } else {
+               redirect(action:"index")
            }
        }
 
