@@ -42,7 +42,8 @@ class HomeController {
        }
 
        def save = {
-           def customerInstance = new Customer(params)
+         def customerInstance = new Customer(params)
+         if(params.password == params.confirmpassword){
            customerInstance.username = params.email
            customerInstance.password = springSecurityService.encodePassword(params.password)
            customerInstance.enabled = true
@@ -61,8 +62,12 @@ class HomeController {
                    println it
                    println " "
                }
-               render(view:"register", customerInstance:customerInstance)
+               render(view:"register", model:[customerInstance:customerInstance])
            }
+         } else {
+             flash.message = "Passwords do not match."
+             render(view:"register", model:[customerInstance:customerInstance]) 
+         }
        }
 
        def edit_profile = {         
