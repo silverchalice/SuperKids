@@ -62,7 +62,8 @@ class LoginController {
 		if (springSecurityService.isLoggedIn() &&
 				authenticationTrustResolver.isRememberMe(SCH.context?.authentication)) {
 			// have cookie but the page is guarded with IS_AUTHENTICATED_FULLY
-			redirect action: full, params: params
+			//redirect action: full, params: params
+                        redirect controller: home, action: index
 		}
 	}
 
