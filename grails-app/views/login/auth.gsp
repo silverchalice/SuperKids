@@ -103,13 +103,14 @@
 <div STYLE="clear:both;"></div> 
 <div STYLE="padding:5px 0 5px 0;"><strong>If you are not a foodservice director, let us know who you are:</strong> </div> 
 <div> 
-	<form method="post" action="login.cfm"> 
+        <g:form controller="home" action="enter_site" method="post" >
 	<table width="340" border="0" cellspacing="5" cellpadding="0"> 
 		
 		<tr> 			
 			<td ALIGN="right"><input TYPE="Radio" NAME="job" VALUE="B"></td> 
 			<td align="left">Foodservice Broker or Distributor?</td> 
 		</tr> 
+
 		<tr> 			
 			<td ALIGN="right"><input TYPE="Radio" NAME="job" VALUE="C"></td> 
 			<td align="left">Parent?</td> 
@@ -128,6 +129,7 @@
 				<div STYLE="padding-left:60px;"><input TYPE="Image" VALUE="Enter" NAME="Enter" SRC="${request.contextPath}/images/EnterButton-Blue.png" WIDTH="136" HEIGHT="40"></div></td> 
 		</tr>
 	</table> 
+       </g:form>
 </div> 
       </div>
       <div id="contentRightEdge">
