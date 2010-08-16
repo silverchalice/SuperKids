@@ -1,3 +1,4 @@
+
 package com.superkids
 
 import com.superkids.domain.Customer
@@ -114,5 +115,32 @@ class HomeController {
                redirect(action: "index")
            }
        }
+
+       def enter_site = {
+         println "entering enter_site action of home controller. params are " + params
+         def controller
+         def action
+         switch(params.job) {
+             case "B":
+                 controller = "home"
+                 action = "register"
+                 break
+             case "C":
+                 controller = "home"
+                 action = "foo"
+                 break
+             case "D":
+                 controller = "foo"
+                 action = "bar"
+                 break
+             case "E":
+                 controller = "foo"
+                 action = "bar"
+                 break
+             }
+             redirect controller:controller, action:action
+       }
+
+       def foo = {}
 
 }
