@@ -58,7 +58,7 @@
     <div id="content">
       <div id="contentInset">
 <div STYLE="padding:10px;"> 
-			<div STYLE="padding:5px 0 5px 0;"><strong>Enter the user name and password that you have received by email to begin the order/assessment process.</strong> </div> 
+    <div STYLE="padding:5px 0 5px 0;"><strong>Enter the user name and password that you have received by email to begin the order/assessment process.</strong> </div> 
 <div STYLE="width: 460px;padding-left: 15px;" > 
 	<table width="290" border="0" cellspacing="5" cellpadding="0" align="left">
 	<div id='login'>
