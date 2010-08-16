@@ -27,7 +27,6 @@ class CustomerController {
         return [customerInstance: customerInstance]
     }
 
-
 	def save = {
 		def customerInstance = new Customer(params)
 		customerInstance.username = params.email
