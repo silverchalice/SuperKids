@@ -11,23 +11,38 @@
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>
         <div id="grailsLogo" style="height:75px;"><g:link controller="home"><img style="float:left" src="${resource(dir:'images/layout',file:'AdminLogo.jpg')}" alt="SuperKids" border="0" /></g:link>
-            <h1>Super Kids Administrative Dashboard</h1>
+            <h1 style="font-size:32px;">Super Kids Administrative Dashboard</h1>
         </div>
                 <div id="nav">
             <div class="homePagePanel">
                 <div class="panelTop"></div>
                 <div class="panelBody">
-                    <h1>Adminstrative Tools</h1>
+
                     <ul>
-                        <li><g:link controller="contactRequest">Manage Contact Requests</g:link></li>
+                        <li><h1>Adminstrative Tools</h1></li>
+                        <li><g:link>Update Page Content</g:link></li>
+                        <li><g:link>Update Factoids</g:link></li>
+                        <li><hr /></li>
+                        <li><g:link controller="contactRequest">Contact Requests</g:link></li>
                         <li><g:link controller="ecard">View eCards</g:link></li>
+                        <li><hr /></li>
+                        <li><g:link controller="customer">Update User Accounts</g:link></li>
                         <li><g:link controller="customer">Manage School Districts</g:link></li>
                         <li><hr /></li>
-                        <li><g:link controller="sponsor">Manage Sponsors</g:link></li>
-                        <li><g:link controller="product">Manage Products</g:link></li>
+                        <li><g:link controller="sponsor">Sponsors Admin</g:link></li>
+                        <li><g:link controller="order">Order Admin</g:link></li>
+                        <li><g:link controller="product">Products Admin</g:link></li>
+                        <li><g:link controller="assessment">Assessments Admin</g:link></li>
                         <li><hr /></li>
+                        <li><h1>Caller Module</h1></li>
                         <li><g:link controller="caller">Manage Callers</g:link></li>
                         <li><g:link controller="call">View Calls</g:link></li>
+                        <li><hr /></li>
+                        <li><g:link>Download Excel</g:link></li>
+                        <li><g:link>Download Excel without Assessments</g:link></li>
+                        <li><hr /></li>
+                        <li><g:link>Change My Password</g:link></li>
+                        <li><g:link controller="logout">Logout</g:link></li>
                     </ul>
 
                 </div>
