@@ -117,6 +117,8 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/logout/**':         ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/user/create':       ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/home/register':     ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/home/enter_site':   ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/home/foo':          ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/home/save':         ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]
 
