@@ -28,7 +28,7 @@
 
     </div>
     <div id="nav">
-      <a href="#" id="login">LOG IN</a>
+      <g:link controller="login" action="auth">LOG IN</g:link>
     </div>
 
     <g:layoutBody />
