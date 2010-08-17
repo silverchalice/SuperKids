@@ -120,25 +120,30 @@ class HomeController {
          println "entering enter_site action of home controller. params are " + params
          def controller
          def action
-         switch(params.job) {
-             case "B":
-                 controller = "home"
-                 action = "register"
-                 break
-             case "C":
-                 controller = "home"
-                 action = "foo"
-                 break
-             case "D":
-                 controller = "foo"
-                 action = "bar"
-                 break
-             case "E":
-                 controller = "foo"
-                 action = "bar"
-                 break
-             }
-             redirect controller:controller, action:action
+         if(params.job){
+             switch(params.job) {
+                 case "B":
+                     controller = "home"
+                     action = "register"
+                     break
+                 case "C":
+                     controller = "home"
+                     action = "foo"
+                     break
+                 case "D":
+                     controller = "foo"
+                     action = "bar"
+                     break
+                 case "E":
+                     controller = "foo"
+                     action = "bar"
+                     break
+                 }
+                 redirect controller:controller, action:action
+            } else {
+                 flash.message = "Uh... those were Olaf's."
+                 redirect controller:"home", action:"index"
+            }
        }
 
        def foo = {}
