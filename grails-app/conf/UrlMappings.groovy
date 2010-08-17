@@ -12,6 +12,10 @@ class UrlMappings {
                     controller = "customer"
                     action = "list"
                 }
+                "/login/" {
+                    controller = "login"
+                    action = "auth"
+                }
 		"500"(view:'/error')
 	}
 }
