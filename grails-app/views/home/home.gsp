@@ -18,6 +18,9 @@
       <div id="contentInset">
         <span id="headline">Welcome to the SuperKids Whole Grain Sampling Program</span>
         <h2>Online information guide and program directory</h2>
+        <g:if test="${flash.message}">
+            <div class="message">${flash.message}</div>
+        </g:if>
         <h3>Featuring free samples of better-for-you whole grain products for K–12<br/>
          from these manufacturers:</h3>
 
