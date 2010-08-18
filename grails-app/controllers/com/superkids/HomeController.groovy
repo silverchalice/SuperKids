@@ -145,4 +145,12 @@ class HomeController {
             }
        }
 
+       def broker = {
+
+       }
+
+       def anonymous = {
+
+       }
+
 }
