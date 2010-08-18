@@ -1,4 +1,3 @@
-<<<<<<< HEAD:grails-app/views/login/auth.gsp
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -64,7 +63,7 @@
 				<g:if test='${flash.message}'>
 				<div class='login_message'>${flash.message}</div>
 				</g:if>
-				<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
+				<form action='${postUrl}' method='post' id='loginForm' class='cssform'>
                         <div style="float:left; text-align:right; width:50px">
                             <label for='username'>Email Address</label><br/><br/>
                             <label for='password'>Password</label>
