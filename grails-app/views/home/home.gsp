@@ -21,20 +21,20 @@
         <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
         </g:if>
-        <h3>Featuring free samples of better-for-you whole grain products for K–12<br/>
+        <h3>Featuring free samples of better-for-you whole grain products for <br/>K–12
          from these manufacturers:</h3>
 
         <img id="sponsors" src="${resource(dir:'images',file:'sponsors.jpg')}" />
 
-        <p style="width:500px;">SuperKids is a unique, FREE sampling program for K-12 foodservice directors featuring whole grain products made with Ultragrain whole wheat and Sustagrain, the ultra-high fiber whole grain. It offers multiple options for introducing higher fiber and healthy whole grains into snack, breakfast and lunch school district menus.</p>
+        <p>SuperKids is a unique, FREE sampling program for K-12 foodservice directors featuring whole grain products made with Ultragrain whole wheat and Sustagrain, the ultra-high fiber whole grain. It offers multiple options for introducing higher fiber and healthy whole grains into snack, breakfast and lunch school district menus.</p>
 
-        <p style="width:510px;">SuperKids gives foodservice directors the opportunity to easily evaluate new whole grain products for taste, texture and appearance. With SuperKids, every snack and meal can deliver more whole grains and taste great.</p>
+        <p>SuperKids gives foodservice directors the opportunity to easily evaluate new whole grain products for taste, texture and appearance. With SuperKids, every snack and meal can deliver more whole grains and taste great.</p>
 
         <strong>To get started, click the login button in the upper-right corner.</strong>
       </div>
-      <div id="contentRightEdge">
+
         <img src="${resource(dir:'images',file:'layout/kid.jpg')}" id="kid"/>
-      </div>
+
 
       <div id="contentFooter">
       <img id="contentFooterBL" src="${resource(dir:'images',file:'layout/contentFooter-bl-bg.gif')}"/>

@@ -1,7 +1,5 @@
 package com.superkids.domain
 
-import com.superkids.domain.*;
-
 class CustomerController {
 
 	def springSecurityService
