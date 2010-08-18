@@ -15,6 +15,10 @@ body {
   margin-left:1px;
 }
 
+h1 {
+	margin-top:0
+}
+
 h2 {
   color:#333333;
   font-size:16px;
@@ -114,7 +118,6 @@ a img {
   margin-top:0px;
   margin-bottom:13px;
   padding-left:1px;
-  width:500px;
 }
 
 #contentInset strong {
@@ -221,4 +224,4 @@ img#kid {
     padding: 5px 5px 5px 30px
 }
 
-h1 { color:#993300; margin-bottom:0px; padding-top:20px; }
+h1 { color:#993300; margin-bottom:0px; }
