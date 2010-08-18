@@ -57,31 +57,26 @@
 
     <div id="content">
         <div id="contentInset">
-	        <span style="padding:5px 0 5px 0;"><strong>Enter the user name and password that you have received by email to begin the order/assessment process.</strong> </span>
+	        <span style="padding:15px 0 5px 0;"><strong>Enter the user name and password that you have received by email to begin the order/assessment process.</strong> </span>
 
-			<div id='login'>
+			<div id='login' style="width:275px; margin-left:50px;">
 
 				<g:if test='${flash.message}'>
 				<div class='login_message'>${flash.message}</div>
 				</g:if>
-				<div class='fheader'>Please Login..</div>
 				<form action='${postUrl}' method='POST' id='loginForm' class='cssform' autocomplete='off'>
-					<p>
-						<label for='username'>Login ID</label>
-						<input type='text' class='text_' name='j_username' id='username' />
-					</p>
-					<p>
-						<label for='password'>Password</label>
-						<input type='password' class='text_' name='j_password' id='password' />
-					</p>
-					<p>
-						<label for='remember_me'>Remember me</label>
-						<input type='checkbox' class='chk' name='${rememberMeParameter}' id='remember_me'
-						<g:if test='${hasCookie}'>checked='checked'</g:if> />
-					</p>
-					<p>
-	                    <input TYPE="Image" NAME="submit" VALUE="Login"SRC="${request.contextPath}/images/EnterButton-Blue.png" WIDTH="136" HEIGHT="40">
-					</p>
+                        <div style="float:left; text-align:right; width:50px">
+                            <label for='username'>Email Address</label><br/><br/>
+                            <label for='password'>Password</label>
+                        </div>
+						<div style="float:right">
+						  <input type='text' class='text_' name='j_username' id='username' /><br/><br/>
+						  <input type='password' class='text_' name='j_password' id='password' />
+						</div>
+						<div class="clear" style="clear:both"></div>
+	                    <input type="image" class="fancyButton" name="submit" value="Login"src="${request.contextPath}/images/EnterButton-Blue.png"/>
+	                    <input type="image" class="fancyButton" src="${request.contextPath}/images/EnterButton-Blue.png"/>
+
 				</form>
 			</div>
 
@@ -95,45 +90,27 @@
 
 			<div style="width:600px;padding-top: 10px;clear:both;">
 				<strong>If you are a foodservice director that has not received a user name and password, click Register. </strong>
-				<form method="post" action="register.cfm" NAME="Register">
-					<div STYLE="padding-left:60px;"><input TYPE="Image" NAME="Submit" SRC="${request.contextPath}/images/RegisterButton-Green.png" WIDTH="135" HEIGHT="40" ></div>
+				<form method="post" action="register.cfm" name="Register">
+					<div style="padding-left:60px;"><input class="fancyButton" type="image" name="Submit" src="${request.contextPath}/images/RegisterButton-Green.png" /></div>
 				</form>
 			</div>
 
 		    <span style="padding:5px 0 5px 0;"><strong>If you are not a foodservice director, let us know who you are:</strong> </span>
+            <br/>
+            <br/>
+            <div style="padding-left:20px;">
+			    <g:form controller="home" action="enter_site" method="post">
+					<input type="radio" name="job" value="B" />Foodservice Broker or Distributor?<br/>
+					<input type="radio" name="job" value="C" />Parent?<br/>
+					<input type="radio" name="job" value="D" />School Official?<br/>
+					<input type="radio" name="job" value="E" />Other?<br/>
+					<input type="hidden" name="position" value="1" />
+					<input type="image" value="Enter" style="padding-left:35px; padding-top:10px" name="Enter" src="${request.contextPath}/images/EnterButton-Blue.png" class="fancyButton" />
 
-		    <g:form controller="home" action="enter_site" method="post" >
-
-				<table width="340" border="0" cellspacing="5" cellpadding="0">
-
-					<tr>
-						<td align="right"><input type="radio" name="job" value="B" /></td>
-						<td align="left">Foodservice Broker or Distributor?</td>
-					</tr>
-
-					<tr>
-						<td align="right"><input type="radio" name="job" value="C" /></td>
-						<td align="left">Parent?</td>
-					</tr>
-					<tr>
-						<td align="right"><input type="radio" name="job" value="D" /></td>
-						<td align="left">School Official?</td>
-					</tr>
-					<tr>
-						<td align="right"><input type="radio" name="job" value="E" /></td>
-						<td align="left">Other?</td>
-					</tr>
-					<tr>
-						<td align="left" colspan="2">
-							<input type="hidden" name="position" value="1" />
-							<div style="padding-left:60px;"><input type="image" value="Enter" name="Enter" src="${request.contextPath}/images/EnterButton-Blue.png" style="width:136px; height:40px" /></div></td>
-					</tr>
-				</table>
-	       </g:form>
+		       </g:form>
+	       </div>
 
       </div>
-
-      <img src="${resource(dir:'images',file:'layout/kid.jpg')}" id="kid"/>
 
       <div id="contentFooter">
          <img id="contentFooterBL" src="${resource(dir:'images',file:'layout/contentFooter-bl-bg.gif')}"/>

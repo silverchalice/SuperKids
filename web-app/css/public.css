@@ -105,8 +105,8 @@ a img {
 
 #contentInset {
   background:url(../images/layout/contentInset-bg.gif);
-  width:602px;
-  padding:10px 10px 0px 20px;
+  width:612px;
+  padding:10px 10px 0px 10px;
   height:483px;
   margin:0 auto;
   position:relative;
@@ -216,12 +216,23 @@ img#kid {
  width:230px;
 }
 
+
+#login {
+
+
+}
+
 .message {
     background: #f3f8fc url(../images/skin/information.png) 8px 50% no-repeat;
     border: 1px solid #b2d1ff;
     color: #006dba;
     margin: 10px 0 5px 0;
     padding: 5px 5px 5px 30px
+}
+
+.fancyButton {
+	width:135px;
+	height:40px;
 }
 
 h1 { color:#993300; margin-bottom:0px; }
