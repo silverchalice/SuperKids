@@ -20,6 +20,10 @@ class UrlMappings {
                     controller = "home"
                     action = "broker"
                 }
+                "/public/" {
+                    controller = "home"
+                    action = "anonymous"
+                }
 		"500"(view:'/error')
 	}
 }
