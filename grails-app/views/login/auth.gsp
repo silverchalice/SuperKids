@@ -56,15 +56,16 @@
 
     <div id="content">
         <div id="contentInset">
+            <br/>
 	        <span style="padding:15px 0 5px 0;"><strong>Enter the user name and password that you have received by email to begin the order/assessment process.</strong> </span>
 
-			<div id='login' style="width:275px; margin-left:50px;">
+			<div id='login' style="width:275px; margin-left:25px;">
 
 				<g:if test='${flash.message}'>
 				<div class='login_message'>${flash.message}</div>
 				</g:if>
 				<form action='${postUrl}' method='post' id='loginForm' class='cssform'>
-                        <div style="float:left; text-align:right; width:50px">
+                        <div style="float:left; text-align:right; width:80px">
                             <label for='username'>Email Address</label><br/><br/>
                             <label for='password'>Password</label>
                         </div>
@@ -104,7 +105,7 @@
 					<input type="radio" name="job" value="D" />School Official?<br/>
 					<input type="radio" name="job" value="E" />Other?<br/>
 					<input type="hidden" name="position" value="1" />
-					<input type="image" value="Enter" style="padding-left:35px; padding-top:10px" name="Enter" src="${request.contextPath}/images/EnterButton-Blue.png" class="fancyButton" />
+					<input type="image" value="Enter" style="padding-left:40px; padding-top:10px" name="Enter" src="${request.contextPath}/images/EnterButton-Blue.png" class="fancyButton" />
 
 		       </g:form>
 	       </div>
