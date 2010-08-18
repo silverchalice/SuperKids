@@ -117,26 +117,25 @@ class HomeController {
        }
 
        def enter_site = {
-         println "entering enter_site action of home controller. params are " + params
          def controller
          def action
          if(params.job){
              switch(params.job) {
                  case "B":
                      controller = "home"
-                     action = "register"
+                     action = "broker"
                      break
                  case "C":
                      controller = "home"
-                     action = "foo"
+                     action = "anonymous"
                      break
                  case "D":
-                     controller = "foo"
-                     action = "bar"
+                     controller = "home"
+                     action = "anonymous"
                      break
                  case "E":
-                     controller = "foo"
-                     action = "bar"
+                     controller = "home"
+                     action = "anonymous"
                      break
                  }
                  redirect controller:controller, action:action
@@ -145,7 +144,5 @@ class HomeController {
                  redirect controller:"home", action:"index"
             }
        }
-
-       def foo = {}
 
 }
