@@ -10,62 +10,40 @@
   <div id="body">
 
     <div id="secondaryContent">
-      <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
+        <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
+        <div id="SubNavBox">
+            <div><img src="images/layout/SubNav/SubNavTop.gif" style="width:255; height:16"></div>
+            <div id="SubNavLeft"></div>
+            <div id="SubNavMain">
+                <div id="SubNavTitle">Broker/Distributor Menu<br /></div>
 
-      <div id="sideLogoBox">
-        <g:link action='ultragrain'><img src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
-        <g:link action='sustagrain'><img src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
-      </div>
+                <div id="SubNavText">
+                    <div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_products">SuperKids Products</g:link></div>
+                    <div style="clear:both;"></div>
+                    <div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_whole_grain_benefits">Benefits of Whole Grains</g:link></div>
+                    <div style="clear:both;"></div>
+                    <div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_whole_grain_studies">Whole Grains & Human Health</g:link></div>
+                    <div style="clear:both;"></div>
+                    <div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="incorporating_whole_grains_in_schools">Incorporating Whole Grains Into School Menus</g:link></div>
+                    <div style="clear:both;"></div>
+                    <div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_participate">How You Can Participate</g:link></div>
+                    <div style="clear:both;"></div>
+                    <div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_ecard">Send An eCard</g:link></div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+        <div  id="SubNavRight"></div>
+        <div style="clear:both;"></div>
+        <div><img SRC="images/layout/SubNav/SubNavBtm.gif" WIDTH="255" HEIGHT="20"></div>
+        <div class="clear"></div>
+        <div id="factoids">
+            <p> <strong>Lorem Ipsum</strong><br/>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis lectus sit amet diam rhoncus sodales. In massa enim, fermentum nec pulvinar non
+            </p>
+        </div>
+	</div>
 
-      <div class="clear"></div>
-
-      <div id="factoids">
-
-        <p> <strong>Lorem Ipsum</strong><br/>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis lectus sit amet diam rhoncus sodales. In massa enim, fermentum nec pulvinar non
-        </p>
-      </div>
-
-<div ID="SubNavBox"> 
-		<div><img SRC="images/layout/SubNav/SubNavTop.gif" WIDTH="255" HEIGHT="16"></div> 
-		<div id="SubNavLeft"></div> 
-		<div id="SubNavMain">	
-			<div id="SubNavTitle">Broker/Distributor Menu<BR /></div> 
-			
-			<div id="SubNavText">			
-			
-				<div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_products">SuperKids Products</g:link></div> 
-				
-				<div style="clear:both;"></div> 
-			
-				<div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_whole_grain_benefits">Benefits of Whole Grains</g:link></div> 
-				
-				<div style="clear:both;"></div> 
-			
-				<div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_whole_grain_studies">Whole Grains & Human Health</g:link></div> 
-				
-				<div style="clear:both;"></div> 
-			
-				<div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="incorporating_whole_grains_in_schools">Incorporating Whole Grains Into School Menus</g:link></div>
-				
-				<div style="clear:both;"></div> 
-			
-				<div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_participate">How You Can Participate</g:link></div> 
-				
-				<div style="clear:both;"></div> 
-			
-				<div style="float:left;width:10px;">&middot;&nbsp;</div><div style="float:left;width:195px;"><g:link controller="home" action="broker_ecard">Send An eCard</g:link></div> 
-				
-				<div style="clear:both;"></div> 
-			</div> 
-                     </div>
-		</div> 
-		<div  id="SubNavRight"></div> 
-		<div style="clear:both;"></div> 
-		<div><img SRC="images/layout/SubNav/SubNavBtm.gif" WIDTH="255" HEIGHT="20"></div> 
-	</div> 
-
-    </div>
     <div id="nav">
       <g:link controller="home" action="index">LOG OUT</g:link>
     </div>
