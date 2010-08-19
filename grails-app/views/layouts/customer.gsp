@@ -27,21 +27,17 @@
       </div>
 
     </div>
-
     <div id="nav">
-      <g:link controller="login" action="auth">LOG IN</g:link>
+      <g:link controller="logout">LOG OUT</g:link>
     </div>
-
     <div id="content">
         <div id="contentInset">
             <g:layoutBody />
         </div>
-
         <div id="contentFooter">
             <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
             <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
         </div>
-
     </div>
 
     <div id="footer">
@@ -59,7 +55,6 @@
       </ul>
 
     </div>
-
   </div>
 
     </body>

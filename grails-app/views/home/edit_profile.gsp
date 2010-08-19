@@ -8,10 +8,6 @@
         <title>Edit Profile | SuperKids</title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-        </div>
-        <div class="body" class="dialog" style="width:820px">
             <h1>Edit Profile</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -27,7 +23,7 @@
                 <div>
                     <table>
                         <tbody>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="district"><g:message code="customer.district.label" default="District" /></label>
@@ -36,7 +32,7 @@
                                     <g:textField name="district" value="${customerInstance?.district}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="email"><g:message code="customer.email.label" default="Email" /></label>
@@ -54,7 +50,7 @@
                                     <g:select name="address.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${customerInstance?.address?.id}"  />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="deliveryAddress"><g:message code="customer.deliveryAddress.label" default="Delivery Address" /></label>
@@ -63,7 +59,7 @@
                                     <g:select name="deliveryAddress.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${customerInstance?.deliveryAddress?.id}" noSelection="['null': '']" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="phone"><g:message code="customer.phone.label" default="Phone" /></label>
@@ -72,7 +68,7 @@
                                     <g:textField name="phone" value="${customerInstance?.phone}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="fax"><g:message code="customer.fax.label" default="Fax" /></label>
@@ -81,7 +77,7 @@
                                     <g:textField name="fax" value="${customerInstance?.fax}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="fsdName"><g:message code="customer.fsdName.label" default="Fsd Name" /></label>
@@ -90,7 +86,7 @@
                                     <g:textField name="fsdName" value="${customerInstance?.fsdName}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="fsdEmail"><g:message code="customer.fsdEmail.label" default="Fsd Email" /></label>
@@ -99,7 +95,7 @@
                                     <g:textField name="fsdEmail" value="${customerInstance?.fsdEmail}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="fsdTitle"><g:message code="customer.fsdTitle.label" default="Fsd Title" /></label>
@@ -108,7 +104,7 @@
                                     <g:select name="fsdTitle" from="${customerInstance.constraints.fsdTitle.inList}" value="${customerInstance?.fsdTitle}" valueMessagePrefix="customer.fsdTitle" noSelection="['': '']" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="ndName"><g:message code="customer.ndName.label" default="Nd Name" /></label>
@@ -117,7 +113,7 @@
                                     <g:textField name="ndName" value="${customerInstance?.ndName}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="ndEmail"><g:message code="customer.ndEmail.label" default="Nd Email" /></label>
@@ -126,7 +122,7 @@
                                     <g:textField name="ndEmail" value="${customerInstance?.ndEmail}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="ndTitle"><g:message code="customer.ndTitle.label" default="Nd Title" /></label>
@@ -135,7 +131,7 @@
                                     <g:select name="ndTitle" from="${customerInstance.constraints.ndTitle.inList}" value="${customerInstance?.ndTitle}" valueMessagePrefix="customer.ndTitle" noSelection="['': '']" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="cdName"><g:message code="customer.cdName.label" default="Cd Name" /></label>
@@ -144,7 +140,7 @@
                                     <g:textField name="cdName" value="${customerInstance?.cdName}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="cdEmail"><g:message code="customer.cdEmail.label" default="Cd Email" /></label>
@@ -153,7 +149,7 @@
                                     <g:textField name="cdEmail" value="${customerInstance?.cdEmail}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="cdTitle"><g:message code="customer.cdTitle.label" default="Cd Title" /></label>
@@ -162,7 +158,7 @@
                                     <g:select name="cdTitle" from="${customerInstance.constraints.cdTitle.inList}" value="${customerInstance?.cdTitle}" valueMessagePrefix="customer.cdTitle" noSelection="['': '']" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="Students In District" /></label>
@@ -171,7 +167,7 @@
                                     <g:textField name="studentsInDistrict" value="${fieldValue(bean: customerInstance, field: 'studentsInDistrict')}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="facilities"><g:message code="customer.facilities.label" default="Facilities" /></label>
@@ -180,7 +176,7 @@
                                     <g:textField name="facilities" value="${fieldValue(bean: customerInstance, field: 'facilities')}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="Breakfasts Served" /></label>
@@ -189,7 +185,7 @@
                                     <g:textField name="breakfastsServed" value="${fieldValue(bean: customerInstance, field: 'breakfastsServed')}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="Lunches Served" /></label>
@@ -198,7 +194,7 @@
                                     <g:textField name="lunchesServed" value="${fieldValue(bean: customerInstance, field: 'lunchesServed')}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="snacksServed"><g:message code="customer.snacksServed.label" default="Snacks Served" /></label>
@@ -207,7 +203,7 @@
                                     <g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="hasBakery"><g:message code="customer.hasBakery.label" default="Has Bakery" /></label>
@@ -216,7 +212,7 @@
                                     <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="purchaseFreshBread"><g:message code="customer.purchaseFreshBread.label" default="Purchase Fresh Bread" /></label>
@@ -225,7 +221,7 @@
                                     <g:checkBox name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="purchaseFrozenBread"><g:message code="customer.purchaseFrozenBread.label" default="Purchase Frozen Bread" /></label>
@@ -234,7 +230,7 @@
                                     <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="purchaseFrozenFood"><g:message code="customer.purchaseFrozenFood.label" default="Purchase Frozen Food" /></label>
@@ -243,7 +239,7 @@
                                     <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="purchasePreparedFood"><g:message code="customer.purchasePreparedFood.label" default="Purchase Prepared Food" /></label>
@@ -252,7 +248,7 @@
                                     <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="receivedCurrentMailing"><g:message code="customer.receivedCurrentMailing.label" default="Received Current Mailing" /></label>
@@ -268,14 +264,10 @@
                                         <span class="button"><g:submitButton name="create" class="save" value="Update" /></span>
                                     </div>
                                 </td>
-                            </tr>                        
+                            </tr>
                         </tbody>
                     </table>
-
-
                 </div>
-
             </g:form>
-        </div>
     </body>
 </html>

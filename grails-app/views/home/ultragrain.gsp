@@ -12,22 +12,11 @@
     <script type="text/javascript" src="script.js"></script>
 </head>
   <body>
-
-
-    <div id="content">
-      <div id="contentInset">
         <span id="headline">Welcome to the SuperKids Whole Grain Sampling Program</span>
         <h1>ULTRAGRAIN</h1>
       </div>
       <div id="contentRightEdge">
         <img src="${resource(dir:'images',file:'layout/kid.jpg')}" id="kid"/>
       </div>
-
-      <div id="contentFooter">
-      <img id="contentFooterBL" src="${resource(dir:'images',file:'layout/contentFooter-bl-bg.gif')}"/>
-      <img id="contentFooterBR" src="${resource(dir:'images',file:'layout/contentFooter-br-bg.gif')}"/>
-      </div>
-    </div>
-
   </body>
 </html>
