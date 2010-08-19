@@ -124,6 +124,41 @@
 			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/searchable-0.5.5.1/src/java</location>
 		</link>
 		<link>
+			<name>shopping-cart-0.8.2-grails-app-controllers</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/shopping-cart-0.8.2/grails-app/controllers</location>
+		</link>
+		<link>
+			<name>shopping-cart-0.8.2-grails-app-domain</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/shopping-cart-0.8.2/grails-app/domain</location>
+		</link>
+		<link>
+			<name>shopping-cart-0.8.2-grails-app-i18n</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/shopping-cart-0.8.2/grails-app/i18n</location>
+		</link>
+		<link>
+			<name>shopping-cart-0.8.2-grails-app-services</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/shopping-cart-0.8.2/grails-app/services</location>
+		</link>
+		<link>
+			<name>shopping-cart-0.8.2-grails-app-taglib</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/shopping-cart-0.8.2/grails-app/taglib</location>
+		</link>
+		<link>
+			<name>shopping-cart-0.8.2-grails-app-views</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/shopping-cart-0.8.2/grails-app/views</location>
+		</link>
+		<link>
+			<name>shopping-cart-0.8.2-src-groovy</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/shopping-cart-0.8.2/src/groovy</location>
+		</link>
+		<link>
 			<name>spring-security-core-1.0.1-grails-app-conf</name>
 			<type>2</type>
 			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/spring-security-core-1.0.1/grails-app/conf</location>

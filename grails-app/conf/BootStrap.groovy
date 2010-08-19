@@ -11,6 +11,9 @@ class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
+		def superkids = '/home/zak/builds/SuperKids'
+//		def superkids = '/home/ben/dev/Superkids'
+
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
 
@@ -86,10 +89,8 @@ class BootStrap {
 			description:'This hot dog is very healthy.',
 			details:'A Healthy Hot Dog is a great way to get healthy hot dogs into your diet.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Potassium:13g, Uranium:14g',
-//			image:new File('/home/zak/builds/SuperKids/web-app/uploads/product1.png').readBytes(),
-//			summary:new File('/home/zak/builds/SuperKids/web-app/uploads/product1.pdf').readBytes(),
-			image:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.png').readBytes(),
-			summary:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.pdf').readBytes(),
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
 			sponsor:sponsor1
 		).save()
 
@@ -98,10 +99,8 @@ class BootStrap {
 			description:'These waffles are made with whole wheat.',
 			details:'Whole Wheat Waffles are great waffles made with whole wheat.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Lithium:2g, Argon:12g',
-//			image:new File('/home/zak/builds/SuperKids/web-app/uploads/product2.png').readBytes(),
-//			summary:new File('/home/zak/builds/SuperKids/web-app/uploads/product2.pdf').readBytes(),
-			image:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.png').readBytes(),
-			summary:new File('/home/ben/dev/SuperKids/web-app/uploads/product1.pdf').readBytes(),
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
 			sponsor:sponsor1
 		).save()
 
@@ -125,7 +124,7 @@ class BootStrap {
 <p><em>Oh, by the way: this text came from the BootStrap.</em></p>
 <h1>Yes. Yes it did.</h1>
                 """
-                ).save() 
+                ).save()
 
     }
 
