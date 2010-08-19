@@ -1,6 +1,8 @@
 package com.superkids.domain
 
-class Product extends com.metasieve.shoppingcart.Shoppable {
+import com.metasieve.shoppingcart.Shoppable
+
+class Product extends Shoppable {
 
 	String name
 	String description
