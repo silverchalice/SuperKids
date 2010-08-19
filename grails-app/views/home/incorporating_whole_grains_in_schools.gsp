@@ -8,9 +8,6 @@
         <title>You landed on: The Landing Page.</title>
     </head>
     <body>
-        <div class="body" class="dialog">
-           <div id="content">
-            <div id="contentInset">
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -20,11 +17,6 @@
 <p><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><strong>We can prove high acceptance of whole grain products in our nation's schools.</strong></span></span>&nbsp;&nbsp;<span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">SuperKids is in its fourth year. Last year, over 1,284 of the largest public school districts in America requested and received 6,079 product samples from a pool of 16 products made with Ultragrain.&nbsp;In independent studies, elementary school students consumed products made with Ultragrain at the same levels as&nbsp;products made with refined flour.&nbsp;The difference&nbsp;is Ultragrain's taste, look and texture.&nbsp;It's revolutionary, innovative, and a major technological breakthrough.</span></span></p>
 <p><span style="font-size: medium;"><span><strong><span style="color: rgb(153, 51, 0);">Ultragrain: Whole Grain Nutrition. White Flour Appeal.</span></strong></span></span><span style="font-size: medium;"><strong><span style="color: rgb(153, 51, 0);">&nbsp;</span></strong></span><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Ultragrain makes it possible for students to receive higher amounts of fiber, along with the full nutritive value of whole grains in foods they are familiar with and love. With Ultragrain, students don't notice changes in color, taste or texture that they often complain about when eating foods that use traditional whole grain flour.</span></span></p>
 <p><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><span><strong>Sustragrain:&nbsp;The Ultra High-Fiber Whole Grain.</strong></span></span><span style="font-size: medium;"><strong> </strong></span></span><span style="color: rgb(0, 0, 0);"><span><span style="font-size: x-small;">Known for its great taste and healthful properties, Sustagrain is a great way to add more fiber into a range of recipes. <span style="font-size: x-small;"><span style="color: rgb(0, 0, 0);">SuperKids products made with Sustagrain offer another way to increase whole grain and&nbsp;fiber consumption in school lunches.&nbsp;In flour form, Sustagrain can be&nbsp;used in baked goods, meat preparations, sauces and dips.&nbsp;In&nbsp;flake form, it works great in hot cereals, snacks, desserts and toppings.&nbsp;</span></span></span></span></span><span style="color: rgb(153, 51, 0);"><span style="font-size: xx-small;"><strong>Select your choice from the menu options on the left.&nbsp;</strong></span></span></p>
-        </div>
-       <div id="contentFooter"> 
-      <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/> 
-      <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/> 
-      </div>
-     </div>
+
     </body>
 </html>
