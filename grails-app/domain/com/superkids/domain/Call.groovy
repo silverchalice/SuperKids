@@ -6,6 +6,8 @@ class Call {
 
 	CallResult result
 
+	Date callbackDate
+
 	static belongsTo = [customer: Customer, caller: Caller]
 
 	static mapping = {
@@ -13,5 +15,9 @@ class Call {
 	}
 
     static constraints = {
+		result()
+		customer()
+		caller()
+		callbackDate(nullable:true)
     }
 }
