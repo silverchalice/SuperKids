@@ -1,8 +1,10 @@
 package com.superkids.domain
 
+import com.superkids.callerModule.*
+
 class Call {
 
-	String result
+	CallResult result
 
 	static belongsTo = [customer: Customer, caller: Caller]
 
