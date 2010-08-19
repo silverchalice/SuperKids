@@ -104,9 +104,9 @@ a img {
 }
 
 #contentInset {
-  background:url(../images/layout/contentInset-bg.gif);
+  background:url(../images/layout/contentInset-bg.gif) no-repeat;
   width:624px;
-  padding:10px 10px 0px 10px;
+  padding:15px 10px 0px 10px;
   height:486px;
   margin:0 auto;
   position:relative;

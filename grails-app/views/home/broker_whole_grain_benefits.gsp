@@ -12,6 +12,7 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <h1>Benefits of Whole Grains</h1>
+            <br/>
             <img width="207" height="266" align="right" src="${request.contextPath}/images/SATStethoscope.jpg" />
             <p><strong>The most documented benefits</strong> of whole grain consumption are:</p>
 
