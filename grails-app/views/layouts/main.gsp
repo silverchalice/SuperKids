@@ -20,7 +20,7 @@
 
                     <ul>
                         <li><h1>Adminstrative Tools</h1></li>
-                        <li><g:link>Update Page Content</g:link></li>
+                        <li><g:link controller="pageText" action="list">Update Page Content</g:link></li>
                         <li><g:link>Update Factoids</g:link></li>
                         <li><hr /></li>
                         <li><g:link controller="contactRequest">Contact Requests</g:link></li>

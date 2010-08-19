@@ -1,6 +1,6 @@
 package com.superkids.domain
 
-class Product {
+class Product extends com.metasieve.shoppingcart.Shoppable {
 
 	String name
 	String description

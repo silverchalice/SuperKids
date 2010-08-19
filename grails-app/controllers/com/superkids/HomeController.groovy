@@ -1,6 +1,7 @@
 
 package com.superkids
 
+import com.superkids.domain.PageText
 import com.superkids.domain.Customer
 import com.superkids.domain.Broker
 import com.superkids.domain.Address
@@ -146,7 +147,12 @@ class HomeController {
        }
 
        def broker = {
-
+           def content
+           def pt = PageText.findByName("broker")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
        def broker_products = {
