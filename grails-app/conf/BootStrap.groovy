@@ -11,8 +11,8 @@ class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-		def superkids = '/home/zak/builds/SuperKids'
-//		def superkids = '/home/ben/dev/Superkids'
+//		def superkids = '/home/zak/builds/SuperKids'
+		def superkids = '/home/ben/dev/SuperKids'
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
