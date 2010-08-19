@@ -1,8 +1,12 @@
 package com.superkids.domain
 
+import com.superkids.callerModule.*
+
 class Call {
 
-	String result
+	CallResult result
+
+	Date callbackDate
 
 	static belongsTo = [customer: Customer, caller: Caller]
 
@@ -11,5 +15,9 @@ class Call {
 	}
 
     static constraints = {
+		result()
+		customer()
+		caller()
+		callbackDate(nullable:true)
     }
 }
