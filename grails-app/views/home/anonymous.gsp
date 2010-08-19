@@ -8,9 +8,7 @@
         <title>You landed on: The Landing Page.</title>
     </head>
     <body>
-        <div class="body" class="dialog">
-           <div id="content">
-            <div id="contentInset">
+
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -21,11 +19,7 @@
 <p><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;"><strong><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;">Ultragrain</span></span></strong></span><span><strong><span style="color: rgb(153, 51, 0);"><span><sup>®</sup></span></span></strong></span><span style="font-size: x-small;"> makes it possible for students to receive high amounts of fiber, along with the full nutritive value of whole grains in foods they are familiar with and love. With Ultragrain, students don't notice changes in color, taste or texture that they often complain about when eating foods that use traditional whole grain flour.</span></span></p>
 <p><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;"><span style="font-size: medium;"><span style="color: rgb(153, 51, 0);"><strong>Sustragrain<span style="font-size: x-small;"><span><span><sup>®</sup></span></span></span> </strong></span></span>is an ultra high-fiber whole grain&nbsp;that is&nbsp;known for its great taste and healthful properties.&nbsp;SuperKids showcases products made with&nbsp;Sustagrain—a way to add&nbsp;fiber into a range of recipes without kids even knowing it. In flour form, Sustagrain can be used in baked goods, meat preparations, sauces and dips.&nbsp;In flake form, it works great in hot cereals, snacks, desserts&nbsp;and toppings.&nbsp;&nbsp;</span></span></p>
 <p><span style="font-size: xx-small;"><span style="color: rgb(153, 51, 0);"><strong>For more information, select from the options shown on the left or bottom of&nbsp;your screen. </strong></span></span></p>
-<p>&nbsp;</p>	        </div>
-       <div id="contentFooter"> 
-      <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/> 
-      <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/> 
-      </div>
-     </div>
+<p>&nbsp;</p>
+
     </body>
 </html>

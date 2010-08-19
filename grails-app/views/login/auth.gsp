@@ -52,10 +52,6 @@
 
 </head>
   <body>
-
-
-    <div id="content">
-        <div id="contentInset">
             <br/>
 	        <span style="padding:15px 0 5px 0;"><strong>Enter the user name and password that you have received by email to begin the order/assessment process.</strong> </span>
 
@@ -109,16 +105,5 @@
 
 		       </g:form>
 	       </div>
-
-      </div>
-
-      <div id="contentFooter">
-         <img id="contentFooterBL" src="${resource(dir:'images',file:'layout/contentFooter-bl-bg.gif')}"/>
-       <img id="contentFooterBR" src="${resource(dir:'images',file:'layout/contentFooter-br-bg.gif')}"/>
-      </div>
-
-
-    </div>
-
   </body>
 </html>
