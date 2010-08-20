@@ -1,4 +1,5 @@
 package com.superkids.domain
+import com.metasieve.shoppingcart.Shoppable
 
 class ProductController {
 
@@ -116,4 +117,13 @@ class ProductController {
 		response.contentLength = productInstance.summary.size()
 		response.outputStream.write(productInstance.summary)
 	}
+
+        def add = {
+            println "in Product add action"
+            def product = Product.get(params.id)
+            product.addToShoppingCart()
+            println "right now, the cart has: " + shoppingCartService.getItems().each{ println it }
+            render "<p>foo! bar! bas!</p>"
+	}
+
 }
