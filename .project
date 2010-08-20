@@ -24,6 +24,31 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>export-0.7-grails-app-conf</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/export-0.7/grails-app/conf</location>
+		</link>
+		<link>
+			<name>export-0.7-grails-app-i18n</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/export-0.7/grails-app/i18n</location>
+		</link>
+		<link>
+			<name>export-0.7-grails-app-services</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/export-0.7/grails-app/services</location>
+		</link>
+		<link>
+			<name>export-0.7-grails-app-taglib</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/export-0.7/grails-app/taglib</location>
+		</link>
+		<link>
+			<name>export-0.7-src-groovy</name>
+			<type>2</type>
+			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/export-0.7/src/groovy</location>
+		</link>
+		<link>
 			<name>famfamfam-1.0.1-grails-app-taglib</name>
 			<type>2</type>
 			<location>/home/zak/.grails/1.3.4/projects/SuperKids/plugins/famfamfam-1.0.1/grails-app/taglib</location>

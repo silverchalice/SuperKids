@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="${resource(dir:'css',file:'main.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
+        <export:resource />
         <g:javascript library="application" />
     </head>
     <body>
@@ -38,8 +39,8 @@
                         <li><g:link controller="caller">Manage Callers</g:link></li>
                         <li><g:link controller="call">View Calls</g:link></li>
                         <li><hr /></li>
-                        <li><g:link>Download Excel</g:link></li>
-                        <li><g:link>Download Excel without Assessments</g:link></li>
+                        <li><export:formats formats="['excel']" /></li>
+                        <li><export:formats formats="['excel']" /></li>
                         <li><hr /></li>
                         <li><g:link>Change My Password</g:link></li>
                         <li><g:link controller="logout">Logout</g:link></li>
