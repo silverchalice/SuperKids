@@ -5,6 +5,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="customer" />
         <g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
+        <g:javascript library="prototype" />
+        <g:javascript library="scriptaculous" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -19,6 +21,15 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
+                <div id="shoppingCartContent">
+                    <g:render template="/shopping/shoppingCartContent"/>
+                </div>
+                <p><g:remoteLink action="add"
+				params="${[id:productInstance.id, class:com.superkids.domain.Product.class, version:1]}"
+				update="shoppingCartContent"
+				onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
+				Healthy Hot Dog</g:remoteLink></p>
+               </div>
                 <table>
                     <tbody>
 
