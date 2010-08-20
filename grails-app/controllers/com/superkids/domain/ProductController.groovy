@@ -123,7 +123,7 @@ class ProductController {
             def product = Product.get(params.id)
             product.addToShoppingCart()
             println "right now, the cart has: " + shoppingCartService.getItems().each{ println it }
-            render "<p>foo! bar! bas!</p>"
+            render template:"/shopping/shoppingCartContent"
 	}
 
 }
