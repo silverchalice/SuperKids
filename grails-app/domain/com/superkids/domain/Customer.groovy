@@ -58,15 +58,15 @@ class Customer extends User {
 
 		fsdName(nullable: true)
 		fsdEmail(nullable: true, email: true)
-		fsdTitle(nullable: true, inList: ["Mr.", "Mrs."])
+		fsdTitle(nullable: true)
 
 		ndName(nullable: true)
 		ndEmail(nullable: true, email: true)
-		ndTitle(nullable: true, inList: ["Mr.", "Mrs."])
+		ndTitle(nullable: true)
 
 		cdName(nullable: true)
 		cdEmail(nullable: true, email: true)
-		cdTitle(nullable: true, inList: ["Mr.", "Mrs."])
+		cdTitle(nullable: true)
 
 		broker(nullable: true)
 

@@ -277,6 +277,7 @@ th.desc a {
     padding: 5px;
 }
 .prop .name {
+	line-height:20px;
     text-align: left;
     width: 15%;
     white-space: nowrap;
