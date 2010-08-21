@@ -17,8 +17,14 @@ class HomeController {
         if(springSecurityService.isLoggedIn()){
             println springSecurityService.principal?.username
             println "Users in system: "
+            def user = User.get(springSecurityService.principal.id)
+            def callerRole = Role.findByAuthority("ROLE_CALLER")
             Customer.list().each { println it.username }
-            render(view:"landing")
+            if(UserRole.findByUserAndRole(user, callerRole)){
+                 redirect controller:"callerModule", action:"index"
+            } else {
+                render(view:"landing")
+            }
         } else {
             render view:'home'
         }
