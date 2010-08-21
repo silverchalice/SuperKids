@@ -18,10 +18,13 @@ class HomeController {
             println springSecurityService.principal?.username
             println "Users in system: "
             def user = User.get(springSecurityService.principal.id)
+            def adminRole = Role.findByAuthority("ROLE_ADMIN")
             def callerRole = Role.findByAuthority("ROLE_CALLER")
             Customer.list().each { println it.username }
             if(UserRole.findByUserAndRole(user, callerRole)){
                  redirect controller:"callerModule", action:"index"
+            } else if (UserRole.findByUserAndRole(user, adminRole)){
+                 redirect controller:"customer", action:"list"
             } else {
                 render(view:"landing")
             }
