@@ -2,6 +2,8 @@ package com.superkids.domain
 
 class CallerController {
 
+    def springSecurityService
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
@@ -21,7 +23,10 @@ class CallerController {
 
     def save = {
         def callerInstance = new Caller(params)
+        callerInstance.password = springSecurityService.encodePassword(params.password)
+        def callerRole = Role.findByAuthority("ROLE_CALLER")
         if (callerInstance.save(flush: true)) {
+            UserRole.create callerInstance, callerRole, true
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'caller.label', default: 'Caller'), callerInstance.id])}"
             redirect(action: "show", id: callerInstance.id)
         }
