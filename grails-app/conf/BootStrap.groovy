@@ -6,16 +6,18 @@ import com.superkids.domain.Role
 import com.superkids.domain.UserRole
 import com.superkids.domain.Address
 import com.superkids.domain.PageText
+import com.superkids.domain.Caller
 
 class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-		def superkids = '/home/zak/builds/SuperKids'
-//		def superkids = '/home/ben/dev/SuperKids'
+//		def superkids = '/home/zak/builds/SuperKids'
+		def superkids = '/home/ben/dev/SuperKids'
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
+                def callerRole = new Role(authority: 'ROLE_CALLER').save(flush:true)
 
 		String password = springSecurityService.encodePassword('password')
 		def testUser = new User(username: 'me', enabled: true, password: password)
@@ -110,8 +112,11 @@ class BootStrap {
 		customer.save()
 		customer2.save()
 
+                def c = new Caller(username:"foo", password:springSecurityService.encodePassword("password"), enabled:true).save()
+
 		UserRole.create customer, userRole, true
 		UserRole.create customer2, userRole, true
+                UserRole.create c, callerRole, true
 
                 def brokerText = new PageText(name:"broker", content:"""
 <h1>SuperKids Program Overview</h1>
