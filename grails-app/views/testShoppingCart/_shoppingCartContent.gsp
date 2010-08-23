@@ -1,7 +1,7 @@
 <sc:each>
 	<tr>
 		<td>
-			${com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.metasieve.shoppingcart.ShoppingCartInterfaceTestProduct.findByShoppingItem(it['item'])}
+			${com.superkids.domain.Product.findByShoppingItem(it['item'])}
 		</td>
 		<td>
 			${it['qty']}
