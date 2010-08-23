@@ -39,12 +39,20 @@ class ProductController {
 
     def show = {
         def productInstance = Product.get(params.id)
+        def shoppingCart = shoppingCartService.getShoppingCart()
+        def qty = 1
+        def bar = false
+
+        def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, productInstance.shoppingItem)
+        if (quantity) {
+            bar = true
+        }
         if (!productInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
             redirect(action: "list")
         }
         else {
-            [productInstance: productInstance]
+            [productInstance: productInstance, foo:bar]
         }
     }
 
