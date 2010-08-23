@@ -1,5 +1,9 @@
 package com.superkids.domain
+import com.metasieve.shoppingcart.ShoppingCart
 import com.metasieve.shoppingcart.Shoppable
+import com.metasieve.shoppingcart.IShoppable
+import com.metasieve.shoppingcart.Quantity
+
 
 class ProductController {
 
@@ -122,7 +126,41 @@ class ProductController {
             println "in Product add action"
             def product = Product.get(params.id)
             shoppingCartService.addToShoppingCart(product, 1)
-            render template:"/shopping/added"
+            render template:"/shopping/added", model: [productInstance:product]
 	}
+
+        def remove = {
+            def product = Product.get(params.id)
+            def qty = 1
+            def previousShoppingCart = null
+            def shoppingCart = shoppingCartService.getShoppingCart()
+
+            if (!shoppingCart) {
+                return
+            }
+		
+            def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
+            if (quantity) {
+                if (quantity.value - qty >= 0) {
+                    quantity.value -= qty
+                }
+                quantity.save()
+            }
+		
+            if (quantity.value == 0) {
+                // work-around for $$_javassist types in list
+                def itemToRemove = shoppingCart.items.find { item ->
+                    if (item.id == product.shoppingItem.id) {
+                        return true
+                    }
+                    return false
+                }
+                shoppingCart.removeFromItems(itemToRemove)
+                quantity.delete()
+            }
+
+            shoppingCart.save()
+            render template:"/shopping/initial", model:[productInstance:product]
+        }
 
 }
