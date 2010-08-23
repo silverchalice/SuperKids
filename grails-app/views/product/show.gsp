@@ -22,12 +22,12 @@
             </g:if>
             <div class="dialog">
                 <div id="shoppingCartContent">
-                </div>
                 <p><g:remoteLink action="add"
 				params="${[id:productInstance.id, class:com.superkids.domain.Product.class, version:1]}"
 				update="shoppingCartContent"
 				onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
 				Healthy Hot Dog</g:remoteLink></p>
+                </div>
                 <p><g:link controller="testShoppingCart" action="show">View Cart</g:link></p>
                </div>
                 <table>
