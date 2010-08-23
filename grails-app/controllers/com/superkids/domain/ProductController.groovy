@@ -121,9 +121,8 @@ class ProductController {
         def add = {
             println "in Product add action"
             def product = Product.get(params.id)
-            product.addToShoppingCart()
-            println "right now, the cart has: " + shoppingCartService.getItems().each{ println it }
-            render template:"/shopping/shoppingCartContent"
+            shoppingCartService.addToShoppingCart(product, 1)
+            render template:"/shopping/added"
 	}
 
 }
