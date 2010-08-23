@@ -22,7 +22,12 @@
             </g:if>
             <div class="dialog">
                 <div id="shoppingCartContent">
-                    <g:render template="/shopping/initial" model="[productInstance:productInstance]" />
+                    <g:if test="${foo}">
+                        <g:render template="/shopping/contained" model="[productInstance:productInstance]" />
+                    </g:if>
+                    <g:else>
+                        <g:render template="/shopping/initial" model="[productInstance:productInstance]" />
+                    </g:else>
                 </div>
                 <p><g:link controller="testShoppingCart" action="show">View Cart</g:link></p>
                </div>
