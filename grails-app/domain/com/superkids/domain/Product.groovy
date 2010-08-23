@@ -24,4 +24,6 @@ class Product extends Shoppable {
 		summary()
 		sponsor(nullable:true)
     }
+
+    String toString(){ name }
 }
