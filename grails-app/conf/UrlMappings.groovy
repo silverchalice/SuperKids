@@ -16,6 +16,10 @@ class UrlMappings {
                     controller = "login"
                     action = "auth"
                 }
+                "/register/" {
+                    controller = "home"
+                    action = "register"
+                }
                 "/broker/" {
                     controller = "home"
                     action = "broker"
