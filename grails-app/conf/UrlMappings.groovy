@@ -20,6 +20,10 @@ class UrlMappings {
                     controller = "home"
                     action = "register"
                 }
+                "/edit_profile/" {
+                    controller = "home"
+                    action = "edit_profile"
+                }
                 "/broker/" {
                     controller = "home"
                     action = "broker"
