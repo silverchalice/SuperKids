@@ -48,6 +48,10 @@ class UrlMappings {
                     controller = "home"
                     action = "anonymous"
                 }
+                "/cart/" {
+                    controller = "testShoppingCart"
+                    action = "show"
+                }
 		"500"(view:'/error')
 	}
 }
