@@ -134,7 +134,11 @@ class ProductController {
             println "in Product add action"
             def product = Product.get(params.id)
             shoppingCartService.addToShoppingCart(product, 1)
-            render template:"/shopping/added", model: [productInstance:product]
+            if(params.cartPage){
+                render template:"/shopping/shoppingCartContent", model:[productInstance:product]
+            } else {
+                render template:"/shopping/added", model:[productInstance:product]
+            }
 	}
 
         def remove = {
@@ -168,7 +172,11 @@ class ProductController {
             }
 
             shoppingCart.save()
-            render template:"/shopping/initial", model:[productInstance:product]
+            if(params.cartPage){
+                render template:"/shopping/initial", model:[productInstance:product]
+            } else {
+                render template:"/shopping/shoppingCartContent", model:[productInstance:product]
+            }
         }
 
 }
