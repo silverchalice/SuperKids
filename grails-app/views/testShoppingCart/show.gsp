@@ -10,31 +10,47 @@
         <g:javascript library="scriptaculous" />
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
-        </div>
+
         <div class="body">
             <h1>Shopping Cart</h1>
             <div class="list">
                     <div id="shoppingCartContent">
-                        <g:render plugin="shoppingCart" template="shoppingCartContent"/>
+                        <g:render template="/shopping/shoppingCartContent"/><br />
                         <p><g:remoteLink action="checkOut"
 					update="shoppingCartContent"
 					onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
 					Check out
-				</g:remoteLink>
-			</div>
-			<h1>Products</h1>
+				</g:remoteLink></p>
+			</div><br />
+			<h1>Products</h1><br />
 			<div class="list">
-                        <g:each in="${Product.list()}" var="product">
-                            <p>${product.name}
-                            <g:remoteLink action="add"
-                                          params="${[id:product.id, class:product.class, version:product.version]}"
-                                          update="shoppingCartContent"
-                                          onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
-                                          Add
+                   <table>
+                    <thead>
+                        <tr>
+                        
+                            <g:sortableColumn property="item" title="Product" />
+                        
+                            <th> </th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <g:each in="${Product.list()}" var="product">
+                        <tr>
+                        
+                            <td>${product.name}</td>
+
+                            <td><g:remoteLink controller="product" action="add"
+                                              params="${[id:product.id, class:product.class, version:product.version, cartPage:true]}"
+                                              update="shoppingCartContent"
+                                              onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
+                                              Add
                             </g:remoteLink>
-                        </g:each>
+</td>                        
+                        </tr>
+                    </g:each>
+                    </tbody>
+                </table>
         </div>
     </body>
 </html>
