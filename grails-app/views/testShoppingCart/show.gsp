@@ -26,16 +26,6 @@
 			</div>
 			<h1>Products</h1>
 			<div class="list">
-                        <g:each in="${com.metasieve.shoppingcart.Shoppable.list()}" var="product">
-                            <p>${product.name}
-                            <g:remoteLink action="add"
-                                          params="${[id:product.id, class:product.class, version:product.version]}"
-                                          update="shoppingCartContent"
-                                          onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
-                                          Add
-                            </g:remoteLink>
-                            </p>
-                        </g:each>
                         <g:each in="${Product.list()}" var="product">
                             <p>${product.name}
                             <g:remoteLink action="add"
