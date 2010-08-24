@@ -70,7 +70,7 @@
 						</div>
 						<div class="clear" style="clear:both"></div>
 	                    <input type="image" class="fancyButton" name="submit" value="Login"src="${request.contextPath}/images/EnterButton-Blue.png"/>
-	                    <input type="image" class="fancyButton" src="${request.contextPath}/images/EnterButton-Blue.png"/>
+	                    <input type="image" class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.jpg"/>
 
 				</form>
 			</div>
