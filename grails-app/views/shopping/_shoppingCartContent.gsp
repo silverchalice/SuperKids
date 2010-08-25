@@ -58,6 +58,34 @@ th.desc a {
     background: #b2d1ff;
 }
 </style>
+      <g:if test="${checkedOutItems}">
+          <br>
+          <h2>Checked out items</h2><br />
+
+                   <table>
+                    <thead>
+                        <tr>
+                        
+                            <th>Product</th>
+                        
+                            <th>Quantity</th>
+                        
+                        </tr>
+                    </thead>
+                    <tbody>
+                	<g:each in="${checkedOutItems}" var="item">
+                        <tr>
+                        
+                            <td>${com.superkids.domain.Product.findByShoppingItem(item['item'])}</td>
+                        
+                            <td>${item['qty']}</td>
+
+                        </tr>
+                       </g:each>
+                    </tbody>
+                </table><br />
+        </g:if>
+        <g:else>
                    <table>
                     <thead>
                         <tr>
@@ -88,26 +116,4 @@ th.desc a {
                     </sc:each>
                     </tbody>
                 </table>
-
-      <g:if test="${checkedOutItems}">
-	<tr>
-		<td><h2>Checked out items</h2></td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
-	<g:each in="${checkedOutItems}" var="item">
-		<tr>
-			<td>
-				${com.metasieve.shoppingcart.Shoppable.findByShoppingItem(item['item']) ?: com.metasieve.shoppingcart.ShoppingCartInterfaceTestProduct.findByShoppingItem(item['item'])}
-			</td>
-			<td>
-				${item['qty']}
-			</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-	</g:each>
-</g:if>
+        </g:else>
