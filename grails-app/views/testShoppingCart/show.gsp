@@ -16,12 +16,12 @@
             <div class="list">
                     <div id="shoppingCartContent">
                         <g:render template="/shopping/shoppingCartContent"/><br />
-                        <p><g:remoteLink action="checkOut"
+			</div><br />
+                        <p><g:remoteLink controller="product" action="check_out"
 					update="shoppingCartContent"
 					onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
 					Check out
-				</g:remoteLink></p>
-			</div><br />
+				</g:remoteLink></p><p>&nbsp;</p>
 			<h1>Products</h1><br />
 			<div class="list">
                    <table>
