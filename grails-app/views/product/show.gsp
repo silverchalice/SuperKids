@@ -21,6 +21,7 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
+              <sks:hasNotPlacedCurrentOrder>
                 <div id="shoppingCartContent">
                     <g:if test="${foo}">
                         <g:render template="/shopping/contained" model="[productInstance:productInstance]" />
@@ -29,6 +30,7 @@
                         <g:render template="/shopping/initial" model="[productInstance:productInstance]" />
                     </g:else>
                 </div>
+                </sks:hasNotPlacedCurrentOrder>
                 <p><g:link controller="testShoppingCart" action="show">View Cart</g:link></p>
                </div>
                 <table>
