@@ -179,4 +179,9 @@ class ProductController {
             }
         }
 
+        def check_out = {
+            def checkedOutItems = shoppingCartService.checkOut()
+            render template:"/shopping/shoppingCartContent", model:[checkedOutItems:checkedOutItems]
+        }
+
 }
