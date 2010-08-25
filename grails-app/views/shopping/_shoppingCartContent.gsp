@@ -58,7 +58,7 @@ th.desc a {
     background: #b2d1ff;
 }
 </style>
-      <g:if test="${checkedOutItems}">
+      <g:if test="${session.checkedOutItems}">
           <br>
           <h2>Checked out items</h2><br />
 
@@ -73,7 +73,7 @@ th.desc a {
                         </tr>
                     </thead>
                     <tbody>
-                	<g:each in="${checkedOutItems}" var="item">
+                	<g:each in="${session.checkedOutItems}" var="item">
                         <tr>
                         
                             <td>${com.superkids.domain.Product.findByShoppingItem(item['item'])}</td>
@@ -116,4 +116,10 @@ th.desc a {
                     </sc:each>
                     </tbody>
                 </table>
+                    <br />
+                        <p><g:remoteLink controller="product" action="check_out"
+					update="shoppingCartContent"
+					onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
+					Check out
+				</g:remoteLink></p><p>&nbsp;</p>
         </g:else>
