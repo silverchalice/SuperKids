@@ -15,4 +15,11 @@ class MiscTagLib {
         } else { out << "" }
     }
 
+    def hasNotPlacedCurrentOrder = { attrs, body ->
+        def customer = Customer.get(springSecurityService.principal.id)
+        if(!customer?.hasPlacedCurrentOrder){
+            out << body()
+        } else { out << "" }
+    }
+
 }
