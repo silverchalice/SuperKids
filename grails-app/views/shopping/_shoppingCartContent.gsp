@@ -116,10 +116,12 @@ th.desc a {
                     </sc:each>
                     </tbody>
                 </table>
+                   <sks:hasNotPlacedCurrentOrder>
                     <br />
                         <p><g:remoteLink controller="product" action="check_out"
 					update="shoppingCartContent"
 					onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
 					Check out
 				</g:remoteLink></p><p>&nbsp;</p>
+                   </sks:hasNotPlacedCurrentOrder>
         </g:else>
