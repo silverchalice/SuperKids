@@ -24,9 +24,9 @@
                         <tr>
                         
                             <g:sortableColumn property="item" title="Product" />
-                            <g:if test="${!session.checkedOutItems}">
+                            <sks:hasNotPlacedCurrentOrder>
                                 <th> </th>
-                            </g:if>
+                            </sks:hasNotPlacedCurrentOrder>
 
                         </tr>
                     </thead>
@@ -36,7 +36,7 @@
                         
                             <td>${product.name}</td>
 
-                            <g:if test="${!session.checkedOutItems}">
+                            <sks:hasNotPlacedCurrentOrder>
                                <td><g:remoteLink controller="product" action="add"
                                               params="${[id:product.id, class:product.class, version:product.version, cartPage:true]}"
                                               update="shoppingCartContent"
@@ -44,7 +44,7 @@
                                               Add
                                </g:remoteLink>
                               </td>
-                            </g:if>                        
+                            </sks:hasNotPlacedCurrentOrder>                        
                         </tr>
                     </g:each>
                     </tbody>
