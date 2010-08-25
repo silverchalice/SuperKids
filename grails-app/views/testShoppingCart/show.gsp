@@ -24,9 +24,10 @@
                         <tr>
                         
                             <g:sortableColumn property="item" title="Product" />
-                        
-                            <th> </th>
-                        
+                            <g:if test="${!session.checkedOutItems}">
+                                <th> </th>
+                            </g:if>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -35,13 +36,15 @@
                         
                             <td>${product.name}</td>
 
-                            <td><g:remoteLink controller="product" action="add"
+                            <g:if test="${!session.checkedOutItems}">
+                               <td><g:remoteLink controller="product" action="add"
                                               params="${[id:product.id, class:product.class, version:product.version, cartPage:true]}"
                                               update="shoppingCartContent"
                                               onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
                                               Add
-                            </g:remoteLink>
-</td>                        
+                               </g:remoteLink>
+                              </td>
+                            </g:if>                        
                         </tr>
                     </g:each>
                     </tbody>
