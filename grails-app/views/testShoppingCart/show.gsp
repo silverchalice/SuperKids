@@ -17,38 +17,6 @@
                     <div id="shoppingCartContent">
                         <g:render template="/shopping/shoppingCartContent"/><br />
 			</div>
-			<h1>Products</h1><br />
-			<div class="list">
-                   <table>
-                    <thead>
-                        <tr>
-                        
-                            <g:sortableColumn property="item" title="Product" />
-                            <sks:hasNotPlacedCurrentOrder>
-                                <th> </th>
-                            </sks:hasNotPlacedCurrentOrder>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <g:each in="${Product.list()}" var="product">
-                        <tr>
-                        
-                            <td>${product.name}</td>
-
-                            <sks:hasNotPlacedCurrentOrder>
-                               <td><g:remoteLink controller="product" action="add"
-                                              params="${[id:product.id, class:product.class, version:product.version, cartPage:true]}"
-                                              update="shoppingCartContent"
-                                              onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
-                                              Add
-                               </g:remoteLink>
-                              </td>
-                            </sks:hasNotPlacedCurrentOrder>                        
-                        </tr>
-                    </g:each>
-                    </tbody>
-                </table>
         </div>
     </body>
 </html>
