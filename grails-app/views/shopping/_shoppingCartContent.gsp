@@ -88,8 +88,6 @@ th.desc a {
                         
                             <g:sortableColumn property="item" title="Product" />
                         
-                            <g:sortableColumn property="qty" title="Quantity" />
-                        
                             <th> </th>
                         
                         </tr>
@@ -100,23 +98,20 @@ th.desc a {
                         
                             <td>${com.superkids.domain.Product.findByShoppingItem(it['item'])}</td>
                         
-                            <td>${it['qty']}</td>
-                        
                             <td><g:remoteLink controller="product" action="remove"
 				params="${[id:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).id, class:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).class, version:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).version]}"
-				update="shoppingCartContent"
-				onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
+				update="shoppingCartContent">
 				Remove
          			</g:remoteLink></td>                        
                         </tr>
                     </sc:each>
+                    <tr><td></td><td></td></tr>
                     </tbody>
                 </table>
                    <sks:hasNotPlacedCurrentOrder>
                     <br />
                         <p><g:remoteLink controller="product" action="check_out"
-					update="shoppingCartContent"
-					onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
+					update="shoppingCartContent">
 					Check out
 				</g:remoteLink></p><p>&nbsp;</p>
                    </sks:hasNotPlacedCurrentOrder>
