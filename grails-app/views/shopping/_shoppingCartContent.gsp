@@ -68,8 +68,6 @@ th.desc a {
                         
                             <th>Product</th>
                         
-                            <th>Quantity</th>
-                        
                         </tr>
                     </thead>
                     <tbody>
@@ -77,8 +75,6 @@ th.desc a {
                         <tr>
                         
                             <td>${com.superkids.domain.Product.findByShoppingItem(item['item'])}</td>
-                        
-                            <td>${item['qty']}</td>
 
                         </tr>
                        </g:each>
@@ -125,3 +121,20 @@ th.desc a {
 				</g:remoteLink></p><p>&nbsp;</p>
                    </sks:hasNotPlacedCurrentOrder>
         </g:else>
+			<h1>Products</h1><br />
+			<div class="list">
+                   <table>
+                    <thead>
+                        <tr>
+                        
+                            <g:sortableColumn property="item" title="Product" />
+                            <sks:hasNotPlacedCurrentOrder>
+                                <th> </th>
+                            </sks:hasNotPlacedCurrentOrder>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <sks:productList />
+                    </tbody>
+                </table>
