@@ -22,7 +22,7 @@ class HomeController {
             def callerRole = Role.findByAuthority("ROLE_CALLER")
             Customer.list().each { println it.username }
             if(UserRole.findByUserAndRole(user, callerRole)){
-                 redirect controller:"callerModule", action:"index"
+                 redirect controller:"call", action:"index"
             } else if (UserRole.findByUserAndRole(user, adminRole)){
                  redirect controller:"customer", action:"list"
             } else {

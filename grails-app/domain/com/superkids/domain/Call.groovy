@@ -8,6 +8,8 @@ class Call {
 
 	Date callbackDate
 
+	String notes
+	
 	static belongsTo = [customer: Customer, caller: Caller]
 
 	static mapping = {

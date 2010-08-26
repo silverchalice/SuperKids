@@ -7,7 +7,8 @@ class Customer extends User {
 	Address deliveryAddress
 
 	String email
-
+	String website
+	
 	Date dateCreated = new Date()
 
 	CustomerStatus status = CustomerStatus.HAS_NOT_ORDERED
@@ -55,6 +56,7 @@ class Customer extends User {
 		address(nullable:true, blank:true)
 		deliveryAddress(nullable: true)
 		email()
+		website(nullable: true)
 		phone()
 		fax(nullable: true)
 
