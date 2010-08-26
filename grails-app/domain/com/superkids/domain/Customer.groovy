@@ -10,6 +10,8 @@ class Customer extends User {
 
 	Date dateCreated = new Date()
 
+	CustomerStatus status = CustomerStatus.HAS_NOT_ORDERED
+	
 	String phone
 	String fax
 
@@ -77,4 +79,15 @@ class Customer extends User {
 		snacksServed(nullable: true)
 
     }
+	
+	static namedQueries = {
+		readyForOrder {
+			eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			
+		}
+
+		readyForAssessment {
+			eq 'status', CustomerStatus.HAS_ORDERED
+		}
+	}
 }
