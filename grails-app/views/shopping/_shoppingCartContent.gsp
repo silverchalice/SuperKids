@@ -86,7 +86,7 @@ th.desc a {
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="item" title="Product" />
+                            <g:sortableColumn property="item" title="Product" width="87%" />
                         
                             <th> </th>
                         
@@ -122,7 +122,7 @@ th.desc a {
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="item" title="Product" />
+                            <g:sortableColumn property="item" title="Product" width="87%" />
                             <sks:hasNotPlacedCurrentOrder>
                                 <th> </th>
                             </sks:hasNotPlacedCurrentOrder>
@@ -131,5 +131,9 @@ th.desc a {
                     </thead>
                     <tbody>
                       <sks:productList />
+                      <tr>
+                        <td></td>
+                        <td></td>
+                      </tr>
                     </tbody>
                 </table>
