@@ -15,13 +15,13 @@ class BootStrap {
 //		def superkids = '/home/zak/builds/SuperKids'
 		def superkids = '/home/ben/dev/SuperKids'
 
-		def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
-		def userRole = new Role(authority: 'ROLE_USER').save(flush: true)
-                def callerRole = new Role(authority: 'ROLE_CALLER').save(flush:true)
+		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
+		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
+                def callerRole = new Role(authority: 'ROLE_CALLER').save(failOnError:true, flush:true)
 
 		String password = springSecurityService.encodePassword('password')
 		def testUser = new User(username: 'me', enabled: true, password: password)
-		testUser.save(flush: true)
+		testUser.save(failOnError:true, flush: true)
 		UserRole.create testUser, adminRole, true
 
 		def customer = new Customer(
@@ -109,10 +109,10 @@ class BootStrap {
 		sponsor1.addToProducts(product1)
 		sponsor1.addToProducts(product2)
 
-		customer.save()
-		customer2.save()
+		customer.save(failOnError:true)
+		customer2.save(failOnError:true)
 
-                def c = new Caller(username:"foo", password:springSecurityService.encodePassword("password"), enabled:true).save()
+                def c = new Caller(username:"foo", password:springSecurityService.encodePassword("password"), enabled:true).save(failOnError:true)
 
 		UserRole.create customer, userRole, true
 		UserRole.create customer2, userRole, true
