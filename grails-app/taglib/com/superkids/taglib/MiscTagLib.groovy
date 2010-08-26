@@ -42,14 +42,14 @@ class MiscTagLib {
             out << "<td>"    
             out << product
             out << "</td>"
+            out << "<td>"
             if(!customer.hasPlacedCurrentOrder) {
-                out << "<td>"
                 if(!product.isInCart){
                     println "add link"
                     out << g.remoteLink(controller: 'product', action: 'add', update:'shoppingCartContent', params: [id: product.id, cartPage:true]) { 'Add' }
                 }
-                out << "</td>"
             }
+            out << "</td>"
             out << "</tr>"
         }
     }

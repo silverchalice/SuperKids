@@ -1,5 +1,7 @@
 package com.superkids.domain
 
+import com.superkids.domain.CustomerOrder
+
 class Customer extends User {
 
 	String district
@@ -7,8 +9,11 @@ class Customer extends User {
 	Address deliveryAddress
 
 	String email
+
 	String website
-	
+
+    CustomerOrder order
+
 	Date dateCreated = new Date()
 
 	CustomerStatus status = CustomerStatus.HAS_NOT_ORDERED
@@ -52,33 +57,35 @@ class Customer extends User {
 
     static constraints = {
 
-		district(nullable:true, blank:true)
-		address(nullable:true, blank:true)
-		deliveryAddress(nullable: true)
+		district nullable:true, blank:true
+		address nullable:true, blank:true
+		deliveryAddress nullable: true
 		email()
 		website(nullable: true)
 		phone()
-		fax(nullable: true)
+		fax nullable: true 
 
-		fsdName(nullable: true)
-		fsdEmail(nullable: true, email: true)
-		fsdTitle(nullable: true)
+		fsdName nullable: true
+		fsdEmail nullable: true, email: true
+		fsdTitle nullable: true
 
-		ndName(nullable: true)
-		ndEmail(nullable: true, email: true)
-		ndTitle(nullable: true)
+		ndName nullable: true
+		ndEmail nullable: true, email: true
+		ndTitle nullable: true
 
-		cdName(nullable: true)
-		cdEmail(nullable: true, email: true)
-		cdTitle(nullable: true)
+		cdName nullable: true
+		cdEmail nullable: true, email: true
+		cdTitle nullable: true
 
-		broker(nullable: true)
+		broker nullable: true
 
-		studentsInDistrict(nullable: true)
-		facilities(nullable: true)
-		breakfastsServed(nullable: true)
-		lunchesServed(nullable: true)
-		snacksServed(nullable: true)
+                order nullable:true
+
+		studentsInDistrict nullable: true
+		facilities nullable: true
+		breakfastsServed nullable: true 
+		lunchesServed nullable: true
+		snacksServed nullable: true
 
     }
 	

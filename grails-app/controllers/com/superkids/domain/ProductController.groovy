@@ -3,7 +3,8 @@ import com.metasieve.shoppingcart.ShoppingCart
 import com.metasieve.shoppingcart.Shoppable
 import com.metasieve.shoppingcart.IShoppable
 import com.metasieve.shoppingcart.Quantity
-
+import com.superkids.domain.CustomerOrder
+import com.superkids.domain.OrderType
 
 class ProductController {
 
@@ -183,6 +184,14 @@ class ProductController {
         def check_out = {
             def customer = Customer.get(springSecurityService.principal.id)
             customer?.hasPlacedCurrentOrder = true
+            def order = new CustomerOrder(customer:customer, orderType:OrderType.WEB)
+            shoppingCartService.getItems().each{
+                def product = Product.get(it.id)
+                order.addToProducts(product)
+            }
+            order.properties.each{ println it }
+            customer.order = order
+            customer.save()
             session.checkedOutItems = shoppingCartService.checkOut()
             render template:"/shopping/shoppingCartContent"
         }

@@ -123,9 +123,7 @@ th.desc a {
                         <tr>
                         
                             <g:sortableColumn property="item" title="Product" width="87%" />
-                            <sks:hasNotPlacedCurrentOrder>
-                                <th> </th>
-                            </sks:hasNotPlacedCurrentOrder>
+                            <th> </th>
 
                         </tr>
                     </thead>
