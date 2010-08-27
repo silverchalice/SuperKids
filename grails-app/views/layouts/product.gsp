@@ -18,7 +18,6 @@
 
       <div id="sideLogoBox">
         <g:link action='ultragrain'><img src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
-        <g:link action='sustagrain'><img src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
       </div>
 
       <div class="clear"></div>
@@ -26,7 +25,7 @@
       <div id="factoids">
           <p>
           <g:each in="${products}" var="product">
-              <g:link controller="product" action="show" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="50" height="50" style="margin:5px;" /></g:link>
+              <g:link controller="product" action="show" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>
           </g:each>
           </p>
       </div>
