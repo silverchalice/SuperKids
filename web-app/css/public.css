@@ -154,7 +154,7 @@ img#contentFooterBR {
 
 img#kid {
   position:relative;
-  bottom:173px;
+  bottom:171px !important;
   left:514px;
 }
 
