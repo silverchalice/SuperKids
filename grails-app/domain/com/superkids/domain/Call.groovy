@@ -1,7 +1,5 @@
 package com.superkids.domain
 
-import com.superkids.callerModule.*
-
 class Call {
 
 	CallResult result
