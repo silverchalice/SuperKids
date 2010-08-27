@@ -3,6 +3,7 @@ package com.superkids.domain
 class Address {
 
 	String street
+    String street2
 	String city
 	String state
 	Integer zip
@@ -10,15 +11,18 @@ class Address {
 	static belongsTo = [customer: Customer, sponsor: Sponsor]
 
     static constraints = {
-		street()
-		city()
+		street(nullable:true)
+        street2(nullable:true)
+		city(nullable:true)
 		state(maxSize:2)
-		zip()
+		zip(nullable:true)
 		customer(nullable:true)
 		sponsor(nullable:true)
     }
 
-	String toString() {
-		"${street}, ${city}, ${state} ${zip}"
-	}
+
+    String toString(){
+      "$street${street2 ?: ' '}$city, $state $zip"
+    }          
+
 }

@@ -24,13 +24,36 @@ class CallController {
 
     def save = {
         def callInstance = new Call(params)
-        if (callInstance.save(flush: true)) {
+        def caller = springSecurityService.principle
+        def customer = Customer.get(params.customer)
+
+
+        if(params.callType == 'order') {
+          def order = new CustomerOrder(params['order'])
+
+          if(callService.saveOrderCall(callInstance, customer, caller, order)) {
+            println "call saved"
+          }
+        }
+        else {
+          def assessment = 'assessment'
+        }
+
+        if(params.nextCall == 'true') {
+          println "do next call"
+        }
+        else {
+          println "we're done"
+        }
+
+
+/*        if (callInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'call.label', default: 'Call'), callInstance.id])}"
             redirect(action: "show", id: callInstance.id)
         }
         else {
             render(view: "create", model: [callInstance: callInstance])
-        }
+        }*/
     }
 
     def show = {
@@ -40,7 +63,7 @@ class CallController {
             redirect(action: "list")
         }
         else {
-            [callInstance: callInstance]
+            [ callInstance: callInstance ]
         }
     }
 
@@ -103,10 +126,8 @@ class CallController {
 
 	def start = {
 		def caller = springSecurityService.principal
-
 		def customerInstance = Customer.get(2)
 
-		
 		def callInstance = new Call(customer:customerInstance, caller:caller)
 
 		[ customerInstance: customerInstance, callInstance: callInstance ]

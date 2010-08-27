@@ -12,30 +12,14 @@
         table {
             background:#EEE;
         }
+        .prop 
     </style>
-	<script type="text/javascript">                                         
-        $(document).ready(function(){ 
-		    $('#deliveryAddress').hide();
-			
-            $('#toggleDeliveryAddress').click(function() {
-                $('#deliveryAddress').toggle();
-				if ($('#deliveryAddress').is(':visible')) {
-                    $(this).val('Hide Delivery Address');
-                } else {
-                    $(this).val('Add a Delivery Address');
-                }
-           	});
-			
-
-            
-        });	                                  
-	</script>    
 
 
     <div class="nav">
         <span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
-        <span class="callerButton" style="margin-left:900px"><g:link>Finish Call</g:link></span>
-        <span class="callerButton"><g:link >Finish and Go to Next Call</g:link></span>
+        <span class="callerButton" style="margin-left:900px"><g:link controller="call" action="save">Finish Call</g:link></span>
+        <span class="callerButton"><g:link controller="call" action="nextCall">Finish and Go to Next Call</g:link></span>
     </div>
 
     <div class="body" style="width:1200px">
@@ -58,6 +42,15 @@
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street', 'errors')}">
                             <g:textField name="address.street" value="${customerInstance?.address?.street}" />
+                        </td>
+                    </tr>
+
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="address.street2"><g:message code="address.street2.label" default="Street 2" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street2', 'errors')}">
+                            <g:textField name="address.street2" value="${customerInstance?.address?.street2}" />
                         </td>
                     </tr>
 
@@ -229,15 +222,7 @@
                             <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'website', 'errors')}">
                                 <g:textField name="fax" value="${customerInstance?.website}" />
                             </td>
-                        </tr>    
-                        <tr class="prop">
-                            <td valign="top" class="name">
-                                
-                            </td>
-                            <td valign="top" class="value">
-                                <input type="button" id="toggleDeliveryAddress" value="Add a Delivery Address"/>
-                            </td>
-                        </tr>                            
+                        </tr>                              
                    </tbody>
                 </table>                    
                 <table style="margin:10px 20px; width:430px" id="deliveryAddress">
@@ -256,7 +241,14 @@
 	                            <g:textField name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" />
 	                        </td>
 	                    </tr>
-
+	                    <tr class="prop">
+	                        <td valign="top" class="name">
+	                            <label for="deliveryAddress.street2"><g:message code="address.street2.label" default="Street 2" /></label>
+	                        </td>
+	                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'street2', 'errors')}">
+	                            <g:textField name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" />
+	                        </td>
+	                    </tr>
 	                    <tr class="prop">
 	                        <td valign="top" class="name">
 	                            <label for="deliveryAddress.city"><g:message code="address.city.label" default="City" /></label>
