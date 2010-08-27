@@ -6,8 +6,24 @@
 <title>Caller Home</title>
 </head>
 <body>
+	<script type="text/javascript">                                         
+        $(document).ready(function(){ 
+            $('#toggleDeliveryAddress').click(function() {
+                if ($('deliveryAddress').is(':visible')) {
+                    $('#deliveryAddress').hide();
+                } else {
+                    $
+                }
+           	})
+       
+        });	                                  
+	</script>    
+
+
     <div class="nav">
         <span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
+        <span class="callerButton" style="margin-left:900px"><g:link>Finish Call</g:link></span>
+        <span class="callerButton"><g:link >Finish and Go to Next Call</g:link></span>
     </div>
 
     <div class="body" style="width:1100px">
@@ -51,7 +67,7 @@
                             <label for="state"><g:message code="address.state.label" default="State" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
-                            <g:select name="address.state" from="${customerInstance?.address?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
+                            <g:textField name="address.state" value="${customerInstance?.address?.state}" />
                         </td>
                     </tr>
 
@@ -159,7 +175,7 @@
             </div>
 
             <div id="column2" style="float:left;">
-	            <table style="margin:20px; width:360px">
+	            <table style="margin:20px; width:360px; margin-bottom:10px">
 	                <tbody>
 
 	                    <tr class="prop">
@@ -189,7 +205,35 @@
 	                        </td>
 	                    </tr>
 
-
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                <label for="fax"><g:message code="customer.fax.label" default="Fax" /></label>
+                            </td>
+                            <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fax', 'errors')}">
+                                <g:textField name="fax" value="${customerInstance?.fax}" />
+                            </td>
+                        </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                <label for="fax"><g:message code="customer.website.label" default="Website" /></label>
+                            </td>
+                            <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'website', 'errors')}">
+                                <g:textField name="fax" value="${customerInstance?.website}" />
+                            </td>
+                        </tr>    
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                
+                            </td>
+                            <td valign="top" class="value">
+                                <a href="#" id="toggleDeliveryAddress">Add Delivery Address</a>
+                            </td>
+                        </tr>                            
+                   </tbody>
+                </table>                    
+                <table style="margin:0 20px; width:360px" id="deliveryAddress">
+                    <tbody>                    
 	                    <tr>
 	                        <td>
 	                            <h3>Delivery Address</h3>
@@ -214,14 +258,14 @@
 	                    </tr>
 
 
-	                    <tr class="prop">
-	                        <td valign="top" class="name">
-	                            <label for="state"><g:message code="address.state.label" default="State" /></label>
-	                        </td>
-	                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'state', 'errors')}">
-	                            <g:select name="state" from="${customerInstance?.deliveryAddress?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
-	                        </td>
-	                    </tr>
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="state"><g:message code="address.state.label" default="State" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'state', 'errors')}">
+                            <g:textField name="deliveryAddress.state" value="${customerInstance?.deliveryAddress?.state}" />
+                        </td>
+                    </tr>
 
 	                    <tr class="prop">
 	                        <td valign="top" class="name">

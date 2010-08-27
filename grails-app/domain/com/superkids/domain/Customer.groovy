@@ -1,5 +1,7 @@
 package com.superkids.domain
 
+import com.superkids.domain.CustomerOrder
+
 class Customer extends User {
 
 	String district
@@ -8,7 +10,9 @@ class Customer extends User {
 
 	String email
 
-        CustomerOrder order
+	String website
+
+    CustomerOrder order
 
 	Date dateCreated = new Date()
 
@@ -57,6 +61,7 @@ class Customer extends User {
 		address nullable:true, blank:true
 		deliveryAddress nullable: true
 		email()
+		website(nullable: true)
 		phone()
 		fax nullable: true 
 

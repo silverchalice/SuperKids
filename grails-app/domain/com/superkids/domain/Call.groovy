@@ -1,13 +1,13 @@
 package com.superkids.domain
 
-import com.superkids.callerModule.*
-
 class Call {
 
 	CallResult result
 
 	Date callbackDate
 
+	String notes
+	
 	static belongsTo = [customer: Customer, caller: Caller]
 
 	static mapping = {

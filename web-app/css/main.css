@@ -53,6 +53,13 @@ textarea {
 	vertical-align: top;
 }
 
+textarea.callerNotes {
+	margin-top:10px;
+	height:200px;
+	vertical-align:top;
+	width:280px;
+}
+
 input:focus, select:focus, textarea:focus {
     border: 1px solid #b2d1ff;
 }
@@ -70,6 +77,21 @@ input:focus, select:focus, textarea:focus {
     border-style: solid none solid none;
     margin-top: 5px;
     padding: 7px 12px;
+}
+
+.callerButton a {
+	background-color:green; 
+	padding:4px;
+	color:white;
+	font-size:11px;
+	font-weight:normal;
+	border:1px green solid
+}
+
+.callerButton a:hover {
+	background-color:#DED;
+	color:#333;
+	
 }
 
 .menuButton {
@@ -267,6 +289,14 @@ th.desc a {
     padding: 2px 3px;
 }
 
+table.callerRecord td {
+	padding:0px 5px
+}
+
+table.callerRecord table {
+	margin-left:0
+}
+
 /* DIALOG */
 
 .dialog table {
@@ -285,6 +315,7 @@ th.desc a {
 .prop .value {
     text-align: left;
     width: 85%;
+	line-height:20px;
 }
 
 /* ACTION BUTTONS */
