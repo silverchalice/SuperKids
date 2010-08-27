@@ -15,7 +15,12 @@
             <h1>Shopping Cart</h1>
             <div class="list">
                     <div id="shoppingCartContent">
+                      <sks:hasNotPlacedCurrentOrder>
                         <g:render template="/shopping/shoppingCartContent"/><br />
+                      </sks:hasNotPlacedCurrentOrder>
+                      <sks:hasPlacedCurrentOrder>
+                          <sks:orderList />
+                      </sks:hasPlacedCurrentOrder>
 			</div>
         </div>
     </body>
