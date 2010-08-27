@@ -12,8 +12,8 @@ class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-		def superkids = '/Users/zak/builds/SuperKids'
-//		def superkids = '/home/ben/dev/SuperKids'
+//		def superkids = '/Users/zak/builds/SuperKids'
+		def superkids = '/home/ben/dev/SuperKids'
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
@@ -101,6 +101,106 @@ class BootStrap {
 			description:'These waffles are made with whole wheat.',
 			details:'Whole Wheat Waffles are great waffles made with whole wheat.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Lithium:2g, Argon:12g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product3 = new Product(
+			name:'Healthy Spaghetti',
+			description:'This spaghetti is made entirely using dried seaweed.',
+			details:'Healthy Spaghetti is made with healthy whole wheat seaweed.',
+			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Calcium:0g, Potassium:0g, Carbon:20g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product4 = new Product(
+			name:'Whole Wheat Spinach',
+			description:'Spinach with a dash of whole wheat.',
+			details:'Whole Wheat Spinach counts as one complete serving on the USDA Five A Day chart for fruit and vegetables.',
+			nutrition:'Fat:0g, Sugar:0g, Taste:0g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product5 = new Product(
+			name:'Healthy Octopus',
+			description:'Healthy octopus guaranteed to be no more than three hundred years old.',
+			details:'Healthy Octopus is fresh. We do not make it until you order it, as long as you ordered it quite a while ago.',
+			nutrition:'Ion:0g, Sugar:0g, Rapid Sucking Action:10g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product6 = new Product(
+			name:'Whole Wheat Clam Parts',
+			description:'These clam parts are made with whole wheat and may contain pearls.',
+			details:'Scientists now believe that these clams are exactly what the National Anthem is talking about when it says Over the clam parts we watched.',
+			nutrition:'Seafood:1g, Gravity:3g, Small Dead Or Dying Sea Organisms:2g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product7 = new Product(
+			name:'Healthy Anti-Gravity Space Suit',
+			description:'This anti-gravity space suit is healthier than most.',
+			details:'This space suit minimizes the effects of gravity, a leading cause of falling down, which top medical experts believe can have harmful effects on your health.',
+			nutrition:'Aluminum:0.2g, Plastic:1g, Zinc:0g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product8 = new Product(
+			name:'Whole Wheat Steak',
+			description:'This steak is made with whole wheat and various small insects that fell into the grinder by accident.',
+			details:'This is whole wheat steak, with wheat and other natural and artificial flavors.',
+			nutrition:'Carbon Monoxide:0g, Vanilla:0g, Bat wings:0g, Sea lion:2g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product9 = new Product(
+			name:'Healthy Yak',
+			description:'Healthy yak, a great source of fiber (or fur).',
+			details:'The yak contains high levels of fur, which resembles whole wheat somewhat in texture and very much in taste.',
+			nutrition:'Fat:10g, Snake:0g, Meat (rhymes with wheat):2g, Grass:12g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product10 = new Product(
+			name:'Whole Wheat Diplodocus',
+			description:'This Diplodocus ate only whole wheat or variants.',
+			details:'May take 68 weeks for shipping, or longer if we cannot find a reliable source.',
+			nutrition:'Cloves:0g, Wheat:2g, Wheat-resembling substances:12g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product11 = new Product(
+			name:'Healthy Soybeans',
+			description:'Soybeans contain mainly health, as opposed to taste or nutrition.',
+			details:'These soybeans are worth their weight in deceased members of the arthropod family.',
+			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Potassium:0g, Sodium:0g, Soybeanium:100g',
+			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			sponsor:sponsor1
+		).save()
+
+		def product12 = new Product(
+			name:'Whole Wheat Buffalo Wings',
+			description:'Buffalo wings made from whole wheat.',
+			details:'These Buffalo Wings are made with wheat-based imitation buffalo.',
+			nutrition:'Wheat:100g, Taste:-20g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
 			sponsor:sponsor1
