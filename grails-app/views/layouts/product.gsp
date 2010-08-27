@@ -26,11 +26,7 @@
       <div id="factoids">
           <p>
           <g:each in="${products}" var="product">
-              <br />
-              <img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="30" height="30" align="left" />
-              <g:link controller="product" action="show" id="${product.id}">${product.name}</g:link><br />
-              ${product.description}
-              <br />
+              <g:link controller="product" action="show" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="50" height="50" style="margin:5px;" /></g:link>
           </g:each>
           </p>
       </div>
