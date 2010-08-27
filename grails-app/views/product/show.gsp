@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="customer" />
+        <meta name="layout" content="product" />
         <g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
         <g:javascript library="prototype" />
         <g:javascript library="scriptaculous" />
