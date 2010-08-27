@@ -116,22 +116,3 @@ th.desc a {
 				</g:remoteLink></p><p>&nbsp;</p>
                    </sks:hasNotPlacedCurrentOrder>
         </g:else>
-			<h1>Products</h1><br />
-			<div class="list">
-                   <table>
-                    <thead>
-                        <tr>
-                        
-                            <g:sortableColumn property="item" title="Product" width="87%" />
-                            <th> </th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <sks:productList />
-                      <tr>
-                        <td></td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                </table>
