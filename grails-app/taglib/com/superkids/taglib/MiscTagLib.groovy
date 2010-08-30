@@ -12,21 +12,21 @@ class MiscTagLib {
     static namespace = 'sks'
 
     def hasPlacedCurrentOrder = { attrs, body ->
-        def customer = Customer.get(springSecurityService.principal.id)
+        def customer = Customer.get(springSecurityService.principal?.id)
         if(customer?.hasPlacedCurrentOrder){
             out << body()
         } else { out << "" }
     }
 
     def hasNotPlacedCurrentOrder = { attrs, body ->
-        def customer = Customer.get(springSecurityService.principal.id)
+        def customer = Customer.get(springSecurityService.principal?.id)
         if(!customer?.hasPlacedCurrentOrder){
             out << body()
         } else { out << "" }
     }
 
     def productList = { attrs -> 
-        def customer = Customer.get(springSecurityService.principal.id)
+        def customer = Customer.get(springSecurityService.principal?.id)
         def shoppingCart = shoppingCartService.getShoppingCart()
         def products = Product.list().collect { product ->
             def isContained = false
@@ -55,7 +55,7 @@ class MiscTagLib {
     }
 
     def orderList = { attrs -> 
-        def customer = Customer.get(springSecurityService.principal.id)
+        def customer = Customer.get(springSecurityService.principal?.id)
         out << "<br />"
         out << "<h2>Your order</h2>"
         out << "<br />"
