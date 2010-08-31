@@ -40,6 +40,7 @@ class ProductController {
     }
 
     def show = {
+        println "in Product show, dude"
         def productInstance = Product.get(params.id)
         def shoppingCart = shoppingCartService.getShoppingCart()
         def qty = 1
@@ -137,8 +138,10 @@ class ProductController {
             def product = Product.get(params.id)
             shoppingCartService.addToShoppingCart(product, 1)
             if(params.cartPage){
+                println "rendering shoppingCartContent template (in add action)"
                 render template:"/shopping/shoppingCartContent", model:[productInstance:product]
             } else {
+                println "rendering added template (in add action)"
                 render template:"/shopping/added", model:[productInstance:product]
             }
 	}
