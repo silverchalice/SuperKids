@@ -30,6 +30,10 @@
 
     </div>
     <div id="nav">
+      <g:link controller="logout">XIP</g:link>
+      <g:link controller="logout">FOO</g:link>
+      <g:link controller="logout">BAR</g:link>
+      <g:link controller="logout">BAS</g:link>
       <g:link controller="logout">LOG OUT</g:link>
     </div>
     <div id="content">
