@@ -192,4 +192,41 @@ class HomeController {
 
        }
 
+
+       def learn = {
+           def content
+           def pt = PageText.findByName("learn")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def order = {
+           def content
+           def pt = PageText.findByName("order")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def assess = {
+           def content
+           def pt = PageText.findByName("assess")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def promote = {
+           def content
+           def pt = PageText.findByName("promote")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
