@@ -76,6 +76,18 @@ class UrlMappings {
                     controller = "home"
                     action = "assessment_tools"
                 }
+                "/ecards" {
+                    controller = "home"
+                    action = "ecards"
+                }
+                "/promotion-tools-and-resources" {
+                    controller = "home"
+                    action = "promotion-tools-and-resources"
+                }
+                "/additional-promotional-ideas" {
+                    controller = "home"
+                    action = "additional_promotional_ideas"
+                }
                 "/public/" {
                     controller = "home"
                     action = "anonymous"
