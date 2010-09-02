@@ -12,8 +12,8 @@ class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-		def superkids = '/Users/zak/builds/SuperKids'
-//		def superkids = '/home/ben/dev/SuperKids'
+//		def superkids = '/Users/zak/builds/SuperKids'
+		def superkids = '/home/ben/dev/SuperKids'
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
@@ -267,6 +267,7 @@ def assessText = new PageText(name:"assess", content:"""
 <li><strong>FIVE (5) Third Place Prizes</strong> – A \$200 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
 <li><strong>TEN (10) Fourth Place Prizes</strong> – A \$100 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
 <li><strong>THIRTY-THREE (33) Fifth Place Prizes</strong> – Missy Lapine’s <em>Sneaky Chef</em> paperback (\$16 value).</li>
+</ol>
 <p><strong>To get started, just click <g:link controller="home" action="index">here</a>, or on “Begin Online Assessment” in the menu. If you don’t finish, your progress will be saved so that you can come back later.</strong> </p>
  
                 """
@@ -280,6 +281,40 @@ def promoteText = new PageText(name:"promote", content:"""
 <p><strong>Additional Promotional Ideas</strong>—Includes "Creative Nutrition Messaging In Your Lunchroom" from <em>The Learning Zone</em>, and more rewards available from The Whole Grains Council.</p>
 <p><strong>Select your choice from the Promote Menu Options on the left.</strong></p>
 
+                """
+                ).save()
+
+def assessmentDrawingRulesText = new PageText(name:"assessment_drawing_rules", content:"""
+<h1>Assessment Drawing Rules</h1>
+<p><strong>How To Enter:</strong> No purchase necessary. One entry per school district. ConAgra Mills (”Sponsor”) is not responsible for lost, late or misdirected assessments not received in time for the random drawing.</p>
+<p><strong>Prizes</strong></p>
+<ol>
+<li><strong>TWO (2) First Place Prizes</strong> – \$1,000 for travel expenses and registration fees for SNA or other foodservice show in 2010.</li>
+<li><strong>THREE (3) Second Place Prizes</strong> – Three “OrganWise Guys Foods of the Month Club Kits,” which you can use as an educational resource in three of your school district cafeterias (\$885 value).</li>
+<li><strong>FIVE (5) Third Place Prizes</strong> – A \$200 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
+<li><strong>TEN (10) Fourth Place Prizes</strong> – A \$100 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
+<li><strong>THIRTY-THREE (33) Fifth Place Prizes</strong> – Missy Lapine’s <em>Sneaky Chef</em> paperback (\$16 value).</li>
+</ol>
+<p>By acceptance of prize, winner agrees to use of name and/or likeness for advertising and promotional purposes without additional compensation, unless prohibited by law. No prize transfers. If prize is unavailable, a prize of equal or greater value wil be substituted, at discretion of Sponsor. Winners may not elect to exchange the travel and accommodations award, or the OrganWise Guys award for their cash equivalent value.</p>
+<p><strong>Eligibility:</strong> Only foodservice professionals who have sampled products within the SuperKids Whole Grain Sampling Program (2010) are eligible. Employees and families of ConAgra Mills and participating food manufacturers, their subsidiaries or affiliated companies are not eligible. Void where prohibited or restricted by employer's policy. Participants must comply with their own school district's policy and/or directives regarding prize acceptance and must be employed by the school district at program's end. All federal, state and local laws apply.</p>
+<p><strong>Drawing:</strong> A random drawing will be held on March 8, 2010, by Sales Development Associates, the official sweepstakes administrator. Odds of winning will depend on the number of assessments received. You will be required to sign a Winner’s Affidavit and Release within ten business days of attempted delivery or the award will be forfeited. Winners will be notified by mail/phone. All taxes are the sole responsibility of winners. The decisions of Sponsor are final in all matters relating to this sweepstakes.</p>
+<p><strong>Winners’ List:</strong> Will be announced.</p>
+<p><strong>To get started, just click <g:link controller="home" action="index">here</g:link>, or on “Begin Online Assessment” in the menu. If you don’t finish, your progress will be saved so that you can come back later.</strong></p>
+
+                """
+                ).save()
+
+def assessmentToolsText = new PageText(name:"assessment_tools", content:"""
+<h1>Assessment Tools & Resources</h1>
+<p>You can download the following by clicking on your choice. These tools and resources can be used when conducting in-school taste tests of your SuperKids whole grain product samples:</p>
+<br />
+<p><g:link controller="home" action="index">University of Minnesota Module</g:link> — Includes whole grain definitions, nutritional and labeling information.</p>
+<br />
+<p><g:link controller="home" action="index">Printable Assessment Form</g:link> — Download and print the assessment form. When complete, just fax or mail to the fax number or address provided.</p>
+<br />
+<p><g:link controller="home" action="index">Student Feedback Form</g:link> — This form was developed for use with younger students (K-3).</p>
+<br />
+<p><g:link controller="home" action="index">Student Certificate</g:link> — Download and print it, then give it to student taste-testers to recognize them for participating as a SuperKid.</p>
                 """
                 ).save()
 
