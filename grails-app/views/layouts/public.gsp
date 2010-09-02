@@ -30,7 +30,7 @@
     </div>
 
     <div id="nav">
-      <g:link controller="login" action="auth">LOG IN</g:link>
+      <span><g:link controller="login" action="auth">LOG IN</g:link></span>
     </div>
 
     <div id="content">

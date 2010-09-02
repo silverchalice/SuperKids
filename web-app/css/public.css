@@ -85,6 +85,10 @@ a img {
   float:left;
 }
 
+#nav span a {
+  float:right;  
+}
+
 #nav a:hover {
   background-image:url(../images/layout/buttons/tab-blue-hover.png);
 }
@@ -107,7 +111,7 @@ a img {
 #contentInset {
   background:url(../images/layout/contentInset-bg.gif) no-repeat;
   width:624px;
-  padding:15px 10px 0px 10px;
+  padding:15px 10px 0 10px;
   height:486px;
   margin:0 auto;
   position:relative;
@@ -213,8 +217,7 @@ img#kid {
 
 #factoids p {
  font-size:11px;
- padding:15px;
- padding-top:0px;
+ padding: 0 15px 15px;
  width:230px;
 }
 

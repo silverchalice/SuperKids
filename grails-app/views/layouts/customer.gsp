@@ -29,7 +29,7 @@
 
     </div>
     <div id="nav">
-      <g:link controller="logout">LOG OUT</g:link>
+      <span><g:link controller="logout">LOG OUT</g:link></span>
     </div>
     <div id="content">
         <div id="contentInset">

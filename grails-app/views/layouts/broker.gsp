@@ -40,7 +40,7 @@
 	</div>
 
     <div id="nav">
-      <g:link controller="home" action="index">LOG OUT</g:link>
+      <span><g:link controller="home" action="index">LOG OUT</g:link></span>
     </div>
     <div id="content">
         <div id="contentInset">

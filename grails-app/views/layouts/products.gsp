@@ -34,7 +34,7 @@
       <g:link controller="home" action="order">ORDER</g:link>
       <g:link controller="home" action="assess">ASSESS</g:link>
       <g:link controller="home" action="promote">PROMOTE</g:link>
-      <g:link controller="logout">LOG OUT</g:link>
+      <span><g:link controller="logout">LOG OUT</g:link></span>
     </div>
     <div id="content">
         <div id="contentInset">
