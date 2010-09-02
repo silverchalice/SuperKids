@@ -72,6 +72,10 @@ class UrlMappings {
                     controller = "home"
                     action = "assessment_drawing_rules"
                 }
+                "/assessment-tools" {
+                    controller = "home"
+                    action = "assessment_tools"
+                }
                 "/public/" {
                     controller = "home"
                     action = "anonymous"
