@@ -149,6 +149,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/order':                                             ['ROLE_USER', 'ROLE_ADMIN'],
    '/assess':                                            ['ROLE_USER', 'ROLE_ADMIN'],
    '/promote':                                           ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assessment-drawing-rules':                          ['ROLE_USER', 'ROLE_ADMIN'],
    '/public':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/home/save':                                         ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]
