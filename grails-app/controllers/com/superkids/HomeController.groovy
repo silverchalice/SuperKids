@@ -247,4 +247,31 @@ class HomeController {
            [content:content]
        }
 
+       def ecards = {
+           def content
+           def pt = PageText.findByName("ecards")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def promotion_tools_and_resources = {
+           def content
+           def pt = PageText.findByName("promotion_tools_and_resources")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def additional_promotional_ideas = {
+           def content
+           def pt = PageText.findByName("additional_promotional_ideas")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
