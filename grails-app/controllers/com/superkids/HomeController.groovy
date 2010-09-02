@@ -238,4 +238,13 @@ class HomeController {
            [content:content]
        }
 
+       def assessment_tools = {
+           def content
+           def pt = PageText.findByName("assessment_tools")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
