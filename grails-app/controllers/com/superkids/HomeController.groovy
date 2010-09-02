@@ -229,4 +229,13 @@ class HomeController {
            [content:content]
        }
 
+       def assessment_drawing_rules = {
+           def content
+           def pt = PageText.findByName("assessment_drawing_rules")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
