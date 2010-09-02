@@ -145,6 +145,10 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/incorporating-whole-grains-in-schools':             ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/broker-participate':                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/broker-ecard':                                      ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/learn':                                             ['ROLE_USER', 'ROLE_ADMIN'],
+   '/order':                                             ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assess':                                            ['ROLE_USER', 'ROLE_ADMIN'],
+   '/promote':                                           ['ROLE_USER', 'ROLE_ADMIN'],
    '/public':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/home/save':                                         ['IS_AUTHENTICATED_ANONYMOUSLY']
 ]

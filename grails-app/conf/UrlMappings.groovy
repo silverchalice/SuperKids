@@ -52,6 +52,22 @@ class UrlMappings {
                     controller = "home"
                     action = "broker_ecard"
                 }
+                "/learn/" {
+                    controller = "home"
+                    action = "learn"
+                }
+                "/order/" {
+                    controller = "home"
+                    action = "order"
+                }
+                "/assess/" {
+                    controller = "home"
+                    action = "assess"
+                }
+                "/promote/" {
+                    controller = "home"
+                    action = "promote"
+                }
                 "/public/" {
                     controller = "home"
                     action = "anonymous"

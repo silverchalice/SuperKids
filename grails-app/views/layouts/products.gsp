@@ -30,10 +30,10 @@
 
     </div>
     <div id="nav">
-      <g:link controller="logout">XIP</g:link>
-      <g:link controller="logout">FOO</g:link>
-      <g:link controller="logout">BAR</g:link>
-      <g:link controller="logout">BAS</g:link>
+      <g:link controller="home" action="learn">LEARN</g:link>
+      <g:link controller="home" action="order">ORDER</g:link>
+      <g:link controller="home" action="assess">ASSESS</g:link>
+      <g:link controller="home" action="promote">PROMOTE</g:link>
       <g:link controller="logout">LOG OUT</g:link>
     </div>
     <div id="content">
