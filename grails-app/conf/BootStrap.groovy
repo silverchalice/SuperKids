@@ -304,7 +304,33 @@ def assessmentDrawingRulesText = new PageText(name:"assessment_drawing_rules", c
                 """
                 ).save()
 
-def assessmentToolsText = new PageText(name:"assessment_tools", content:"""
+def ecardsText = new PageText(name:"ecards", content:"""
+<h1>Send an eCard</h1>
+<p>eCards are available for foodservice distributors, brokers, or school foodservice directors. Click on the eCard of your choice. They're the easy way to spread the word about whole grain health and SuperKids.</p>
+<p><g:link controller="home" action="index">Foodservice Distributor or Broker eCard</g:link></p>
+<p><g:link controller="home" action="index">Foodservice Director eCard</g:link></p>
+<p><strong>Click on the options above.</strong></p>  
+                """
+                ).save()
+
+def promotionToolsAndResourcesText = new PageText(name:"promotion_tools_and_resources", content:"""
+<h1>Promotional Tools & Resources</h1>
+<p>Here are some support tools you can use to promote whole grain nutrition in your school or in your community. </p>
+<p><strong>Letters</strong> you can download and customize are available below. Click on your choice:</p>
+<ol>
+<li>To parents asking if their child can participate in taste tests: (MSWORD) Download</li>
+<li>To parents informing them about SuperKids in general: (MSWORD)  Download</li>
+</ol>
+<p><strong>Articles</strong> for your newsletter are available below. Click on your choice:</p>
+<ol>
+<li>Runner's World Advocates Whole Grain Nutrition: (MSWORD) <g:link controller="home" action="index">Download</g:link></li>
+<li>Student Athletes: Like Sports, Practice in Proper Eating = Champions: (MSWORD) <g:link controller="home" action="index">Download</g:link></li>
+<li>Importance of Whole Grains: (MSWORD) <g:link controller="home" action="index">Download</g:link></li>
+<p><strong>A Poster</strong> for school lunch rooms is available by clicking here: <g:link controller="home" action="index">Download</g:link></p>
+                """
+                ).save()
+
+def additionalPromotionalIdeasText = new PageText(name:"additional_promotional_ideas", content:"""
 <h1>Assessment Tools & Resources</h1>
 <p>You can download the following by clicking on your choice. These tools and resources can be used when conducting in-school taste tests of your SuperKids whole grain product samples:</p>
 <br />
@@ -318,6 +344,19 @@ def assessmentToolsText = new PageText(name:"assessment_tools", content:"""
                 """
                 ).save()
 
+def assessmentToolsText = new PageText(name:"assessment_tools", content:"""
+<h1>Assessment Tools & Resources</h1>
+<p>You can download the following by clicking on your choice. These tools and resources can be used when conducting in-school taste tests of your SuperKids whole grain product samples:</p>
+<br />
+<p><g:link controller="home" action="index">University of Minnesota Module</g:link> — Includes whole grain definitions, nutritional and labeling information.</p>
+<br />
+<p><g:link controller="home" action="index">Printable Assessment Form</g:link> — Download and print the assessment form. When complete, just fax or mail to the fax number or address provided.</p>
+<br />
+<p><g:link controller="home" action="index">Student Feedback Form</g:link> — This form was developed for use with younger students (K-3).</p>
+<br />
+<p><g:link controller="home" action="index">Student Certificate</g:link> — Download and print it, then give it to student taste-testers to recognize them for participating as a SuperKid.</p>
+                """
+                ).save()
 
     }
 
