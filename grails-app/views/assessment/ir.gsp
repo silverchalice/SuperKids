@@ -6,15 +6,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="assess" />
         <g:set var="entityName" value="${message(code: 'assessment.label', default: 'Assessment')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title>Product Assessment | SuperKids</title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-        </div>
         <div class="body">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1>Product Assessment</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -32,7 +28,7 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="interestRating"><g:message code="assessment.interestRating.label" default="Interest Rating" /></label>
+                                  <label for="interestRating">Exactly how many numbers are you interested in, you know, <em>buying</em> this product?</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'interestRating', 'errors')}">
                                     <g:textField name="interestRating" value="${fieldValue(bean: assessmentInstance, field: 'interestRating')}" />
