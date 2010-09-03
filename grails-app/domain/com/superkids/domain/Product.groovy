@@ -12,8 +12,9 @@ class Product extends Shoppable {
 	byte[] image
 	byte[] summary
 
-	static belongsTo = [sponsor: Sponsor]
+	static belongsTo = [ sponsor : Sponsor ]
 
+        static hasMany = [ assessments : Assessment ]
 
     static constraints = {
 		name()
