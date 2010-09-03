@@ -53,7 +53,7 @@ class Customer extends User {
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
 
-	static hasMany = [calls: Call]
+	static hasMany = [ calls : Call, assessments : Assessment ]
 
     static constraints = {
 
