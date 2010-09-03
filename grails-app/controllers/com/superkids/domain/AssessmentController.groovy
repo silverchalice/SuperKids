@@ -120,4 +120,11 @@ class AssessmentController {
         return [assessmentInstance: assessmentInstance]
     }
 
+    def cc = {
+        def assessmentInstance = Assessment.get(params.id)
+        assessmentInstance.likeComment = params.likeComment
+        assessmentInstance.save()
+        return [assessmentInstance: assessmentInstance]
+    }
+
 }
