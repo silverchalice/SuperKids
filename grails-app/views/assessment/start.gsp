@@ -23,7 +23,9 @@
                 <g:renderErrors bean="${assessmentInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" >
+            <g:form action="lc" >
+                <g:hiddenField name="id" value="${assessmentInstance?.id}" />
+                <g:hiddenField name="version" value="${assessmentInstance?.version}" />
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -36,16 +38,7 @@
                                     <g:textField name="likeRating" value="${fieldValue(bean: assessmentInstance, field: 'likeRating')}" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="changeComment"><g:message code="assessment.changeComment.label" default="Change Comment" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'changeComment', 'errors')}">
-                                    <g:textField name="changeComment" value="${assessmentInstance?.changeComment}" />
-                                </td>
-                            </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="product"><g:message code="assessment.product.label" default="Product" /></label>
@@ -54,34 +47,7 @@
                                     <g:select name="product.id" from="${com.superkids.domain.Product.list()}" optionKey="id" value="${assessmentInstance?.product?.id}"  />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="customer"><g:message code="assessment.customer.label" default="Customer" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'customer', 'errors')}">
-                                    <g:select name="customer.id" from="${com.superkids.domain.Customer.list()}" optionKey="id" value="${assessmentInstance?.customer?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="interestRating"><g:message code="assessment.interestRating.label" default="Interest Rating" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'interestRating', 'errors')}">
-                                    <g:textField name="interestRating" value="${fieldValue(bean: assessmentInstance, field: 'interestRating')}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="likeComment"><g:message code="assessment.likeComment.label" default="Like Comment" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'likeComment', 'errors')}">
-                                    <g:textField name="likeComment" value="${assessmentInstance?.likeComment}" />
-                                </td>
-                            </tr>
-                        
+                 
                         </tbody>
                     </table>
                 </div>
