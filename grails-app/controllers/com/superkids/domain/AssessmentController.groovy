@@ -127,4 +127,11 @@ class AssessmentController {
         return [assessmentInstance: assessmentInstance]
     }
 
+    def ir = {
+        def assessmentInstance = Assessment.get(params.id)
+        assessmentInstance.changeComment = params.changeComment
+        assessmentInstance.save()
+        return [assessmentInstance: assessmentInstance]
+    }
+
 }
