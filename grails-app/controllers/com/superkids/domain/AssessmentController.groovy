@@ -2,6 +2,8 @@ package com.superkids.domain
 
 class AssessmentController {
 
+    def springSecurityService
+
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
@@ -97,4 +99,16 @@ class AssessmentController {
             redirect(action: "list")
         }
     }
+
+    def start = {
+        if(springSecurityService.loggedIn) {
+            if(UserRole.findByRoleAndUser(Role.findByAuthority("ROLE_USER"), User.get(springSecurityService.principal.id))){
+                def user = Customer.get(springSecurityService.principal.id)
+                def assessmentInstance = new Assessment(customer:user)
+                assessmentInstance.properties = params
+                return [assessmentInstance: assessmentInstance]       
+            }
+        }
+    }
+
 }
