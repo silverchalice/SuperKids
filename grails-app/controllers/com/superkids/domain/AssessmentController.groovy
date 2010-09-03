@@ -134,4 +134,11 @@ class AssessmentController {
         return [assessmentInstance: assessmentInstance]
     }
 
+    def complete = {
+        def assessmentInstance = Assessment.get(params.id)
+        assessmentInstance.interestRating = params.interestRating
+        assessmentInstance.save()
+        return [assessmentInstance: assessmentInstance]
+    }
+
 }
