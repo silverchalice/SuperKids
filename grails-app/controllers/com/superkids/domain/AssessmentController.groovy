@@ -1,5 +1,7 @@
 package com.superkids.domain
 
+import com.superkids.domain.*
+
 class AssessmentController {
 
     def springSecurityService
@@ -103,12 +105,19 @@ class AssessmentController {
     def start = {
         if(springSecurityService.loggedIn) {
             if(UserRole.findByRoleAndUser(Role.findByAuthority("ROLE_USER"), User.get(springSecurityService.principal.id))){
-                def user = Customer.get(springSecurityService.principal.id)
-                def assessmentInstance = new Assessment(customer:user)
+                def assessmentInstance = new Assessment()
                 assessmentInstance.properties = params
                 return [assessmentInstance: assessmentInstance]       
             }
         }
+    }
+
+    def lc = {
+        def user = Customer.get(springSecurityService.principal.id)
+        def assessmentInstance = new Assessment(customer:user)
+        assessmentInstance.properties = params
+        assessmentInstance.save()
+        return [assessmentInstance: assessmentInstance]
     }
 
 }
