@@ -23,7 +23,7 @@
                 <g:renderErrors bean="${assessmentInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" >
+            <g:form action="cc" >
                 <g:hiddenField name="id" value="${assessmentInstance?.id}" />
                 <g:hiddenField name="version" value="${assessmentInstance?.version}" />
                 <div class="dialog">
