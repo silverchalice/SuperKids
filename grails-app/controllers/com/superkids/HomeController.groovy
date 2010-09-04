@@ -294,4 +294,13 @@ class HomeController {
            [content:content]
        }
 
+       def superkids_products = {
+           def content
+           def pt = PageText.findByName("superkids_products")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
