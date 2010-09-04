@@ -115,7 +115,7 @@ grails {
 
 	}
 }
-//grails.views.javascript.library="jquery"
+grails.views.javascript.library="jquery"
 
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.superkids.domain.User'
