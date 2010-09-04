@@ -88,6 +88,42 @@ class UrlMappings {
                     controller = "home"
                     action = "additional_promotional_ideas"
                 }
+                "/what-is/" {
+                    controller = "home"
+                    action = "what_is"
+                }
+                "/about/" {
+                    controller = "home"
+                    action = "about"
+                }
+                "/superkids-products/" {
+                    controller = "home"
+                    action = "superkids_products"
+                }
+                "/testimonials/" {
+                    controller = "home"
+                    action = "testimonials"
+                }
+                "/whole-grain-list/" {
+                    controller = "home"
+                    action = "whole_grain_list"
+                }
+                "/whole-grain-benefits/" {
+                    controller = "home"
+                    action = "whole_grain_benefits"
+                }
+                "/whole-grain-studies/" {
+                    controller = "home"
+                    action = "whole_grain_studies"
+                }
+                "/sneaky-chef/" {
+                    controller = "home"
+                    action = "sneaky_chef"
+                }
+                "/council-tips/" {
+                    controller = "home"
+                    action = "council_tips"
+                }
                 "/public/" {
                     controller = "home"
                     action = "anonymous"
