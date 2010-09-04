@@ -115,6 +115,9 @@ class AssessmentController {
                 flash.message = "Did you order anything yet?"
                 redirect controller:"home", action:"index"
             }
+        } else {
+            flash.message = "Please log in.."
+            redirect controller:"home", action:"index"
         }
     }
 
