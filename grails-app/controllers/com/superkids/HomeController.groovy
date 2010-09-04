@@ -312,4 +312,13 @@ class HomeController {
            [content:content]
        }
 
+       def whole_grain_list = {
+           def content
+           def pt = PageText.findByName("whole_grain_list")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
