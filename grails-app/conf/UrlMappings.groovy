@@ -124,6 +124,14 @@ class UrlMappings {
                     controller = "home"
                     action = "council_tips"
                 }
+                "/sustagrain/" {
+                    controller = "home"
+                    action = "sustagrain"
+                }
+                "/ultragrain/" {
+                    controller = "home"
+                    action = "ultragrain"
+                }
                 "/public/" {
                     controller = "home"
                     action = "anonymous"
