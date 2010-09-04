@@ -303,4 +303,13 @@ class HomeController {
            [content:content]
        }
 
+       def testimonials = {
+           def content
+           def pt = PageText.findByName("testimonials")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
