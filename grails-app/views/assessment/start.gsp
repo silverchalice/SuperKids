@@ -40,7 +40,7 @@
                                     <label for="product">Which product were you assessing, did you say?</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'product', 'errors')}">
-                                    <g:select name="product.id" from="${com.superkids.domain.Product.list()}" optionKey="id" value="${assessmentInstance?.product?.id}"  />
+                                    <g:select name="product.id" from="${products}" optionKey="id" value="${assessmentInstance?.product?.id}"  />
                                 </td>
                             </tr>
                  
