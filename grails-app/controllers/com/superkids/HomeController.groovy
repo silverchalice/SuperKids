@@ -321,4 +321,13 @@ class HomeController {
            [content:content]
        }
 
+       def whole_grain_benefits = {
+           def content
+           def pt = PageText.findByName("whole_grain_benefits")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
