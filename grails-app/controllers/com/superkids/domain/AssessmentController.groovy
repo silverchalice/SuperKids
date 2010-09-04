@@ -104,10 +104,16 @@ class AssessmentController {
 
     def start = {
         if(springSecurityService.loggedIn) {
-            if(UserRole.findByRoleAndUser(Role.findByAuthority("ROLE_USER"), User.get(springSecurityService.principal.id))){
+            def user = User.get(springSecurityService.principal.id)
+            def userRole = Role.findByAuthority("ROLE_USER")
+            if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+                def customer = Customer.get(springSecurityService.principal.id)
                 def assessmentInstance = new Assessment()
                 assessmentInstance.properties = params
-                return [assessmentInstance: assessmentInstance]       
+                return [assessmentInstance: assessmentInstance, products:customer.order.products]       
+            } else {
+                flash.message = "Did you order anything yet?"
+                redirect controller:"home", action:"index"
             }
         }
     }
