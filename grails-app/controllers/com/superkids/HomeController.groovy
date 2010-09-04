@@ -348,4 +348,13 @@ class HomeController {
            [content:content]
        }
 
+       def council_tips = {
+           def content
+           def pt = PageText.findByName("council_tips")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
