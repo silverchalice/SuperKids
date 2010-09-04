@@ -339,4 +339,13 @@ class HomeController {
            [content:content]
        }
 
+       def sneaky_chef = {
+           def content
+           def pt = PageText.findByName("sneaky_chef")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
