@@ -1,24 +1,21 @@
 package com.superkids
 
+import com.superkids.domain.*
+
 class CallService {
 
 	def springSecurityService
 
     static transactional = true
 
-    def nextCustomerForOrderCall() {
-		def caller = Caller.get(springSecurityService.principal.id)
-		def customers = Customer.readyForOrder.list()
+    def getNextCustomerForOrderCall() {
+		def customerList = Customer.readyForOrder.list(max:1, sort:'district')
+        def customer = Customer.get(customerList[0].id)
 
-		lookupDueCallbacks(caller, customers)
-
+        customer.status = CustomerStatus.IN_CALL
+        if (customer.save()) return customer   
     }
 
-	def lookupDueCallbacks(caller, customers) {
-
-		def callerCallbacks
-
-	}
 
     def saveOrderCall(call, customer, caller, order) {
 
@@ -31,7 +28,6 @@ class CallService {
 
       customer.hasPlacedCurrentOrder = true
       customer.status = CustomerStatus.HAS_ORDERED
-
 
     }
 

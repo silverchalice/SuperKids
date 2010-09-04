@@ -28,7 +28,7 @@ class CallController {
         def customer = Customer.get(params.customer)
 
 
-        if(params.callType == 'order') {
+        if(params.callType == 'order' && params.order) {
           def order = new CustomerOrder(params['order'])
 
           if(callService.saveOrderCall(callInstance, customer, caller, order)) {
@@ -44,6 +44,7 @@ class CallController {
         }
         else {
           println "we're done"
+
         }
 
 
@@ -126,11 +127,21 @@ class CallController {
 
 	def start = {
 		def caller = springSecurityService.principal
-		def customerInstance = Customer.get(2)
+		def customerInstance = callService.getNextCustomerForOrderCall()
 
 		def callInstance = new Call(customer:customerInstance, caller:caller)
 
 		[ customerInstance: customerInstance, callInstance: callInstance ]
 	}
+
+
+   def mockup = {
+ 		def caller = springSecurityService.principal
+		def customerInstance = Customer.get(2)
+
+		def callInstance = new Call(customer:customerInstance, caller:caller)
+
+		render(view: "start", model: [ customerInstance: customerInstance, callInstance: callInstance ])
+   }
 	
 }
