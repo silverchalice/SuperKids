@@ -20,7 +20,9 @@ class HomeController {
             def user = User.get(springSecurityService.principal.id)
             def adminRole = Role.findByAuthority("ROLE_ADMIN")
             def callerRole = Role.findByAuthority("ROLE_CALLER")
-            Customer.list().each { println it.username }
+            Customer.list().each { 
+                println it.username + " (" + it.id + ")"
+            }
             if(UserRole.findByUserAndRole(user, callerRole)){
                  redirect controller:"call", action:"index"
             } else if (UserRole.findByUserAndRole(user, adminRole)){
@@ -268,6 +270,15 @@ class HomeController {
        def additional_promotional_ideas = {
            def content
            def pt = PageText.findByName("additional_promotional_ideas")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def what_is = {
+           def content
+           def pt = PageText.findByName("what_is")
            if(pt){
                content = pt.content
            }
