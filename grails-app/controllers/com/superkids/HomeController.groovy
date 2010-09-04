@@ -285,4 +285,13 @@ class HomeController {
            [content:content]
        }
 
+       def about = {
+           def content
+           def pt = PageText.findByName("about")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 }
