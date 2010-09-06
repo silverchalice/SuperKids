@@ -12,10 +12,14 @@
         <div class="body">
             <h1>Product Assessment: All Done!</h1>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+                <div class="message">${flash.message}</div>
             </g:if>
             <br />
-            <p>kthxbai!</p>
+            <p><strong>Product:</strong> ${assessmentInstance.product}</p>
+            <p><strong>Like Rating:</strong> ${assessmentInstance.likeRating}</p>
+            <p><strong>Interest Rating:</strong> ${assessmentInstance.interestRating}</p>
+            <p><strong>Like Comment:</strong> ${assessmentInstance.likeComment}</p>
+            <p><strong>Change Comment:</strong> ${assessmentInstance.changeComment}</p>
         </div>
     </body>
 </html>
