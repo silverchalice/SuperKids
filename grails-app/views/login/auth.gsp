@@ -47,18 +47,25 @@
 #login .inner .login_message {color:red;}
 #login .inner .text_ {width:120px;}
 #login .inner .chk {height:12px;}
+
+.login_message {
+        background: #fff3f3;
+        border: 1px solid red;
+        color: #cc0000;
+        margin: 10px 0 5px 0;
+        padding: 5px 0 5px 10;
+        width:612px;
+}
 </style>
 
 </head>
   <body>
             <br/>
 	        <span style="padding:15px 0 5px 0;"><strong>Enter the user name and password that you have received by email to begin the order/assessment process.</strong> </span>
-
-			<div id='login' style="width:275px; margin-left:25px;">
-
 				<g:if test='${flash.message}'>
 				<div class='login_message'>${flash.message}</div>
 				</g:if>
+			<div id='login' style="width:275px; margin-left:25px;">
 				<form action='${postUrl}' method='post' id='loginForm' class='cssform'>
                         <div style="float:left; text-align:right; width:80px">
                             <label for='username'>Email Address</label><br/><br/>
@@ -68,7 +75,7 @@
 						  <input type='text' class='text_' name='j_username' id='username' /><br/><br/>
 						  <input type='password' class='text_' name='j_password' id='password' />
 						</div>
-						<div class="clear" style="clear:both"></div>
+						<div class="clear" style="clear:both"><br /></div>
 	                    <input type="image" class="fancyButton" name="submit" value="Login"src="${request.contextPath}/images/EnterButton-Blue.png"/>
 	                    <input type="image" class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.jpg"/>
 
