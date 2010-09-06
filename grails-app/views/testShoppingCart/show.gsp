@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="layout" content="product" />
+        <meta name="layout" content="products" />
         <title>Shopping Cart</title>    
 		<g:javascript library="application" />     
         <g:javascript library="prototype" />
