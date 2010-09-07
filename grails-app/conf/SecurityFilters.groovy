@@ -1,3 +1,5 @@
+import com.superkids.domain.User
+
 class SecurityFilters {
 
     def springSecurityService
