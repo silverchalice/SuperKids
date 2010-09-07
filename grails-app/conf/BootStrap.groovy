@@ -7,6 +7,7 @@ import com.superkids.domain.UserRole
 import com.superkids.domain.Address
 import com.superkids.domain.PageText
 import com.superkids.domain.Caller
+import com.metasieve.shoppingcart.ShoppingItem
 
 class BootStrap {
     def springSecurityService
@@ -86,6 +87,19 @@ class BootStrap {
 			products:[]
 		).save()
 
+                def shoppingItem1 = new ShoppingItem().save()
+                def shoppingItem2 = new ShoppingItem().save()
+                def shoppingItem3 = new ShoppingItem().save()
+                def shoppingItem4 = new ShoppingItem().save()
+                def shoppingItem5 = new ShoppingItem().save()
+                def shoppingItem6 = new ShoppingItem().save()
+                def shoppingItem7 = new ShoppingItem().save()
+                def shoppingItem8 = new ShoppingItem().save()
+                def shoppingItem9 = new ShoppingItem().save()
+                def shoppingItem10 = new ShoppingItem().save()
+                def shoppingItem11 = new ShoppingItem().save()
+                def shoppingItem12 = new ShoppingItem().save()
+
 		def product1 = new Product(
 			name:'Healthy Hot Dog',
 			description:'This hot dog is very healthy.',
@@ -93,7 +107,8 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Potassium:13g, Uranium:14g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem1
 		).save()
 
 		def product2 = new Product(
@@ -103,7 +118,8 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Lithium:2g, Argon:12g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem2
 		).save()
 
 		def product3 = new Product(
@@ -113,7 +129,8 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Calcium:0g, Potassium:0g, Carbon:20g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem3
 		).save()
 
 		def product4 = new Product(
@@ -123,7 +140,8 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g, Taste:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem4
 		).save()
 
 		def product5 = new Product(
@@ -133,7 +151,8 @@ class BootStrap {
 			nutrition:'Ion:0g, Sugar:0g, Rapid Sucking Action:10g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem5
 		).save()
 
 		def product6 = new Product(
@@ -143,7 +162,8 @@ class BootStrap {
 			nutrition:'Seafood:1g, Gravity:3g, Small Dead Or Dying Sea Organisms:2g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem6
 		).save()
 
 		def product7 = new Product(
@@ -153,7 +173,8 @@ class BootStrap {
 			nutrition:'Aluminum:0.2g, Plastic:1g, Zinc:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem7
 		).save()
 
 		def product8 = new Product(
@@ -163,7 +184,8 @@ class BootStrap {
 			nutrition:'Carbon Monoxide:0g, Vanilla:0g, Bat wings:0g, Sea lion:2g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem8
 		).save()
 
 		def product9 = new Product(
@@ -173,7 +195,8 @@ class BootStrap {
 			nutrition:'Fat:10g, Snake:0g, Meat (rhymes with wheat):2g, Grass:12g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem9
 		).save()
 
 		def product10 = new Product(
@@ -183,7 +206,8 @@ class BootStrap {
 			nutrition:'Cloves:0g, Wheat:2g, Wheat-resembling substances:12g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem10
 		).save()
 
 		def product11 = new Product(
@@ -193,7 +217,8 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Potassium:0g, Sodium:0g, Soybeanium:100g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem11
 		).save()
 
 		def product12 = new Product(
@@ -203,7 +228,8 @@ class BootStrap {
 			nutrition:'Wheat:100g, Taste:-20g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
-			sponsor:sponsor1
+			sponsor:sponsor1,
+                        shoppingItem:shoppingItem12
 		).save()
 
 		sponsor1.addToProducts(product1)
