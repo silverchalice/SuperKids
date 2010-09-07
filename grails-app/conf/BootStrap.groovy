@@ -105,7 +105,7 @@ class BootStrap {
 
 
 		def product1 = new Product(
-			name:'Healthy Hot Dog',
+			name:'Product 1',
 			description:'This hot dog is very healthy.',
 			details:'A Healthy Hot Dog is a great way to get healthy hot dogs into your diet.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Potassium:13g, Uranium:14g',
@@ -116,7 +116,7 @@ class BootStrap {
 		).save()
 
 		def product2 = new Product(
-			name:'Whole Wheat Waffles',
+			name:'Product 2',
 			description:'These waffles are made with whole wheat.',
 			details:'Whole Wheat Waffles are great waffles made with whole wheat.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Lithium:2g, Argon:12g',
@@ -127,7 +127,7 @@ class BootStrap {
 		).save()
 
 		def product3 = new Product(
-			name:'Healthy Spaghetti',
+			name:'Product 3',
 			description:'This spaghetti is made entirely using dried seaweed.',
 			details:'Healthy Spaghetti is made with healthy whole wheat seaweed.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Calcium:0g, Potassium:0g, Carbon:20g',
@@ -138,7 +138,7 @@ class BootStrap {
 		).save()
 
 		def product4 = new Product(
-			name:'Whole Wheat Spinach',
+			name:'Product 4',
 			description:'Spinach with a dash of whole wheat.',
 			details:'Whole Wheat Spinach counts as one complete serving on the USDA Five A Day chart for fruit and vegetables.',
 			nutrition:'Fat:0g, Sugar:0g, Taste:0g',
@@ -149,7 +149,7 @@ class BootStrap {
 		).save()
 
 		def product5 = new Product(
-			name:'Healthy Octopus',
+			name:'Product 5',
 			description:'Healthy octopus guaranteed to be no more than three hundred years old.',
 			details:'Healthy Octopus is fresh. We do not make it until you order it, as long as you ordered it quite a while ago.',
 			nutrition:'Ion:0g, Sugar:0g, Rapid Sucking Action:10g',
@@ -160,7 +160,7 @@ class BootStrap {
 		).save()
 
 		def product6 = new Product(
-			name:'Whole Wheat Clam Parts',
+			name:'Product 6',
 			description:'These clam parts are made with whole wheat and may contain pearls.',
 			details:'Scientists now believe that these clams are exactly what the National Anthem is talking about when it says Over the clam parts we watched.',
 			nutrition:'Seafood:1g, Gravity:3g, Small Dead Or Dying Sea Organisms:2g',
@@ -171,7 +171,7 @@ class BootStrap {
 		).save()
 
 		def product7 = new Product(
-			name:'Healthy Anti-Gravity Space Suit',
+			name:'Product 7',
 			description:'This anti-gravity space suit is healthier than most.',
 			details:'This space suit minimizes the effects of gravity, a leading cause of falling down, which top medical experts believe can have harmful effects on your health.',
 			nutrition:'Aluminum:0.2g, Plastic:1g, Zinc:0g',
@@ -182,7 +182,7 @@ class BootStrap {
 		).save()
 
 		def product8 = new Product(
-			name:'Whole Wheat Steak',
+			name:'Product 8',
 			description:'This steak is made with whole wheat and various small insects that fell into the grinder by accident.',
 			details:'This is whole wheat steak, with wheat and other natural and artificial flavors.',
 			nutrition:'Carbon Monoxide:0g, Vanilla:0g, Bat wings:0g, Sea lion:2g',
@@ -193,7 +193,7 @@ class BootStrap {
 		).save()
 
 		def product9 = new Product(
-			name:'Healthy Yak',
+			name:'Product 9',
 			description:'Healthy yak, a great source of fiber (or fur).',
 			details:'The yak contains high levels of fur, which resembles whole wheat somewhat in texture and very much in taste.',
 			nutrition:'Fat:10g, Snake:0g, Meat (rhymes with wheat):2g, Grass:12g',
@@ -204,7 +204,7 @@ class BootStrap {
 		).save()
 
 		def product10 = new Product(
-			name:'Whole Wheat Diplodocus',
+			name:'Product 10',
 			description:'This Diplodocus ate only whole wheat or variants.',
 			details:'May take 68 weeks for shipping, or longer if we cannot find a reliable source.',
 			nutrition:'Cloves:0g, Wheat:2g, Wheat-resembling substances:12g',
@@ -215,7 +215,7 @@ class BootStrap {
 		).save()
 
 		def product11 = new Product(
-			name:'Healthy Soybeans',
+			name:'Product 11',
 			description:'Soybeans contain mainly health, as opposed to taste or nutrition.',
 			details:'These soybeans are worth their weight in deceased members of the arthropod family.',
 			nutrition:'Fat:0g, Sugar:0g, Protein:0g, Potassium:0g, Sodium:0g, Soybeanium:100g',
@@ -226,7 +226,7 @@ class BootStrap {
 		).save()
 
 		def product12 = new Product(
-			name:'Whole Wheat Buffalo Wings',
+			name:'Product 12',
 			description:'Buffalo wings made from whole wheat.',
 			details:'These Buffalo Wings are made with wheat-based imitation buffalo.',
 			nutrition:'Wheat:100g, Taste:-20g',
@@ -383,8 +383,8 @@ class BootStrap {
                           """
             ).save()
 
-        def shippingDate1 = new ShippingDate(shipDate:new Date(2010, 10, 01)).save()
-        def shippingDate2 = new ShippingDate(shipDate:new Date(2011, 01, 01)).save()
+        def shippingDate1 = new ShippingDate(shipDate:new Date(110, 10, 01)).save()
+        def shippingDate2 = new ShippingDate(shipDate:new Date(111, 01, 01)).save()
     }
 
 

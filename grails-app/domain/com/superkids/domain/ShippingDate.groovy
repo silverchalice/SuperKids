@@ -1,6 +1,5 @@
 package com.superkids.domain
 
-import java.text.SimpleDateFormat
 
 class ShippingDate {
     Date shipDate
@@ -9,10 +8,8 @@ class ShippingDate {
         shipDate nullable:false
     }
 
-//    String toString() {
-//      SimpleDateFormat format = new SimpleDateFormat("MMMM yyyy")
-//      def date = shipDate.toString()
-//      format.parse(date)
-//    }
+    String toString() {
+      shipDate.format('MMMM, yyyy')
+    } 
 
 }
