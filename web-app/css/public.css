@@ -104,17 +104,15 @@ a img {
   margin-top:1px;
   width:732px;
   float:right;
-  background:url(../images/layout/content-bg.gif) no-repeat;
-  height:533px;
-  background-color:#F99F1B;
-
+  background: #F99F1B url(../images/layout/content-bg.gif) no-repeat;
+  height:530px;
 }
 
 #contentInset {
   background:url(../images/layout/contentInset-bg.gif) no-repeat;
   width:624px;
   padding:15px 10px 0 10px;
-  height:486px;
+  height:485px;
   margin:0 auto;
   position:relative;
   top:27px;
