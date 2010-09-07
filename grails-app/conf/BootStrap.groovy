@@ -383,8 +383,8 @@ class BootStrap {
                           """
             ).save()
 
-        def shippingDate1 = new ShippingDate(shipDate:new Date(2010, 10, 01)).save()
-        def shippingDate2 = new ShippingDate(shipDate:new Date(2011, 01, 01)).save()
+        def shippingDate1 = new ShippingDate(shipDate:new Date(110, 10, 01)).save()
+        def shippingDate2 = new ShippingDate(shipDate:new Date(111, 01, 01)).save()
     }
 
 

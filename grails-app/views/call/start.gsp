@@ -484,8 +484,6 @@
                             <td>
                                 <g:select name="order.shippingDate"
                                   from="${ShippingDate.list()}"
-                                  optionKey="id"
-                                  optionValue="shipDate"
                                   style="width:220px;"
                                   noSelection="${['null':'Select a Shipping Date...']}" />
                             </td>
