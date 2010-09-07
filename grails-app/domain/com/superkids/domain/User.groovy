@@ -24,7 +24,7 @@ class User {
 
         def isAdmin(){
             def adminRole = Role.findByAuthority("ROLE_ADMIN")
-            if(adminRole?.people.find{it.id == id}){
+            if(getAuthorities().contains(adminRole)){
                 return true
             } else {
                 return false
