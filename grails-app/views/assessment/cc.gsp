@@ -28,10 +28,10 @@
                                                 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="changeComment">Tell us what we should change about this product.</label>
+                                  <label for="changeComment">What, if anything, would you recommend be changed about this sampled product?</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'changeComment', 'errors')}">
-                                    <g:textField name="changeComment" value="${assessmentInstance?.changeComment}" />
+                                    <textarea name="changeComment" rows="10" cols="50"></textarea> 
                                 </td>
                             </tr>
                         

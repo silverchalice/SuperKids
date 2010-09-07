@@ -28,10 +28,15 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="likeRating">How many numbers did you like this?</label>
+                                    <label for="likeRating">On a scale of 1 to 5 where 1 is 'not liked' and 5 is 'well liked', how did you like this product? 
+</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'likeRating', 'errors')}">
-                                    <g:textField name="likeRating" value="${fieldValue(bean: assessmentInstance, field: 'likeRating')}" />
+                                    <label><input type="radio" name="likeRating" value="1" >1</label>
+                                    <label><input type="radio" name="likeRating" value="2" >2</label>
+                                    <label><input type="radio" name="likeRating" value="3" >3</label>
+                                    <label><input type="radio" name="likeRating" value="4" >4</label>
+                                    <label><input type="radio" name="likeRating" value="5" >5</label>
                                 </td>
                             </tr>
 

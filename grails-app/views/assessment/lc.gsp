@@ -28,10 +28,10 @@
                                                 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="likeComment">Tell us why you like this so much.</label>
+                                    <label for="likeComment">What two things did you like most about this product?</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'likeComment', 'errors')}">
-                                    <g:textField name="likeComment" value="${assessmentInstance?.likeComment}" />
+                                    <textarea name="likeComment" rows="10" cols="50"></textarea> 
                                 </td>
                             </tr>
                         

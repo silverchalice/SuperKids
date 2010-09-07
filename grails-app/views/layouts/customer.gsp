@@ -29,7 +29,13 @@
 
     </div>
     <div id="nav">
+    <sec:ifLoggedIn>
+      <g:link controller="home" action="learn">LEARN</g:link>
+      <g:link controller="home" action="order">ORDER</g:link>
+      <g:link controller="home" action="assess">ASSESS</g:link>
+      <g:link controller="home" action="promote">PROMOTE</g:link>
       <span><g:link controller="logout">LOG OUT</g:link></span>
+      </sec:ifLoggedIn>
     </div>
     <div id="content">
         <div id="contentInset">
