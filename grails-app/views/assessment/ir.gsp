@@ -28,10 +28,14 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="interestRating">Exactly how many numbers are you interested in, you know, <em>buying</em> this product?</label>
+                                  <label for="interestRating">Please rate your interest in purchasing this product (where 1 is "low interest" and 5 is "high interest"). </label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'interestRating', 'errors')}">
-                                    <g:textField name="interestRating" value="${fieldValue(bean: assessmentInstance, field: 'interestRating')}" />
+                                    <label><input type="radio" name="interestRating" value="1" >1</label>
+                                    <label><input type="radio" name="interestRating" value="2" >2</label>
+                                    <label><input type="radio" name="interestRating" value="3" >3</label>
+                                    <label><input type="radio" name="interestRating" value="4" >4</label>
+                                    <label><input type="radio" name="interestRating" value="5" >5</label>
                                 </td>
                             </tr>
                         
