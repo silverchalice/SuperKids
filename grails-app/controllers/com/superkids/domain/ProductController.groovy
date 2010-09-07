@@ -1,7 +1,7 @@
 package com.superkids.domain
 import com.metasieve.shoppingcart.ShoppingCart
 import com.metasieve.shoppingcart.Shoppable
-import com.metasieve.shoppingcart.IShoppable
+import com.metasieve.shoppingcart.ShoppingItem
 import com.metasieve.shoppingcart.Quantity
 import com.superkids.domain.CustomerOrder
 import com.superkids.domain.OrderType
@@ -30,6 +30,8 @@ class ProductController {
 
     def save = {
         def productInstance = new Product(params)
+        def shoppingItem = new ShoppingItem().save()
+        productInstance.shoppingItem = shoppingItem
         if (productInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'product.label', default: 'Product'), productInstance.id])}"
             redirect(action: "show", id: productInstance.id)
