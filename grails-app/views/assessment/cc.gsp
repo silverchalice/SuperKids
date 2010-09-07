@@ -22,21 +22,11 @@
             <g:form action="ir" >
                 <g:hiddenField name="id" value="${assessmentInstance?.id}" />
                 <g:hiddenField name="version" value="${assessmentInstance?.version}" />
-                <div class="dialog">
-                    <table>
-                        <tbody>
-                                                
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="changeComment">What, if anything, would you recommend be changed about this sampled product?</label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'changeComment', 'errors')}">
-                                    <textarea name="changeComment" rows="10" cols="50"></textarea> 
-                                </td>
-                            </tr>
-                        
-                        </tbody>
-                    </table>
+                <div class="dialog"><br />
+                  <p>
+                    <label for="changeComment">What, if anything, would you recommend be changed about this sampled product?</label><br /><br />
+                    <textarea name="changeComment" rows="10" cols="50"></textarea>
+                  </p>
                 </div>
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="Next" /></span>
