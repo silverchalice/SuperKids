@@ -20,7 +20,7 @@
 
       <div class="clear"></div>
 
-      <div id="factoids">
+      <div id="products" style="top:-4px;">
           <p>
           <g:each in="${products}" var="product">
               <g:link controller="product" action="show" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>

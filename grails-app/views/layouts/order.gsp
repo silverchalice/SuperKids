@@ -15,19 +15,13 @@
     <div id="secondaryContent">
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-        <div id="SubNav">
-                <p>This is a paragraph. It is a paragraph that should not be here. It is inside of a div that should not be here. Get rid of it.</p>
-                <p>This is a paragraph.</p>
-        </div>
-
-        <div class="clear"></div>
-      <div id="factoids">
+        <div id="products">
           <p>
           <g:each in="${products}" var="product">
               <g:link controller="product" action="show" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>
           </g:each>
           </p>
-      </div>
+        </div>
 	</div>
     <div id="nav">
       <g:link controller="home" action="learn">LEARN</g:link>

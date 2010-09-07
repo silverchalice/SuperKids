@@ -223,9 +223,20 @@ img#kid {
  width:230px;
 }
 
+#products {
+    background-image: url(../images/product-container.gif);
+    background-repeat:no-repeat;
+    width: 250px;
+    height: 270px;
+    position: relative;
+    padding:10px 10px 10px 20px;
+    top: 68px;
+    left: 2px;
+    z-index: 1;
+}
+
 
 #login {
-
 
 }
 
