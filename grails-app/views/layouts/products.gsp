@@ -40,7 +40,7 @@
         <div id="contentInset">
             <g:layoutBody />
         </div>
-        <div id="contentFooter">
+        <div id="contentFooter" style="margin-left:227px">
             <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
             <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
         </div>

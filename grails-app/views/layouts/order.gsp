@@ -1,3 +1,4 @@
+<%@ page import="com.superkids.domain.Product" %>
 <html>
     <head>
         <title><g:layoutTitle default="Grails" /></title>
@@ -6,6 +7,7 @@
         <g:layoutHead />
         <g:javascript library="application" />
         <g:javascript library="jquery" plugin="jquery"/>
+       <g:set var="products" value="${Product.list()}" />
     </head>
     <body>
   <div id="body">
@@ -19,11 +21,13 @@
         </div>
 
         <div class="clear"></div>
-        <div id="factoids">
-            <p> <strong>Lorem Ipsum</strong><br/>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis lectus sit amet diam rhoncus sodales. In massa enim, fermentum nec pulvinar non
-            </p>
-        </div>
+      <div id="factoids">
+          <p>
+          <g:each in="${products}" var="product">
+              <g:link controller="product" action="show" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>
+          </g:each>
+          </p>
+      </div>
 	</div>
     <div id="nav">
       <g:link controller="home" action="learn">LEARN</g:link>

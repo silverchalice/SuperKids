@@ -4,6 +4,8 @@ body {
   font-size: 12px;
   color: #333;
   height:800px;
+  margin:0 auto;
+  width:1000px;
 }
 
 #headline {
