@@ -20,7 +20,7 @@
             <g:form action="update" method="post" >
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
-                <div>
+                <div style="height:440px; overflow:auto;">
                     <table>
                         <tbody>
 
