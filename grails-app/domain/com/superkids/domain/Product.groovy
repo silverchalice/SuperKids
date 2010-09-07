@@ -1,13 +1,14 @@
 package com.superkids.domain
 
-import com.metasieve.shoppingcart.Shoppable
+import com.metasieve.shoppingcart.IShoppable
 
-class Product extends Shoppable {
+class Product implements IShoppable {
 
 	String name
 	String description
 	String details
 	String nutrition
+        com.metasieve.shoppingcart.ShoppingItem shoppingItem
 
 	byte[] image
 	byte[] summary

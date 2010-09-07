@@ -138,10 +138,13 @@ class CallController {
    def mockup = {
  		def caller = springSecurityService.principal
 		def customerInstance = Customer.get(2)
+        def products = Product.list()
 
 		def callInstance = new Call(customer:customerInstance, caller:caller)
 
-		render(view: "start", model: [ customerInstance: customerInstance, callInstance: callInstance ])
+
+     
+		render(view: "start", model: [ customerInstance: customerInstance, callInstance: callInstance, products: products])
    }
 	
 }

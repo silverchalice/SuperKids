@@ -1,4 +1,5 @@
-<%@ page import="com.superkids.domain.CallResult" %>
+<%@ page import="com.superkids.domain.ShippingDate; com.superkids.domain.CallResult;" %>
+
 
 <html>
 <head>
@@ -20,16 +21,18 @@
 
     <style type="text/css">
 
+        input, select, textarea {
+          background:#FFF3E0;
+        }
+
+
         .prop .textField {
             width:300px
         }
 
         .contact {
-            width:420px;
-            margin-top: 10px;
-            margin-right: 20px;
-            margin-bottom: 10px;
-            margin-left:0;
+            width:400px;
+            margin: 10px 10px 0 0;
         }
 
         .contact td {
@@ -46,8 +49,8 @@
 
     <div class="body" style="width:1200px">
         <div class="dialog">
-            <div id="row1" style="width:1200px">
-            <table style="float:left; width:400px; margin:10px; margin-bottom:10px; margin-left:0">
+            <div id="row1" style="width:400px; float:left; margin-right:10px; ">
+            <table style="width:400px; margin: 10px 10px 0px 0; margin-left:0">
                 <tbody>
                 <tr class="prop">
                     <td valign="top" class="name">
@@ -99,160 +102,7 @@
                     </tr>
                  </tbody>
              </table>
-
-            <table style="float:left; width:480px;margin-top: 10px; margin-left: 0px; margin-right:10px;">
-                <tbody>
-
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="phone"><g:message code="customer.phone.label" default="Phone" /></label>
-                        </td>
-                        <td valign="top">
-                            <g:textField style="width:150px;" name="phone" value="${customerInstance?.phone}" />
-                            <label for="callbackDate" style="padding: 0 10px 0 40px;"><g:message code="callback.date" default="Callback Date" /></label>
-                            <input type="text" style="width:90px" id="callbackDate" />
-                        </td>
-                                 
-                    </tr>
-
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="fax"><g:message code="customer.fax.label" default="Fax" /></label>
-                        </td>
-                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fax', 'errors')}">
-                            <g:textField style="width:150px;" class="textField" name="fax" value="${customerInstance?.fax}" />
-                            <label for="callbackTime" style="padding: 0 10px 0 40px;"><g:message code="callback.date" default="Callback Time" /></label>
-                            <input type="text" style="width:90px" id="callbackTime" />
-                        </td>
-
-                    </tr>
-
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="fax"><g:message code="customer.website.label" default="Website" /></label>
-                        </td>
-                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'website', 'errors')}">
-                            <g:textField class="textField" name="fax" value="${customerInstance?.website}" />
-                        </td>
-                    </tr>
-
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="deliveryAddress.street"><g:message code="address.street.label" default="Del. Street" /></label>
-                        </td>
-                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'street', 'errors')}">
-                            <g:textField class="textField" name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" />
-                        </td>
-                    </tr>
-
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="deliveryAddress.street2"><g:message code="address.street2.label" default="Del. Street 2" /></label>
-                        </td>
-                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street2', 'errors')}">
-                            <g:textField class="textField" name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" />
-                        </td>
-                    </tr>
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="deliveryAddress.city"><g:message code="address.city.label" default="Del. City" /></label>
-                        </td>
-                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'city', 'errors')}">
-                            <g:textField class="textField" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" style="width:150px; margin-right:10px;" />
-                            <label for="deliveryAddress.state"><g:message code="deliveryAddress.state.label" default="State" /></label>
-                            <g:textField class="textField" name="deliveryAddress.state" value="${customerInstance?.deliveryAddress?.state}" style="width:35px;  margin-right:10px;"/>
-                            <label for="deliveryAddress.zip"><g:message code="deliveryAddress.zip.label" default="Zip" /></label>
-                            <g:textField class="textField" name="deliveryAddress.zip" value="${fieldValue(bean: customerInstance?.deliveryAddress, field: 'zip')}" style="width:50px" />
-
-                    </tr>
-                </tbody>
-            </table>
-	              <table style="margin: 10px 0 0 0; width:280px; padding:0px;">
-                    <tbody>
-
-                        <tr class="prop">
-                            <td valign="top" class="name">
-                                <label for="call.result"><strong>Call Result</strong></label>
-                            </td>
-                            <td valign="top" class="value">
-                                 <g:select style="width:175px" id="call.result" name='type.id' value="${call?.result?.id}"
-                                    noSelection="${['null':'Select One...']}"
-                                    from='${CallResult.enumConstants}'></g:select>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <table style="margin: 10px 0 10px 0; width:280px" class="callerRecord">
-                    <tbody>
-                        <tr class="prop">
-                            <td valign="top" class="name">
-                                Caller:
-                            </td>
-                            <td valign="top" class="value">
-                                Mr. First Caller
-                            </td>
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name">
-                                Date
-                            </td>
-                            <td valign="top" class="value">
-                                7/16/2009
-                            </td>
-                        </tr>
-
-
-                        <tr class="prop">
-                            <td valign="top" class="name">
-                                Result
-                            </td>
-                            <td valign="top" class="value">
-                                Voicemail/Answering Machine
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <table style="margin:0px 0 10px 0; width:280px" class="callerRecord">
-                    <tbody>
-                        <tr class="prop">
-                            <td valign="top" class="name">
-                                Caller:
-                            </td>
-                            <td valign="top" class="value">
-                                Mr. First Caller
-                            </td>
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name">
-                                Date
-                            </td>
-                            <td valign="top" class="value">
-                                7/16/2009
-                            </td>
-                        </tr>
-
-
-                        <tr class="prop">
-                            <td valign="top" class="name">
-                                Result
-                            </td>
-                            <td valign="top" class="value">
-                                Voicemail/Answering Machine
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-
-            <div id="column2" style="float:left;">              
-            <table class="contact" style="float:left; width:420px">
+            <table class="contact" style="width:400px">
                 <tbody>
                     <tr class="prop">
                         <td class="name"></td>
@@ -323,7 +173,7 @@
                         </td>
                     </tr>
                 </tbody>
-            </table>              
+            </table>
              <table class="contact">
                 <tbody>
                     <tr class="prop">
@@ -360,21 +210,88 @@
                     </tr>
                  </tbody>
              </table>
-
-                  <table style="margin:10px 10px 0px 0px; width:420px; ">
+                  <table style="margin:10px 10px 0px 0px; width:400px; ">
                     <tbody>
                         <tr>
-                            <td>
+                            <td class="name"></td>
+                            <td class="prop">
                                 <h3>Operator Comments</h3>
                                 <g:textArea class="callerNotes" name="notes" value="${callInstance?.notes}"/>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
 
+            <div id="column2" style="width:500px; float:left">
+            <table style="width:500px;margin-top: 10px; margin-left: 0px; margin-right:10px;">
+                <tbody>
 
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="phone"><g:message code="customer.phone.label" default="Phone" /></label>
+                        </td>
+                        <td valign="top">
+                            <g:textField style="width:150px;" name="phone" value="${customerInstance?.phone}" />
+                            <label for="callbackDate" style="padding: 0 10px 0 50px;"><g:message code="callback.date" default="Callback Date" /></label>
+                            <input type="text" style="width:90px" id="callbackDate" />
+                        </td>
+                                 
+                    </tr>
 
-                    <table style="margin:10px 20px; width:350px; ">
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="fax"><g:message code="customer.fax.label" default="Fax" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fax', 'errors')}">
+                            <g:textField style="width:150px;" class="textField" name="fax" value="${customerInstance?.fax}" />
+                            <label for="callbackTime" style="padding: 0 10px 0 50px;"><g:message code="callback.date" default="Callback Time" /></label>
+                            <input type="text" style="width:90px" id="callbackTime" />
+                        </td>
+
+                    </tr>
+
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="fax"><g:message code="customer.website.label" default="Website" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'website', 'errors')}">
+                            <g:textField class="textField" name="fax" value="${customerInstance?.website}" />
+                        </td>
+                    </tr>
+
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="deliveryAddress.street"><g:message code="address.street.label" default="Del. Street" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'street', 'errors')}">
+                            <g:textField class="textField" name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" />
+                        </td>
+                    </tr>
+
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="deliveryAddress.street2"><g:message code="address.street2.label" default="Del. Street 2" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street2', 'errors')}">
+                            <g:textField class="textField" name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" />
+                        </td>
+                    </tr>
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="deliveryAddress.city"><g:message code="address.city.label" default="Del. City" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'city', 'errors')}">
+                            <g:textField class="textField" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" style="width:150px; margin-right:10px;" />
+                            <label for="deliveryAddress.state"><g:message code="deliveryAddress.state.label" default="State" /></label>
+                            <g:textField class="textField" name="deliveryAddress.state" value="${customerInstance?.deliveryAddress?.state}" style="width:35px;  margin-right:10px;"/>
+                            <label for="deliveryAddress.zip"><g:message code="deliveryAddress.zip.label" default="Zip" /></label>
+                            <g:textField class="textField" name="deliveryAddress.zip" value="${fieldValue(bean: customerInstance?.deliveryAddress, field: 'zip')}" style="width:50px" />
+
+                    </tr>
+                </tbody>
+            </table>
+                  <table style="margin: 10px 10px 10px 0;width:500px; ">
                        <tbody>
                            <tr class="prop">
                                <td valign="top" class="name">
@@ -475,7 +392,118 @@
                             </tr>
 
                        </tbody>
-                    </table>				
+                    </table>
+            </div>
+
+            <div id="column3" style="width:280px; float:right">
+	              <table style="margin: 10px 0 0 0; width:280px; padding:0px;">
+                    <tbody>
+
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                <label for="call.result"><strong>Call Result</strong></label>
+                            </td>
+                            <td valign="top" class="value">
+                                 <g:select style="width:175px" id="call.result" name='type.id' value="${call?.result?.id}"
+                                    noSelection="${['null':'Select One...']}"
+                                    from='${CallResult.enumConstants}'></g:select>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <table style="margin: 10px 0 10px 0; width:280px" class="callerRecord">
+                    <tbody>
+                        <tr>
+                          <td></td>
+                          <td>
+                            <h3>Previous Call</h3>
+                            <br/>
+                          </td>
+                        </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                Caller:
+                            </td>
+                            <td valign="top" class="value">
+                                Mr. First Caller
+                            </td>
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                Date
+                            </td>
+                            <td valign="top" class="value">
+                                7/16/2009
+                            </td>
+                        </tr>
+
+
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                Result
+                            </td>
+                            <td valign="top" class="value">
+                                Voicemail/Answering Machine
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <table>
+                  <tbody>
+                    <tr class="prop">
+                      <td class="name"></td>
+                      <td class="value"><h3>Order Samples</h3></td>
+                    </tr>
+
+                    <g:each in="${products}" var="product" >
+                      <tr class="prop">
+                        <td class="name">
+                          <g:checkBox name="order.${product.name}"/>
+                        </td>
+                        <td class="value">
+                          ${product.name}
+                        </td>
+                      </tr>
+
+                    </g:each>
+                  </tbody>
+                </table>
+                                           
+                <table style="margin-top:10px">
+                    <tbody>
+                        <tr class="prop">
+                            <td>
+                                <h3>I would like my order sent in</h3>
+                            </td>
+                        </tr>
+                        <tr class="prop">
+                            <td>
+                                <g:select name="order.shippingDate"
+                                  from="${ShippingDate.list()}"
+                                  optionKey="id"
+                                  optionValue="shipDate"
+                                  style="width:220px;"
+                                  noSelection="${['null':'Select a Shipping Date...']}" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
                 </div>
 
         </div>
