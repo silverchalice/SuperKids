@@ -7,13 +7,14 @@ import com.superkids.domain.UserRole
 import com.superkids.domain.Address
 import com.superkids.domain.PageText
 import com.superkids.domain.Caller
+import com.superkids.domain.ShippingDate
 
 class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-//		def superkids = '/Users/zak/builds/SuperKids'
-		def superkids = '/home/ben/dev/SuperKids'
+		def superkids = '/Users/zak/builds/SuperKids'
+//		def superkids = '/home/ben/dev/SuperKids'
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
@@ -85,6 +86,26 @@ class BootStrap {
 			sampleContact:'Jane Smith jsmith@acmefoods.com 123-456-0987',
 			products:[]
 		).save()
+
+		def sponsor2 = new Sponsor(
+			name:'EMAC Foods, Inc',
+			address: new Address(street:'321 Wall Street', city:'Los Angeles', state: 'CA', zip:'93456'),
+			phone:'1-800 123 4567',
+			website:'www.emacfoods.com',
+			salesContact:'John Doe, jdoe@emacfoods.com 123-456-7890',
+			sampleContact:'Jane Smith jsmith@emacfoods.com 123-456-0987',
+			products:[]
+		).save()
+
+		def sponsor3 = new Sponsor(
+			name:'Healthy Foods, Inc',
+			address: new Address(street:'321 Main Street', city:'Los Angeles', state: 'CA', zip:'93456'),
+			phone:'1-800 123 4567',
+			website:'www.healthyfoods.com',
+			salesContact:'John Doe, jdoe@healthyfoods.com 123-456-7890',
+			sampleContact:'Jane Smith jsmith@healthyfoods.com 123-456-0987',
+			products:[]
+		).save()      
 
 		def product1 = new Product(
 			name:'Healthy Hot Dog',
@@ -208,6 +229,19 @@ class BootStrap {
 
 		sponsor1.addToProducts(product1)
 		sponsor1.addToProducts(product2)
+		sponsor1.addToProducts(product3)
+		sponsor1.addToProducts(product4)
+
+		sponsor2.addToProducts(product5)
+		sponsor2.addToProducts(product6)
+		sponsor2.addToProducts(product7)
+		sponsor2.addToProducts(product8)
+
+		sponsor3.addToProducts(product9)
+		sponsor3.addToProducts(product10)
+		sponsor3.addToProducts(product11)
+		sponsor3.addToProducts(product12)
+
 
 		customer.save(failOnError:true)
 		customer2.save(failOnError:true)
@@ -357,6 +391,17 @@ def assessmentToolsText = new PageText(name:"assessment_tools", content:"""
 <p><g:link controller="home" action="index">Student Certificate</g:link> — Download and print it, then give it to student taste-testers to recognize them for participating as a SuperKid.</p>
                 """
                 ).save()
+
+
+    new ShippingDate(
+        shipDate:new Date(2010,10,1)
+    ).save()
+    new ShippingDate(
+        shipDate:new Date(2011,1,1)
+    ).save()
+
+
+
 
     }
 
