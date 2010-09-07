@@ -21,4 +21,14 @@ class User {
 	Set<Role> getAuthorities() {
 		UserRole.findAllByUser(this).collect { it.role } as Set
 	}
+
+        def isAdmin(){
+            def adminRole = Role.findByAuthority("ROLE_ADMIN")
+            if(adminRole?.people.find{it.id == id}){
+                return true
+            } else {
+                return false
+            }
+        }
+
 }
