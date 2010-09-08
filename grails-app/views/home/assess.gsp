@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="assess" />
+        <meta name="layout" content="assess_landing" />
         <title>You landed on: The Landing Page.</title>
     </head>
     <body>
