@@ -121,8 +121,12 @@ class AssessmentController {
                         products << it
                     }
                 }
-                products.each{ println it }
-                return [assessmentInstance: assessmentInstance, products:products]       
+                if(products){
+                    return [assessmentInstance: assessmentInstance, products:products]       
+                } else {
+                    flash.message = "You have assessed all of the products that you ordered."
+                    redirect controller:"home", action:"index"
+                }
             } else {
                 flash.message = "Did you order anything yet?"
                 redirect controller:"home", action:"index"
