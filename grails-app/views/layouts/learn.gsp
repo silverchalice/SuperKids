@@ -48,12 +48,17 @@
             </p>
         </div>
 	</div>
+        <sec:ifLoggedIn>
+        <div id="HeaderBar">
+            <div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
+        </div>
+        </sec:ifLoggedIn>    
     <div id="nav">
       <g:link controller="home" action="learn">LEARN</g:link>
       <g:link controller="home" action="order">ORDER</g:link>
       <g:link controller="home" action="assess">ASSESS</g:link>
       <g:link controller="home" action="promote">PROMOTE</g:link>
-      <span><g:link controller="logout">LOG OUT</g:link></span>
+      <span id="login"><g:link controller="logout">LOG OUT</g:link></span>
     </div>
     <div id="content">
         <div id="contentInset">

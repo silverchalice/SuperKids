@@ -31,7 +31,7 @@
     </div>
       <sec:ifLoggedIn>
         <div id="HeaderBar"> 
-            <div align="right" style="padding-top: 15px;">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div> 
+            <div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div> 
         </div>
         </sec:ifLoggedIn>
     <div id="nav">

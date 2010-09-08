@@ -112,7 +112,7 @@
                     </tr>
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="fsdName"><g:message code="customer.fsdName.label" default="Fsd Name" /></label>
+                            <label for="fsdName"><g:message code="customer.fsdName.label" default="Name" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdName', 'errors')}">
                             <g:textField class="textField" name="fsdName" value="${customerInstance?.fsdName}" />
@@ -121,7 +121,7 @@
 
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="fsdEmail"><g:message code="customer.fsdEmail.label" default="Fsd Email" /></label>
+                            <label for="fsdEmail"><g:message code="customer.fsdEmail.label" default="Email" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdEmail', 'errors')}">
                             <g:textField class="textField" name="fsdEmail" value="${customerInstance?.fsdEmail}" />
@@ -130,7 +130,7 @@
 
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="fsdTitle"><g:message code="customer.fsdTitle.label" default="Fsd Title" /></label>
+                            <label for="fsdTitle"><g:message code="customer.fsdTitle.label" default="Title" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdTitle', 'errors')}">
                             <g:textField class="textField" name="fsdTitle" value="${customerInstance?.fsdTitle}" />
@@ -148,7 +148,7 @@
                     </tr>
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="cdName"><g:message code="customer.cdName.label" default="Cd Name" /></label>
+                            <label for="cdName"><g:message code="customer.cdName.label" default="Name" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdName', 'errors')}">
                             <g:textField class="textField" name="cdName" value="${customerInstance?.cdName}" />
@@ -157,7 +157,7 @@
 
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="cdEmail"><g:message code="customer.cdEmail.label" default="Cd Email" /></label>
+                            <label for="cdEmail"><g:message code="customer.cdEmail.label" default="Email" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdEmail', 'errors')}">
                             <g:textField class="textField" name="cdEmail" value="${customerInstance?.cdEmail}" />
@@ -166,7 +166,7 @@
 
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="cdTitle"><g:message code="customer.cdTitle.label" default="Cd Title" /></label>
+                            <label for="cdTitle"><g:message code="customer.cdTitle.label" default="Title" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdTitle', 'errors')}">
                             <g:textField class="textField" name="cdTitle" value="${customerInstance?.cdTitle}"/>
@@ -184,7 +184,7 @@
                     </tr>
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="ndName"><g:message code="customer.ndName.label" default="Nd Name" /></label>
+                            <label for="ndName"><g:message code="customer.ndName.label" default="Name" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndName', 'errors')}">
                             <g:textField class="textField" name="ndName" value="${customerInstance?.ndName}" />
@@ -193,7 +193,7 @@
 
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="ndEmail"><g:message code="customer.ndEmail.label" default="Nd Email" /></label>
+                            <label for="ndEmail"><g:message code="customer.ndEmail.label" default="Email" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndEmail', 'errors')}">
                             <g:textField class="textField" name="ndEmail" value="${customerInstance?.ndEmail}" />
@@ -202,7 +202,7 @@
 
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="ndTitle"><g:message code="customer.ndTitle.label" default="Nd Title" /></label>
+                            <label for="ndTitle"><g:message code="customer.ndTitle.label" default="Title" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndTitle', 'errors')}">
                             <g:textField class="textField" name="ndTitle" value="${customerInstance?.ndTitle}" />
@@ -417,10 +417,46 @@
                         <tr>
                           <td></td>
                           <td>
-                            <h3>Previous Call</h3>
+                            <h3>Previous Calls</h3>
                             <br/>
                           </td>
                         </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                Caller:
+                            </td>
+                            <td valign="top" class="value">
+                                Mr. Second Caller
+                            </td>
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                Date
+                            </td>
+                            <td valign="top" class="value">
+                                1/12/2010
+                            </td>
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                Result
+                            </td>
+                            <td valign="top" class="value">
+                                Voicemail/Answering Machine
+                            </td>
+                        </tr>
+
+                        <tr>
+                          <td class="name">
+                          &nbsp;
+                          </td>
+                          <td class="value">
+                          &nbsp;
+                          </td>
+                        </tr>
+
                         <tr class="prop">
                             <td valign="top" class="name">
                                 Caller:
@@ -448,7 +484,6 @@
                                 Voicemail/Answering Machine
                             </td>
                         </tr>
-
                     </tbody>
                 </table>
 
