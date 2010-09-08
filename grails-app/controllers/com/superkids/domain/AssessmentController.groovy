@@ -122,7 +122,7 @@ class AssessmentController {
                     }
                 }
                 if(products){
-                    return [assessmentInstance: assessmentInstance, products:products]       
+                    return [assessmentInstance: assessmentInstance, id:params.id, products:products]       
                 } else {
                     flash.message = "You have assessed all of the products that you ordered."
                     redirect controller:"home", action:"index"
