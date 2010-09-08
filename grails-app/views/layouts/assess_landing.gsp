@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
-        <g:set var="products" value="${Product.list()}" />
     </head>
     <body>
   <div id="body">
