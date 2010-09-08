@@ -30,10 +30,7 @@
                     <label><input type="radio" name="likeRating" value="3" >3</label>
                     <label><input type="radio" name="likeRating" value="4" >4</label>
                     <label><input type="radio" name="likeRating" value="5" >5</label>
-                  </p>
-                  <p>
-                    <label for="product">Which product were you assessing, did you say?</label>
-                    <g:select name="product.id" from="${products}" optionKey="id" value="${assessmentInstance?.product?.id}"  />
+                    <g:hiddenField name="product.id" value="${id}" />
                   </p>
                 </div>
                 <div class="buttons">
