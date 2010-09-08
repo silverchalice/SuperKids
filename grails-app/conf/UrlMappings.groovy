@@ -140,6 +140,10 @@ class UrlMappings {
                     controller = "testShoppingCart"
                     action = "show"
                 }
+                "/assess/$id" {
+                    controller = "assessment"
+                    action = "start"
+                }
 		"500"(view:'/error')
 	}
 }
