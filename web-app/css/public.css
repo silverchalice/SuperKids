@@ -238,6 +238,7 @@ img#kid {
     top: 68px;
     left: 2px;
     z-index: 1;
+    overflow:auto;
 }
 
 
