@@ -15,14 +15,13 @@
 
       <div class="clear"></div>
 
-      <div id="products" style="top:68px; height:450px; overflow:auto;">
-          <p>
+      <div id="products" style="top:68px;">
           <g:each in="${products}" var="product">
               <p>
-                <g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>
-              </p>
+                <g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px; padding-right:5px;" align="left" /></g:link> ${product.name} <br/ >
+                ${product.sponsor.name}
+              </p><br />
           </g:each>
-          </p>
       </div>
 
     </div>
