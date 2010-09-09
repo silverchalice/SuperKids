@@ -13,16 +13,14 @@
     <div id="secondaryContent">
       <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-      <div id="sideLogoBox">
-        <g:link action='ultragrain'><img src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
-      </div>
-
       <div class="clear"></div>
 
-      <div id="products" style="top:-4px">
+      <div id="products" style="top:68px; height:450px; overflow:auto;">
           <p>
           <g:each in="${products}" var="product">
-              <g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>
+              <p>
+                <g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>
+              </p>
           </g:each>
           </p>
       </div>
