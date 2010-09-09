@@ -108,23 +108,24 @@ class AssessmentController {
             def userRole = Role.findByAuthority("ROLE_USER")
             def products = []
             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+                def product = Product.get(params.id)
                 def customer = Customer.get(springSecurityService.principal.id)
-                def assessmentInstance = new Assessment()
-                assessmentInstance.properties = params
-                println "the customer's products are: "
-                customer.order.products.each {
-                    println it
-                }
-                println "the products we'll return are: "
-                customer.order.products.each{
-                    if(!Assessment.findByCustomerAndProduct(customer, it)){
-                        products << it
+                if(customer.order.products.collect{it.id}.contains(product.id)){
+                    def assessmentInstance = new Assessment()
+                    assessmentInstance.properties = params
+                    customer.order.products.each{
+                        if(!Assessment.findByCustomerAndProduct(customer, it)){
+                            products << it
+                        }
                     }
-                }
-                if(products){
-                    return [assessmentInstance: assessmentInstance, id:params.id, products:products]       
+                    if(products){
+                        return [assessmentInstance: assessmentInstance, id:params.id, products:products]       
+                    } else {
+                        flash.message = "You have assessed all of the products that you ordered."
+                        redirect controller:"home", action:"index"
+                    }
                 } else {
-                    flash.message = "You have assessed all of the products that you ordered."
+                    flash.message = "You didn't order ${product.name}."
                     redirect controller:"home", action:"index"
                 }
             } else {
