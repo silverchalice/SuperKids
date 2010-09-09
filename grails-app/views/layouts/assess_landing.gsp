@@ -19,7 +19,7 @@
 
       <div class="clear"></div>
 
-      <div id="products" style="top:-4px;">
+      <div id="products" style="top:-4px">
           <p>
           <g:each in="${products}" var="product">
               <g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>
@@ -44,7 +44,7 @@
         <div id="contentInset">
             <g:layoutBody />
         </div>
-        <div id="contentFooter" style="margin-left:227px">
+        <div id="contentFooter">
             <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
             <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
         </div>
