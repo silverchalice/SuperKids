@@ -6,4 +6,8 @@ class Factoid {
     static constraints = {
         content nullable:false, blank:false
     }
+
+    String toString(){
+        content
+    }
 }
