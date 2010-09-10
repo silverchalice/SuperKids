@@ -110,9 +110,6 @@ th.desc a {
                 </table>
                    <sks:hasNotPlacedCurrentOrder>
                     <br />
-                        <p><g:remoteLink controller="product" action="check_out"
-					update="shoppingCartContent">
-					Check out
-				</g:remoteLink></p><p>&nbsp;</p>
+                        <p><g:link controller="product" action="check_out">Check out</g:link></p><p>&nbsp;</p>
                    </sks:hasNotPlacedCurrentOrder>
         </g:else>
