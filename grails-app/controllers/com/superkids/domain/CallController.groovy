@@ -159,7 +159,16 @@ class CallController {
         [customerInstanceList:customers, customerInstanceTotal: customers.size()]
     }
 
-    def order_list = {}
+    def order_list = {
+        def customers = []
+        Customer.list().each {
+            if(it.status == CustomerStatus.HAS_NOT_ORDERED){
+                customers << it
+            }
+        }
+        [customerInstanceList:customers, customerInstanceTotal: customers.size()]
+
+    }
 
     def call_back_list = {}
 	
