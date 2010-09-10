@@ -1,5 +1,7 @@
 package com.superkids.domain
 
+import com.superkids.domain.CustomerStatus
+
 class CallController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -146,5 +148,19 @@ class CallController {
      
 		render(view: "start", model: [ customerInstance: customerInstance, callInstance: callInstance, products: products])
    }
+
+    def assess_list = {
+        def customers = []
+        Customer.list().each {
+            if(it.status == CustomerStatus.HAS_ORDERED){
+                customers << it
+            }
+        }
+        [customerInstanceList:customers, customerInstanceTotal: customers.size()]
+    }
+
+    def order_list = {}
+
+    def call_back_list = {}
 	
 }
