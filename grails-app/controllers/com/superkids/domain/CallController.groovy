@@ -170,6 +170,15 @@ class CallController {
 
     }
 
-    def call_back_list = {}
+    def call_back_list = {
+        def customers = []
+        Customer.list().each {
+            if(it.status == CustomerStatus.CALL_AGAIN){
+                customers << it
+            }
+        }
+        [customerInstanceList:customers, customerInstanceTotal: customers.size()]
+
+    }
 	
 }
