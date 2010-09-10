@@ -133,7 +133,9 @@ class CallController {
 
 		def callInstance = new Call(customer:customerInstance, caller:caller)
 
-		[ customerInstance: customerInstance, callInstance: callInstance ]
+                def products = Product.list()
+
+		[ customerInstance: customerInstance, callInstance: callInstance, products:products ]
 	}
 
 
