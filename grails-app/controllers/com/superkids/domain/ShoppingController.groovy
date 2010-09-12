@@ -20,7 +20,7 @@ class ShoppingController {
            customerInstance.properties = params
            if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                flash.message = "w00t! we updated the Customer!"
-               redirect(controller:"home", action: "index")
+               render view:"confirm"
            } else {
                render(view: "checkout", model: [customerInstance: customerInstance])
            }
