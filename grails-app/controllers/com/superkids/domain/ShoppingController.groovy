@@ -2,6 +2,9 @@ package com.superkids.domain
 
 class ShoppingController {
 
+    def springSecurityService
+    def shoppingCartService
+
     def index = { 
         
     }
@@ -29,6 +32,10 @@ class ShoppingController {
            flash.message = "Couldn't find that customer record."
            redirect(controller:"home", action: "index")
        }
+    }
+
+   def thanks = {
+
     }
 
 }
