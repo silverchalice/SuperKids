@@ -34,7 +34,21 @@ class ShoppingController {
        }
     }
 
-   def thanks = {
+    def place_order = {
+        def customer = Customer.get(springSecurityService.principal.id)
+        customer?.hasPlacedCurrentOrder = true
+        def order = new CustomerOrder(customer:customer, orderType:OrderType.WEB)
+        shoppingCartService.getItems().each{
+            def product = Product.get(it.id)
+            order.addToProducts(product)
+        }
+        customer.order = order
+        customer.save()
+        session.checkedOutItems = shoppingCartService.checkOut()
+        redirect action:"thanks"
+    }
+
+    def thanks = {
 
     }
 
