@@ -9,7 +9,8 @@ import com.superkids.domain.PageText
 import com.superkids.domain.Caller
 import com.superkids.domain.ShippingDate
 import com.metasieve.shoppingcart.ShoppingItem
-
+import com.superkids.domain.CustomerStatus
+import com.superkids.domain.Factoid
 
 class BootStrap {
     def springSecurityService
@@ -385,6 +386,13 @@ class BootStrap {
 
         def shippingDate1 = new ShippingDate(shipDate:new Date(110, 10, 01)).save()
         def shippingDate2 = new ShippingDate(shipDate:new Date(111, 01, 01)).save()
+
+        def f1 = new Factoid(content:"Whole wheat is good for you.").save()
+        def f2 = new Factoid(content:"Whole wheat is not bad for you.").save()
+        def f3 = new Factoid(content:"Eating whole wheat helps reduce your risk of not eating whole wheat.* <br /><br /><span style='font-size:xx-small'>(*The American Association Of Those Who Determine Such Things has determined that eating whole wheat helps to reduce the risk of not eating whole wheat, as part of a diet high in whole wheat.)</span>").save()
+        def f4 = new Factoid(content:"Who said that whole wheat wasn't good for you?").save()
+        def f5 = new Factoid(content:"Who said that whole wheat was bad for you?").save()
+
     }
 
 
