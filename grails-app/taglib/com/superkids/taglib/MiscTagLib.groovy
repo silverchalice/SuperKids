@@ -129,7 +129,10 @@ class MiscTagLib {
         Sponsor.list().each { sponsor ->
             sponsorNo++
             out << "sponsors[${sponsorNo}] = \""
-            out << "${sponsor.name}\";"
+            out << "<img src='"
+            out << g.createLink(controller:"sponsor", action:"displayImage", id:sponsor.id)
+            out << "' />"
+            out << "\";"
         }
         out << "var len = sponsors.length;"
         out << "if(nIndex >= len)"
