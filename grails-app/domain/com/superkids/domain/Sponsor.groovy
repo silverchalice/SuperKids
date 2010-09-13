@@ -10,6 +10,8 @@ class Sponsor {
 	String salesContact
 	String sampleContact
 
+	byte[] logo
+
 	static hasMany = [products: Product]
 
     static constraints = {
@@ -18,6 +20,7 @@ class Sponsor {
 		address()
 		phone()
 		website()
+		logo(nullable:true, blank:true)
 
 		salesContact(nullable: true)
 		sampleContact(nullable: true)
