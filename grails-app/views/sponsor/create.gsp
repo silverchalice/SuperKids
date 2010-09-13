@@ -23,7 +23,7 @@
                 <g:renderErrors bean="${sponsorInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" method="post" >
+            <g:form action="save" method="post" enctype="multipart/form-data">
                 <div class="dialog">
                     <table>
                         <tbody>
@@ -97,6 +97,15 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'website', 'errors')}">
                                     <g:textField name="website" value="${sponsorInstance?.website}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="logo"><g:message code="sponsor.logo.label" default="Logo" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'logo', 'errors')}">
+                                    <input type="file" id="logo" name="logo" />
                                 </td>
                             </tr>
 
