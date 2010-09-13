@@ -43,10 +43,14 @@
 
         <div class="clear"></div>
         <div id="factoids">
-            <p> <strong>Lorem Ipsum</strong><br/>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis lectus sit amet diam rhoncus sodales. In massa enim, fermentum nec pulvinar non
+            <p> <strong>SuperKids Facts</strong><br/>
+            <div id="Factoiddatabox" style="padding-left:10px; margin-top:-20px;">
+            </div>
             </p>
         </div>
+
+        <sks:factoidList />
+
 	</div>
         <sec:ifLoggedIn>
         <div id="HeaderBar">
@@ -86,6 +90,5 @@
 
     </div>
   </div>
-
     </body>
 </html>
