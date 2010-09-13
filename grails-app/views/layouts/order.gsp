@@ -15,7 +15,7 @@
     <div id="secondaryContent">
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-        <div id="Sponsordatabox" style="padding-left:10px; margin-top:-20px;">
+        <div id="Sponsordatabox" style="padding-right:15px; margin-top:-18px; margin-bottom:-54;">
         </div>
 
         <sks:sponsorList />
