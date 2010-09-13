@@ -97,4 +97,14 @@ class SponsorController {
             redirect(action: "list")
         }
     }
+
+    def displayImage = {
+        println "entering sponsor displayImage"
+        def sponsorInstance = Sponsor.get(params.id)
+
+        response.contentType = "image/jpeg"
+        response.contentLength = sponsorInstance.logo.size()
+        response.outputStream.write(sponsorInstance.logo)
+    }
+
 }
