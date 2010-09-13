@@ -4,6 +4,7 @@ import com.superkids.domain.Customer
 import com.superkids.domain.Product
 import com.metasieve.shoppingcart.Quantity
 import com.superkids.domain.Factoid
+import com.superkids.domain.Sponsor
 
 class MiscTagLib {
 
@@ -115,6 +116,29 @@ class MiscTagLib {
         out << "timerID = setTimeout('factoidloop()',10000);"
         out << "}"
         out << "factoidloop();"
+        out << "</script>"
+    }
+
+    def sponsorList = { attrs ->
+        out << "<script>"
+        out << "var nIndex = 1;"
+        out << "var timerID = null;"
+        out << "function sponsorloop(){"
+        out << "var sponsors = new Array();"
+        def sponsorNo = 0
+        Sponsor.list().each { sponsor ->
+            sponsorNo++
+            out << "sponsors[${sponsorNo}] = \""
+            out << "${sponsor.name}\";"
+        }
+        out << "var len = sponsors.length;"
+        out << "if(nIndex >= len)"
+        out << "nIndex = 1;"
+        out << "document.getElementById('Sponsordatabox').innerHTML = sponsors[nIndex];"
+        out << "nIndex++;"
+        out << "timerID = setTimeout('sponsorloop()',10000);"
+        out << "}"
+        out << "sponsorloop();"
         out << "</script>"
     }
 
