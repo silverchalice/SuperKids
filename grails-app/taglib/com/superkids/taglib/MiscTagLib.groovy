@@ -126,12 +126,22 @@ class MiscTagLib {
         out << "function sponsorloop(){"
         out << "var sponsors = new Array();"
         def sponsorNo = 0
+        def sponsorProduct
         Sponsor.list().each { sponsor ->
+            sponsorProduct = Product.findBySponsor(sponsor)
             sponsorNo++
             out << "sponsors[${sponsorNo}] = \""
+            if(sponsorProduct){
+                out << "<a href='"
+                out << g.createLink(controller:"product", action:"show", id:sponsorProduct.id)
+                out << "'>"
+            }
             out << "<img src='"
             out << g.createLink(controller:"sponsor", action:"displayImage", id:sponsor.id)
             out << "' />"
+            if(sponsorProduct){
+                out << "</a>"
+            }
             out << "\";"
         }
         out << "var len = sponsors.length;"
