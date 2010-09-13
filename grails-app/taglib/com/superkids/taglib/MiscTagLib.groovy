@@ -3,6 +3,7 @@ package com.superkids.taglib
 import com.superkids.domain.Customer
 import com.superkids.domain.Product
 import com.metasieve.shoppingcart.Quantity
+import com.superkids.domain.Factoid
 
 class MiscTagLib {
 
@@ -92,6 +93,29 @@ class MiscTagLib {
             out << "</tbody>"
             out << "</table>"
         }
+    }
+
+    def factoidList = { attrs ->
+        out << "<script>"
+        out << "var nIndex = 1;"
+        out << "var timerID = null;"
+        out << "function factoidloop(){"
+        out << "var factoids = new Array();"
+        def factoidNo = 0;
+        Factoid.list().each { factoid ->
+            factoidNo++
+            out << "factoids[${factoidNo}] = \""
+            out << "${factoid.content}\";"
+        }
+        out << "var len = factoids.length;"
+        out << "if(nIndex >= len)"
+        out << "nIndex = 1;"
+        out << "document.getElementById('Factoiddatabox').innerHTML = factoids[nIndex];"
+        out << "nIndex++;"
+        out << "timerID = setTimeout('factoidloop()',10000);"
+        out << "}"
+        out << "factoidloop();"
+        out << "</script>"
     }
 
 }
