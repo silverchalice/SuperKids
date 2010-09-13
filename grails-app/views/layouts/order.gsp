@@ -15,6 +15,11 @@
     <div id="secondaryContent">
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
+        <div id="Sponsordatabox" style="padding-left:10px; margin-top:-20px;">
+        </div>
+
+        <sks:sponsorList />
+
         <div id="products">
           <p>
           <g:each in="${products}" var="product">
