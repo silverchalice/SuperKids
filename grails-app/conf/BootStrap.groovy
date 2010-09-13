@@ -98,12 +98,22 @@ class BootStrap {
 			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:93456),
 			phone:'1-800 123 4567',
 			website:'www.acmefoods.com',
+                        logo:new File("${superkids}/web-app/images/sustagrain.gif").readBytes(),
 			salesContact:'John Doe, jdoe@acmefoods.com 123-456-7890',
 			sampleContact:'Jane Smith jsmith@acmefoods.com 123-456-0987',
 			products:[]
 		).save()
 
-
+		def sponsor2 = new Sponsor(
+			name:'Foo, Inc',
+			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:93456),
+			phone:'1-800 123 4567',
+			website:'www.acmefoods.com',
+                        logo:new File("${superkids}/web-app/images/ultragrain.gif").readBytes(),
+			salesContact:'John Doe, jdoe@acmefoods.com 123-456-7890',
+			sampleContact:'Jane Smith jsmith@acmefoods.com 123-456-0987',
+			products:[]
+		).save()
 
 		def product1 = new Product(
 			name:'Product 1',
