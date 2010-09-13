@@ -14,33 +14,38 @@
                <div class="message">${flash.message}</div>
            </g:if>
            <h1>Checkout Step 2 of 2</h1>
+            <g:form action="place_order" method="post" >
+            <g:hiddenField name="id" value="${customerInstance?.id}" />
+            <g:hiddenField name="version" value="${customerInstance?.version}" />
+            <div style="height:420px; overflow:auto;">
+
            <h2>Your Contact Information</h2>
            <p>Please confirm the information shown. To change your contact information, click <a href="#">here</a>. To add a sample, click <a href="#">here</a>.</p>
 
            <table cellpadding="1" cellpadding="0"> 
                <tr> 
                    <td nowrap="nowrap" valign="top" align="right"><strong>Name: </strong></td> 
-                   <td nowrap="nowrap" valign="top">Jacob Marley</td> 
+                   <td nowrap="nowrap" valign="top">${customerInstance.fsdName}</td> 
                </tr> 
                <tr> 
                    <td nowrap="nowrap" valign="top" align="right"><strong>School District: </strong></td> 
-                   <td nowrap="nowrap">Scrooge and Marley</td> 
+                   <td nowrap="nowrap">${customerInstance.district}</td> 
                </tr> 
                <tr> 
                    <td nowrap="nowrap" valign="top" align="right"><strong>Shipping Address: </strong></td> 
                    <td nowrap="nowrap"> 
-                       123 Foo Bar Rd.<BR> 
+                       ${customerInstance.address.street}<br /> 
                                             
-                       Fred CA, 1234567
+                       ${customerInstance.address.street2}
                    </td> 
                </tr> 
                <tr> 
                    <td nowrap="nowrap" valign="top" align="right"><strong>Phone Number: </strong></td> 
-                   <td nowrap="nowrap">1234567890</td> 
+                   <td nowrap="nowrap">${customerInstance.phone}</td> 
                </tr> 
                <tr> 
                    <td nowrap="nowrap" valign="top" align="right"><strong>Email Address: </strong></td> 
-                   <td nowrap="nowrap">fifthposition92@gmail.com</td> 
+                   <td nowrap="nowrap">${customerInstance.email}</td> 
                </tr> 
            </table> 
            <h2>The Samples Requested</h2>
@@ -58,7 +63,9 @@
      <h2>Rewards for Assessments</h2>
      <p>When you receive your samples and try them out, be sure to come back to SuperKidsSampling.com before March 5, 2010 -- you can earn special rewards for completing your assessments by this deadline. Click Assess to learn more. </p>
      <p>If this sample order is correct, click here to complete order. If you do not confirm your order by pressing this button, the order will not be placed.</p>
-
-        </div>
+     <span class="button"><g:submitButton name="create" class="save" value="Continue" /></span>
+      </div>
+      </g:form>
+      </div>
     </body>
 </html>
