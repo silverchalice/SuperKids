@@ -24,7 +24,7 @@
                 <g:renderErrors bean="${sponsorInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
+            <g:form method="post" enctype="multipart/form-data">
                 <g:hiddenField name="id" value="${sponsorInstance?.id}" />
                 <g:hiddenField name="version" value="${sponsorInstance?.version}" />
                 <div class="dialog">
@@ -67,6 +67,15 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="logo"><g:message code="sponsor.logo.label" default="Logo" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'logo', 'errors')}">
+                                    <input type="file" id="logo" name="logo" />
+                                </td>
+                            </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="salesContact"><g:message code="sponsor.salesContact.label" default="Sales Contact" /></label>
