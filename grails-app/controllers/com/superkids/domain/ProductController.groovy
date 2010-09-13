@@ -191,19 +191,4 @@ class ProductController {
             render view:"/shopping/check_out", model:[customerInstance:customerInstance]
         }
 
-        /*def foo = {
-            def customer = Customer.get(springSecurityService.principal.id)
-            customer?.hasPlacedCurrentOrder = true
-            def order = new CustomerOrder(customer:customer, orderType:OrderType.WEB)
-            shoppingCartService.getItems().each{
-                def product = Product.get(it.id)
-                order.addToProducts(product)
-            }
-            order.properties.each{ println it }
-            customer.order = order
-            customer.save()
-            session.checkedOutItems = shoppingCartService.checkOut()
-            render template:"/shopping/shoppingCartContent"
-        }*/
-
 }
