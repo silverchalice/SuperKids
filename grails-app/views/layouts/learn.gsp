@@ -34,7 +34,7 @@
 
                     <li><g:link controller="home" action="whole_grain_studies">Whole Grains & Human Health</g:link></li>
 
-                    <li><g:link controller="home" action="sneaky_chef">The Sneaky Chef</g:link></li>
+                    <li><g:link controller="home" action="childhood_obesity">Meeting the Challenge of Childhood Obesity</g:link></li>
 
                     <li><g:link controller="home" action="council_tips">Whole Grains Council Tips</g:link></li>
 
