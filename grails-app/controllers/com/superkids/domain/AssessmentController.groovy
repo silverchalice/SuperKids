@@ -216,7 +216,12 @@ class AssessmentController {
         def assessmentInstance = Assessment.get(params.id)
         assessmentInstance.interestRating = params.interestRating
         assessmentInstance.save()
-        return [assessmentInstance: assessmentInstance, products:products]
+        if(products.size() > 0){
+            return [assessmentInstance: assessmentInstance, products:products]
+        } else {
+            flash.message = "products < 0"
+            redirect controller:"home", action:"index"
+        }
     }
 
     def assess_process = {
