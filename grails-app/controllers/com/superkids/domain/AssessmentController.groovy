@@ -167,4 +167,21 @@ class AssessmentController {
         return [assessmentInstance: assessmentInstance]
     }
 
+    def assess_process = {
+       def products = []
+       if(springSecurityService.isLoggedIn()){
+           def user = User.get(springSecurityService.principal.id)
+           def userRole = Role.findByAuthority("ROLE_USER")
+           if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+               def customer = Customer.get(springSecurityService.principal.id)
+               customer.order.products.each{
+                   if(!Assessment.findByCustomerAndProduct(customer, it)){
+                       products << it
+                   }
+               }
+           }
+       }
+       [products:products]
+    }
+
 }
