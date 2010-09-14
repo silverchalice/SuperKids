@@ -285,29 +285,26 @@ class BootStrap {
 
         def orderText = new PageText(name:"order", content:"""
             <h1>Order Your Free Samples</h1>
-            <p><strong>Order Deadline: November 3, 2009 for samples to be delivered in November, 2009 and January 15, 2010 for those orders to be delivered in January, 2010.</strong></p>
+            <p><strong>Order Deadline: October 30, 2010 for samples to be delivered in November, 2010 and January 7, 2010 for those orders to be delivered in January, 2010.</strong></p>
             <h2>To Order Free Samples</h2>
             <p>1.  Mouse-over the pictures on the left to see each product's overview. <br />
             2.  Click on each product’s image to go to that product’s page, where you can request a sample, view product specifications and nutritional information, and download full product details. (After you order a sample, that product will be highlighted in <span style="color:green;">green</span>. Products still available for you to sample are not highlighted.) </p>
             <h2>Sample Availability</h2>
             <p>Samples will be delivered based upon availability at the time of your order and will be fulfilled while supplies last. Some samples require refrigeration or frozen storage. Packaging will only maintain products during shipment. A street address is required for all shipments. Be sure to verify that your contact information is correct. <strong>(Select 'Edit Profile' in the upper right corner to verify/change this information.)</strong></p>
             <h2>Rewards For Feedback</h2>
-            <p>Your feedback is essential in helping us improve our products. In appreciation for providing an assessment of each product you sample by March 9, 2011, we'll enter your name in a sweepstakes drawing. You could win a $100 or $200 Gift Card to Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys.  (See “Assess” tab for more details.)</p>
+            <p>Your feedback is essential in helping us improve our products. In appreciation for providing an assessment of each product you sample by March 9, 2011, we'll enter your name in a sweepstakes drawing. You could win a \$100 or \$200 Gift Card to Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys.  <em>(See “Assess” tab for more details.)</em></p>
                         """
             ).save()
 
         def assessText = new PageText(name:"assess", content:"""
             <h1>GET REWARDED JUST BY TELLING US WHAT YOU THINK!</h1>
-            <p>Your feedback is invaluable; it lets us know how to improve the SuperKids program and helps manufacturers better understand your needs.</p>
-            <p>After you receive your free samples and have tried them, tell us what you think by completing a short, five-question assessment for each product you tried. Do so by March 5, 2010, and you will earn the chance to win one of these special prizes:</p>
-            <ol>
-            <li><strong>TWO (2) First Place Prizes</strong> – \$1,000 for travel expenses and registration fees for SNA or other foodservice show in 2010.</li>
-            <li><strong>THREE (3) Second Place Prizes</strong> – Three “OrganWise Guys Foods of the Month Club Kits,” which you can use as an educational resource in three of your school district cafeterias (\$885 value).</li>
-            <li><strong>FIVE (5) Third Place Prizes</strong> – A \$200 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
-            <li><strong>TEN (10) Fourth Place Prizes</strong> – A \$100 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
-            <li><strong>THIRTY-THREE (33) Fifth Place Prizes</strong> – Missy Lapine’s <em>Sneaky Chef</em> paperback (\$16 value).</li>
-            </ol>
-            <p><strong>To get started, just click <g:link controller="home" action="index">here</a>, or on “Begin Online Assessment” in the menu. If you don’t finish, your progress will be saved so that you can come back later.</strong> </p>
+            <p>Your feedback is invaluable; it lets us know how to improve the SuperKids program and helps manufacturers better understand your needs.  After you’ve received and tried your free samples, please give us your feedback by completing the short five-question survey.  Do so between November 15, 2010 and March 9, 2011, and you’ll earn the chance to win one of these special prizes:</p>
+            <ul>
+                <li>FIVE (5) First Place Prizes--\$200 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
+                <li>SEVEN (7) Second Place Prizes--\$100 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
+            </ul>
+            <p>When you receive your samples, a printed Assessment Form will be included in the box.  Complete it, then fax or mail it back and you’ll be automatically entered in our drawing.  If you fill out the assessment form online you’ll double your chances to win one of our sweepstakes prizes!</p>
+            <p><em>To get started, just <a href="/SuperKids/assessment/assessment_process">click here</a>, or on “Begin Online Assessment” in the menu.  If you don’t finish, your progress will be saved so that you can come back later.</em></p>
                         """
             ).save()
 
@@ -317,6 +314,8 @@ class BootStrap {
             <p><strong>Send An eCard</strong>—Send an eCard to other school districts or foodservice distributors/brokers to tell them about the SuperKids Whole Grain Product Sampling Program.</p>
             <p><strong>Promotional Tools & Resources</strong>—Includes letters, articles and a poster. Promote the importance of whole grain nutrition; request parental approval for child participation in taste tests; download three customizable articles for your school's newsletter.</p>
             <p><strong>Additional Promotional Ideas</strong>—Includes "Creative Nutrition Messaging In Your Lunchroom" from <em>The Learning Zone</em>, and more rewards available from The Whole Grains Council.</p>
+            <h2>Educational Partner Materials</h2>
+            <p>In addition, to help you promote healthier eating habits with students and their parents, you’ll have access to invaluable educational tools from four partners in our program: The Whole Grains Council, Alliance for a Healthier Generation, Learning ZoneXpress and The OrganWise Guys.  <em>(<strong><a href="#">Click here</a><strong> for details on specific tools available as well as contact and ordering information.)</em> </p>
             <p><strong>Select your choice from the Promote Menu Options on the left.</strong></p>
 
                         """
@@ -393,6 +392,61 @@ class BootStrap {
             <p><g:link controller="home" action="index">Student Feedback Form</g:link> — This form was developed for use with younger students (K-3).</p>
             <br />
             <p><g:link controller="home" action="index">Student Certificate</g:link> — Download and print it, then give it to student taste-testers to recognize them for participating as a SuperKid.</p>
+                          """
+            ).save()
+
+        def whatIsText = new PageText(name:"what_is", content:"""
+            <h1>What Is SuperKids?</h1>
+            <p>SuperKids is a unique school foodservice program that offers free samples of whole grain and high-fiber snack, breakfast and lunch menu options that students will love.  This year’s program includes great-tasting products designed specifically for K-12 students from these manufacturers:</p>
+            <h2>SuperKids is the only product sampling program of its kind that:</h2>
+            <ul>
+                <li>Lets you choose the whole grain and high-fiber products you’d like to try</li>
+                <li>Notifies you via e-mail when your samples are going to ship</li>
+                <li>Delivers the samples directly to you so that you can evaluate them on your own ahead of the bid season</li>
+                <li>Solicits your input for product improvements and new products</li>
+                <li>Includes resources to promote whole grain nutrition</li>
+                <li>Offers rewards for timely feedback</li>
+                <li>Provides tools to help you promote your district’s whole grain success</li>
+                <li>Is completely free to you courtesy of ConAgra Mills and the manufacturers who participate in the program</li>
+                <li>Provides access to Partner Educational Materials to help your school promote healthier eating habits</li>
+            </ul>
+                          """
+            ).save()
+
+        def testimonialsText = new PageText(name:"testimonials", content:"""
+            <h1>Testimonials</h1>
+            <h2>Here’s what we’ve heard from Foodservice Directors like you!</h2>
+            <p>"I am so pleased that there are finally whole grain convenience foods that are healthy and delicious being offered for school foodservice, as well as whole grain flours!" <strong>– Medford, MA</strong></p>
+            <p>"I appreciate the fact that you are trying to make whole grain products that are kid friendly. It’s nice to be able to get samples so easily." <strong>– Kansas City, MO</strong></p>
+            <p>"The nutritional information was great. The amounts of the product that you sent was a good amount to give a large group of students samples. Your products are a great way to increase whole grains on our menu and raise participation." <strong>– Longmeadow, MA</strong></p>
+            <p>"This is a great program. It gives me an opportunity to taste test multiple products at one time with my students." <strong>– Watertown, WI</strong></p>
+            <p>"I like getting the samples to offer to the kids. Always looking for new menu items. Keep new products coming." <strong>– Millford, DE</strong></p>
+            <p>"Very good program. Please keep it in place. It allows us to try a small amount of product without a lot of hassle. Thank you!" <strong>– Willmar, MN</strong></p>
+            <p>"The students really enjoyed being able to try a product before it is put on the menu." <strong>– Afton, WY</strong></p>
+            <p>“I loved these products because when questioned regarding the healthiness of school lunches I can tell people we serve these whole grain foods.” <strong>– (Parma, OH)</strong></p> 
+            <p>“The cooks that help with the sampling were pleased with the fact that kids can be served whole grains and not even realize it.  With items such as these, we’re not compromising the taste to serve them whole grains.”  <strong>– (Weston, WV)</strong></p>
+            <p>“It’s a very good program.  It lets us taste new and upcoming healthy items.” <strong>– (Dunlap, IL)</strong></p>
+            <p>“As an industry, we should be looking at these and more products that include whole grains. Thank you for the opportunity to sample these products.” 
+<strong>– (Quartz Hill, CA)</strong></p>
+            <p>“This program’s a great help to schools by developing  these products using whole grains.  I’ve shared this info with our Wellness Committee.” <strong>– (Lafayette, IN)</strong></p>
+            <p>“The pasta products were my favorite.  I liked the taste and firm texture after they were cooked.”  <strong>– (Jefferson, NC)</strong></p>
+            <p>“We need to educate our students and serve them more whole grain.  I was amazed how many products are available.”  <strong>– (Brainerd, MN)</strong></p>
+                          """
+            ).save()
+
+        def childhoodObesityText = new PageText(name:"childhood_obesity", content:"""
+            <h1>The Challenge of Growing Childhood Obesity</h1>
+            <p>Across the country, childhood obesity remains a growing problem for school districts. Consider these alarming statistics:</p>
+            <ul>
+                <li>According to a report from the Center for Disease Control and Prevention (CDC), 80% of children overweight at ages 10-15 were also obese at age 25.</li>
+                <li>The Journal of the American Dietary Association reports that “Nearly 23 million children and teens are either overweight or obese.”</li>
+                <li>School nutrition is critical as 40% of children’s daily intake occurs at school.</li>
+            </ul>
+            <p>The good news is it appears whole grain consumption can be a key factor in helping to reverse the growing childhood obesity problem.  In addition, physical activity and school nutrition continue to play pivotal roles in the health and well-being of our nation’s students.</p>
+
+            <h2>Helping Schools Meet the Challenge with Healthier Whole Grain Choices</h2>
+            <p>The reality is, whole grain consumption delivers significant health benefits for school students.  For that reason, the USDA, American Heart Association, and Department of Health and Human Services generally agree that children ages 4-18 should eat between 3 and 6 servings of whole grains daily.  Unfortunately, the average school-age child in America eats less than one serving of whole grain foods each day.</p>
+            <p>By offering healthier and great-tasting whole grain food products, SuperKids provides an efficient way to help our nation’s students reach the recommended daily nutrition levels, while promoting healthier eating habits at school and home.</p>
                           """
             ).save()
 
