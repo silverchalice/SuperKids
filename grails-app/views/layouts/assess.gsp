@@ -16,7 +16,7 @@
         <div id="SubNav">
                 <h3>Assess Menu</h3>
                 <ul>
-                    <li><g:link controller="assessment" action="start">Began Online Assessment</g:link></li>
+                    <li><g:link controller="assessment" action="assess_process">Began Online Assessment</g:link></li>
 
                     <li><g:link controller="home" action="assessment_drawing_rules">Assessment Drawing Rules</g:link></li>
 
