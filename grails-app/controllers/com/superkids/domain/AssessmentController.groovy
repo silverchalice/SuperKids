@@ -220,7 +220,7 @@ class AssessmentController {
             return [assessmentInstance: assessmentInstance, products:products]
         } else {
             flash.message = "products < 0"
-            redirect controller:"home", action:"index"
+            redirect controller:"assessment", action:"broker_contact"
         }
     }
 
@@ -239,6 +239,34 @@ class AssessmentController {
            }
        }
        [products:products]
+    }
+
+    def broker_contact = {
+
+    }
+
+    def feedback = {
+
+    }
+
+    def reformulations = {
+
+    }
+
+    def other_products = {
+
+    }
+
+    def rewards = {
+
+    }
+
+    def finish = {
+        if(springSecurityService.loggedIn){
+            def user = Customer.get(springSecurityService.principal.id)
+        }
+        flash.message = "All done!"
+        redirect controller:"home", action:"index"
     }
 
 }
