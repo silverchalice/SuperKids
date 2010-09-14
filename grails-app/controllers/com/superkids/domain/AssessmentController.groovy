@@ -139,32 +139,84 @@ class AssessmentController {
     }
 
     def lc = {
+         def products = []
+         if(springSecurityService.isLoggedIn()){
+             def user = User.get(springSecurityService.principal.id)
+             def userRole = Role.findByAuthority("ROLE_USER")
+             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+                 def customer = Customer.get(springSecurityService.principal.id)
+                 customer.order.products.each{
+                     if(!Assessment.findByCustomerAndProduct(customer, it)){
+                         products << it
+                     }
+                 }
+             }
+         }
         def user = Customer.get(springSecurityService.principal.id)
         def assessmentInstance = new Assessment(customer:user)
         assessmentInstance.properties = params
         assessmentInstance.save()
-        return [assessmentInstance: assessmentInstance]
+        return [assessmentInstance: assessmentInstance, products:products]
     }
 
     def cc = {
+         def products = []
+         if(springSecurityService.isLoggedIn()){
+             def user = User.get(springSecurityService.principal.id)
+             def userRole = Role.findByAuthority("ROLE_USER")
+             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+                 def customer = Customer.get(springSecurityService.principal.id)
+                 customer.order.products.each{
+                     if(!Assessment.findByCustomerAndProduct(customer, it)){
+                         products << it
+                     }
+                 }
+             }
+         }
         def assessmentInstance = Assessment.get(params.id)
         assessmentInstance.likeComment = params.likeComment
         assessmentInstance.save()
-        return [assessmentInstance: assessmentInstance]
+        return [assessmentInstance: assessmentInstance, products:products]
     }
 
     def ir = {
+         def products = []
+         if(springSecurityService.isLoggedIn()){
+             def user = User.get(springSecurityService.principal.id)
+             def userRole = Role.findByAuthority("ROLE_USER")
+             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+                 def customer = Customer.get(springSecurityService.principal.id)
+                 customer.order.products.each{
+                     if(!Assessment.findByCustomerAndProduct(customer, it)){
+                         products << it
+                     }
+                 }
+             }
+         }
         def assessmentInstance = Assessment.get(params.id)
         assessmentInstance.changeComment = params.changeComment
         assessmentInstance.save()
-        return [assessmentInstance: assessmentInstance]
+        return [assessmentInstance: assessmentInstance, products:products]
     }
 
     def complete = {
+         def products = []
+         if(springSecurityService.isLoggedIn()){
+             def user = User.get(springSecurityService.principal.id)
+             def userRole = Role.findByAuthority("ROLE_USER")
+             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+                 def customer = Customer.get(springSecurityService.principal.id)
+                 customer.order.products.each{
+                     if(!Assessment.findByCustomerAndProduct(customer, it)){
+                         products << it
+                     }
+                 }
+             }
+         }
         def assessmentInstance = Assessment.get(params.id)
         assessmentInstance.interestRating = params.interestRating
         assessmentInstance.save()
-        return [assessmentInstance: assessmentInstance]
+        return [assessmentInstance: assessmentInstance, products:products]
     }
 
     def assess_process = {
