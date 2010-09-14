@@ -16,8 +16,8 @@ class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-		def superkids = '/Users/zak/builds/SuperKids'
-//		def superkids = '/home/ben/dev/SuperKids'
+//		def superkids = '/Users/zak/builds/SuperKids'
+		def superkids = '/home/ben/dev/SuperKids'
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
@@ -249,6 +249,8 @@ class BootStrap {
 
 		sponsor1.addToProducts(product1)
 		sponsor1.addToProducts(product2)
+                sponsor2.addToProducts(product3)
+                sponsor2.addToProducts(product4)
 
 		customer.save(failOnError:true)
 		customer2.save(failOnError:true)
@@ -272,12 +274,13 @@ class BootStrap {
                         ).save()
 
         def learnText = new PageText(name:"learn", content:"""
-            <h1>Welcome to the 2009-2010 SuperKids Whole Grain Sampling Program.</h1> <p>The SuperKids program is your chance to try free samples of better-for-you, great-tasting whole grain foods from a variety of trusted companies.</p>
-            <p>Across the country, elementary, junior and senior high schools in districts like yours are seeking ways to add more whole grains to their menus. Whole grains play a vital role in a healthy, balanced diet. In addition, students who eat more whole grains have been shown to stay full for longer periods of time, pay better attention in class, and maintain a healthier body weight.</p>
-            <p>The USDA recommends 3 to 6 servings of whole grains daily, yet, the average school-age child in America consumes less than one serving of whole grains each day. The biggest reasons for this are taste and appearance. Historically whole grain foods did not look or taste like the foods students traditionally prefer.</p>
-            <p>Two revolutionary ingredients, <strong>Ultragrain®</strong> whole wheat flour and <strong>Sustagrain®</strong> ultra-high fiber barley, are changing that perception. All of the products featured in the directory are made with one of these ingredients, ingredients that have been proven to have student appeal.</p>
-            <p>Even if you have participated in the past, you don’t want to miss this opportunity to learn more about whole grain menu options made with <strong>Ultragrain®</strong> and <strong>Sustagrain®</strong> , see how schools are using these ingredients and products to make a difference, and, most importantly, try them for yourself, free of charge.</p>
-            <p><strong>Use the menu on the left to learn more about the program.</strong></p>                        """
+            <h1>Welcome To The 2010-2011 SuperKids Whole Grain Sampling Program</h1>
+            <p>More and more, elementary and high schools in districts like yours are searching for food choices that are not only great-tasting, but healthier and more beneficial for kids.  And the chance to try free samples of better-for-you whole grain foods is what makes the SuperKids Whole Grain Sampling Program so timely and appealing to many Foodservice Directors.</p>
+            <p>The fact is, whole grain consumption not only plays a vital role in a balanced diet, it’s a powerful strategy in the battle against growing childhood obesity and other diseases.  Students who eat more whole grains, for example, have been shown to maintain a healthier body weight, stay full for longer periods of time, as well as pay better attention in class.</p>
+            <p>The USDA recommends 3 to 6 servings of whole grains daily, yet, the average school-age child in America consumes less than one serving of whole grains each day.  Taste and appearance seem to be the reasons why.  Typically, whole grain foods don’t look or taste like foods students prefer, but two revolutionary ingredients—Ultragrain® whole wheat flour and Sustagrain® ultra-high fiber barley—are changing that perception.  As you’ll see, all the products featured in the directory are made with one of these all-natural ingredients—ingredients with proven student appeal.</p>
+            <p>So even if you’ve participated in the past, be sure not to miss this opportunity to learn more about healthier, whole grain menu options made with Ultragrain and Sustagrain.  The program is absolutely <strong><em>free</em></strong> and gives you the opportunity to share feedback on products you sample.  Best of all, it’s your chance to see how to use these ingredients and products to make a real difference in your district’s student health and nutrition.</p>
+             <p><em>Use the menu on the left to learn more about the program.</em></p>
+                        """
             ).save()
 
         def orderText = new PageText(name:"order", content:"""
@@ -289,8 +292,7 @@ class BootStrap {
             <h2>Sample Availability</h2>
             <p>Samples will be delivered based upon availability at the time of your order and will be fulfilled while supplies last. Some samples require refrigeration or frozen storage. Packaging will only maintain products during shipment. A street address is required for all shipments. Be sure to verify that your contact information is correct. <strong>(Select 'Edit Profile' in the upper right corner to verify/change this information.)</strong></p>
             <h2>Rewards For Feedback</h2>
-            <p>Your feedback is essential in helping us improve our products. In appreciation for providing an assessment of each product you sample by March 5, 2010, we'll enter your name in a sweepstakes drawing. You could win up to \$1,000 in travel accommodations to the School Nutrition Association's Annual National Conference or other rewards as well!  <strong>(See Assess Tab For Details.)</strong></p>
-            <p><strong>Along with sending you an assessment form, we are also including posters provided by Learning ZoneXpress for you to display in your cafeterias.</strong></p>
+            <p>Your feedback is essential in helping us improve our products. In appreciation for providing an assessment of each product you sample by March 9, 2011, we'll enter your name in a sweepstakes drawing. You could win a $100 or $200 Gift Card to Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys.  (See “Assess” tab for more details.)</p>
                         """
             ).save()
 
