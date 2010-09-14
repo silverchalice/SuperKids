@@ -39,10 +39,10 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="address.street1"><g:message code="address.street1.label" default="Street1" /></label>
+                                    <label for="address.street"><g:message code="address.street1.label" default="Street" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance?.address, field: 'street1', 'errors')}">
-                                    <g:textField name="address.street1" value="${sponsorInstance?.address?.street1}" />
+                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance?.address, field: 'street', 'errors')}">
+                                    <g:textField name="address.street" value="${sponsorInstance?.address?.street}" />
                                 </td>
                             </tr>
 
