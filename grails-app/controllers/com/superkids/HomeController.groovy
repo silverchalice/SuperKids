@@ -353,9 +353,9 @@ class HomeController {
            [content:content]
        }
 
-       def sneaky_chef = {
+       def childhood_obesity = {
            def content
-           def pt = PageText.findByName("sneaky_chef")
+           def pt = PageText.findByName("childhood_obesity")
            if(pt){
                content = pt.content
            }
