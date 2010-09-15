@@ -248,7 +248,7 @@
                                     <label for="state"><g:message code="address.state.label" default="State" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
-                                    <g:select name="address.state" from="${customerInstance?.address?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
+                                    <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
                                 </td>
                             </tr>
 
@@ -289,7 +289,7 @@
                                     <label for="state"><g:message code="address.state.label" default="State" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'state', 'errors')}">
-                                    <g:select name="state" from="${customerInstance?.deliveryAddress?.constraints?.state?.inList}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
+                                    <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
                                 </td>
                             </tr>
 
@@ -355,13 +355,6 @@
                                     <g:checkBox name="receivedCurrentMailing" value="${customerInstance?.receivedCurrentMailing}" />
                                 </td>
                             </tr>
-                            <tr>
-                            <tr class="prop">
-                                <td valign="top">
-                                    <g:hiddenField name="deliveryAddress.state" value="Alaska" />
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>
                                     <div class="buttons">
                                         <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
