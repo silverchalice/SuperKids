@@ -52,21 +52,33 @@ class UrlMappings {
                     controller = "home"
                     action = "broker_ecard"
                 }
-                "/learn/" {
+                "/learn.$suffix" {
                     controller = "home"
                     action = "learn"
+                    constraints {
+                        suffix(matches: 'cfm')
+                    }
                 }
-                "/order/" {
+                "/order.$suffix" {
                     controller = "home"
                     action = "order"
+                    constraints {
+                        suffix(matches: 'cfm')
+                    }
                 }
-                "/assess/" {
+                "/assess.$suffix" {
                     controller = "home"
                     action = "assess"
+                    constraints {
+                        suffix(matches: 'cfm')
+                    }
                 }
-                "/promote/" {
+                "/promote.$suffix" {
                     controller = "home"
                     action = "promote"
+                    constraints {
+                        suffix(matches: 'cfm')
+                    }
                 }
                 "/assessment-drawing-rules" {
                     controller = "home"
