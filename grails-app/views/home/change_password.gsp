@@ -26,7 +26,7 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="password"><g:message code="password.label" default="Password" /></label>
+                                    <label for="password">New password</label>
                                 </td>
                                 <td valign="top">
                                     <g:passwordField name="password" value="" />
@@ -35,7 +35,7 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="confirmpassword"><g:message code="confirm.password.label" default="Confirm password" /></label>
+                                    <label for="confirmpassword">Confirm new password</label>
                                 </td>
                                 <td valign="top">
                                     <g:passwordField name="confirmpassword" value="" />
