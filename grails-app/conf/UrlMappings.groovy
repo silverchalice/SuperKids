@@ -156,6 +156,10 @@ class UrlMappings {
                     controller = "assessment"
                     action = "start"
                 }
+                "/change_password" {
+                    controller = "home"
+                    action = "change_password"
+                }
 		"500"(view:'/error')
 	}
 }
