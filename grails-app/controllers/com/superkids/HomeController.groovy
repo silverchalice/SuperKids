@@ -122,6 +122,7 @@ class HomeController {
                    }
                }
                customerInstance.properties = params
+               if(params.password){ customerInstance.password = springSecurityService.encodePassword(params.password) }
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
                    redirect(action: "index")
@@ -374,6 +375,25 @@ class HomeController {
                content = pt.content
            }
            [content:content]
+       }
+
+       def change_password = {
+           def userInstance = User.get(springSecurityService.principal.id)
+           [userInstance:userInstance]
+       }
+
+       def admin_password = {
+           def userInstance = User.get(springSecurityService.principal.id)
+           if(params.password == params.confirmpassword){
+               userInstance.password = springSecurityService.encodePassword(params.password)
+               userInstance.save()
+               flash.message = "Your password has been updated."
+               redirect uri:"/admin"
+           } else {
+               flash.message = "New passwords do not match."
+               userInstance.password = params.password
+               render view:"change_password", model:[userInstance:userInstance]
+           }
        }
 
 }
