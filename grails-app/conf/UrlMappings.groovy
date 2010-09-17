@@ -16,6 +16,10 @@ class UrlMappings {
                     controller = "login"
                     action = "auth"
                 }
+                "/login/auth" {
+                    controller = "login"
+                    action = "auth"
+                }
                 "/register/" {
                     controller = "home"
                     action = "register"
@@ -159,6 +163,25 @@ class UrlMappings {
                 "/change_password" {
                     controller = "home"
                     action = "change_password"
+                }
+                "/contact.$suffix"{
+                    controller = "contactRequest"
+                    action = "create"
+                    constraints {
+                        suffix(matches: 'cfm')
+                    }
+                }
+                "/contact_requests"{
+                    controller = "contactRequest"
+                    action = "list"
+                }
+                "/contact_requests/$id"{
+                    controller = "contactRequest"
+                    action = "show"
+                }
+                "/contact_requests/edit/$id"{
+                    controller = "contactRequest"
+                    action = "edit"
                 }
 		"500"(view:'/error')
 	}
