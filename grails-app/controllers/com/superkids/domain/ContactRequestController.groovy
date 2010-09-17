@@ -4,6 +4,8 @@ class ContactRequestController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def springSecurityService
+
     def index = {
         redirect(action: "list", params: params)
     }
@@ -84,7 +86,7 @@ class ContactRequestController {
         if (contactRequestInstance) {
             try {
                 contactRequestInstance.delete(flush: true)
-                flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'contactRequest.label', default: 'ContactRequest'), params.id])}"
+                flash.message = "Deleted this contact request."
                 redirect(action: "list")
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
@@ -97,4 +99,34 @@ class ContactRequestController {
             redirect(action: "list")
         }
     }
+
+    def other_delete = {
+        if(springSecurityService.isLoggedIn()){
+            if(User.get(springSecurityService.principal.id).isAdmin()){
+                def contactRequestInstance = ContactRequest.get(params.id)
+                if (contactRequestInstance) {
+                    try {
+                        contactRequestInstance.delete(flush: true)
+                        flash.message = "Deleted this contact request."
+                        redirect(action: "list")
+                    }
+                    catch (org.springframework.dao.DataIntegrityViolationException e) {
+                        flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'contactRequest.label', default: 'ContactRequest'), params.id])}"
+                        redirect(action: "show", id: params.id)
+                    }
+                }
+                else {
+                    flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'contactRequest.label', default: 'ContactRequest'), params.id])}"
+                    redirect(action: "list")
+                }
+            } else {
+                flash.message = "You aren't allowed to access this page."
+                redirect controller:"home", action:"index"
+            }
+        } else {
+            flash.message = "Please log in.."
+            redirect controller:"home", action:"index"
+        }
+    }
+
 }
