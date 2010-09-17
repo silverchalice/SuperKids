@@ -7,6 +7,7 @@ class ContactRequest {
 	String email
 	String phone
 	String districtName
+        Date dateCreated
 
 	Address address
 	String message
