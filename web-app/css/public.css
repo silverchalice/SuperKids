@@ -346,6 +346,8 @@ th.desc a {
     background: #fff;
 }
 
+.required { color: #F00; }
+
 /* LIST */
 
 .list table {
