@@ -15,6 +15,12 @@
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
+            <div style="margin:20px 0px; border:1px solid; padding:15px;">
+                <g:form method="post" action="findSchoolDistrict">
+                    School District: <input type="text" name="district" />
+                    <input type="submit" value="Search" />
+                </g:form>
+            </div>
             <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
