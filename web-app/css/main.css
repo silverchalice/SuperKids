@@ -354,3 +354,9 @@ table.callerRecord table {
     background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
     padding-left: 28px;
 }
+
+.districtSearch {
+    margin:20px 0px;
+    border:1px solid;
+    padding:15px;
+}
