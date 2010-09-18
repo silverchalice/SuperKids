@@ -1,5 +1,7 @@
 package com.superkids.domain
 
+import com.superkids.domain.Product
+
 class CustomerController {
 
 	def springSecurityService
@@ -67,7 +69,7 @@ class CustomerController {
             redirect(action: "list")
         }
         else {
-            return [customerInstance: customerInstance]
+            return [customerInstance: customerInstance, products:Product.list()]
         }
     }
 
