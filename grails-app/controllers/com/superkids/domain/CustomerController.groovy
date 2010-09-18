@@ -116,4 +116,20 @@ class CustomerController {
             redirect(action: "list")
         }
     }
+
+    def findSchoolDistrict = {
+        if(params.district){
+            def customers = Customer.findAllByDistrict(params.district)
+            if(customers){
+                return [customerInstanceList:customers]
+            } else {
+                flash.message = "No results found for district \"${params.district}.\""
+                return
+            }
+        } else {
+            flash.message = "Please enter a district to search for."
+            redirect action: "list"
+        }
+    }
+
 }
