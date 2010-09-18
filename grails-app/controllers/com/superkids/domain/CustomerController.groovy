@@ -134,4 +134,33 @@ class CustomerController {
         }
     }
 
+    def add_order = {
+        println "the params in add_order are " + params
+        def customer = Customer.get(params.id)
+        if(customer){
+            if(customer.order){
+                params.product.each {
+                    if(!customer.order.products.collect{it.id}.contains(it))
+                    def p = Product.get(it)
+                    customer.order.products << p
+                }
+            } else {
+                def order = new CustomerOrder()
+                params.product.each {
+                    def p = Product.get(it)
+                    order.addToProducts(p)
+                }
+                customer.order = order
+                customer.save()
+            }
+            flash.message = "Added selected products to customer's order."
+            println "here's the customer's order: "
+            customer.order.products.each{ println it }
+            redirect action:"edit", id:customer.id
+        } else {
+            flash.message = "Couldn't find that customer record."
+            redirect action:"list"
+        }
+    }
+
 }
