@@ -284,6 +284,7 @@
                         <th>ORDER</th> 
                     </tr>				
                     <g:form name="OrderProduct" action="add_order" method="post">
+                    <g:hiddenField name="id" value="${customerInstance.id}" />
                         <g:each in="${products}" var="product">
                             <tr>
                                 <td>${product?.sponsor?.name}<sup>®</sup> ${product?.name}</td> 
