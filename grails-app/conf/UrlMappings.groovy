@@ -183,6 +183,10 @@ class UrlMappings {
                     controller = "contactRequest"
                     action = "edit"
                 }
+                "/find_school_district" {
+                    controller = "customer"
+                    action = "findSchoolDistrict"
+                }
 		"500"(view:'/error')
 	}
 }
