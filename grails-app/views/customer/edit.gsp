@@ -12,10 +12,10 @@
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><g:link class="create" action="create">Add</g:link></span>
         </div>
         <div class="body">
-            <div style="margin:20px 0px; border:1px solid; padding:15px;">
+            <div style="margin:20px 0px; border:1px solid; padding:15px; clear:both;">
                 <g:form method="post" action="findSchoolDistrict">
                     School District: <input type="text" name="district" />
                     <input type="submit" value="Search" />
@@ -30,7 +30,8 @@
                 <g:renderErrors bean="${customerInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post" >
+            <div style="float:left; width:550px;">
+            <g:form method="post">
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
                 <div class="dialog">
@@ -270,6 +271,46 @@
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
             </g:form>
+            </div>
+            <div style="float:right; width:530px;">
+                <h1>Manual Order</h1>
+                <p>Foo.</p>
+                <table cellpadding="5" cellspacing="0" border="1" width="100%">
+                    <tr> 
+                        <td colspan="2" align="left" class="adminheadline">Manual Order</td> 
+                    </tr> 
+                    <tr> 
+                        <th>ITEM NAME</th> 
+                        <th>ORDER</th> 
+                    </tr>				
+                    <g:form name="OrderProduct" action="add_order" method="post">
+                        <g:each in="${products}" var="product">
+                            <tr>
+                                <td>${product?.sponsor?.name}<sup>®</sup> ${product?.name}</td> 
+                                <td><input type="checkbox" name="product" value="${product.id}" /></td>		
+                            </tr>
+                            <tr> 
+                        </g:each>
+                                <td colspan="2"> 
+                                    <strong>Order Origin:</strong>
+                                    <input type="radio" name="OrderOrigin" value="web" checked="checked">Web&nbsp;&nbsp;
+                                    <input type="radio" name="OrderOrigin" value="phone">Phone&nbsp;&nbsp;
+                                    <input type="radio" name="OrderOrigin" value="fax">Fax&nbsp;&nbsp;
+                                    <input type="radio" name="OrderOrigin" value="mail">Mail&nbsp;&nbsp;
+                                    <input type="radio" name="OrderOrigin" value="email">Email<br/> 
+                        <br />
+                        <strong>Requested Ship Date:</strong> 
+                        <select id="reqShipDate" name="reqShipDate"> 
+                        	<option value="11/2009">November, 2009</option> 
+                            <option value="01/2010">January, 2010</option> 
+                        </select> 
+                        <br /><br /> 
+                        <input type="submit" name="ADD" value="Add Checked Items" /> 
+                    </td> 
+                </tr> 
+				</g:form>		
+			</table> 
+            <div>
         </div>
     </body>
 </html>
