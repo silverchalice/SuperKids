@@ -30,17 +30,17 @@
 
                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
 
-                            <th><g:message code="customer.address.label" default="Address" /></th>
+                            <g:sortableColumn property="fsdName" title="Name" />
 
-                            <th><g:message code="customer.email.label" default="Email" /></th>
+                            <th>EntryDate</th>
 
-                            <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
+                            <th>Placed Order</th>
 
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.fax.label', default: 'Fax')}" />
+                            <th>Assessment</th>
 
-                            <g:sortableColumn property="studentsInDistrict" title="${message(code: 'customer.studentsInDistrict.label', default: 'Students')}" />
+                            <th>New</th>
 
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Date Created')}" />
+                            <th>Action</th>
 
                         </tr>
                     </thead>
@@ -50,17 +50,21 @@
 
                             <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "address")}</td>
-
-                            <td>${fieldValue(bean: customerInstance, field: "email")}</td>
-
-                            <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
-
-                            <td>${fieldValue(bean: customerInstance, field: "fax")}</td>
-
-                            <td>${fieldValue(bean: customerInstance, field: "studentsInDistrict")}</td>
+                            <td>${fieldValue(bean: customerInstance, field: "fsdName")}</td>
 
                             <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
+
+                            <td>Foo</td>
+
+                            <td>Foo</td>
+
+                            <td>Foo</td>
+
+                            <td width="120px;">
+                            <g:link controller="customer" action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerInstance.id}">Delete</g:link> | 
+                            <g:link controller="customer" action="edit" id="${customerInstance.id}">Edit</g:link> | 
+                            <g:link controller="customer" action="show" id="${customerInstance.id}">View</g:link>
+                            </td>
 
                         </tr>
                     </g:each>
