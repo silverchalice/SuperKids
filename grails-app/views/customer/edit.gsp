@@ -1,6 +1,7 @@
 
 
 <%@ page import="com.superkids.domain.Customer" %>
+<%@ page import="com.superkids.domain.ShippingDate" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -301,10 +302,11 @@
                                     <input type="radio" name="OrderOrigin" value="email">Email<br/> 
                         <br />
                         <strong>Requested Ship Date:</strong> 
-                        <select id="reqShipDate" name="reqShipDate"> 
-                        	<option value="11/2009">November, 2009</option> 
-                            <option value="01/2010">January, 2010</option> 
-                        </select> 
+                        <g:select id="reqShipDate"
+                                  name="reqShipDate"
+                                  from="${ShippingDate.list()}"
+                                  value="shipDate"
+                                  optionKey="${g.formatDate(format:'MMMM, yyyy', date:shipDate)}" />
                         <br /><br /> 
                         <input type="submit" name="ADD" value="Add Checked Items" /> 
                     </td> 
