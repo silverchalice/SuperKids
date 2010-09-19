@@ -1,6 +1,7 @@
 package com.superkids.domain
 
 import com.superkids.domain.Product
+import com.superkids.domain.UserRole
 
 class CustomerController {
 
@@ -160,6 +161,37 @@ class CustomerController {
         } else {
             flash.message = "Couldn't find that customer record."
             redirect action:"list"
+        }
+    }
+
+    def other_delete = {
+        if(springSecurityService.isLoggedIn()){
+            if(User.get(springSecurityService.principal.id).isAdmin()){
+                def customerInstance = Customer.get(params.id)
+                def userRole = Role.findByAuthority("ROLE_USER")
+                if (customerInstance) {
+                    UserRole.findByUserAndRole(customerInstance, userRole).delete()
+                    try {
+                        customerInstance.delete(flush: true)
+                        flash.message = "Deleted this customer record."
+                        redirect(action: "list")
+                    }
+                    catch (org.springframework.dao.DataIntegrityViolationException e) {
+                        flash.message = "This customer record could not be deleted."
+                        redirect(action: "show", id: params.id)
+                    }
+                }
+                else {
+                    flash.message = "Customer record not found."
+                    redirect(action: "list")
+                }
+            } else {
+                flash.message = "You aren't allowed to access this page."
+                redirect controller:"home", action:"index"
+            }
+        } else {
+            flash.message = "Please log in.."
+            redirect controller:"home", action:"index"
         }
     }
 
