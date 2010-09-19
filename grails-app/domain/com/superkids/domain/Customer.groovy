@@ -33,7 +33,8 @@ class Customer extends User {
 	String cdEmail
 	String cdTitle
 
-	boolean receivedCurrentMailing
+	boolean receivedCurrentMailing = true
+        boolean isNew
 
 //	Misc. Stats
 
