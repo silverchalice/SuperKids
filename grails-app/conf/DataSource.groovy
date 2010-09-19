@@ -25,12 +25,7 @@ environments {
     }
     production {
         dataSource {
-			pooled = true
-			driverClassName = "org.mysql.jdbc.Driver"
-			username = "sks"
-			password = "sks"
-            dbCreate = "update"
-            url = url = "jdbc:mysql://localhost:3306/superkids"
+            jndiName = "java:comp/env/jdbc/SKSDS"
         }
     }
 }
