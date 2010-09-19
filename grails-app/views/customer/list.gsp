@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
+        <g:javascript library="prototype" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -58,9 +59,13 @@
 
                             <td>Foo</td>
 
-                            <td>Foo</td>
+                            <td>
+                            <g:checkBox name='isNew'
+                                        value="${customerInstance.isNew}"
+                                        onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
+                            </td>
 
-                            <td width="120px;">
+                            <td width="120px">
                             <g:link controller="customer" action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerInstance.id}">Delete</g:link> | 
                             <g:link controller="customer" action="edit" id="${customerInstance.id}">Edit</g:link> | 
                             <g:link controller="customer" action="show" id="${customerInstance.id}">View</g:link>
