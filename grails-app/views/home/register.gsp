@@ -8,11 +8,8 @@
         <title>Register | SuperKids</title>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-        </div>
         <div class="body" class="dialog" style="width:820px">
-            <h1>Register</h1>
+            <h1>Register</h1><br />
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -22,8 +19,8 @@
             </div>
             </g:hasErrors>
             <g:form action="save" method="post" >
-                <div>
-                    <table style="width:400px; float:left">
+                <div style="height:430px; width:630px; overflow:auto;">
+                    <table style="float:left">
                         <tbody>
 
                             <tr class="prop">
