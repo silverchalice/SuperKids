@@ -15,21 +15,14 @@ class Broker {
 	static belongsTo = [customer: Customer]
 
     static constraints = {
+                phone(nullable:true)
+                fax(nullable:true)
+                email(nullable:true)
 		street(nullable: true)
 		city(nullable: true)
-		state(nullable: true, inList:['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'])
+		state(nullable: true)
 		zip(nullable: true)
 		customer(nullable: true)
-		sponsor(nullable: true)
     }
 }
 
