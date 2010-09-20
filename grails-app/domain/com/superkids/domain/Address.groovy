@@ -12,9 +12,9 @@ class Address {
 
     static constraints = {
 		street(nullable:true)
-        street2(nullable:true)
+                street2(nullable:true)
 		city(nullable:true)
-		state(maxSize:2)
+		state(nullable:true)
 		zip(nullable:true)
 		customer(nullable:true)
 		sponsor(nullable:true)
