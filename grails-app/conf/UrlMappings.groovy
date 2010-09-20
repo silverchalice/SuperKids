@@ -9,8 +9,8 @@ class UrlMappings {
 
 		"/"(controller:"home", action:"index")
 		"/admin" {
-                    controller = "customer"
-                    action = "list"
+                    controller = "login"
+                    action = "admin_login"
                 }
                 "/login/" {
                     controller = "login"
