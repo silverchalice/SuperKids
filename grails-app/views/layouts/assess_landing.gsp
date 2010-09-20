@@ -20,7 +20,7 @@
               <p>
                 <g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px; padding-right:5px;" align="left" /></g:link> ${product.name} <br/ >
                 ${product.sponsor.name}
-              </p><br />
+              </p><br />                       Believe it or not, Glenn Beck gets it. Whatever else Beck has right or wrong -- and I confess I have never watched or listened to him much
           </g:each>
       </div>
 
