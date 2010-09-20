@@ -128,4 +128,21 @@ class LoginController {
 	def ajaxDenied = {
 		render([error: 'access denied'] as JSON)
 	}
+
+       def admin_login = {
+
+		def config = SpringSecurityUtils.securityConfig
+
+		if (springSecurityService.isLoggedIn()) {
+			redirect uri: config.successHandler.defaultTargetUrl
+			return
+		}
+
+		String view = 'admin_login'
+		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+		render view: view, model: [postUrl: postUrl,
+		                           rememberMeParameter: config.rememberMe.parameter]
+       }
+
+
 }
