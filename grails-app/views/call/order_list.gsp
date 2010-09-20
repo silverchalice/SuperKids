@@ -3,18 +3,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="main" />
+        <meta name="layout" content="caller" />
         <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
         <div class="nav">
-    	<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="start"><g:message code="default.caller.start.label" default="Start Call"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="order_list"><g:message code="default.caller.start.label" default="Order Call List"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="assess_list"><g:message code="default.caller.start.label" default="Assessment Call List"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="call_back_list"><g:message code="default.caller.start.label" default="Call Back List"/></g:link></span>
-        </div>
+			<g:render template="caller_nav"/> 	
+		</div>
         <div class="body">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
@@ -35,6 +31,8 @@
 
                             <g:sortableColumn property="fax" title="${message(code: 'customer.fax.label', default: 'Fax')}" />
 
+							<g:sortableColumn property="fax" title="${message(code: 'customer.inCall.label', default: 'In Call')}" />
+
                             <g:sortableColumn property="studentsInDistrict" title="${message(code: 'customer.studentsInDistrict.label', default: 'Students')}" />
 
                             <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Date Created')}" />
@@ -54,6 +52,14 @@
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "fax")}</td>
+
+							<td><g:if test="${customerInstance.inCall == 'true'}">
+								    <strong style="color:red">True</strong>
+								</g:if>
+								<g:else>
+									<strong style="color:green">False</strong>
+								</g:else>
+							</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "studentsInDistrict")}</td>
 

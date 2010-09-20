@@ -132,20 +132,31 @@ class CallController {
 	}
 
 
-	def next_order_call = {
+	def get_order_call = {
+		log.info "in Get_Order_Call for CallController"
 
+		//make sure the last customer is no longer 'in call'
+		def previousCustomer = Customer.get(params?.id)
+		if(previousCustomer) previousCustomer.inCall = false
+
+		//assign the offset if there is one
 		def offset = params.offset ?: 0
 
 		def order = new CustomerOrder()
 		def call = new Call()
 
-		def c = Customer.createCriteria()
+		log.info "About to create criteria"
 
-		def customer = c.list(max: 1, offset: offset, sort: 'id') {
+		def c = Customer.createCriteria() {
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			eq 'inCall', false
-		}.getAt(0)
+		}
 
+
+		//order calls are all customers with out a current order AND who are not being called atm
+		def customer = c.list(max: 1, offset: offset, sort: 'id').getAt(0)
+
+		customer.inCall = true
 		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
 
 	}

@@ -25,7 +25,7 @@ environments {
     }
     production {
         dataSource {
-            jndiName = "java:comp/env/jdbc/SKSDS"
+            jndiName = "java:comp/env/jdbc/sksds"
         }
     }
 }
