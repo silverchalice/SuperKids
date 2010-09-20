@@ -248,7 +248,7 @@
                                     <label for="state"><g:message code="address.state.label" default="State" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
-                                    <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
+                                    <g:select name="brokerState" from="${states}" />
                                 </td>
                             </tr>
 
@@ -355,15 +355,69 @@
                                     <g:checkBox name="receivedCurrentMailing" value="${customerInstance?.receivedCurrentMailing}" />
                                 </td>
                             </tr>
-                                <td>
-                                    <div class="buttons">
-                                        <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
-                                    </div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
 
+<span style="color: rgb(153, 51, 0);"> 
+		<span style="font-size: 16px;"> 
+			<strong>Optional Broker/Distributor Information</strong> 
+		</span> 
+	</span> 
+	<div style="font-size: 10px;"> 
+		One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to 
+		foodservice distributors and brokers. 
+		<br /><br /> 
+		Although it is not mandatory that you provide broker or distributor information below, it will help ensure that 
+		the right people know about your interest in these products and improve the  likelihood that you will receive more 
+		whole grain foods in the future.  Please provide the following if available.
+		<br /><br /> 
+	</div> 
+ 
+	<table> 
+		<tr> 
+			<td><strong>Broker/Distributor Name: </strong></td> 
+			<td><input type="text" name="brokerName" size="20" maxlength="50" value="" /></td> 
+		</tr> 
+		<tr> 
+			<td><strong>Email: </strong></td> 
+			<td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td> 
+		</tr> 
+		<tr> 
+			<td><strong>Telephone: </strong></td> 
+			<td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td> 
+		</tr> 
+		<tr> 
+			<td><strong>Fax: </strong></td> 
+			<td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td> 
+		</tr> 
+		<tr> 
+			<td><strong>Address: </strong></td> 
+			<td><input type="text" name="brokerAddress" size="20" maxlength="255" value=""></td> 
+		</tr> 
+		<tr> 
+			<td><strong></strong></td> 
+			<td><input type="text" name="brokerAddress2" size="20" maxlength="255" value=""></td> 
+		</tr> 
+		<tr> 
+			<td><strong>City: </strong></td> 
+			<td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td> 
+		</tr> 
+		<tr> 			
+			<td>State</td> 
+			<td align="left"><g:select name="brokerState" from="${states}" optionKey="value" /></td> 
+		</tr> 
+		<tr> 
+			<td><strong>Zip: </strong></td> 
+			<td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td> 
+		</tr> 
+                 <tr>
+                     <td>
+                         <div class="buttons">
+                             <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Save')}" /></span>
+                         </div>
+                     </td>
+                 </tr>
+	</table> 
 
                 </div>
 
