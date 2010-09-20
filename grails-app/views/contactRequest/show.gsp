@@ -9,12 +9,9 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><g:link class="list" action="list">Back to Listing</g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -23,56 +20,67 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="contactRequest.id.label" default="Id" /></td>
+                            <td valign="top" class="name"><strong>Name:</strong></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: contactRequestInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="contactRequest.firstName.label" default="First Name" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: contactRequestInstance, field: "firstName")}</td>
+                            <td valign="top" class="value">${contactRequestInstance.firstName} ${contactRequestInstance.lastName}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="contactRequest.lastName.label" default="Last Name" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: contactRequestInstance, field: "lastName")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="contactRequest.email.label" default="Email" /></td>
+                            <td valign="top" class="name"><strong>Email:</strong></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: contactRequestInstance, field: "email")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="contactRequest.phone.label" default="Phone" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: contactRequestInstance, field: "phone")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="contactRequest.districtName.label" default="District Name" /></td>
+                            <td valign="top" class="name"><strong>Company/District:</strong></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: contactRequestInstance, field: "districtName")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="contactRequest.address.label" default="Address" /></td>
+                            <td valign="top" class="name"><strong>Address:</strong></td>
                             
-                            <td valign="top" class="value"><g:link controller="address" action="show" id="${contactRequestInstance?.address?.id}">${contactRequestInstance?.address?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value">${contactRequestInstance.address?.street}
+                                <g:if test="${contactRequestInstance.address?.street2}">
+                                    <br /> ${contactRequestInstance.address?.street2}
+                                </g:if>
+                            </td>
+                            
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><strong>City:</strong></td>
+                            
+                            <td valign="top" class="value">${contactRequestInstance.address?.city}</td>
+                            
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><strong>State:</strong></td>
+                            
+                            <td valign="top" class="value">${contactRequestInstance.address?.state}</td>
+                            
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><strong>Zip:</strong></td>
+                            
+                            <td valign="top" class="value">${contactRequestInstance.address?.zip}</td>
+                            
+                        </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><strong>Contact Date</strong></td>
+                            
+                            <td valign="top" class="value"><g:formatDate format="MM/dd/yyyy" date="${contactRequestInstance.dateCreated}" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="contactRequest.message.label" default="Message" /></td>
+                            <td valign="top" class="name"><strong>Interest:</strong></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: contactRequestInstance, field: "message")}</td>
                             
@@ -80,13 +88,6 @@
                     
                     </tbody>
                 </table>
-            </div>
-            <div class="buttons">
-                <g:form>
-                    <g:hiddenField name="id" value="${contactRequestInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </g:form>
             </div>
         </div>
     </body>

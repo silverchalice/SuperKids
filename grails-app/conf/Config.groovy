@@ -135,7 +135,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/home/*':                                                 ['ROLE_USER', 'ROLE_ADMIN'],
    '/*':                                                                   ['ROLE_ADMIN'],
    '/login/**':                                          ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/logout':                                   ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_CALLER'],
+   '/logout':                                  ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_CALLER'],
    '/logout/**':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/register':                                          ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/home/enter_site':                                   ['IS_AUTHENTICATED_ANONYMOUSLY'],
@@ -152,6 +152,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/order.cfm':                                              ['ROLE_USER', 'ROLE_ADMIN'],
    '/assess.cfm':                                             ['ROLE_USER', 'ROLE_ADMIN'],
    '/promote.cfm':                                            ['ROLE_USER', 'ROLE_ADMIN'],
+   '/contact.cfm':                                       ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/assessment-drawing-rules':                               ['ROLE_USER', 'ROLE_ADMIN'],
    '/assessment-tools':                                       ['ROLE_USER', 'ROLE_ADMIN'],
    '/ecards':                                                 ['ROLE_USER', 'ROLE_ADMIN'],
@@ -170,6 +171,8 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/council-tips':                                           ['ROLE_USER', 'ROLE_ADMIN'],
    '/public':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/home/save':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/product/**':                                             ['ROLE_ADMIN', 'ROLE_USER']
+   '/product/**':                                             ['ROLE_ADMIN', 'ROLE_USER'],
+   '/find_school_district':                                                ['ROLE_ADMIN'],
+   '/customer/**':                                                         ['ROLE_ADMIN']
 ]
 

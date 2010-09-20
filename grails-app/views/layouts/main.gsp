@@ -26,24 +26,24 @@
                         <li><g:link>Update Factoids</g:link></li>
                         <li><hr /></li>
                         <li><g:link controller="contactRequest">Contact Requests</g:link></li>
-                        <li><g:link controller="ecard">View eCards</g:link></li>
+                        <li><g:link controller="ecard">View eCards Sent</g:link></li>
                         <li><hr /></li>
-                        <li><g:link controller="customer">Update User Accounts</g:link></li>
+                        <li><g:link controller="customer">Update Users</g:link></li>
                         <li><g:link controller="customer">Manage School Districts</g:link></li>
                         <li><hr /></li>
-                        <li><g:link controller="sponsor">Sponsors Admin</g:link></li>
                         <li><g:link controller="order">Order Admin</g:link></li>
                         <li><g:link controller="product">Products Admin</g:link></li>
-                        <li><g:link controller="assessment">Assessments Admin</g:link></li>
+                        <li><g:link controller="assessment">Assessment Admin</g:link></li>
+                        <li><g:link controller="sponsor">Sponsors Admin</g:link></li>
                         <li><hr /></li>
                         <li><h1>Caller Module</h1></li>
                         <li><g:link controller="caller">Manage Callers</g:link></li>
                         <li><g:link controller="call">View Calls</g:link></li>
                         <li><hr /></li>
-                        <li><export:formats formats="['excel']" /></li>
-                        <li><export:formats formats="['excel']" /></li>
+                        <li><sks:formats formats="['excel']" msg="Download Excel" /></li>
+                        <li><sks:formats formats="['excel']" msg="Download Excel (no assessments)" /></li>
                         <li><hr /></li>
-                        <li><g:link>Change My Password</g:link></li>
+                        <li><g:link controller="home" action="change_password">Change Password</g:link></li>
                         <li><g:link controller="logout">Logout</g:link></li>
                     </ul>
 

@@ -67,6 +67,7 @@ input:focus, select:focus, textarea:focus {
 .body {
     float: left;
     margin: 0 15px 10px 15px;
+    width:100em;
 }
 
 /* NAVIGATION MENU */
@@ -351,4 +352,10 @@ table.callerRecord table {
 .buttons input.save {
     background: transparent url(../images/skin/database_save.png) 5px 50% no-repeat;
     padding-left: 28px;
+}
+
+.districtSearch {
+    margin:20px 0px;
+    border:1px solid;
+    padding:15px;
 }

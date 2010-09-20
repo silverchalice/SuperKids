@@ -10,10 +10,9 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1>Contact Requests - Click To View</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -22,17 +21,15 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'contactRequest.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="firstName" title="${message(code: 'contactRequest.firstName.label', default: 'First Name')}" />
-                        
-                            <g:sortableColumn property="lastName" title="${message(code: 'contactRequest.lastName.label', default: 'Last Name')}" />
+                            <th>Name</th>
                         
                             <g:sortableColumn property="email" title="${message(code: 'contactRequest.email.label', default: 'Email')}" />
                         
-                            <g:sortableColumn property="phone" title="${message(code: 'contactRequest.phone.label', default: 'Phone')}" />
+                            <g:sortableColumn property="phone" title="EntryDate" />
                         
-                            <g:sortableColumn property="districtName" title="${message(code: 'contactRequest.districtName.label', default: 'District Name')}" />
+                            <g:sortableColumn property="districtName" title="Company/District" />
+
+                            <th>Delete</th>
                         
                         </tr>
                     </thead>
@@ -40,17 +37,15 @@
                     <g:each in="${contactRequestInstanceList}" status="i" var="contactRequestInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${contactRequestInstance.id}">${fieldValue(bean: contactRequestInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: contactRequestInstance, field: "firstName")}</td>
-                        
-                            <td>${fieldValue(bean: contactRequestInstance, field: "lastName")}</td>
+                            <td><g:link action="show" id="${contactRequestInstance.id}">${contactRequestInstance.firstName} ${contactRequestInstance.lastName}</g:link></td>
                         
                             <td>${fieldValue(bean: contactRequestInstance, field: "email")}</td>
                         
-                            <td>${fieldValue(bean: contactRequestInstance, field: "phone")}</td>
+                            <td><g:formatDate format="MM/dd/yyyy" date="${contactRequestInstance.dateCreated}" /></td>
                         
                             <td>${fieldValue(bean: contactRequestInstance, field: "districtName")}</td>
+
+                            <td><g:link controller="contactRequest" action="other_delete" id="${contactRequestInstance.id}">Delete</g:link></td>
                         
                         </tr>
                     </g:each>
