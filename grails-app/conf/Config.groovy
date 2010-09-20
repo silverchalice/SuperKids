@@ -128,7 +128,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/js/**':                                             ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/css/**':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/images/**':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/admin':                                                               ['ROLE_ADMIN'],
+   '/admin':                                             ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/factoid':                                                             ['ROLE_ADMIN'],
    '/factoid/**':                                                          ['ROLE_ADMIN'],
    '/':                                                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
@@ -173,6 +173,8 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/home/save':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/product/**':                                             ['ROLE_ADMIN', 'ROLE_USER'],
    '/find_school_district':                                                ['ROLE_ADMIN'],
-   '/customer/**':                                                         ['ROLE_ADMIN']
-]
+   '/customer/**':                                                         ['ROLE_ADMIN'],
+   '/call':                                                 ['ROLE_CALLER', 'ROLE_ADMIN'],
+   '/call/**':                                              ['ROLE_CALLER', 'ROLE_ADMIN']
 
+]
