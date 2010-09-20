@@ -82,17 +82,16 @@ input:focus, select:focus, textarea:focus {
 
 .callerButton a {
 	background-color:green; 
-	padding:4px;
+	padding:1px;
+	margin:0 5px;
 	color:white;
 	font-size:11px;
 	font-weight:normal;
-	border:1px green solid
+	border:3px green solid
 }
 
 .callerButton a:hover {
-	background-color:#DED;
-	color:#333;
-	
+	background-color:#53A647;
 }
 
 .menuButton {

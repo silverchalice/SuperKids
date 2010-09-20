@@ -51,6 +51,7 @@ class Customer extends User {
 
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
+	boolean inCall = false
 
 	static hasMany = [ calls : Call, assessments : Assessment, brokers : Broker ]
 

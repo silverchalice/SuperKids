@@ -127,15 +127,27 @@ class CallController {
         }
     }
 
-	def start = {
-		def caller = springSecurityService.principal
-		def customerInstance = callService.getNextCustomerForOrderCall()
+	def start_order_call = {
+		render view:'order_call_form', model: [products: Product.list()]
+	}
 
-		def callInstance = new Call(customer:customerInstance, caller:caller)
 
-                def products = Product.list()
+	def next_order_call = {
 
-		[ customerInstance: customerInstance, callInstance: callInstance, products:products ]
+		def offset = params.offset ?: 0
+
+		def order = new CustomerOrder()
+		def call = new Call()
+
+		def c = Customer.createCriteria()
+
+		def customer = c.list(max: 1, offset: offset, sort: 'id') {
+			eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			eq 'inCall', false
+		}.getAt(0)
+
+		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
+
 	}
 
 
