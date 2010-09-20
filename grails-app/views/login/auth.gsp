@@ -92,9 +92,9 @@
 
 			<div style="width:600px;padding-top: 10px;clear:both;">
 				<strong>If you are a foodservice director that has not received a user name and password, click Register. </strong>
-				<form method="post" action="register.cfm" name="Register">
+				<g:form method="post" controller="home" action="register" name="Register">
 					<div style="padding-left:60px;"><input class="fancyButton" type="image" name="Submit" src="${request.contextPath}/images/RegisterButton-Green.png" /></div>
-				</form>
+				</g:form>
 			</div>
 
 		    <span style="padding:5px 0 5px 0;"><strong>If you are not a foodservice director, let us know who you are:</strong> </span>
