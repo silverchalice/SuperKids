@@ -38,8 +38,6 @@ class Customer extends User {
 
 //	Misc. Stats
 
-	Broker broker
-
 	Integer studentsInDistrict
 	Integer facilities
 	Integer breakfastsServed
@@ -54,7 +52,7 @@ class Customer extends User {
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
 
-	static hasMany = [ calls : Call, assessments : Assessment ]
+	static hasMany = [ calls : Call, assessments : Assessment, brokers : Broker ]
 
     static constraints = {
 
@@ -77,8 +75,6 @@ class Customer extends User {
 		cdName nullable: true
 		cdEmail nullable: true, email: true
 		cdTitle nullable: true
-
-		broker nullable: true
 
                 order nullable:true
 
