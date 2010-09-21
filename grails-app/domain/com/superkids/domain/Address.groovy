@@ -6,15 +6,15 @@ class Address {
     String street2
 	String city
 	String state
-	Integer zip
+	String zip
 
 	static belongsTo = [customer: Customer, sponsor: Sponsor]
 
     static constraints = {
 		street(nullable:true)
-                street2(nullable:true)
+        street2(nullable:true)
 		city(nullable:true)
-		state(nullable:true)
+		state(maxSize:2)
 		zip(nullable:true)
 		customer(nullable:true)
 		sponsor(nullable:true)
