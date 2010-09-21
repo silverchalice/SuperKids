@@ -77,8 +77,7 @@ class HomeController {
          params.username = params.email
          def states=['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
          def customerInstance = new Customer(params)
-         if(params.password == params.confirmpassword){
-           customerInstance.password = springSecurityService.encodePassword(params.password)
+           customerInstance.password = springSecurityService.encodePassword("superkids")
            customerInstance.enabled = true
            customerInstance.accountExpired = false
            customerInstance.accountLocked = false
@@ -86,7 +85,6 @@ class HomeController {
            def userRole = Role.findByAuthority("ROLE_USER")
            if(customerInstance.save()){
                UserRole.create customerInstance, userRole, true
-               println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
                if(params.brokerName){
                    def broker = new Broker(name:params.brokerName, phone:params.brokerPhone, fax:params.brokerFax, email:params.brokerEmail, street:params.brokerStreet, street2:params.brokerStreet2, city:params.brokerCity, state:params.brokerState, zip:params.brokerZip, customer:customerInstance)
                    broker.save(failOnError:true)
@@ -95,21 +93,19 @@ class HomeController {
                    customerInstance.save()
                }
                flash.message = "Your account was created."
-               redirect(action:"index")
+               redirect(action:"register_n")
            } else {
-               flash.message = "I was just flying along, and I blew up."
+               flash.message = "There were errors with your information."
                customerInstance.errors.allErrors.each {
                    println it
                    println " "
                }
-               customerInstance.password = params.password
                render(view:"register", model:[customerInstance:customerInstance, states:states])
            }
-         } else {
-             flash.message = "Passwords do not match."
-             customerInstance.password = params.password
-             render(view:"register", model:[customerInstance:customerInstance, states:states]) 
-         }
+       }
+
+       def register_n = {
+           
        }
 
        def edit_profile = {         
