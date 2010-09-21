@@ -16,20 +16,28 @@ class HomeController {
 
     def index = {
         if(springSecurityService.isLoggedIn()){
-            println springSecurityService.principal?.username
-            println "Users in system: "
-            def user = User.get(springSecurityService.principal.id)
-            def adminRole = Role.findByAuthority("ROLE_ADMIN")
-            def callerRole = Role.findByAuthority("ROLE_CALLER")
-            Customer.list().each { 
-                println it.username + " (" + it.id + ")"
-            }
-            if(UserRole.findByUserAndRole(user, callerRole)){
-                 redirect controller:"call", action:"index"
-            } else if (UserRole.findByUserAndRole(user, adminRole)){
-                 redirect controller:"customer", action:"list"
+            println "drat!" + UserRole.findByUser(User.get(springSecurityService.principal.id))
+            def pass = springSecurityService.encodePassword("superkids")
+            def loggedInUser = User.get(springSecurityService.principal.id)
+            if(loggedInUser.password == pass){
+                flash.message = "Please enter a new password."
+                redirect action:"c_change_password"
             } else {
-                render(view:"landing")
+                println springSecurityService.principal?.username
+                println "Users in system: "
+                def user = User.get(springSecurityService.principal.id)
+                def adminRole = Role.findByAuthority("ROLE_ADMIN")
+                def callerRole = Role.findByAuthority("ROLE_CALLER")
+                Customer.list().each { 
+                    println it.username + " (" + it.id + ")"
+                }
+                if(UserRole.findByUserAndRole(user, callerRole)){
+                     redirect controller:"call", action:"index"
+                } else if (UserRole.findByUserAndRole(user, adminRole)){
+                     redirect controller:"customer", action:"list"
+                } else {
+                    render(view:"landing")
+                }
             }
         } else {
             render view:'home'
@@ -66,10 +74,10 @@ class HomeController {
        }
 
        def save = {
+         params.username = params.email
          def states=['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
          def customerInstance = new Customer(params)
          if(params.password == params.confirmpassword){
-           customerInstance.username = params.email
            customerInstance.password = springSecurityService.encodePassword(params.password)
            customerInstance.enabled = true
            customerInstance.accountExpired = false
@@ -80,7 +88,7 @@ class HomeController {
                UserRole.create customerInstance, userRole, true
                println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
                if(params.brokerName){
-                   def broker = new Broker(name:params.brokerName, phone:params.brokerPhone, fax:params.brokerFax, email:params.brokerEmail, street:params.brokerStreet, city:params.brokerCity, state:params.brokerState, zip:params.brokerZip, customer:customerInstance)
+                   def broker = new Broker(name:params.brokerName, phone:params.brokerPhone, fax:params.brokerFax, email:params.brokerEmail, street:params.brokerStreet, street2:params.brokerStreet2, city:params.brokerCity, state:params.brokerState, zip:params.brokerZip, customer:customerInstance)
                    broker.save(failOnError:true)
                    println broker.name
                    customerInstance.addToBrokers(broker)
@@ -409,6 +417,36 @@ class HomeController {
                userInstance.password = params.password
                render view:"change_password", model:[userInstance:userInstance]
            }
+       }
+
+       def c_change_password = {
+           def customerInstance = Customer.get(springSecurityService.principal.id)
+           [customerInstance:customerInstance]
+       }
+
+       def c_password = {
+           println "here is the password we got: " + params.password
+           def customerInstance = Customer.get(springSecurityService.principal.id)
+           if(params.password == "superkids"){
+               flash.message = "Please enter a new password. Your password cannot be \"superkids\"."
+               redirect action:"c_change_password"
+           } else {
+               if(params.password == params.confirmpassword){
+                   customerInstance.password = springSecurityService.encodePassword(params.password)
+                   customerInstance.save()
+                   flash.message = "Your password has been updated."
+                   println "!!! redirecting"
+                   redirect action:"index"
+               } else {
+                   flash.message = "New passwords do not match."
+                   customerInstance.password = params.password
+                   render view:"c_change_password", model:[customerInstance:customerInstance]
+               }
+           }
+       }
+
+       def profile_help = {
+
        }
 
 }
