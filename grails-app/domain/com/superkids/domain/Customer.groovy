@@ -38,6 +38,8 @@ class Customer extends User {
 
 //	Misc. Stats
 
+	Broker broker
+
 	Integer studentsInDistrict
 	Integer facilities
 	Integer breakfastsServed
@@ -48,13 +50,15 @@ class Customer extends User {
 	boolean purchaseFreshBread
 	boolean purchasePreparedFood
 	boolean purchaseFrozenFood
-        String otherComments
+
+	boolean topCustomer = false
+    String otherComments
+
 
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
-	boolean inCall = false
 
-	static hasMany = [ calls : Call, assessments : Assessment, brokers : Broker ]
+	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer ]
 
     static constraints = {
 
@@ -78,9 +82,9 @@ class Customer extends User {
 		cdEmail nullable: true, email: true
 		cdTitle nullable: true
 
-                order nullable:true
-
-                otherComments nullable:true
+		broker nullable: true
+        order nullable:true
+        otherComments nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true

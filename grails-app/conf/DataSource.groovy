@@ -25,7 +25,9 @@ environments {
     }
     production {
         dataSource {
-            jndiName = "java:comp/env/jdbc/sksds"
+			pooled = false
+			dbCreate = "update"			
+            jndiName = "jdbc:mysql://localhost:3306/database"
         }
     }
 }
