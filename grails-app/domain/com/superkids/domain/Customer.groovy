@@ -50,7 +50,10 @@ class Customer extends User {
 	boolean purchaseFreshBread
 	boolean purchasePreparedFood
 	boolean purchaseFrozenFood
+
 	boolean topCustomer = false
+    String otherComments
+
 
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
@@ -80,8 +83,8 @@ class Customer extends User {
 		cdTitle nullable: true
 
 		broker nullable: true
-
-                order nullable:true
+        order nullable:true
+        otherComments nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true

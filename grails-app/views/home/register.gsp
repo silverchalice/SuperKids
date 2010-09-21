@@ -8,8 +8,14 @@
         <title>Register | SuperKids</title>
     </head>
     <body>
-        <div class="body" class="dialog" style="width:820px">
-            <h1>Register</h1><br />
+    <script> 
+        function help(){
+            mywindow = window.open('profile_help','_blank','menubar=0,resizeable=0,scrollbars=1,width=500,height=500');
+            mywindow.moveTo(300,300);
+        }
+    </script> 
+        <div class="body" class="dialog" style="width:630px; height:460px; overflow:auto;">
+            <h1>Registration</h1><br />
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -18,407 +24,217 @@
                 <g:renderErrors bean="${customerInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="save" method="post" >
-                <div style="height:430px; width:630px; overflow:auto;">
-                    <table style="float:left">
-                        <tbody>
+            <div style="width: 610px;"> 
+                <div style="float:left;width:300px;"> 
+                    <g:form method="post" action="save" name="profileForm"> 
+                        <table width="300" border="0" cellspacing="3" cellpadding="0"> 
+                            <tr> 			
+                                <td align="right">Your Name</td> 
+                                <td align="left"><input type="text" name="fsdName" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Your Title</td> 
+                                <td align="left"><input type="text" name="fsdTitle" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">School District Name</td> 
+                                <td align="left"><input type="text" name="district" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">School District Address</td> 
+                                <td align="left"><input type="text" name="address.street" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">&nbsp;</td> 
+                                <td align="left"><input type="text" name="address.street2" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">City</td> 
+                                <td align="left"><input type="text" name="address.city" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">State</td> 
+                                <td align="left"> 
+                                    <g:select name="address.state" from="${states}" />
+                                </td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Zip</td> 
+                                <td align="left"><input type="text" name="address.zip" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Telephone</td> 
+                                <td align="left"><input type="text" name="phone" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Fax</td> 
+                                <td align="left"><input type="text" name="fax" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Email</td> 
+                                <td align="left"><input type="text" name="email" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Sample Delivery Address</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.street" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">&nbsp;</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.street2" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">City</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.city" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">State</td>
+                                <td align="left"> 
+                                    <g:select name="deliveryAddress.state" from="${states}" />
+                                </td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Zip</td>
+                                <td align="left"><input type="text" name="deliveryAddress.zip" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                        </table> 
+                    </div> 
+                    <div style="float:left;width:300px;"> 
+                        <table width="300" border="0" cellspacing="3" cellpadding="0"> 
+                            <tr> 
+                                <td colspan="2"> 
+                                    <div style="font-weight:bold;font-size:12px;">					
+                                        <span style="font-size:14px;">Please Correct or Change Any Incorrect or Incomplete Information.<BR><BR></span> 
+                                        Samples are limited and subject to availabilty.<BR><br /> 
+                                        Please tell us about your school district foodservice program
+                                    </div> 
+                                </td> 
+                            </tr> 
+                            <tr style="padding-bottom:10px;"> 
+                                <td align="right" valign="top"><input type="checkbox" name="hasBakery" value="1" ></td> 
+                                <td>Make our own bread products from scratch in our bakery (proof and bake)</td> 
+                            </tr> 
+                            <tr style="padding-bottom:10px;"> 
+                                <td align="right" valign="top"><input type="checkbox" name="purchaseFrozenBread" value="1" ></td> 
+                                <td>Purchase frozen bread products and/or bread mixes and bake them in our bakery</td> 
+                            </tr> 
+                            <tr style="padding-bottom:10px;"> 
+                                <td align="right" valign="top"><input type="checkbox" name="purchasePreparedFood" value="1" ></td> 
+                                <td>Purchase prepared foods</td> 
+                            </tr> 
+                            <tr style="padding-bottom:10px;"> 
+                                <td align="right" valign="top"><input type="checkbox" name="purchaseFrozenFood" value="1" ></td> 
+                                <td>Purchase frozen foods</td> 
+                            </tr> 
+                            <tr style="padding-bottom:10px;"> 
+                                <td align="right" valign="top"><input type="checkbox" name="purchaseFreshBread" value="1" ></td> 
+                                <td>Purchase fresh bakery and bread products</td> 
+                            </tr> 
+                            <tr> 
+                                <td>&nbsp;</td> 
+                                <td>Other, please describe: <input type="text" name="otherComments" value="" size="25" maxlength="1000"></td> 
+                            </tr> 
+                            <tr> 
+                                <td colspan="2"> 
+                                    Number of students in your school district
+                                    <select name="studentsInDistrict"> 
+                                        <option value="500" >Less than 500
+                                        <option value="1000" >500 - 1,000
+                                        <option value="2000" >1,000 - 2,000
+                                        <option value="5000" >3,000 - 5,000
+                                        <option value="10000" >5,000 - 10,000
+                                        <option value="20000" >10,000 - 20,000
+                                        <option value="50000" >20,000 - 50,000
+                                        <option value="50000+" >Over 50,000
+                                    </select> 
+                                </td> 
+                             </tr> 
+                             <tr> 
+                                 <td colspan="2"> 
+                                     Approximate number of cafeterias, food courts or other eating facilities(District Total)
+                                     <select name="facilities"> 
+                                         <option value="3" >Less Than 3
+                                         <option value="5" >3-5
+                                         <option value="10" >6-10
+                                         <option value="10+" >More Than 10
+                                     </select> 
+                                 </td> 
+                             </tr> 
+                             <tr> 
+                                 <td colspan="2"> 
+                                     Number of students served daily(in your total school district - not just your individual school). Please confirm/enter these numbers.
+                                 </td> 
+                             </tr> 
+                              <tr> 
+                                  <td><input type="text" name="breakfastsServed" size="4" maxlength="6" value="" ></td> 
+                                  <td>Breakfast</td> 
+                              </tr> 
+                              <tr> 
+                                  <td><input type="text" name="lunchesServed" size="4" maxlength="6" value=""></td> 
+                                  <td>Lunch</td> 
+                              </tr> 
+                              <tr> 
+                                  <td><input type="text" name="snacksServed" size="4" maxlength="6" value=""></td> 
+                                  <td>Snacks</td> 
+                              </tr> 
+                          </table> 
+                      </div> 
+                      <div style="clear:both;" align="center"> 
+                      </div> 
+                      <span style="color: rgb(153, 51, 0);">
+                              <h2>Optional Broker/Distributor Information</h2>
+                      </span> 
+                      <div style="font-size: 10px;"> 
+                          One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <BR /><BR /> 
+                          Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br /><br /> 
+                      </div> 
 
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="username"><g:message code="username.label" default="Username" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'username', 'errors')}">
-                                    <g:textField name="username" value="${customerInstance?.username}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="password"><g:message code="password.label" default="Password" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'password', 'errors')}">
-                                    <g:passwordField name="password" value="${customerInstance?.password}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="confirmpassword"><g:message code="confirm.password.label" default="Confirm password" /></label>
-                                </td>
-                                <td valign="top">
-                                    <g:passwordField name="confirmpassword" value="" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="district"><g:message code="customer.district.label" default="District" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'district', 'errors')}">
-                                    <g:textField name="district" value="${customerInstance?.district}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="email"><g:message code="customer.email.label" default="Email" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'email', 'errors')}">
-                                    <g:textField name="email" value="${customerInstance?.email}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="phone"><g:message code="customer.phone.label" default="Phone" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'phone', 'errors')}">
-                                    <g:textField name="phone" value="${customerInstance?.phone}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="fax"><g:message code="customer.fax.label" default="Fax" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fax', 'errors')}">
-                                    <g:textField name="fax" value="${customerInstance?.fax}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="fsdName"><g:message code="customer.fsdName.label" default="Fsd Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdName', 'errors')}">
-                                    <g:textField name="fsdName" value="${customerInstance?.fsdName}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="fsdEmail"><g:message code="customer.fsdEmail.label" default="Fsd Email" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdEmail', 'errors')}">
-                                    <g:textField name="fsdEmail" value="${customerInstance?.fsdEmail}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="fsdTitle"><g:message code="customer.fsdTitle.label" default="Fsd Title" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdTitle', 'errors')}">
-                                    <g:select name="fsdTitle" from="${customerInstance?.constraints?.fsdTitle?.inList}" value="${customerInstance?.fsdTitle}" valueMessagePrefix="customer.fsdTitle" noSelection="['': '']" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="ndName"><g:message code="customer.ndName.label" default="Nd Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndName', 'errors')}">
-                                    <g:textField name="ndName" value="${customerInstance?.ndName}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="ndEmail"><g:message code="customer.ndEmail.label" default="Nd Email" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndEmail', 'errors')}">
-                                    <g:textField name="ndEmail" value="${customerInstance?.ndEmail}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="ndTitle"><g:message code="customer.ndTitle.label" default="Nd Title" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndTitle', 'errors')}">
-                                    <g:select name="ndTitle" from="${customerInstance?.constraints?.ndTitle?.inList}" value="${customerInstance?.ndTitle}" valueMessagePrefix="customer.ndTitle" noSelection="['': '']" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="cdName"><g:message code="customer.cdName.label" default="Cd Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdName', 'errors')}">
-                                    <g:textField name="cdName" value="${customerInstance?.cdName}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="cdEmail"><g:message code="customer.cdEmail.label" default="Cd Email" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdEmail', 'errors')}">
-                                    <g:textField name="cdEmail" value="${customerInstance?.cdEmail}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="cdTitle"><g:message code="customer.cdTitle.label" default="Cd Title" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdTitle', 'errors')}">
-                                    <g:select name="cdTitle" from="${customerInstance?.constraints?.cdTitle?.inList}" value="${customerInstance?.cdTitle}" valueMessagePrefix="customer.cdTitle" noSelection="['': '']" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="Students In District" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'studentsInDistrict', 'errors')}">
-                                    <g:textField name="studentsInDistrict" value="${fieldValue(bean: customerInstance, field: 'studentsInDistrict')}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="facilities"><g:message code="customer.facilities.label" default="Facilities" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'facilities', 'errors')}">
-                                    <g:textField name="facilities" value="${fieldValue(bean: customerInstance, field: 'facilities')}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="Breakfasts Served" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'breakfastsServed', 'errors')}">
-                                    <g:textField name="breakfastsServed" value="${fieldValue(bean: customerInstance, field: 'breakfastsServed')}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="Lunches Served" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'lunchesServed', 'errors')}">
-                                    <g:textField name="lunchesServed" value="${fieldValue(bean: customerInstance, field: 'lunchesServed')}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="snacksServed"><g:message code="customer.snacksServed.label" default="Snacks Served" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'snacksServed', 'errors')}">
-                                    <g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}" />
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-                    <table style="float:right; width:400px">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <h3>Address</h3>
-                                </td>
-                            </tr>
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="address.street"><g:message code="address.street.label" default="Street" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street', 'errors')}">
-                                    <g:textField name="address.street" value="${customerInstance?.address?.street}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="address.city"><g:message code="address.city.label" default="City" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'city', 'errors')}">
-                                    <g:textField name="address.city" value="${customerInstance?.address?.city}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="state"><g:message code="address.state.label" default="State" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
+                      <table CELLPADDING="3" CELLSPACING="0" BORDER="0" width="300"> 
+                          <tr> 
+                              <td><strong>Broker/Distributor Name: </strong></td> 
+                              <td><input type="text" name="brokerName" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Email: </strong></td> 
+                              <td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Telephone: </strong></td> 
+                              <td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Fax: </strong></td> 
+                              <td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Address: </strong></td> 
+                              <td><input type="text" name="brokerStreet" size="20" maxlength="255" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong></strong></td> 
+                              <td><input type="text" name="brokerStreet2" size="20" maxlength="255" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>City: </strong></td> 
+                              <td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 			
+                              <td>State</td> 
+                              <td align="left"> 
                                     <g:select name="brokerState" from="${states}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="address.zip"><g:message code="address.zip.label" default="Zip" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'zip', 'errors')}">
-                                    <g:textField name="address.zip" value="${fieldValue(bean: customerInstance?.address, field: 'zip')}" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h3>Delivery Address</h3>
-                                </td>
-                            </tr>
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="deliveryAddress.street"><g:message code="address.street.label" default="Street" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'street', 'errors')}">
-                                    <g:textField name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="deliveryAddress.city"><g:message code="address.city.label" default="City" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'city', 'errors')}">
-                                    <g:textField name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" />
-                                </td>
-                            </tr>
-
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="state"><g:message code="address.state.label" default="State" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'state', 'errors')}">
-                                    <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.address?.state}" valueMessagePrefix="address.state"  />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="deliveryAddress.zip"><g:message code="address.zip.label" default="Zip" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'zip', 'errors')}">
-                                    <g:textField name="deliveryAddress.zip" value="${fieldValue(bean: customerInstance?.deliveryAddress, field: 'zip')}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="hasBakery"><g:message code="customer.hasBakery.label" default="Has Bakery" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'hasBakery', 'errors')}">
-                                    <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="purchaseFreshBread"><g:message code="customer.purchaseFreshBread.label" default="Purchase Fresh Bread" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFreshBread', 'errors')}">
-                                    <g:checkBox name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="purchaseFrozenBread"><g:message code="customer.purchaseFrozenBread.label" default="Purchase Frozen Bread" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenBread', 'errors')}">
-                                    <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="purchaseFrozenFood"><g:message code="customer.purchaseFrozenFood.label" default="Purchase Frozen Food" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenFood', 'errors')}">
-                                    <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="purchasePreparedFood"><g:message code="customer.purchasePreparedFood.label" default="Purchase Prepared Food" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchasePreparedFood', 'errors')}">
-                                    <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="receivedCurrentMailing"><g:message code="customer.receivedCurrentMailing.label" default="Received Current Mailing" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'receivedCurrentMailing', 'errors')}">
-                                    <g:checkBox name="receivedCurrentMailing" value="${customerInstance?.receivedCurrentMailing}" />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-<span style="color: rgb(153, 51, 0);"> 
-		<span style="font-size: 16px;"> 
-			<strong>Optional Broker/Distributor Information</strong> 
-		</span> 
-	</span> 
-	<div style="font-size: 10px;"> 
-		One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to 
-		foodservice distributors and brokers. 
-		<br /><br /> 
-		Although it is not mandatory that you provide broker or distributor information below, it will help ensure that 
-		the right people know about your interest in these products and improve the  likelihood that you will receive more 
-		whole grain foods in the future.  Please provide the following if available.
-		<br /><br /> 
-	</div> 
- 
-	<table> 
-		<tr> 
-			<td><strong>Broker/Distributor Name: </strong></td> 
-			<td><input type="text" name="brokerName" size="20" maxlength="50" value="" /></td> 
-		</tr> 
-		<tr> 
-			<td><strong>Email: </strong></td> 
-			<td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td> 
-		</tr> 
-		<tr> 
-			<td><strong>Telephone: </strong></td> 
-			<td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td> 
-		</tr> 
-		<tr> 
-			<td><strong>Fax: </strong></td> 
-			<td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td> 
-		</tr> 
-		<tr> 
-			<td><strong>Address: </strong></td> 
-			<td><input type="text" name="brokerAddress" size="20" maxlength="255" value=""></td> 
-		</tr> 
-		<tr> 
-			<td><strong></strong></td> 
-			<td><input type="text" name="brokerAddress2" size="20" maxlength="255" value=""></td> 
-		</tr> 
-		<tr> 
-			<td><strong>City: </strong></td> 
-			<td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td> 
-		</tr> 
-		<tr> 			
-			<td>State</td> 
-			<td align="left"><g:select name="brokerState" from="${states}" optionKey="value" /></td> 
-		</tr> 
-		<tr> 
-			<td><strong>Zip: </strong></td> 
-			<td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td> 
-		</tr> 
-                 <tr>
-                     <td>
-                         <div class="buttons">
-                             <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Save')}" /></span>
-                         </div>
-                     </td>
-                 </tr>
-	</table> 
-
-                </div>
-
-            </g:form>
-        </div>
+                              </td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Zip: </strong></td> 
+                              <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td> 
+                          </tr> 
+                      </table> 
+                      <div style="clear:both;" align="center"> 
+                          <a href="javascript:help();"><strong>Help</strong></a> 
+                          <input type="hidden" name="Register" value="1"> 
+                          <input type="submit" name="save" value="Save"> 
+                      </g:form> 
+                  </div> 
+                </div> 
+           </div>
     </body>
 </html>

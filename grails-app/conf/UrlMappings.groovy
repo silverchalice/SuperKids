@@ -164,12 +164,9 @@ class UrlMappings {
                     controller = "home"
                     action = "change_password"
                 }
-                "/contact.$suffix"{
+                "/contact"{
                     controller = "contactRequest"
                     action = "create"
-                    constraints {
-                        suffix(matches: 'cfm')
-                    }
                 }
                 "/contact_requests"{
                     controller = "contactRequest"
@@ -186,6 +183,10 @@ class UrlMappings {
                 "/find_school_district" {
                     controller = "customer"
                     action = "findSchoolDistrict"
+                }
+                "/profile_help"{
+                    controller = "home"
+                    action = "profile_help"
                 }
 		"500"(view:'/error')
 	}

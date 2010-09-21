@@ -8,6 +8,7 @@ class Broker {
 	String email
 
 	String street
+        String street2
 	String city
 	String state
 	Integer zip
@@ -19,6 +20,7 @@ class Broker {
                 fax(nullable:true)
                 email(nullable:true)
 		street(nullable: true)
+                street2(nullable:true)
 		city(nullable: true)
 		state(nullable: true)
 		zip(nullable: true)

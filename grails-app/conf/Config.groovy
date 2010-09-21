@@ -152,7 +152,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/order.cfm':                                              ['ROLE_USER', 'ROLE_ADMIN'],
    '/assess.cfm':                                             ['ROLE_USER', 'ROLE_ADMIN'],
    '/promote.cfm':                                            ['ROLE_USER', 'ROLE_ADMIN'],
-   '/contact.cfm':                                       ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/contact':                                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/assessment-drawing-rules':                               ['ROLE_USER', 'ROLE_ADMIN'],
    '/assessment-tools':                                       ['ROLE_USER', 'ROLE_ADMIN'],
    '/ecards':                                                 ['ROLE_USER', 'ROLE_ADMIN'],
@@ -175,6 +175,9 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/find_school_district':                                                ['ROLE_ADMIN'],
    '/customer/**':                                                         ['ROLE_ADMIN'],
    '/call':                                                 ['ROLE_CALLER', 'ROLE_ADMIN'],
-   '/call/**':                                              ['ROLE_CALLER', 'ROLE_ADMIN']
+   '/call/**':                                              ['ROLE_CALLER', 'ROLE_ADMIN'],
+   '/home/c_change_password':                                               ['ROLE_USER'],
+   '/home/c_password':                                                      ['ROLE_USER'],
+   '/profile_help':                                      ['IS_AUTHENTICATED_ANONYMOUSLY']
 
 ]

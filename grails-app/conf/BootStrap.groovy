@@ -16,14 +16,15 @@ class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-		def superkids = '/Users/zak/builds/SuperKids'
-//		def superkids = '/home/ben/dev/SuperKids'
+//		def superkids = '/Users/zak/builds/SuperKids'
+		def superkids = '/home/ben/dev/SuperKids'
 
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
                 def callerRole = new Role(authority: 'ROLE_CALLER').save(failOnError:true, flush:true)
 
 		String password = springSecurityService.encodePassword('password')
+                String password2 = springSecurityService.encodePassword('superkids')
 		def testUser = new User(username: 'me', enabled: true, password: password)
 		testUser.save(failOnError:true, flush: true)
 		UserRole.create testUser, adminRole, true
@@ -34,7 +35,7 @@ class BootStrap {
 			phone:'(608) 617-3960',
 			email:'info@silver-chalice.com',
 			username:'info@silver-chalice.com',
-			password:password,
+			password:password2,
 			enabled : true,
 			accountExpired : false,
 			accountLocked : false,
