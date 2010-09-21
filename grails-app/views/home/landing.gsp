@@ -19,5 +19,8 @@
                 so.write("flashcontent");
                 // ]]>
         </script>
+        <g:if test="${flash.message}">
+        <script>alert('${flash.message}'); </script>
+        </g:if>
     </body>
 </html>
