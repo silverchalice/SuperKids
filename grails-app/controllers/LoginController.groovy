@@ -105,7 +105,7 @@ class LoginController {
                         User.list().each{ println it.username; println it.password }
                         Customer.list().each{ println it.username }
 		}
-                println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + params.j_username + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+                println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + User.findByUsername(params.j_username) + "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 
 		if (springSecurityService.isAjax(request)) {
 			render([error: msg] as JSON)
