@@ -11,6 +11,7 @@ class DataService {
     def importCustomers(file) {
 		def i = 0
 		def is = file.inputStream
+                def userRole = Role.findByAuthority("ROLE_USER")
 		new ExcelBuilder(is).eachLine([labels:true]) {
 			i++
 			println "Customer ${i} - ${School_District}"
@@ -51,6 +52,7 @@ class DataService {
 			if (!customer.save()) {
 				customer.errors.each {println it}
 			}
+                        UserRole.create customer, userRole, true
 		}
 	}
 }
