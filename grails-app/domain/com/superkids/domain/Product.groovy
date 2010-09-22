@@ -27,5 +27,10 @@ class Product implements IShoppable {
 		sponsor(nullable:true)
     }
 
+    static mapping = {
+        image type:"longblob"
+        summary type:"longblob"
+    }
+
     String toString(){ name }
 }
