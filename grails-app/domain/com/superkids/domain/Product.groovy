@@ -28,8 +28,8 @@ class Product implements IShoppable {
     }
 
     static mapping = {
-        image type:"longblob"
-        summary type:"longblob"
+        image sqlType:"longblob"
+        summary sqlType:"longblob"
     }
 
     String toString(){ name }
