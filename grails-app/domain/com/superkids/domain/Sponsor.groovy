@@ -28,6 +28,10 @@ class Sponsor {
 		products(nullable:true)
     }
 
+    static mapping = {
+        logo type:"longblob"
+    }
+
 	String toString() {
 		name
 	}
