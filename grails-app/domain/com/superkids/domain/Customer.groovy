@@ -104,4 +104,9 @@ class Customer extends User {
 			eq 'status', CustomerStatus.HAS_ORDERED
 		}
 	}
+    
+        static searchable = {
+            only = ['fsdName', 'district', 'fsdEmail', 'ndEmail', 'cdEmail']
+        }
+
 }
