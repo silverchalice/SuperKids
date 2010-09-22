@@ -71,15 +71,15 @@ class Customer extends User {
 		fax nullable: true 
 
 		fsdName nullable: true
-		fsdEmail nullable: true, email: true
+		fsdEmail nullable: true
 		fsdTitle nullable: true
 
 		ndName nullable: true
-		ndEmail nullable: true, email: true
+		ndEmail nullable: true
 		ndTitle nullable: true
 
 		cdName nullable: true
-		cdEmail nullable: true, email: true
+		cdEmail nullable: true
 		cdTitle nullable: true
 
 		broker nullable: true
