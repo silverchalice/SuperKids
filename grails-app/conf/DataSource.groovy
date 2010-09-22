@@ -26,8 +26,11 @@ environments {
     production {
         dataSource {
 			pooled = false
+   		    driverClassName = "com.mysql.jdbc.Driver"
+			username = "sks"
+			password = "sks5551212"
 			dbCreate = "update"			
-            jndiName = "jdbc:mysql://localhost:3306/database"
+            url = "jdbc:mysql://localhost:3306/sksdb"
         }
     }
 }
