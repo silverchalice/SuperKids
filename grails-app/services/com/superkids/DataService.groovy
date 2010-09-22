@@ -53,6 +53,10 @@ class DataService {
 				customer.errors.each {println it}
 			}
                         UserRole.create customer, userRole, true
+                        customer.enabled = true
+                        customer.accountExpired = false
+                        customer.accountLocked = false
+                        customer.passwordExpired = false
 		}
 	}
 }
