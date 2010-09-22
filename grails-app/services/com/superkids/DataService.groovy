@@ -49,14 +49,14 @@ class DataService {
                            customer.email = "no-email@no-email${i}.com"
                            customer.fsdEmail = "no-email@no-email${i}.com"
                         }
-			if (!customer.save()) {
-				customer.errors.each {println it}
-			}
-                        UserRole.create customer, userRole, true
                         customer.enabled = true
                         customer.accountExpired = false
                         customer.accountLocked = false
                         customer.passwordExpired = false
+			if (!customer.save()) {
+				customer.errors.each {println it}
+			}
+                        UserRole.create customer, userRole, true
 		}
 	}
 }
