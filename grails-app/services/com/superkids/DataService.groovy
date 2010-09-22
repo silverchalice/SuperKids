@@ -41,10 +41,12 @@ class DataService {
                         customer.password = springSecurityService.encodePassword("superkids")
                         if(Email){
                             customer.username = Email
+                            customer.fsdEmail = Email
                             customer.email = Email
                         } else {
                            customer.username = "no-email@no-email${i}.com"
                            customer.email = "no-email@no-email${i}.com"
+                           customer.fsdEmail = "no-email@no-email${i}.com"
                         }
 			if (!customer.save()) {
 				customer.errors.each {println it}
