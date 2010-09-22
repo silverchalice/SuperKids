@@ -40,11 +40,11 @@ class Customer extends User {
 
 	Broker broker
 
-	Integer studentsInDistrict
-	Integer facilities
-	Integer breakfastsServed
-	Integer lunchesServed
-	Integer snacksServed
+	String studentsInDistrict
+	String facilities
+	String breakfastsServed
+	String lunchesServed
+	String snacksServed
 	boolean hasBakery
 	boolean purchaseFrozenBread
 	boolean purchaseFreshBread
@@ -67,7 +67,7 @@ class Customer extends User {
 		deliveryAddress nullable: true
 		email()
 		website(nullable: true)
-		phone()
+		phone(nullable:true, blank:true)
 		fax nullable: true 
 
 		fsdName nullable: true
