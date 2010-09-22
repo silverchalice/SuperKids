@@ -11,21 +11,32 @@ import com.superkids.domain.ShippingDate
 import com.metasieve.shoppingcart.ShoppingItem
 import com.superkids.domain.CustomerStatus
 import com.superkids.domain.Factoid
+import grails.util.GrailsUtil
+
 
 class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-//		def superkids = '/Users/zak/builds/SuperKids'
-		def superkids = '/home/ben/dev/SuperKids'
 
+
+		if(GrailsUtil.environment == 'development'){
+	//		def superkids = '/Users/zak/builds/SuperKids'
+			def superkids = '/home/ben/dev/SuperKids'
+		}
+
+
+		if ( GrailsUtil.getEnvironment().equals(GrailsApplication.ENV_PRODUCTION)) {	
+			def superkids = '/opt/tomcat/webapps/SuperKids'
+		}
+  		
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
                 def callerRole = new Role(authority: 'ROLE_CALLER').save(failOnError:true, flush:true)
 
-		String password = springSecurityService.encodePassword('password')
-                String password2 = springSecurityService.encodePassword('superkids')
-		def testUser = new User(username: 'me', enabled: true, password: password)
+		String password = springSecurityService.encodePassword('superkids')
+	        String password2 = springSecurityService.encodePassword('superkids')
+		def testUser = new User(username: 'admin', enabled: true, password: password)
 		testUser.save(failOnError:true, flush: true)
 		UserRole.create testUser, adminRole, true
 
