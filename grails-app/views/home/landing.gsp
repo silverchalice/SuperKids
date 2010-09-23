@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="customer" />
+        <meta name="layout" content="movie" />
         <g:javascript src="swfobject.js" />
         <g:javascript src="flexcroll.js" />
         <g:javascript src="Menu.js" />
