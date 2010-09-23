@@ -20,15 +20,11 @@ class BootStrap {
 
 
 
-		if(GrailsUtil.environment == 'development'){
+
 	//		def superkids = '/Users/zak/builds/SuperKids'
 			def superkids = '/home/ben/dev/SuperKids'
-		}
+	//		def superkids = '/opt/tomcat/webapps/SuperKids'
 
-
-		if ( GrailsUtil.getEnvironment().equals(GrailsApplication.ENV_PRODUCTION)) {	
-			def superkids = '/opt/tomcat/webapps/SuperKids'
-		}
   		
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
