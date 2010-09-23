@@ -16,10 +16,10 @@ class HomeController {
 
     def index = {
         if(springSecurityService.isLoggedIn()){
-            println "drat!" + UserRole.findByUser(User.get(springSecurityService.principal.id))
             def pass = springSecurityService.encodePassword("superkids")
             def loggedInUser = User.get(springSecurityService.principal.id)
-            if(loggedInUser.password == pass){
+            def ur = Role.findByAuthority("ROLE_USER")
+            if(loggedInUser.password == pass && UserRole.findByUserAndRole(loggedInUser, ur)){
                 flash.message = "Please enter a new password."
                 redirect action:"c_change_password"
             } else {
