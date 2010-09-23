@@ -58,7 +58,11 @@ class DataService {
 				customer.errors.each {println it}
 			}
                         def userRole = Role.findByAuthority("ROLE_USER")
-                        UserRole.create customer, userRole, true
+                        if(!userRole){
+                            userRole = new Role(authority:"ROLE_USER").save(failOnError:true)
+                        }
+                        println "the customer is " + customer + ", and the role is " + userRole
+                        //UserRole.create customer, userRole, true
 		}
 	}
 }
