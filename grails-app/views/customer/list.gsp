@@ -39,7 +39,7 @@
 
                             <th>Assessment</th>
 
-                            <th>New</th>
+                            <g:sortableColumn property="isNew" title="New" />
 
                             <th>Action</th>
 
