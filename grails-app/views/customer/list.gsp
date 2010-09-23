@@ -60,9 +60,12 @@
                             <td>Foo</td>
 
                             <td>
-                            <g:checkBox name='isNew'
-                                        value="${customerInstance.isNew}"
-                                        onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
+                            <g:if test="${customerInstance.isNew}">
+                                <img src="${request.contextPath}/images/true-g.gif" onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
+                            </g:if>
+                            <g:else>
+                                <img src="${request.contextPath}/images/false.gif" onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
+                            </g:else>
                             </td>
 
                             <td width="120px">
