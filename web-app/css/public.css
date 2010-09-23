@@ -121,6 +121,7 @@ a img {
   padding:15px 10px 0 10px;
   height:485px;
   margin:0 auto;
+  overflow:auto;
   position:relative;
   top:27px;
 }
