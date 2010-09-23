@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Login | SuperKids</title>
-    <link rel="stylesheet" type="text/css" href="${resource(dir:'css',file:'main.css')}" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${resource(dir:'css',file:'public.css')}" media="screen" />
      <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 	<meta name="layout" content="public" />
 
