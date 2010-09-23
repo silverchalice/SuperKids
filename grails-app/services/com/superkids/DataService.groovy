@@ -62,7 +62,7 @@ class DataService {
                             userRole = new Role(authority:"ROLE_USER").save(failOnError:true)
                         }
                         println "the customer is " + customer + ", and the role is " + userRole
-                        UserRole.create customer, userRole, true
+                        //UserRole.create customer, userRole, true
 		}
 	}
 }
