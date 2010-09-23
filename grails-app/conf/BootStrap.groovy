@@ -21,8 +21,8 @@ class BootStrap {
 
 
 
-	//		def superkids = '/Users/zak/builds/SuperKids'
-			def superkids = '/home/ben/dev/SuperKids'
+			def superkids = '/Users/zak/builds/SuperKids'
+	//		def superkids = '/home/ben/dev/SuperKids'
 	//		def superkids = '/opt/tomcat/webapps/SuperKids'
 
   		

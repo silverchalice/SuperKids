@@ -14,7 +14,7 @@ class CustomerController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.max = Math.min(params.max ? params.int('max') : 20, 100)
         [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count()]
     }
 
