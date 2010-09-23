@@ -21,6 +21,7 @@ class HomeController {
             def ur = Role.findByAuthority("ROLE_USER")
             if(loggedInUser.password == pass && UserRole.findByUserAndRole(loggedInUser, ur)){
                 flash.message = "Please enter a new password."
+                log.info flash.message
                 redirect action:"c_change_password"
             } else {
                 println springSecurityService.principal?.username
@@ -93,9 +94,11 @@ class HomeController {
                    customerInstance.save()
                }
                flash.message = "Your account was created."
+               log.info flash.message
                redirect(action:"register_n")
            } else {
                flash.message = "There were errors with your information."
+               log.info flash.message
                customerInstance.errors.allErrors.each {
                    println it
                    println " "
@@ -110,7 +113,7 @@ class HomeController {
 
        def edit_profile = {         
            if(springSecurityService.isLoggedIn()){
-               def user = Customer.findByUsername(springSecurityService.principal.username)
+               def user = Customer.get(springSecurityService.principal.id)
                println "this user is of " + user.class + ", and its username is " + user.username
                println "here's a list of the Customers: "
                Customer.list().each { println it }
@@ -144,12 +147,14 @@ class HomeController {
                if(params.password){ customerInstance.password = springSecurityService.encodePassword(params.password) }
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
+                log.info flash.message
                    redirect(action: "index")
                } else {
                    render(view: "edit_profile", model: [customerInstance: customerInstance])
                }
            } else {
                flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
+                log.info flash.message
                redirect(action: "index")
            }
        }
@@ -191,6 +196,7 @@ class HomeController {
                  redirect controller:controller, action:action
             } else {
                  flash.message = "Uh... those were Olaf's."
+                log.info flash.message
                  redirect controller:"home", action:"index"
             }
        }
@@ -419,9 +425,11 @@ class HomeController {
                userInstance.password = springSecurityService.encodePassword(params.password)
                userInstance.save()
                flash.message = "Your password has been updated."
+                log.info flash.message
                redirect uri:"/admin"
            } else {
                flash.message = "New passwords do not match."
+                log.info flash.message
                userInstance.password = params.password
                render view:"change_password", model:[userInstance:userInstance]
            }
@@ -437,16 +445,19 @@ class HomeController {
            def customerInstance = Customer.get(springSecurityService.principal.id)
            if(params.password == "superkids"){
                flash.message = "Please enter a new password. Your password cannot be \"superkids\"."
+                log.info flash.message
                redirect action:"c_change_password"
            } else {
                if(params.password == params.confirmpassword){
                    customerInstance.password = springSecurityService.encodePassword(params.password)
                    customerInstance.save()
                    flash.message = "Your password has been updated."
+                log.info flash.message
                    println "!!! redirecting"
                    redirect action:"index"
                } else {
                    flash.message = "New passwords do not match."
+                log.info flash.message
                    customerInstance.password = params.password
                    render view:"c_change_password", model:[customerInstance:customerInstance]
                }
