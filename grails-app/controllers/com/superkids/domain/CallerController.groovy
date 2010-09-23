@@ -70,6 +70,15 @@ class CallerController {
                 }
             }
             callerInstance.properties = params
+            if(params.password){
+                if(params.password == params.confirmpassword){
+                    callerInstance.password = springSecurityService.encodePassword(params.password)
+                } else {
+                    flash.message = "New passwords do not match."
+                    render(view: "edit", model: [callerInstance: callerInstance])
+                    return
+                }
+            }
             if (!callerInstance.hasErrors() && callerInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'caller.label', default: 'Caller'), callerInstance.id])}"
                 redirect(action: "show", id: callerInstance.id)
