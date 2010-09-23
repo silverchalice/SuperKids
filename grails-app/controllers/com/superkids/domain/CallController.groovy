@@ -156,8 +156,20 @@ class CallController {
 			eq 'inCall', false
 		}.getAt(0)
 
+		if(customer) {
+			customer.inCall = true
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
+		} else {
+			customer = c.list(max: 1, offset: 0, sort: 'id') {
+			eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			eq 'inCall', false
+		}.getAt(0)
+
 		customer.inCall = true
-		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
+		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]						
+		}
+
+
 
 	}
 
