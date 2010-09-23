@@ -1,5 +1,6 @@
 
 <%@ page import="com.superkids.domain.Customer" %>
+<%@ page import="com.superkids.domain.Assessment" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
