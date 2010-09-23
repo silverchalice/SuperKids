@@ -1,6 +1,8 @@
 package com.superkids
 
 import com.superkids.domain.*
+import com.superkids.domain.UserRole
+
 
 class DataService {
 
@@ -48,9 +50,19 @@ class DataService {
                            customer.email = "no-email@no-email${i}.com"
                            customer.fsdEmail = "no-email@no-email${i}.com"
                         }
+                        customer.enabled = true
+                        customer.accountExpired = false
+                        customer.accountLocked = false
+                        customer.passwordExpired = false
 			if (!customer.save()) {
 				customer.errors.each {println it}
 			}
+                        def userRole = Role.findByAuthority("ROLE_USER")
+                        if(!userRole){
+                            userRole = new Role(authority:"ROLE_USER").save(failOnError:true)
+                        }
+                        println "the customer is " + customer + ", and the role is " + userRole
+                        //UserRole.create customer, userRole, true
 		}
 	}
 }

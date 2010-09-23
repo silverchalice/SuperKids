@@ -361,3 +361,16 @@ th.desc a {
     background: #b2d1ff;
 }
 
+.PopUpClass{
+	border: none;
+	padding: 10px;
+	display: none; 
+	font-size: 12px; 
+	z-index: 11000; 
+	left: 150px; 
+	width: 430px; 
+	position: absolute; 
+	top: 250px; 
+	background-color: #FEEBA7; 
+	text-align: justify;
+}

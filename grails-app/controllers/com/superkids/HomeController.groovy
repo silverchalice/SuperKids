@@ -16,10 +16,10 @@ class HomeController {
 
     def index = {
         if(springSecurityService.isLoggedIn()){
-            println "drat!" + UserRole.findByUser(User.get(springSecurityService.principal.id))
             def pass = springSecurityService.encodePassword("superkids")
             def loggedInUser = User.get(springSecurityService.principal.id)
-            if(loggedInUser.password == pass){
+            def ur = Role.findByAuthority("ROLE_USER")
+            if(loggedInUser.password == pass && UserRole.findByUserAndRole(loggedInUser, ur)){
                 flash.message = "Please enter a new password."
                 redirect action:"c_change_password"
             } else {
@@ -152,6 +152,18 @@ class HomeController {
                flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
                redirect(action: "index")
            }
+       }
+
+       def brokerFromEdit = {
+           def customerInstance = Customer.get(springSecurityService.principal.id)
+           if(params.brokerName){
+               def broker = new Broker(name:params.brokerName, phone:params.brokerPhone, fax:params.brokerFax, email:params.brokerEmail, street:params.brokerStreet, street2:params.brokerStreet2, city:params.brokerCity, state:params.brokerState, zip:params.brokerZip, customer:customerInstance)
+               broker.save(failOnError:true)
+               println broker.name
+               customerInstance.addToBrokers(broker)
+               customerInstance.save()
+            }
+            redirect action:"edit_profile"
        }
 
        def enter_site = {
