@@ -58,7 +58,7 @@ class DataService {
 				customer.errors.each {println it}
 			}
                         def userRole = Role.findByAuthority("ROLE_USER")
-                        def ur = new UserRole(customer, userRole, true)
+                        def ur = new UserRole(customer, userRole)
                         if(!ur.save()){
                                 ur.errors.each { println it }
                         }
