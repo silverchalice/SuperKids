@@ -42,10 +42,19 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="password"><g:message code="caller.password.label" default="Password" /></label>
+                                  <label for="password">New Password (if blank, password will be unchanged)</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: callerInstance, field: 'password', 'errors')}">
-                                    <g:textField name="password" value="${callerInstance?.password}" />
+                                    <g:passwordField name="password" value="" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="confirmpassword">Confirm Password</label>
+                                </td>
+                                <td valign="top">
+                                    <g:passwordField name="confirmpassword" value="" />
                                 </td>
                             </tr>
                         
