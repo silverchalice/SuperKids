@@ -30,7 +30,25 @@ function popaway(id){
            <g:if test="${flash.message}">
                <div class="message">${flash.message}</div>
            </g:if>
-         ${content}
+<h1>Whole Grains & Human Health</h1>
+<p>As a nutrition professional, you're well aware of the food pyramid and the role that whole grains play in health and wellness. This section provides access to some of the many recent health studies for your reference.</p>
+<h2>A Detailed Study.</h2>
+<p>Dr. Joanne Slavin of the University of Minnesota has reviewed and compiled scores of recent studies to show how whole grain intake protects against cancer, cardiovascular disease, diabetes and obesity. Click here to access it:  <a href="#">Download PDF (454K)</a>  <strong>(Nutrition Research Reviews, May 2004; Vol 17: 99-110.)</strong></p>
+<h2>Quick Highlights.</h2>
+<p>Select your choice from this menu for highlights of recent studies. <strong>(Courtesy: The Whole Grains Council.)</strong> </p>
+    <li><a onclick="popup('PopUp1');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Less Acne</span></strong></a></li> 
+    <li><a onclick="popup('PopUp2');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Reduced Chronic Disease Risk</span></strong></a></li> 
+    <li><a onclick="popup('PopUp3');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Lower Body Mass Index(BMI)</span></strong></a></li> 
+    <li><a onclick="popup('PopUp4');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Reduced Risk of Pancreatic Cancer&nbsp;</span></strong></a></li> 
+    <li><a onclick="popup('PopUp5');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Healthier Hearts</span></strong></a></li> 
+    <li><a onclick="popup('PopUp6');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Reduced Hypertension Risk</span></strong></a></li> 
+    <li><a onclick="popup('PopUp7');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Reduced Diabetes Risks</span></strong></a></li> 
+    <li><a onclick="popup('PopUp8');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Healthier Carotid Arteries</span></strong></a></li> 
+    <li><a onclick="popup('PopUp9');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Reduced Risk of Colorectal Cancer</span></strong></a></li> 
+    <li><a onclick="popup('PopUp10');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Reduced Risk of Breast Cancer</span></strong></a></li> 
+    <li><a onclick="popup('PopUp11');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);">Reduced Risk of Childhood Asthma</span></strong></a><a onclick="popup('PopUp12');" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><strong><span style="color: rgb(255, 102, 0);"><br /> 
+    </span></strong></a></li> 
+
         </div>
 <div class="PopUpClass" id="PopUp1"> 
 <div class="headline2"><span style="color: rgb(0, 0, 0);"><span><span style="font-size: xx-small;">Whole Grains And Human Health - Recent Studies</span></span></span></div> 
