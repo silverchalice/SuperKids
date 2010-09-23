@@ -57,15 +57,17 @@
                             <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
                             <td>
-                            <g:checkBox name='placedOrder'
-                                        value="${customerInstance.order?.products}"
-                                        disabled="disabled" />
+                            <input type="checkbox"
+                                   name="placedOrder"
+                                   id="placedOrder"
+                                   disabled="disabled" />
                             </td>
 
                             <td>
-                            <g:checkBox name='assessment'
-                                        value="${Assessment.findByCustomer(customerInstance)}"
-                                        disabled="disabled" />
+                            <input type="checkbox"
+                                   name="assessment"
+                                   id="assessment"
+                                   disabled="disabled" />
                             </td>
 
                             <td>
