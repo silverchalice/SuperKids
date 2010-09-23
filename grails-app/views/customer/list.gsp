@@ -55,17 +55,31 @@
 
                             <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
-                            <td>Foo</td>
-
-                            <td>Foo</td>
+                            <td>
+                                <g:if test="${customerInstance.order?.products}">
+                                    <img src="${request.contextPath}/images/true-g.gif" />
+                                </g:if>
+                                <g:else>
+                                    <img src="${request.contextPath}/images/false.gif" />
+                                </g:else>
+                            </td>
 
                             <td>
-                            <g:if test="${customerInstance.isNew}">
-                                <img src="${request.contextPath}/images/true-g.gif" onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
-                            </g:if>
-                            <g:else>
-                                <img src="${request.contextPath}/images/false.gif" onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
-                            </g:else>
+                                <g:if test="${Assessment.findByCustomer(customerInstance)}">
+                                    <img src="${request.contextPath}/images/true-g.gif" />
+                                </g:if>
+                                <g:else>
+                                    <img src="${request.contextPath}/images/false.gif" />
+                                </g:else>
+                            </td>
+
+                            <td>
+                                <g:if test="${customerInstance.isNew}">
+                                    <img src="${request.contextPath}/images/true-g.gif" onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
+                                </g:if>
+                                <g:else>
+                                    <img src="${request.contextPath}/images/false.gif" onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
+                                </g:else>
                             </td>
 
                             <td width="120px">
