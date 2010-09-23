@@ -269,5 +269,56 @@
                     </table>
                 </div>
             </g:form>
+            <g:form action="brokerFromEdit" method="post">
+                      <table cellpadding="3" cellspacing="0" border="0" width="300"> 
+                          <tr> 
+                              <td><strong>Broker/Distributor Name: </strong></td> 
+                              <td><input type="text" name="brokerName" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Email: </strong></td> 
+                              <td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Telephone: </strong></td> 
+                              <td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Fax: </strong></td> 
+                              <td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Address: </strong></td> 
+                              <td><input type="text" name="brokerStreet" size="20" maxlength="255" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong></strong></td> 
+                              <td><input type="text" name="brokerStreet2" size="20" maxlength="255" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>City: </strong></td> 
+                              <td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 			
+                              <td>State</td> 
+                              <td align="left"> 
+                                    <g:select name="brokerState" from="${states}" />
+                              </td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Zip: </strong></td> 
+                              <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td> 
+                          </tr> 
+                            <tr>
+                                <td>
+                                    <div class="buttons">
+                                        <br />
+                                        <span class="button"><g:submitButton name="create" class="save" value="Add" /></span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                      </table> 
+            </g:form>
     </body>
 </html>
