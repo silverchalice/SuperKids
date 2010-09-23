@@ -60,6 +60,7 @@ class LoginController {
 	 * Show denied page.
 	 */
 	def denied = {
+                log.info "hit denied action"
                 redirect uri:"/"
                 /*if (springSecurityService.isLoggedIn() &&
 				authenticationTrustResolver.isRememberMe(SCH.context?.authentication)) {

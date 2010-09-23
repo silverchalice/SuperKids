@@ -4,7 +4,7 @@ class Factoid {
     String content
 
     static constraints = {
-        content nullable:false, blank:false
+        content nullable:false, blank:false, sqlType:"text"
     }
 
     String toString(){
