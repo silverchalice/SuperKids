@@ -27,7 +27,7 @@ class DataService {
 				fax = Fax
 				fsdName = FSD_Name
 				fsdTitle = FSD_Title
-				studentsInDistrict = Students_in_District ? Students_in_District.toInteger() : 0
+				studentsInDistrict = Students_in_District ?: 0
 				facilities = Facilities ? Facilities : 0
 				breakfastsServed = Breakfasts_Served ? Breakfasts_Served : 0
 				lunchesServed = Lunches_Served ? Lunches_Served : 0
