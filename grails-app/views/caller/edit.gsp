@@ -42,10 +42,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="password">New Password (if blank, password will be unchanged)</label>
+                                  <label for="newpassword">New Password (if blank, password will be unchanged)</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: callerInstance, field: 'password', 'errors')}">
-                                    <g:passwordField name="password" value="" />
+                                    <g:passwordField name="newpassword" value="" />
                                 </td>
                             </tr>
 
