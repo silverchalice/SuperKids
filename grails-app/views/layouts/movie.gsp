@@ -43,7 +43,7 @@
       </sec:ifLoggedIn>
     </div>
     <div id="content">
-        <div id="contentInset" style="overflow:hidden">
+        <div id="contentInset" style="overflow:hidden; padding:0">
             <g:layoutBody />
         </div>
         <div id="contentFooter">

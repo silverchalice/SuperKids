@@ -147,14 +147,14 @@ class CallController {
 
 		log.info "About to create criteria"
 
-		def c = Customer.createCriteria() {
-			eq 'status', CustomerStatus.HAS_NOT_ORDERED
-			eq 'inCall', false
-		}
+		def c = Customer.createCriteria()
 
 
 		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(max: 1, offset: offset, sort: 'id').getAt(0)
+		def customer = c.list(max: 1, offset: offset, sort: 'id') {
+			eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			eq 'inCall', false
+		}.getAt(0)
 
 		customer.inCall = true
 		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]

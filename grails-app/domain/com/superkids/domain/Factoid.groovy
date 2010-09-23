@@ -4,7 +4,11 @@ class Factoid {
     String content
 
     static constraints = {
-        content nullable:false, blank:false, sqlType:"text"
+        content nullable:false, blank:false
+    }
+
+	static mapping = {
+        content column: "content", sqlType: "longblob"
     }
 
     String toString(){
