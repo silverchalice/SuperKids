@@ -3,6 +3,7 @@ package com.superkids
 import com.superkids.domain.*
 import com.superkids.domain.UserRole
 
+
 class DataService {
 
     static transactional = true
