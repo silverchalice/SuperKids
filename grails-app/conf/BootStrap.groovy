@@ -462,7 +462,7 @@ class BootStrap {
                           """
             ).save()
 
-        def wholeWheatStudiesText = new PageText(name:"whole_wheat_studies", content:"""
+        def wholeGrainStudiesText = new PageText(name:"whole_grain_studies", content:"""
 <h1>Whole Grains & Human Health</h1>
 <p>As a nutrition professional, you're well aware of the food pyramid and the role that whole grains play in health and wellness. This section provides access to some of the many recent health studies for your reference.</p>
 <h2>A Detailed Study.</h2>
