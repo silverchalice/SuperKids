@@ -1,6 +1,7 @@
 package com.superkids
 
 import com.superkids.domain.*
+import com.superkids.domain.UserRole
 
 class DataService {
 
@@ -11,7 +12,6 @@ class DataService {
     def importCustomers(file) {
 		def i = 0
 		def is = file.inputStream
-                def userRole = Role.findByAuthority("ROLE_USER")
 		new ExcelBuilder(is).eachLine([labels:true]) {
 			i++
 			println "Customer ${i} - ${School_District}"
@@ -56,7 +56,9 @@ class DataService {
 			if (!customer.save()) {
 				customer.errors.each {println it}
 			}
-                        UserRole.create customer, userRole, true
+                        def userRole = Role.findByAuthority("ROLE_USER")
+                        println "the customer is " + customer?.fsdEmail + ", and the userRole is " + userRole?.authority
+                        UserRole.create(customer, userRole, true)
 		}
 	}
 }
