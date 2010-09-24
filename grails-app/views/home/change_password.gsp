@@ -1,6 +1,6 @@
 
 
-<%@ page import="com.superkids.domain.User" %>
+<%@ page import="com.superkids.domain.Admin" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,14 +12,14 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <g:hasErrors bean="${userInstance}">
+            <g:hasErrors bean="${adminInstance}">
             <div class="errors">
-                <g:renderErrors bean="${userInstance}" as="list" />
+                <g:renderErrors bean="${adminInstance}" as="list" />
             </div>
             </g:hasErrors>
             <g:form action="admin_password" method="post" >
-                <g:hiddenField name="id" value="${userInstance?.id}" />
-                <g:hiddenField name="version" value="${userInstance?.version}" />
+                <g:hiddenField name="id" value="${adminInstance?.id}" />
+                <g:hiddenField name="version" value="${adminInstance?.version}" />
                 <div style="height:440px; overflow:auto;">
                     <table>
                         <tbody>
