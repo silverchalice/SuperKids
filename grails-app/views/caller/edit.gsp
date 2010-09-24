@@ -57,23 +57,7 @@
                                     <g:passwordField name="confirmpassword" value="" />
                                 </td>
                             </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="calls"><g:message code="caller.calls.label" default="Calls" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: callerInstance, field: 'calls', 'errors')}">
-                                    
-<ul>
-<g:each in="${callerInstance?.calls?}" var="c">
-    <li><g:link controller="call" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="call" action="create" params="['caller.id': callerInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'call.label', default: 'Call')])}</g:link>
-
-                                </td>
-                            </tr>
-                        
+                       
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="accountExpired"><g:message code="caller.accountExpired.label" default="Account Expired" /></label>
