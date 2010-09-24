@@ -33,76 +33,49 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="username"><g:message code="admin.username.label" default="Username" /></label>
+                                  <label for="username"><strong>Username:</strong></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'username', 'errors')}">
-                                    <g:textField name="username" value="${adminInstance?.username}" />
+                                  ${adminInstance.username}
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="password"><g:message code="admin.password.label" default="Password" /></label>
+                                  <label for="password"><strong>Password:</strong></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'password', 'errors')}">
-                                    <g:textField name="password" value="${adminInstance?.password}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="accountExpired"><g:message code="admin.accountExpired.label" default="Account Expired" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'accountExpired', 'errors')}">
-                                    <g:checkBox name="accountExpired" value="${adminInstance?.accountExpired}" />
+                                <td valign="top">
+                                    <g:link controller="home" action="change_password" id="${adminInstance.id}">Create New Password</g:link>
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="accountLocked"><g:message code="admin.accountLocked.label" default="Account Locked" /></label>
+                                  <label for="firstName"><strong>First Name:</strong></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'accountLocked', 'errors')}">
-                                    <g:checkBox name="accountLocked" value="${adminInstance?.accountLocked}" />
+                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'firstName', 'errors')}">
+                                    <g:textField name="firstName" value="${adminInstance?.firstName}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="enabled"><g:message code="admin.enabled.label" default="Enabled" /></label>
+                                  <label for="lastName"><strong>Last Name:</strong></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'enabled', 'errors')}">
-                                    <g:checkBox name="enabled" value="${adminInstance?.enabled}" />
+                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'lastName', 'errors')}">
+                                    <g:textField name="lastName" value="${adminInstance?.lastName}" />
                                 </td>
                             </tr>
-                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="lastLogin"><g:message code="admin.lastLogin.label" default="Last Login" /></label>
+                                  <label for="email"><g:message code="admin.email.label" default="Email" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'lastLogin', 'errors')}">
-                                    <g:datePicker name="lastLogin" precision="day" value="${adminInstance?.lastLogin}"  />
+                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'email', 'errors')}">
+                                    <g:textField name="email" value="${adminInstance?.email}" />
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="name"><g:message code="admin.name.label" default="Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'name', 'errors')}">
-                                    <g:textField name="name" value="${adminInstance?.name}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="passwordExpired"><g:message code="admin.passwordExpired.label" default="Password Expired" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'passwordExpired', 'errors')}">
-                                    <g:checkBox name="passwordExpired" value="${adminInstance?.passwordExpired}" />
-                                </td>
-                            </tr>
-                        
+                            </tr>                        
+
                         </tbody>
                     </table>
                 </div>
