@@ -25,7 +25,6 @@
           background:#FFF3E0;
         }
 
-
         .prop .textField {
             width:300px
         }
@@ -42,7 +41,7 @@
 
 
     <div class="nav">
-		<g:render template="caller_controls" model="[customerInstance: $customerInstance]"/> 
+		<g:render template="caller_controls" model="[customerInstance: customerInstance]"/> 
     </div>
 
     <div class="body" style="width:1200px">

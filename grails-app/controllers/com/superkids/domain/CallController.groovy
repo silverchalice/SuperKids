@@ -132,20 +132,78 @@ class CallController {
 	}
 
 
-	def get_order_call = {
-		log.info "in Get_Order_Call for CallController"
+	def next_order_call = {
+		println "in next_Order_Call for CallController"
+		println params
 
 		//make sure the last customer is no longer 'in call'
 		def previousCustomer = Customer.get(params?.id)
-		if(previousCustomer) previousCustomer.inCall = false
+		if(previousCustomer) {
+			previousCustomer.inCall = false
+			previousCustomer.save()
+		}
 
 		//assign the offset if there is one
-		def offset = params.offset ?: 0
+		def offset
+
+		if((params?.offset) && (params?.offset != ("" || '0'))) {
+			offset = params?.offset.toInteger()
+		} else {
+			offset = 0
+		}
 
 		def order = new CustomerOrder()
 		def call = new Call()
 
-		log.info "About to create criteria"
+		println "About to create criteria"
+
+		def c = Customer.createCriteria()
+
+		//order calls are all customers with out a current order AND who are not being called atm
+		def customer = c.list(max: 1, offset: offset, sort: 'id') {
+			eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			eq 'inCall', false
+		}.getAt(0)
+
+		if(customer) {
+			customer.inCall = true
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
+		} else {
+			def d = Customer.createCriteria()
+			customer = d.list(max: 1, offset: 0, sort: 'id') {
+			eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			eq 'inCall', false
+		}.getAt(0)
+
+		customer.inCall = true
+		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]						
+		}
+	}
+
+	def prev_order_call = {
+		println "in prev_Order_Call for CallController"
+		println params
+
+		//make sure the last customer is no longer 'in call'
+		def previousCustomer = Customer.get(params?.id)
+		if(previousCustomer) {
+			previousCustomer.inCall = false
+			previousCustomer.save()
+		}
+
+		//assign the offset if there is one
+		def offset
+		
+		if((params?.offset) && (params?.offset != ("" || '0'))) {
+			offset = params?.offset.toInteger() - 1
+		} else {
+			offset = 0
+		}
+
+		def order = new CustomerOrder()
+		def call = new Call()
+
+		println "About to create criteria"
 
 		def c = Customer.createCriteria()
 
@@ -160,17 +218,15 @@ class CallController {
 			customer.inCall = true
 			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
 		} else {
-			customer = c.list(max: 1, offset: 0, sort: 'id') {
+			def d = Customer.createCriteria()
+			customer = d.list(max: 1, offset: 0, sort: 'id') {
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			eq 'inCall', false
 		}.getAt(0)
 
 		customer.inCall = true
-		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]						
+		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
 		}
-
-
-
 	}
 
 
