@@ -6,6 +6,7 @@ import com.superkids.domain.Customer
 import com.superkids.domain.Broker
 import com.superkids.domain.Address
 import com.superkids.domain.User
+import com.superkids.domain.Admin
 import com.superkids.domain.UserRole
 import com.superkids.domain.Role
 import com.superkids.domain.Assessment
@@ -412,23 +413,23 @@ class HomeController {
        }
 
        def change_password = {
-           def userInstance = User.get(springSecurityService.principal.id)
-           [userInstance:userInstance]
+           def adminInstance = Admin.get(params.id)
+           [adminInstance:adminInstance]
        }
 
        def admin_password = {
-           def userInstance = User.get(springSecurityService.principal.id)
+           def adminInstance = Admin.get(params.id)
            if(params.password == params.confirmpassword){
-               userInstance.password = springSecurityService.encodePassword(params.password)
-               userInstance.save()
-               flash.message = "Your password has been updated."
+               adminInstance.password = springSecurityService.encodePassword(params.password)
+               adminInstance.save()
+               flash.message = "Password updated."
                 log.info flash.message
                redirect uri:"/admin"
            } else {
                flash.message = "New passwords do not match."
                 log.info flash.message
-               userInstance.password = params.password
-               render view:"change_password", model:[userInstance:userInstance]
+               adminInstance.password = params.password
+               render view:"change_password", model:[adminInstance:adminInstance]
            }
        }
 
