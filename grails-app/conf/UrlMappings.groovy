@@ -160,7 +160,7 @@ class UrlMappings {
                     controller = "assessment"
                     action = "start"
                 }
-                "/change_password" {
+                "/change_password/$id" {
                     controller = "home"
                     action = "change_password"
                 }
