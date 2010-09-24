@@ -5,6 +5,7 @@ import com.superkids.domain.Product
 import com.metasieve.shoppingcart.Quantity
 import com.superkids.domain.Factoid
 import com.superkids.domain.Sponsor
+import com.superkids.domain.Assessment
 
 class MiscTagLib {
 
@@ -94,6 +95,34 @@ class MiscTagLib {
             out << "</tbody>"
             out << "</table>"
         }
+    }
+
+    def orderCheckbox = { attrs ->
+        def customerInstance = Customer.get(attrs.id)
+        out << "<input type='checkbox' "
+        out << "name='"
+        out << attrs.name
+        out << "' id='"
+        out << attrs.id
+        out << "' "
+        if(customerInstance?.order?.products){
+            out << "checked='checked'"
+        }
+        out << "' disabled='disabled' />"
+    }
+
+    def assessmentCheckbox = { attrs ->
+        def customerInstance = Customer.get(attrs.id)
+        out << "<input type='checkbox' "
+        out << "name='"
+        out << attrs.name
+        out << "' id='"
+        out << attrs.id
+        out << "' "
+        if(Assessment.findByCustomer(customerInstance)){
+            out << "checked='checked'"
+        }
+        out << "' disabled='disabled' />"
     }
 
     def factoidList = { attrs ->
