@@ -117,6 +117,22 @@ grails {
 }
 grails.views.javascript.library="jquery"
 
+grails.plugins.springsecurity.useSecurityEventListener = true
+
+grails.plugins.springsecurity.onInteractiveAuthenticationSuccessEvent = { e, appCtx ->
+    def foo = e.getAuthentication()
+    com.superkids.domain.User.withTransaction { status ->
+        def adminInstance = com.superkids.domain.Admin.findByUsername(foo.principal.username)
+        try {
+            adminInstance.attach()
+            adminInstance.lastLogin = new Date()
+            adminInstance.save(flush: true)
+        } catch(org.springframework.dao.OptimisticLockingFailureException up) {
+                adminInstance = Admin.merge(adminInstance)
+        }
+    }
+}
+
 // Added by the Spring Security Core plugin:
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.superkids.domain.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.superkids.domain.UserRole'
@@ -129,6 +145,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/css/**':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/images/**':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/admin':                                             ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/admin/**':                                                            ['ROLE_ADMIN'],
    '/factoid':                                                             ['ROLE_ADMIN'],
    '/factoid/**':                                                          ['ROLE_ADMIN'],
    '/':                                                  ['IS_AUTHENTICATED_ANONYMOUSLY'],
