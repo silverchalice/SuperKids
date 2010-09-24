@@ -70,9 +70,9 @@ class CallerController {
                 }
             }
             callerInstance.properties = params
-            if(params.password){
-                if(params.password == params.confirmpassword){
-                    callerInstance.password = springSecurityService.encodePassword(params.password)
+            if(params.newpassword){
+                if(params.newpassword == params.confirmpassword){
+                    callerInstance.password = springSecurityService.encodePassword(params.newpassword)
                 } else {
                     flash.message = "New passwords do not match."
                     render(view: "edit", model: [callerInstance: callerInstance])

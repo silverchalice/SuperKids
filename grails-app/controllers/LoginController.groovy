@@ -52,6 +52,7 @@ class LoginController {
 
 		String view = 'auth'
 		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+                println "in auth " + flash.message
 		render view: view, model: [postUrl: postUrl,
 		                           rememberMeParameter: config.rememberMe.parameter]
 	}
@@ -103,8 +104,6 @@ class LoginController {
 			else {
 				msg = SpringSecurityUtils.securityConfig.errors.login.fail
 			}
-                        User.list().each{ println it.username; println it.password }
-                        Customer.list().each{ println it.username }
 		}
                 //println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + User.findByUsername(params.j_username) + " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
                 println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + msg + " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
