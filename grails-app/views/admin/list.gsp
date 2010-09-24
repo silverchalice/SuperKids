@@ -24,7 +24,7 @@
 
                             <g:sortableColumn property="username" title="${message(code: 'admin.username.label', default: 'Username')}" />
                         
-                            <g:sortableColumn property="name" title="${message(code: 'admin.accountExpired.label', default: 'Name')}" />
+                            <g:sortableColumn property="lastName" title="Name" />
                         
                             <g:sortableColumn property="lastLogin" title="${message(code: 'admin.lastLogin.label', default: 'Last Login')}" />
 
@@ -40,7 +40,7 @@
                         
                             <td><g:link action="edit" id="${adminInstance.id}">${fieldValue(bean: adminInstance, field: "username")}</g:link></td>
                         
-                            <td><g:link action="edit" id="${adminInstance.id}">${fieldValue(bean: adminInstance, field: "name")}</g:link></td>
+                            <td><g:link action="edit" id="${adminInstance.id}">${adminInstance.firstName} ${adminInstance.lastName}</g:link></td>
                         
                             <td><g:formatDate date="${adminInstance.lastLogin}" /></td>
 
