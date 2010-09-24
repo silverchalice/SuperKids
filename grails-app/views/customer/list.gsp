@@ -57,17 +57,15 @@
                             <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
                             <td>
-                            <input type="checkbox"
-                                   name="placedOrder"
-                                   id="placedOrder"
-                                   disabled="disabled" />
+                            <sks:orderCheckbox name="placedOrder"
+                                               id="placedOrder"
+                                               id="${customerInstance.id}" />
                             </td>
 
                             <td>
-                            <input type="checkbox"
-                                   name="assessment"
-                                   id="assessment"
-                                   disabled="disabled" />
+                            <sks:assessmentCheckbox name="assessment"
+                                               id="assessment"
+                                               id="${customerInstance.id}" />
                             </td>
 
                             <td>
