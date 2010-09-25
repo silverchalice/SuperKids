@@ -39,8 +39,6 @@ class Customer extends User {
 
 //	Misc. Stats
 
-	Broker broker
-
 	String studentsInDistrict
 	String facilities
 	String breakfastsServed
@@ -59,7 +57,7 @@ class Customer extends User {
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
 
-	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer ]
+	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker ]
 
     static constraints = {
 
