@@ -123,12 +123,14 @@ grails.plugins.springsecurity.onInteractiveAuthenticationSuccessEvent = { e, app
     def foo = e.getAuthentication()
     com.superkids.domain.User.withTransaction { status ->
         def adminInstance = com.superkids.domain.Admin.findByUsername(foo.principal.username)
-        try {
-            adminInstance.attach()
-            adminInstance.lastLogin = new Date()
-            adminInstance.save(flush: true)
-        } catch(org.springframework.dao.OptimisticLockingFailureException up) {
-                adminInstance = Admin.merge(adminInstance)
+        if(adminInstance){
+            try {
+                adminInstance.attach()
+                adminInstance.lastLogin = new Date()
+                adminInstance.save(flush: true)
+            } catch(org.springframework.dao.OptimisticLockingFailureException up) {
+                    adminInstance = Admin.merge(adminInstance)
+            }
         }
     }
 }
