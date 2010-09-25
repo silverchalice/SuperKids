@@ -26,7 +26,6 @@ class HomeController {
                 redirect action:"c_change_password"
             } else {
                 println springSecurityService.principal?.username
-                println "Users in system: "
                 def user = User.get(springSecurityService.principal.id)
                 def adminRole = Role.findByAuthority("ROLE_ADMIN")
                 def callerRole = Role.findByAuthority("ROLE_CALLER")

@@ -1,5 +1,6 @@
 import com.superkids.domain.Customer
 import com.superkids.domain.User
+import com.superkids.domain.Admin
 import com.superkids.domain.Product
 import com.superkids.domain.Sponsor
 import com.superkids.domain.Role
@@ -21,20 +22,25 @@ class BootStrap {
 
 
 
-			def superkids = '/Users/zak/builds/SuperKids'
-	//		def superkids = '/home/ben/dev/SuperKids'
+	//		def superkids = '/Users/zak/builds/SuperKids'
+			def superkids = '/home/ben/dev/SuperKids'
 	//		def superkids = '/opt/tomcat/webapps/SuperKids'
 
   		
-		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
+
+/*		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
                 def callerRole = new Role(authority: 'ROLE_CALLER').save(failOnError:true, flush:true)
 
 		String password = springSecurityService.encodePassword('superkids')
 	        String password2 = springSecurityService.encodePassword('superkids')
-		def testUser = new User(username: 'admin', enabled: true, password: password)
-		testUser.save(failOnError:true, flush: true)
-		UserRole.create testUser, adminRole, true
+		def testAdmin = new Admin(username: 'admin', firstName:'Ebenezer', lastName:'Scrooge', email:'ebenezer@scroogeandmarley.co.uk', enabled: true, password: password)
+		testAdmin.save(failOnError:true, flush: true)
+		def otherTestAdmin = new Admin(username: 'other_admin', firstName:'Jacob', lastName:'Marley', email:'jacob@scroogeandmarley.co.uk', enabled: true, password: password)
+		otherTestAdmin.save(failOnError:true, flush: true)
+
+		UserRole.create testAdmin, adminRole, true
+		UserRole.create otherTestAdmin, adminRole, true
 
 		def customer = new Customer(
 			district:'Silver Chalice Schools',
@@ -488,7 +494,7 @@ class BootStrap {
         def f3 = new Factoid(content:"Eating whole wheat helps reduce your risk of not eating whole wheat.* <br /><br /><span style='font-size:xx-small'>(*The American Association Of Those Who Determine Such Things has determined that eating whole wheat helps to reduce the risk of not eating whole wheat, as part of a diet high in whole wheat.)</span>").save()
         def f4 = new Factoid(content:"Who said that whole wheat wasn't good for you?").save()
         def f5 = new Factoid(content:"Who said that whole wheat was bad for you?").save()
-
+*/
     }
 
 
