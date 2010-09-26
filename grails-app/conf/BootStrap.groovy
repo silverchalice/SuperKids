@@ -25,7 +25,7 @@ class BootStrap {
 	//		def superkids = '/home/ben/dev/SuperKids'
 	//		def superkids = '/opt/tomcat/webapps/SuperKids'
 
-  		
+  	if(!Role.findByAuthority('ROLE_ADMIN')) {	
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
                 def callerRole = new Role(authority: 'ROLE_CALLER').save(failOnError:true, flush:true)
@@ -488,7 +488,7 @@ class BootStrap {
         def f3 = new Factoid(content:"Eating whole wheat helps reduce your risk of not eating whole wheat.* <br /><br /><span style='font-size:xx-small'>(*The American Association Of Those Who Determine Such Things has determined that eating whole wheat helps to reduce the risk of not eating whole wheat, as part of a diet high in whole wheat.)</span>").save()
         def f4 = new Factoid(content:"Who said that whole wheat wasn't good for you?").save()
         def f5 = new Factoid(content:"Who said that whole wheat was bad for you?").save()
-
+	  }
     }
 
 
