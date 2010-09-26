@@ -8,7 +8,8 @@
         <title>Edit Profile | SuperKids</title>
     </head>
     <body>
-            <h1>Edit Profile</h1>
+            <h1>Checkout Step 1 of 2</h1>
+            <h1>School District Profile</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -269,5 +270,85 @@
                     </table>
                 </div>
             </g:form>
+            <g:form controller="home" action="addBroker" method="post">
+            <div style="width:250px; float:right;">
+                      <table cellpadding="3" cellspacing="0" border="0" width="300"> 
+                          <tr> 
+                              <td><strong>Broker/Distributor Name: </strong></td> 
+                              <td><input type="text" name="brokerName" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Email: </strong></td> 
+                              <td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Telephone: </strong></td> 
+                              <td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Fax: </strong></td> 
+                              <td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Address: </strong></td> 
+                              <td><input type="text" name="brokerStreet" size="20" maxlength="255" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong></strong></td> 
+                              <td><input type="text" name="brokerStreet2" size="20" maxlength="255" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>City: </strong></td> 
+                              <td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td> 
+                          </tr> 
+                          <tr> 			
+                              <td>State</td> 
+                              <td align="left"> 
+                                    <g:select name="brokerState" from="${states}" />
+                              </td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Zip: </strong></td> 
+                              <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td> 
+                          </tr> 
+                          <tr> 
+                              <td><g:hiddenField name="rController" value="product" />
+                              <g:hiddenField name="rAction" value="check_out" /></td> 
+                          </tr> 
+                            <tr>
+                                <td>
+                                    <div class="buttons">
+                                        <br />
+                                        <span class="button"><g:submitButton name="create" class="save" value="Add" /></span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                      </table> 
+            </g:form>
+            </div>
+            <div style="width:340px; float:left;">
+                    <table>
+                        <thead>
+                            <th><strong>Name</strong></th>
+                            <th><strong>Email</strong></th/>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                          <g:each in="${customerInstance.brokers}" var="broker">
+                             <tr>
+                                <td>
+                                  ${broker?.name}
+                                </td>
+                                <td>
+                                  ${broker?.email}
+                                </td>
+                                <td>
+                                  <g:link action="brokerEditFromEdit" id="${broker?.id}">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}">Delete</g:link>
+                                </td>
+                            </tr>
+                          </g:each>
+                        </tbody>
+                    </table>
     </body>
 </html>
