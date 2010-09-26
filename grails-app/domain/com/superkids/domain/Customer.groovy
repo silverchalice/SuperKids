@@ -81,9 +81,8 @@ class Customer extends User {
 		cdEmail nullable: true
 		cdTitle nullable: true
 
-		broker nullable: true
-        order nullable:true
-        otherComments nullable:true
+                order nullable:true
+                otherComments nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true
