@@ -108,7 +108,17 @@ class HomeController {
            
        }
 
-       def edit_profile = {         
+       def edit_profile = {      
+            def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']   
            if(springSecurityService.isLoggedIn()){
                def user = Customer.get(springSecurityService.principal.id)
                println "this user is of " + user.class + ", and its username is " + user.username
@@ -120,7 +130,7 @@ class HomeController {
                UserRole.list().each{ println it }
                def userRole = Role.findByAuthority("ROLE_USER")
                if (UserRole.findByUserAndRole(user, userRole)){
-                   return [customerInstance: user]
+                   return [customerInstance: user, states:states]
                } else {
                    redirect(action: "index")
                }
