@@ -15,6 +15,7 @@ class Customer extends User {
     CustomerOrder order
 
 	Date dateCreated = new Date()
+        Date lastUpdated
 
 	CustomerStatus status = CustomerStatus.HAS_NOT_ORDERED
 	
