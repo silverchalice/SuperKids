@@ -40,7 +40,7 @@
                         <li><g:link controller="caller">Manage Callers</g:link></li>
                         <li><g:link controller="call">View Calls</g:link></li>
                         <li><hr /></li>
-                        <li><sks:formats formats="['excel']" msg="Download Excel" /></li>
+                        <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Download Excel" /></li>
                         <li><sks:formats formats="['excel']" msg="Download Excel (no assessments)" /></li>
                         <li><hr /></li>
                         <li><g:link controller="home" action="change_password">Change Password</g:link></li>
