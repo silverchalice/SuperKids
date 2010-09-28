@@ -9,6 +9,7 @@
     </head>
     <body>
         <div class="nav">
+
 			<g:render template="caller_nav"/> 	
 		</div>
         <div class="body">
@@ -43,7 +44,7 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:link action="start" params="[customerInstance:customerInstance]">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
+                            <td><g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
 
                             <td>${fieldValue(bean: customerInstance, field: "address")}</td>
 
@@ -53,7 +54,7 @@
 
                             <td>${fieldValue(bean: customerInstance, field: "fax")}</td>
 
-							<td><g:if test="${customerInstance.inCall == 'true'}">
+							<td><g:if test="${customerInstance.inCall == true}">
 								    <strong style="color:red">True</strong>
 								</g:if>
 								<g:else>

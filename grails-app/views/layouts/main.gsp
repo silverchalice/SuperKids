@@ -31,7 +31,7 @@
                         <li><g:link controller="customer">Update Users</g:link></li>
                         <li><g:link controller="customer">Manage School Districts</g:link></li>
                         <li><hr /></li>
-                        <li><g:link controller="order">Order Admin</g:link></li>
+                        <li><g:link controller="customerOrder">Order Admin</g:link></li>
                         <li><g:link controller="product">Products Admin</g:link></li>
                         <li><g:link controller="assessment">Assessment Admin</g:link></li>
                         <li><g:link controller="sponsor">Sponsors Admin</g:link></li>

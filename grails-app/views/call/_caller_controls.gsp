@@ -1,4 +1,5 @@
-<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
-<span class="callerButton" style="margin-left:900px"><g:link controller="call" action="save">Finish Call</g:link></span>
-<span class="callerButton"><g:link controller="call" action="next_order_call" id="${customerInstance?.id}" params="${[ offset: offset ]}">Next Customer</g:link></span>
-<span class="callerButton"><g:link controller="call" action="prev_order_call" id="${customerInstance?.id}" params="${[ offset: offset ]}">Previous Customer</g:link></span>
+<span class="callerButton" style="margin-left:98px"><img src="${resource(dir:'images', file:'left-arrow.png')}" style="width:22px"/></span>
+<span class="callerButton"><g:actionSubmit action="prev_order_call" value="Previous Customer" /></span>
+<span class="callerButton"><g:actionSubmit style="background-color:green; color:white" action="save_order_call" value="Finish Call" /></span>
+<span class="callerButton"><g:actionSubmit  action="next_order_call" value="Next Customer" /></span>
+<span class="callerButton"><img src="${resource(dir:'images', file:'right-arrow.png')}" style="width:22px"/></span>
