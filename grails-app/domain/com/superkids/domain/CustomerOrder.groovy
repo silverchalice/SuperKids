@@ -15,6 +15,6 @@ class CustomerOrder {
     static belongsTo = Customer
 
     static constraints = {   
-        shippingDate nullable:true
+        shippingDate nullable:false
     }
 }

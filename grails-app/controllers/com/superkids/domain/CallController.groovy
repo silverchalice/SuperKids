@@ -24,39 +24,52 @@ class CallController {
         return [callInstance: callInstance]
     }
 
-    def save = {
-        def callInstance = new Call(params)
-        def caller = springSecurityService.principle
-        def customer = Customer.get(params.customer)
+    def save_order_call = {
+		println "In Save_"
+		println params
+
+        def customer = Customer.get(params.id)
+
+		if(customer) {
+			println 'Got the customer...' + customer.district
+
+			def call = new Call(params)
+	 		def caller = Caller.get(springSecurityService.principal.id)
+
+			call.caller = caller
+			call.customer = customer
+
+			caller.addToCalls(call)
+			caller.save()
+
+			if(call.result == CallResult.QUALIFIED) {
+			    println "Call Result was QUALIFIED - saving order..."
+			    def order = new CustomerOrder(params['order'])
+				order.orderType = OrderType.PHONE
+				
+				if(order.save()) {
+					println "saved order" + order.customer.district
+					customer.status = CustomerStatus.HAS_ORDERED
+					customer.inCall = false
+					customer.order = order
+					customer.save()
+					println 'Saved the customer'
+				} else {
+					println "order did not save"
+					order.errors.allErrors.each { println it }
+				}
+			} else {
+				println "Call Result was" + call.result
+				call.save()
+				customer.save()
+			}
+
+			redirect action: 'next_order_call', id: customer.id, params: [ offset:params?.offset ]
+		} else {
+			println "we didn't get anything?"
+		}
 
 
-        if(params.callType == 'order' && params.order) {
-          def order = new CustomerOrder(params['order'])
-
-          if(callService.saveOrderCall(callInstance, customer, caller, order)) {
-            println "call saved"
-          }
-        }
-        else {
-          def assessment = 'assessment'
-        }
-
-        if(params.nextCall == 'true') {
-          println "do next call"
-        }
-        else {
-          println "we're done"
-
-        }
-
-
-/*        if (callInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'call.label', default: 'Call'), callInstance.id])}"
-            redirect(action: "show", id: callInstance.id)
-        }
-        else {
-            render(view: "create", model: [callInstance: callInstance])
-        }*/
     }
 
     def show = {
@@ -137,46 +150,32 @@ class CallController {
 		println params
 
 		//make sure the last customer is no longer 'in call'
-		def previousCustomer = Customer.get(params?.id)
-		if(previousCustomer) {
-			previousCustomer.inCall = false
-			previousCustomer.save()
+		def currentCustomer = Customer.get(params?.id)
+		if(currentCustomer) {
+			currentCustomer.inCall = null
+			currentCustomer.save(flush:true)
 		}
-
-		//assign the offset if there is one
-		def offset
-
-		if((params?.offset) && (params?.offset != ("" || '0'))) {
-			offset = params?.offset.toInteger()
-		} else {
-			offset = 0
-		}
-
 		def order = new CustomerOrder()
 		def call = new Call()
 
 		println "About to create criteria"
-
 		def c = Customer.createCriteria()
 
 		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(max: 1, offset: offset, sort: 'id') {
+		def customer = c.list(max: 1, sort: 'id') {
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
-			eq 'inCall', false
+			isNull 'inCall'
+			gt 'id', currentCustomer?.id
 		}.getAt(0)
 
 		if(customer) {
-			customer.inCall = true
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
+			customer.inCall = new Date()
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
 		} else {
-			def d = Customer.createCriteria()
-			customer = d.list(max: 1, offset: 0, sort: 'id') {
-			eq 'status', CustomerStatus.HAS_NOT_ORDERED
-			eq 'inCall', false
-		}.getAt(0)
-
-		customer.inCall = true
-		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]						
+			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_NOT_ORDERED, null)
+			customer.inCall = new Date()
+			customer.save(flush:true)
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
 		}
 	}
 
@@ -185,62 +184,154 @@ class CallController {
 		println params
 
 		//make sure the last customer is no longer 'in call'
-		def previousCustomer = Customer.get(params?.id)
-		if(previousCustomer) {
-			previousCustomer.inCall = false
-			previousCustomer.save()
-		}
-
-		//assign the offset if there is one
-		def offset
-		
-		if((params?.offset) && (params?.offset != ("" || '0'))) {
-			offset = params?.offset.toInteger() - 1
-		} else {
-			offset = 0
+		def currentCustomer = Customer.get(params.id)
+		if(currentCustomer) {	
+			currentCustomer.inCall = null
+			currentCustomer.save(flush:true)
 		}
 
 		def order = new CustomerOrder()
 		def call = new Call()
 
-		println "About to create criteria"
-
-		def c = Customer.createCriteria()
-
-
 		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(max: 1, offset: offset, sort: 'id') {
+		def c = Customer.createCriteria()
+		def customer = c.list(max: 1, sort: 'id', order:'desc') {
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
-			eq 'inCall', false
+			isNull 'inCall'
+			lt 'id', currentCustomer.id
 		}.getAt(0)
 
 		if(customer) {
-			customer.inCall = true
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
+			customer.inCall = new Date()
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
 		} else {
-			def d = Customer.createCriteria()
-			customer = d.list(max: 1, offset: 0, sort: 'id') {
-			eq 'status', CustomerStatus.HAS_NOT_ORDERED
-			eq 'inCall', false
-		}.getAt(0)
-
-		customer.inCall = true
-		render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, offset: offset + 1]
+			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_NOT_ORDERED, null)
+			customer.inCall = new Date()
+			customer.save(flush:true)
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
 		}
 	}
 
 
-   def mockup = {
- 		def caller = springSecurityService.principal
-		def customerInstance = Customer.get(2)
-        def products = Product.list()
+	def get_order_call = {
+		println "in Get_Order_Call for CallController"
+		println params
 
-		def callInstance = new Call(customer:customerInstance, caller:caller)
+		//make sure the last customer is no longer 'in call'
+		def customer = Customer.get(params?.id)
+		if(customer) {
+			def order = new CustomerOrder()
+			def call = new Call()
+
+			customer.inCall = new Date()
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order]
+		}
+		else {
+			redirect action:list
+		}
+	}
+
+ 	def next_assess_call = {
+		println "in next_Assess_Call for CallController"
+		println params
+
+		//make sure the last customer is no longer 'in call'
+		def currentCustomer = Customer.get(params?.id)
+		if(currentCustomer) {
+			currentCustomer.inCall = null
+			currentCustomer.save(flush:true)
+		}
+		def order = new CustomerOrder()
+		def call = new Call()
+
+		println "About to create criteria"
+		def c = Customer.createCriteria()
+
+		//order calls are all customers with out a current order AND who are not being called atm
+		def customer = c.list(max: 1, sort: 'id') {
+			eq 'status', CustomerStatus.HAS_ORDERED
+			isNull 'inCall'
+			gt 'id', currentCustomer?.id
+		}.getAt(0)
+
+		if(customer) {
+			customer.inCall = new Date()
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+		} else {
+			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_ORDERED, null)
+			customer.inCall = new Date()
+			customer.save(flush:true)
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+		}
+	}
+
+	def prev_assess_call = {
+		println "in prev_Assess_Call for CallController"
+		println params
+
+		//make sure the last customer is no longer 'in call'
+		def currentCustomer = Customer.get(params.id)
+		if(currentCustomer) {
+			println 'we have a currentCustomer!'
+			println currentCustomer.id
+
+			currentCustomer.inCall = null
+			currentCustomer.save(flush:true)
+		} else {
+			println 'we dont have a current customer'
+		}
 
 
-     
-		render(view: "start", model: [ customerInstance: customerInstance, callInstance: callInstance, products: products])
-   }
+		def order = new CustomerOrder()
+		def call = new Call()
+
+		println "About to create criteria"
+		def c = Customer.createCriteria()
+
+		//order calls are all customers with out a current order AND who are not being called atm
+		def customer = c.list(max: 1, sort: 'id', order:'desc') {
+			eq 'status', CustomerStatus.HAS_ORDERED
+			isNull 'inCall'
+			lt 'id', currentCustomer.id
+		}.getAt(0)
+
+		if(customer) {
+			println "We got the next customer"
+			customer.inCall = new Date()
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+		} else {
+			println "end of the line - getting the first customer..."
+			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_ORDERED, null)
+			customer.inCall = new Date()
+			customer.save(flush:true)
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+		}
+	}
+
+	def start_assess_call = {
+		render view:'assess_call_form', model: [products: Product.list()]
+	}
+
+
+	def get_assess_call = {
+		println "in Get_Assess_Call for CallController"
+		println params
+
+		//make sure the last customer is no longer 'in call'
+		def customer = Customer.get(params?.id)
+		if(customer) {
+			def order = new CustomerOrder()
+			def call = new Call()
+
+			customer.inCall = new Date()
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order]
+		}
+		else {
+			redirect action:list
+		}
+	}
+
+
 
     def assess_list = {
         def customers = []
