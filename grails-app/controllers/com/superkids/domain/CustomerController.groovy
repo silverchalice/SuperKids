@@ -143,13 +143,17 @@ class CustomerController {
                 params.product.each {
                     if(!customer.order.products.collect{it.id}.contains(it))
                     def p = Product.get(it)
-                    customer.order.products << p
+                    if(p){
+                        customer.order.products << p
+                    }
                 }
             } else {
                 def order = new CustomerOrder()
                 params.product.each {
                     def p = Product.get(it)
-                    order.addToProducts(p)
+                    if(p){
+                        order.addToProducts(p)
+                    }
                 }
                 customer.order = order
                 customer.save()
