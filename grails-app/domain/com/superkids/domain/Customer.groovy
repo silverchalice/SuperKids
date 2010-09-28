@@ -15,6 +15,7 @@ class Customer extends User {
     CustomerOrder order
 
 	Date dateCreated = new Date()
+        Date lastUpdated
 
 	CustomerStatus status = CustomerStatus.HAS_NOT_ORDERED
 	
@@ -39,8 +40,6 @@ class Customer extends User {
 
 //	Misc. Stats
 
-	Broker broker
-
 	String studentsInDistrict
 	String facilities
 	String breakfastsServed
@@ -59,7 +58,7 @@ class Customer extends User {
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
 
-	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer ]
+	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker ]
 
     static constraints = {
 
@@ -84,9 +83,8 @@ class Customer extends User {
 		cdEmail nullable: true
 		cdTitle nullable: true
 
-		broker nullable: true
-        order nullable:true
-        otherComments nullable:true
+                order nullable:true
+                otherComments nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true

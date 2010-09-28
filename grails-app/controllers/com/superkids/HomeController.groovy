@@ -26,7 +26,6 @@ class HomeController {
                 redirect action:"c_change_password"
             } else {
                 println springSecurityService.principal?.username
-                println "Users in system: "
                 def user = User.get(springSecurityService.principal.id)
                 def adminRole = Role.findByAuthority("ROLE_ADMIN")
                 def callerRole = Role.findByAuthority("ROLE_CALLER")
@@ -109,7 +108,17 @@ class HomeController {
            
        }
 
-       def edit_profile = {         
+       def edit_profile = {      
+            def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']   
            if(springSecurityService.isLoggedIn()){
                def user = Customer.get(springSecurityService.principal.id)
                println "this user is of " + user.class + ", and its username is " + user.username
@@ -121,7 +130,7 @@ class HomeController {
                UserRole.list().each{ println it }
                def userRole = Role.findByAuthority("ROLE_USER")
                if (UserRole.findByUserAndRole(user, userRole)){
-                   return [customerInstance: user]
+                   return [customerInstance: user, states:states]
                } else {
                    redirect(action: "index")
                }
@@ -157,8 +166,11 @@ class HomeController {
            }
        }
 
-       def brokerFromEdit = {
+       def addBroker = {
            def customerInstance = Customer.get(springSecurityService.principal.id)
+           def controller = params.rController
+           def action = params.rAction
+           println "controller: " + controller + " action: " + action
            if(params.brokerName){
                def broker = new Broker(name:params.brokerName, phone:params.brokerPhone, fax:params.brokerFax, email:params.brokerEmail, street:params.brokerStreet, street2:params.brokerStreet2, city:params.brokerCity, state:params.brokerState, zip:params.brokerZip, customer:customerInstance)
                broker.save(failOnError:true)
@@ -166,7 +178,7 @@ class HomeController {
                customerInstance.addToBrokers(broker)
                customerInstance.save()
             }
-            redirect action:"edit_profile"
+            redirect controller:controller, action:action
        }
 
        def enter_site = {

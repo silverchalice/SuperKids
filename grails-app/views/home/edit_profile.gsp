@@ -17,10 +17,11 @@
                 <g:renderErrors bean="${customerInstance}" as="list" />
             </div>
             </g:hasErrors>
+            <div style="height:440px; overflow:auto;">
             <g:form action="update" method="post" >
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
-                <div style="height:440px; overflow:auto;">
+                <div>
                     <table>
                         <tbody>
 
@@ -269,7 +270,8 @@
                     </table>
                 </div>
             </g:form>
-            <g:form action="brokerFromEdit" method="post">
+            <g:form action="addBroker" method="post">
+            <div style="width:250px; float:right;">
                       <table cellpadding="3" cellspacing="0" border="0" width="300"> 
                           <tr> 
                               <td><strong>Broker/Distributor Name: </strong></td> 
@@ -309,6 +311,10 @@
                               <td><strong>Zip: </strong></td> 
                               <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td> 
                           </tr> 
+                          <tr> 
+                              <td><g:hiddenField name="rController" value="home" />
+                              <g:hiddenField name="rAction" value="edit_profile" /></td> 
+                          </tr> 
                             <tr>
                                 <td>
                                     <div class="buttons">
@@ -320,5 +326,29 @@
 
                       </table> 
             </g:form>
+            </div>
+            <div style="width:340px; float:left;">
+                    <table>
+                        <thead>
+                            <th><strong>Name</strong></th>
+                            <th><strong>Email</strong></th/>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                          <g:each in="${customerInstance.brokers}" var="broker">
+                             <tr>
+                                <td>
+                                  ${broker?.name}
+                                </td>
+                                <td>
+                                  ${broker?.email}
+                                </td>
+                                <td>
+                                  <g:link action="brokerEditFromEdit" id="${broker?.id}">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}">Delete</g:link>
+                                </td>
+                            </tr>
+                          </g:each>
+                        </tbody>
+                    </table>
     </body>
 </html>
