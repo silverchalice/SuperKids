@@ -18,20 +18,16 @@ class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-
-
-
-			def superkids = '/Users/zak/builds/SuperKids'
-	//		def superkids = '/home/ben/dev/SuperKids'
-	//		def superkids = '/opt/tomcat/webapps/SuperKids'
+	def superkids = '/Users/zak/builds/SuperKids'
+	//	def superkids = '/home/ben/dev/SuperKids'
+	//	def superkids = '/opt/tomcat/webapps/SuperKids'
 
   	if(!Role.findByAuthority('ROLE_ADMIN')) {	
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
-                def callerRole = new Role(authority: 'ROLE_CALLER').save(failOnError:true, flush:true)
+        def callerRole = new Role(authority: 'ROLE_CALLER').save(failOnError:true, flush:true)
 
 		String password = springSecurityService.encodePassword('superkids')
-	        String password2 = springSecurityService.encodePassword('superkids')
 		def testUser = new User(username: 'admin', enabled: true, password: password)
 		testUser.save(failOnError:true, flush: true)
 		UserRole.create testUser, adminRole, true
@@ -42,7 +38,7 @@ class BootStrap {
 			phone:'(608) 617-3960',
 			email:'info@silver-chalice.com',
 			username:'info@silver-chalice.com',
-			password:password2,
+			password:password,
 			enabled : true,
 			accountExpired : false,
 			accountLocked : false,
