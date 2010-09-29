@@ -31,10 +31,6 @@ class BootStrap {
 
 		String password = springSecurityService.encodePassword('superkids')
 
-		def testUser = new User(username: 'admin', enabled: true, password: password)
-		testUser.save(failOnError:true, flush: true)
-		UserRole.create testUser, adminRole, true
-
 	        String password2 = springSecurityService.encodePassword('superkids')
 		def testAdmin = new Admin(username: 'admin', firstName:'Ebenezer', lastName:'Scrooge', email:'ebenezer@scroogeandmarley.co.uk', enabled: true, password: password)
 		testAdmin.save(failOnError:true, flush: true)
