@@ -59,6 +59,7 @@
 
      <h2>When to Ship</h2>
      <p>Please select when to ship your order:</p>
+     <g:select name="shippingDate" optionKey="id" optionValue="${formatDate(format:'MMMM, yyyy', date:shipDate)}" from="${shippingDates}" /> 
 
      <h2>Rewards for Assessments</h2>
      <p>When you receive your samples and try them out, be sure to come back to SuperKidsSampling.com before March 5, 2010 -- you can earn special rewards for completing your assessments by this deadline. Click Assess to learn more. </p>
