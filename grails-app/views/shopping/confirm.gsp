@@ -49,12 +49,9 @@
                </tr> 
            </table> 
            <h2>The Samples Requested</h2>
-           <g:each in="${products}">
-               <g:link controller="product" action="show" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link><br />
-               [quantity]<br />
-               [foo]
-           </g:each>
-
+           <div id="shoppingCartContent">
+               <g:render template ="/product/checkout_items" model="[products:products]" />
+           </div>
            <p>Samples are limited and subject to availability. You will receive an email from our Fulfillment Center telling you the approximate date your samples will ship.</p>
 
      <h2>When to Ship</h2>

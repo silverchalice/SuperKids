@@ -8,6 +8,7 @@ class Product implements IShoppable {
 	String description
 	String details
 	String nutrition
+        String servings
         com.metasieve.shoppingcart.ShoppingItem shoppingItem
 
 	byte[] image
@@ -24,6 +25,7 @@ class Product implements IShoppable {
 		nutrition()
 		image()
 		summary()
+                servings(nullable:true)
 		sponsor(nullable:true)
     }
 
