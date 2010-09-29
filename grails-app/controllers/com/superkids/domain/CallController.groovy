@@ -1,6 +1,7 @@
 package com.superkids.domain
 
 import com.superkids.domain.CustomerStatus
+import java.text.SimpleDateFormat
 
 class CallController {
 
@@ -46,7 +47,9 @@ class CallController {
 			    println "Call Result was QUALIFIED - saving order..."
 			    def order = new CustomerOrder(params['order'])
 				order.orderType = OrderType.PHONE
-				
+
+				order.customer = customer
+
 				if(order.save()) {
 					println "saved order" + order.customer.district
 					customer.status = CustomerStatus.HAS_ORDERED
@@ -59,12 +62,12 @@ class CallController {
 					order.errors.allErrors.each { println it }
 				}
 			} else {
-				println "Call Result was" + call.result
+				println "Call Result was " + call.result
 				call.save()
 				customer.save()
 			}
 
-			redirect action: 'next_order_call', id: customer.id, params: [ offset:params?.offset ]
+			redirect action: 'next_order_call', id: customer.id
 		} else {
 			println "we didn't get anything?"
 		}

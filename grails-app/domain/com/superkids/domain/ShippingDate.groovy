@@ -2,14 +2,14 @@ package com.superkids.domain
 
 
 class ShippingDate {
-    Date shipDate
+    String shipDate
 
     static constraints = {
-        shipDate nullable:false
+        shipDate nullable:false, inList:['November, 2010','January, 2011']
     }
 
-    String toString() {
-      shipDate.format('MMMM, yyyy')
-    } 
+	String toString() {
+		shipDate
+	}
 
 }

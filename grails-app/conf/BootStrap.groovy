@@ -487,8 +487,8 @@ class BootStrap {
                           """
             ).save()
 
-        def shippingDate1 = new ShippingDate(shipDate:new Date(110, 10, 01)).save()
-        def shippingDate2 = new ShippingDate(shipDate:new Date(111, 01, 01)).save()
+        def shippingDate1 = 'November, 2010'
+        def shippingDate2 = 'January, 2011'
 
         def f1 = new Factoid(content:"Whole wheat is good for you.").save()
         def f2 = new Factoid(content:"Whole wheat is not bad for you.").save()
