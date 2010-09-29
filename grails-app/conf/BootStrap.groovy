@@ -25,6 +25,16 @@ class BootStrap {
 
 
   	if(!Role.findByAuthority('ROLE_ADMIN')) {	
+                def statesAvailable = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
 		def adminRole = new Role(authority: 'ROLE_ADMIN').save(failOnError:true, flush: true)
 		def userRole = new Role(authority: 'ROLE_USER').save(failOnError:true, flush: true)
         def callerRole = new Role(authority: 'ROLE_CALLER').save(failOnError:true, flush:true)
@@ -41,7 +51,7 @@ class BootStrap {
 		UserRole.create otherTestAdmin, adminRole, true
 		def customer = new Customer(
 			district:'Silver Chalice Schools',
-			address:new Address(street:'61 Harneywold Drive', city:'St Louis', state:'MO', zip:63136),
+			address:new Address(street:'61 Harneywold Drive', city:'St Louis', state:'Missouri', zip:63136),
 			phone:'(608) 617-3960',
 			email:'info@silver-chalice.com',
 			username:'info@silver-chalice.com',
@@ -67,7 +77,7 @@ class BootStrap {
 
 		def customer2 = new Customer(
 			district:'Green Plate Schools',
-			address:new Address(street:'62 Harneywold Drive', city:'St Louis', state:'MO', zip:63146),
+			address:new Address(street:'62 Harneywold Drive', city:'St Louis', state:'Missouri', zip:63146),
 			phone:'(608) 617-3960',
 			email:'info@green-plate.com',
 			username:'info@green-plate.com',
@@ -133,6 +143,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem1
 		).save()
@@ -144,6 +155,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem2
 		).save()
@@ -155,6 +167,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem3
 		).save()
@@ -166,6 +179,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem4
 		).save()
@@ -177,6 +191,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem5
 		).save()
@@ -188,6 +203,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem6
 		).save()
@@ -199,6 +215,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem7
 		).save()
@@ -210,6 +227,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem8
 		).save()
@@ -221,6 +239,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem9
 		).save()
@@ -232,6 +251,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem10
 		).save()
@@ -243,6 +263,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem11
 		).save()
@@ -254,6 +275,7 @@ class BootStrap {
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+                        statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem12
 		).save()
