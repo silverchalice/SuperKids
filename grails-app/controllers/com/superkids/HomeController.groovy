@@ -474,6 +474,18 @@ class HomeController {
            }
        }
 
+       def assignRoles = {
+           if(springSecurityService.isLoggedIn()){
+               if(User.get(springSecurityService.principal.id).isAdmin()){
+                   def userRole = Role.findByAuthority("ROLE_USER") 
+                   Customer.list().each{ customer ->
+                       UserRole.create customer, userRole, true
+                   }
+               }
+           }
+           redirect controller:"home", action:"index"
+       }
+
        def profile_help = {
 
        }
