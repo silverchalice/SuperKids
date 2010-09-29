@@ -11,14 +11,16 @@ class Product implements IShoppable {
         String servings
         com.metasieve.shoppingcart.ShoppingItem shoppingItem
 
+        boolean isLive = true
+
 	byte[] image
 	byte[] summary
 
 	static belongsTo = [ sponsor : Sponsor ]
 
-        static hasMany = [ assessments : Assessment ]
+        static hasMany = [ assessments : Assessment, statesAvailable : String ]
 
-    static constraints = {
+        static constraints = {
 		name()
 		description()
 		details()
@@ -27,12 +29,12 @@ class Product implements IShoppable {
 		summary()
                 servings(nullable:true)
 		sponsor(nullable:true)
-    }
+        }
 
-    static mapping = {
-        image sqlType:"longblob"
-        summary sqlType:"longblob"
-    }
-
-    String toString(){ name }
+        static mapping = {
+            image sqlType:"longblob"
+            summary sqlType:"longblob"
+        }
+  
+        String toString(){ name }
 }
