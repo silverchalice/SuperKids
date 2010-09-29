@@ -1,6 +1,7 @@
 package com.superkids.domain
 
 import com.superkids.domain.ShippingDate
+import com.superkids.domain.Product
 
 class ShoppingController {
 
@@ -25,8 +26,18 @@ class ShoppingController {
            }
            customerInstance.properties = params
            if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
+               def cartItems = shoppingCartService.getItems()
+               def products = []
+               cartItems?.each { item ->
+                   def prod = Product.findByShoppingItem(item)
+                   if(prod){
+                       def product = new Expando(toString: {-> prod.name}, id:prod.id, quantity:prod.servings)
+                       products << product
+                   }
+               }
+               println products
                flash.message = "w00t! we updated the Customer!"
-               render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.list()]
+               render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.list(), products:products]
            } else {
                render(view: "check_out", model: [customerInstance: customerInstance])
            }
