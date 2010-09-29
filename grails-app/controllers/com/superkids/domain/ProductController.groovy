@@ -181,6 +181,17 @@ class ProductController {
             shoppingCart.save()
             if(params.cartPage){
                 render template:"/shopping/initial", model:[productInstance:product]
+            } else if (params.confirm){
+                def cartItems = shoppingCartService.getItems()
+                def products = []
+                cartItems?.each { item ->
+                    def prod = Product.findByShoppingItem(item)
+                    if(prod){
+                        def p = new Expando(toString: {-> prod.name}, id:prod.id, quantity:prod.servings)
+                        products << p
+                    }
+                }
+                render template:"/product/checkout_items", model:[products:products]
             } else {
                 render template:"/shopping/shoppingCartContent", model:[productInstance:product]
             }
