@@ -1,5 +1,7 @@
 package com.superkids.domain
 
+import com.superkids.domain.ShippingDate
+
 class ShoppingController {
 
     def springSecurityService
@@ -24,7 +26,7 @@ class ShoppingController {
            customerInstance.properties = params
            if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                flash.message = "w00t! we updated the Customer!"
-               render view:"confirm", model: [customerInstance:customerInstance]
+               render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.list()]
            } else {
                render(view: "check_out", model: [customerInstance: customerInstance])
            }
@@ -35,9 +37,10 @@ class ShoppingController {
     }
 
     def place_order = {
+        def shippingDate = ShippingDate.get(params.shippingDate)
         def customer = Customer.get(springSecurityService.principal.id)
         customer?.hasPlacedCurrentOrder = true
-        def order = new CustomerOrder(customer:customer, orderType:OrderType.WEB)
+        def order = new CustomerOrder(customer:customer, shippingDate:shippingDate, orderType:OrderType.WEB)
         shoppingCartService.getItems().each{
             def product = Product.get(it.id)
             order.addToProducts(product)
