@@ -6,6 +6,7 @@ import com.metasieve.shoppingcart.Quantity
 import com.superkids.domain.Factoid
 import com.superkids.domain.Sponsor
 import com.superkids.domain.Assessment
+import com.superkids.domain.User
 
 class MiscTagLib {
 
@@ -314,5 +315,20 @@ Modified: get menuButton text from new 'msg' attr
 
 	}
 
+        def productSidebar = { attrs ->
+            def products = attrs.products
+            def user = User.get(springSecurityService.principal.id)
+            if(!user.isAdmin()){
+                Product.list().each { product ->
+                    if(product.isLive && product.statesAvailable.find{ user?.address?.state }){
+                        out << g.link(controller:'product', action:'show', id:product.id){ "<img src='${createLink(controller:'product', action:'displayImage', id:product.id)}' width='65' height='50' style='margin:3px;' />" }
+                    } else {
+                        out << ""
+                    }
+                }
+            } else {
+                out << ""
+            }
+        }
 
 }
