@@ -36,7 +36,7 @@ class Customer extends User {
 
 	boolean receivedCurrentMailing = true
     boolean isNew
-	boolean inCall
+	Date inCall = null
 
 //	Misc. Stats
 
@@ -69,6 +69,7 @@ class Customer extends User {
 		website(nullable: true)
 		phone(nullable:true, blank:true)
 		fax nullable: true 
+		inCall nullable:true
 
 		fsdName nullable: true
 		fsdEmail nullable: true
