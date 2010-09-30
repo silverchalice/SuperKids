@@ -19,9 +19,9 @@ class BootStrap {
     def springSecurityService
     def init = { servletContext ->
 
-	def superkids = '/Users/zak/builds/SuperKids'
-	//	def superkids = '/home/ben/dev/SuperKids'
-	//	def superkids = '/opt/tomcat/webapps/SuperKids'
+	def superkids = '/Users/zak/builds/SuperKids/web-app'
+	//	def superkids = '/home/ben/dev/SuperKids/web-app'
+	//	def superkids = '/opt/tomcat/webapps/SuperKids/'
 
 
   	if(!Role.findByAuthority('ROLE_ADMIN')) {	
@@ -119,7 +119,7 @@ class BootStrap {
 			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:93456),
 			phone:'1-800 123 4567',
 			website:'www.acmefoods.com',
-                        logo:new File("${superkids}/web-app/images/sustagrain.gif").readBytes(),
+                        logo:new File("${superkids}/images/sustagrain.gif").readBytes(),
 			salesContact:'John Doe, jdoe@acmefoods.com 123-456-7890',
 			sampleContact:'Jane Smith jsmith@acmefoods.com 123-456-0987',
 			products:[]
@@ -130,7 +130,7 @@ class BootStrap {
 			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:93456),
 			phone:'1-800 123 4567',
 			website:'www.acmefoods.com',
-                        logo:new File("${superkids}/web-app/images/ultragrain.gif").readBytes(),
+                        logo:new File("${superkids}/images/ultragrain.gif").readBytes(),
 			salesContact:'John Doe, jdoe@acmefoods.com 123-456-7890',
 			sampleContact:'Jane Smith jsmith@acmefoods.com 123-456-0987',
 			products:[]
@@ -141,8 +141,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem1
@@ -153,8 +153,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem2
@@ -165,8 +165,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem3
@@ -177,8 +177,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem4
@@ -189,8 +189,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem5
@@ -201,8 +201,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem6
@@ -213,8 +213,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem7
@@ -225,8 +225,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem8
@@ -237,8 +237,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem9
@@ -249,8 +249,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem10
@@ -261,8 +261,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem11
@@ -273,8 +273,8 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
-			image:new File("${superkids}/web-app/uploads/product1.png").readBytes(),
-			summary:new File("${superkids}/web-app/uploads/product1.pdf").readBytes(),
+			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem12
