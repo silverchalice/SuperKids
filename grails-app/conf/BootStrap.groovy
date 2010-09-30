@@ -505,6 +505,12 @@ class BootStrap {
 									  """
             ).save()
 
+        def ultragrainText = new PageText(name:"ultragrain", content:"""
+<h1>Ultragrain®: Whole Wheat Flour.</h1> <div style="float:left; width:400px;"> <p><img width="195" height="97" align="left" alt="" src="/SuperKids/images/SATURDAYPBJSANDWICHHORIZ.jpg" /> Demand for whole grains in schools is skyrocketing, but many students still crave the classic taste, texture and appearance of white flour products. With Ultragrain®, ConAgra Mills gives students the best of both worlds. Using patented milling technology with specially selected white wheat, Ultragrain® whole wheat flour and products made with Ultragrain® deliver great taste and the all-natural whole grain nutrition of 100% whole wheat. With Ultragrain®, students won’t notice changes in color, taste or texture that they often complain about when eating foods made with traditional whole wheat flour, a fact that’s been proven in several studies.</p> <h2>Did you know?</h2> <img width="84" height="108" align="left" style="float: right;" src="/SuperKids/images/UltragrainDidYouKnow.jpg" alt="" /><br /> <p>For the first time, students can enjoy everything from breads to pasta, pizza dough, cookies, crackers and even pastries—all with the benefits of whole grain nutrition.</p> <p>Ultragrain has been the driving force behind many successful consumer products, and is now available at your local grocer under the Eagle Mills® brand. Visit <a href="http://www.ultragrain.com/">Ultragrain.com</a> to learn more.</p> </div> <div style="float: right; width: 221px;"> <p style="text-align: right;">&nbsp;<img width="180" height="176" style="width: 196px; height: 190px;" alt="" src="/SuperKids/images/UltraGrainlogo.jpg" /> </div>
+                          """
+            ).save()
+
+
         def shippingDate1 = new ShippingDate(shipDate:'November, 2010').save()
         def shippingDate2 = new ShippingDate(shipDate:'January, 2011').save()
 
