@@ -11,11 +11,9 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 </head>
   <body>
-        <span id="headline">Welcome to the SuperKids Whole Grain Sampling Program</span>
-        <h1>ULTRAGRAIN</h1>
-      </div>
-      <div id="contentRightEdge">
-        <img src="${resource(dir:'images',file:'layout/kid.jpg')}" id="kid"/>
-      </div>
+      <g:if test="${flash.message}">
+        <div class="message">${flash.message}</div>
+      </g:if>
+      ${content}
   </body>
 </html>
