@@ -288,7 +288,7 @@ class BootStrap {
 		customer.save(failOnError:true)
 		customer2.save(failOnError:true)
 
-        def c = new Caller(username:"foo", password:springSecurityService.encodePassword("password"), enabled:true).save(failOnError:true)
+        def c = new Caller(username:"caller", password:springSecurityService.encodePassword("password"), enabled:true).save(failOnError:true)
 
 		UserRole.create customer, userRole, true
 		UserRole.create customer2, userRole, true
@@ -508,11 +508,11 @@ class BootStrap {
         def shippingDate1 = new ShippingDate(shipDate:'November, 2010').save()
         def shippingDate2 = new ShippingDate(shipDate:'January, 2011').save()
 
-        def f1 = new Factoid(content:"Whole wheat is good for you.").save()
-        def f2 = new Factoid(content:"Whole wheat is not bad for you.").save()
-        def f3 = new Factoid(content:"Eating whole wheat helps reduce your risk of not eating whole wheat.* <br /><br /><span style='font-size:xx-small'>(*The American Association Of Those Who Determine Such Things has determined that eating whole wheat helps to reduce the risk of not eating whole wheat, as part of a diet high in whole wheat.)</span>").save()
-        def f4 = new Factoid(content:"Who said that whole wheat wasn't good for you?").save()
-        def f5 = new Factoid(content:"Who said that whole wheat was bad for you?").save()
+        def f1 = new Factoid(content:"An Eastern Michigan study (directed by Alice Jo Ranville PhD) found that kids who brown bag eat three times as many snack foods as school lunch program participants.").save()
+        def f2 = new Factoid(content:"Enacted more than 60 years ago, the school lunch program was developed to ensure that low-income children received at least one nutritious meal per day.").save()
+        def f3 = new Factoid(content:"9 out of 10 school districts nationwide ask students to test new menu items.").save()
+        def f4 = new Factoid(content:"According to the US Census Bureau, there are 54,000,000 K-12 school students in the United States.").save()
+        def f5 = new Factoid(content:"Eating more whole grains reduces the risk of inflammatory disease.").save()
 
 	  }
 	}
