@@ -33,45 +33,61 @@ class CallController {
 
 		if(customer) {
 			println 'Got the customer...' + customer.district
+			customer.properties = params
 
-			def call = new Call(params)
-	 		def caller = Caller.get(springSecurityService.principal.id)
+			if(customer.save(flush:true)){
 
-			call.caller = caller
-			call.customer = customer
+				def call = new Call(params)
+				def caller = Caller.get(springSecurityService.principal.id)
 
-			caller.addToCalls(call)
-			caller.save()
+				call.caller = caller
+				call.customer = customer
 
-			if(call.result == CallResult.QUALIFIED) {
-			    println "Call Result was QUALIFIED - saving order..."
-			    def order = new CustomerOrder(params['order'])
-				order.orderType = OrderType.PHONE
+				caller.addToCalls(call)
+				caller.save(flush:true)
 
-				order.customer = customer
+				if(call.result == CallResult.QUALIFIED) {
+					println "Call Result was QUALIFIED - saving order..."
+					def order = new CustomerOrder(params['order'])
+					order.orderType = OrderType.PHONE
 
-				if(order.save()) {
-					println "saved order" + order.customer.district
-					customer.status = CustomerStatus.HAS_ORDERED
-					customer.inCall = false
-					customer.order = order
-					customer.save()
-					println 'Saved the customer'
+					def shippingDate = ShippingDate.findByShipDate(params.shippingDate)
+
+					order.shippingDate = shippingDate
+					order.customer = customer
+
+					params.each { key, val ->
+						if (key.size() > 5 && key[0..5] == 'order_' && val == 'on'){
+							def productName = key[6..-1]
+							def product = Product.findByName(productName)
+							order.addToProducts(product)
+						}
+					}
+
+					if(order.save()) {
+						println "saved order " + order.customer.district
+						customer.status = CustomerStatus.HAS_ORDERED
+						customer.inCall = null
+						customer.order = order
+						customer.save()
+						println 'Saved the customer'
+					} else {
+						println "order did not save"
+						order.errors.allErrors.each { println it }
+					}
 				} else {
-					println "order did not save"
-					order.errors.allErrors.each { println it }
-				}
-			} else {
-				println "Call Result was " + call.result
-				call.save()
-				customer.save()
-			}
+					println "Call Result was " + call.result
 
-			redirect action: 'next_order_call', id: customer.id
+					call.result = CallResult.valueOf(params.result)
+				}
+
+				call.save(flush:true)
+				customer.save(flush:true)
+				redirect action: 'next_order_call', id: customer.id
+			}
 		} else {
 			println "we didn't get anything?"
 		}
-
 
     }
 
@@ -176,9 +192,11 @@ class CallController {
 			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
 		} else {
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_NOT_ORDERED, null)
-			customer.inCall = new Date()
-			customer.save(flush:true)
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
+			if(customer) {
+				customer.inCall = new Date()
+				customer.save(flush:true)
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
+			} else redirect action:index
 		}
 	}
 
@@ -343,6 +361,7 @@ class CallController {
                 customers << it
             }
         }
+
         [customerInstanceList:customers, customerInstanceTotal: customers.size()]
     }
 
@@ -353,6 +372,8 @@ class CallController {
                 customers << it
             }
         }
+
+
         [customerInstanceList:customers, customerInstanceTotal: customers.size()]
 
     }

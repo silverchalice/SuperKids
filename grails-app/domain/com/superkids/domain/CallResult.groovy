@@ -15,5 +15,10 @@ enum CallResult {
 	NOT_QUALIFIED,
 	RNA,
 	OTHER,
-	QUALIFIED,
+	QUALIFIED;
+
+
+	String getKey() {
+		name()
+	}
 }

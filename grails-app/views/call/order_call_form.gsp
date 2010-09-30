@@ -403,9 +403,12 @@
 									<label for="result"><strong>Call Result</strong></label>
 								</td>
 								<td valign="top" class="value">
-									 <g:select style="width:175px" id="result" name='result' value="${call?.result?.id}"
+									 <g:select style="width:175px" id="result" name='result' value="${call?.result?.id}" valueMessagePrefix="call.result" optionKey="key"
 										noSelection="${['null':'Select One...']}"
-										from='${CallResult.enumConstants}'></g:select>
+										from='${CallResult.enumConstants}' />
+
+
+								
 							</tr>
 
 						</tbody>
@@ -496,7 +499,7 @@
 						<g:each in="${products}" var="product" >
 						  <tr class="prop">
 							<td class="name">
-							  <g:checkBox name="order.${product.name}"/>
+							  <g:checkBox name="order_${product.name}"/>
 							</td>
 							<td class="value">
 							  ${product.name}
@@ -516,7 +519,7 @@
 							</tr>
 							<tr class="prop">
 								<td>
-									<g:select name="order.shippingDate"
+									<g:select name="shippingDate"
 									  from="${ShippingDate.list()}"
 									  style="width:220px;"
 									  noSelection="${['null':'Select a Shipping Date...']}" />
