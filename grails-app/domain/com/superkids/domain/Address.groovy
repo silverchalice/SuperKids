@@ -22,7 +22,7 @@ class Address {
 
 
     String toString(){
-        "$street ${street2 ?: ' '} $city, $state $zip"
+        "$street ${street2 == null ? " " : street2} $city, $state $zip"
     }          
 
 }

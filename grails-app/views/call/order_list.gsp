@@ -34,7 +34,7 @@
 
                             <g:sortableColumn property="studentsInDistrict" title="${message(code: 'customer.studentsInDistrict.label', default: 'Students')}" />
 
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Date Created')}" />
+                            <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Created')}" />
 
                         </tr>
                     </thead>
@@ -57,7 +57,7 @@
 
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
 
-							<td><g:if test="${customerInstance.inCall == true}">
+							<td style="width:50px"><g:if test="${customerInstance.inCall == true}">
 								    <strong style="color:red">True</strong>
 								</g:if>
 								<g:else>

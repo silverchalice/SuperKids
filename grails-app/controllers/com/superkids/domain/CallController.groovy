@@ -282,9 +282,11 @@ class CallController {
 			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
 		} else {
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_ORDERED, null)
-			customer.inCall = new Date()
-			customer.save(flush:true)
-			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+			if(customer) {
+				customer.inCall = new Date()
+				customer.save(flush:true)
+				render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+			} else redirect action:index
 		}
 	}
 
@@ -295,23 +297,14 @@ class CallController {
 		//make sure the last customer is no longer 'in call'
 		def currentCustomer = Customer.get(params.id)
 		if(currentCustomer) {
-			println 'we have a currentCustomer!'
-			println currentCustomer.id
-
 			currentCustomer.inCall = null
 			currentCustomer.save(flush:true)
-		} else {
-			println 'we dont have a current customer'
 		}
 
-
-		def order = new CustomerOrder()
 		def call = new Call()
 
-		println "About to create criteria"
-		def c = Customer.createCriteria()
-
 		//order calls are all customers with out a current order AND who are not being called atm
+		def c = Customer.createCriteria()
 		def customer = c.list(max: 1, sort: 'id', order:'desc') {
 			eq 'status', CustomerStatus.HAS_ORDERED
 			isNull 'inCall'
@@ -319,15 +312,13 @@ class CallController {
 		}.getAt(0)
 
 		if(customer) {
-			println "We got the next customer"
 			customer.inCall = new Date()
-			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, queue: 'true']
 		} else {
-			println "end of the line - getting the first customer..."
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_ORDERED, null)
 			customer.inCall = new Date()
 			customer.save(flush:true)
-			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, queue: 'true']
 		}
 	}
 
