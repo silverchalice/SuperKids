@@ -105,8 +105,12 @@ class Customer extends User {
 		}
 	}
     
-        static searchable = {
-            only = ['fsdName', 'district', 'fsdEmail', 'ndEmail', 'cdEmail']
-        }
+	static searchable = {
+		only = ['fsdName', 'district', 'fsdEmail', 'ndEmail', 'cdEmail']
+	}
+
+	String toString() {
+		district
+	}
 
 }

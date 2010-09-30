@@ -7,4 +7,8 @@ class Caller extends User {
     static constraints = {
 		calls(nullable: true)
     }
+
+	String toString() {
+		username
+	}
 }

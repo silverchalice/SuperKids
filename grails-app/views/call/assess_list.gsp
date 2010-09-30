@@ -9,11 +9,7 @@
     </head>
     <body>
         <div class="nav">
-    	<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="start"><g:message code="default.caller.start.label" default="Start Call"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="order_list"><g:message code="default.caller.start.label" default="Order Call List"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="assess_list"><g:message code="default.caller.start.label" default="Assessment Call List"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="call_back_list"><g:message code="default.caller.start.label" default="Call Back List"/></g:link></span>
+			<g:render template="caller_nav"/>
         </div>
         <div class="body">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
@@ -33,8 +29,6 @@
 
                             <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
 
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.fax.label', default: 'Fax')}" />
-
                             <g:sortableColumn property="studentsInDistrict" title="${message(code: 'customer.studentsInDistrict.label', default: 'Students')}" />
 
                             <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Date Created')}" />
@@ -47,13 +41,18 @@
 
                               <td><g:link action="get_assess_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "address")}</td>
+                            <td>
+								<g:if test="${customerInstance.address == 'null'}">
+									${fieldValue(bean: customerInstance, field: "address")}
+								</g:if>
+								<g:else>
+									${fieldValue(bean: customerInstance, field: "deliveryAddress")}
+								</g:else>
+							</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "email")}</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
-
-                            <td>${fieldValue(bean: customerInstance, field: "fax")}</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "studentsInDistrict")}</td>
 
@@ -65,7 +64,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${customerInstanceTotal}" />
+                <g:paginate total="${customerInstanceTotal}" max="20" />
             </div>
         </div>
     </body>

@@ -78,7 +78,9 @@ class CallController {
 				} else {
 					println "Call Result was " + call.result
 
-					call.result = CallResult.valueOf(params.result)
+					if(params.result != 'null') {
+						call.result = CallResult.valueOf(params.result)
+					}
 				}
 
 				call.save(flush:true)
@@ -355,26 +357,19 @@ class CallController {
 
 
     def assess_list = {
-        def customers = []
-        Customer.list().each {
-            if(it.status == CustomerStatus.HAS_ORDERED){
-                customers << it
-            }
-        }
+		def max = params.max ?: 20
+		def offset = params.offset ?: 0
+		def customers = Customer.findAllByStatus(CustomerStatus.HAS_ORDERED, [max:max, offset:offset])
 
-        [customerInstanceList:customers, customerInstanceTotal: customers.size()]
-    }
+        [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_ORDERED)]
+   }
 
     def order_list = {
-        def customers = []
-        Customer.list().each {
-            if(it.status == CustomerStatus.HAS_NOT_ORDERED){
-                customers << it
-            }
-        }
+		def max = params.max ?: 20
+		def offset = params.offset ?: 0
+		def customers = Customer.findAllByStatus(CustomerStatus.HAS_NOT_ORDERED, [max:max, offset:offset])
 
-
-        [customerInstanceList:customers, customerInstanceTotal: customers.size()]
+        [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
 
     }
 
