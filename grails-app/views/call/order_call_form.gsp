@@ -48,7 +48,7 @@
 			<g:render template="caller_nav"/>
 			<g:if test="${queue}"><g:render template="caller_controls" model="[customerInstance: customerInstance]"/> </g:if>
 			<g:else>
-				<span  style="margin-left:340px;" class="callerButton"><g:link controller="call" action="next_order_call">Start Calling</g:link></span>
+				<span  style="margin-left:290px;" class="callerButton"><g:link controller="call" action="next_order_call">Start Calling</g:link></span>
 			</g:else>
 
 		</div>

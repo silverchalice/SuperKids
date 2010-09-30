@@ -42,8 +42,11 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
-
+                            <td><g:if test="${customerInstance.inCall == null}"><g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
+							    </g:if>
+								<g:else>
+									${fieldValue(bean: customerInstance, field: "district")}
+								</g:else>
                             <td>
 								<g:if test="${customerInstance.address == 'null'}">
 									${fieldValue(bean: customerInstance, field: "address")}
@@ -57,11 +60,11 @@
 
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
 
-							<td style="width:50px"><g:if test="${customerInstance.inCall == true}">
-								    <strong style="color:red">True</strong>
+							<td style="width:50px"><g:if test="${customerInstance.inCall == null}">
+								    <strong style="color:green">False</strong>
 								</g:if>
 								<g:else>
-									<strong style="color:green">False</strong>
+									<strong style="color:red">True</strong>
 								</g:else>
 							</td>
 

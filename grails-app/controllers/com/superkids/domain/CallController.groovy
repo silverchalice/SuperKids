@@ -67,13 +67,13 @@ class CallController {
 					if(order.save()) {
 						println "saved order " + order.customer.district
 						customer.status = CustomerStatus.HAS_ORDERED
-						customer.inCall = null
 						customer.order = order
-						customer.save()
 						println 'Saved the customer'
 					} else {
 						println "order did not save"
 						order.errors.allErrors.each { println it }
+						flash.message = "Invalid Order - please check input"
+						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true']
 					}
 				} else {
 					println "Call Result was " + call.result
@@ -84,11 +84,14 @@ class CallController {
 				}
 
 				call.save(flush:true)
+				customer.inCall = null
 				customer.save(flush:true)
 				redirect action: 'next_order_call', id: customer.id
 			}
 		} else {
 			println "we didn't get anything?"
+			flash.message = "Customer not found"
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true']
 		}
 
     }

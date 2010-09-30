@@ -60,11 +60,11 @@
 
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
 
-		<div class="nav" style="padding: 0 12px;">
+		<div class="nav" style="padding: 0 12px; height:27px; line-height:27px">
 			<g:render template="caller_nav"/>
 				<g:if test="${queue}"><g:render template="caller_assess_controls" model="[customerInstance: customerInstance]"/> </g:if>
 				<g:else>
-					<span  style="margin-left:340px;" class="callerButton"><g:link controller="call" action="next_assess_call">Start Calling</g:link></span>
+					<span  style="margin-left:290px;" class="callerButton"><g:link controller="call" action="next_assess_call">Start Calling</g:link></span>
 				</g:else>
 		</div>
 
