@@ -188,6 +188,9 @@ class UrlMappings {
                     controller = "home"
                     action = "profile_help"
                 }
-		"500"(view:'/error')
+		"500"{
+                    controller = "errors"
+                    action = "internal_server_error"
+                }
 	}
 }
