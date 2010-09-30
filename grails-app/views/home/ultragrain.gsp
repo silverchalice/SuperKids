@@ -9,6 +9,15 @@
     <meta name="layout" content="learn" />
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script> 
+        var window1;
+        var window2;
+        function popUp(htmLoc,width,height,theWindow) {
+            var winleft = (screen.width / 2) - (width / 2); // center the window right to left
+            var wintop = (screen.height / 2) - (height / 2); // center the window top to bottom
+            window.open(htmLoc,"mainwindow","top="+wintop+",left="+winleft+",width="+width+",height="+height                  +",buttons=no,scrollbars=no,location=no,menubar=no,resizable=no,status=no,directories=no,toolbar=no");//YesorNo
+}
+</script> 
 </head>
   <body>
       <g:if test="${flash.message}">
