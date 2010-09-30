@@ -43,7 +43,12 @@ class HomeController {
     }
 
 	def ultragrain = {
-		render view:'ultragrain'
+           def content
+           def pt = PageText.findByName("ultragrain")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
 	}
 
 	def sustagrain = {
