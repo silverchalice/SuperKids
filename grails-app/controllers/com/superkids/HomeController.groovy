@@ -52,7 +52,12 @@ class HomeController {
 	}
 
 	def sustagrain = {
-		render view:'sustagrain'
+           def content
+           def pt = PageText.findByName("sustagrain")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
 	}
 
        def register = {
