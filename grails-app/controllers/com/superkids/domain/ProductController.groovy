@@ -245,4 +245,15 @@ class ProductController {
                 redirect controller:"home", action:"index"
                 }
         }
+
+        def toggleLive = {
+            def productInstance = Product.get(params.id)
+            if (productInstance){
+                productInstance.isLive = params.isLive == 'true'
+                productInstance.save()
+            }
+            println "the productInstance's isLive is " + productInstance.isLive
+            render ''
+    }
+
 }
