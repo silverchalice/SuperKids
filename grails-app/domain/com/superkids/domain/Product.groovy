@@ -12,6 +12,7 @@ class Product implements IShoppable {
         com.metasieve.shoppingcart.ShoppingItem shoppingItem
 
         boolean isLive = true
+        boolean bake = false
 
 	byte[] image
 	byte[] summary
@@ -34,6 +35,7 @@ class Product implements IShoppable {
         static mapping = {
             image sqlType:"longblob"
             summary sqlType:"longblob"
+            description sqlType:"text"
         }
   
         String toString(){ name }
