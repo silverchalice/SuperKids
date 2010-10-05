@@ -29,7 +29,7 @@
                         <li><g:link controller="ecard" action="list">View eCards Sent</g:link></li>
                         <li><hr /></li>
                         <li><g:link controller="admin" action="list">Update Users</g:link></li>
-                        <li><g:link controller="customer" action=""list">Manage School Districts</g:link></li>
+                        <li><g:link controller="customer" action="list">Manage School Districts</g:link></li>
                         <li><hr /></li>
                         <li><g:link controller="customerOrder" action="list">Order Admin</g:link></li>
                         <li><g:link controller="product" action="list">Products Admin</g:link></li>
