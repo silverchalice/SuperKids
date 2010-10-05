@@ -30,13 +30,7 @@
 
                             <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
 
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.fax.label', default: 'Fax')}" />
-
 							<g:sortableColumn property="fax" title="${message(code: 'customer.inCall.label', default: 'In Call')}" />
-
-                            <g:sortableColumn property="studentsInDistrict" title="${message(code: 'customer.studentsInDistrict.label', default: 'Students')}" />
-
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Date Created')}" />
 
                         </tr>
                     </thead>
@@ -44,27 +38,31 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
-
-                            <td>${fieldValue(bean: customerInstance, field: "address")}</td>
+                            <td><g:if test="${customerInstance.inCall == null}"><g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
+							    </g:if>
+								<g:else>
+									${fieldValue(bean: customerInstance, field: "district")}
+								</g:else>
+                            <td>
+								<g:if test="${customerInstance.address == 'null'}">
+									${fieldValue(bean: customerInstance, field: "address")}
+								</g:if>
+								<g:else>
+									${fieldValue(bean: customerInstance, field: "deliveryAddress")}
+								</g:else>
+							</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "email")}</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "fax")}</td>
-
-							<td><g:if test="${customerInstance.inCall == true}">
-								    <strong style="color:red">True</strong>
+							<td style="width:50px"><g:if test="${customerInstance.inCall == null}">
+								    <strong style="color:green">False</strong>
 								</g:if>
 								<g:else>
-									<strong style="color:green">False</strong>
+									<strong style="color:red">True</strong>
 								</g:else>
 							</td>
-
-                            <td>${fieldValue(bean: customerInstance, field: "studentsInDistrict")}</td>
-
-                            <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
                         </tr>
                     </g:each>
@@ -72,7 +70,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${customerInstanceTotal}"/>
+                <g:paginate total="${customerInstanceTotal}" max="20"/>
             </div>
         </div>
     </body>

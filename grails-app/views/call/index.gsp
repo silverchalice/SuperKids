@@ -7,13 +7,25 @@
 </head>
 <body>
     <div class="nav">
-    	<g:render template="caller_nav"/> 	
+    	<g:render template="caller_nav"/>
+		<strong style="margin-left:220px;">Welcome Back ${caller?.username}</strong>
 	</div>
 
 	<div class="body">
-		<div class="dialog">
-            <h1>Welcome Back ${caller?.username}</h1>
-		</div>
+		<g:link class="order" action="start_order_call">
+			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:35px; font-size:16pt;">
+				<g:message code="default.caller.start.label" default="Start Order Call"/>
+			</h1>
+		</g:link>
+
+		<g:link class="assess" action="start_assess_call">
+			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:35px; font-size:16pt;">
+					<g:message code="default.caller.start.label" default="Start Assess Call"/>
+			</h1>
+		</g:link>
+
+
+
     </div>
 </body>
 </html>

@@ -300,12 +300,12 @@ Modified: get menuButton text from new 'msg' attr
 			def products = customer.order.products
 			def totalProducts = products.size()
 			def tabIndex = 2
-			out << "<li><a href='#tab${tabIndex}'>Tab ${tabIndex}</a></li>"
+			out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
 			products.eachWithIndex{product, i ->
 				def idx = i + 1
 				if ((idx % 5 == 0) && totalProducts > idx){
 					tabIndex++
-					out << "<li><a href='#tab${tabIndex}'>Tab ${tabIndex}</a></li>"
+					out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
 				}
 			}
 			

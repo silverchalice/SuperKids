@@ -9,11 +9,7 @@
     </head>
     <body>
         <div class="nav">
-    	<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="start"><g:message code="default.caller.start.label" default="Start Call"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="order_list"><g:message code="default.caller.start.label" default="Order Call List"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="assess_list"><g:message code="default.caller.start.label" default="Assessment Call List"/></g:link></span>
-        <span class="menuButton"><g:link class="list" action="call_back_list"><g:message code="default.caller.start.label" default="Call Back List"/></g:link></span>
+			<g:render template="caller_nav"/>
         </div>
         <div class="body">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
