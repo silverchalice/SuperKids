@@ -30,7 +30,7 @@
 
                             <g:sortableColumn property="bake" title="Bake" />
 
-                            <th>Delete</th>
+                            <th>&nbsp;Delete</th>
 
                         </tr>
                     </thead>
@@ -38,17 +38,17 @@
                     <g:each in="${productInstanceList}" status="i" var="productInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:checkBox name='isLive'
+                            <td width="25px">&nbsp;<g:checkBox name='isLive'
                                         value="${productInstance.isLive}"
                                         onclick="${remoteFunction(action:'toggleLive', id:productInstance.id, params:'\'isLive=\' + this.checked')}" /></td>
 
-                            <td><g:link action="edit" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</g:link></td>
+                            <td width="550px">&nbsp;<g:link action="edit" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</g:link></td>
 
-                            <td><sks:bakeCheckbox name="bake"
+                            <td width="520px">&nbsp;<sks:bakeCheckbox name="bake"
                                                   id="bake"
                                                   id="${productInstance.id}" /></td>
 
-                            <td><g:link action="other_delete" id="${productInstance.id}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">Delete</g:link></td>
+                            <td width="70px">&nbsp;&nbsp;<g:link action="other_delete" id="${productInstance.id}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">Delete</g:link></td>
 
                         </tr>
                     </g:each>
