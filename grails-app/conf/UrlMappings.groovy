@@ -113,8 +113,8 @@ class UrlMappings {
                     action = "about"
                 }
                 "/superkids-products/" {
-                    controller = "home"
-                    action = "superkids_products"
+                    controller = "product"
+                    action = "list"
                 }
                 "/testimonials/" {
                     controller = "home"

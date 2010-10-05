@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
+        <g:javascript library="prototype" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -13,22 +14,23 @@
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1>Product Administration</h1>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+            <div class="message">${flash.message}</div><br />
             </g:if>
+            <p>Please choose a product to edit:</p><br />
             <div class="list">
                 <table>
                     <thead>
                         <tr>
 
-                            <g:sortableColumn property="name" title="${message(code: 'product.name.label', default: 'Name')}" />
+                            <g:sortableColumn property="isLive" title="Live" />
 
-                            <g:sortableColumn property="description" title="${message(code: 'product.description.label', default: 'Description')}" />
+                            <g:sortableColumn property="name" title="Product Name" />
 
-                            <g:sortableColumn property="details" title="${message(code: 'product.details.label', default: 'Details')}" />
+                            <g:sortableColumn property="bake" title="Bake" />
 
-                            <g:sortableColumn property="image" title="${message(code: 'product.image.label', default: 'Image')}" />
+                            <th>Delete</th>
 
                         </tr>
                     </thead>
@@ -36,13 +38,17 @@
                     <g:each in="${productInstanceList}" status="i" var="productInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:link action="show" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</g:link></td>
+                            <td><g:checkBox name='isLive'
+                                        value="${productInstance.isLive}"
+                                        onclick="${remoteFunction(action:'toggleLive', id:productInstance.id, params:'\'isLive=\' + this.checked')}" /></td>
 
-                            <td>${fieldValue(bean: productInstance, field: "description")}</td>
+                            <td><g:link action="edit" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</g:link></td>
 
-                            <td>${fieldValue(bean: productInstance, field: "details")}</td>
+                            <td><sks:bakeCheckbox name="bake"
+                                                  id="bake"
+                                                  id="${productInstance.id}" /></td>
 
-                            <td><img style="width:50px;" src="${createLink(action:'displayImage', id:productInstance.id)}" /></td>
+                            <td><g:link action="other_delete" id="${productInstance.id}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');">Delete</g:link></td>
 
                         </tr>
                     </g:each>

@@ -331,4 +331,18 @@ Modified: get menuButton text from new 'msg' attr
             }
         }
 
+    def bakeCheckbox = { attrs ->
+        def productInstance = Product.get(attrs.id)
+        out << "<input type='checkbox' "
+        out << "name='"
+        out << attrs.name
+        out << "' id='"
+        out << attrs.id
+        out << "' "
+        if(productInstance.bake){
+            out << "checked='checked'"
+        }
+        out << "' disabled='disabled' />"
+    }
+
 }

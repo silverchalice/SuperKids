@@ -144,6 +144,7 @@ class BootStrap {
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
+                        bake:true,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem1
 		).save()
@@ -507,6 +508,26 @@ class BootStrap {
 
         def ultragrainText = new PageText(name:"ultragrain", content:"""
 <h1>Ultragrain®: Whole Wheat Flour.</h1> <div style="float:left; width:400px;"> <p><img width="195" height="97" align="left" alt="" src="/SuperKids/images/SATURDAYPBJSANDWICHHORIZ.jpg" /> Demand for whole grains in schools is skyrocketing, but many students still crave the classic taste, texture and appearance of white flour products. With Ultragrain®, ConAgra Mills gives students the best of both worlds. Using patented milling technology with specially selected white wheat, Ultragrain® whole wheat flour and products made with Ultragrain® deliver great taste and the all-natural whole grain nutrition of 100% whole wheat. With Ultragrain®, students won’t notice changes in color, taste or texture that they often complain about when eating foods made with traditional whole wheat flour, a fact that’s been proven in several studies.</p> <h2>Did you know?</h2> <img width="84" height="108" align="left" style="float: right;" src="/SuperKids/images/UltragrainDidYouKnow.jpg" alt="" /><br /> <p>For the first time, students can enjoy everything from breads to pasta, pizza dough, cookies, crackers and even pastries—all with the benefits of whole grain nutrition.</p> <p>Ultragrain has been the driving force behind many successful consumer products, and is now available at your local grocer under the Eagle Mills® brand. Visit <a href="http://www.ultragrain.com/">Ultragrain.com</a> to learn more.</p> </div> <div style="float: right; width: 221px;"> <p style="text-align: right;">&nbsp;<img width="180" height="176" style="width: 196px; height: 190px;" alt="" src="/SuperKids/images/UltraGrainlogo.jpg" /> </div>
+                          """
+            ).save()
+
+        def sustagrainText = new PageText(name:"sustagrain", content:"""
+<h1>Sustagrain&reg;: The Ultra-High Fiber Whole Grain</h1> 
+<div style="float: left; width: 300px;"> 
+<p>Another first from ConAgra Mills, all-natural Sustagrain is the highest-fiber whole grain available, with three times the total dietary fiber (TDF) of oats and up to eight times the TDF of other whole grains. Made from a proprietary variety of barley, Sustagrain has a neutral flavor that can boost the nutrition in any recipe. With Sustagrain, a little goes a long way toward making a nutritional difference. Whether you&rsquo;re making recipes from scratch, using it as a topping, or trying products made with it, Sustagrain adds whole grain nutrition and fiber to almost any application including breads, hot cereals, snack bars, side dishes and meat recipes like meatloaf or meatballs. Sustagrain is available as an ultrafine flour, oat-like flakes, and toasted, sweetened flakes.</p> 
+</div>
+<p>&nbsp;</p>
+<p style="text-align:left;"><img width="300" height="114" align="right" src="/SuperKids/images/SustagrainLogo.gif" /></p> 
+</div> 
+<div style="clear: both;"> 
+<p><a href="/SuperKids/pdf/J-Food-Sci-2009-Children's-acceptance-whole-grain-and-soluble-fiber-enriched-foods.pdf"><img width="32" height="32" border="0" align="absMiddle" style="width: 26px; height: 26px;" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /></a>&nbsp;&nbsp;<a href="/SuperKids/pdf/J-Food-Sci-2009-Children's-acceptance-whole-grain-and-soluble-fiber-enriched-foods.pdf">View the Study</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:popUp('http://www.conagramills.com/downloads/videos.jsp?flv_str=Sustagrain_300k',326,265)"><img width="29" height="29" border="0" align="absMiddle" src="http://www.conagramills.com/images/thumb_video_sustagrain.jpg" /></a>&nbsp;&nbsp;<a href="javascript:popUp('http://www.conagramills.com/downloads/videos.jsp?flv_str=Sustagrain_300k',326,265)">VIDEO - Sustagrain</a></p> 
+</div>
+<div style="clear: both;"><br /> 
+<br /> 
+<p><strong>See how Sustagrain stacks up by comparing it to other whole grains shown in the following charts; or click here:</strong> <img width="32" height="32" border="0" align="absmiddle" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /> <a href="/SuperKids/pdf/Sustagrain.pdf"><strong>Download the Sustagrain PDF</strong></a></p> 
+<p><img width="450" height="293" src="/SuperKids/images/fiber_comparison.jpg" /> <img width="450" height="227" src="/SuperKids/images/gi_comparison.jpg" /></p> 
+</div> 
+</div>
                           """
             ).save()
 

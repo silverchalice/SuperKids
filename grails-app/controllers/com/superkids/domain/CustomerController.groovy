@@ -182,7 +182,7 @@ class CustomerController {
                     }
                     catch (org.springframework.dao.DataIntegrityViolationException e) {
                         flash.message = "This customer record could not be deleted."
-                        redirect(action: "show", id: params.id)
+                        redirect(action: "list")
                     }
                 }
                 else {

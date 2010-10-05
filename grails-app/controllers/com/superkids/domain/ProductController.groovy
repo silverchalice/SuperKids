@@ -19,7 +19,12 @@ class ProductController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+        render view:"/home/superkids_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+    }
+
+    def admin = {
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        render view:"list", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
     }
 
     def create = {
@@ -211,5 +216,44 @@ class ProductController {
             def customerInstance = Customer.get(springSecurityService.principal.id)
             render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states]
         }
+
+        def other_delete = {
+            if(springSecurityService.isLoggedIn()){
+                if(User.get(springSecurityService.principal.id).isAdmin()){
+                    def productInstance = Product.get(params.id)
+                    if (productInstance) {
+                        try {
+                            productInstance.delete(flush: true)
+                            flash.message = "Deleted this product."
+                            redirect(action: "admin")
+                        }
+                        catch (org.springframework.dao.DataIntegrityViolationException e) {
+                            flash.message = "This product could not be deleted."
+                            redirect(action: "admin")
+                        }
+                    }
+                    else {
+                        flash.message = "Product record not found."
+                        redirect(action: "admin")
+                    }
+                } else {
+                    flash.message = "You aren't allowed to access this page."
+                    redirect controller:"home", action:"index"
+                }
+            } else {
+                flash.message = "Please log in.."
+                redirect controller:"home", action:"index"
+                }
+        }
+
+        def toggleLive = {
+            def productInstance = Product.get(params.id)
+            if (productInstance){
+                productInstance.isLive = params.isLive == 'true'
+                productInstance.save()
+            }
+            println "the productInstance's isLive is " + productInstance.isLive
+            render ''
+    }
 
 }
