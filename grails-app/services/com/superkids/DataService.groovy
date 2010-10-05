@@ -24,7 +24,7 @@ class DataService {
 				deliveryAddress = new Address(street:Delivery_Address, street2:Delivery_Address_2, city:Deliver_City, state:Delivery_State, zip:Delivery_Zip)
 				status = CustomerStatus.HAS_NOT_ORDERED
 				phone = Phone
-				fax = Fax
+				fax = Fax ?: ""
 				fsdName = FSD_Name
 				fsdTitle = FSD_Title
 				studentsInDistrict = Students_in_District ?: 0
