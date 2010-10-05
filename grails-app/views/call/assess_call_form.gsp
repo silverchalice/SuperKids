@@ -61,11 +61,11 @@
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
 
 		<div class="nav" style="padding: 0 12px; height:27px; line-height:27px">
-			<g:render template="caller_nav"/>
-				<g:if test="${queue}"><g:render template="caller_assess_controls" model="[customerInstance: customerInstance]"/> </g:if>
-				<g:else>
-					<span  style="margin-left:290px;" class="callerButton"><g:link controller="call" action="next_assess_call">Start Calling</g:link></span>
-				</g:else>
+			<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
+			<g:if test="${queue}"><g:render template="caller_assess_controls" model="[customerInstance: customerInstance]"/> </g:if>
+			<g:else>
+				<span  style="margin-left:960px;" class="callerButton"><g:link controller="call" action="next_assess_call">Start Calling</g:link></span>
+			</g:else>
 		</div>
 
 		<div class="body" style="width:1250px">
@@ -95,6 +95,7 @@
 								</td>
 								<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'district', 'errors')}">
 
+
 									<g:textField class="textField" name="district" value="${customerInstance?.district}" style="width:300px;" />
 								</td>
 							</tr>
@@ -122,7 +123,7 @@
 									<label for="address.city"><g:message code="address.city.label" default="City" /></label>
 								</td>
 								<td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'city', 'errors')}">
-									<g:textField class="textField" name="address.city" value="${customerInstance?.address?.city}" style="width:150px; margin-right:10px;" />
+									<g:textField class="textField" name="address.city" value="${customerInstance?.address?.city}" style="width:120px; margin-right:10px;" />
 									<label for="address.state"><g:message code="address.state.label" default="State" /></label>
 									<g:textField class="textField" name="address.state" value="${customerInstance?.address?.state}" style="width:35px;  margin-right:10px;"/>
 									<label for="address.zip"><g:message code="address.zip.label" default="Zip" /></label>
@@ -204,11 +205,6 @@
 							</tr>
 						</tbody>
 					</table>
-
-					<table style="width:500px;margin-top: 10px; margin-left: 0px; margin-right:10px;">
-					</table>
-
-
 				</div>
 
 				<div id="column3" style="width:280px; float:right">
@@ -217,12 +213,12 @@
 						<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">
-									<label for="call.result"><strong>Call Result</strong></label>
+									<label for="result"><strong>Call Result</strong></label>
 								</td>
 								<td valign="top" class="value">
-									 <g:select style="width:175px" id="call.result" name='type.id' value="${call?.result?.id}"
+									 <g:select style="width:175px" id="result" name='result' value="${call?.result?.id}" valueMessagePrefix="call.result" optionKey="key"
 										noSelection="${['null':'Select One...']}"
-										from='${CallResult.enumConstants}'></g:select>
+										from='${CallResult.enumConstants}' />
 								</td>
 							</tr>
 							<tr>

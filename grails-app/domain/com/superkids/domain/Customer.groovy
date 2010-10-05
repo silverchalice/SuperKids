@@ -15,7 +15,7 @@ class Customer extends User {
     CustomerOrder order
 
 	Date dateCreated = new Date()
-        Date lastUpdated
+    Date lastUpdated
 
 	CustomerStatus status = CustomerStatus.HAS_NOT_ORDERED
 	
@@ -83,8 +83,8 @@ class Customer extends User {
 		cdEmail nullable: true
 		cdTitle nullable: true
 
-                order nullable:true
-                otherComments nullable:true
+        order nullable:true
+        otherComments nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true

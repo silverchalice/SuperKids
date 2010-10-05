@@ -36,6 +36,12 @@ class CallController {
 			customer.properties = params
 
 			if(customer.save(flush:true)){
+				
+				if(params.result == null) {
+					customer.inCall = null
+					redirect action: 'next_order_call', id: customer.id
+					return
+				}
 
 				def call = new Call(params)
 				def caller = Caller.get(springSecurityService.principal.id)
@@ -44,7 +50,12 @@ class CallController {
 				call.customer = customer
 
 				caller.addToCalls(call)
+				customer.addToCalls(call)
+
+				customer.save(flush:true)
 				caller.save(flush:true)
+
+
 
 				if(call.result == CallResult.QUALIFIED) {
 					println "Call Result was QUALIFIED - saving order..."
@@ -96,7 +107,19 @@ class CallController {
 
     }
 
-    def show = {
+    def finish_call = {
+		def customer = Customer.get(params.id)
+
+		if(customer) {
+			customer.inCall = null
+		}
+
+		redirect action:'index'
+
+
+	}
+
+	def show = {
         def callInstance = Call.get(params.id)
         if (!callInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'call.label', default: 'Call'), params.id])}"
@@ -106,6 +129,7 @@ class CallController {
             [ callInstance: callInstance ]
         }
     }
+
 
     def edit = {
         def callInstance = Call.get(params.id)
@@ -207,7 +231,7 @@ class CallController {
 
 	def prev_order_call = {
 		println "in prev_Order_Call for CallController"
-		println params
+
 
 		//make sure the last customer is no longer 'in call'
 		def currentCustomer = Customer.get(params.id)
@@ -348,6 +372,86 @@ class CallController {
 		}
 	}
 
+
+	def save_assess_call = {
+		println "in Save_Assess_Call for CallController"
+		params.each { key,val ->
+			println "$key = $val"
+		}
+		def customer = Customer.get(params.id)
+		def caller = Caller.get(springSecurityService.principal.id)
+
+		if(params.result == null) {
+			customer.inCall = null
+			redirect action: 'next_assess_call', id: customer.id
+			return
+		}
+
+		if(customer) {
+			println 'Got the customer...' + customer.district
+			customer.properties = params
+
+			if(customer.save(flush:true)){
+				println 'Updated the Customer'
+				def call = new Call(params)
+
+
+				if(params.result == CallResult.QUALIFIED) {
+					println "The CallResult was QUALIFIED - saving assessments"
+
+					Products.list().each { product ->
+
+						println product.name
+
+						assessment."${product.name}".each { key, val ->
+							println "$key = $val"
+						}
+
+						if(params.assessment."${product.name}") {
+							def assessment = new Assessment(
+									likeRating: params.assessment."${product.name}".likeRating,
+									interestRating: params.assessment."${product.name}".interestRating,
+									likeComment: params.assessment."${product.name}".likeComment,
+									changeComment: params.assessment."${product.name}".changeComment,
+									product: product,
+									customer: customer,
+							).save()
+						}
+					}
+
+
+
+
+				}
+
+				if(params.result != 'null') {
+					call.result = CallResult.valueOf(params.result)
+					call.save()
+				}
+
+				customer.inCall = null
+
+				call.customer = customer
+				call.caller = caller
+				call.save()
+
+				caller.addToCalls(call)
+				customer.addToCalls(call)
+
+				caller.save(flush:true)
+				customer.save()
+				redirect action:'next_assess_call', id: customer.id
+
+			}
+		}
+
+		else {
+			flash.message = "no customer"
+			println flash.message
+			redirect action:'index'
+		}
+
+	}
 
 
     def assess_list = {

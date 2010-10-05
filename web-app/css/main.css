@@ -415,3 +415,51 @@ table.callerRecord table {
     border:1px solid;
     padding:15px;
 }
+
+/* Drop down styles */
+
+ul#menu { clear:both; width:160px;, margin-top:10px; }
+li.potato-menu-item {
+	width:160px;
+	font-size:12px;
+	background-color:#333;
+	background-color:rgba(0,0,0,0.9);
+}
+li.potato-menu-item a {
+	padding:5px 20px 5px 12px;
+	color: #fff;
+}
+li.potato-menu-hover {
+	background-color: #666;
+}
+li.potato-menu-item ul {
+	border-top:1px solid #444;
+	border-left:1px solid #444;
+}
+
+
+a.order {
+	width:300px;
+	float:left;
+	padding:35px;
+	background:#FFF3E0;
+	border: 3px solid #DDD;
+	margin:50px; 
+}
+
+a.order:hover {
+    background:#ECDFC6;
+}
+
+a.assess {
+	width:300px;
+	float:left;
+	padding:35px;
+	background:#EEFFE3;
+	border: 3px solid #DDD;
+	margin:50px;
+}
+
+a.assess:hover {
+	background:#DAEDCD;
+}

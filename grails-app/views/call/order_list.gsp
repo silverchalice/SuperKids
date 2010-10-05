@@ -32,10 +32,6 @@
 
 							<g:sortableColumn property="fax" title="${message(code: 'customer.inCall.label', default: 'In Call')}" />
 
-                            <g:sortableColumn property="studentsInDistrict" title="${message(code: 'customer.studentsInDistrict.label', default: 'Students')}" />
-
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Created')}" />
-
                         </tr>
                     </thead>
                     <tbody>
@@ -67,10 +63,6 @@
 									<strong style="color:red">True</strong>
 								</g:else>
 							</td>
-
-                            <td>${fieldValue(bean: customerInstance, field: "studentsInDistrict")}</td>
-
-                            <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
                         </tr>
                     </g:each>
