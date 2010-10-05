@@ -144,6 +144,7 @@ class BootStrap {
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
                         statesAvailable:statesAvailable,
+                        bake:true,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem1
 		).save()
