@@ -25,20 +25,20 @@
                         <li><g:link controller="pageText" action="list">Update Page Content</g:link></li>
                         <li><g:link>Update Factoids</g:link></li>
                         <li><hr /></li>
-                        <li><g:link controller="contactRequest">Contact Requests</g:link></li>
-                        <li><g:link controller="ecard">View eCards Sent</g:link></li>
+                        <li><g:link controller="contactRequest" action="list">Contact Requests</g:link></li>
+                        <li><g:link controller="ecard" action="list">View eCards Sent</g:link></li>
                         <li><hr /></li>
-                        <li><g:link controller="customer">Update Users</g:link></li>
-                        <li><g:link controller="customer">Manage School Districts</g:link></li>
+                        <li><g:link controller="admin" action="list">Update Users</g:link></li>
+                        <li><g:link controller="customer" action=""list">Manage School Districts</g:link></li>
                         <li><hr /></li>
-                        <li><g:link controller="customerOrder">Order Admin</g:link></li>
-                        <li><g:link controller="product">Products Admin</g:link></li>
-                        <li><g:link controller="assessment">Assessment Admin</g:link></li>
-                        <li><g:link controller="sponsor">Sponsors Admin</g:link></li>
+                        <li><g:link controller="customerOrder" action="list">Order Admin</g:link></li>
+                        <li><g:link controller="product" action="list">Products Admin</g:link></li>
+                        <li><g:link controller="assessment" action="list">Assessment Admin</g:link></li>
+                        <li><g:link controller="sponsor" action="list">Sponsors Admin</g:link></li>
                         <li><hr /></li>
                         <li><h1>Caller Module</h1></li>
-                        <li><g:link controller="caller">Manage Callers</g:link></li>
-                        <li><g:link controller="call">View Calls</g:link></li>
+                        <li><g:link controller="caller" action="list">Manage Callers</g:link></li>
+                        <li><g:link controller="call" action="list">View Calls</g:link></li>
                         <li><hr /></li>
                         <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Download Excel" /></li>
                         <li><sks:formats formats="['excel']" msg="Download Excel (no assessments)" /></li>
