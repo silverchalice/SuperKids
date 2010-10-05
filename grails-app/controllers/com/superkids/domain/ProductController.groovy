@@ -78,6 +78,7 @@ class ProductController {
     }
 
     def update = {
+        def summaryFile = params.summaryFile
         def productInstance = Product.get(params.id)
         if (productInstance) {
             if (params.version) {
@@ -88,6 +89,13 @@ class ProductController {
                     render(view: "edit", model: [productInstance: productInstance])
                     return
                 }
+            }
+            if(summaryFile){
+                def oldSummary = new File("/pdf/${productInstance.summary}")
+                if(oldSummary) oldSummary.delete()
+                productInstance.summary = summaryFile.originalFilename
+                def location = new File("/pdf/${productInstance.summary}")
+                summaryFile.transferTo(location)
             }
             productInstance.properties = params
             if (!productInstance.hasErrors() && productInstance.save(flush: true)) {
