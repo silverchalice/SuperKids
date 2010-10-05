@@ -233,7 +233,7 @@
 							<td valign="top">
 								<g:textField style="width:150px;" name="phone" value="${customerInstance?.phone}" />
 								<label for="callbackDate" style="padding: 0 10px 0 50px;"><g:message code="callback.date" default="Callback Date" /></label>
-								<input type="text" style="width:90px" id="callbackDate" />
+								<input type="text" style="width:90px" id="callbackDate" name="callbackDate"/>
 							</td>
 
 						</tr>
@@ -244,8 +244,8 @@
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fax', 'errors')}">
 								<g:textField style="width:150px;" class="textField" name="fax" value="${customerInstance?.fax}" />
-								<label for="callbackTime" style="padding: 0 10px 0 50px;"><g:message code="callback.date" default="Callback Time" /></label>
-								<input type="text" style="width:90px" id="callbackTime" />
+								<label for="callbackTime" style="padding: 0 10px 0 50px;"><g:message code="callback.time" default="Callback Time" /></label>
+								<input type="text" style="width:90px" id="callbackTime" name="callbackTime" />
 							</td>
 
 						</tr>
