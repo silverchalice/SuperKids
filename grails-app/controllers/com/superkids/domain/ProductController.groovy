@@ -217,4 +217,32 @@ class ProductController {
             render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states]
         }
 
+        def other_delete = {
+            if(springSecurityService.isLoggedIn()){
+                if(User.get(springSecurityService.principal.id).isAdmin()){
+                    def productInstance = Product.get(params.id)
+                    if (productInstance) {
+                        try {
+                            productInstance.delete(flush: true)
+                            flash.message = "Deleted this product."
+                            redirect(action: "admin")
+                        }
+                        catch (org.springframework.dao.DataIntegrityViolationException e) {
+                            flash.message = "This product could not be deleted."
+                            redirect(action: "admin")
+                        }
+                    }
+                    else {
+                        flash.message = "Product record not found."
+                        redirect(action: "admin")
+                    }
+                } else {
+                    flash.message = "You aren't allowed to access this page."
+                    redirect controller:"home", action:"index"
+                }
+            } else {
+                flash.message = "Please log in.."
+                redirect controller:"home", action:"index"
+                }
+        }
 }
