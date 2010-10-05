@@ -17,6 +17,7 @@ class HomeController {
 
     def index = {
         if(springSecurityService.isLoggedIn()){
+            println UserRole.findByUser(User.get(springSecurityService.principal.id))
             def pass = springSecurityService.encodePassword("superkids")
             def loggedInUser = User.get(springSecurityService.principal.id)
             def ur = Role.findByAuthority("ROLE_USER")
@@ -374,15 +375,6 @@ class HomeController {
        def about = {
            def content
            def pt = PageText.findByName("about")
-           if(pt){
-               content = pt.content
-           }
-           [content:content]
-       }
-
-       def superkids_products = {
-           def content
-           def pt = PageText.findByName("superkids_products")
            if(pt){
                content = pt.content
            }
