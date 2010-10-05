@@ -10,12 +10,10 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
+            <h1>Product Administration</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -24,78 +22,91 @@
                 <g:renderErrors bean="${productInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form method="post"  enctype="multipart/form-data">
+            <g:form method="post" enctype="multipart/form-data">
                 <g:hiddenField name="id" value="${productInstance?.id}" />
                 <g:hiddenField name="version" value="${productInstance?.version}" />
                 <div class="dialog">
-                    <table>
-                        <tbody>
+                <fieldset>
+                    <legend>Product Information</legend>
+                    <p>
+                        <label for="name">Product Name:</label>
+                        <g:textField name="name" value="${productInstance?.name}" />
+                    </p><br />     
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="name"><g:message code="product.name.label" default="Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'name', 'errors')}">
-                                    <g:textField name="name" value="${productInstance?.name}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="description"><g:message code="product.description.label" default="Description" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'description', 'errors')}">
-                                    <g:textArea name="description" value="${productInstance?.description}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="details"><g:message code="product.details.label" default="Details" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'details', 'errors')}">
-                                    <g:textField name="details" value="${productInstance?.details}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="nutrition"><g:message code="product.nutrition.label" default="Nutrition" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'nutrition', 'errors')}">
-                                    <g:textField name="nutrition" value="${productInstance?.nutrition}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="image"><g:message code="product.image.label" default="Image" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'image', 'errors')}">
-                                    <input type="file" id="image" name="image" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="summary"><g:message code="product.summary.label" default="Summary" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'summary', 'errors')}">
-                                    <input type="file" id="summary" name="summary" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="sponsor"><g:message code="product.sponsor.label" default="Sponsor" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'sponsor', 'errors')}">
-                                    <g:select name="sponsor.id" from="${com.superkids.domain.Sponsor.list()}" optionKey="id" value="${productInstance?.sponsor?.id}" noSelection="['null': '']" />
-                                </td>
-                            </tr>
-                        
-                        </tbody>
-                    </table>
+                    <p>
+                        <label for="nutrition">Nutrition Information:</label>
+                        <g:textArea style="width:95%; height:300px;" name="nutrition" value="${productInstance?.nutrition}" />
+                    </p><br />
+
+                    <p>
+                        <label for="description">Description:</label>
+                        <g:textArea style="width:95%; height:300px;" name="description" value="${productInstance?.description}" />
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>Manufacturer Information</legend>
+                    <p>
+                        <label for="sponsor.name">Manufacturer Name:</label>
+                        <g:textField name="sponsor.name" value="${productInstance?.sponsor?.name}" />
+                    </p><br />
+
+                    <p>Company Address:<p><br />
+                    <p>
+                        <label for="sponsor.address.street">Street:</label>
+                        <g:textField name="sponsor.address.street" value="${productInstance?.sponsor?.address.street}" />
+                    </p><br />
+
+                    <p>
+                        <label for="sponsor.address.street2">Street:</label>
+                        <g:textField name="sponsor.address.street2" value="${productInstance?.sponsor?.address.street2}" />
+                    </p><br />
+
+                    <p>
+                        <label for="sponsor.address.city">City:</label>
+                        <g:textField name="sponsor.address.city" value="${productInstance?.sponsor?.address.city}" />
+                    </p><br />
+
+                    <p>
+                        <label for="sponsor.address.state">State:</label>
+                        <g:textField name="sponsor.address.state" value="${productInstance?.sponsor?.address.state}" />
+                    </p><br />
+
+                    <p>
+                        <label for="sponsor.address.zip">Zip:</label>
+                        <g:textField name="sponsor.address.zip" value="${productInstance?.sponsor?.address.zip}" />
+                    </p><br />
+
+                    <p>
+                        <label for="sponsor.phone">Main Telephone # :</label>
+                        <g:textField name="sponsor.phone" value="${productInstance?.sponsor?.phone}" />
+                    </p><br />
+
+                    <p>
+                        <label for="sponsor.website">Website Address:</label>
+                        <g:textField name="sponsor.website" value="${productInstance?.sponsor?.website}" />
+                    </p><br />
+
+                    <p>
+                        <label for="sponsor.salesContact">Sales Contact:</label>
+                        <g:textField name="sponsor.salesContact" value="${productInstance?.sponsor?.salesContact}" />
+                    </p><br />
+
+                    <p>
+                        <label for="sponsor.sampleContact">Samples Contact:</label>
+                        <g:textField name="sponsor.sampleContact" value="${productInstance?.sponsor?.sampleContact}" />
+                    </p><br />
+
+                    <p>
+                        <label for="summaryFile">Print PDF:</label>
+                        <input type="file" name="summaryFile" id="summaryFile"/>&nbsp;
+                        <a href="${resource(dir:'pdf', file:productInstance.summary)}">${productInstance.summary}</a>
+                    </p><br />
+
+                    <p>
+                        <img src="${createLink(action:'displayImage', id:productInstance.id)}" height="40" width="60" />
+                        <label for="image">Thumbnail:</label>
+                        <input type="file" name="image" id="image"/>
+                    </p><br />                   
                 </div>
                 <div class="buttons">
                     <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
