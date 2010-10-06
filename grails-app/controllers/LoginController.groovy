@@ -43,6 +43,7 @@ class LoginController {
 	 */
 	def auth = {
 
+                session.current_view = "auth"
 		def config = SpringSecurityUtils.securityConfig
 
 		if (springSecurityService.isLoggedIn()) {
@@ -85,6 +86,8 @@ class LoginController {
 	 */
 	def authfail = {
 
+                def current_action = session.current_view
+                println current_action
 		def username = session[UsernamePasswordAuthenticationFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
 		String msg = ''
 		def exception = session[AbstractAuthenticationProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY]
@@ -113,7 +116,7 @@ class LoginController {
 		}
 		else {
 			flash.message = msg
-			redirect action: auth, params: params
+			redirect action: current_action, params: params
 		}
 	}
 
@@ -133,6 +136,8 @@ class LoginController {
 
        def admin_login = {
 
+                session.current_view = "admin_login"
+
 		def config = SpringSecurityUtils.securityConfig
 
 		if (springSecurityService.isLoggedIn()) {
@@ -147,6 +152,8 @@ class LoginController {
        }
 
        def caller_login = {
+
+                session.current_view = "caller_login"
 
 		def config = SpringSecurityUtils.securityConfig
 
