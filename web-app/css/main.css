@@ -464,3 +464,16 @@ a.assess {
 a.assess:hover {
 	background:#DAEDCD;
 }
+
+fieldset {
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #ccc;
+    background: #f8f8f8;
+    margin:10px 0 10px 0;
+}
+
+legend {
+    font-weight: bold;
+}
+

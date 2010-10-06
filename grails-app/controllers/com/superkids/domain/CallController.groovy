@@ -110,7 +110,9 @@ class CallController {
 				caller.save(flush:true)
 
 				customer.inCall = null
+				customer.lastCallResult = CallResult.valueOf(call.result)
 				customer.save(flush:true)
+				
 				redirect action: 'next_order_call', id: customer.id
 			}
 		} else {
@@ -203,7 +205,7 @@ class CallController {
     }
 
 	def start_order_call = {
-		render view:'order_call_form', model: [products: Product.list()]
+		render view:'order_call_form', model: [ products: Product.list() ]
 	}
 
 
@@ -448,7 +450,8 @@ class CallController {
 				}
 
 				customer.inCall = null
-
+				customer.lastCallResult = CallResult.valueOf(call.result)
+				
 				call.customer = customer
 				call.caller = caller
 				call.save()
@@ -459,7 +462,7 @@ class CallController {
 				caller.save(flush:true)
 				customer.save()
 				redirect action:'next_assess_call', id: customer.id
-
+				                                        
 			}
 		}
 
@@ -471,9 +474,8 @@ class CallController {
 
 	}
 
-
     def assess_list = {
-		def max = params.max ?: 20
+		def max = params.max ?: 35
 		def offset = params.offset ?: 0
 		def customers = Customer.findAllByStatus(CustomerStatus.HAS_ORDERED, [max:max, offset:offset])
 
@@ -481,23 +483,47 @@ class CallController {
    }
 
     def order_list = {
-		def max = params.max ?: 20
+		def max = params.max ?: 35
 		def offset = params.offset ?: 0
 		def customers = Customer.findAllByStatus(CustomerStatus.HAS_NOT_ORDERED, [max:max, offset:offset])
 
+        [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
 
     }
 
     def call_back_list = {
         def customers = []
-        Customer.list().each {
-            if(it.status == CustomerStatus.CALL_AGAIN){
-                customers << it
-            }
-        }
+		def max = params.max ?: 35
+		def offset = params.offset ?: 0
+
+		println "About to create criteria"
+		def c = Customer.createCriteria()
+
+		//order calls are all customers with out a current order AND who are not being called atm
+		def customer = c.list() {
+			eq 'status', CustomerStatus.HAS_ORDERED
+			isNull 'inCall'
+			gt 'id', currentCustomer?.id
+		}.getAt(0)
+
+
         [customerInstanceList:customers, customerInstanceTotal: customers.size()]
 
     }
+
+
+	def unlock_customer = {
+		def customer = Customer.get(params.id)
+		if(customer) {
+			customer.inCall = null
+			flash.message = "Customer unlocked"
+			redirect action:"${params.type}_list"
+		} else {
+			redirect action:'index'
+		}
+
+
+	}
 	
 }

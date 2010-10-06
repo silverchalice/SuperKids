@@ -11,6 +11,11 @@ class Product implements IShoppable {
 	String servings
 	com.metasieve.shoppingcart.ShoppingItem shoppingItem
 
+     String summaryName
+     String summaryType
+
+
+
 	Boolean isLive = true
 	Boolean bake = false
 
@@ -28,6 +33,8 @@ class Product implements IShoppable {
 		nutrition()
 		image()
 		summary()
+                summaryName(nullable:true)
+                summaryType(nullable:true)
                 servings(nullable:true)
 		sponsor(nullable:true)
         }
@@ -36,6 +43,7 @@ class Product implements IShoppable {
             image sqlType:"longblob"
             summary sqlType:"longblob"
             description sqlType:"text"
+            nutrition sqlType:"text"
         }
   
         String toString(){ name }

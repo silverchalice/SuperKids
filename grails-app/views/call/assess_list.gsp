@@ -11,13 +11,13 @@
         <div class="nav">
 			<g:render template="caller_nav"/>
         </div>
-        <div class="body">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+        <div class="body" style="max-width:100%">
+            <h1>Customers Ready for Assess Call</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table>
+                <table style="max-width:100%">
                     <thead>
                         <tr>
 
@@ -56,11 +56,11 @@
 
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
 
- 							<td style="width:50px"><g:if test="${customerInstance.inCall == null}">
+ 							<td style="width:85px"><g:if test="${customerInstance.inCall == null}">
 								    <strong style="color:green">False</strong>
 								</g:if>
 								<g:else>
-									<strong style="color:red">True</strong>
+									<strong style="color:red">True</strong> <g:link action="unlock_customer" id="${customerInstance.id}" params="[type:'assess']">(Unlock)</g:link>
 								</g:else>
 							</td>
 
@@ -70,7 +70,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${customerInstanceTotal}" max="20" />
+                <g:paginate total="${customerInstanceTotal}" max="35" />
             </div>
         </div>
     </body>
