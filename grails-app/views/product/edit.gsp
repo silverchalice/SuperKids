@@ -98,8 +98,8 @@
 
                     <p>
                         <label for="summaryFile">Print PDF:</label>
-                        <input type="file" name="summaryFile" id="summaryFile"/>&nbsp;
-                        <a href="${resource(dir:'pdf', file:productInstance.summary)}">${productInstance.summary}</a>
+                        <input type="file" name="summary" id="summary"/>&nbsp;
+                        <g:link action="downloadSummary" id="${productInstance.id}">${productInstance.summaryName}</g:link>
                     </p><br />
 
                     <p>
