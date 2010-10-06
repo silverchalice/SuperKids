@@ -8,7 +8,8 @@
 <body>
     <div class="nav">
     	<g:render template="caller_nav"/>
-		<strong style="margin-left:220px;">Welcome Back ${caller?.username}</strong>
+		<strong style="margin-left:200px;">Welcome Back ${caller?.username}</strong>
+		<span class="callerButton"><g:link controller="logout">Logout</g:link></span>
 	</div>
 
 	<div class="body">

@@ -8,13 +8,16 @@ class Product implements IShoppable {
 	String description
 	String details
 	String nutrition
-        String servings
-        String summaryName
-        String summaryType
-        com.metasieve.shoppingcart.ShoppingItem shoppingItem
+	String servings
+	com.metasieve.shoppingcart.ShoppingItem shoppingItem
 
-        boolean isLive = true
-        boolean bake = false
+     String summaryName
+     String summaryType
+
+
+
+	Boolean isLive = true
+	Boolean bake = false
 
 	byte[] image
 	byte[] summary

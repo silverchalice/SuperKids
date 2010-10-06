@@ -22,11 +22,9 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'caller.id.label', default: 'Id')}" />
-                        
                             <g:sortableColumn property="username" title="${message(code: 'caller.username.label', default: 'Username')}" />
                         
-                            <g:sortableColumn property="password" title="${message(code: 'caller.password.label', default: 'Password')}" />
+                            <g:sortableColumn property="password" title="${message(code: 'caller.calls', default: 'Total Calls')}" />
                         
                             <g:sortableColumn property="accountExpired" title="${message(code: 'caller.accountExpired.label', default: 'Account Expired')}" />
                         
@@ -40,11 +38,9 @@
                     <g:each in="${callerInstanceList}" status="i" var="callerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${callerInstance.id}">${fieldValue(bean: callerInstance, field: "id")}</g:link></td>
+                            <td><g:link action="edit" id="${callerInstance.id}">${fieldValue(bean: callerInstance, field: "username")}</g:link></td>
                         
-                            <td>${fieldValue(bean: callerInstance, field: "username")}</td>
-                        
-                            <td>${fieldValue(bean: callerInstance, field: "password")}</td>
+                            <td>${callerInstance.calls.size()}</td>
                         
                             <td><g:formatBoolean boolean="${callerInstance.accountExpired}" /></td>
                         

@@ -5,6 +5,8 @@ class Call {
 	CallResult result
 
 	Date callbackDate
+	String callbackTime
+	Date dateCreated = new Date()
 
 	String notes
 	
@@ -19,6 +21,7 @@ class Call {
 		customer()
 		caller()
 		callbackDate(nullable:true)
+		callbackTime(nullable:true)
     }
 
 }

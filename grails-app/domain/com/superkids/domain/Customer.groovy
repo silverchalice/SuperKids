@@ -54,6 +54,7 @@ class Customer extends User {
 	boolean topCustomer = false
     String otherComments
 
+	CallResult lastCallResult = null
 
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment

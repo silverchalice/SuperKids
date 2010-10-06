@@ -1,7 +1,11 @@
 package com.superkids.domain
 
 import com.superkids.domain.CustomerStatus
+import java.text.DateFormat
 import java.text.SimpleDateFormat
+import java.text.ParseException
+import java.util.Date
+
 
 class CallController {
 
@@ -15,7 +19,7 @@ class CallController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.max = Math.min(params.max ? params.int('max') : 23, 100)
         [callInstanceList: Call.list(params), callInstanceTotal: Call.count()]
     }
 
@@ -26,8 +30,10 @@ class CallController {
     }
 
     def save_order_call = {
-		println "In Save_"
-		println params
+		println "In Save_Order_Call"
+		params.each { key, val ->
+			println "$key = $val"
+		}
 
         def customer = Customer.get(params.id)
 
@@ -49,13 +55,22 @@ class CallController {
 				call.caller = caller
 				call.customer = customer
 
-				caller.addToCalls(call)
-				customer.addToCalls(call)
+				if(params.result != 'null') {
+						call.result = CallResult.valueOf(params.result)
+				}
 
-				customer.save(flush:true)
-				caller.save(flush:true)
-
-
+				if(call.result == CallResult.CALLBACK) {
+					if(params.callbackDate) {
+						println "We have a Callback..."
+						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+						call.callbackDate = df.parse(params.callbackDate);
+						call.callbackTime = params.callbackTime
+						println "Callback Date = " + df.format(call.callbackDate)
+						println "Callback Time = ${call.callbackTime}"
+					} else {
+						println "no date..."
+					}
+				}
 
 				if(call.result == CallResult.QUALIFIED) {
 					println "Call Result was QUALIFIED - saving order..."
@@ -75,7 +90,7 @@ class CallController {
 						}
 					}
 
-					if(order.save()) {
+					if(order.save(flush:true)) {
 						println "saved order " + order.customer.district
 						customer.status = CustomerStatus.HAS_ORDERED
 						customer.order = order
@@ -86,17 +101,18 @@ class CallController {
 						flash.message = "Invalid Order - please check input"
 						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true']
 					}
-				} else {
-					println "Call Result was " + call.result
-
-					if(params.result != 'null') {
-						call.result = CallResult.valueOf(params.result)
-					}
 				}
 
 				call.save(flush:true)
+
+				customer.addToCalls(call)
+				caller.addToCalls(call)
+				caller.save(flush:true)
+
 				customer.inCall = null
+				customer.lastCallResult = CallResult.valueOf(call.result)
 				customer.save(flush:true)
+				
 				redirect action: 'next_order_call', id: customer.id
 			}
 		} else {
@@ -189,7 +205,7 @@ class CallController {
     }
 
 	def start_order_call = {
-		render view:'order_call_form', model: [products: Product.list()]
+		render view:'order_call_form', model: [ products: Product.list() ]
 	}
 
 
@@ -395,14 +411,23 @@ class CallController {
 				println 'Updated the Customer'
 				def call = new Call(params)
 
+				if(call.result == CallResult.CALLBACK) {
+					if(params.callbackDate) {
+						println "We have a Callback..."
+						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+						call.callbackDate = df.parse(params.callbackDate);
+						call.callbackTime = params.callbackTime
+						println "Callback Date = " + df.format(call.callbackDate)
+						println "Callback Time = ${call.callbackTime}"
+					} else {
+						println "no date..."
+					}
+				}
 
-				if(params.result == CallResult.QUALIFIED) {
+				if(call.result == CallResult.QUALIFIED) {
 					println "The CallResult was QUALIFIED - saving assessments"
 
 					Products.list().each { product ->
-
-						println product.name
-
 						assessment."${product.name}".each { key, val ->
 							println "$key = $val"
 						}
@@ -418,19 +443,15 @@ class CallController {
 							).save()
 						}
 					}
-
-
-
-
 				}
 
 				if(params.result != 'null') {
 					call.result = CallResult.valueOf(params.result)
-					call.save()
 				}
 
 				customer.inCall = null
-
+				customer.lastCallResult = CallResult.valueOf(call.result)
+				
 				call.customer = customer
 				call.caller = caller
 				call.save()
@@ -441,7 +462,7 @@ class CallController {
 				caller.save(flush:true)
 				customer.save()
 				redirect action:'next_assess_call', id: customer.id
-
+				                                        
 			}
 		}
 
@@ -453,9 +474,8 @@ class CallController {
 
 	}
 
-
     def assess_list = {
-		def max = params.max ?: 20
+		def max = params.max ?: 35
 		def offset = params.offset ?: 0
 		def customers = Customer.findAllByStatus(CustomerStatus.HAS_ORDERED, [max:max, offset:offset])
 
@@ -463,23 +483,47 @@ class CallController {
    }
 
     def order_list = {
-		def max = params.max ?: 20
+		def max = params.max ?: 35
 		def offset = params.offset ?: 0
 		def customers = Customer.findAllByStatus(CustomerStatus.HAS_NOT_ORDERED, [max:max, offset:offset])
 
+        [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
 
     }
 
     def call_back_list = {
         def customers = []
-        Customer.list().each {
-            if(it.status == CustomerStatus.CALL_AGAIN){
-                customers << it
-            }
-        }
+		def max = params.max ?: 35
+		def offset = params.offset ?: 0
+
+		println "About to create criteria"
+		def c = Customer.createCriteria()
+
+		//order calls are all customers with out a current order AND who are not being called atm
+		def customer = c.list() {
+			eq 'status', CustomerStatus.HAS_ORDERED
+			isNull 'inCall'
+			gt 'id', currentCustomer?.id
+		}.getAt(0)
+
+
         [customerInstanceList:customers, customerInstanceTotal: customers.size()]
 
     }
+
+
+	def unlock_customer = {
+		def customer = Customer.get(params.id)
+		if(customer) {
+			customer.inCall = null
+			flash.message = "Customer unlocked"
+			redirect action:"${params.type}_list"
+		} else {
+			redirect action:'index'
+		}
+
+
+	}
 	
 }
