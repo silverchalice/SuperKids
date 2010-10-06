@@ -12,6 +12,10 @@ class UrlMappings {
                     controller = "login"
                     action = "admin_login"
                 }
+		"/caller" {
+                    controller = "login"
+                    action = "caller_login"
+                }
                 "/login/" {
                     controller = "login"
                     action = "auth"
