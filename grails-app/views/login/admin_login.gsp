@@ -6,7 +6,7 @@
     <title>Login | SuperKids</title>
     <link rel="stylesheet" type="text/css" href="${resource(dir:'css',file:'public.css')}" media="screen" />
      <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
-	<meta name="layout" content="public" />
+	<meta name="layout" content="nonexistent" />
 
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <style type='text/css' media='screen'>
@@ -56,12 +56,16 @@
         padding: 5px 0 5px 10;
         width:612px;
 }
+
+body { background-color:white; }
 </style>
 
 </head>
   <body>
+    <div style="width:350px; height:270px; margin:50px 220px; padding:0px 30px; border:1px solid gray;">
             <br/>
-	        <span style="padding:15px 0 5px 0;"><strong>Enter the user name and password that you have received by email to begin the order/assessment process.</strong> </span>
+            <p>&nbsp;</p>
+	        <span style="padding:15px 0 5px 0;"><strong>Enter your admin user name and password.</strong><p>&nbsp;</p> </span>
 				<g:if test='${flash.message}'>
 				<div class='login_message'>${flash.message}</div>
 				</g:if>
@@ -77,11 +81,11 @@
 						</div>
 						<div class="clear" style="clear:both"><br /></div>
 	                    <input type="image" class="fancyButton" name="submit" value="Login"src="${request.contextPath}/images/EnterButton-Blue.png"/>
-	                    <input type="image" class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.jpg"/>
+	                    <input type="image" class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.png"/>
 
 				</form>
 			</div>
-
+         </div>
 			<script type='text/javascript'>
 			<!--
 			(function(){
