@@ -9,13 +9,15 @@ class Product implements IShoppable {
 	String details
 	String nutrition
         String servings
-        String summary
+        String summaryName
+        String summaryType
         com.metasieve.shoppingcart.ShoppingItem shoppingItem
 
         boolean isLive = true
         boolean bake = false
 
 	byte[] image
+	byte[] summary
 
 	static belongsTo = [ sponsor : Sponsor ]
 
@@ -28,6 +30,8 @@ class Product implements IShoppable {
 		nutrition()
 		image()
 		summary()
+                summaryName(nullable:true)
+                summaryType(nullable:true)
                 servings(nullable:true)
 		sponsor(nullable:true)
         }
