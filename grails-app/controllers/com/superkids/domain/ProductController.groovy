@@ -78,7 +78,8 @@ class ProductController {
     }
 
     def update = {
-        def summaryFile = params.summaryFile
+        def summaryName = params.summary.originalFilename
+        def summaryType = params.summary.contentType
         def productInstance = Product.get(params.id)
         if (productInstance) {
             if (params.version) {
@@ -90,14 +91,9 @@ class ProductController {
                     return
                 }
             }
-            if(summaryFile){
-                def oldSummary = new File("/pdf/${productInstance.summary}")
-                if(oldSummary) oldSummary.delete()
-                productInstance.summary = summaryFile.originalFilename
-                def location = new File("/pdf/${productInstance.summary}")
-                summaryFile.transferTo(location)
-            }
             productInstance.properties = params
+            productInstance.summaryName = summaryName
+            productInstance.summaryType = summaryType
             if (!productInstance.hasErrors() && productInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'product.label', default: 'Product'), productInstance.id])}"
                 redirect(action: "show", id: productInstance.id)
@@ -142,8 +138,8 @@ class ProductController {
 
 	def downloadSummary = {
 		def productInstance = Product.get(params.id)
-		response.contentType = "application/pdf"
-		response.setHeader("Content-disposition", "${params.contentDisposition}; filename=${productInstance.name.replaceAll(' ', '-')}-Summary.pdf")
+		response.contentType = "${productInstance.summaryType}"
+		response.setHeader("Content-disposition", "${params.contentDisposition}; filename=${productInstance.summaryName}")
 		response.contentLength = productInstance.summary.size()
 		response.outputStream.write(productInstance.summary)
 	}
