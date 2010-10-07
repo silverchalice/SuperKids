@@ -17,7 +17,7 @@
             <br />
             <p><strong>Product:</strong> ${assessmentInstance.product}</p>
             <p><strong>Like Rating:</strong> ${assessmentInstance.likeRating}</p>
-            <p><strong>Interest Rating:</strong> ${assessmentInstance.interestRating}</p>
+            <p><strong>Interest Rating:</strong> ${assessmentInstance.iRating}</p>
             <p><strong>Like Comment:</strong> ${assessmentInstance.likeComment}</p>
             <p><strong>Change Comment:</strong> ${assessmentInstance.changeComment}</p>
         </div>
