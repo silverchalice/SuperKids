@@ -49,12 +49,12 @@
 #login .inner .chk {height:12px;}
 
 .login_message {
-        background: #fff3f3;
-        border: 1px solid red;
-        color: #cc0000;
-        margin: 10px 0 5px 0;
-        padding: 5px 0 5px 10;
-        width:612px;
+    background:none repeat scroll 0 0 #FFF3F3;
+    border:1px solid red;
+    color:#CC0000;
+    margin:10px 0 20px;
+    padding:5px 8px;
+    width:395px;
 }
 </style>
 
