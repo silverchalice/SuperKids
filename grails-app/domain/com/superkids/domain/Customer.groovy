@@ -12,10 +12,10 @@ class Customer extends User {
 
 	String website
 
-    CustomerOrder order
+        CustomerOrder order
 
 	Date dateCreated = new Date()
-    Date lastUpdated
+        Date lastUpdated
 
 	CustomerStatus status = CustomerStatus.HAS_NOT_ORDERED
 	
@@ -35,7 +35,7 @@ class Customer extends User {
 	String cdTitle
 
 	boolean receivedCurrentMailing = true
-    boolean isNew
+        boolean isNew
 	Date inCall = null
 
 //	Misc. Stats
@@ -52,7 +52,7 @@ class Customer extends User {
 	boolean purchaseFrozenFood
 
 	boolean topCustomer = false
-    String otherComments
+        String otherComments
 
 	CallResult lastCallResult = null
 
@@ -84,8 +84,8 @@ class Customer extends User {
 		cdEmail nullable: true
 		cdTitle nullable: true
 
-        order nullable:true
-        otherComments nullable:true
+                order nullable:true
+                otherComments nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true
@@ -93,6 +93,7 @@ class Customer extends User {
 		lunchesServed nullable: true
 		snacksServed nullable: true
 
+                lastCallResult nullable:true
     }
 	
 	static namedQueries = {
