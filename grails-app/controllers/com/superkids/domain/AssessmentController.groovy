@@ -200,6 +200,7 @@ class AssessmentController {
     }
 
     def complete = {
+         println "params.iRating is " + params.iRating
          def products = []
          def assessmentInstance = Assessment.get(params.id)
          if(springSecurityService.isLoggedIn()){
@@ -214,8 +215,9 @@ class AssessmentController {
                  }
              }
          }
-        assessmentInstance.interestRating = params.interestRating
+        assessmentInstance.iRating = params.iRating.toInteger()
         assessmentInstance.save()
+        println "and now the assessmentInstance's iRating is " + assessmentInstance.iRating
         if(products.size() > 0){
             return [assessmentInstance: assessmentInstance, products:products]
         } else {
@@ -225,11 +227,14 @@ class AssessmentController {
     }
 
     def assess_process = {
+       println "foo..."
        def products = []
        if(springSecurityService.isLoggedIn()){
            def user = User.get(springSecurityService.principal.id)
            def userRole = Role.findByAuthority("ROLE_USER")
+           println "...bar..."
            if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+               println "...bas"
                def customer = Customer.get(springSecurityService.principal.id)
                customer.order.products.each{
                    if(!Assessment.findByCustomerAndProduct(customer, it)){
