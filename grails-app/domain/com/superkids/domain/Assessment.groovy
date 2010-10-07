@@ -3,7 +3,7 @@ package com.superkids.domain
 class Assessment {
 
     Integer likeRating
-    Integer interestRating
+    Integer iRating
     String likeComment
     String changeComment
     Product product
@@ -13,7 +13,7 @@ class Assessment {
 
     static constraints = {
         likeRating nullable:true
-        interestRating nullable:true
+        iRating nullable:true
         likeComment nullable:true
         changeComment nullable:true
         product nullable:false
