@@ -54,10 +54,13 @@ class Customer extends User {
 	boolean topCustomer = false
     String otherComments
 
-	CallResult lastCallResult = null
+	Call lastCall
 
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
+
+	List calls
+	List assessments
 
 	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker ]
 
@@ -86,6 +89,7 @@ class Customer extends User {
 
         order nullable:true
         otherComments nullable:true
+		lastCallResult nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true
