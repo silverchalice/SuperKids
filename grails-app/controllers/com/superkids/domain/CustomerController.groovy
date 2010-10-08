@@ -126,7 +126,7 @@ class CustomerController {
             if(customers){
                 return [customerInstanceList:customers]
             } else {
-                flash.message = "No results found for \"${params.district}.\""
+                flash.message = "No results found for \"${params.query}.\""
                 return
             }
         } else {

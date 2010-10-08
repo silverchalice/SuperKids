@@ -1,6 +1,7 @@
 package com.superkids.taglib
 
 import com.superkids.domain.Customer
+import com.superkids.domain.CustomerStatus
 import com.superkids.domain.Product
 import com.metasieve.shoppingcart.Quantity
 import com.superkids.domain.Factoid
@@ -343,6 +344,21 @@ Modified: get menuButton text from new 'msg' attr
             out << "checked='checked'"
         }
         out << "' disabled='disabled' />"
+    }
+
+    def linkToCall = { attrs ->
+        def customerInstance = Customer.get(attrs.id)
+        println "exactly what is the customerInstance's inCall? let's see... ...ok. it is: " + customerInstance.inCall
+        println "and what is the customerInstance's status? ... " + customerInstance.status
+        if(!customerInstance.inCall){
+            if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED){
+                out << g.link(controller:"call", action:"get_order_call", params:[id:customerInstance.id]){ customerInstance.district }
+            } else {
+                out << g.link(controller:"call", action: "get_assess_call", params:[id:customerInstance.id]){ customerInstance.district }
+            }
+        } else {
+            out << customerInstance.district
+        }
     }
 
 }

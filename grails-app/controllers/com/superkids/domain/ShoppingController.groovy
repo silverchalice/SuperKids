@@ -2,6 +2,7 @@ package com.superkids.domain
 
 import com.superkids.domain.ShippingDate
 import com.superkids.domain.Product
+import com.superkids.domain.CustomerStatus
 
 class ShoppingController {
 
@@ -51,6 +52,7 @@ class ShoppingController {
         def shippingDate = ShippingDate.get(params.shippingDate)
         def customer = Customer.get(springSecurityService.principal.id)
         customer?.hasPlacedCurrentOrder = true
+        customer.status = CustomerStatus.HAS_ORDERED
         def order = new CustomerOrder(customer:customer, shippingDate:shippingDate, orderType:OrderType.WEB)
         shoppingCartService.getItems().each{
             def product = Product.get(it.id)
