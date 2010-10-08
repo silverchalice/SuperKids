@@ -51,7 +51,7 @@ class BootStrap {
 		UserRole.create otherTestAdmin, adminRole, true
 		def customer = new Customer(
 			district:'Silver Chalice Schools',
-			address:new Address(street:'61 Harneywold Drive', city:'St Louis', state:'Missouri', zip:63136),
+			deliveryAddress:new Address(street:'61 Harneywold Drive', city:'St Louis', state:'Missouri', zip:63136),
 			phone:'(608) 617-3960',
 			email:'info@silver-chalice.com',
 			username:'info@silver-chalice.com',
@@ -77,7 +77,7 @@ class BootStrap {
 
 		def customer2 = new Customer(
 			district:'Green Plate Schools',
-			address:new Address(street:'62 Harneywold Drive', city:'St Louis', state:'Missouri', zip:63146),
+			deliveryAddress:new Address(street:'62 Harneywold Drive', city:'St Louis', state:'Missouri', zip:63146),
 			phone:'(608) 617-3960',
 			email:'info@green-plate.com',
 			username:'info@green-plate.com',

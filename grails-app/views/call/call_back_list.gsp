@@ -43,7 +43,7 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-							<g:if test="${caller?.username == customerInstance.calls[-1].caller}"><span class="currentCaller"></g:if>
+							<g:if test="${caller?.username == customerInstance.calls[-1].caller.username}"><span class="currentCaller"></g:if>
 
                             <td><g:if test="${customerInstance.inCall == null}">
 									<g:if test="${customerInstance.status == CustomerStatus.HAS_ORDERED}">
