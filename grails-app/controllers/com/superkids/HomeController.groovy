@@ -465,13 +465,13 @@ class HomeController {
            println "here is the password we got: " + params.password
            def customerInstance = Customer.get(springSecurityService.principal.id)
            if(params.password == "superkids"){
-               flash.message = "Please enter a new password. Your password cannot be \"superkids\"."
+               flash.message = "Please enter a new password. Your new password cannot be \"superkids\"."
                 log.info flash.message
                redirect action:"c_change_password"
            } else {
                if(params.password == params.confirmpassword){
                    customerInstance.password = springSecurityService.encodePassword(params.password)
-                   customerInstance.save()
+                   customerInstance.save(failOnError:true)
                    flash.message = "Your password has been updated."
                 log.info flash.message
                    println "!!! redirecting"

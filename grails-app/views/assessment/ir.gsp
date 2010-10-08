@@ -24,12 +24,12 @@
                 <g:hiddenField name="version" value="${assessmentInstance?.version}" />
                 <div class="dialog"><br />
                   <p>
-                    <label for="interestRating">Please rate your interest in purchasing this product (where 1 is "low interest" and 5 is "high interest"). </label><br /><br />
-                    <label><input type="radio" name="interestRating" value="1" >1</label>
-                    <label><input type="radio" name="interestRating" value="2" >2</label>
-                    <label><input type="radio" name="interestRating" value="3" >3</label>
-                    <label><input type="radio" name="interestRating" value="4" >4</label>
-                    <label><input type="radio" name="interestRating" value="5" >5</label>
+                    <label for="iRating">Please rate your interest in purchasing this product (where 1 is "low interest" and 5 is "high interest"). </label><br /><br />
+                    <label><input type="radio" name="iRating" value="1" >1</label>
+                    <label><input type="radio" name="iRating" value="2" >2</label>
+                    <label><input type="radio" name="iRating" value="3" >3</label>
+                    <label><input type="radio" name="iRating" value="4" >4</label>
+                    <label><input type="radio" name="iRating" value="5" >5</label>
                   </p><br />
                 </div>
                 <div class="buttons">

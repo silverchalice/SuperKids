@@ -49,12 +49,12 @@
 #login .inner .chk {height:12px;}
 
 .login_message {
-        background: #fff3f3;
-        border: 1px solid red;
-        color: #cc0000;
-        margin: 10px 0 5px 0;
-        padding: 5px 0 5px 10;
-        width:612px;
+    background:none repeat scroll 0 0 #FFF3F3;
+    border:1px solid red;
+    color:#CC0000;
+    margin:10px 0 20px;
+    padding:5px 8px;
+    width:395px;
 }
 
 body { background-color:white; }
@@ -62,7 +62,7 @@ body { background-color:white; }
 
 </head>
   <body>
-    <div style="width:350px; height:270px; margin:50px 220px; padding:0px 30px; border:1px solid gray;">
+    <div style="width:500px; height:300px; margin:50px 220px; padding:0px 30px; border:1px solid gray;">
             <br/>
             <p>&nbsp;</p>
 	        <span style="padding:15px 0 5px 0;"><strong>Enter your caller user name and password.</strong><p>&nbsp;</p> </span>
