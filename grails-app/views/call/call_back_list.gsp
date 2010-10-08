@@ -1,5 +1,5 @@
 
-<%@ page import="com.superkids.domain.Customer" %>
+<%@ page import="com.superkids.domain.CustomerStatus; com.superkids.domain.Customer" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,23 +17,25 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table>
+                <table>     
                     <thead>
                         <tr>
 
-                            <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
+                            <th><g:message code='customer.district.label' default='District' />
 
-                            <th><g:message code="customer.address.label" default="Address" /></th>
+                            <th><g:message code="customer.fsd.name" default="Name" /></th>
 
-                            <th><g:message code="customer.email.label" default="Email" /></th>
+                            <th><g:message code="customer.address" default="Address" /></th>
 
-                            <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
+                            <th><g:message code="customer.phone.label" default="Phone" />
 
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.fax.label', default: 'Fax')}" />
+                            <th><g:message code="customer.dateCalled.label" default="Date Called" />
 
-                            <g:sortableColumn property="studentsInDistrict" title="${message(code: 'customer.studentsInDistrict.label', default: 'Students')}" />
+							<th><g:message code="customer.callback.date.label"  default="Call Back Date & Time" /></th>
 
-                            <g:sortableColumn property="fax" title="${message(code: 'customer.dateCreated.label', default: 'Date Created')}" />
+							<th><g:message code="customer.callback.caller.label"  default="Caller" /></th>
+
+							
 
                         </tr>
                     </thead>
@@ -41,20 +43,33 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
+							<g:if test="${caller?.username == customerInstance.calls[-1].caller}"><span class="currentCaller"></g:if>
+
+                            <td><g:if test="${customerInstance.inCall == null}">
+									<g:if test="${customerInstance.status == CustomerStatus.HAS_ORDERED}">
+										<g:link action="get_assess_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link>
+							    	</g:if>
+									<g:else>
+										<g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link>
+									</g:else>
+								</g:if>
+								<g:else>
+									${fieldValue(bean: customerInstance, field: "district")}
+								</g:else></td>
+
+                            <td>${customerInstance.fsdName}</td>
 
                             <td>${fieldValue(bean: customerInstance, field: "address")}</td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "email")}</td>
-
                             <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
+							
+                            <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.calls[-1].dateCreated}" /></td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "fax")}</td>
+							<td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.calls[-1].callbackDate}" /> - ${customerInstance.calls[-1].callbackTime}</td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "studentsInDistrict")}</td>
+						    <td>${customerInstance.calls[-1].caller}</td>
 
-                            <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
-
+							<g:if test="${caller?.username == customerInstance.calls[-1].caller}"></span></g:if>
                         </tr>
                     </g:each>
                     </tbody>

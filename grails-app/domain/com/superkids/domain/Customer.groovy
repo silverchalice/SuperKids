@@ -89,14 +89,13 @@ class Customer extends User {
 
         order nullable:true
         otherComments nullable:true
-		lastCallResult nullable:true
+		lastCall nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true
 		breakfastsServed nullable: true 
 		lunchesServed nullable: true
 		snacksServed nullable: true
-
     }
 	
 	static namedQueries = {
