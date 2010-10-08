@@ -410,7 +410,7 @@ class CallController {
 		def customer = Customer.get(params.id)
 		def caller = Caller.get(springSecurityService.principal.id)
 
-		if(params.result) {
+		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
 			println "CallResult of Null"
 			customer.inCall = null
 			redirect action: 'next_assess_call', id: customer.id
@@ -463,18 +463,22 @@ class CallController {
 					call.result = CallResult.valueOf(params.result)
 				}
 
-				customer.inCall = null
-				customer.lastCall = call
-				
-				call.customer = customer
-				call.caller = caller
+				println "3"
+				customer.addToCalls(call)
+				customer.save(flush:true)
+				println "4"
 				call.save()
+				println 'Saved the Call...'
 
 				caller.addToCalls(call)
-				customer.addToCalls(call)
-
 				caller.save(flush:true)
-				customer.save()
+				println 'Saved the Caller...'
+
+				customer.inCall = null
+				customer.lastCall = call
+				customer.save(flush:true)
+				println 'Saved the Customer...'
+				
 				redirect action:'next_assess_call', id: customer.id
 				                                        
 			}
@@ -511,8 +515,7 @@ class CallController {
 		def offset = params.offset ?: 0
 
 		println "About to create criteria"
-		//def customers = Customer.findAllByLastCallResult(CallResult.CALLBACK, [ max: max, offset:offset ] )
-
+		
 		def customers = Customer.createCriteria().list{
 			lastCall{
 				eq('result', CallResult.CALLBACK)
@@ -521,11 +524,11 @@ class CallController {
 	    println 'break'
 		customers.sort{a, b ->
 			if (a.lastCall.callbackDate == b.lastCall.callbackDate)
-				return a.lastCall.caller <=> b.lastCall.caller
+				return a.lastCall.caller.username <=> b.lastCall.caller.username
 			else
 				return a.lastCall.callbackDate <=> b.lastCall.callbackDate
 		}
-		
+
         [customerInstanceList:customers, customerInstanceTotal: customers.size(), caller: springSecurityService.principal]
 
     }

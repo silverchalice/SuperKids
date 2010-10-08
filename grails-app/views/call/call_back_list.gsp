@@ -43,8 +43,6 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-							<g:if test="${caller?.username == customerInstance.calls[-1].caller.username}"><span class="currentCaller"></g:if>
-
                             <td><g:if test="${customerInstance.inCall == null}">
 									<g:if test="${customerInstance.status == CustomerStatus.HAS_ORDERED}">
 										<g:link action="get_assess_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link>
@@ -67,9 +65,11 @@
 
 							<td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.calls[-1].callbackDate}" /> - ${customerInstance.calls[-1].callbackTime}</td>
 
-						    <td>${customerInstance.calls[-1].caller}</td>
+						    <td>
+								<g:if test="${caller?.username == customerInstance.calls[-1].caller.username}"><strong style="color:green">${customerInstance.calls[-1].caller}</strong></g:if>
+								<g:else>${customerInstance.calls[-1].caller}</g:else>
+							</td>
 
-							<g:if test="${caller?.username == customerInstance.calls[-1].caller}"></span></g:if>
                         </tr>
                     </g:each>
                     </tbody>

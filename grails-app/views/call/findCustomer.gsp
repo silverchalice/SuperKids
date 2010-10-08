@@ -27,9 +27,14 @@
 
                             <th><g:message code="customer.address.label" default="Address" /></th>
 
+							<th><g:message code="customer.fsdName.label" default="FSD Name" /></th>
+
+							<th><g:message code="customer.ndName.label" default="ND Name" /></th>
+
+							<th><g:message code="customer.cdName.label" default="CD Name" /></th>
+
                             <th><g:message code="customer.email.label" default="Email" /></th>
 
-                            <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
 
 			    <th>In Call</th>
 
@@ -50,9 +55,14 @@
 								</g:else>
 							</td>
 
+							<td><g:if test="${customerInstance.fsdName}">${customerInstance.fsdName}</g:if> </td>
+
+							<td><g:if test="${customerInstance.ndName}">${customerInstance.ndName}</g:if> </td>
+
+							<td><g:if test="${customerInstance.cdName}">${customerInstance.cdName}</g:if> </td>
+
                             <td>${fieldValue(bean: customerInstance, field: "email")}</td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
 
 							<td style="width:85px"><g:if test="${customerInstance.inCall == null}">
 								    <strong style="color:green">False</strong>
