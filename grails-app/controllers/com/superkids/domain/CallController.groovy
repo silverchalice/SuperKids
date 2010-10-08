@@ -525,5 +525,24 @@ class CallController {
 
 
 	}
+
+        def findCustomer = {
+            if(params.query){
+                def customers = Customer.search(params.query).results
+                if(customers){
+                    return [customerInstanceList:customers]
+                } else {
+                    flash.message = "No results found for \"${params.query}.\""
+                    return
+                }
+            } else {
+                flash.message = "Please enter a name or email to search for."
+                if(session.currentAction){
+                    redirect action: currentAction
+                } else {
+                    redirect action: "index"
+                }
+            }
+        }
 	
 }
