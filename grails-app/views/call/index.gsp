@@ -17,13 +17,13 @@
             <div class="message">${flash.message}</div>
             </g:if>
 		<g:link class="order" action="start_order_call">
-			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:35px; font-size:16pt;">
+			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:20px; font-size:16pt;">
 				<g:message code="default.caller.start.label" default="Start Order Call"/>
 			</h1>
 		</g:link>
 
 		<g:link class="assess" action="start_assess_call">
-			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:35px; font-size:16pt;">
+			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:20px; font-size:16pt;">
 					<g:message code="default.caller.start.label" default="Start Assess Call"/>
 			</h1>
 		</g:link>

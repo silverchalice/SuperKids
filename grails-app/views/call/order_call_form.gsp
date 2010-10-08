@@ -47,6 +47,9 @@
 		<div class="nav" style="padding: 1px 12px; height:27px; line-height:27px;">
 			<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
 			<g:if test="${queue}"><g:render template="caller_controls" model="[customerInstance: customerInstance]"/> </g:if>
+			<g:elseif test="${single}">
+				<span class="callerButton"><g:actionSubmit style="background-color:green; color:white; margin-left:970px" action="finish_call" value="Finish Calling" /></span>
+			</g:elseif>
 			<g:else>
 				<span  style="margin-left:950px;" class="callerButton"><g:link controller="call" action="next_order_call">Start Calling</g:link></span>
 			</g:else>

@@ -37,29 +37,33 @@ class CallController {
 
         def customer = Customer.get(params.id)
 
+		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
+			println "CallResult of Null"
+			customer.inCall = null
+			redirect action: 'next_order_call', id: customer.id
+			return
+		}
+
+
 		if(customer) {
 			println 'Got the customer...' + customer.district
 			customer.properties = params
 
 			if(customer.save(flush:true)){
-				
-				if(params.result == null) {
-					customer.inCall = null
-					redirect action: 'next_order_call', id: customer.id
-					return
-				}
+				println 'Saved the Customer...'
 
 				def call = new Call(params)
 				def caller = Caller.get(springSecurityService.principal.id)
-
+				println "1"
+				
 				call.caller = caller
 				call.customer = customer
+				call.result = CallResult.valueOf(params.result)
 
-				if(params.result != 'null') {
-						call.result = CallResult.valueOf(params.result)
-				}
+				println call.result
 
 				if(call.result == CallResult.CALLBACK) {
+					println "CallResult of Callback"
 					if(params.callbackDate) {
 						println "We have a Callback..."
 						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
@@ -71,7 +75,7 @@ class CallController {
 						println "no date..."
 					}
 				}
-
+				println "2"
 				if(call.result == CallResult.QUALIFIED) {
 					println "Call Result was QUALIFIED - saving order..."
 					def order = new CustomerOrder(params['order'])
@@ -102,23 +106,33 @@ class CallController {
 						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true']
 					}
 				}
-
-				call.save(flush:true)
-
+				println "3"
 				customer.addToCalls(call)
+				customer.save(flush:true)
+				println "4"
+				call.save()
+				println 'Saved the Call...'
+
 				caller.addToCalls(call)
 				caller.save(flush:true)
+				println 'Saved the Caller...'
 
 				customer.inCall = null
-				customer.lastCallResult = CallResult.valueOf(call.result)
+				customer.lastCall = call
 				customer.save(flush:true)
+				println 'Saved the Customer...'
 				
 				redirect action: 'next_order_call', id: customer.id
+			}  else {
+				println "Could not save the Customer..."
+				customer.errors.allErrors.each { println it }
+				flash.message = 'invalid customer data'
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true']
 			}
 		} else {
 			println "we didn't get anything?"
 			flash.message = "Customer not found"
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true']
+			redirect action:'next_order_call', id: params.id 
 		}
 
     }
@@ -283,14 +297,13 @@ class CallController {
 		println "in Get_Order_Call for CallController"
 		println params
 
-		//make sure the last customer is no longer 'in call'
 		def customer = Customer.get(params?.id)
 		if(customer) {
 			def order = new CustomerOrder()
 			def call = new Call()
 
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order]
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, single: true]
 		}
 		else {
 			redirect action:list
@@ -381,7 +394,7 @@ class CallController {
 			def call = new Call()
 
 			customer.inCall = new Date()
-			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order]
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, single: true]
 		}
 		else {
 			redirect action:list
@@ -397,7 +410,8 @@ class CallController {
 		def customer = Customer.get(params.id)
 		def caller = Caller.get(springSecurityService.principal.id)
 
-		if(params.result == null) {
+		if(params.result) {
+			println "CallResult of Null"
 			customer.inCall = null
 			redirect action: 'next_assess_call', id: customer.id
 			return
@@ -445,12 +459,12 @@ class CallController {
 					}
 				}
 
-				if(params.result != 'null') {
+				if(params.result != ('null' || null )) {
 					call.result = CallResult.valueOf(params.result)
 				}
 
 				customer.inCall = null
-				customer.lastCallResult = CallResult.valueOf(call.result)
+				customer.lastCall = call
 				
 				call.customer = customer
 				call.caller = caller
@@ -489,26 +503,30 @@ class CallController {
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
-
+		                              
     }
 
     def call_back_list = {
-        def customers = []
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
 
 		println "About to create criteria"
-		def c = Customer.createCriteria()
+		//def customers = Customer.findAllByLastCallResult(CallResult.CALLBACK, [ max: max, offset:offset ] )
 
-		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list() {
-			eq 'status', CustomerStatus.HAS_ORDERED
-			isNull 'inCall'
-			gt 'id', currentCustomer?.id
-		}.getAt(0)
-
-
-        [customerInstanceList:customers, customerInstanceTotal: customers.size()]
+		def customers = Customer.createCriteria().list{
+			lastCall{
+				eq('result', CallResult.CALLBACK)
+			}
+		}
+	    println 'break'
+		customers.sort{a, b ->
+			if (a.lastCall.callbackDate == b.lastCall.callbackDate)
+				return a.lastCall.caller <=> b.lastCall.caller
+			else
+				return a.lastCall.callbackDate <=> b.lastCall.callbackDate
+		}
+		
+        [customerInstanceList:customers, customerInstanceTotal: customers.size(), caller: springSecurityService.principal]
 
     }
 
