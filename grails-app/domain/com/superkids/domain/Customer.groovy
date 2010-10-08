@@ -108,7 +108,7 @@ class Customer extends User {
 	}
     
 	static searchable = {
-		only = ['fsdName', 'district', 'fsdEmail', 'ndEmail', 'cdEmail']
+		only = ['fsdName', 'ndName', 'cdName', 'district', 'fsdEmail', 'ndEmail', 'cdEmail']
 	}
 
 	String toString() {
