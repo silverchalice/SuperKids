@@ -20,8 +20,8 @@
             </div>
             </g:hasErrors>
             <g:form action="lc" >
-                <g:hiddenField name="id" value="${assessmentInstance?.id}" />
-                <g:hiddenField name="version" value="${assessmentInstance?.version}" />
+                <g:hiddenField name="productId" value="${id}" />
+                <g:hiddenField name="customerId" value="${customerId}" />
                 <div class="dialog"><br />
                   <p>
                     <label for="likeRating">On a scale of 1 to 5 where 1 is 'not liked' and 5 is 'well liked', how did you like this product?</label><br /><br />
@@ -40,3 +40,4 @@
         </div>
     </body>
 </html>
+
