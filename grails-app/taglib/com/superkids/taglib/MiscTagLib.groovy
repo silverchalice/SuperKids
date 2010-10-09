@@ -278,7 +278,7 @@ Modified: get menuButton text from new 'msg' attr
 			products.eachWithIndex{product, i ->
 				out << render(template:'productAssessment', model:[product:product, customer:customer])
 				def idx = i + 1
-				if ((idx % 5 == 0) && totalProducts > idx){
+				if ((idx % 4 == 0) && totalProducts > idx){
 					out <<"</div>"
 					tabIndex++
 					out << "<div id='tab${tabIndex}' class='tab_content'>"
@@ -304,7 +304,7 @@ Modified: get menuButton text from new 'msg' attr
 			out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
 			products.eachWithIndex{product, i ->
 				def idx = i + 1
-				if ((idx % 5 == 0) && totalProducts > idx){
+				if ((idx % 4 == 0) && totalProducts > idx){
 					tabIndex++
 					out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
 				}

@@ -419,76 +419,7 @@
 
 					<table style="margin: 10px 0 10px 0; width:280px" class="callerRecord">
 						<tbody>
-							<tr>
-							  <td></td>
-							  <td>
-								<h3>Previous Calls</h3>
-								<br/>
-							  </td>
-							</tr>
-							<tr class="prop">
-								<td valign="top" class="name">
-									Caller:
-								</td>
-								<td valign="top" class="value">
-									Mr. Second Caller
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Date
-								</td>
-								<td valign="top" class="value">
-									1/12/2010
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Result
-								</td>
-								<td valign="top" class="value">
-									Voicemail/Answering Machine
-								</td>
-							</tr>
-
-							<tr>
-							  <td class="name">
-							  &nbsp;
-							  </td>
-							  <td class="value">
-							  &nbsp;
-							  </td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Caller:
-								</td>
-								<td valign="top" class="value">
-									Mr. First Caller
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Date
-								</td>
-								<td valign="top" class="value">
-									7/16/2009
-								</td>
-							</tr>
-
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Result
-								</td>
-								<td valign="top" class="value">
-									Voicemail/Answering Machine
-								</td>
-							</tr>
+							<g:render template="previousCall" model="['customerInstance': customerInstance ]" />
 						</tbody>
 					</table>
 

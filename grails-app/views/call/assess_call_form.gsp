@@ -62,7 +62,7 @@
 
 		<div class="nav" style="padding: 0 12px; height:27px; line-height:27px">
 			<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
-			<g:if test="${queue}"><g:render template="assess_caller_controls" model="[customerInstance: customerInstance]"/> </g:if>
+			<g:if test="${queue}"><g:render template="caller_assess_controls" model="[customerInstance: customerInstance]"/> </g:if>
 			<g:elseif test="${single}">
 				<span class="callerButton"><g:actionSubmit style="background-color:green; color:white; margin-left:970px" action="finish_call" value="Finish Calling" /></span>
 			</g:elseif>
@@ -210,9 +210,13 @@
 					</table>
 				</div>
 
-				<div id="column3" style="width:280px; float:right">
 
-				<table style="margin: 10px 0 10px 0; width:280px" class="callerRecord">
+					</div>
+				</div>
+
+				<sks:productAssessmentTabs id="${customerInstance?.id}" />
+
+				<table style="margin: 10px 0 10px 0; width:280px; position:absolute; top:120px; left:965px;" class="callerRecord">
 						<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">
@@ -224,86 +228,10 @@
 										from='${CallResult.enumConstants}' />
 								</td>
 							</tr>
-							<tr>
-							  <td></td>
-							  <td>
-								<br />
-								<h3>Previous Calls</h3>
-								<br/>
-							  </td>
-							</tr>
-							<tr class="prop">
-								<td valign="top" class="name">
-									Caller:
-								</td>
-								<td valign="top" class="value">
-									Mr. Second Caller
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Date
-								</td>
-								<td valign="top" class="value">
-									1/12/2010
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Result
-								</td>
-								<td valign="top" class="value">
-									Voicemail/Answering Machine
-								</td>
-							</tr>
-
-							<tr>
-							  <td class="name">
-							  &nbsp;
-							  </td>
-							  <td class="value">
-							  &nbsp;
-							  </td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Caller:
-								</td>
-								<td valign="top" class="value">
-									Mr. First Caller
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Date
-								</td>
-								<td valign="top" class="value">
-									7/16/2009
-								</td>
-							</tr>
-
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Result
-								</td>
-								<td valign="top" class="value">
-									Voicemail/Answering Machine
-								</td>
-							</tr>
+							<g:render template="previousCall" model="['customerInstance': customerInstance ]" />
 						</tbody>
 					</table>
 
-				</div>
-
-					</div>
-				</div>
-
-				<sks:productAssessmentTabs id="${customerInstance?.id}" />
 				<table style="margin:10px 10px 0px 0px; width:393px; position:absolute; top:465px; left:845px; border:none; height:250px;">
 					<tbody>
 						<tr>
