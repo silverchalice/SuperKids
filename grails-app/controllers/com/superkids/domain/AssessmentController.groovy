@@ -159,7 +159,7 @@ class AssessmentController {
             assessmentInstance.properties = params
             customer.addToAssessments(assessmentInstance)
             customer.save(failOnError:true)
-            return [assessmentInstance: assessmentInstance, products:products]
+            return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
         } else {
             flash.message = "Please log in.."
             redirect controller:"home", action:"index"
@@ -183,7 +183,7 @@ class AssessmentController {
          }
         assessmentInstance.likeComment = params.likeComment
         assessmentInstance.save()
-        return [assessmentInstance: assessmentInstance, products:products]
+        return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
     }
 
     def ir = {
@@ -203,7 +203,7 @@ class AssessmentController {
          }
         assessmentInstance.changeComment = params.changeComment
         assessmentInstance.save()
-        return [assessmentInstance: assessmentInstance, products:products]
+        return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
     }
 
     def complete = {
@@ -226,7 +226,7 @@ class AssessmentController {
         assessmentInstance.save()
         println "and now the assessmentInstance's iRating is " + assessmentInstance.iRating
         if(products.size() > 0){
-            return [assessmentInstance: assessmentInstance, products:products]
+            return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
         } else {
             flash.message = "products < 0"
             redirect controller:"assessment", action:"broker_contact"
