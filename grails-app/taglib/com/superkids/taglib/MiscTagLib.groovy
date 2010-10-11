@@ -321,7 +321,7 @@ Modified: get menuButton text from new 'msg' attr
             def user = User.get(springSecurityService.principal.id)
             if(!user.isAdmin()){
                 Product.list().each { product ->
-                    if(product.isLive && product.statesAvailable.find{ user?.address?.state }){
+                    if(product.isLive && product.statesAvailable.find{ user?.deliveryAddress?.state }){
                         out << g.link(controller:'product', action:'show', id:product.id){ "<img src='${createLink(controller:'product', action:'displayImage', id:product.id)}' width='65' height='50' style='margin:3px;' />" }
                     } else {
                         out << ""

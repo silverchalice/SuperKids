@@ -200,7 +200,19 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/home/c_password':                                                      ['ROLE_USER'],
    '/home/register_n':                                   ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/profile_help':                                      ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/assessment':                                                          ['ROLE_ADMIN'],
-   '/assessment/assess_process':                              ['ROLE_USER', 'ROLE_ADMIN']
-
+   '/assessment/':                                                         ['ROLE_ADMIN'],
+   '/assessment/assess_process':                              ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assess':                                                 ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assess/**':                                              ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assessment/lc':                                          ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assessment/complete':                                    ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assessment/cc':                                          ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assessment/ir':                                          ['ROLE_USER', 'ROLE_ADMIN'],
+   '/shopping/confirm':                                       ['ROLE_USER', 'ROLE_ADMIN'],
+   '/shopping/place_order':                                   ['ROLE_USER', 'ROLE_ADMIN'],
+   '/shopping/thanks':                                        ['ROLE_USER', 'ROLE_ADMIN'],
+   '/product/displayImage/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/sponsor/displayImage/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/**':                                                                  ['ROLE_ADMIN']
 ]
+

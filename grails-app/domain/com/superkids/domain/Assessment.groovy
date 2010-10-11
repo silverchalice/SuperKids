@@ -16,7 +16,7 @@ class Assessment {
         iRating nullable:true
         likeComment nullable:true
         changeComment nullable:true
-        product nullable:false
+        product nullable:true
         customer nullable:true
     }
 }

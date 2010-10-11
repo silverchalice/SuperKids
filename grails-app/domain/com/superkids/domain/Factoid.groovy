@@ -2,6 +2,7 @@ package com.superkids.domain
 
 class Factoid {
     String content
+    boolean isLive = true
 
     static constraints = {
         content nullable:false, blank:false
