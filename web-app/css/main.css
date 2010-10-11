@@ -477,3 +477,10 @@ legend {
     font-weight: bold;
 }
 
+#todayCall td {
+	background-color: #ddffe0;
+}
+
+#todayCall td#date {
+	font-weight:bolder;
+}

@@ -11,10 +11,28 @@
 </head>
 <body>
 
-    <script type="text/javascript">
-      $(document).ready(function()
-      {
-        $("#callbackDate").datepicker({dateFormat: 'mm/dd/yy'});
+	<script type="text/javascript">
+   		$(document).ready(function() {
+   			$("#callbackDate").datepicker({dateFormat: 'mm/dd/yy'});
+
+
+			var changedFlag;
+			$(':input').bind('change', function() { changedFlag = 'true';});
+
+			//$('#order:checkbox')
+
+
+			$(':submit').click(function(e) {
+
+
+
+				if(changedFlag == 'true' && $('#result').val() == "null") {
+					return confirm('You made changes to the form, but did not choose a Call Result - your changes will not be saved. Do you want to continue?')
+				}
+				// validation here...
+
+	  		})
+
       })
       
     </script>
@@ -48,7 +66,10 @@
 			<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
 			<g:if test="${queue}"><g:render template="caller_controls" model="[customerInstance: customerInstance]"/> </g:if>
 			<g:elseif test="${single}">
-				<span class="callerButton"><g:actionSubmit style="background-color:green; color:white; margin-left:970px" action="finish_call" value="Finish Calling" /></span>
+				<span class="callerButton">
+					<g:hiddenField name="single" value="${single}" />
+					<g:actionSubmit style="background-color:green; color:white; margin-left:970px" action="save_order_call" value="Finish Calling" />
+				</span>
 			</g:elseif>
 			<g:else>
 				<span  style="margin-left:950px;" class="callerButton"><g:link controller="call" action="next_order_call">Start Calling</g:link></span>
@@ -419,76 +440,7 @@
 
 					<table style="margin: 10px 0 10px 0; width:280px" class="callerRecord">
 						<tbody>
-							<tr>
-							  <td></td>
-							  <td>
-								<h3>Previous Calls</h3>
-								<br/>
-							  </td>
-							</tr>
-							<tr class="prop">
-								<td valign="top" class="name">
-									Caller:
-								</td>
-								<td valign="top" class="value">
-									Mr. Second Caller
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Date
-								</td>
-								<td valign="top" class="value">
-									1/12/2010
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Result
-								</td>
-								<td valign="top" class="value">
-									Voicemail/Answering Machine
-								</td>
-							</tr>
-
-							<tr>
-							  <td class="name">
-							  &nbsp;
-							  </td>
-							  <td class="value">
-							  &nbsp;
-							  </td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Caller:
-								</td>
-								<td valign="top" class="value">
-									Mr. First Caller
-								</td>
-							</tr>
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Date
-								</td>
-								<td valign="top" class="value">
-									7/16/2009
-								</td>
-							</tr>
-
-
-							<tr class="prop">
-								<td valign="top" class="name">
-									Result
-								</td>
-								<td valign="top" class="value">
-									Voicemail/Answering Machine
-								</td>
-							</tr>
+							<g:render template="previousCall" model="['customerInstance': customerInstance ]" />
 						</tbody>
 					</table>
 

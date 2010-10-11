@@ -87,6 +87,8 @@ class Customer extends User {
 		cdEmail nullable: true
 		cdTitle nullable: true
 
+		assessments nullable: true
+
         order nullable:true
         otherComments nullable:true
 		lastCall nullable:true
