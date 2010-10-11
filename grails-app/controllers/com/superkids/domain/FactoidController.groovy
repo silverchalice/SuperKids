@@ -4,6 +4,8 @@ class FactoidController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def springSecurityService
+
     def index = {
         redirect(action: "list", params: params)
     }
@@ -97,4 +99,48 @@ class FactoidController {
             redirect(action: "list")
         }
     }
+
+    def other_delete = {
+        if(springSecurityService.isLoggedIn()){
+            if(User.get(springSecurityService.principal.id).isAdmin()){
+                def factoidInstance = Factoid.get(params.id)
+                if (factoidInstance) {
+                    try {
+                        println "trying to delete factoid..."
+                        factoidInstance.delete(flush: true)
+                        println "...done"
+                        flash.message = "Deleted this factoid."
+                        redirect(action: "list")
+                    }
+                    catch (org.springframework.dao.DataIntegrityViolationException e) {
+                        println "there was an exception; redirecting..."
+                        flash.message = "This factoid could not be deleted."
+                        redirect(action: "list")
+                    }
+                }
+                else {
+                    flash.message = "Factoid not found."
+                    println "couldn't find factoid"
+                    redirect(action: "list")
+                }
+            } else {
+                flash.message = "You aren't allowed to access this page."
+                redirect controller:"home", action:"index"
+            }
+        } else {
+            flash.message = "Please log in.."
+            redirect controller:"home", action:"index"
+        }
+    }
+
+    def toggleLive = {
+        def factoidInstance = Factoid.get(params.id)
+        if (factoidInstance){
+            factoidInstance.isLive = params.isLive == 'true'
+            factoidInstance.save()
+        }
+        println "the factoidInstance's isLive is " + factoidInstance.isLive
+        render ''
+    }
+
 }
