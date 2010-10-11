@@ -17,6 +17,6 @@ class Assessment {
         likeComment nullable:true
         changeComment nullable:true
         product nullable:false
-        customer nullable:false
+        customer nullable:true
     }
 }

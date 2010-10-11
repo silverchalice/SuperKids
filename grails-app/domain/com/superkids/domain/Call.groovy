@@ -18,8 +18,8 @@ class Call {
 
     static constraints = {
 		result()
-		customer()
-		caller()
+		customer(nullable:true)
+		caller(nullable:true)
 		callbackDate(nullable:true)
 		callbackTime(nullable:true)
     }

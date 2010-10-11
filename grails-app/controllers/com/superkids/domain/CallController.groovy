@@ -121,8 +121,12 @@ class CallController {
 				customer.lastCall = call
 				customer.save(flush:true)
 				println 'Saved the Customer...'
-				
-				redirect action: 'next_order_call', id: customer.id
+
+
+				if(params?.single)
+					redirect action: 'index', caller: springSecurityService.principal
+				else
+					redirect action: 'next_order_call', id: customer.id
 			}  else {
 				println "Could not save the Customer..."
 				customer.errors.allErrors.each { println it }
@@ -441,20 +445,25 @@ class CallController {
 				if(call.result == CallResult.QUALIFIED) {
 					println "The CallResult was QUALIFIED - saving assessments"
 
-					Products.list().each { product ->
-						assessment."${product.name}".each { key, val ->
+					Product.list().each { product ->
+						params.assessment."${product.name}".each { key, val ->
 							println "$key = $val"
 						}
 
-						if(params.assessment."${product.name}") {
+						if(params.assessment."${product.name}" && params.assessment."${product.name}".didNotReceive) {
+							println "we are saving an assessment $product.name"
 							def assessment = new Assessment(
 									likeRating: params.assessment."${product.name}".likeRating,
-									interestRating: params.assessment."${product.name}".interestRating,
+									iRating: params.assessment."${product.name}".interestRating,
 									likeComment: params.assessment."${product.name}".likeComment,
 									changeComment: params.assessment."${product.name}".changeComment,
-									product: product,
-									customer: customer,
-							).save()
+									product: product
+							)
+							customer.addToAssessments(assessment)
+							if (!customer.save()) {
+								println "ERRORS SAVING ASSESSMENT"
+							    customer.errors.allErrors.each{println it}
+							}
 						}
 					}
 				}
@@ -467,8 +476,6 @@ class CallController {
 				customer.addToCalls(call)
 				customer.save(flush:true)
 				println "4"
-				call.save()
-				println 'Saved the Call...'
 
 				caller.addToCalls(call)
 				caller.save(flush:true)
@@ -478,9 +485,11 @@ class CallController {
 				customer.lastCall = call
 				customer.save(flush:true)
 				println 'Saved the Customer...'
-				
-				redirect action:'next_assess_call', id: customer.id
-				                                        
+
+				if(params?.single)
+					redirect action: 'index', caller: springSecurityService.principal
+				else
+					redirect action: 'next_assess_call', id: customer.id                                   
 			}
 		}
 
