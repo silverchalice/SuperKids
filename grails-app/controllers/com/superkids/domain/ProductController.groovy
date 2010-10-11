@@ -253,10 +253,10 @@ class ProductController {
         def toggleLive = {
             def productInstance = Product.get(params.id)
             if (productInstance){
-                productInstance.isLive = params.isLive == 'true'
+                productInstance.liveProduct = params.liveProduct == 'true'
                 productInstance.save()
             }
-            println "the productInstance's isLive is " + productInstance.isLive
+            println "the productInstance's liveProduct is " + productInstance.liveProduct
             render ''
     }
 
