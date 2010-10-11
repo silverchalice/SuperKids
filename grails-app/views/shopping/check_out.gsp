@@ -302,7 +302,7 @@
                               <td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td> 
                           </tr> 
                           <tr> 			
-                              <td>State</td> 
+                              <td><strong>State</strong></td> 
                               <td align="left"> 
                                     <g:select name="brokerState" from="${states}" />
                               </td> 
