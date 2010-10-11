@@ -211,5 +211,8 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/shopping/confirm':                                       ['ROLE_USER', 'ROLE_ADMIN'],
    '/shopping/place_order':                                   ['ROLE_USER', 'ROLE_ADMIN'],
    '/shopping/thanks':                                        ['ROLE_USER', 'ROLE_ADMIN'],
+   '/product/displayImage/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/sponsor/displayImage/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/**':                                                                  ['ROLE_ADMIN']
 ]
+
