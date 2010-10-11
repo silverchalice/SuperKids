@@ -14,7 +14,7 @@ class Product implements IShoppable {
     String summaryName
     String summaryType
 
-	Boolean isLive = true
+	Boolean liveProduct = true
 	Boolean bake = false
 
 	byte[] image
