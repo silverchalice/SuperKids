@@ -22,7 +22,7 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'factoid.id.label', default: 'Id')}" />
+                            <g:sortableColumn property="isLive" title="Live" />
                         
                             <g:sortableColumn property="content" title="${message(code: 'factoid.content.label', default: 'Content')}" />
 
