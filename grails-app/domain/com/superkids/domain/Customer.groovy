@@ -35,7 +35,7 @@ class Customer extends User {
 	String cdTitle
 
 	boolean receivedCurrentMailing = true
-    boolean isNew
+        boolean newCustomer
 	Date inCall = null
 
 //	Misc. Stats
