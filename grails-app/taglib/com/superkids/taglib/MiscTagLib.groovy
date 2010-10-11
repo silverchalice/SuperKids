@@ -271,7 +271,7 @@ Modified: get menuButton text from new 'msg' attr
 	def productAssessmentTabs = { attrs ->
 		def customer = Customer.get(attrs.id)
 		if(customer) {
-			def products = customer.order.products 
+			def products = customer.order.products.sort { it.id }
 			def totalProducts = products.size()
 			def tabIndex = 2
 			out << "<div id='tab${tabIndex}' class='tab_content'>"
@@ -298,7 +298,7 @@ Modified: get menuButton text from new 'msg' attr
 	def productAssessmentNav = { attrs ->
 		def customer = Customer.get(attrs.id)
 		if(customer) {
-			def products = customer.order.products
+			def products = customer.order.products.sort { it.id }
 			def totalProducts = products.size()
 			def tabIndex = 2
 			out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
