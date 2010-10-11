@@ -25,6 +25,8 @@
                             <g:sortableColumn property="id" title="${message(code: 'factoid.id.label', default: 'Id')}" />
                         
                             <g:sortableColumn property="content" title="${message(code: 'factoid.content.label', default: 'Content')}" />
+
+                            <th>Delete</th>
                         
                         </tr>
                     </thead>
@@ -32,9 +34,15 @@
                     <g:each in="${factoidInstanceList}" status="i" var="factoidInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${factoidInstance.id}">${fieldValue(bean: factoidInstance, field: "id")}</g:link></td>
+                            <td>
+                            <g:checkBox name='isLive'
+                                        value="${factoidInstance.isLive}"
+                                        onclick="${remoteFunction(action:'toggleLive', id:factoidInstance.id, params:'\'isLive=\' + this.checked')}" />
+                            </td>
                         
-                            <td>${fieldValue(bean: factoidInstance, field: "content")}</td>
+                            <td><g:link controller="factoid" action="edit" id="${factoidInstance.id}">${fieldValue(bean: factoidInstance, field: "content")}</g:link></td>
+
+                            <td><g:link controller="factoid" action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${factoidInstance.id}">Delete</g:link></td>
                         
                         </tr>
                     </g:each>
