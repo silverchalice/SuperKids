@@ -33,6 +33,21 @@
 				return false;
 			});
 
+			var changedFlag;
+			$(':input').bind('change', function() { changedFlag = 'true';});
+
+			//$('#order:checkbox')
+
+
+			$(':submit').click(function(e) {
+
+				if(changedFlag == 'true' && $('#result').val() == "null") {
+					return confirm('You made changes to the form, but did not choose a Call Result - your changes will not be saved. Do you want to continue?')
+				}
+				// validation here...
+
+	  		})
+
 		});
     </script>
 
@@ -63,8 +78,11 @@
 		<div class="nav" style="padding: 0 12px; height:27px; line-height:27px">
 			<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
 			<g:if test="${queue}"><g:render template="caller_assess_controls" model="[customerInstance: customerInstance]"/> </g:if>
-			<g:elseif test="${single}">
-				<span class="callerButton"><g:actionSubmit style="background-color:green; color:white; margin-left:970px" action="finish_call" value="Finish Calling" /></span>
+			<g:elseif test="${single}">				
+				<span class="callerButton">
+					<g:hiddenField name="single" value="${single}" />
+					<g:actionSubmit style="background-color:green; color:white; margin-left:970px" action="finish_call" value="Finish Calling" />
+				</span>
 			</g:elseif>
 			<g:else>
 				<span  style="margin-left:950px;" class="callerButton"><g:link controller="call" action="next_assess_call">Start Calling</g:link></span>
@@ -214,7 +232,8 @@
 					</div>
 				</div>
 
-				<sks:productAssessmentTabs id="${customerInstance?.id}" />
+				<div style="border:1px; width:940px"><sks:productAssessmentTabs id="${customerInstance?.id}" /></div>
+
 
 				<table style="margin: 10px 0 10px 0; width:280px; position:absolute; top:120px; left:965px;" class="callerRecord">
 						<tbody>
@@ -232,13 +251,13 @@
 						</tbody>
 					</table>
 
-				<table style="margin:10px 10px 0px 0px; width:393px; position:absolute; top:465px; left:845px; border:none; height:250px;">
+				<table style="margin:10px 10px 0px 0px; width:300px; position:absolute; top:350px; left:955px; border:none; height:320px;">
 					<tbody>
 						<tr>
 							<td class="prop" style=" background-image:url(${resource(dir:'images', file:'callnote.png')}); background-repeat:no-repeat">
 								<h3 style="padding-top:10px; padding-left:10px">Operator Comments</h3>
 								<br />
-								<g:textArea style="width:355px; height:175px; background:none; margin-left:10px" name="notes" value="${callInstance?.notes}"/>
+								<g:textArea style="width:265px; height:250px; background:none; margin-left:10px" name="notes" value="${callInstance?.notes}"/>
 							</td>
 						</tr>
 					</tbody>
