@@ -202,10 +202,10 @@ class CustomerController {
     def toggleNew = {
         def customerInstance = Customer.get(params.id)
         if (customerInstance){
-            customerInstance.isNew = params.isNew == 'true'
+            customerInstance.newCustomer = params.newCustomer == 'true'
             customerInstance.save()
         }
-        println "the customerInstance's isNew is " + customerInstance.isNew
+        println "the customerInstance's newCustomer is " + customerInstance.newCustomer
         render ''
     }
 
