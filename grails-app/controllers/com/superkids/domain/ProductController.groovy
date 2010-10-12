@@ -257,4 +257,20 @@ class ProductController {
             render ''
     }
 
+    def brokerDeleteFromEdit = {
+        def brokerInstance = Broker.get(params.id)
+        def controller = params.rController
+        def action = params.rAction
+        println "controller: " + controller + " action: " + action
+        if(brokerInstance){
+            try {
+                brokerInstance.delete(flush: true)
+            }
+            catch (org.springframework.dao.DataIntegrityViolationException e) {
+                log.error e
+            }
+         }
+         redirect controller:controller, action:action
+    }
+
 }
