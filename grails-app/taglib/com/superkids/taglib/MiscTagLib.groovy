@@ -323,7 +323,7 @@ Modified: get menuButton text from new 'msg' attr
             def user = User.get(springSecurityService.principal.id)
             if(!user.isAdmin()){
                 Product.list().each { product ->
-                    if(product.isLive && product.statesAvailable.find{ user?.deliveryAddress?.state }){
+                    if(product.liveProduct && product.statesAvailable.find{ user?.deliveryAddress?.state }){
                         out << g.link(controller:'product', action:'show', id:product.id){ "<img src='${createLink(controller:'product', action:'displayImage', id:product.id)}' width='65' height='50' style='margin:3px;' />" }
                     } else {
                         out << ""
@@ -358,7 +358,8 @@ Modified: get menuButton text from new 'msg' attr
             } else {
                 out << g.link(controller:"call", action: "get_assess_call", params:[id:customerInstance.id]){ customerInstance.district }
             }
-        } else {
+    
+    } else {
             out << customerInstance.district
         }
     }
