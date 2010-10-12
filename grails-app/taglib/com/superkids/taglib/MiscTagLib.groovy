@@ -1,13 +1,7 @@
 package com.superkids.taglib
 
-import com.superkids.domain.Customer
-import com.superkids.domain.CustomerStatus
-import com.superkids.domain.Product
 import com.metasieve.shoppingcart.Quantity
-import com.superkids.domain.Factoid
-import com.superkids.domain.Sponsor
-import com.superkids.domain.Assessment
-import com.superkids.domain.User
+import com.superkids.domain.*
 
 class MiscTagLib {
 
@@ -128,13 +122,15 @@ class MiscTagLib {
     }
 
     def factoidList = { attrs ->
+        def f = Factoid.get(1)
+        f.properties.each { println it }
         out << "<script>"
         out << "var nIndex = 1;"
         out << "var timerID = null;"
         out << "function factoidloop(){"
         out << "var factoids = new Array();"
         def factoidNo = 0;
-        Factoid.list().each { factoid ->
+        Factoid.findAllByLiveFactoid(true).each { factoid ->
             factoidNo++
             out << "factoids[${factoidNo}] = \""
             out << "${factoid.content}\";"
@@ -321,7 +317,7 @@ Modified: get menuButton text from new 'msg' attr
             def user = User.get(springSecurityService.principal.id)
             if(!user.isAdmin()){
                 Product.list().each { product ->
-                    if(product.isLive && product.statesAvailable.find{ user?.deliveryAddress?.state }){
+                    if(product.liveProduct && product.statesAvailable.find{ user?.deliveryAddress?.state }){
                         out << g.link(controller:'product', action:'show', id:product.id){ "<img src='${createLink(controller:'product', action:'displayImage', id:product.id)}' width='65' height='50' style='margin:3px;' />" }
                     } else {
                         out << ""
@@ -356,7 +352,8 @@ Modified: get menuButton text from new 'msg' attr
             } else {
                 out << g.link(controller:"call", action: "get_assess_call", params:[id:customerInstance.id]){ customerInstance.district }
             }
-        } else {
+    
+    } else {
             out << customerInstance.district
         }
     }

@@ -136,10 +136,10 @@ class FactoidController {
     def toggleLive = {
         def factoidInstance = Factoid.get(params.id)
         if (factoidInstance){
-            factoidInstance.isLive = params.isLive == 'true'
+            factoidInstance.liveFactoid = params.liveFactoid == 'true'
             factoidInstance.save()
         }
-        println "the factoidInstance's isLive is " + factoidInstance.isLive
+        println "the factoidInstance's liveFactoid is " + factoidInstance.liveFactoid
         render ''
     }
 

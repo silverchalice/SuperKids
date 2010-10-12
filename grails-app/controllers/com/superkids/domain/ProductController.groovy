@@ -1,10 +1,7 @@
 package com.superkids.domain
-import com.metasieve.shoppingcart.ShoppingCart
-import com.metasieve.shoppingcart.Shoppable
-import com.metasieve.shoppingcart.ShoppingItem
+
 import com.metasieve.shoppingcart.Quantity
-import com.superkids.domain.CustomerOrder
-import com.superkids.domain.OrderType
+import com.metasieve.shoppingcart.ShoppingItem
 
 class ProductController {
 
@@ -253,10 +250,10 @@ class ProductController {
         def toggleLive = {
             def productInstance = Product.get(params.id)
             if (productInstance){
-                productInstance.isLive = params.isLive == 'true'
+                productInstance.liveProduct = params.liveProduct == 'true'
                 productInstance.save()
             }
-            println "the productInstance's isLive is " + productInstance.isLive
+            println "the productInstance's liveProduct is " + productInstance.liveProduct
             render ''
     }
 

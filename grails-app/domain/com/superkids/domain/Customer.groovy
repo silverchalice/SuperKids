@@ -1,7 +1,5 @@
 package com.superkids.domain
 
-import com.superkids.domain.CustomerOrder
-
 class Customer extends User {
 
 	String district
@@ -34,8 +32,8 @@ class Customer extends User {
 	String cdEmail
 	String cdTitle
 
-	boolean didNotReceiveMailing = false
-    boolean isNew
+	boolean didNotReceiveMailing = true
+    boolean newCustomer
 	Date inCall = null
 
 //	Misc. Stats

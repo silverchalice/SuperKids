@@ -22,7 +22,7 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="isLive" title="Live" />
+                            <g:sortableColumn property="liveFactoid" title="Live" />
                         
                             <g:sortableColumn property="content" title="${message(code: 'factoid.content.label', default: 'Content')}" />
 
@@ -35,9 +35,9 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td>
-                            <g:checkBox name='isLive'
-                                        value="${factoidInstance.isLive}"
-                                        onclick="${remoteFunction(action:'toggleLive', id:factoidInstance.id, params:'\'isLive=\' + this.checked')}" />
+                            <g:checkBox name='liveFactoid'
+                                        value="${factoidInstance.liveFactoid}"
+                                        onclick="${remoteFunction(action:'toggleLive', id:factoidInstance.id, params:'\'liveFactoid=\' + this.checked')}" />
                             </td>
                         
                             <td><g:link controller="factoid" action="edit" id="${factoidInstance.id}">${fieldValue(bean: factoidInstance, field: "content")}</g:link></td>

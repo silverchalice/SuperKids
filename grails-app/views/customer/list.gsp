@@ -40,7 +40,7 @@
 
                             <th>Assessment</th>
 
-                            <g:sortableColumn property="isNew" title="New" />
+                            <g:sortableColumn property="newCustomer" title="New" />
 
                             <th>Action</th>
 
@@ -69,9 +69,9 @@
                             </td>
 
                             <td>
-                            <g:checkBox name='isNew'
-                                        value="${customerInstance.isNew}"
-                                        onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'isNew=\' + this.checked')}" />
+                            <g:checkBox name='newCustomer'
+                                        value="${customerInstance.newCustomer}"
+                                        onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'newCustomer=\' + this.checked')}" />
                             </td>
 
                             <td width="120px">
