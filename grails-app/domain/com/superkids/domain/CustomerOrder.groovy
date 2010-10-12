@@ -1,6 +1,6 @@
 package com.superkids.domain
 import com.superkids.domain.Customer
-import com.superkids.domain.Product
+import com.superkids.domain.ProductOrder
 import com.superkids.domain.OrderType
 import com.superkids.domain.ShippingDate
 
@@ -11,7 +11,7 @@ class CustomerOrder {
     ShippingDate shippingDate
     OrderType orderType
 
-    static hasMany = [products:Product]
+    static hasMany = [products:ProductOrder]
     static belongsTo = Customer
 
     static constraints = {   
