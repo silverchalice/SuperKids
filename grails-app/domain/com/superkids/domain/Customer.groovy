@@ -34,7 +34,7 @@ class Customer extends User {
 	String cdEmail
 	String cdTitle
 
-	boolean receivedCurrentMailing = true
+	boolean didNotReceiveMailing = false
     boolean isNew
 	Date inCall = null
 

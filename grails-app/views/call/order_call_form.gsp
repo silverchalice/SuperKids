@@ -1,37 +1,93 @@
 <%@ page import="com.superkids.domain.ShippingDate; com.superkids.domain.CallResult;" %>
-
-
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="layout" content="caller" />
-<g:javascript library="jquery" plugin="jquery"/>
-  <jqui:resources/> 
-<title>Caller Home</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="layout" content="caller" />
+	<title>Caller Home</title>
+	<script type="text/javascript" src="${resource(dir:'js', file:'jquery-1.4.2.min.js')}"></script>
+    <script type="text/javascript" src="${resource(dir:'js', file:'jquery-ui-1.8.5.custom.min.js')}"></script>
+	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
 </head>
 <body>
 
 	<script type="text/javascript">
    		$(document).ready(function() {
+
    			$("#callbackDate").datepicker({dateFormat: 'mm/dd/yy'});
 
-
 			var changedFlag;
-			$(':input').bind('change', function() { changedFlag = 'true';});
-
-			//$('#order:checkbox')
-
-
-			$(':submit').click(function(e) {
+			$(':input').bind('change', function() {
+			    //console.log('changedFlag = true')
+				changedFlag = 'true';
+			});
 
 
+			$('#submit').click(function (e) {
 
 				if(changedFlag == 'true' && $('#result').val() == "null") {
 					return confirm('You made changes to the form, but did not choose a Call Result - your changes will not be saved. Do you want to continue?')
-				}
-				// validation here...
+				} else {
 
-	  		})
+					var productsChecked;
+					var shippingDateSelected;
+					var qualifiedSelected;
+					var order;
+
+
+					if ($("#products input:checked").length > 0) {
+						productsChecked = 'true';
+						order = 'true';
+						//alert('productsChecked = true!');
+					} else {
+						productsChecked = 'false';
+						//alert('productsChecked = false!');
+					}
+
+					if($('#shippingDate').val() == "null") {
+						shippingDateSelected = 'false'
+						//alert('shippingDateSelected = false!');
+					} else {
+						shippingDateSelected = 'true';
+						order = 'true';
+						//alert('shippingDateSelected = true!');
+					}
+
+					if($('#result').val() == "QUALIFIED") {
+						qualifiedSelected = 'true';
+						order = 'true';
+						//alert('qualifiedSelected = true!')
+					} else {
+						qualifiedSelected = 'false';
+						//alert('qualifiedSelected = false!')
+					}
+
+					if(order == 'true') {
+
+						if(productsChecked == 'false') {
+							alert('You have not selected any products');
+							return false
+						}						
+
+						if(qualifiedSelected == 'false') {
+							return confirm('You have selected products to order, but have not chosen a Call Result of Qualified - no order will be saved. Do you wish to continue?');
+						}						
+
+						if(shippingDateSelected == 'false') {
+							alert('You have not selected a Shipping Date');
+							return false;
+						}
+											
+
+
+						return true
+
+					}
+
+
+					// more validation here...
+					return true
+				}
+	  		});
 
       })
       
@@ -55,6 +111,7 @@
         .contact td {
             padding:0 5px;
         }
+
     </style>
 
     <g:form controller="call">
@@ -63,12 +120,13 @@
 		<g:hiddenField name="offset" value="${offset}" /> 
 
 		<div class="nav" style="padding: 1px 12px; height:27px; line-height:27px;">
-			<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
-			<g:if test="${queue}"><g:render template="caller_controls" model="[customerInstance: customerInstance]"/> </g:if>
+			<span class="menuButton"><g:link class="call" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link></span>
+			<g:if test="${queue}">
+				<span class="callerButton" style="margin-left:970px"><g:actionSubmit id="submit" style="background-color:green; color:white" action="save_order_call" value="Next Call" /></span></g:if>
 			<g:elseif test="${single}">
 				<span class="callerButton">
 					<g:hiddenField name="single" value="${single}" />
-					<g:actionSubmit style="background-color:green; color:white; margin-left:970px" action="save_order_call" value="Finish Calling" />
+					<g:actionSubmit style="background-color:green; color:white; margin-left:970px" id="submit" action="save_order_call" value="Finish Calling" />
 				</span>
 			</g:elseif>
 			<g:else>
@@ -79,7 +137,6 @@
 
 		<div class="body" style="width:1200px">
 			<div class="dialog">
-
 				<div id="row1" style="width:400px; float:left; margin-right:10px; ">
 				<table style="width:400px; margin: 10px 10px 0px 0; margin-left:0">
 					<tbody>
@@ -318,7 +375,8 @@
 						   <tbody>
 							   <tr class="prop">
 								   <td valign="top" class="name">
-									   <label for="hasBakery"><g:message code="customer.hasBakery.label" default="Has Bakery" /></label>
+									   <label for="hasBakery">We make our own bread products from<br/>
+										   scratch in our bakery (proof & bake)</label>
 								   </td>
 								   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'hasBakery', 'errors')}">
 									   <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
@@ -327,7 +385,7 @@
 
 							  <tr class="prop">
 								  <td valign="top" class="name">
-									  <label for="purchaseFreshBread"><g:message code="customer.purchaseFreshBread.label" default="Purchase Fresh Bread" /></label>
+									  <label for="purchaseFreshBread">We purchase fresh bakery and bread products</label>
 								  </td>
 								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFreshBread', 'errors')}">
 									  <g:checkBox name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" />
@@ -336,7 +394,7 @@
 
 							  <tr class="prop">
 								  <td valign="top" class="name">
-									  <label for="purchaseFrozenBread"><g:message code="customer.purchaseFrozenBread.label" default="Purchase Frozen Bread" /></label>
+									  <label for="purchaseFrozenBread">We purchase frozen bread products and/or<br/>  bread mixes and bake them in our bakery</label>
 								  </td>
 								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenBread', 'errors')}">
 									  <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
@@ -345,7 +403,7 @@
 
 							  <tr class="prop">
 								  <td valign="top" class="name">
-									  <label for="purchaseFrozenFood"><g:message code="customer.purchaseFrozenFood.label" default="Purchase Frozen Food" /></label>
+									  <label for="purchaseFrozenFood">We purchase frozen foods</label>
 								  </td>
 								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenFood', 'errors')}">
 									  <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
@@ -354,7 +412,7 @@
 
 							  <tr class="prop">
 								  <td valign="top" class="name">
-									  <label for="purchasePreparedFood"><g:message code="customer.purchasePreparedFood.label" default="Purchase Prepared Food" /></label>
+									  <label for="purchasePreparedFood">We purchase prepared foods</label>
 								  </td>
 								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchasePreparedFood', 'errors')}">
 									  <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
@@ -363,15 +421,15 @@
 
 							  <tr class="prop">
 								  <td valign="top" class="name">
-									  <label for="receivedCurrentMailing"><g:message code="customer.receivedCurrentMailing.label" default="Received Current Mailing" /></label>
+									  <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Did NOT get mailing/email" /></label>
 								  </td>
-								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'receivedCurrentMailing', 'errors')}">
-									  <g:checkBox name="receivedCurrentMailing" value="${customerInstance?.receivedCurrentMailing}" />
+								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'didNotReceiveMailing', 'errors')}">
+									  <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
 								  </td>
 							  </tr>
 							  <tr class="prop">
 									<td valign="top" class="name">
-										<label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="Students In District" /></label>
+										<label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="# of Students In District" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'studentsInDistrict', 'errors')}">
 										<g:textField name="studentsInDistrict" value="${fieldValue(bean: customerInstance, field: 'studentsInDistrict')}" />
@@ -380,7 +438,7 @@
 
 								<tr class="prop">
 									<td valign="top" class="name">
-										<label for="facilities"><g:message code="customer.facilities.label" default="Facilities" /></label>
+										<label for="facilities"><g:message code="customer.facilities.label" default="# of Facilities" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'facilities', 'errors')}">
 										<g:textField name="facilities" value="${fieldValue(bean: customerInstance, field: 'facilities')}" />
@@ -389,7 +447,7 @@
 
 								<tr class="prop">
 									<td valign="top" class="name">
-										<label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="Breakfasts Served" /></label>
+										<label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="# of Breakfasts Served" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'breakfastsServed', 'errors')}">
 										<g:textField name="breakfastsServed" value="${fieldValue(bean: customerInstance, field: 'breakfastsServed')}" />
@@ -398,7 +456,7 @@
 
 								<tr class="prop">
 									<td valign="top" class="name">
-										<label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="Lunches Served" /></label>
+										<label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="# of Lunches Served" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'lunchesServed', 'errors')}">
 										<g:textField name="lunchesServed" value="${fieldValue(bean: customerInstance, field: 'lunchesServed')}" />
@@ -407,7 +465,7 @@
 
 								<tr class="prop">
 									<td valign="top" class="name">
-										<label for="snacksServed"><g:message code="customer.snacksServed.label" default="Snacks Served" /></label>
+										<label for="snacksServed"><g:message code="customer.snacksServed.label" default="# of Snacks Served" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'snacksServed', 'errors')}">
 										<g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}" />
@@ -444,7 +502,7 @@
 						</tbody>
 					</table>
 
-					<table>
+					<table id="products">
 					  <tbody>
 						<tr class="prop">
 						  <td class="name"></td>
@@ -475,6 +533,7 @@
 							<tr class="prop">
 								<td>
 									<g:select name="shippingDate"
+									  id="shippingDate"
 									  from="${ShippingDate.list()}"
 									  style="width:220px;"
 									  noSelection="${['null':'Select a Shipping Date...']}" />
