@@ -1,10 +1,7 @@
 package com.superkids.domain
-import com.metasieve.shoppingcart.ShoppingCart
-import com.metasieve.shoppingcart.Shoppable
-import com.metasieve.shoppingcart.ShoppingItem
+
 import com.metasieve.shoppingcart.Quantity
-import com.superkids.domain.CustomerOrder
-import com.superkids.domain.OrderType
+import com.metasieve.shoppingcart.ShoppingItem
 
 class ProductController {
 

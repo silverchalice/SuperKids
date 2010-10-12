@@ -1,13 +1,7 @@
 package com.superkids.taglib
 
-import com.superkids.domain.Customer
-import com.superkids.domain.CustomerStatus
-import com.superkids.domain.Product
 import com.metasieve.shoppingcart.Quantity
-import com.superkids.domain.Factoid
-import com.superkids.domain.Sponsor
-import com.superkids.domain.Assessment
-import com.superkids.domain.User
+import com.superkids.domain.*
 
 class MiscTagLib {
 

@@ -3,10 +3,11 @@
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="layout" content="caller" />
-<g:javascript library="jquery" plugin="jquery"/>
-  <jqui:resources/> 
+	<script type="text/javascript" src="${resource(dir:'js', file:'jquery-1.4.2.js')}"></script>
+    <script type="text/javascript" src="${resource(dir:'js', file:'jquery-ui-1.8.5.custom.min.js')}"></script>
+	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
 <title>Caller Home</title>
 </head>
 <body>
@@ -34,19 +35,78 @@
 			});
 
 			var changedFlag;
-			$(':input').bind('change', function() { changedFlag = 'true';});
+			$(':input').bind('change', function() {
+			    //console.log('changedFlag = true')
+				changedFlag = 'true';
+			});
 
-			//$('#order:checkbox')
 
-
-			$(':submit').click(function(e) {
+			$('#submit').click(function (e) {
 
 				if(changedFlag == 'true' && $('#result').val() == "null") {
 					return confirm('You made changes to the form, but did not choose a Call Result - your changes will not be saved. Do you want to continue?')
-				}
-				// validation here...
+				} else {
 
-	  		})
+					var productsChecked;
+					var shippingDateSelected;
+					var qualifiedSelected;
+					var order;
+
+
+					if ($("#products input:checked").length > 0) {
+						productsChecked = 'true';
+						order = 'true';
+						//alert('productsChecked = true!');
+					} else {
+						productsChecked = 'false';
+						//alert('productsChecked = false!');
+					}
+
+					if($('#shippingDate').val() == "null") {
+						shippingDateSelected = 'false'
+						//alert('shippingDateSelected = false!');
+					} else {
+						shippingDateSelected = 'true';
+						order = 'true';
+						//alert('shippingDateSelected = true!');
+					}
+
+					if($('#result').val() == "QUALIFIED") {
+						qualifiedSelected = 'true';
+						order = 'true';
+						//alert('qualifiedSelected = true!')
+					} else {
+						qualifiedSelected = 'false';
+						//alert('qualifiedSelected = false!')
+					}
+
+					if(order == 'true') {
+
+						if(productsChecked == 'false') {
+							alert('You have not selected any products');
+							return false
+						}
+
+						if(qualifiedSelected == 'false') {
+							return confirm('You have selected products to order, but have not chosen a Call Result of Qualified - no order will be saved. Do you wish to continue?');
+						}
+
+						if(shippingDateSelected == 'false') {
+							alert('You have not selected a Shipping Date');
+							return false;
+						}
+
+
+
+						return true
+
+					}
+
+
+					// more validation here...
+					return true
+				}
+	  		});
 
 		});
     </script>
@@ -76,16 +136,18 @@
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
 
 		<div class="nav" style="padding: 0 12px; height:27px; line-height:27px">
-			<span class="menuButton"><g:link class="home" action="index"><g:message code="default.home.label"/></g:link></span>
-			<g:if test="${queue}"><g:render template="caller_assess_controls" model="[customerInstance: customerInstance]"/> </g:if>
+			<span class="menuButton"><g:link class="call" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link></span>
+			<g:if test="${queue}">
+				<span class="callerButton" style="margin-left:970px"><g:actionSubmit id="submit" style="background-color:green; color:white; height:25px" action="save_assess_call" value="Next Call" /></span>
+			</g:if>
 			<g:elseif test="${single}">				
 				<span class="callerButton">
 					<g:hiddenField name="single" value="${single}" />
-					<g:actionSubmit style="background-color:green; color:white; margin-left:970px" action="finish_call" value="Finish Calling" />
+					<g:actionSubmit id="submit" style="background-color:green; color:white; margin-left:970px" action="finish_call" value="Finish Calling" />
 				</span>
 			</g:elseif>
 			<g:else>
-				<span  style="margin-left:950px;" class="callerButton"><g:link controller="call" action="next_assess_call">Start Calling</g:link></span>
+				<span style="margin-left:950px;" class="callerButton"><g:link controller="call" action="next_assess_call">Start Calling</g:link></span>
 			</g:else>
 		</div>
 

@@ -1,8 +1,5 @@
 package com.superkids.domain
 
-import com.superkids.domain.Product
-import com.superkids.domain.UserRole
-
 class CustomerController {
 
 	def springSecurityService
