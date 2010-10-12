@@ -56,7 +56,8 @@ class ShoppingController {
         def order = new CustomerOrder(customer:customer, shippingDate:shippingDate, orderType:OrderType.WEB)
         shoppingCartService.getItems().each{
             def product = Product.get(it.id)
-            order.addToProducts(product)
+            def productOrder = new ProductOrder(product:product, order:order, received:true)
+            order.addToProducts(productOrder)
         }
         customer.order = order
         customer.save()
