@@ -136,9 +136,9 @@ class UrlMappings {
                     controller = "home"
                     action = "whole_grain_studies"
                 }
-                "/sneaky-chef/" {
+                "/childhood_obesity" {
                     controller = "home"
-                    action = "sneaky_chef"
+                    action = "childhood_obesity"
                 }
                 "/council-tips/" {
                     controller = "home"
