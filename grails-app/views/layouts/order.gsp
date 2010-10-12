@@ -7,7 +7,7 @@
         <g:layoutHead />
         <g:javascript library="application" />
         <g:javascript library="jquery" plugin="jquery"/>
-       <g:set var="products" value="${Product.list()}" />
+       <g:set var="products" value="${Product.findAllByLiveProduct(true)}" />
     </head>
     <body>
   <div id="body">
