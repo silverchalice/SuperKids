@@ -10,6 +10,8 @@ import com.superkids.domain.Admin
 import com.superkids.domain.UserRole
 import com.superkids.domain.Role
 import com.superkids.domain.Assessment
+import com.superkids.domain.Product
+import com.superkids.domain.ProductOrder
 
 class HomeController {
 
@@ -264,6 +266,7 @@ class HomeController {
 
        }
 
+
        def anonymous = {
 
        }
@@ -295,8 +298,9 @@ class HomeController {
                if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
                    def customer = Customer.get(springSecurityService.principal.id)
                    customer.order.products.each{
-                       if(!Assessment.findByCustomerAndProduct(customer, it)){
-                           products << it
+                       def product = Product.get(it.product.id)
+                       if(!Assessment.findByCustomerAndProduct(customer, product)){
+                           products << product
                        }
                    }
                }
