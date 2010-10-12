@@ -115,8 +115,9 @@ class AssessmentController {
                     def assessmentInstance = new Assessment(product:product)
                     println "right after we created it, the assessmentInstance's id is already " + assessmentInstance.id
                     customer.order.products.each{
-                        if(!Assessment.findByCustomerAndProduct(customer, it)){
-                            products << it
+                        def p = Product.get(it.product.id)
+                        if(!Assessment.findByCustomerAndProduct(customer, p)){
+                            products << p
                         }
                     }
                     if(products){
@@ -150,8 +151,9 @@ class AssessmentController {
              def userRole = Role.findByAuthority("ROLE_USER")
              if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
                  customer.order.products.each{
-                     if(!Assessment.findByCustomerAndProduct(customer, it)){
-                         products << it
+                     def p = Product.get(it.product.id)
+                     if(!Assessment.findByCustomerAndProduct(customer, p)){
+                         products << p
                      }
                  }
             }
@@ -175,8 +177,9 @@ class AssessmentController {
              if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
                  def customer = Customer.get(springSecurityService.principal.id)
                  customer.order.products.each{
-                     if(it.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, it)){
-                         products << it
+                     def p = Product.get(it.product.id)
+                     if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p)){
+                         products << p
                      }
                  }
              }
@@ -195,8 +198,9 @@ class AssessmentController {
              if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
                  def customer = Customer.get(springSecurityService.principal.id)
                  customer.order.products.each{
-                     if(it.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, it)){
-                         products << it
+                     def p = Product.get(it.product.id)
+                     if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p)){
+                         products << p
                      }
                  }
              }
@@ -216,8 +220,9 @@ class AssessmentController {
              if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
                  def customer = Customer.get(springSecurityService.principal.id)
                  customer.order.products.each{
-                     if(it.id == assessmentInstance.id || !Assessment.findByCustomerAndProduct(customer, it)){
-                         products << it
+                     def p = Product.get(it.product.id)
+                     if(p.id == assessmentInstance.id || !Assessment.findByCustomerAndProduct(customer, p)){
+                         products << p
                      }
                  }
              }
@@ -244,8 +249,9 @@ class AssessmentController {
                println "...bas"
                def customer = Customer.get(springSecurityService.principal.id)
                customer.order.products.each{
-                   if(!Assessment.findByCustomerAndProduct(customer, it)){
-                       products << it
+                   def p = Product.get(it.product.id)
+                   if(!Assessment.findByCustomerAndProduct(customer, p) && (it.received == true)){
+                       products << p
                    }
                }
            }
@@ -279,6 +285,20 @@ class AssessmentController {
         }
         flash.message = "All done!"
         redirect controller:"home", action:"index"
+    }
+
+    def dnr = {
+        println "in dnr action.."
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+        println "the customer is " + customerInstance
+        def product = Product.get(params.id)
+        def productOrder = ProductOrder.findByProductAndOrder(product, customerInstance.order)
+        println "the product is " + product + ", and the productOrder is " + productOrder
+        if(productOrder){
+            productOrder.received = false
+        }
+        productOrder.save(failOnError:true)
+        redirect controller:"assessment", action:"assess_process"
     }
 
 }
