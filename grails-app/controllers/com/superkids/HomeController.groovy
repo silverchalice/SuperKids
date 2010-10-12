@@ -19,26 +19,16 @@ class HomeController {
 
     def index = {
         if(springSecurityService.isLoggedIn()){
-            println UserRole.findByUser(User.get(springSecurityService.principal.id))
-            def pass = springSecurityService.encodePassword("superkids")
-            def loggedInUser = User.get(springSecurityService.principal.id)
-            def ur = Role.findByAuthority("ROLE_USER")
-            if(loggedInUser.password == pass && UserRole.findByUserAndRole(loggedInUser, ur)){
-                flash.message = "Please enter a new password."
-                log.info flash.message
-                redirect action:"c_change_password"
+            println springSecurityService.principal?.username
+            def user = User.get(springSecurityService.principal.id)
+            def adminRole = Role.findByAuthority("ROLE_ADMIN")
+            def callerRole = Role.findByAuthority("ROLE_CALLER")
+            if(UserRole.findByUserAndRole(user, callerRole)){
+                redirect controller:"call", action:"index"
+            } else if (UserRole.findByUserAndRole(user, adminRole)){
+                 redirect controller:"customer", action:"list"
             } else {
-                println springSecurityService.principal?.username
-                def user = User.get(springSecurityService.principal.id)
-                def adminRole = Role.findByAuthority("ROLE_ADMIN")
-                def callerRole = Role.findByAuthority("ROLE_CALLER")
-                if(UserRole.findByUserAndRole(user, callerRole)){
-                     redirect controller:"call", action:"index"
-                } else if (UserRole.findByUserAndRole(user, adminRole)){
-                     redirect controller:"customer", action:"list"
-                } else {
-                    render(view:"landing")
-                }
+                render(view:"landing")
             }
         } else {
             render view:'home'
