@@ -210,6 +210,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/assessment/complete':                                    ['ROLE_USER', 'ROLE_ADMIN'],
    '/assessment/cc':                                          ['ROLE_USER', 'ROLE_ADMIN'],
    '/assessment/ir':                                          ['ROLE_USER', 'ROLE_ADMIN'],
+   '/assessment/dnr/**':                                      ['ROLE_USER', 'ROLE_ADMIN'],
    '/shopping/confirm':                                       ['ROLE_USER', 'ROLE_ADMIN'],
    '/shopping/place_order':                                   ['ROLE_USER', 'ROLE_ADMIN'],
    '/shopping/thanks':                                        ['ROLE_USER', 'ROLE_ADMIN'],
