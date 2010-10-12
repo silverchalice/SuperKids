@@ -249,16 +249,6 @@
                                     <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
                                 </td>
                             </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="receivedCurrentMailing"><g:message code="customer.receivedCurrentMailing.label" default="Received Current Mailing" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'receivedCurrentMailing', 'errors')}">
-                                    <g:checkBox name="receivedCurrentMailing" value="${customerInstance?.receivedCurrentMailing}" />
-                                </td>
-                            </tr>
-                            <tr>
                                 <td>
                                     <div class="buttons">
                                         <br />
@@ -344,7 +334,7 @@
                                   ${broker?.email}
                                 </td>
                                 <td>
-                                  <g:link action="brokerEditFromEdit" id="${broker?.id}">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}">Delete</g:link>
+                                  <g:link action="brokerEditFromEdit" id="${broker?.id}">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Delete</g:link>
                                 </td>
                             </tr>
                           </g:each>
