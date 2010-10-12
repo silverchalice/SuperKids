@@ -87,7 +87,7 @@
 				<div id="tab1" class="tab_content">
 					<div class="dialog">
 						<div id="column1" style="width:415px; float:left">
-						<table style="width:400px; margin: 10px 10px 0px 0; margin-left:0">
+						<table style="width:400px; margin: 10px 10px 0 0; margin-left:0">
 							<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">
@@ -150,7 +150,7 @@
 					</table>
 				</div>
 				<div id="column2" style="width:500px; float:left">
-					<table style="width:500px;margin-top: 10px; margin-left: 0px; margin-right:10px;">
+					<table style="width:500px;margin-top: 10px; margin-left: 0; margin-right:10px;">
 						<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">
@@ -239,7 +239,7 @@
 						</tbody>
 					</table>
 
-				<table style="margin:10px 10px 0px 0px; width:300px; position:absolute; top:350px; left:955px; border:none; height:320px;">
+				<table style="margin:10px 10px 0 0; width:300px; position:absolute; top:350px; left:955px; border:none; height:320px;">
 					<tbody>
 						<tr>
 							<td class="prop" style=" background-image:url(${resource(dir:'images', file:'callnote.png')}); background-repeat:no-repeat">
