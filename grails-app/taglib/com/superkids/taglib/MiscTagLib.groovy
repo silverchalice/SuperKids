@@ -129,7 +129,6 @@ class MiscTagLib {
 
     def factoidList = { attrs ->
         def f = Factoid.get(1)
-        f.properties.each { println it }
         out << "<script>"
         out << "var nIndex = 1;"
         out << "var timerID = null;"
