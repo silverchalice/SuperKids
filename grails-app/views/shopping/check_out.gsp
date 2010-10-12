@@ -260,50 +260,51 @@
                     </table>
                 </div>
             </g:form>
-            <g:form controller="home" action="addBroker" method="post">
+            <g:form controller="${broker ? 'product' : 'home'}" action="${broker ? 'updateBroker': 'addBroker'}" method="post">
             <div style="width:250px; float:right;">
                       <table cellpadding="3" cellspacing="0" border="0" width="300"> 
                           <tr> 
                               <td><strong>Broker/Distributor Name: </strong></td> 
-                              <td><input type="text" name="brokerName" size="20" maxlength="50" value=""></td> 
+                              <td><input type="text" name="name" size="20" maxlength="50" value="${broker?.name}"></td> 
                           </tr> 
                           <tr> 
                               <td><strong>Email: </strong></td> 
-                              <td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td> 
+                              <td><input type="text" name="email" size="20" maxlength="50" value="${broker?.email}"></td> 
                           </tr> 
                           <tr> 
                               <td><strong>Telephone: </strong></td> 
-                              <td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td> 
+                              <td><input type="text" name="phone" size="20" maxlength="50" value="${broker?.phone}"></td> 
                           </tr> 
                           <tr> 
                               <td><strong>Fax: </strong></td> 
-                              <td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td> 
+                              <td><input type="text" name="fax" size="20" maxlength="50" value="${broker?.fax}"></td> 
                           </tr> 
                           <tr> 
                               <td><strong>Address: </strong></td> 
-                              <td><input type="text" name="brokerStreet" size="20" maxlength="255" value=""></td> 
+                              <td><input type="text" name="street" size="20" maxlength="255" value="${broker?.street}"></td> 
                           </tr> 
                           <tr> 
                               <td><strong></strong></td> 
-                              <td><input type="text" name="brokerStreet2" size="20" maxlength="255" value=""></td> 
+                              <td><input type="text" name="street2" size="20" maxlength="255" value="${broker?.street2}"></td> 
                           </tr> 
                           <tr> 
                               <td><strong>City: </strong></td> 
-                              <td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td> 
+                              <td><input type="text" name="city" size="20" maxlength="50" value="${broker?.city}"></td> 
                           </tr> 
                           <tr> 			
                               <td><strong>State</strong></td> 
                               <td align="left"> 
-                                    <g:select name="brokerState" from="${states}" />
+                                    <g:select name="state" from="${states}"  value="${broker?.state}" />
                               </td> 
                           </tr> 
                           <tr> 
                               <td><strong>Zip: </strong></td> 
-                              <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td> 
+                              <td><input type="text" name="zip" size="10" maxlength="20" value="${broker?.zip}"></td> 
                           </tr> 
                           <tr> 
                               <td><g:hiddenField name="rController" value="product" />
-                              <g:hiddenField name="rAction" value="check_out" /></td> 
+                              <g:hiddenField name="rAction" value="check_out" />
+                              <g:hiddenField name="id" value="${broker?.id}" /></td> 
                           </tr> 
                             <tr>
                                 <td>
@@ -334,7 +335,7 @@
                                   ${broker?.email}
                                 </td>
                                 <td>
-                                  <g:link action="brokerEditFromEdit" id="${broker?.id}">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Delete</g:link>
+                                  <g:link action="brokerEditFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Delete</g:link>
                                 </td>
                             </tr>
                           </g:each>
