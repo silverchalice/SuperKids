@@ -19,7 +19,8 @@
           <g:each in="${products}" var="product">
               <p>
                 <g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px; padding-right:5px;" align="left" /></g:link> ${product.name} <br/ >
-                ${product.sponsor.name}
+                ${product.sponsor.name}<br />
+                <g:link controller="assessment" action="dnr" id="${product.id}">Did Not Receive?</g:link>
               </p><br /> 
           </g:each>
       </div>
