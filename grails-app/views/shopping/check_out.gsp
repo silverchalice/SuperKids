@@ -43,23 +43,51 @@
                                 </td>
                             </tr>
 
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="address"><g:message code="customer.address.label" default="Address" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'address', 'errors')}">
-                                    <g:select name="address.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${customerInstance?.address?.id}"  />
-                                </td>
-                            </tr>
+                            <tr> 			
+                                <td align="right">Address</td> 
+                                <td align="left"><input type="text" name="address.street" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">&nbsp;</td> 
+                                <td align="left"><input type="text" name="address.street2" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">City</td> 
+                                <td align="left"><input type="text" name="address.city" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">State</td>
+                                <td align="left"> 
+                                    <g:select name="address.state" from="${states}" />
+                                </td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Zip</td>
+                                <td align="left"><input type="text" name="address.zip" value="" size="20" maxlength="50"></td> 
+                            </tr> 
 
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="deliveryAddress"><g:message code="customer.deliveryAddress.label" default="Delivery Address" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'deliveryAddress', 'errors')}">
-                                    <g:select name="deliveryAddress.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${customerInstance?.deliveryAddress?.id}" noSelection="['null': '']" />
-                                </td>
-                            </tr>
+                            <tr> 			
+                                <td align="right">Sample Delivery Address</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.street" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">&nbsp;</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.street2" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">City</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.city" value="" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">State</td>
+                                <td align="left"> 
+                                    <g:select name="deliveryAddress.state" from="${states}" />
+                                </td> 
+                            </tr> 
+                            <tr> 			
+                                <td align="right">Zip</td>
+                                <td align="left"><input type="text" name="deliveryAddress.zip" value="" size="20" maxlength="50"></td> 
+                            </tr> 
 
                             <tr class="prop">
                                 <td valign="top" class="name">
