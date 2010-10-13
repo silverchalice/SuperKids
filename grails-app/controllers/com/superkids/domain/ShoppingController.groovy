@@ -58,9 +58,11 @@ class ShoppingController {
             def product = Product.get(it.id)
             def productOrder = new ProductOrder(product:product, order:order, received:true)
             order.addToProducts(productOrder)
+            order.save()
+            println order.products
         }
         customer.order = order
-        customer.save()
+        customer.save(failOnError:true)
         session.checkedOutItems = shoppingCartService.checkOut()
         redirect action:"thanks"
     }
