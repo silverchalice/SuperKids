@@ -58,6 +58,17 @@ class ShoppingController {
             def product = Product.get(it.id)
             def productOrder = new ProductOrder(product:product, order:order, received:true)
             order.addToProducts(productOrder)
+
+			if(Product.findAllByParent(product)) {
+				println 'there were subproducts...'
+				def subProducts = Product.findAllByParent(product)
+
+				subProducts.each { sp ->
+					def po =  new ProductOrder(product:sp, order:order, received:true)
+					order.addToProducts(po)
+				}
+			}
+
             order.save()
             println order.products
         }
