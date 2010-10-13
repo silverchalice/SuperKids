@@ -169,13 +169,8 @@ class ProductController {
 		println "in Product add action"
 		def product = Product.get(params.id)
 		shoppingCartService.addToShoppingCart(product, 1)
-		if(params.cartPage){
-			println "rendering shoppingCartContent template (in add action)"
-			render template:"/shopping/shoppingCartContent", model:[productInstance:product]
-		} else {
-			println "rendering added template (in add action)"
-			render template:"/shopping/added", model:[productInstance:product]
-		}
+		redirect controller:'testShoppingCart', action:'show'
+		return
 	}
 
 	def remove = {

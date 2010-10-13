@@ -18,7 +18,7 @@
                         
                             <td>${it['qty']}</td>
                         
-                            <td><g:remoteLink controller="product" action="remove"
+                            <td><img src="${createLink(controller:'product', action:'displayHoverImage', id:product.id)}" style="height:50px; width:65px;" /><g:remoteLink controller="product" action="remove"
 				params="${[id:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).id, class:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).class, version:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).version, cartPage:true]}"
 				update="shoppingCartContent"
 				onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
