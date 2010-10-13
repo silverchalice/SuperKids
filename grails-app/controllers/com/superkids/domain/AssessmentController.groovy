@@ -219,6 +219,16 @@ class AssessmentController {
          println "params.iRating is " + params.iRating
          def products = []
          def assessmentInstance = Assessment.get(params.id)
+         Assessment.findAllByCompleted(false).each{
+             if(it.id != assessmentInstance.id){
+                 try {
+                     it.delete(flush: true)
+                 }
+                 catch (org.springframework.dao.DataIntegrityViolationException e) {
+                     log.error e
+                 }
+             }
+         }
          def customer = Customer.get(springSecurityService.principal.id)
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
@@ -229,7 +239,9 @@ class AssessmentController {
              }
          }
          assessmentInstance.iRating = params.iRating.toInteger()
+         assessmentInstance.completed = true
          customer.save(failOnError:true)
+         println assessmentInstance.completed
          println "and now the assessmentInstance's iRating is " + assessmentInstance.iRating
          if(products.size() > 0){
              println "foo!"
@@ -260,9 +272,9 @@ class AssessmentController {
                user.order.products.each{
                    def p = Product.get(it.product.id)
                    println "the product is " + p
-                   //if(!Assessment.findByCustomerAndProduct(customer, p) && it.received == true){
+                   if(!Assessment.findByCustomerAndProduct(user, p) && it.received == true){
                        products << p
-                   //}
+                   }
                }
            }
        }
@@ -320,16 +332,27 @@ class AssessmentController {
 
     def dnr = {
         println "in dnr action.."
+        def products = []
         def customerInstance = Customer.get(springSecurityService.principal.id)
         println "the customer is " + customerInstance
         def product = Product.get(params.id)
         def productOrder = ProductOrder.findByProductAndOrder(product, customerInstance.order)
         println "the product is " + product + ", and the productOrder is " + productOrder
-        if(productOrder){
-            productOrder.received = false
-        }
+        productOrder.received = false
         productOrder.save(failOnError:true)
-        redirect controller:"assessment", action:"assess_process"
+        customerInstance.order.products.findAll{ it.received == true }.each{
+            def p = Product.get(it.product.id)
+            if(!Assessment.findByCustomerAndProduct(customerInstance, p)){
+                products << p
+            }
+        }
+        if(products.size() > 0){
+            println "foo!"
+            redirect controller:"assessment", action:"assess_process"
+        } else {
+            println "bar!"
+            redirect controller:"assessment", action:"broker_contact"
+        }
     }
 
 }
