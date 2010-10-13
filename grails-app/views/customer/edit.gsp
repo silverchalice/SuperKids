@@ -257,10 +257,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="receivedCurrentMailing"><g:message code="customer.receivedCurrentMailing.label" default="Received Current Mailing" /></label>
+                                  <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Did not Receive Mailing" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'receivedCurrentMailing', 'errors')}">
-                                    <g:checkBox name="receivedCurrentMailing" value="${customerInstance?.receivedCurrentMailing}" />
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'didNotReceiveMailing', 'errors')}">
+                                    <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
                                 </td>
                             </tr>
                         

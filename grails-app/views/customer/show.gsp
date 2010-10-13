@@ -204,9 +204,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="customer.didNotReceivedMailing.label" default="Did Not Receive Mailing" /></td>
+                            <td valign="top" class="name"><g:message code="customer.didNotReceiveMailing.label" default="Did Not Receive Mailing" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${customerInstance?.didNotReceivedMailing}" /></td>
+                            <td valign="top" class="value"><g:formatBoolean boolean="${customerInstance?.didNotReceiveMailing}" /></td>
                             
                         </tr>
                     
