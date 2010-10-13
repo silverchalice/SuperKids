@@ -104,39 +104,32 @@ class AssessmentController {
 
     def start = {
         println "params coming into the start action are: " + params
-        if(springSecurityService.loggedIn) {
-            def user = User.get(springSecurityService.principal.id)
-            def userRole = Role.findByAuthority("ROLE_USER")
-            def products = []
-            if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
-                def product = Product.get(params.id)
-                def customer = Customer.get(springSecurityService.principal.id)
-                if(customer.order.products.collect{it.id}.contains(product.id)){
-                    def assessmentInstance = new Assessment(product:product)
-                    println "right after we created it, the assessmentInstance's id is already " + assessmentInstance.id
-                    customer.order.products.each{
-                        def p = Product.get(it.product.id)
-                        if(!Assessment.findByCustomerAndProduct(customer, p)){
-                            products << p
-                        }
+        def products = []
+        def customer = Customer.get(springSecurityService.principal.id)
+        if(customer.order){
+            def product = Product.get(params.id)
+            if(customer.order.products*.product.collect{it.id}.contains(product.id)){
+                def assessmentInstance = new Assessment(product:product)
+                println "right after we created it, the assessmentInstance's id is already " + assessmentInstance.id
+                customer.order.products.findAll{ it.received == true }.each{
+                    def p = Product.get(it.product.id)
+                    if(!Assessment.findByCustomerAndProduct(customer, p)){
+                        products << p
                     }
-                    if(products){
-                        println "the assessmentInstance is " + assessmentInstance + ", and the id is " + params.id
-                        return [id:params.id, products:products.sort{ it.id }, customerId:user.id]       
-                    } else {
-                        flash.message = "You have assessed all of the products that you ordered."
-                        redirect controller:"home", action:"index"
-                    }
+                }
+                if(products){
+                    println "the assessmentInstance is " + assessmentInstance + ", and the id is " + params.id
+                    return [id:params.id, products:products.sort{ it.id }, customerId:customer.id]       
                 } else {
-                    flash.message = "You didn't order ${product.name}."
+                    flash.message = "You have assessed all of the products that you ordered."
                     redirect controller:"home", action:"index"
                 }
             } else {
-                flash.message = "Did you order anything yet?"
+                flash.message = "You didn't order ${product.name}."
                 redirect controller:"home", action:"index"
             }
         } else {
-            flash.message = "Please log in.."
+            flash.message = "Did you order anything yet?"
             redirect controller:"home", action:"index"
         }
     }
@@ -144,115 +137,106 @@ class AssessmentController {
     def lc = {
          println "params coming into lc: " + params
          def customer = Customer.get(params.customerId)
-         if(springSecurityService.isLoggedIn()){
-             def product = Product.get(params.productId)
-             def products = []
-             def user = User.get(springSecurityService.principal.id)
-             def userRole = Role.findByAuthority("ROLE_USER")
-             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
-                 customer.order.products.each{
-                     def p = Product.get(it.product.id)
-                     if(!Assessment.findByCustomerAndProduct(customer, p)){
-                         products << p
-                     }
+         def product = Product.get(params.productId)
+         def products = []
+         if(customer.order){
+             customer.order.products.findAll{ it.received == true }.each{
+                 def p = Product.get(it.product.id)
+                 if(!Assessment.findByCustomerAndProduct(customer, p)){
+                     products << p
                  }
-            }
-            def assessmentInstance = new Assessment(likeRating:params.likeRating, product:product)
-            assessmentInstance.properties = params
-            customer.addToAssessments(assessmentInstance)
-            customer.save(failOnError:true)
-            return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
-        } else {
-            flash.message = "Please log in.."
-            redirect controller:"home", action:"index"
-        }
+             }
+         }
+         def assessmentInstance = new Assessment(likeRating:params.likeRating, product:product)
+         assessmentInstance.properties = params
+         customer.addToAssessments(assessmentInstance)
+         customer.save(failOnError:true)
+         return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
     }
 
     def cc = {
          def products = []
          def assessmentInstance = Assessment.get(params.id)
-         if(springSecurityService.isLoggedIn()){
-             def user = User.get(springSecurityService.principal.id)
-             def userRole = Role.findByAuthority("ROLE_USER")
-             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
-                 def customer = Customer.get(springSecurityService.principal.id)
-                 customer.order.products.each{
-                     def p = Product.get(it.product.id)
-                     if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p)){
-                         products << p
-                     }
+         def customer = Customer.get(springSecurityService.principal.id)
+         if(customer.order){
+             customer.order.products.findAll{ it.received == true }.each{
+                 def p = Product.get(it.product.id)
+                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p)){
+                     products << p
                  }
              }
          }
         assessmentInstance.likeComment = params.likeComment
-        assessmentInstance.save()
+        customer.save(failOnError:true)
         return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
     }
 
     def ir = {
          def products = []
          def assessmentInstance = Assessment.get(params.id)
-         if(springSecurityService.isLoggedIn()){
-             def user = User.get(springSecurityService.principal.id)
-             def userRole = Role.findByAuthority("ROLE_USER")
-             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
-                 def customer = Customer.get(springSecurityService.principal.id)
-                 customer.order.products.each{
-                     def p = Product.get(it.product.id)
-                     if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p)){
-                         products << p
-                     }
+         def customer = Customer.get(springSecurityService.principal.id)
+         if(customer.order){
+             customer.order.products.findAll{ it.received == true }.each{
+                 def p = Product.get(it.product.id)
+                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p)){
+                     products << p
                  }
              }
-         }
-        assessmentInstance.changeComment = params.changeComment
-        assessmentInstance.save()
-        return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
-    }
+          }
+          assessmentInstance.changeComment = params.changeComment
+          customer.save(failOnError:true)
+          return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
+     }
 
     def complete = {
          println "params.iRating is " + params.iRating
          def products = []
          def assessmentInstance = Assessment.get(params.id)
-         if(springSecurityService.isLoggedIn()){
-             def user = User.get(springSecurityService.principal.id)
-             def userRole = Role.findByAuthority("ROLE_USER")
-             if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
-                 def customer = Customer.get(springSecurityService.principal.id)
-                 customer.order.products.each{
-                     def p = Product.get(it.product.id)
-                     if(p.id == assessmentInstance.id || !Assessment.findByCustomerAndProduct(customer, p)){
-                         products << p
-                     }
+         def customer = Customer.get(springSecurityService.principal.id)
+         if(customer.order){
+             customer.order.products.findAll{ it.received == true }.each{
+                 def p = Product.get(it.product.id)
+                 if(!Assessment.findByCustomerAndProduct(customer, p)){
+                     products << p
                  }
              }
          }
-        assessmentInstance.iRating = params.iRating.toInteger()
-        assessmentInstance.save()
-        println "and now the assessmentInstance's iRating is " + assessmentInstance.iRating
-        if(products.size() > 0){
-            return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
-        } else {
-            flash.message = "products < 0"
-            redirect controller:"assessment", action:"broker_contact"
-        }
+         assessmentInstance.iRating = params.iRating.toInteger()
+         customer.save(failOnError:true)
+         println "and now the assessmentInstance's iRating is " + assessmentInstance.iRating
+         if(products.size() > 0){
+             println "foo!"
+             return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
+         } else {
+             println "bar!"
+             flash.message = "products < 0"
+             redirect controller:"assessment", action:"broker_contact"
+         }
     }
 
     def assess_process = {
        println "foo..."
        def products = []
+       CustomerOrder.list().each{
+           it.products.each {
+               println it.received
+           }
+       }
        if(springSecurityService.isLoggedIn()){
            def user = User.get(springSecurityService.principal.id)
            def userRole = Role.findByAuthority("ROLE_USER")
            println "...bar..."
            if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
                println "...bas"
-               def customer = Customer.get(springSecurityService.principal.id)
-               customer.order.products.each{
+               println user.order.class
+               println user.order.properties
+               println user.order.products
+               user.order.products.each{
                    def p = Product.get(it.product.id)
-                   if(!Assessment.findByCustomerAndProduct(customer, p) && (it.received == true)){
+                   println "the product is " + p
+                   //if(!Assessment.findByCustomerAndProduct(customer, p) && it.received == true){
                        products << p
-                   }
+                   //}
                }
            }
        }
@@ -260,23 +244,43 @@ class AssessmentController {
     }
 
     def broker_contact = {
-
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+        [customerInstance:customerInstance]
     }
 
     def feedback = {
-
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+        customerInstance.properties = params
+        customerInstance.save(failOnError:true)
+        println "am: " + customerInstance.am
+        println "pm: " + customerInstance.pm
+        println "fall: " + customerInstance.fall
+        println "spring: " + customerInstance.spring
+        [customerInstance:customerInstance]
     }
 
     def reformulations = {
-
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+        customerInstance.properties = params
+        customerInstance.save(failOnError:true)
+        println "programFeedback: " + customerInstance.programFeedback
+        [customerInstance:customerInstance]
     }
 
     def other_products = {
-
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+        customerInstance.properties = params
+        customerInstance.save(failOnError:true)
+        println "reformulations: " + customerInstance.reformulations
+        [customerInstance:customerInstance]
     }
 
     def rewards = {
-
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+        customerInstance.properties = params
+        customerInstance.save(failOnError:true)
+        println "otherProducts: " + customerInstance.otherProducts
+        [customerInstance:customerInstance]
     }
 
     def finish = {
