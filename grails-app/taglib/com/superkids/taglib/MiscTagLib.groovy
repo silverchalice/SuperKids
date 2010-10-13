@@ -106,6 +106,11 @@ class MiscTagLib {
     def orderList = { attrs -> 
         if(springSecurityService.loggedIn){
             def customer = Customer.get(springSecurityService.principal?.id)
+            def products = []
+            customer.order.products.each{
+                def p = Product.get(it.product.id)
+                products << p
+            }
             out << "<br />"
             out << "<h2>Your order</h2>"
             out << "<br />"
@@ -117,7 +122,7 @@ class MiscTagLib {
             out << "</tr>"
             out << "</thead>"
             out << "<tbody>"
-            for(product in customer.order.products) {
+            for(product in products) {
                 out << "<tr>"
                 out << "<td>"    
                 out << product
