@@ -209,7 +209,6 @@ class AssessmentController {
              return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
          } else {
              println "bar!"
-             flash.message = "products < 0"
              redirect controller:"assessment", action:"broker_contact"
          }
     }
