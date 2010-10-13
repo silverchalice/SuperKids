@@ -70,7 +70,7 @@ class MiscTagLib {
 			println "quantity is $quantity"
 
 
-			if(product.liveProduct && product.statesAvailable.find{ customer?.deliveryAddress?.state }){
+			if((product.liveProduct) && (product.statesAvailable.find{ customer?.deliveryAddress?.state }) && (!product.parent)){
 				if(quantity) {
 					println "hoverImage"
 					out << "<a href='"
