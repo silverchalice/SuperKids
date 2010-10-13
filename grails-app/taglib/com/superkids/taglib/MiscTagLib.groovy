@@ -147,10 +147,20 @@ class MiscTagLib {
         out << "<input type='checkbox' "
         out << "name='"
         out << attrs.name
-        out << "' id='"
-        out << attrs.id
         out << "' "
         if(customerInstance?.order?.products){
+            out << "checked='checked'"
+        }
+        out << "' disabled='disabled' />"
+    }
+
+    def propertyCheckbox = { attrs ->
+        def customerInstance = Customer.get(attrs.id)
+        out << "<input type='checkbox' "
+        out << "name='"
+        out << attrs.name
+        out << "' "
+        if(customerInstance?."${attrs.property}" == true){
             out << "checked='checked'"
         }
         out << "' disabled='disabled' />"
@@ -161,8 +171,6 @@ class MiscTagLib {
         out << "<input type='checkbox' "
         out << "name='"
         out << attrs.name
-        out << "' id='"
-        out << attrs.id
         out << "' "
         //if(Assessment.findByCustomer(customerInstance)){
 		if(customerInstance.status == CustomerStatus.QUALIFIED){
