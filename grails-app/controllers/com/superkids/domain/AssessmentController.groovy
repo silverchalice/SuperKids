@@ -13,8 +13,21 @@ class AssessmentController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [assessmentInstanceList: Assessment.list(params), assessmentInstanceTotal: Assessment.count()]
+		println "in List for AssessmentController"
+
+		def customers = []
+
+		Customer.findAllByStatus(CustomerStatus.HAS_ORDERED).each{ c ->
+ 			customers << c
+		}
+		Customer.findAllByStatus(CustomerStatus.QUALIFIED).each{ qc ->
+ 			customers << qc
+		}
+		//customers << Customer.findAllByStatus(CustomerStatus.HAS_ORDERED)
+		//customers << Customer.findAllByStatus(CustomerStatus.QUALIFIED)
+
+        params.max = Math.min(params.max ? params.int('max') : 20, 100)
+        [customerInstanceList: customers, customerInstanceTotal: customers.size()]
     }
 
     def create = {
@@ -44,6 +57,20 @@ class AssessmentController {
             [assessmentInstance: assessmentInstance]
         }
     }
+
+	def viewAssessment = {
+		println "in ViewAssessment for AssessmentController"
+		params.each { key, val ->
+			println "$key = $val"
+		}
+
+		def customer = Customer.get(params.id)
+		def assessments = Assessment.findAllByCustomerAndCompleted(customer, true)
+
+		[ customer: customer, assessments: assessments ]
+	}
+
+
 
     def edit = {
         def assessmentInstance = Assessment.get(params.id)

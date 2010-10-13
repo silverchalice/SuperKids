@@ -171,6 +171,14 @@ class MiscTagLib {
         out << "' disabled='disabled' />"
     }
 
+	def customerAssessmentTotal = { attrs ->
+		def customer = Customer.get(attrs.id)
+		if(customer) {
+			def assessments= Assessment.findAllByCustomerAndCompleted(customer, true)
+			out << assessments.size()
+
+		}
+	}
 
 	def viewAssessment = { attrs ->
 		println 'entering viewAssessment tag'
@@ -184,7 +192,7 @@ class MiscTagLib {
 
 		if((product) && (assessment) && (assessment.completed)) {
 			out << "<a href='"
-			out << createLink(controller:'assessment', view:'show', id: assessment.id)
+			out << createLink(controller:'assessment', action:'show', id: assessment.id)
 			out << "'> View Results </a>"
 
 		}
