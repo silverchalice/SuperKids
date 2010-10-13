@@ -22,9 +22,7 @@
 
         <div id="products">
           <p>
-          <g:each in="${products}" var="product">
-              <g:link controller="product" action="show" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}" width="65" height="50" style="margin:3px;" /></g:link>
-          </g:each>
+          <sks:productBox />
           </p>
         </div>
 	</div>

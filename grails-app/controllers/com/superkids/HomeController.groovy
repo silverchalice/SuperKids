@@ -1,17 +1,7 @@
 
 package com.superkids
 
-import com.superkids.domain.PageText
-import com.superkids.domain.Customer
-import com.superkids.domain.Broker
-import com.superkids.domain.Address
-import com.superkids.domain.User
-import com.superkids.domain.Admin
-import com.superkids.domain.UserRole
-import com.superkids.domain.Role
-import com.superkids.domain.Assessment
-import com.superkids.domain.Product
-import com.superkids.domain.ProductOrder
+import com.superkids.domain.*
 
 class HomeController {
 

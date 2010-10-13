@@ -11,7 +11,7 @@
         <div class="nav">
 			<g:render template="caller_nav"/>
         </div>
-        <div class="body">
+        <div class="body" style="width:100%">
             <h1><g:message code="default.list.label" args="[entityName]" /></h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -35,7 +35,7 @@
 
 							<th><g:message code="customer.callback.caller.label"  default="Caller" /></th>
 
-							
+							<th>In Call</th>
 
                         </tr>
                     </thead>
@@ -68,6 +68,14 @@
 						    <td>
 								<g:if test="${caller?.username == customerInstance.calls[-1].caller.username}"><strong style="color:green">${customerInstance.calls[-1].caller}</strong></g:if>
 								<g:else>${customerInstance.calls[-1].caller}</g:else>
+							</td>
+
+ 							<td style="width:85px"><g:if test="${customerInstance.inCall == null}">
+								    <strong style="color:green">False</strong>
+								</g:if>
+								<g:else>
+									<strong style="color:red">True</strong> <g:link action="unlock_customer" id="${customerInstance.id}" params="[type:'assess']">(Unlock)</g:link>
+								</g:else>
 							</td>
 
                         </tr>

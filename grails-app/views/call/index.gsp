@@ -12,7 +12,7 @@
 		<span class="callerButton"><g:link controller="logout">Logout</g:link></span>
 	</div>
 
-	<div class="body">
+	<div class="body" style="width:100%">
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>

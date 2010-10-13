@@ -32,7 +32,7 @@
                         <li><g:link controller="customer" action="list">Manage School Districts</g:link></li>
                         <li><hr /></li>
                         <li><g:link controller="customerOrder" action="list">Order Admin</g:link></li>
-                        <li><g:link controller="product" action="list">Products Admin</g:link></li>
+                        <li><g:link controller="product" action="admin">Products Admin</g:link></li>
                         <li><g:link controller="assessment" action="list">Assessment Admin</g:link></li>
                         <li><g:link controller="sponsor" action="list">Sponsors Admin</g:link></li>
                         <li><hr /></li>

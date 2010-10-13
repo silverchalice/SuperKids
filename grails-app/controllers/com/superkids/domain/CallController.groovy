@@ -1,11 +1,7 @@
 package com.superkids.domain
 
-import com.superkids.domain.CustomerStatus
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.text.ParseException
-import java.util.Date
-
 
 class CallController {
 
@@ -90,7 +86,8 @@ class CallController {
 						if (key.size() > 5 && key[0..5] == 'order_' && val == 'on'){
 							def productName = key[6..-1]
 							def product = Product.findByName(productName)
-							order.addToProducts(product)
+							def pOrder = new ProductOrder(product:product, order:order)
+							pOrder.save()
 						}
 					}
 
@@ -136,7 +133,7 @@ class CallController {
 		} else {
 			println "we didn't get anything?"
 			flash.message = "Customer not found"
-			redirect action:'next_order_call', id: params.id 
+			redirect action:'index'
 		}
 
     }
@@ -450,19 +447,29 @@ class CallController {
 							println "$key = $val"
 						}
 
-						if(params.assessment."${product.name}" && params.assessment."${product.name}".didNotReceive) {
-							println "we are saving an assessment $product.name"
-							def assessment = new Assessment(
-									likeRating: params.assessment."${product.name}".likeRating,
-									iRating: params.assessment."${product.name}".interestRating,
-									likeComment: params.assessment."${product.name}".likeComment,
-									changeComment: params.assessment."${product.name}".changeComment,
-									product: product
-							)
-							customer.addToAssessments(assessment)
-							if (!customer.save()) {
-								println "ERRORS SAVING ASSESSMENT"
-							    customer.errors.allErrors.each{println it}
+						if(params.assessment."${product.name}") {
+
+							if(params.assessment."${product.name}".didNotReceive) {
+								def po = ProductOrder.findByOrderAndProduct(customer.order, product)
+								po.received = false
+								po.save()
+							}
+							else {
+								println "we are saving an assessment $product.name"
+								def assessment = new Assessment(
+										likeRating: params.assessment."${product.name}".likeRating,
+										iRating: params.assessment."${product.name}".interestRating,
+										likeComment: params.assessment."${product.name}".likeComment,
+										changeComment: params.assessment."${product.name}".changeComment,
+										product: product
+								)
+								customer.addToAssessments(assessment)
+
+
+								if (!customer.save()) {
+									println "ERRORS SAVING ASSESSMENT"
+									customer.errors.allErrors.each{println it}
+								}
 							}
 						}
 					}
@@ -483,6 +490,7 @@ class CallController {
 
 				customer.inCall = null
 				customer.lastCall = call
+				customer.status = CustomerStatus.QUALIFIED
 				customer.save(flush:true)
 				println 'Saved the Customer...'
 

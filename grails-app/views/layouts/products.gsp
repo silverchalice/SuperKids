@@ -21,7 +21,7 @@
 
       <div id="products" style="top:-4px;">
           <p>
-              <sks:productSidebar />
+              <sks:productBox />
           </p>
       </div>
 

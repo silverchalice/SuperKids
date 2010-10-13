@@ -12,7 +12,7 @@
 
 			<g:render template="caller_nav"/> 	
 		</div>
-        <div class="body" style="max-width:100%">
+        <div class="body" style="width:100%">
             <h1>Customers Ready for Order Call</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -30,7 +30,7 @@
 
                             <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
 
-							<g:sortableColumn property="fax" title="${message(code: 'customer.inCall.label', default: 'In Call')}" />
+							<th>In Call</th>
 
                         </tr>
                     </thead>

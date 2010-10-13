@@ -8,7 +8,7 @@ class ProductOrder {
     static belongsTo = [order: CustomerOrder]
 
     static constraints = {
-        product nullable:false
-        order nullable:false
+        product nullable:true
+        order nullable:true
     }
 }

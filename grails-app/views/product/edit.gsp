@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
+            <span class="menuButton"><g:link class="list" action="admin">Product List</g:link></span>
         </div>
         <div class="body">
             <h1>Product Administration</h1>
@@ -26,7 +26,7 @@
                 <g:hiddenField name="id" value="${productInstance?.id}" />
                 <g:hiddenField name="version" value="${productInstance?.version}" />
                 <div class="dialog">
-                <fieldset>
+                <fieldset style="float:left; width:420px; margin:10px">
                     <legend>Product Information</legend>
                     <p>
                         <label for="name">Product Name:</label>
@@ -43,7 +43,7 @@
                         <g:textArea style="width:95%; height:300px;" name="description" value="${productInstance?.description}" />
                     </p>
                 </fieldset>
-                <fieldset>
+                <fieldset style="float:left;  width:420px; margin:10px">
                     <legend>Manufacturer Information</legend>
                     <p>
                         <label for="sponsor.name">Manufacturer Name:</label>
@@ -97,22 +97,54 @@
                     </p><br />
 
                     <p>
-                        <label for="summaryFile">Print PDF:</label>
+                        <label>Print PDF:</label>
                         <input type="file" name="summary" id="summary"/>&nbsp;
                         <g:link action="downloadSummary" id="${productInstance.id}">${productInstance.summaryName}</g:link>
                     </p><br />
 
                     <p>
-                        <img src="${createLink(action:'displayImage', id:productInstance.id)}" height="40" width="60" />
+
                         <label for="image">Thumbnail:</label>
                         <input type="file" name="image" id="image"/>
-                    </p><br />                   
+						<img src="${createLink(action:'displayImage', id:productInstance.id)}" height="40" width="60" />
+                    </p><br />
+
+					<p><h3>Parent: ${productInstance.parent?.name}</h3><br/></p>
+                     <p><g:message code="product.parent" default="Parent ( if part of a Sample Pack)" /><br />
+
+
+							<g:select name="parentProd"
+							  id="parentProd"
+							  from="${Product.list()}"
+							  style="width:220px;"
+							  value="${productInstance.parent}"
+							  noSelection="${['null':'Select a Parent Product...']}" />
+					</p>
+					<br />
+
+					<p>
+					 <g:if test="${subProducts}">
+						<h3>SAMPLE PACK - SUBPRODUCTS</h3>
+						 <br/>
+						<ul>
+						<g:each in="${subProducts}" var="product">
+							<li><g:link action="edit" id="${product?.id}">${product.name}</g:link></li>
+						</g:each>
+						</ul>
+
+
+					 </g:if>
+					</p>
+
+
+					</fieldset>
                 </div>
-                <div class="buttons">
+                <div class="buttons" style="clear:both">
                     <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
             </g:form>
+
         </div>
     </body>
 </html>

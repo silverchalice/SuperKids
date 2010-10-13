@@ -34,80 +34,6 @@
 				return false;
 			});
 
-			var changedFlag;
-			$(':input').bind('change', function() {
-			    //console.log('changedFlag = true')
-				changedFlag = 'true';
-			});
-
-
-			$('#submit').click(function (e) {
-
-				if(changedFlag == 'true' && $('#result').val() == "null") {
-					return confirm('You made changes to the form, but did not choose a Call Result - your changes will not be saved. Do you want to continue?')
-				} else {
-
-					var productsChecked;
-					var shippingDateSelected;
-					var qualifiedSelected;
-					var order;
-
-
-					if ($("#products input:checked").length > 0) {
-						productsChecked = 'true';
-						order = 'true';
-						//alert('productsChecked = true!');
-					} else {
-						productsChecked = 'false';
-						//alert('productsChecked = false!');
-					}
-
-					if($('#shippingDate').val() == "null") {
-						shippingDateSelected = 'false'
-						//alert('shippingDateSelected = false!');
-					} else {
-						shippingDateSelected = 'true';
-						order = 'true';
-						//alert('shippingDateSelected = true!');
-					}
-
-					if($('#result').val() == "QUALIFIED") {
-						qualifiedSelected = 'true';
-						order = 'true';
-						//alert('qualifiedSelected = true!')
-					} else {
-						qualifiedSelected = 'false';
-						//alert('qualifiedSelected = false!')
-					}
-
-					if(order == 'true') {
-
-						if(productsChecked == 'false') {
-							alert('You have not selected any products');
-							return false
-						}
-
-						if(qualifiedSelected == 'false') {
-							return confirm('You have selected products to order, but have not chosen a Call Result of Qualified - no order will be saved. Do you wish to continue?');
-						}
-
-						if(shippingDateSelected == 'false') {
-							alert('You have not selected a Shipping Date');
-							return false;
-						}
-
-
-
-						return true
-
-					}
-
-
-					// more validation here...
-					return true
-				}
-	  		});
-
 		});
     </script>
 
@@ -161,7 +87,7 @@
 				<div id="tab1" class="tab_content">
 					<div class="dialog">
 						<div id="column1" style="width:415px; float:left">
-						<table style="width:400px; margin: 10px 10px 0px 0; margin-left:0">
+						<table style="width:400px; margin: 10px 10px 0 0; margin-left:0">
 							<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">
@@ -224,7 +150,7 @@
 					</table>
 				</div>
 				<div id="column2" style="width:500px; float:left">
-					<table style="width:500px;margin-top: 10px; margin-left: 0px; margin-right:10px;">
+					<table style="width:500px;margin-top: 10px; margin-left: 0; margin-right:10px;">
 						<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">
@@ -313,7 +239,7 @@
 						</tbody>
 					</table>
 
-				<table style="margin:10px 10px 0px 0px; width:300px; position:absolute; top:350px; left:955px; border:none; height:320px;">
+				<table style="margin:10px 10px 0 0; width:300px; position:absolute; top:350px; left:955px; border:none; height:320px;">
 					<tbody>
 						<tr>
 							<td class="prop" style=" background-image:url(${resource(dir:'images', file:'callnote.png')}); background-repeat:no-repeat">
