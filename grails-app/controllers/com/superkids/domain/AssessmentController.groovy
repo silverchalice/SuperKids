@@ -192,6 +192,16 @@ class AssessmentController {
          println "params.iRating is " + params.iRating
          def products = []
          def assessmentInstance = Assessment.get(params.id)
+         Assessment.findAllByCompleted(false).each{
+             if(it.id != assessmentInstance.id){
+                 try {
+                     it.delete(flush: true)
+                 }
+                 catch (org.springframework.dao.DataIntegrityViolationException e) {
+                     log.error e
+                 }
+             }
+         }
          def customer = Customer.get(springSecurityService.principal.id)
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
