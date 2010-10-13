@@ -23,8 +23,15 @@
                 <g:hiddenField name="id" value="${assessmentInstance?.id}" />
                 <g:hiddenField name="version" value="${assessmentInstance?.version}" />
                 <div class="dialog"><br />
+                  <h1>Broker or Distributor Contact</h1>
                   <p>
-                    This is where we'll ask you when to call you, when we get around to it.
+                             Your Broker or Distributor May Be Contacting You. What is the best time of year and day?
+                  </p>
+                  <p>
+                      <br /> Fall: <g:checkBox name="fall" value="${customerInstance?.fall}" /><br />
+                      <br /> Spring: <g:checkBox name="spring" value="${customerInstance?.spring}" /><br />
+                      <br /> AM: <g:checkBox name="am" value="${customerInstance?.am}" /><br />
+                      <br /> PM: <g:checkBox name="pm" value="${customerInstance?.pm}" /><br />
                   </p>
                 </div>
                 <div class="buttons">

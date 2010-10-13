@@ -24,7 +24,8 @@
                 <g:hiddenField name="version" value="${assessmentInstance?.version}" />
                 <div class="dialog"><br />
                   <p>
-                    This is where we'll ask you if you'd like to hear about other products, when we get around to it.
+                    <label for="otherProducts">What other whole grain products are you interested in?</label><br /><br />
+                    <textarea name="otherProducts" rows="10" cols="50"></textarea> 
                   </p>
                 </div>
                 <div class="buttons">

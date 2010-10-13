@@ -24,7 +24,8 @@
                 <g:hiddenField name="version" value="${assessmentInstance?.version}" />
                 <div class="dialog"><br />
                   <p>
-                    This is where we'll ask you for feedback, when we get around to it.
+                    <label for="programFeedback">We welcome your feedback. Please enter any positive or negative comments about the SuperKids program in general.</label><br /><br />
+                    <textarea name="programFeedback" rows="10" cols="50"></textarea> 
                   </p>
                 </div>
                 <div class="buttons">
