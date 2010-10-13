@@ -193,7 +193,6 @@ class ProductController {
 			}
 			quantity.save()
 		}
-
 		if (quantity.value == 0) {
 			// work-around for $$_javassist types in list
 			def itemToRemove = shoppingCart.items.find { item ->
@@ -278,6 +277,35 @@ class ProductController {
 		println "the productInstance's liveProduct is " + productInstance.liveProduct
 		render ''
     }
+
+    def brokerEditFromEdit = {
+        def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+        def brokerId = params.id
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+        println "customerInstance is... " + customerInstance
+        redirect controller:"product", action:"check_out", params:[brokerId:brokerId]
+    }
+
+    def updateBroker = {
+        println "our updateBroker params are " + params
+        def brokerInstance = Broker.get(params.id)
+        println "broker is " + brokerInstance
+        if (brokerInstance) {
+            brokerInstance.properties = params
+            brokerInstance.save(failOnError:true)
+        }
+        redirect controller:"product", action:"check_out"
+    }
+
 
     def brokerDeleteFromEdit = {
         def brokerInstance = Broker.get(params.id)

@@ -61,34 +61,40 @@ class MiscTagLib {
 
 
 	def productBox = { attrs ->
-
+		println "entering productBox tag..."
 		def customer = Customer.get(springSecurityService.principal?.id)
 		def shoppingCart = shoppingCartService.getShoppingCart()
 
 		Product.list().each { product ->
 			def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
+			println "quantity is $quantity"
 
-			if(quantity) {
 
-				out << "<a href='"
-				out << g.createLink(controller:'product', action:'show', id: product.id)
-				out << "' />"
-				out << "<img src='"
-				out "${createLink(controller:'product', action:'displayHoverImage', id:product.id)}"
-				out << "' "
-				out << "style='margin:3px; width:65px; height:50px' />"
-				out << "</a>"
+			if(product.liveProduct && product.statesAvailable.find{ customer?.deliveryAddress?.state }){
+				if(quantity) {
+					println "hoverImage"
+					out << "<a href='"
+					out << g.createLink(controller:'product', action:'show', id: product.id)
+					out << "' />"
+					out << "<img src='"
+					out << "${createLink(controller:'product', action:'displayHoverImage', id:product.id)}"
+					out << "' "
+					out << "style='margin:3px; width:65px; height:50px' />"
+					out << "</a>"
+				} else {
+					println "image"
+					out << "<a href='"
+					out << g.createLink(controller:'product', action:'show', id: product.id)
+					out << "' />"
+					out << "<img src='"
+					out << "${createLink(controller:'product', action:'displayImage', id:product.id)}"
+					out << "' "
+					out << "style='margin:3px; width:65px; height:50px' />"
+					out << "</a>"
+				}
 			} else {
-				out << "<a href='"
-				out << g.createLink(controller:'product', action:'show', id: product.id)
-				out << "' />"
-				out << "<img src='"
-				out << "${createLink(controller:'product', action:'displayImage', id:product.id)}"
-				out << "' "
-				out << "style='margin:3px; width:65px; height:50px' />"
-				out << "</a>"
+				out << ""
 			}
-			
 
 
 
@@ -347,7 +353,7 @@ Modified: get menuButton text from new 'msg' attr
 
 	}
 
-        def productSidebar = { attrs ->
+/*        def productSidebar = { attrs ->
             def products = attrs.products
             def user = User.get(springSecurityService.principal.id)
             if(!user.isAdmin()){
@@ -361,7 +367,7 @@ Modified: get menuButton text from new 'msg' attr
             } else {
                 out << ""
             }
-        }
+        }*/
 
     def bakeCheckbox = { attrs ->
         def productInstance = Product.get(attrs.id)
