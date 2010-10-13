@@ -97,19 +97,48 @@
                     </p><br />
 
                     <p>
-                        <label>Print PDF:</label>
+                        <label>Product Summary PDF:</label>
                         <input type="file" name="summary" id="summary"/>&nbsp;
                         <g:link action="downloadSummary" id="${productInstance.id}">${productInstance.summaryName}</g:link>
                     </p><br />
 
                     <p>
 
-                        <label for="image">Thumbnail:</label>
+                        <label for="image">Normal Thumbnail:</label>
                         <input type="file" name="image" id="image"/>
 						<img src="${createLink(action:'displayImage', id:productInstance.id)}" height="40" width="60" />
                     </p><br />
 
-					<p><h3>Parent: ${productInstance.parent?.name}</h3><br/></p>
+
+                    <p>
+                        <label for="hoverImage">Selected Thumbnail:</label>
+                        <input type="file" name="hoverImage" id="hoverImage"/>
+						<img src="${createLink(action:'displayHoverImage', id:productInstance.id)}" height="40" width="60" />
+                    </p><br />
+
+                    <p>
+                        <label for="backgroundImage">Background Image</label>
+                        <input type="text" name="backgroundImage" id="backgroundImage" value="${productInstance.backgroundImage}"/>
+						<img src="${resource(dir:'uploads', file:productInstance.backgroundImage)}" height="60" width="60" />
+                    </p><br />
+
+					<p>
+						<label for="bake">Baked:</label> <g:checkBox name="bake" value="${productInstance?.bake}" />
+					</p>
+
+					<p>
+						<label for="frozen">Frozen:</label> <g:checkBox name="frozen" value="${productInstance?.frozen}" />
+					</p>
+
+					<p>
+						<label for="liveProduct">Live:</label> <g:checkBox name="liveProduct" value="${productInstance?.liveProduct}" />
+					</p>
+                     <p>
+                        <label for="servings"># of Servings:</label>
+                        <g:textField name="servings" value="${productInstance?.servings}" />
+                    </p><br />
+
+ 					<p><h3>Parent: ${productInstance.parent?.name}</h3><br/></p>
                      <p><g:message code="product.parent" default="Parent ( if part of a Sample Pack)" /><br />
 
 
