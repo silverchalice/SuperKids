@@ -82,6 +82,8 @@ class ProductController {
     }
 
     def update = {
+		
+
         def summaryName = params.summary.originalFilename
         def summaryType = params.summary.contentType
         def productInstance = Product.get(params.id)

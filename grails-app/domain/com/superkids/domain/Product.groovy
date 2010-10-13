@@ -16,9 +16,12 @@ class Product implements IShoppable {
 
 	Boolean liveProduct = true
 	Boolean bake = false
+	Boolean frozen = false
 
 	Product parent
 
+
+	String backgroundImage        // file path
 	byte[] image
 	byte[] hoverImage
 	byte[] summary
@@ -34,6 +37,7 @@ class Product implements IShoppable {
 	nutrition()
 	image()
 	hoverImage()
+	backgroundImage nullable: true
 	summary()
 	summaryName(nullable:true)
 	summaryType(nullable:true)
@@ -43,6 +47,7 @@ class Product implements IShoppable {
 	}
 
 	static mapping = {
+		backgroundImage sqlType:"longblob"
 		image sqlType:"longblob"
 		hoverImage sqlType:"longblob"
 		summary sqlType:"longblob"
