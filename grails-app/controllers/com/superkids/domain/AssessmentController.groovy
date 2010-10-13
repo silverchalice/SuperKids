@@ -278,6 +278,7 @@ class AssessmentController {
     def rewards = {
         def customerInstance = Customer.get(springSecurityService.principal.id)
         customerInstance.properties = params
+		customerInstance.status = CustomerStatus.QUALIFIED
         customerInstance.save(failOnError:true)
         println "otherProducts: " + customerInstance.otherProducts
         [customerInstance:customerInstance]

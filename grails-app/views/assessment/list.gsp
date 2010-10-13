@@ -32,7 +32,7 @@
                         
                             <th><g:message code="assessment.customer.label" default="Customer" /></th>
                         
-                            <g:sortableColumn property="interestRating" title="${message(code: 'assessment.interestRating.label', default: 'Interest Rating')}" />
+                            <g:sortableColumn property="iRating" title="${message(code: 'assessment.interestRating.label', default: 'Interest Rating')}" />
                         
                         </tr>
                     </thead>
@@ -50,7 +50,7 @@
                         
                             <td>${fieldValue(bean: assessmentInstance, field: "customer")}</td>
                         
-                            <td>${fieldValue(bean: assessmentInstance, field: "interestRating")}</td>
+                            <td>${fieldValue(bean: assessmentInstance, field: "iRating")}</td>
                         
                         </tr>
                     </g:each>

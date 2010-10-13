@@ -22,15 +22,23 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'customerOrder.id.label', default: 'Id')}" />
+                            <g:sortableColumn property="id" title="${message(code: 'customerOrder.id.label', default: 'Order ID')}" />
+
+							<th>Items Ordered</th>
+
+							<th><g:message code="customerOrder.customer.label" default="Customer" /></th>
+
+							<th>Assessment Completed</th>
+
+							<th>Order Date</th>
+
+							 <th><g:message code="customerOrder.shippingDate.label" default="Req'd Ship Date" /></th>
+
+							<th>Ordered From</th>
                         
-                            <th><g:message code="customerOrder.shippingDate.label" default="Shipping Date" /></th>
+							<th>Actions</th>
                         
-                            <th><g:message code="customerOrder.customer.label" default="Customer" /></th>
-                        
-                            <g:sortableColumn property="dateCreated" title="${message(code: 'customerOrder.dateCreated.label', default: 'Date Created')}" />
-                        
-                            <g:sortableColumn property="orderType" title="${message(code: 'customerOrder.orderType.label', default: 'Order Type')}" />
+
                         
                         </tr>
                     </thead>
@@ -38,15 +46,27 @@
                     <g:each in="${customerOrderInstanceList}" status="i" var="customerOrderInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${customerOrderInstance.id}">${fieldValue(bean: customerOrderInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: customerOrderInstance, field: "shippingDate")}</td>
+                            <td style="width:100px;">${fieldValue(bean: customerOrderInstance, field: "id")}</td>
+
+							<td>${customerOrderInstance?.products?.size()}</td>
+
+
                         
                             <td>${fieldValue(bean: customerOrderInstance, field: "customer")}</td>
+
+							<td><sks:assessmentCheckbox id="${customerOrderInstance?.customer?.id}"/></td>
                         
-                            <td><g:formatDate date="${customerOrderInstance.dateCreated}" /></td>
+                            <td><g:formatDate date="${customerOrderInstance.dateCreated}" format="M/d/yyyy" /></td>
+
+							<td>${fieldValue(bean: customerOrderInstance, field: "shippingDate")}</td>
                         
                             <td>${fieldValue(bean: customerOrderInstance, field: "orderType")}</td>
+
+
+							<td style="width:120px;">
+								<g:link action="show" id="${customerOrderInstance.id}">View</g:link>&nbsp;|&nbsp;
+								<g:link action="delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerOrderInstance.id}">Delete</g:link>
+							</td>
                         
                         </tr>
                     </g:each>

@@ -159,11 +159,32 @@ class MiscTagLib {
         out << "' id='"
         out << attrs.id
         out << "' "
-        if(Assessment.findByCustomer(customerInstance)){
+        //if(Assessment.findByCustomer(customerInstance)){
+		if(customerInstance.status == CustomerStatus.QUALIFIED){
             out << "checked='checked'"
         }
         out << "' disabled='disabled' />"
     }
+
+
+	def viewAssessment = { attrs ->
+		println 'entering viewAssessment tag'
+		def product = Product.get(attrs.product)
+		def customer = Customer.get(attrs.customer)
+		def assessment = Assessment.findByProductAndCustomer(product, customer)
+
+		assessment.properties.each { key, val ->
+			println "$key = $val"
+		}
+
+		if((product) && (assessment) && (assessment.completed)) {
+			out << "<a href='"
+			out << createLink(controller:'assessment', view:'show', id: assessment.id)
+			out << "'> View Results </a>"
+
+		}
+	}
+
 
     def factoidList = { attrs ->
         def f = Factoid.get(1)
