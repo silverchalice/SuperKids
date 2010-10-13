@@ -20,7 +20,7 @@ class ProductController {
     }
 
     def admin = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.max = Math.min(params.max ? params.int('max') : 23, 100)
         render view:"list", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
     }
 
@@ -36,7 +36,7 @@ class ProductController {
         productInstance.shoppingItem = shoppingItem
         if (productInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'product.label', default: 'Product'), productInstance.id])}"
-            redirect(action: "show", id: productInstance.id)
+            redirect action: "admin"
         }
         else {
             render(view: "create", model: [productInstance: productInstance])
@@ -70,7 +70,14 @@ class ProductController {
             redirect(action: "list")
         }
         else {
-            return [productInstance: productInstance]
+
+			def subProducts = Product.findAllByParent(productInstance)
+
+			if(subProducts) {
+				println "There are sub products"
+			}
+
+            return [productInstance: productInstance, subProducts: subProducts]
         }
     }
 
@@ -89,11 +96,17 @@ class ProductController {
                 }
             }
             productInstance.properties = params
+
+			if(params.parentProd) {
+				def parent = Product.findByName(params.parentProd)
+				productInstance.parent = parent
+			}
+
             productInstance.summaryName = summaryName
             productInstance.summaryType = summaryType
             if (!productInstance.hasErrors() && productInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'product.label', default: 'Product'), productInstance.id])}"
-                redirect(action: "show", id: productInstance.id)
+                redirect(action: "admin")
             }
             else {
                 render(view: "edit", model: [productInstance: productInstance])
@@ -133,6 +146,15 @@ class ProductController {
 		response.outputStream.write(productInstance.image)
 	}
 
+	def displayHoverImage = {
+		println "entering displayImage"
+		def productInstance = Product.get(params.id)
+
+		response.contentType = "image/jpeg"
+		response.contentLength = productInstance.hoverImage.size()
+		response.outputStream.write(productInstance.hoverImage)
+	}
+
 	def downloadSummary = {
 		def productInstance = Product.get(params.id)
 		response.contentType = "${productInstance.summaryType}"
@@ -141,120 +163,120 @@ class ProductController {
 		response.outputStream.write(productInstance.summary)
 	}
 
-        def add = {
-            println "in Product add action"
-            def product = Product.get(params.id)
-            shoppingCartService.addToShoppingCart(product, 1)
-            if(params.cartPage){
-                println "rendering shoppingCartContent template (in add action)"
-                render template:"/shopping/shoppingCartContent", model:[productInstance:product]
-            } else {
-                println "rendering added template (in add action)"
-                render template:"/shopping/added", model:[productInstance:product]
-            }
+	def add = {
+		println "in Product add action"
+		def product = Product.get(params.id)
+		shoppingCartService.addToShoppingCart(product, 1)
+		if(params.cartPage){
+			println "rendering shoppingCartContent template (in add action)"
+			render template:"/shopping/shoppingCartContent", model:[productInstance:product]
+		} else {
+			println "rendering added template (in add action)"
+			render template:"/shopping/added", model:[productInstance:product]
+		}
 	}
 
-        def remove = {
-            def product = Product.get(params.id)
-            def qty = 1
-            def previousShoppingCart = null
-            def shoppingCart = shoppingCartService.getShoppingCart()
+	def remove = {
+		def product = Product.get(params.id)
+		def qty = 1
+		def previousShoppingCart = null
+		def shoppingCart = shoppingCartService.getShoppingCart()
 
-            if (!shoppingCart) {
-                return
-            }
-		
-            def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
-            if (quantity) {
-                if (quantity.value - qty >= 0) {
-                    quantity.value -= qty
-                }
-                quantity.save()
-            }
-		
-            if (quantity.value == 0) {
-                // work-around for $$_javassist types in list
-                def itemToRemove = shoppingCart.items.find { item ->
-                    if (item.id == product.shoppingItem.id) {
-                        return true
-                    }
-                    return false
-                }
-                shoppingCart.removeFromItems(itemToRemove)
-                quantity.delete()
-            }
+		if (!shoppingCart) {
+			return
+		}
 
-            shoppingCart.save()
-            if(params.cartPage){
-                render template:"/shopping/initial", model:[productInstance:product]
-            } else if (params.confirm){
-                def cartItems = shoppingCartService.getItems()
-                def products = []
-                cartItems?.each { item ->
-                    def prod = Product.findByShoppingItem(item)
-                    if(prod){
-                        def p = new Expando(toString: {-> prod.name}, id:prod.id, quantity:prod.servings)
-                        products << p
-                    }
-                }
-                render template:"/product/checkout_items", model:[products:products]
-            } else {
-                render template:"/shopping/shoppingCartContent", model:[productInstance:product]
-            }
-        }
+		def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
+		if (quantity) {
+			if (quantity.value - qty >= 0) {
+				quantity.value -= qty
+			}
+			quantity.save()
+		}
 
-        def check_out = {
-            def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-            def customerInstance = Customer.get(springSecurityService.principal.id)
-            render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states]
-        }
+		if (quantity.value == 0) {
+			// work-around for $$_javassist types in list
+			def itemToRemove = shoppingCart.items.find { item ->
+				if (item.id == product.shoppingItem.id) {
+					return true
+				}
+				return false
+			}
+			shoppingCart.removeFromItems(itemToRemove)
+			quantity.delete()
+		}
 
-        def other_delete = {
-            if(springSecurityService.isLoggedIn()){
-                if(User.get(springSecurityService.principal.id).isAdmin()){
-                    def productInstance = Product.get(params.id)
-                    if (productInstance) {
-                        try {
-                            productInstance.delete(flush: true)
-                            flash.message = "Deleted this product."
-                            redirect(action: "admin")
-                        }
-                        catch (org.springframework.dao.DataIntegrityViolationException e) {
-                            flash.message = "This product could not be deleted."
-                            redirect(action: "admin")
-                        }
-                    }
-                    else {
-                        flash.message = "Product record not found."
-                        redirect(action: "admin")
-                    }
-                } else {
-                    flash.message = "You aren't allowed to access this page."
-                    redirect controller:"home", action:"index"
-                }
-            } else {
-                flash.message = "Please log in.."
-                redirect controller:"home", action:"index"
-                }
-        }
+		shoppingCart.save()
+		if(params.cartPage){
+			render template:"/shopping/initial", model:[productInstance:product]
+		} else if (params.confirm){
+			def cartItems = shoppingCartService.getItems()
+			def products = []
+			cartItems?.each { item ->
+				def prod = Product.findByShoppingItem(item)
+				if(prod){
+					def p = new Expando(toString: {-> prod.name}, id:prod.id, quantity:prod.servings)
+					products << p
+				}
+			}
+			render template:"/product/checkout_items", model:[products:products]
+		} else {
+			render template:"/shopping/shoppingCartContent", model:[productInstance:product]
+		}
+	}
 
-        def toggleLive = {
-            def productInstance = Product.get(params.id)
-            if (productInstance){
-                productInstance.liveProduct = params.liveProduct == 'true'
-                productInstance.save()
-            }
-            println "the productInstance's liveProduct is " + productInstance.liveProduct
-            render ''
+	def check_out = {
+		def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+		  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+		  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+		  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+		  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+		  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+		  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+		  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+		  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+		  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+		def customerInstance = Customer.get(springSecurityService.principal.id)
+		render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states]
+	}
+
+	def other_delete = {
+		if(springSecurityService.isLoggedIn()){
+			if(User.get(springSecurityService.principal.id).isAdmin()){
+				def productInstance = Product.get(params.id)
+				if (productInstance) {
+					try {
+						productInstance.delete(flush: true)
+						flash.message = "Deleted this product."
+						redirect(action: "admin")
+					}
+					catch (org.springframework.dao.DataIntegrityViolationException e) {
+						flash.message = "This product could not be deleted."
+						redirect(action: "admin")
+					}
+				}
+				else {
+					flash.message = "Product record not found."
+					redirect(action: "admin")
+				}
+			} else {
+				flash.message = "You aren't allowed to access this page."
+				redirect controller:"home", action:"index"
+			}
+		} else {
+		flash.message = "Please log in.."
+			redirect controller:"home", action:"index"
+		}
+	}
+
+	def toggleLive = {
+		def productInstance = Product.get(params.id)
+		if (productInstance){
+			productInstance.liveProduct = params.liveProduct == 'true'
+			productInstance.save()
+		}
+		println "the productInstance's liveProduct is " + productInstance.liveProduct
+		render ''
     }
 
     def brokerDeleteFromEdit = {

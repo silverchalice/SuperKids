@@ -48,7 +48,7 @@
 			</div>
 			<h1>Products</h1>
 			<div class="list">
-                <table>
+
          <p><g:remoteLink controller="product" action="add"
 				params="${[id:1, class:com.superkids.domain.Product.class, version:1]}"
 				update="shoppingCartContent"

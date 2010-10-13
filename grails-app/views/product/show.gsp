@@ -92,6 +92,16 @@
 
                         </tr>
 
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="product.parent" default="Parent ( if part of a Sample Pack)" /></td>
+
+                            <td valign="top" class="value">
+								<g:if test="${customerInstance?.parent}">${customerInstance?.parent.name}</g:if>
+							    <g:else>None</g:else>
+							</td>
+
+                        </tr>
+
                     </tbody>
                 </table>
             </div>

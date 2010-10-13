@@ -119,7 +119,7 @@ class BootStrap {
 			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:93456),
 			phone:'1-800 123 4567',
 			website:'www.acmefoods.com',
-                        logo:new File("${superkids}/images/sustagrain.gif").readBytes(),
+			logo:new File("${superkids}/images/sustagrain.gif").readBytes(),
 			salesContact:'John Doe, jdoe@acmefoods.com 123-456-7890',
 			sampleContact:'Jane Smith jsmith@acmefoods.com 123-456-0987',
 			products:[]
@@ -130,7 +130,7 @@ class BootStrap {
 			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:93456),
 			phone:'1-800 123 4567',
 			website:'www.acmefoods.com',
-                        logo:new File("${superkids}/images/ultragrain.gif").readBytes(),
+			logo:new File("${superkids}/images/ultragrain.gif").readBytes(),
 			salesContact:'John Doe, jdoe@acmefoods.com 123-456-7890',
 			sampleContact:'Jane Smith jsmith@acmefoods.com 123-456-0987',
 			products:[]
@@ -142,9 +142,10 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
-                        bake:true,
+			statesAvailable:statesAvailable,
+			bake:true,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem1
 		).save()
@@ -155,8 +156,9 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem2
 		).save()
@@ -167,8 +169,9 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem3
 		).save()
@@ -179,8 +182,9 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem4
 		).save()
@@ -191,8 +195,9 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem5
 		).save()
@@ -203,8 +208,9 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem6
 		).save()
@@ -215,8 +221,9 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem7
 		).save()
@@ -227,8 +234,9 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem8
 		).save()
@@ -239,8 +247,9 @@ class BootStrap {
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem9
 		).save()
@@ -250,9 +259,11 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
+		    parent:product9,
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem10
 		).save()
@@ -262,9 +273,11 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
+			parent:product9,
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem11
 		).save()
@@ -274,17 +287,14 @@ class BootStrap {
 			description:'This is a description.',
 			details:'These are some details.',
 			nutrition:'Fat:0g, Sugar:0g',
+			parent:product9,
 			image:new File("${superkids}/uploads/product1.png").readBytes(),
+			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(),
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
-                        statesAvailable:statesAvailable,
+			statesAvailable:statesAvailable,
 			sponsor:sponsor1,
             shoppingItem:shoppingItem12
 		).save()
-
-		sponsor1.addToProducts(product1)
-		sponsor1.addToProducts(product2)
-                sponsor2.addToProducts(product3)
-                sponsor2.addToProducts(product4)
 
 		customer.save(failOnError:true)
 		customer2.save(failOnError:true)

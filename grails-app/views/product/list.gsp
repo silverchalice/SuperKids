@@ -24,7 +24,7 @@
                     <thead>
                         <tr>
 
-                            <g:sortableColumn property="isLive" title="Live" />
+                            <g:sortableColumn property="liveProduct" title="Live" />
 
                             <g:sortableColumn property="name" title="Product Name" />
 
@@ -39,8 +39,8 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
                             <td width="25px">&nbsp;<g:checkBox name='isLive'
-                                        value="${productInstance.isLive}"
-                                        onclick="${remoteFunction(action:'toggleLive', id:productInstance.id, params:'\'isLive=\' + this.checked')}" /></td>
+                                        value="${productInstance.liveProduct}"
+                                        onclick="${remoteFunction(action:'toggleLive', id:productInstance.id, params:'\'liveProduct=\' + this.checked')}" /></td>
 
                             <td width="550px">&nbsp;<g:link action="edit" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</g:link></td>
 
