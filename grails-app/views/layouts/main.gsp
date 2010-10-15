@@ -5,8 +5,7 @@
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
         <export:resource />
-        <g:javascript library="application" />
-        <g:javascript library="jquery" plugin="jquery"/>
+
     </head>
     <body>
         <div id="spinner" class="spinner" style="display:none;">

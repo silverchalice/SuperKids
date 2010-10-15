@@ -67,7 +67,17 @@ class CustomerController {
             redirect(action: "list")
         }
         else {
-            return [customerInstance: customerInstance, products:Product.list()]
+			def products = []
+			if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
+				products = Product.list()
+			} else {
+				customerInstance.order.products.each { productOrder ->
+					if(productOrder.received)
+						products << productOrder
+				}
+			}
+
+            return [customerInstance: customerInstance, products: products]
         }
     }
 
@@ -206,4 +216,16 @@ class CustomerController {
         render ''
     }
 
+
+	    def toggleDidNotReceive = {
+		println 'in ToggleDidNotReceive'
+		println params
+        def productOrderInstance = ProductOrder.get(params.id)
+        if (productOrderInstance){
+            productOrderInstance.received = params.didNotReceive == 'false'
+            productOrderInstance.save()
+        }
+        println "the productOrderInstance's received is " + productOrderInstance.received
+        render ''
+    }
 }

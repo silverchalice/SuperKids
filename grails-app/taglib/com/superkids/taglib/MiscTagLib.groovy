@@ -180,6 +180,10 @@ class MiscTagLib {
 		}
 	}
 
+	def adminAssessLink = {
+		
+	}
+
 	def viewAssessment = { attrs ->
 		println 'entering viewAssessment tag'
 		def product = Product.get(attrs.product)
