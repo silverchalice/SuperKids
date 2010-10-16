@@ -1,4 +1,5 @@
 package com.superkids.domain
+import com.superkids.domain.OrderType
 
 class CustomerController {
 
@@ -144,26 +145,43 @@ class CustomerController {
 
     def add_order = {
         println "the params in add_order are " + params
+        def pr
+        def sd = ShippingDate.get(params.reqShipDate)
+        def oo = OrderType."${params.OrderOrigin}"
         def customer = Customer.get(params.id)
         if(customer){
             if(customer.order){
                 params.product.each {
-                    if(!customer.order.products.collect{it.id}.contains(it))
-                    def p = Product.get(it)
-                    if(p){
-                        customer.order.products << p
+                    def pLong = it.toLong()
+                    println pLong.class
+                    println it.class
+                    if(!customer.order.products.collect{it.product.id}.contains(it))
+                    pr = com.superkids.domain.Product.get(it.toLong())
+                    Product.list().each { println it }
+                    println "foo! bar!"
+                    if(pr){
+                        "bar! bas!"
+                        println "pr is " + pr
+                        println "earlier the order had " + customer.order.products
+                        def productOrder = new ProductOrder(product:pr)
+                        println "the productOrder is " + productOrder
+                        customer.order.addToProducts(productOrder)
+                        println "now the order has " + customer.order.products
                     }
                 }
             } else {
-                def order = new CustomerOrder()
+                def order = new CustomerOrder(shippingDate:sd, orderType:oo)
                 params.product.each {
                     def p = Product.get(it)
                     if(p){
-                        order.addToProducts(p)
+                        def productOrder = new ProductOrder(product:p)
+                        order.addToProducts(productOrder)
                     }
                 }
                 customer.order = order
-                customer.save()
+                customer.hasPlacedCurrentOrder = true
+                customer.save(failOnError:true)
+                println "customer.hasPlacedCurrentOrder: " + customer.hasPlacedCurrentOrder
             }
             flash.message = "Added selected products to customer's order."
             println "here's the customer's order: "

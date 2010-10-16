@@ -401,8 +401,134 @@
 
                         </tbody>
                     </table>
-       		</div>
-		</div>
+                </div>
+                <div class="buttons">
+                    <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
+                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
+                </div>
+            </g:form>
+            </div>
+            <div style="float:right; width:500px;">
+                <h1>Manual Order</h1>
+                <p>Foo.</p>
+                <table cellpadding="5" cellspacing="0" border="1" width="100%">
+                    <tr> 
+                        <td colspan="2" align="left" class="adminheadline">Manual Order</td> 
+                    </tr> 
+                    <tr> 
+                        <th>ITEM NAME</th> 
+                        <th>ORDER</th> 
+                    </tr>				
+                    <g:form name="OrderProduct" action="add_order" method="post">
+                    <g:hiddenField name="id" value="${customerInstance.id}" />
+                        <g:each in="${products}" var="product">
+                            <tr>
+                                <td>${product?.sponsor?.name}<sup>®</sup> ${product?.name}</td> 
+                                <td><input type="checkbox" name="product" value="${product.id}" /></td>		
+                            </tr>
+                            <tr> 
+                        </g:each>
+                                <td colspan="2"> 
+                                    <strong>Order Origin:</strong>
+                                    <input type="radio" name="OrderOrigin" value="web" checked="checked">Web&nbsp;&nbsp;
+                                    <input type="radio" name="OrderOrigin" value="phone">Phone&nbsp;&nbsp;
+                                    <input type="radio" name="OrderOrigin" value="fax">Fax&nbsp;&nbsp;
+                                    <input type="radio" name="OrderOrigin" value="mail">Mail&nbsp;&nbsp;
+                                    <input type="radio" name="OrderOrigin" value="email">Email<br/> 
+                        <br />
+                        <strong>Requested Ship Date:</strong> 
+                        <g:select id="reqShipDate"
+                                  name="reqShipDate"
+                                  from="${ShippingDate.list()}"
+                                  value="shipDate"
+                                  optionKey="${g.formatDate(format:'MMMM, yyyy', date:shipDate)}" />
+                        <br /><br /> 
+                        <input type="submit" name="ADD" value="Add Checked Items" /> 
+                    </td> 
+                </tr> 
+				</g:form>		
+			</table> 
+            <div>
+            <div style="float:right; width:500px;"><br />
+                <h1>Add Broker</h1>
+                <table cellpadding="5" cellspacing="0" border="0" width="100%">
+                    <g:form controller="${broker ? 'product' : 'home'}" action="${broker ? 'updateBroker': 'addBroker'}" method="post">
+                          <tr> 
+                              <td><strong>Broker/Distributor Name: </strong></td> 
+                              <td><input type="text" name="name" size="20" maxlength="50" value="${broker?.name}"></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Email: </strong></td> 
+                              <td><input type="text" name="email" size="20" maxlength="50" value="${broker?.email}"></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Telephone: </strong></td> 
+                              <td><input type="text" name="phone" size="20" maxlength="50" value="${broker?.phone}"></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Fax: </strong></td> 
+                              <td><input type="text" name="fax" size="20" maxlength="50" value="${broker?.fax}"></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Address: </strong></td> 
+                              <td><input type="text" name="street" size="20" maxlength="255" value="${broker?.street}"></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong></strong></td> 
+                              <td><input type="text" name="street2" size="20" maxlength="255" value="${broker?.street2}"></td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>City: </strong></td> 
+                              <td><input type="text" name="city" size="20" maxlength="50" value="${broker?.city}"></td> 
+                          </tr> 
+                          <tr> 			
+                              <td><strong>State</strong></td> 
+                              <td align="left"> 
+                                    <g:select name="state" from="${states}"  value="${broker?.state}" />
+                              </td> 
+                          </tr> 
+                          <tr> 
+                              <td><strong>Zip: </strong></td> 
+                              <td><input type="text" name="zip" size="10" maxlength="20" value="${broker?.zip}"></td> 
+                          </tr> 
+                          <tr> 
+                              <td><g:hiddenField name="rController" value="customer" />
+                              <g:hiddenField name="rAction" value="edit" />
+                              <g:hiddenField name="rId" value="${customerInstance.id}" />
+                              <g:hiddenField name="customerId" value="${customerInstance.id}" />
+                              <g:hiddenField name="id" value="${broker?.id}" /></td> 
+                          </tr> 
+                            <tr>
+                                <td>
+                                    <input type="submit" name="add" value="Add" /> 
+                                </td>
+                            </tr>
+				</g:form>		
+			</table> 
+            <div> <br />
+                    <table>
+                        <thead>
+                            <th><strong>Name</strong></th>
+                            <th><strong>Email</strong></th/>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                          <g:each in="${customerInstance.brokers}" var="broker">
+                             <tr>
+                                <td>
+                                  ${broker?.name}
+                                </td>
+                                <td>
+                                  ${broker?.email}
+                                </td>
+                                <td>
+                                  <g:link action="brokerEditFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Delete</g:link>
+                                </td>
+                            </tr>
+                          </g:each>
+                        </tbody>
+                    </table><p>&nbsp;</p>
+        </div>
     </body>
 
 </html>
