@@ -12,7 +12,7 @@
 		<jqui:resources/>
 		<style type="text/css">
 			input {
-				width:200px
+				width:auto
 			}
 
 			#assessForm {
@@ -53,7 +53,7 @@
                     <input type="submit" value="Search" />
                 </g:form>
             </div>
-            <h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:345px">Order Details</h1>
+            <h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:35%">Order Details</h1>
 			<br/>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -63,7 +63,7 @@
                 <g:renderErrors bean="${customerInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <div style="float:left; width:450px;">
+            <div style="float:left; width:40%;">
             <g:form method="post">
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
@@ -280,26 +280,10 @@
 
                         </tbody>
                     </table>
-				   
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </div>
-            </g:form>
-            </div>
-            <div style="float:left; margin-left:10px; width:830px;">
-
-				<g:if test="${customerInstance.status != CustomerStatus.HAS_NOT_ORDERED}">
-					<g:render template="ordered_items" model="[customerInstance: customerInstance, products: products]" />
-				</g:if>
-				<g:else>
-					<g:render template="manual_order" model="[customerInstance: customerInstance, products: products]" />
-				</g:else>
-
-				 <table>
+					<h1>Additional Information</h1>
+					 <table>
 						<tbody>
-                            <tr class="prop">
+							<tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="Students In District" /></label>
                                 </td>
@@ -343,9 +327,9 @@
                                     <g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}" />
                                 </td>
                             </tr>
-						
+
                             <tr class="prop">
-								   <td valign="top" class="name">
+								<td valign="top" class="name">
 									   <label for="hasBakery">We make our own bread products from<br/>
 										   scratch in our bakery (proof & bake)</label>
 								   </td>
@@ -354,41 +338,41 @@
 								   </td>
 							   </tr>
 
-							  <tr class="prop">
+						 	   <tr class="prop">
 								  <td valign="top" class="name">
 									  <label for="purchaseFreshBread">We purchase fresh bakery and bread products</label>
 								  </td>
 								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFreshBread', 'errors')}">
 									  <g:checkBox name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" />
 								  </td>
-							  </tr>
+								</tr>
 
-							  <tr class="prop">
+							<tr class="prop">
 								  <td valign="top" class="name">
 									  <label for="purchaseFrozenBread">We purchase frozen bread products and/or<br/>  bread mixes and bake them in our bakery</label>
 								  </td>
 								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenBread', 'errors')}">
 									  <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
 								  </td>
-							  </tr>
+						  		</tr>
 
-							  <tr class="prop">
-								  <td valign="top" class="name">
-									  <label for="purchaseFrozenFood">We purchase frozen foods</label>
-								  </td>
-								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenFood', 'errors')}">
-									  <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
-								  </td>
-							  </tr>
+						    <tr class="prop">
+							  <td valign="top" class="name">
+								  <label for="purchaseFrozenFood">We purchase frozen foods</label>
+							  </td>
+							  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenFood', 'errors')}">
+								  <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
+							  </td>
+						    </tr>
 
-							  <tr class="prop">
-								  <td valign="top" class="name">
-									  <label for="purchasePreparedFood">We purchase prepared foods</label>
-								  </td>
-								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchasePreparedFood', 'errors')}">
-									  <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
-								  </td>
-							  </tr>
+						    <tr class="prop">
+							  <td valign="top" class="name">
+								  <label for="purchasePreparedFood">We purchase prepared foods</label>
+							  </td>
+							  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchasePreparedFood', 'errors')}">
+								  <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
+							  </td>
+						    </tr>
 
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -408,51 +392,21 @@
                 </div>
             </g:form>
             </div>
-            <div style="float:right; width:500px;">
-                <h1>Manual Order</h1>
-                <p>Foo.</p>
-                <table cellpadding="5" cellspacing="0" border="1" width="100%">
-                    <tr> 
-                        <td colspan="2" align="left" class="adminheadline">Manual Order</td> 
-                    </tr> 
-                    <tr> 
-                        <th>ITEM NAME</th> 
-                        <th>ORDER</th> 
-                    </tr>				
-                    <g:form name="OrderProduct" action="add_order" method="post">
-                    <g:hiddenField name="id" value="${customerInstance.id}" />
-                        <g:each in="${products}" var="product">
-                            <tr>
-                                <td>${product?.sponsor?.name}<sup>®</sup> ${product?.name}</td> 
-                                <td><input type="checkbox" name="product" value="${product.id}" /></td>		
-                            </tr>
-                            <tr> 
-                        </g:each>
-                                <td colspan="2"> 
-                                    <strong>Order Origin:</strong>
-                                    <input type="radio" name="OrderOrigin" value="web" checked="checked">Web&nbsp;&nbsp;
-                                    <input type="radio" name="OrderOrigin" value="phone">Phone&nbsp;&nbsp;
-                                    <input type="radio" name="OrderOrigin" value="fax">Fax&nbsp;&nbsp;
-                                    <input type="radio" name="OrderOrigin" value="mail">Mail&nbsp;&nbsp;
-                                    <input type="radio" name="OrderOrigin" value="email">Email<br/> 
-                        <br />
-                        <strong>Requested Ship Date:</strong> 
-                        <g:select id="reqShipDate"
-                                  name="reqShipDate"
-                                  from="${ShippingDate.list()}"
-                                  value="shipDate"
-                                  optionKey="${g.formatDate(format:'MMMM, yyyy', date:shipDate)}" />
-                        <br /><br /> 
-                        <input type="submit" name="ADD" value="Add Checked Items" /> 
-                    </td> 
-                </tr> 
-				</g:form>		
-			</table> 
-            <div>
-            <div style="float:right; width:500px;"><br />
+            <div style="float:left; margin-left:10px; width:40%;">
+
+				<g:if test="${customerInstance.status != CustomerStatus.HAS_NOT_ORDERED}">
+					<g:render template="ordered_items" model="[customerInstance: customerInstance, products: products]" />
+				</g:if>
+				<g:else>
+					<g:render template="manual_order" model="[customerInstance: customerInstance, products: products]" />
+				</g:else>
+
+				<br/>
+
                 <h1>Add Broker</h1>
-                <table cellpadding="5" cellspacing="0" border="0" width="100%">
-                    <g:form controller="${broker ? 'product' : 'home'}" action="${broker ? 'updateBroker': 'addBroker'}" method="post">
+				<g:form controller="${broker ? 'product' : 'home'}" action="${broker ? 'updateBroker': 'addBroker'}" method="post">
+					<table cellpadding="5" cellspacing="0" border="0" width="100%">
+
                           <tr> 
                               <td><strong>Broker/Distributor Name: </strong></td> 
                               <td><input type="text" name="name" size="20" maxlength="50" value="${broker?.name}"></td> 
@@ -498,37 +452,39 @@
                               <g:hiddenField name="customerId" value="${customerInstance.id}" />
                               <g:hiddenField name="id" value="${broker?.id}" /></td> 
                           </tr> 
-                            <tr>
+                          <tr>
                                 <td>
                                     <input type="submit" name="add" value="Add" /> 
                                 </td>
-                            </tr>
-				</g:form>		
-			</table> 
-            <div> <br />
-                    <table>
-                        <thead>
-                            <th><strong>Name</strong></th>
-                            <th><strong>Email</strong></th/>
-                            <th></th>
-                        </thead>
-                        <tbody>
-                          <g:each in="${customerInstance.brokers}" var="broker">
-                             <tr>
-                                <td>
-                                  ${broker?.name}
-                                </td>
-                                <td>
-                                  ${broker?.email}
-                                </td>
-                                <td>
-                                  <g:link action="brokerEditFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Delete</g:link>
-                                </td>
-                            </tr>
-                          </g:each>
-                        </tbody>
-                    </table><p>&nbsp;</p>
-        </div>
+                          </tr>
+
+					</table>
+				</g:form>
+				<table>
+					<thead>
+						<th><strong>Name</strong></th>
+						<th><strong>Email</strong></th>
+						<th>f</th>
+					</thead>
+					<tbody>
+					  <g:each in="${customerInstance.brokers}" var="broker">
+						 <tr>
+							<td>
+							  ${broker?.name}
+							</td>
+							<td>
+							  ${broker?.email}
+							</td>
+							<td>
+							  <g:link action="brokerEditFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Edit</g:link> | <g:link action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'product', rAction:'check_out']">Delete</g:link>
+							</td>
+						</tr>
+					  </g:each>
+					</tbody>
+				</table><p>&nbsp;</p>
+			</div>
+		</div>
+
     </body>
 
 </html>

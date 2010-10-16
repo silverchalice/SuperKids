@@ -16,12 +16,6 @@ enum OrderType {
     },
     MAIL {
         String toString() { "Mail" }
-    },
-   EMAIL {
-        String toString() { "Mail" }
-    },
-	FAX {
-        String toString() { "Mail" }
     }
 
 }
