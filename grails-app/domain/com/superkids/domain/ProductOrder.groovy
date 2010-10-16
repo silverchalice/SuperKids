@@ -11,4 +11,7 @@ class ProductOrder {
         product nullable:true
         order nullable:true
     }
+
+    String toString() { "productOrder " + id + " with product " + product  + " and received " + received }
+
 }
