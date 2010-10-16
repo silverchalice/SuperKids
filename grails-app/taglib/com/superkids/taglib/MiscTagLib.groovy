@@ -107,7 +107,7 @@ class MiscTagLib {
         if(springSecurityService.loggedIn){
             def customer = Customer.get(springSecurityService.principal?.id)
             def products = []
-            customer.order.products.each{
+            customer.order.products.sort{ it.product.id }.each{
                 def p = Product.get(it.product.id)
                 products << p
             }
@@ -439,5 +439,16 @@ Modified: get menuButton text from new 'msg' attr
             out << customerInstance.district
         }
     }
+
+	def eachInProducts = { attrs, body ->
+		def items = shoppingCartService.getItems().sort{it.id}
+				
+		items?.sort { a, b -> a.id <=> b.id }.each { item ->
+			def itemInfo = ['item':item,
+							'qty':shoppingCartService.getQuantity(item)]
+
+			out << body(itemInfo)
+		}
+	}
 
 }
