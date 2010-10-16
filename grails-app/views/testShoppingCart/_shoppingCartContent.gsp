@@ -11,7 +11,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <sc:each>
+                    <sks:eachInProducts>
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
                             <td>${com.superkids.domain.Product.findByShoppingItem(it['item'])}</td>
@@ -25,7 +25,7 @@
 				Remove
          			</g:remoteLink></td>                        
                         </tr>
-                    </sc:each>
+                    </sks:eachInProducts>
                     </tbody>
                 </table>
 
@@ -37,7 +37,7 @@
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 	</tr>
-	<g:each in="${checkedOutItems}" var="item">
+	<g:each in="${checkedOutItems.sort{it.id}}" var="item">
 		<tr>
 			<td>
 				${com.metasieve.shoppingcart.Shoppable.findByShoppingItem(item['item']) ?: com.metasieve.shoppingcart.ShoppingCartInterfaceTestProduct.findByShoppingItem(item['item'])}
