@@ -43,6 +43,7 @@ class Product implements IShoppable {
 	summaryType(nullable:true)
 	servings(nullable:true)
 	sponsor(nullable:true)
+	assessments(nullable:true)
     parent nullable:true
 	}
 

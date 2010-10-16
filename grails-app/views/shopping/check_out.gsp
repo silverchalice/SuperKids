@@ -350,7 +350,7 @@
                     <table>
                         <thead>
                             <th><strong>Name</strong></th>
-                            <th><strong>Email</strong></th/>
+                            <th><strong>Email</strong></th>
                             <th></th>
                         </thead>
                         <tbody>

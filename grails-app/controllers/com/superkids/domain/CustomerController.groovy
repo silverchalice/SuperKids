@@ -217,7 +217,7 @@ class CustomerController {
     }
 
 
-	    def toggleDidNotReceive = {
+	def toggleDidNotReceive = {
 		println 'in ToggleDidNotReceive'
 		println params
         def productOrderInstance = ProductOrder.get(params.id)
@@ -228,4 +228,39 @@ class CustomerController {
         println "the productOrderInstance's received is " + productOrderInstance.received
         render ''
     }
+
+	def adminAssessProduct = {
+		println 'in AdminAssessProduct for CustomerController'
+		params.each { key, val ->
+			println "$key : $val"
+		}
+
+		def pOrder = ProductOrder.get(params.productOrderId)
+
+		if(pOrder) {
+			println "Product Order found"
+			def assessment = new Assessment(params)
+			def customer = Customer.get(pOrder.order.customer.id)
+			def product = Product.get(pOrder.product.id)
+
+			assessment.product = product
+			assessment.type = Enum.valueOf(OrderType.class, params.orderType)
+			assessment.completed = true
+			assessment.properties.each { println it }
+
+			customer.addToAssessments(assessment)
+
+			
+
+			customer.save()
+
+
+			redirect action:edit, id:customer.id
+		} else {
+			flash.message = "Product not found"
+			println flash.message
+			redirect action:index
+		}
+	}
+
 }

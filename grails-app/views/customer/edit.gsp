@@ -8,13 +8,36 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
-		<g:javascript library="prototype" />
+		<g:javascript library="jquery" plugin="jquery"/>
+		<jqui:resources/>
 		<style type="text/css">
 			input {
 				width:200px
 			}
+
+			#assessForm {
+				width:500px;
+			}
+
+			#assessForm input {
+				width:auto
+			}
+
 		</style>
 
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#assessForm').dialog({ autoOpen: false, width:500, modal:true });
+
+				$('#submitAssessment').button();
+			});
+			
+			function showAssessForm(poId) {
+				$('#productOrderId').val(poId) ;
+				$('#assessForm').dialog("open");
+			}
+			
+		</script>
 
     </head>
     <body>

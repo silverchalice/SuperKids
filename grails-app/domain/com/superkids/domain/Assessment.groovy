@@ -8,6 +8,7 @@ class Assessment {
     String changeComment
     Product product
     Boolean completed = false
+	OrderType type
 
     static belongsTo = [ customer : Customer ]
 

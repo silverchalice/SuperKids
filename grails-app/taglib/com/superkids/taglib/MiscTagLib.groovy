@@ -187,8 +187,29 @@ class MiscTagLib {
 		}
 	}
 
-	def adminAssessLink = {
-		
+	def adminAssessLink = { attrs ->
+
+		def pOrder = ProductOrder.get(attrs.id)
+		if(pOrder) {
+			println "Found ProductOrder"
+			def product = pOrder.product
+			def customer = pOrder.order.customer
+			def assessment = Assessment.findByProductAndCustomer(product, customer)
+
+			if(assessment) {
+
+				out << "Assessed "
+				out << "<a href='"
+				out << createLink(controller:'assessment', action:'show', id:assessment.id)
+				out << "' />| View</a>"
+			} else {
+				out << '<a href="javascript:showAssessForm('
+				out << pOrder.id
+				out << ')">Assess</a>'
+			}
+		}
+
+	//	<a href="javascript:showAssessForm(${productOrder.id})">Assess</a>
 	}
 
 	def viewAssessment = { attrs ->
