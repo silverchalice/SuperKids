@@ -169,11 +169,19 @@ class HomeController {
        }
 
        def addBroker = {
-           def customerInstance = Customer.get(springSecurityService.principal.id)
+           def customerInstance
+           def id = params.rId
+           if(params.customerId){
+               customerInstance = Customer.get(params.customerId)
+           } else {
+               customerInstance = Customer.get(springSecurityService.principal.id)
+
+           }
+           println customerInstance
            def controller = params.rController
            def action = params.rAction
            println "controller: " + controller + " action: " + action
-           if(params.brokerName){
+           if(params.name){
                def broker = new Broker(params)
                broker.customer = customerInstance
                broker.save(failOnError:true)
@@ -181,7 +189,7 @@ class HomeController {
                customerInstance.addToBrokers(broker)
                customerInstance.save()
             }
-            redirect controller:controller, action:action
+            redirect controller:controller, action:action, id:id
        }
 
        def enter_site = {
