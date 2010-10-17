@@ -56,8 +56,17 @@ class CustomerController {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
             redirect(action: "list")
         }
-        else {
-            [customerInstance: customerInstance]
+        else {			
+			def products = []
+			if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
+				products = Product.list()
+			} else {
+				customerInstance.order.products.each { productOrder ->
+					if(productOrder.received)
+						products << productOrder
+				}
+			}
+            [customerInstance: customerInstance, products: products]
         }
     }
 
@@ -145,44 +154,25 @@ class CustomerController {
 
     def add_order = {
         println "the params in add_order are " + params
-        def pr
-        def sd = ShippingDate.get(params.reqShipDate)
-        def oo = OrderType."${params.OrderOrigin}"
+
+        def shippingDate = ShippingDate.findByShipDate(params.shippingDate)
+        def oo = Enum.valueOf(OrderType.class, params.orderType)
         def customer = Customer.get(params.id)
-        if(customer){
-            if(customer.order){
-                params.product.each {
-                    def pLong = it.toLong()
-                    println pLong.class
-                    println it.class
-                    if(!customer.order.products.collect{it.product.id}.contains(it))
-                    pr = com.superkids.domain.Product.get(it.toLong())
-                    Product.list().each { println it }
-                    println "foo! bar!"
-                    if(pr){
-                        "bar! bas!"
-                        println "pr is " + pr
-                        println "earlier the order had " + customer.order.products
-                        def productOrder = new ProductOrder(product:pr)
-                        println "the productOrder is " + productOrder
-                        customer.order.addToProducts(productOrder)
-                        println "now the order has " + customer.order.products
-                    }
-                }
-            } else {
-                def order = new CustomerOrder(shippingDate:sd, orderType:oo)
-                params.product.each {
-                    def p = Product.get(it)
-                    if(p){
-                        def productOrder = new ProductOrder(product:p)
-                        order.addToProducts(productOrder)
-                    }
-                }
-                customer.order = order
-                customer.hasPlacedCurrentOrder = true
-                customer.save(failOnError:true)
-                println "customer.hasPlacedCurrentOrder: " + customer.hasPlacedCurrentOrder
-            }
+        if(customer) {
+			def order = new CustomerOrder(shippingDate:shippingDate, orderType:oo)
+			params.product.each {
+				def p = Product.get(it)
+				if(p){
+					def productOrder = new ProductOrder(product:p)
+					order.addToProducts(productOrder)
+				}
+			}
+			customer.order = order
+			customer.hasPlacedCurrentOrder = true
+			customer.status = CustomerStatus.HAS_ORDERED
+			customer.save(failOnError:true)
+			println "customer.hasPlacedCurrentOrder: " + customer.hasPlacedCurrentOrder
+
             flash.message = "Added selected products to customer's order."
             println "here's the customer's order: "
             customer.order.products.each{ println it }

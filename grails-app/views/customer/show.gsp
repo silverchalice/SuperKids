@@ -1,4 +1,4 @@
-<%@ page import="com.superkids.domain.Product" %>
+<%@ page import="com.superkids.domain.CustomerStatus; com.superkids.domain.Product" %>
 <%@ page import="com.superkids.domain.Customer" %>
 <%@ page import="com.superkids.domain.ShippingDate" %>
 <html>
@@ -7,6 +7,25 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
+ 		<g:javascript library="jquery" plugin="jquery"/>
+		<jqui:resources/>		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#assessForm').dialog({ autoOpen: false, width:500, modal:true });
+
+				$('#submitAssessment').button();
+
+				$('#customerSearchButton').button();
+
+				$('#addBrokerButton').button();
+			});
+
+			function showAssessForm(poId) {
+				$('#productOrderId').val(poId) ;
+				$('#assessForm').dialog("open");
+			}
+
+		</script>
     </head>
     <body>
         <div class="nav">
@@ -15,17 +34,19 @@
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <div style="margin:20px 0px; border:1px solid; padding:15px;">
+			<div style="margin:20px 0px; padding:15px; clear:both;">
                 <g:form method="post" action="findSchoolDistrict">
-                    School District: <input type="text" name="query" />
-                    <input type="submit" value="Search" />
+                    <strong>School District:</strong> <input type="text" name="query" />
+                    <input type="submit" value="Search" id="customerSearchButton"/>
                 </g:form>
             </div>
+					
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-            <div class="dialog">
-                <h2>School District Information</h2>
+			<h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:35%">Order Details</h1>
+			<br/>			
+			<div style="float:left; width:40%;">
                 <table>
                     <tbody>
                     
@@ -265,50 +286,16 @@
                     
                     </tbody>
                 </table>
-                <h2>Manual Order</h2>
-                <table>
-                    <tr> 
-                        <th>Item Name</th> 
-                        <th>Order</th> 
-                    </tr>				
-                    <g:form name="OrderProduct" action="add_order" method="post">
-                    <g:hiddenField name="id" value="${customerInstance.id}" />
-                        <g:each in="${Product.list()}" var="product">
-                            <tr>
-                                <td width="500">${product?.sponsor?.name}<sup>®</sup> ${product?.name}</td> 
-                                <td><input type="checkbox" name="product" value="${product.id}" /></td>		
-                            </tr>
-                            <tr> 
-                        </g:each>
-                                <td colspan="2"> 
-                                    <strong>Order Origin:</strong>
-                                    <input type="radio" name="OrderOrigin" value="WEB" checked="checked">Web&nbsp;&nbsp;
-                                    <input type="radio" name="OrderOrigin" value="PHONE">Phone&nbsp;&nbsp;
-                                    <input type="radio" name="OrderOrigin" value="FAX">Fax&nbsp;&nbsp;
-                                    <input type="radio" name="OrderOrigin" value="MAIL">Mail&nbsp;&nbsp;
-                                    <input type="radio" name="OrderOrigin" value="EMAIL">Email<br/> 
-                        <br />
-                        <strong>Requested Ship Date:</strong> 
-                        <g:select id="reqShipDate"
-                                  name="reqShipDate"
-                                  from="${ShippingDate.list()}"
-                                  value="shipDate"
-                                  optionKey="id"
-                                  optionValue="${g.formatDate(format:'MMMM, yyyy', date:shipDate)}" />
-                        <br /><br /> 
-                        <input type="submit" name="ADD" value="Add Checked Items" /> 
-                    </td> 
-                </tr> 
-				</g:form>		
-			</table>
-                      <p>&nbsp;</p>
-            </div>
-            <div class="buttons">
-                <g:form>
-                    <g:hiddenField name="id" value="${customerInstance?.id}" />
-                    <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </g:form>
+				</div>
+
+			<div style="float:left; margin-left:10px; width:40%;">
+				<g:if test="${customerInstance?.status != CustomerStatus.HAS_NOT_ORDERED}">
+					<g:render template="ordered_items" model="[customerInstance: customerInstance, products: products, static: 'true']" />
+				</g:if>
+				<g:else>
+					<g:render template="manual_order" model="[customerInstance: customerInstance, products: products,  static: 'true']" />
+				</g:else>
+				<p>&nbsp;</p>
             </div>
         </div>
     </body>

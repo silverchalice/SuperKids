@@ -19,18 +19,14 @@
 					</g:each>
 							<td colspan="2">
 								<strong>Order Origin:</strong>
-								<input type="radio" name="OrderOrigin" value="web" checked="checked">Web&nbsp;&nbsp;
-								<input type="radio" name="OrderOrigin" value="phone">Phone&nbsp;&nbsp;
-								<input type="radio" name="OrderOrigin" value="fax">Fax&nbsp;&nbsp;
-								<input type="radio" name="OrderOrigin" value="mail">Mail&nbsp;&nbsp;
-								<input type="radio" name="OrderOrigin" value="email">Email<br/>
+								<g:radioGroup name="orderType" values="['PHONE','WEB','EMAIL', 'FAX', 'MAIL']" labels="['Phone','Web','Email', 'Fax', 'Mail']" value="5" >
+									<g:message code="${it.label}" />: ${it.radio}
+								</g:radioGroup>
 					<br />
 					<strong>Requested Ship Date:</strong>
-					<g:select id="reqShipDate"
-							  name="reqShipDate"
-							  from="${ShippingDate.list()}"
-							  value="shipDate"
-							  optionKey="${g.formatDate(format:'MMMM, yyyy', date:shipDate)}" />
+					<g:select id="shippingDate"
+							  name="shippingDate"
+							  from="${ShippingDate.list()}" />
 					<br /><br />
 					<input type="submit" name="ADD" value="Add Checked Items" />
 				</td>

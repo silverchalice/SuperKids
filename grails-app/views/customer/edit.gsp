@@ -8,8 +8,8 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
-		<g:javascript library="jquery" plugin="jquery"/>
-		<jqui:resources/>
+ 		<g:javascript library="jquery" plugin="jquery"/>
+		<jqui:resources/>		
 		<style type="text/css">
 			input {
 				width:auto
@@ -30,6 +30,10 @@
 				$('#assessForm').dialog({ autoOpen: false, width:500, modal:true });
 
 				$('#submitAssessment').button();
+
+				$('#customerSearchButton').button();
+
+				$('#addBrokerButton').button();
 			});
 			
 			function showAssessForm(poId) {
@@ -47,10 +51,10 @@
             <span class="menuButton"><g:link class="create" action="create">Add</g:link></span>
         </div>
         <div class="body">
-            <div style="margin:20px 0px; border:1px solid; padding:15px; clear:both;">
+            <div style="margin:20px 0px; padding:15px; clear:both;">
                 <g:form method="post" action="findSchoolDistrict">
-                    School District: <input type="text" name="query" />
-                    <input type="submit" value="Search" />
+                    <strong>School District:</strong> <input type="text" name="query" />
+                    <input type="submit" value="Search" id="customerSearchButton"/>
                 </g:form>
             </div>
             <h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:35%">Order Details</h1>
@@ -454,7 +458,7 @@
                           </tr> 
                           <tr>
                                 <td>
-                                    <input type="submit" name="add" value="Add" /> 
+                                    <input type="submit" name="add" value="Add" id="addBrokerButton" /> 
                                 </td>
                           </tr>
 

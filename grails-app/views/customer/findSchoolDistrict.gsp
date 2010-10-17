@@ -15,7 +15,7 @@
         <div class="body">
             <div style="margin:20px 0px; border:1px solid; padding:15px;">
                 <g:form method="post" action="findSchoolDistrict">
-                    School District: <input type="text" name="query" />
+                    <strong>School District:</strong> <input type="text" name="query" />
                     <input type="submit" value="Search" />
                 </g:form>
             </div>
