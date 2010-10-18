@@ -9,7 +9,18 @@ class CallController {
 	
 	def springSecurityService
 	def callService
-	
+
+	def states=['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+
     def index = {
         [ caller: springSecurityService.principal ]
     }
@@ -335,14 +346,28 @@ class CallController {
 		}.getAt(0)
 
 		if(customer) {
+			println "Next customer..."
 			customer.inCall = new Date()
-			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+
+			def broker = customer.brokers?.getAt(0)
+			def broker2 = customer.brokers?.size() > 0 ? brokers[-1] : null
+
+			println "Brokers $broker?.name & $broker2?.name"
+
+			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true', states: states, broker: broker, broker2: broker2]
 		} else {
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_ORDERED, null)
 			if(customer) {
+				println "End of the line - coming round again"
 				customer.inCall = new Date()
 				customer.save(flush:true)
-				render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true']
+
+				customer.brokers.each { println it?.name }
+
+				def broker = customer?.brokers?.getAt(0)
+				def broker2 = customer?.brokers?.size() > 0 ? customer?.brokers?.getAt(-1) : null
+				println "Brokers $broker?.name & $broker2?.name"
+				render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true', states: states, broker: broker, broker2: broker2]
 			} else redirect action:index
 		}
 	}
@@ -422,6 +447,21 @@ class CallController {
 			println 'Got the customer...' + customer.district
 			customer.properties = params
 
+			def broker1 = Broker.findByName(params.broker.name)
+			if(!broker1)
+				broker1 = new Broker(params['broker'])
+			else if(params.broker.name)
+				broker1.properties = params['broker']
+
+ 			def broker2 = Broker.findByName(params.broker2.name)
+			if(!broker2)
+				broker2 = new Broker(params['broker2'])
+			else if(params.broker2.name)
+				broker2.properties = params['broker2']
+			
+			customer.addToBrokers(broker1)
+			customer.addToBrokers(broker2)
+
 			if(customer.save(flush:true)){
 				println 'Updated the Customer'
 				def call = new Call(params)
@@ -464,7 +504,7 @@ class CallController {
 										product: product
 								)
 								customer.addToAssessments(assessment)
-
+								customer.status = CustomerStatus.QUALIFIED
 
 								if (!customer.save()) {
 									println "ERRORS SAVING ASSESSMENT"
@@ -476,6 +516,7 @@ class CallController {
 				}
 
 				if(params.result != ('null' || null )) {
+					println params.result
 					call.result = CallResult.valueOf(params.result)
 				}
 
@@ -490,7 +531,7 @@ class CallController {
 
 				customer.inCall = null
 				customer.lastCall = call
-				customer.status = CustomerStatus.QUALIFIED
+
 				customer.save(flush:true)
 				println 'Saved the Customer...'
 

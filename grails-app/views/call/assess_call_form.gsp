@@ -23,7 +23,11 @@
 			$("ul.tabs li:first").addClass("active").show(); //Activate first tab
 			$(".tab_content:first").show(); //Show first tab content
 
+			
 			$("select#result").selectmenu({style:'dropdown'});
+			$("select#bState").selectmenu({style:'dropdown'});
+
+
 
 
 			//On Click Event
@@ -227,7 +231,7 @@
 				<div style="border:1px; width:940px"><sks:productAssessmentTabs id="${customerInstance?.id}" /></div>
 
 
-				<table style="margin: 10px 0 10px 0; width:280px; position:absolute; top:120px; left:965px;" class="callerRecord">
+				<table style="margin: 20px 0 10px 0; width:280px; position:absolute; top:120px; left:965px;" class="callerRecord">
 						<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">
@@ -243,13 +247,13 @@
 						</tbody>
 					</table>
 
-				<table style="margin:10px 10px 0 0; width:300px; position:absolute; top:350px; left:955px; border:none; height:320px;">
+				<table style="margin:10px 10px 0 0; width:300px; position:absolute; top:370px; left:955px; border:none; height:320px;">
 					<tbody>
 						<tr>
-							<td class="prop" style=" background-image:url(${resource(dir:'images', file:'callnote.png')}); background-repeat:no-repeat">
+							<td class="prop" style=" background-image:url(${resource(dir:'images', file:'callnote-assess.png')}); background-repeat:no-repeat">
 								<h3 style="padding-top:10px; padding-left:10px">Operator Comments</h3>
 								<br />
-								<g:textArea style="width:265px; height:250px; background:none; margin-left:10px" name="notes" value="${callInstance?.notes}"/>
+								<g:textArea style="width:260px; height:250px; background:none; margin-left:10px" name="notes" value="${callInstance?.notes}"/>
 							</td>
 						</tr>
 					</tbody>

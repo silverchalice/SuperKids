@@ -33,11 +33,11 @@ class Customer extends User {
 	String cdTitle
 
 	Boolean didNotReceiveMailing = true
-        Boolean newCustomer
-        Boolean fall
-        Boolean spring
-        Boolean am
-        Boolean pm
+	Boolean newCustomer
+	Boolean fall
+	Boolean spring
+	Boolean am
+	Boolean pm
 	Date inCall = null
 
 //	Misc. Stats
@@ -59,7 +59,7 @@ class Customer extends User {
 	boolean purchaseFrozenFood
 
 	boolean topCustomer = false
-        String otherComments
+	String otherComments
 
 	Call lastCall
 
@@ -68,6 +68,7 @@ class Customer extends User {
 
 	List calls
 	List assessments
+	List brokers
 
 	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker ]
 
@@ -96,8 +97,8 @@ class Customer extends User {
 
 		assessments nullable: true
 
-                order nullable:true
-                otherComments nullable:true
+		order nullable:true
+		otherComments nullable:true
 		lastCall nullable:true
 
 		studentsInDistrict nullable: true
@@ -106,16 +107,19 @@ class Customer extends User {
 		lunchesServed nullable: true
 		snacksServed nullable: true
 
-                newCustomer nullable:true
+		newCustomer nullable:true
 
-                programFeedback nullable:true
-                reformulations nullable:true
-                otherProducts nullable: true
+		//Final Questions cont...
+		programFeedback nullable:true
+		reformulations nullable:true
+		otherProducts nullable: true
 
-                fall nullable:true
-                spring nullable:true
-                am nullable:true
-                pm nullable:true
+
+		// Broker Call Times
+		fall nullable:true
+		spring nullable:true
+		am nullable:true
+		pm nullable:true
     }
 	
 	static namedQueries = {

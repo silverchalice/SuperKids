@@ -8,6 +8,9 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
+
+		<script type="text/javascript" src="${resource(dir:'js', file:'sks.js')}">
+		</script>
         <div class="callerNavBar">
 			<g:render template="caller_nav"/>
         </div>
