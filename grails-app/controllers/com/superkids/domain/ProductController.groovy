@@ -276,6 +276,10 @@ class ProductController {
     }
 
     def brokerEditFromEdit = {
+        def controller = params.rController
+        def action = params.rAction
+        def rId = params.rId
+        def brokerId = params.id
         def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
 			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
@@ -286,21 +290,21 @@ class ProductController {
 			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-        def brokerId = params.id
-        def customerInstance = Customer.get(springSecurityService.principal.id)
-        println "customerInstance is... " + customerInstance
-        redirect controller:"product", action:"check_out", params:[brokerId:brokerId]
+        redirect controller:controller, action:action, id:rId, params:[brokerId:brokerId]
     }
 
     def updateBroker = {
         println "our updateBroker params are " + params
+        def controller = params.rController
+        def action = params.rAction
+        def rId = params.rId
         def brokerInstance = Broker.get(params.id)
         println "broker is " + brokerInstance
         if (brokerInstance) {
             brokerInstance.properties = params
             brokerInstance.save(failOnError:true)
         }
-        redirect controller:"product", action:"check_out"
+        redirect controller:controller, action:action, id:rId
     }
 
 
