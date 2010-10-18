@@ -19,6 +19,7 @@
             <g:form method="post" controller="call" action="findCustomer">
                 Customer: <input type="text" name="query" />
                 <input type="submit" value="Go" id="search" />
+				<input type="hidden" name="id" value="${customerInstance?.id}">
             </g:form>
         </div>
         <g:layoutBody />

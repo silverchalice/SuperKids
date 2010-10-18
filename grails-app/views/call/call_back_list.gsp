@@ -74,7 +74,7 @@
 								    <strong style="color:green">False</strong>
 								</g:if>
 								<g:else>
-									<strong style="color:red">True</strong> <g:link action="unlock_customer" id="${customerInstance.id}" params="[type:'assess']">(Unlock)</g:link>
+									<strong style="color:red">True</strong> <g:link action="unlock_customer" class="unlockCustomer" id="${customerInstance.id}" params="[type:'assess']">(Unlock)</g:link>
 								</g:else>
 							</td>
 

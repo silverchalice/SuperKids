@@ -48,9 +48,9 @@ class Customer extends User {
 	String lunchesServed
 	String snacksServed
 
-        String programFeedback
-        String reformulations
-        String otherProducts
+	String programFeedback
+	String reformulations
+	String otherProducts
 
 	boolean hasBakery
 	boolean purchaseFrozenBread

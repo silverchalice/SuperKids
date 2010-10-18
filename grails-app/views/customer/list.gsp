@@ -10,12 +10,7 @@
 		<jqui:resources/>
         <title><g:message code="default.list.label" args="[entityName]" /></title>
 
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('#customerSearchButton').button();
-				$('.button').button();
-
-			})
+		<script type="text/javascript" src="${resource(dir:'js', file:'sks.js')}">
 		</script>
 
     </head>

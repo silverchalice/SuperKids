@@ -565,6 +565,13 @@ class CallController {
 	}
 
         def findCustomer = {
+
+			def currentCustomer = Customer.get(params.id)
+
+			if(currentCustomer) {
+				currentCustomer.inCall = null
+			}
+
             if(params.query){
                 def customers = Customer.search(params.query).results
                 if(customers){
