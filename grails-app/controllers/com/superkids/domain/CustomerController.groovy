@@ -71,6 +71,10 @@ class CustomerController {
     }
 
     def edit = {
+         def broker = null
+         if(params.brokerId){
+             broker = Broker.get(params.brokerId)
+         }
          def states=['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
 			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
@@ -97,7 +101,7 @@ class CustomerController {
 				}
 			}
 
-            return [customerInstance: customerInstance, products: products, states: states]
+            return [customerInstance: customerInstance, products: products, states: states, broker:broker]
         }
     }
 
