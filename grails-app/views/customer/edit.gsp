@@ -469,7 +469,7 @@
 					<thead>
 						<th><strong>Name</strong></th>
 						<th><strong>Email</strong></th>
-						<th>f</th>
+						<th></th>
 					</thead>
 					<tbody>
 					  <g:each in="${customerInstance.brokers}" var="broker">
