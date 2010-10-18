@@ -109,7 +109,9 @@ class MiscTagLib {
             def products = []
             customer.order.products.sort{ it.product.id }.each{
                 def p = Product.get(it.product.id)
-                products << p
+                if(!p.parent){
+                    products << p
+                }
             }
             out << "<br />"
             out << "<h2>Your order</h2>"
