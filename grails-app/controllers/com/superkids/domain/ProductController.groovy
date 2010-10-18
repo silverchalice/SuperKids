@@ -222,6 +222,10 @@ class ProductController {
 	}
 
 	def check_out = {
+                def broker = null
+                if(params.brokerId){
+                    broker = Broker.get(params.brokerId)
+                }
 		def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 		  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
 		  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
@@ -233,7 +237,7 @@ class ProductController {
 		  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 		  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
 		def customerInstance = Customer.get(springSecurityService.principal.id)
-		render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states]
+		render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states, broker:broker]
 	}
 
 	def other_delete = {
