@@ -11,11 +11,11 @@ class Address {
     static belongsTo = [customer: Customer, sponsor: Sponsor]
 
     static constraints = {
-        street(nullable:true)
+        street(nullable:false)
         street2(nullable:true)
-        city(nullable:true)
-        state()
-        zip(nullable:true)
+        city(nullable:false)
+        state nullable:false
+        zip(nullable:false)
         customer(nullable:true)
         sponsor(nullable:true)
     }

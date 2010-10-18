@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="${resource(dir:'js', file:'jquery-1.4.2.min.js')}"></script>
     <script type="text/javascript" src="${resource(dir:'js', file:'jquery-ui-1.8.5.custom.min.js')}"></script>
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
+
 </head>
 <body>
 
@@ -20,7 +21,6 @@
 			    //console.log('changedFlag = true')
 				changedFlag = 'true';
 			});
-
 
 			$('#submit').click(function (e) {
 
@@ -89,6 +89,9 @@
 				}
 	  		});
 
+			 
+
+
       })
       
     </script>
@@ -119,18 +122,17 @@
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
 		<g:hiddenField name="offset" value="${offset}" /> 
 
-		<div class="nav" style="padding: 1px 12px; height:27px; line-height:27px;">
-			<span class="menuButton"><g:link class="call" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link></span>
+		<div class="callerNavBar">
+			<g:link class="callerButton" style="margin-left:10px" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
 			<g:if test="${queue}">
-				<span class="callerButton" style="margin-left:970px"><g:actionSubmit id="submit" style="background-color:green; color:white" action="save_order_call" value="Next Call" /></span></g:if>
+				<g:actionSubmit id="submit" style="margin-left:970px;" class="callerButton" action="save_order_call" value="Next Call" /></g:if>
 			<g:elseif test="${single}">
-				<span class="callerButton">
 					<g:hiddenField name="single" value="${single}" />
-					<g:actionSubmit style="background-color:green; color:white; margin-left:970px" id="submit" action="save_order_call" value="Finish Calling" />
-				</span>
+					<g:actionSubmit style="margin-left:970px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
+
 			</g:elseif>
 			<g:else>
-				<span  style="margin-left:950px;" class="callerButton"><g:link controller="call" action="next_order_call">Start Calling</g:link></span>
+				<g:link controller="call" class="callerButton" style="margin-left:950px;" action="next_order_call">Start Calling</g:link></span>
 			</g:else>
 
 		</div>

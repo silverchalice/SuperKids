@@ -8,11 +8,11 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
+        <div class="callerNavBar">
 
 			<g:render template="caller_nav"/> 	
 		</div>
-        <div class="body" style="width:100%">
+        <div class="body" style="width:90%">
             <h1>Customers Ready for Order Call</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>

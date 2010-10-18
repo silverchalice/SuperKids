@@ -188,7 +188,6 @@ class MiscTagLib {
 	}
 
 	def adminAssessLink = { attrs ->
-
 		def pOrder = ProductOrder.get(attrs.id)
 		if(pOrder) {
 			println "Found ProductOrder"
@@ -202,14 +201,14 @@ class MiscTagLib {
 				out << "<a href='"
 				out << createLink(controller:'assessment', action:'show', id:assessment.id)
 				out << "' />| View</a>"
-			} else {
+			} else if(attrs.show == 'true') {
+				out << ' '
+			}else {
 				out << '<a href="javascript:showAssessForm('
 				out << pOrder.id
 				out << ')">Assess</a>'
 			}
 		}
-
-	//	<a href="javascript:showAssessForm(${productOrder.id})">Assess</a>
 	}
 
 	def viewAssessment = { attrs ->

@@ -19,13 +19,22 @@
 					<td><p style="margin-top:5px"><g:formatDate date="${customerInstance?.order.dateCreated}" format="M/d/yyyy" /></p></td>
 					<td style="width:120px;"><p style="margin-top:5px">${customerInstance?.order?.shippingDate}</p></td>
 					<td><p style="margin-top:5px">
-						<sks:adminAssessLink id="${productOrder.id}" />
+						<sks:adminAssessLink id="${productOrder.id}" show="${show}"/>
 					</p></td>
 					<td style="width:85px;">  <p style="margin-top:4px">
-						<g:checkBox value="${productOrder.product.name}.didNotReceive"
+						<g:if test="${show}">
+							<g:checkBox value="${productOrder.product.name}.didNotReceive"
+								checked='unchecked'
+								disabled='true'
+								name="${productOrder.product.name}.didNotReceive"
+								onclick="${remoteFunction(action:'toggleDidNotReceive', id:productOrder.id, params:'\'didNotReceive=\' + this.checked')}"/>
+						</g:if>
+						<g:else>
+							<g:checkBox value="${productOrder.product.name}.didNotReceive"
 								checked='unchecked'
 								name="${productOrder.product.name}.didNotReceive"
-								onclick="${remoteFunction(action:'toggleDidNotReceive', id:productOrder.id, params:'\'didNotReceive=\' + this.checked')}"/></p>
+								onclick="${remoteFunction(action:'toggleDidNotReceive', id:productOrder.id, params:'\'didNotReceive=\' + this.checked')}"/>
+				    	</g:else>
 					</td>
 				</tr>
 			</g:each>

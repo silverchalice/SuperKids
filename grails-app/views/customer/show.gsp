@@ -44,7 +44,7 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-			<h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:35%">Order Details</h1>
+			<h1 style="display:inline"><g:message code="default.show.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:34%">FSD Login Information</h1>
 			<br/>			
 			<div style="float:left; width:40%;">
                 <table>
@@ -53,71 +53,160 @@
                         <tr class="prop">
                             <td valign="top" class="name">School District</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "district")}</td>
+                            <td valign="top" class="value">${customerInstance?.district}</td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Order Placed</td>
                             
-                            <td valign="top" class="value"><sks:orderCheckbox id="${customerInstance.id}" /></td>
+                            <td valign="top" class="value"><sks:orderCheckbox id="${customerInstance?.id}" /></td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Assessment Taken</td>
                             
-                            <td valign="top" class="value"><sks:assessmentCheckbox id="${customerInstance.id}" /></td>
+                            <td valign="top" class="value"><sks:assessmentCheckbox id="${customerInstance?.id}" /></td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Phone</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "phone")}</td>
+                            <td valign="top" class="value">${customerInstance?.phone}</td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Fax</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "fax")}</td>
+                            <td valign="top" class="value">${customerInstance?.fax}</td>
                             
                         </tr>
+						<tr class="prop">
+							<td class="name">&nbsp;</td>
+							<td class="value">
+								<h3>Food Service Director</h3>
+							</td>
+						</tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.fsdName.label" default="Name" /></label>
+							</td>
+							<td valign="top" class="value">
+								${customerInstance?.fsdName}
+							</td>
+						</tr>
 
-                        <tr class="prop">
-                            <td valign="top" class="name">Email</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "email")}</td>
-                            
-                        </tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.fsdEmail.label" default="Email" /></label>
+							</td>
+							<td valign="top" class="value">
+								${customerInstance?.fsdEmail}
+							</td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.fsdTitle.label" default="Title" /></label>
+							</td>
+							<td valign="top" class="value">
+								${customerInstance?.fsdTitle}
+							</td>
+						</tr>
+						<tr class="prop">
+							<td class="name">&nbsp;</td>
+							<td class="value">
+								<h3>Chief Dietitian</h3>
+							</td>
+						</tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.cdName.label" default="Name" /></label>
+							</td>
+							<td valign="top" class="value">
+								${customerInstance?.cdName}
+							</td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.cdEmail.label" default="Email" /></label>
+							</td>
+							<td valign="top" class="value">
+								${customerInstance?.cdEmail}
+							</td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.cdTitle.label" default="Title" /></label>
+							</td>
+							<td valign="top" class="value">
+								${customerInstance?.cdTitle}
+							</td>
+						</tr>
+						<tr class="prop">
+							<td class="name">&nbsp;</td>
+							<td class="value">
+								<h3>Nutritional Director</h3>
+							</td>
+						</tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.ndName.label" default="Name" /></label>
+							</td>
+							<td valign="top" class="value">
+								${customerInstance?.ndName}
+							</td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.ndEmail.label" default="Email" /></label>
+							</td>
+							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndEmail', 'errors')}">
+								${customerInstance?.ndEmail}
+							</td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name">
+								<label><g:message code="customer.ndTitle.label" default="Title" /></label>
+							</td>
+							<td valign="top" class="value">
+								${customerInstance?.ndTitle}
+							</td>
+						</tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Sign up Date</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "dateCreated")}</td>
+                            <td valign="top" class="value"><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Last Updated Date</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "lastUpdated")}</td>
+                            <td valign="top" class="value"><g:formatDate format="MM/dd/yyyy" date="${customerInstance.lastUpdated}" /></td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Address</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "address.street")}<br />
-                            ${fieldValue(bean: customerInstance, field: "address.street2")}</td>
+                            <td valign="top" class="value">${customerInstance.address?.street}<br />
+                            ${customerInstance.address?.street2}</td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">City, State Zip</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "address.city")}, ${fieldValue(bean: customerInstance, field: "address.state")} ${fieldValue(bean: customerInstance, field: "address.zip")}</td>
+                            <td valign="top" class="value">${customerInstance?.address?.city}, ${customerInstance.address?.state} ${customerInstance.address?.zip}</td>
                             
                         </tr>
 
@@ -128,7 +217,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Entry Name</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "fsdName")}</td>
+                            <td valign="top" class="value">${customerInstance?.fsdName}</td>
                             
                         </tr>
 
@@ -139,15 +228,15 @@
                         <tr class="prop">
                             <td valign="top" class="name">Address</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "deliveryAddress.street")}<br />
-                            ${fieldValue(bean: customerInstance, field: "deliveryAddress.street2")}</td>
+                            <td valign="top" class="value">${customerInstance?.deliveryAddress.street}<br />
+                            ${customerInstance?.deliveryAddress?.street2}</td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">City, State Zip</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "deliveryAddress.city")}, ${fieldValue(bean: customerInstance, field: "deliveryAddress.state")} ${fieldValue(bean: customerInstance, field: "deliveryAddress.zip")}</td>
+                            <td valign="top" class="value">${customerInstance?.deliveryAddress?.city}, ${customerInstance?.deliveryAddress.state} ${customerInstance?.deliveryAddress.zip}</td>
                             
                         </tr>
 
@@ -156,7 +245,7 @@
                         </tr>
 
                         <tr class="prop">
-                            <td valign="top" class="name">proof and bake</td>
+                            <td valign="top" class="name">Proof and bake</td>
                             
                             <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance.id}" name="hasBakery" property="hasBakery" /></td>
                             
@@ -252,48 +341,50 @@
                     
                     </tbody>
                 </table>
-                <h2>FSD Login Information</h2>
+
+				</div>
+
+			<div style="float:left; margin-left:10px; width:40%;">
+
                 <table>
                     <tbody>
-                    
+
                         <tr class="prop">
                             <td valign="top" class="name">Username</td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "fsdEmail")}</td>
-                            
+
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Name</td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "fsdName")}</td>
-                            
+
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Entry Date</td>
-                            
+
                             <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "dateCreated")}</td>
-                            
+
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Last Login</td>
-                            
+
                             <td valign="top" class="value"></td>
-                            
+
                         </tr>
-                    
+
                     </tbody>
                 </table>
-				</div>
-
-			<div style="float:left; margin-left:10px; width:40%;">
+				<h1>Order Details</h1>
 				<g:if test="${customerInstance?.status != CustomerStatus.HAS_NOT_ORDERED}">
-					<g:render template="ordered_items" model="[customerInstance: customerInstance, products: products, static: 'true']" />
+					<g:render template="ordered_items" model="[customerInstance: customerInstance, products: products, show: 'true']" />
 				</g:if>
 				<g:else>
-					<g:render template="manual_order" model="[customerInstance: customerInstance, products: products,  static: 'true']" />
+					<g:render template="manual_order" model="[customerInstance: customerInstance, products: products,  show: 'true']" />
 				</g:else>
 				<p>&nbsp;</p>
             </div>

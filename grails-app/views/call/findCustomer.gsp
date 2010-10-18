@@ -8,7 +8,7 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="nav">
+        <div class="nav" style="padding:0; height:30px; line-height:30px;">
     	<g:render template="caller_nav"/>
 		<strong style="margin-left:200px;">Welcome Back <sec:loggedInUserInfo field="username"/></strong>
 		<span class="callerButton"><g:link controller="logout">Logout</g:link></span>

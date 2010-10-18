@@ -61,19 +61,19 @@
 
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
 
-		<div class="nav" style="padding: 0 12px; height:27px; line-height:27px">
-			<span class="menuButton"><g:link class="call" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link></span>
+		<div class="callerNavBar">
+			<g:link class="callerButton" style="margin-left:10px" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
 			<g:if test="${queue}">
-				<span class="callerButton" style="margin-left:970px"><g:actionSubmit id="submit" style="background-color:green; color:white; height:25px" action="save_assess_call" value="Next Call" /></span>
+				<span style="margin-left:970px"><g:actionSubmit id="submit" class="callerButton" action="save_assess_call" value="Next Call" /></span>
 			</g:if>
 			<g:elseif test="${single}">				
-				<span class="callerButton">
-					<g:hiddenField name="single" value="${single}" />
-					<g:actionSubmit id="submit" style="background-color:green; color:white; margin-left:970px" action="finish_call" value="Finish Calling" />
-				</span>
+
+				<g:hiddenField name="single" value="${single}" />
+				<g:actionSubmit id="submit" class="callerButton" style="margin-left:970px" action="finish_call" value="Finish Calling" />
+
 			</g:elseif>
 			<g:else>
-				<span style="margin-left:950px;" class="callerButton"><g:link controller="call" action="next_assess_call">Start Calling</g:link></span>
+				<span style="margin-left:950px;"><g:link controller="call" class="callerButton" action="next_assess_call">Start Calling</g:link></span>
 			</g:else>
 		</div>
 

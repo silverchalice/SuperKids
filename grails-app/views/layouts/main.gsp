@@ -5,8 +5,14 @@
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
         <export:resource />
- 		<g:javascript library="jquery" plugin="jquery"/>
+		<g:javascript library="jquery" plugin="jquery"/>
 		<jqui:resources/>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.logout').button();
+			})
+		</script>
     </head>
     <body>
         <div id="spinner" class="spinner" style="display:none;">
@@ -44,7 +50,7 @@
                         <li><sks:formats formats="['excel']" msg="Download Excel (no assessments)" /></li>
                         <li><hr /></li>
                         <li><g:link controller="home" action="change_password">Change Password</g:link></li>
-                        <li><g:link controller="logout">Logout</g:link></li>
+                        <li><g:link controller="logout" class="logout">Logout</g:link></li>
                     </ul>
 
                 </div>

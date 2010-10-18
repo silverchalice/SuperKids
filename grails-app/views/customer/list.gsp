@@ -13,6 +13,8 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#customerSearchButton').button();
+				$('.button').button();
+
 			})
 		</script>
 
@@ -65,27 +67,23 @@
                             <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
                             <td>
-                            <sks:orderCheckbox name="placedOrder"
-                                               id="placedOrder"
-                                               id="${customerInstance.id}" />
+                          	    <sks:orderCheckbox name="placedOrder" id="${customerInstance.id}" />
                             </td>
 
                             <td>
-                            <sks:assessmentCheckbox name="assessment"
-                                               id="assessment"
-                                               id="${customerInstance.id}" />
+                        	    <sks:assessmentCheckbox name="assessment" id="${customerInstance.id}" />
                             </td>
 
                             <td>
                             <g:checkBox name='newCustomer'
-                                        value="${customerInstance.newCustomer}"
-                                        onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'newCustomer=\' + this.checked')}" />
+								value="${customerInstance.newCustomer}"
+								onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'newCustomer=\' + this.checked')}" />
                             </td>
 
-                            <td width="120px">
-                            <g:link controller="customer" action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerInstance.id}">Delete</g:link> | 
-                            <g:link controller="customer" action="edit" id="${customerInstance.id}">Edit</g:link> | 
-                            <g:link controller="customer" action="show" id="${customerInstance.id}">View</g:link>
+                            <td width="180px">
+                            <g:link controller="customer" class="button" action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerInstance.id}">Delete</g:link>
+                            <g:link controller="customer" class="button" action="edit" id="${customerInstance.id}">Edit</g:link>
+                            <g:link controller="customer" class="button" action="show" id="${customerInstance.id}">View</g:link>
                             </td>
 
                         </tr>

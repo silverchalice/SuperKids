@@ -53,6 +53,7 @@
         <div class="body">
             <div style="margin:20px 0px; padding:15px; clear:both;">
                 <g:form method="post" action="findSchoolDistrict">
+
                     <strong>School District:</strong> <input type="text" name="query" />
                     <input type="submit" value="Search" id="customerSearchButton"/>
                 </g:form>
@@ -185,7 +186,7 @@
                                 </td>
                             </tr>
 
-												<tr class="prop">
+						<tr class="prop">
 							<td class="name"></td>
 							<td class="value">
 								<h3>Food Service Director</h3>
