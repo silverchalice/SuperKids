@@ -13,8 +13,8 @@
     <div id="secondaryContent">
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-        <div id="SubNav">
-                <h3>Learn Menu</h3>
+        <div id="LearnSubNav">
+                <h3 style="margin-left:62px; margin-top:3px; font-size:14px">Learn Menu</h3>
                 <ul>
                     <li><g:link controller="home" action="what_is">What Is SuperKids?</g:link></li>
 
@@ -34,7 +34,7 @@
 
                     <li><g:link controller="home" action="whole_grain_studies">Whole Grains & Human Health</g:link></li>
 
-                    <li><g:link controller="home" action="childhood_obesity">Meeting the Challenge of Childhood Obesity</g:link></li>
+                    <li><g:link controller="home" action="the_sneaky_chef">The Sneaky Chef</g:link></li>
 
                     <li><g:link controller="home" action="council_tips">Whole Grains Council Tips</g:link></li>
 
@@ -58,7 +58,7 @@
         </div>
         </sec:ifLoggedIn>    
     <div id="nav">
-      <g:link controller="home" action="learn">LEARN</g:link>
+      <g:link controller="home" class="current" action="learn">LEARN</g:link>
       <g:link controller="home" action="order">ORDER</g:link>
       <g:link controller="home" action="assess">ASSESS</g:link>
       <g:link controller="home" action="promote">PROMOTE</g:link>

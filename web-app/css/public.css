@@ -22,7 +22,7 @@ h1 {
 }
 
 h2 {
-  color:#333333;
+  color:#993300;
   font-size:16px;
   margin:0px 1px;
 }
@@ -43,7 +43,7 @@ a img {
 #body {
   width:955px;
   margin:0 auto;
-  padding-top:15px;
+  padding-top:9px;
   position:relative;
 }
 
@@ -61,10 +61,8 @@ a img {
 }
 
 #logo {
-  padding:10px;
-  padding-top:7px;
-  padding-left:2px;
-  margin-bottom:22px;
+	padding: 21px 12px 6px 2px;
+	margin-bottom:22px;
 }
 
 #nav {
@@ -106,6 +104,12 @@ a img {
   background-image:url(../images/layout/buttons/tab-blue-hover.png);
 }
 
+#nav a.current {
+	background-image:url(../images/layout/buttons/tab-hover.png);
+	color:white;
+
+}
+
 #content {
 
   margin-top:1px;
@@ -122,7 +126,7 @@ a img {
   height:485px;
   margin:0 auto;
   position:relative;
-  top:27px;
+  top:24px;
 }
 
 #contentInset p {
@@ -210,7 +214,7 @@ img#kid {
   color:white;
   background:url(../images/factoid-bg.gif);
   position:absolute;
-  top:380px;
+  top:390px;
   left:2px;
   margin-top:66px;
 }
@@ -289,6 +293,41 @@ h1 { color:#993300; margin-bottom:0px; }
 }
 
 #SubNav li a {
+	color:#653C00;
+	text-decoration:none;
+	font-weight:bold;
+	font-size:12px;
+    line-height:18px;
+
+}
+
+#LearnSubNav {
+	background:url(../images/layout/LearnSubNavBg.png) no-repeat;
+    width:255px;
+    height:258px;
+	padding-top:15px;
+	padding-left:20px;
+	position:absolute;
+	top:211px;
+	left:3px;
+}
+
+#LearnSubNav h3 {
+    margin:0;
+	padding:0;
+	margin-left:16px;
+	color:#993300;
+}
+
+#LearnSubNav ul {
+    width:190px;
+	list-style:url(../images/layout/SubNavBullet.png);
+	margin-left:6px;
+	margin-top:0;
+	padding:0;
+}
+
+#LearnSubNav li a {
 	color:#653C00;
 	text-decoration:none;
 	font-weight:bold;
