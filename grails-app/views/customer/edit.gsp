@@ -24,15 +24,13 @@
 			}
 
 		</style>
+		<script type="text/javascript" src="${resource(dir:'js', file:'sks.js')}">
+		</script>
 
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#assessForm').dialog({ autoOpen: false, width:500, modal:true });
-
 				$('#submitAssessment').button();
-
-				$('#customerSearchButton').button();
-
 				$('#addBrokerButton').button();
 			});
 			

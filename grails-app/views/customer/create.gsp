@@ -7,6 +7,8 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
+		<script type="text/javascript" src="${resource(dir:'js', file:'sks.js')}">
+		</script>
     </head>
     <body>
         <div class="nav">
@@ -14,10 +16,10 @@
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body" class="dialog" style="width:820px">
-            <div style="margin:20px 0px; border:1px solid; padding:15px;">
+            <div style="margin:20px 0px; padding:15px;">
                 <g:form method="post" action="findSchoolDistrict">
                     School District: <input type="text" name="query" />
-                    <input type="submit" value="Search" />
+                    <input type="submit" id="customerSearchButton" value="Search" />
                 </g:form>
             </div>
             <h1><g:message code="default.create.label" args="[entityName]" /></h1>

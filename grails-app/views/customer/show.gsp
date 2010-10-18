@@ -8,15 +8,13 @@
         <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
  		<g:javascript library="jquery" plugin="jquery"/>
-		<jqui:resources/>		
+		<jqui:resources/>
+		<script type="text/javascript" src="${resource(dir:'js', file:'sks.js')}">
+		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#assessForm').dialog({ autoOpen: false, width:500, modal:true });
-
 				$('#submitAssessment').button();
-
-				$('#customerSearchButton').button();
-
 				$('#addBrokerButton').button();
 			});
 

@@ -8,10 +8,7 @@
 		<g:javascript library="jquery" plugin="jquery"/>
 		<jqui:resources/>
 
-		<script type="text/javascript">
-			$(document).ready(function() {
-				$('.logout').button();
-			})
+		<script type="text/javascript" src="${resource(dir:'js',file:'sks.js')}">
 		</script>
     </head>
     <body>

@@ -4,13 +4,12 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="layout" content="caller" />
 	<title>Caller Home</title>
-	<script type="text/javascript" src="${resource(dir:'js', file:'jquery-1.4.2.min.js')}"></script>
-    <script type="text/javascript" src="${resource(dir:'js', file:'jquery-ui-1.8.5.custom.min.js')}"></script>
-	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
+
 
 </head>
 <body>
-
+	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui.selectmenu.css')}" />
+	<script type="text/javascript" src="${resource(dir:'js', file:'ui.selectmenu.js')}"></script>
 	<script type="text/javascript">
    		$(document).ready(function() {
 
@@ -21,6 +20,9 @@
 			    //console.log('changedFlag = true')
 				changedFlag = 'true';
 			});
+
+			$("select#result").selectmenu({style:'dropdown'});
+			$("select#shippingDate").selectmenu({style:'dropdown'});   
 
 			$('#submit').click(function (e) {
 

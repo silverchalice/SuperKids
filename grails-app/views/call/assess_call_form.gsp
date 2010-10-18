@@ -5,12 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="layout" content="caller" />
-	<script type="text/javascript" src="${resource(dir:'js', file:'jquery-1.4.2.js')}"></script>
-    <script type="text/javascript" src="${resource(dir:'js', file:'jquery-ui-1.8.5.custom.min.js')}"></script>
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
+
 <title>Caller Home</title>
 </head>
 <body>
+	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui.selectmenu.css')}" />
+	<script type="text/javascript" src="${resource(dir:'js', file:'ui.selectmenu.js')}"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -21,6 +22,9 @@
 			$(".tab_content").hide(); //Hide all content
 			$("ul.tabs li:first").addClass("active").show(); //Activate first tab
 			$(".tab_content:first").show(); //Show first tab content
+
+			$("select#result").selectmenu({style:'dropdown'});
+
 
 			//On Click Event
 			$("ul.tabs li").click(function() {
@@ -230,7 +234,7 @@
 									<label for="result"><strong>Call Result</strong></label>
 								</td>
 								<td valign="top" class="value">
-									 <g:select style="width:175px" id="result" name='result' value="${call?.result?.id}" valueMessagePrefix="call.result" optionKey="key"
+									 <g:select id="result" name='result' value="${call?.result?.id}" valueMessagePrefix="call.result" optionKey="key"
 										noSelection="${['null':'Select One...']}"
 										from='${CallResult.enumConstants}' />
 								</td>
