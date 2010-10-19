@@ -230,27 +230,57 @@ class HomeController {
        }
 
        def broker_products = {
-
+		   def content
+           def pt = PageText.findByName("broker_products")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
        def broker_whole_grain_benefits = {
-
+		   def content
+           def pt = PageText.findByName("whole_grain_benefits")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
        def broker_whole_grain_studies = {
-
+		   def content
+           def pt = PageText.findByName("whole_grain_studies")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
        def incorporating_whole_grains_in_schools = {
-
+		   def content
+           def pt = PageText.findByName("incorporating_whole_grains_in_schools")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
        def broker_participate = {
-
+		   def content
+           def pt = PageText.findByName("broker_participate")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
        def broker_ecard = {
-
+		   def content
+           def pt = PageText.findByName("broker_ecard")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
 

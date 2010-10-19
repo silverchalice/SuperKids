@@ -22,7 +22,7 @@
             <g:form action="c_password" method="post" >
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
-                <div style="height:440px; overflow:auto;">
+
                     <table>
                         <tbody>
 
@@ -54,7 +54,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+               
             </g:form>
 		</div>
     </body>
