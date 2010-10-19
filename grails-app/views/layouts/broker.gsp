@@ -43,6 +43,10 @@
       <span><g:link controller="home" action="index">LOG OUT</g:link></span>
     </div>
     <div id="content">
+	<div id="contentInsetUpper" style="width:620px; position:relative; left:46px; top:28px; background:white; height:10px">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
+		</div>
         <div id="contentInset">
             <g:layoutBody />
         </div>

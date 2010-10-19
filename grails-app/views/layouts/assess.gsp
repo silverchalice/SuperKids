@@ -13,10 +13,10 @@
     <div id="secondaryContent">
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-        <div id="SubNav">
+        <div id="AssessSubNav">
                 <h3>Assess Menu</h3>
                 <ul>
-                    <li><g:link controller="assessment" action="assess_process">Began Online Assessment</g:link></li>
+                    <li><g:link controller="assessment" action="assess_process">Begin Online Assessment</g:link></li>
 
                     <li><g:link controller="home" action="assessment_drawing_rules">Assessment Drawing Rules</g:link></li>
 
@@ -48,6 +48,10 @@
       <span><g:link controller="logout">LOG OUT</g:link></span>
     </div>
     <div id="content">
+		<div id="contentInsetUpper">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
+		</div>
         <div id="contentInset">
             <g:layoutBody />
         </div>

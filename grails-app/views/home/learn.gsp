@@ -6,12 +6,15 @@
         <title>SuperKids | Learn</title>
     </head>
     <body>
+	     <g:if test="${flash.message}">
+			<div class="message">${flash.message}</div>
+		</g:if>
 
-        <div style="width:450px">
-           <g:if test="${flash.message}">
-               <div class="message">${flash.message}</div>
-           </g:if>
-         ${content}
-        </div>
+
+		<div id="contentInsetInner">
+			<div style="width:420px">${content}
+				<img src="${resource(dir:'images', file:'LearnKid.jpg')}" style="position:absolute; top:6px; left:445px; z-index:0" />
+        	</div>
+		</div>
     </body>
 </html>

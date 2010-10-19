@@ -26,27 +26,40 @@
           </p>
         </div>
 	</div>
-        <sec:ifLoggedIn>
+
         <div id="HeaderBar"> 
-            <div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div> 
+			<sec:ifLoggedIn>
+           		<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
+      		</sec:ifLoggedIn>
         </div>
-        </sec:ifLoggedIn>
+
     <div id="nav">
       <g:link controller="home" action="learn">LEARN</g:link>
-      <g:link controller="home" action="order">ORDER</g:link>
+      <g:link controller="home" class="current" action="order">ORDER</g:link>
       <g:link controller="home" action="assess">ASSESS</g:link>
       <g:link controller="home" action="promote">PROMOTE</g:link>
       <span><g:link controller="logout">LOG OUT</g:link></span>
     </div>
     <div id="content">
-        <div id="contentInset">
-            <g:layoutBody />
-        </div>
-        <div id="contentFooter">
-            <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-            <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
-        </div>
-    </div>
+		<div id="contentInsetUpper">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
+		</div>
+		<div id="contentInset" class="flexcroll" style="height:478px; padding:0; right:15px">
+			<g:layoutBody />
+		</div>
+
+		<div id="contentInsetLower">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
+		</div>
+
+
+		<div id="contentFooter">
+			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+		</div>
+	</div>
 
     <div id="footer">
       <ul>

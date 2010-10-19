@@ -39,10 +39,14 @@
       <span><g:link controller="logout">LOG OUT</g:link></span>
     </div>
     <div id="content">
-        <div id="contentInset">
+		<div id="contentInsetUpper">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
+		</div>
+		<div id="contentInset">
             <g:layoutBody />
         </div>
-        <div id="contentFooter" style="margin-left:227px">
+        <div id="contentFooter">
             <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
             <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
         </div>
