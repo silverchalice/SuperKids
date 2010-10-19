@@ -327,6 +327,7 @@ class ProductController {
         def brokerInstance = Broker.get(params.id)
         def controller = params.rController
         def action = params.rAction
+        def rId = params.rId
         println "controller: " + controller + " action: " + action
         if(brokerInstance){
             try {
@@ -336,7 +337,7 @@ class ProductController {
                 log.error e
             }
          }
-         redirect controller:controller, action:action
+         redirect controller:controller, action:action, id:rId
     }
 
 }
