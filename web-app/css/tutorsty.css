@@ -1,0 +1,9 @@
+
+#contentInset {
+/* Typical fixed height and fixed width example */
+
+
+/* IE overflow fix, position must be relative or absolute*/
+position: absolute;
+
+}
