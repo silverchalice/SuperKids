@@ -147,9 +147,8 @@ class BootStrap {
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
 			bake:true,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem1
-		).save()
+			sponsor:sponsor1
+		).save(failOnError:true)
 
 		def product2 = new Product(
 			name:'Product 2',
@@ -161,8 +160,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem2
+			sponsor:sponsor1
 		).save()
 
 		def product3 = new Product(
@@ -175,8 +173,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem3
+			sponsor:sponsor1
 		).save()
 
 		def product4 = new Product(
@@ -189,8 +186,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem4
+			sponsor:sponsor1
 		).save()
 
 		def product5 = new Product(
@@ -202,8 +198,7 @@ class BootStrap {
 			hoverImage:new File("${superkids}/uploads/product1-hover.png").readBytes(), 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem5
+			sponsor:sponsor1
 		).save()
 
 		def product6 = new Product(
@@ -216,8 +211,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem6
+			sponsor:sponsor1
 		).save()
 
 		def product7 = new Product(
@@ -230,8 +224,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem7
+			sponsor:sponsor1
 		).save()
 
 		def product8 = new Product(
@@ -244,8 +237,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem8
+			sponsor:sponsor1
 		).save()
 
 		def product9 = new Product(
@@ -258,8 +250,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem9
+			sponsor:sponsor1
 		).save()
 
 		def product10 = new Product(
@@ -273,8 +264,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem10
+			sponsor:sponsor1
 		).save()
 
 		def product11 = new Product(
@@ -288,8 +278,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem11
+			sponsor:sponsor1
 		).save()
 
 		def product12 = new Product(
@@ -303,8 +292,7 @@ class BootStrap {
 			backgroundImage:'product1-background.png',
 			summary:new File("${superkids}/uploads/product1.pdf").readBytes(),
 			statesAvailable:statesAvailable,
-			sponsor:sponsor1,
-            shoppingItem:shoppingItem12
+			sponsor:sponsor1
 		).save()
 
 		customer.save(failOnError:true)
