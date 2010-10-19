@@ -48,21 +48,21 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.description.label" default="Description" /></td>
 
-                            <td valign="top" class="value">${fieldValue(bean: productInstance, field: "description")}</td>
+                            <td valign="top" class="value">${productInstance?.description}</td>
 
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.details.label" default="Details" /></td>
 
-                            <td valign="top" class="value">${fieldValue(bean: productInstance, field: "details")}</td>
+                            <td valign="top" class="value">${productInstance?.details}</td>
 
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="product.nutrition.label" default="Nutrition" /></td>
 
-                            <td valign="top" class="value">${fieldValue(bean: productInstance, field: "nutrition")}</td>
+                            <td valign="top" class="value">${productInstance?.nutrition}</td>
 
                         </tr>
 
