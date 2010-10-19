@@ -42,6 +42,14 @@
                         <label for="description">Description:</label>
                         <g:textArea style="width:95%; height:300px;" name="description" value="${productInstance?.description}" />
                     </p>
+                    <p><br />
+                        <label for="statesAvailable">States Available:</label><br />
+                        <select name="statesAvailable" id="statesAvailable" multiple size="5">
+                            <g:each in="${states}" var="state">
+                                <option value="${state}" >${state}</option>
+                            </g:each>
+                        </select>
+                    </p>
                 </fieldset>
                 <fieldset style="float:left;  width:420px; margin:10px">
                     <legend>Manufacturer Information</legend>
