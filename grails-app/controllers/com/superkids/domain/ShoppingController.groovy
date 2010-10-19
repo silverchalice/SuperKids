@@ -37,7 +37,7 @@ class ShoppingController {
                    }
                }
                println products
-               flash.message = "w00t! we updated the Customer!"
+               flash.message = "Your customer details have been updated."
                render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.list(), products:products]
            } else {
                render(view: "check_out", model: [customerInstance: customerInstance])
