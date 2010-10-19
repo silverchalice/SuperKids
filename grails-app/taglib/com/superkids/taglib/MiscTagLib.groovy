@@ -64,6 +64,10 @@ class MiscTagLib {
 		println "entering productBox tag..."
 		def customer = Customer.get(springSecurityService.principal?.id)
 		def shoppingCart = shoppingCartService.getShoppingCart()
+                def productIds = []
+                if(customer?.order){
+                    productIds = customer?.order.products.collect{ it.product.id }
+                }
 
 		Product.list().each { product ->
 			def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
@@ -71,7 +75,7 @@ class MiscTagLib {
 
 
 			if((product.liveProduct) && (product.statesAvailable.find{ customer?.deliveryAddress?.state }) && (!product.parent)){
-				if(quantity) {
+				if(quantity || productIds?.contains(product.id)) {
 					println "hoverImage"
 					out << "<a href='"
 					out << g.createLink(controller:'product', action:'show', id: product.id)

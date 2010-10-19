@@ -37,7 +37,7 @@ class ShoppingController {
                    }
                }
                println products
-               flash.message = "w00t! we updated the Customer!"
+               flash.message = "Your customer details have been updated."
                render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.list(), products:products]
            } else {
                render(view: "check_out", model: [customerInstance: customerInstance])
@@ -55,7 +55,7 @@ class ShoppingController {
         customer.status = CustomerStatus.HAS_ORDERED
         def order = new CustomerOrder(customer:customer, shippingDate:shippingDate, orderType:OrderType.WEB)
         shoppingCartService.getItems().each{
-            def product = Product.get(it.id)
+            def product = Product.findByShoppingItem(it)
             def productOrder = new ProductOrder(product:product, order:order, received:true)
             order.addToProducts(productOrder)
 

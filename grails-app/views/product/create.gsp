@@ -42,7 +42,7 @@
                                     <label for="description"><g:message code="product.description.label" default="Description" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'description', 'errors')}">
-                                    <g:textField name="description" value="${productInstance?.description}" />
+                                    <g:textArea name="description" value="${productInstance?.description}" />
                                 </td>
                             </tr>
                         
@@ -51,7 +51,7 @@
                                     <label for="details"><g:message code="product.details.label" default="Details" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'details', 'errors')}">
-                                    <g:textField name="details" value="${productInstance?.details}" />
+                                    <g:textArea name="details" value="${productInstance?.details}" />
                                 </td>
                             </tr>
                         
@@ -60,10 +60,23 @@
                                     <label for="nutrition"><g:message code="product.nutrition.label" default="Nutrition" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'nutrition', 'errors')}">
-                                    <g:textField name="nutrition" value="${productInstance?.nutrition}" />
+                                    <g:textArea name="nutrition" value="${productInstance?.nutrition}" />
                                 </td>
                             </tr>
-                        
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="statesAvailable">States Available:</label><br />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'nutrition', 'errors')}">
+                                    <select name="statesAvailable" id="statesAvailable" multiple size="5">
+                                        <g:each in="${states}" var="state">
+                                            <option value="${state}" >${state}</option>
+                                        </g:each>
+                                    </select>
+                                </td>
+                            </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="image"><g:message code="product.image.label" default="Image" /></label>
@@ -73,6 +86,15 @@
                                 </td>
                             </tr>
                         
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="hoverImage"><g:message code="product.hoverImage.label" default="Hover Image" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'hoverImage', 'errors')}">
+                                    <input type="file" id="hoverImage" name="hoverImage" />
+                                </td>
+                            </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="summary"><g:message code="product.summary.label" default="Summary" /></label>
