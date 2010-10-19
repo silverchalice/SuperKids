@@ -405,7 +405,29 @@
 				</g:else>
 
 				<br/>
-
+				<h1>Brokers/Distributors</h1>
+				<table>
+					<thead>
+						<th><strong>Name</strong></th>
+						<th><strong>Email</strong></th>
+						<th></th>
+					</thead>
+					<tbody>
+					  <g:each in="${customerInstance.brokers}" var="broker">
+						 <tr>
+							<td>
+							  ${broker?.name}
+							</td>
+							<td>
+							  ${broker?.email}
+							</td>
+							<td>
+							  <g:link controller="product" action="brokerEditFromEdit" id="${broker?.id}" params="[rController:'customer', rAction:'edit', rId:customerInstance.id]">Edit</g:link> | <g:link controller="product" action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'customer', rAction:'edit', rId:customerInstance.id]">Delete</g:link>
+							</td>
+						</tr>
+					  </g:each>
+					</tbody>
+				</table><p>&nbsp;</p>
                 <h1>Add Broker</h1>
 				<g:form controller="${broker ? 'product' : 'home'}" action="${broker ? 'updateBroker': 'addBroker'}" method="post">
 					<table cellpadding="5" cellspacing="0" border="0" width="100%">
@@ -413,7 +435,10 @@
                           <tr> 
                               <td><strong>Broker/Distributor Name: </strong></td> 
                               <td><input type="text" name="name" size="20" maxlength="50" value="${broker?.name}"></td> 
-                          </tr> 
+                          </tr>                           <tr>
+                              <td><strong>Representative Name: </strong></td> 
+                              <td><input type="text" name="rep" size="20" maxlength="50" value="${broker?.rep}"></td>
+                          </tr>
                           <tr> 
                               <td><strong>Email: </strong></td> 
                               <td><input type="text" name="email" size="20" maxlength="50" value="${broker?.email}"></td> 
@@ -463,28 +488,7 @@
 
 					</table>
 				</g:form>
-				<table>
-					<thead>
-						<th><strong>Name</strong></th>
-						<th><strong>Email</strong></th>
-						<th></th>
-					</thead>
-					<tbody>
-					  <g:each in="${customerInstance.brokers}" var="broker">
-						 <tr>
-							<td>
-							  ${broker?.name}
-							</td>
-							<td>
-							  ${broker?.email}
-							</td>
-							<td>
-							  <g:link controller="product" action="brokerEditFromEdit" id="${broker?.id}" params="[rController:'customer', rAction:'edit', rId:customerInstance.id]">Edit</g:link> | <g:link controller="product" action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'customer', rAction:'edit', rId:customerInstance.id]">Delete</g:link>
-							</td>
-						</tr>
-					  </g:each>
-					</tbody>
-				</table><p>&nbsp;</p>
+
 			</div>
 		</div>
 

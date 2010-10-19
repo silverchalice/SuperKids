@@ -314,9 +314,12 @@ class ProductController {
         println "broker is " + brokerInstance
         if (brokerInstance) {
             brokerInstance.properties = params
-            brokerInstance.save(failOnError:true)
+
+            if(!brokerInstance.save()) {
+				flash.message = "Invalid Broker Details"
+			}
         }
-        redirect controller:controller, action:action, id:rId
+        redirect controller:controller, action:action, id:rId, broker:brokerInstance
     }
 
 

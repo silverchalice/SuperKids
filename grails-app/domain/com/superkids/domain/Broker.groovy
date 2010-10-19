@@ -17,11 +17,12 @@ class Broker {
 	static belongsTo = [customer: Customer]
 
     static constraints = {
-                phone(nullable:true)
-                fax(nullable:true)
-                email(nullable:true)
+		phone(nullable:true)
+		fax(nullable:true)
+		email(nullable:true)
+		rep(nullable:true)
 		street(nullable: true)
-                street2(nullable:true)
+		street2(nullable:true)
 		city(nullable: true)
 		state(nullable: true)
 		zip(nullable: true)

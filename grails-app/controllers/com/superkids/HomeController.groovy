@@ -183,8 +183,6 @@ class HomeController {
            println "controller: " + controller + " action: " + action
            if(params.name){
                def broker = new Broker(params)
-               broker.customer = customerInstance
-               broker.save(failOnError:true)
                println broker.name
                customerInstance.addToBrokers(broker)
                customerInstance.save()
