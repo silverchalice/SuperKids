@@ -42,12 +42,7 @@
 								<sks:customerAssessmentTotal id="${customerInstance.id}"/>
 							</td>
 							<td style="width:100px;">
-								<g:if test="${customerInstance.status == CustomerStatus.QUALIFIED}">
-									<input type="checkbox" name="completed" checked="checked" disabled="disabled"/>
-								</g:if>
-								<g:else>
-									<input type="checkbox" name="completed" disabled="disabled"/>
-								</g:else>
+                                                            <sks:completedAssessmentCheckbox name="completedAssessment" id="${customerInstance.id}" />
 							</td>
 							<td style="width:100px;"><g:link action="viewAssessment" id="${customerInstance.id}">View</g:link></td>
                         </tr>
