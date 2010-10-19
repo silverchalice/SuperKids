@@ -63,7 +63,20 @@
                                     <g:textArea name="nutrition" value="${productInstance?.nutrition}" />
                                 </td>
                             </tr>
-                        
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="statesAvailable">States Available:</label><br />
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: productInstance, field: 'nutrition', 'errors')}">
+                                    <select name="statesAvailable" id="statesAvailable" multiple size="5">
+                                        <g:each in="${states}" var="state">
+                                            <option value="${state}" >${state}</option>
+                                        </g:each>
+                                    </select>
+                                </td>
+                            </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="image"><g:message code="product.image.label" default="Image" /></label>
