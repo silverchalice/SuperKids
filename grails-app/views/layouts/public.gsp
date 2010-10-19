@@ -2,6 +2,7 @@
     <head>
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
+		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
         <g:javascript library="application" />
@@ -9,7 +10,7 @@
     </head>
     <body>
   <div id="body">
-
+	<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
     <div id="secondaryContent">
       <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
@@ -31,32 +32,36 @@
 
     </div>
 	<div id="HeaderBar">
-	&nbsp;</div>
+		&nbsp;
+		<sec:ifLoggedIn>
+			<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
+		</sec:ifLoggedIn>
+	</div>
 
     <div id="nav">
       <span><g:link controller="login" action="auth">LOG IN</g:link></span>
     </div>
+	  
+	<div id="content">
+		<div id="contentInsetUpper">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
+		</div>
+		<div id="contentInset" class="flexcroll">
+			<g:layoutBody />
+		</div>
 
-	  <div id="content">
-			  <div id="contentInsetUpper">
-				  <img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
-				  <img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
-			  </div>
-			  <div id="contentInset"style="height:479px; padding:0; right:15px">
-				  <g:layoutBody />
-			  </div>
-
-			  <div id="contentInsetLower">
-				  <img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
-				  <img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
-			  </div>
+		<div id="contentInsetLower">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
+		</div>
 
 
-			  <div id="contentFooter">
-				  <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-				  <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
-			  </div>
-		  </div>
+		<div id="contentFooter">
+			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+		</div>
+	</div>
 
 
     <div id="footer">

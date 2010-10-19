@@ -38,22 +38,34 @@
             </p>
         </div>
 	</div>
-
+        <div id="HeaderBar">
+			<sec:ifLoggedIn>
+           		<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
+      		</sec:ifLoggedIn>
+        </div>
     <div id="nav">
       <span><g:link controller="home" action="index">LOG OUT</g:link></span>
     </div>
-    <div id="content">
-	<div id="contentInsetUpper" style="width:620px; position:relative; left:46px; top:28px; background:white; height:10px">
+	<div id="content">
+		<div id="contentInsetUpper">
 			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
 			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
 		</div>
-        <div id="contentInset">
-            <g:layoutBody />
-        </div>
-        <div id="contentFooter">
-            <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-            <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
-        </div>
+		<div id="contentInset" class="flexcroll">
+			<g:layoutBody />
+		</div>
+
+		<div id="contentInsetLower">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
+		</div>
+
+
+		<div id="contentFooter">
+			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+		</div>
+	</div>
     </div>
 
     <div id="footer">

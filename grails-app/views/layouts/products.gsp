@@ -4,10 +4,13 @@
     <head>
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
+		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
+
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
     </head>
     <body>
+		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
   <div id="body">
 
     <div id="secondaryContent">
@@ -26,11 +29,11 @@
       </div>
 
     </div>
-      <sec:ifLoggedIn>
-        <div id="HeaderBar"> 
-            <div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div> 
+        <div id="HeaderBar">
+			<sec:ifLoggedIn>
+           		<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
+      		</sec:ifLoggedIn>
         </div>
-        </sec:ifLoggedIn>
     <div id="nav">
       <g:link controller="home" action="learn">LEARN</g:link>
       <g:link controller="home" action="order">ORDER</g:link>

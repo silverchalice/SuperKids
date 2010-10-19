@@ -8,6 +8,7 @@
         <title>Change Password | SuperKids</title>
     </head>
     <body>
+		<div id="contentInsetInner">
             <h1>Change Password</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -54,5 +55,6 @@
                     </table>
                 </div>
             </g:form>
+		</div>
     </body>
 </html>

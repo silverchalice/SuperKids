@@ -125,7 +125,7 @@ em {
 
 #contentInset {
   width:671px;
-  padding:15px 10px 0 10px;
+  padding:0;
   height:483px;
   margin:0 auto;
   position:absolute;
@@ -148,20 +148,21 @@ em {
 	width:641px;
 	position:absolute;
 	left:269px;
-	top:579px;
+	top:578px;
 	background:white;
 	height:7px;
 	z-index:2;
-	clear:both;	
+	clear:both;
+	padding-top:1px;
 }
 
 #contentInsetInner {
 	width:621px;
 	padding:10px;
 	background:white;
-	min-height:459px;
+	min-height:458px;
 	height:auto !important;
-    height:459px;
+    height:458px;
 
 }
 

@@ -12,9 +12,9 @@
 
 
 		<div id="contentInsetInner">
-			<div style="width:420px">${content}
-				<img src="${resource(dir:'images', file:'LearnKid.jpg')}" style="position:absolute; top:6px; left:445px; z-index:0" />
-        	</div>
+			<div style="width:420px">${content}</div>
+			<img src="${resource(dir:'images', file:'LearnKid.jpg')}" style="position:absolute; top:6px; left:445px; z-index:0" />
+
 		</div>
     </body>
 </html>

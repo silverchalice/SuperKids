@@ -58,9 +58,11 @@
 
 			</div>
 			<sec:ifLoggedIn>
-			<div id="HeaderBar">
-				<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
-			</div>
+				<div id="HeaderBar">
+					<sec:ifLoggedIn>
+						<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
+					</sec:ifLoggedIn>
+				</div>
 			</sec:ifLoggedIn>
 				<div id="nav">
 				  <g:link controller="home" class="current" action="learn">LEARN</g:link>
@@ -69,12 +71,12 @@
 				  <g:link controller="home" action="promote">PROMOTE</g:link>
 				  <span id="login"><g:link controller="logout">LOG OUT</g:link></span>
 				</div>
-				<div id="content" style="height:532px">
+				<div id="content">
 					<div id="contentInsetUpper">
 						<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
 						<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
 					</div>
-					<div id="contentInset" class="flexcroll" style="height:478px; padding:0; right:15px">
+					<div id="contentInset" class="flexcroll">
 						<g:layoutBody />
 					</div>
 					

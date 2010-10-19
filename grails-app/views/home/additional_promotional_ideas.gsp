@@ -5,15 +5,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="promote" />
-        <title>You landed on: The Landing Page.</title>
+        <title>SuperKids | Additional Promotional Ideas</title>
     </head>
     <body>
 
-        <div style="width:450px">
            <g:if test="${flash.message}">
                <div class="message">${flash.message}</div>
            </g:if>
-         ${content}
-        </div>
+         <div id="contentInsetInner">${content}</div>
+
     </body>
 </html>

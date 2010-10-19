@@ -494,7 +494,7 @@ class BootStrap {
             ).save()
 
         def wholeGrainStudiesText = new PageText(name:"whole_grain_studies", content:"""
-			<h1>Whole Grains & Human Health</h1>
+		<h1>Whole Grains & Human Health</h1>
 
 		<p>As a nutrition professional, you're well aware of the food pyramid and the role that whole grains play in health and wellness. This section provides access to some of the many recent health studies for your reference.</p>
 		<h2>A Detailed Study.</h2>
@@ -517,7 +517,7 @@ class BootStrap {
 		  </span></strong></a></li>
 		</ul>
 
-		</div>
+
 
 		<div class="PopUpClass" id="PopUp1">
 		  <div class="headline2"><span style="color: rgb(0, 0, 0);"><span><span style="font-size: xx-small;">Whole Grains And Human Health - Recent Studies</span></span></span></div>
@@ -639,7 +639,8 @@ class BootStrap {
 		  <span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><strong>Help For Overweight Children</strong><br />
 		  </span></span>Overweight children, age 9-15, spent two weeks on an all-you-can-eat diet of whole grains, fruits, vegetables and lean protein, while exercising 2.5 hours each day. UCLA researchers led by Dr. James Barnard reported that in just two weeks the children's cholesterol levels dropped an average of 21%, while insulin levels fell 30%. Leptin, a hormone thought to be connected to appetite, decreased on average 57%.&nbsp; <em>(Study presented at American Heart Assn. conference, Mar. 2006.)</em>
 		  <div style="text-align: right;"><a style="font-size: 12px;" onclick="closePopUp(12);" onfocus='this.blur();' onmouseover='this.style.cursor="pointer" '><span style="text-decoration: underline;">Close</span></a></div>    </div>
-		</div>
+
+									  
 									  """
             ).save()
 
@@ -649,22 +650,21 @@ class BootStrap {
             ).save()
 
         def sustagrainText = new PageText(name:"sustagrain", content:"""
-<h1>Sustagrain&reg;: The Ultra-High Fiber Whole Grain</h1> 
-<div style="float: left; width: 300px;"> 
-<p>Another first from ConAgra Mills, all-natural Sustagrain is the highest-fiber whole grain available, with three times the total dietary fiber (TDF) of oats and up to eight times the TDF of other whole grains. Made from a proprietary variety of barley, Sustagrain has a neutral flavor that can boost the nutrition in any recipe. With Sustagrain, a little goes a long way toward making a nutritional difference. Whether you&rsquo;re making recipes from scratch, using it as a topping, or trying products made with it, Sustagrain adds whole grain nutrition and fiber to almost any application including breads, hot cereals, snack bars, side dishes and meat recipes like meatloaf or meatballs. Sustagrain is available as an ultrafine flour, oat-like flakes, and toasted, sweetened flakes.</p> 
-</div>
-<p>&nbsp;</p>
-<p style="text-align:left;"><img width="300" height="114" align="right" src="/SuperKids/images/SustagrainLogo.gif" /></p> 
-</div> 
-<div style="clear: both;"> 
-<p><a href="/SuperKids/pdf/J-Food-Sci-2009-Children's-acceptance-whole-grain-and-soluble-fiber-enriched-foods.pdf"><img width="32" height="32" border="0" align="absMiddle" style="width: 26px; height: 26px;" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /></a>&nbsp;&nbsp;<a href="/SuperKids/pdf/J-Food-Sci-2009-Children's-acceptance-whole-grain-and-soluble-fiber-enriched-foods.pdf">View the Study</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:popUp('http://www.conagramills.com/downloads/videos.jsp?flv_str=Sustagrain_300k',326,265)"><img width="29" height="29" border="0" align="absMiddle" src="http://www.conagramills.com/images/thumb_video_sustagrain.jpg" /></a>&nbsp;&nbsp;<a href="javascript:popUp('http://www.conagramills.com/downloads/videos.jsp?flv_str=Sustagrain_300k',326,265)">VIDEO - Sustagrain</a></p> 
-</div>
-<div style="clear: both;"><br /> 
-<br /> 
-<p><strong>See how Sustagrain stacks up by comparing it to other whole grains shown in the following charts; or click here:</strong> <img width="32" height="32" border="0" align="absmiddle" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /> <a href="/SuperKids/pdf/Sustagrain.pdf"><strong>Download the Sustagrain PDF</strong></a></p> 
-<p><img width="450" height="293" src="/SuperKids/images/fiber_comparison.jpg" /> <img width="450" height="227" src="/SuperKids/images/gi_comparison.jpg" /></p> 
-</div> 
-</div>
+		<h1>Sustagrain&reg;: The Ultra-High Fiber Whole Grain</h1>
+		<div style="float: left; width: 300px;">
+		<p>Another first from ConAgra Mills, all-natural Sustagrain is the highest-fiber whole grain available, with three times the total dietary fiber (TDF) of oats and up to eight times the TDF of other whole grains. Made from a proprietary variety of barley, Sustagrain has a neutral flavor that can boost the nutrition in any recipe. With Sustagrain, a little goes a long way toward making a nutritional difference. Whether you&rsquo;re making recipes from scratch, using it as a topping, or trying products made with it, Sustagrain adds whole grain nutrition and fiber to almost any application including breads, hot cereals, snack bars, side dishes and meat recipes like meatloaf or meatballs. Sustagrain is available as an ultrafine flour, oat-like flakes, and toasted, sweetened flakes.</p>
+		</div>
+		<p>&nbsp;</p>
+		<p style="text-align:left;"><img width="300" height="114" align="right" src="/SuperKids/images/SustagrainLogo.gif" /></p>
+
+		<div style="clear: both;">
+			<p><a href="/SuperKids/pdf/J-Food-Sci-2009-Children's-acceptance-whole-grain-and-soluble-fiber-enriched-foods.pdf"><img width="32" height="32" border="0" align="absMiddle" style="width: 26px; height: 26px;" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /></a>&nbsp;&nbsp;<a href="/SuperKids/pdf/J-Food-Sci-2009-Children's-acceptance-whole-grain-and-soluble-fiber-enriched-foods.pdf">View the Study</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="javascript:popUp('http://www.conagramills.com/downloads/videos.jsp?flv_str=Sustagrain_300k',326,265)"><img width="29" height="29" border="0" align="absMiddle" src="http://www.conagramills.com/images/thumb_video_sustagrain.jpg" /></a>&nbsp;&nbsp;<a href="javascript:popUp('http://www.conagramills.com/downloads/videos.jsp?flv_str=Sustagrain_300k',326,265)">VIDEO - Sustagrain</a></p>
+		</div>
+		<div style="clear: both;"><br />
+			<br />
+			<p><strong>See how Sustagrain stacks up by comparing it to other whole grains shown in the following charts; or click here:</strong> <img width="32" height="32" border="0" align="absmiddle" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /> <a href="/SuperKids/pdf/Sustagrain.pdf"><strong>Download the Sustagrain PDF</strong></a></p>
+			<p><img width="450" height="293" src="/SuperKids/images/fiber_comparison.jpg" /> <img width="450" height="227" src="/SuperKids/images/gi_comparison.jpg" /></p>
+		</div>
                           """
             ).save()
 
