@@ -32,9 +32,7 @@ class ProductController {
 
     def save = {
         def productInstance = new Product(params)
-        def shoppingItem = new ShoppingItem().save()
-        productInstance.shoppingItem = shoppingItem
-        if (productInstance.save(flush: true)) {
+        if (productInstance.save(failOnError:true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'product.label', default: 'Product'), productInstance.id])}"
             redirect action: "admin"
         }
