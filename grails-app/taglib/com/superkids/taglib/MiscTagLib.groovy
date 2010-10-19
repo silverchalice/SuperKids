@@ -65,8 +65,8 @@ class MiscTagLib {
 		def customer = Customer.get(springSecurityService.principal?.id)
 		def shoppingCart = shoppingCartService.getShoppingCart()
                 def productIds = []
-                if(customer.order){
-                    productIds = customer.order.products.collect{ it.product.id }
+                if(customer?.order){
+                    productIds = customer?.order.products.collect{ it.product.id }
                 }
 
 		Product.list().each { product ->
