@@ -1,6 +1,7 @@
 package com.superkids.domain
 
 import com.metasieve.shoppingcart.IShoppable
+import com.metasieve.shoppingcart.ShoppingItem
 
 class Product implements IShoppable {
 
@@ -32,9 +33,9 @@ class Product implements IShoppable {
 
 	static constraints = {
 	name()
-	description()
-	details()
-	nutrition()
+	description(maxSize:500000)
+	details(maxSize:500000)
+	nutrition(maxSize:500000)
 	image()
 	hoverImage()
 	backgroundImage nullable: true
@@ -44,7 +45,8 @@ class Product implements IShoppable {
 	servings(nullable:true)
 	sponsor(nullable:true)
 	assessments(nullable:true)
-    parent nullable:true
+        parent nullable:true
+        shoppingItem nullable:true
 	}
 
 	static mapping = {
@@ -57,4 +59,11 @@ class Product implements IShoppable {
 	}
 
 	String toString(){ name }
+
+        def beforeInsert = {
+            def si = new ShoppingItem().save()
+            shoppingItem = si
+            log.error "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! here is the shoppingItem: " + this.shoppingItem
+        }
+
 }
