@@ -19,18 +19,13 @@
 		<script type="text/javascript">
 			jQuery.noConflict();
 			
-
 			jQuery(document).ready(function() {
-
 				var width = jQuery(document).width() / 2;
-
 				jQuery('.PopUpClass').dialog({
 					autoOpen:false,
 					width:460,
 					position:[width, 370]
-
 				});
-
 			});
 
 			function openPopUp(id) {
@@ -43,9 +38,13 @@
 				jQuery(popUp).dialog('close');
 			}
 
-		</script>
-		<div id="contentInsetInner" style="height:451px;">
-			${content}
-		</div>
+			</script>
+			<g:if test="${flash.message}">
+				<div class="message">${flash.message}</div>
+			</g:if>
+
+			<div id="contentInsetInner">
+				${content}
+			</div>
     </body>
 </html>
