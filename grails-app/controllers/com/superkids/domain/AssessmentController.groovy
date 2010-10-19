@@ -174,7 +174,7 @@ class AssessmentController {
                  }
              }
          }
-         def assessmentInstance = new Assessment(likeRating:params.likeRating, product:product)
+         def assessmentInstance = new Assessment(likeRating:params.likeRating, product:product, type:OrderType.WEB)
          assessmentInstance.properties = params
          customer.addToAssessments(assessmentInstance)
          customer.save(failOnError:true)
