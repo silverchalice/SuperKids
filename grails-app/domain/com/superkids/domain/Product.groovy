@@ -63,7 +63,6 @@ class Product implements IShoppable {
         def beforeInsert = {
             def si = new ShoppingItem().save()
             shoppingItem = si
-            log.error "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! here is the shoppingItem: " + this.shoppingItem
         }
 
 }
