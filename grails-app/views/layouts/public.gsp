@@ -42,7 +42,7 @@
 				  <img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
 				  <img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
 			  </div>
-			  <div id="contentInset" class="flexcroll" style="height:478px; padding:0; right:15px">
+			  <div id="contentInset"style="height:479px; padding:0; right:15px">
 				  <g:layoutBody />
 			  </div>
 
