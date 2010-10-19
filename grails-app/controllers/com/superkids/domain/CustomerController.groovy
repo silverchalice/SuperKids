@@ -245,7 +245,7 @@ class CustomerController {
         def productOrderInstance = ProductOrder.get(params.id)
         if (productOrderInstance){
             productOrderInstance.received = params.didNotReceive == 'false'
-            productOrderInstance.save()
+            productOrderInstance.save(failOnError:true)
         }
         println "the productOrderInstance's received is " + productOrderInstance.received
         render ''
@@ -268,16 +268,28 @@ class CustomerController {
 			assessment.product = product
 			assessment.type = Enum.valueOf(OrderType.class, params.orderType)
 			assessment.completed = true
-			assessment.properties.each { println it }
 
 			customer.addToAssessments(assessment)
 
-			
+			customer.save(failOnError:true)
 
-			customer.save()
+                        def products = []
 
+                        customer.order.products.findAll{ it.received == true }.each{
+                            def p = Product.get(it.product.id)
+                            if(!customer.assessments.find{ it.product.id == p.id }){
+                                products << p
+                            }
+                        }
 
-			redirect action:edit, id:customer.id
+                        if(products.size() > 0){
+                            redirect action:edit, id:customer.id
+                        } else {
+                            customer.status = CustomerStatus.QUALIFIED
+                            customer.hasCompletedCurrentAssessment = true	                
+                            redirect action:edit, id:customer.id
+                        }
+ 
 		} else {
 			flash.message = "Product not found"
 			println flash.message
