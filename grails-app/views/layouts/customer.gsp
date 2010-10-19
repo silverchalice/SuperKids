@@ -35,6 +35,10 @@
             <div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div> 
         </div>
         </sec:ifLoggedIn>
+	  	<sec:ifNotLoggedIn>
+			  &nbsp;
+	  	</sec:ifNotLoggedIn>
+
     <div id="nav">
     <sec:ifLoggedIn>
       <g:link controller="home" action="learn">LEARN</g:link>

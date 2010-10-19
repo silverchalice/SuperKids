@@ -211,6 +211,22 @@ img#kid {
   left:523px;
 }
 
+img#kid2 {
+	position: absolute;
+	right: 48px;
+	top: 53px;
+	width: 160px;
+	height: 430px;
+}
+
+img#kid3 {
+	position: absolute;
+	right: 48px;
+	top: 53px;
+	width: 160px;
+	height: 430px;
+}
+
 a.viewCartButton {
 	background-image:url(../images/layout/buttons/OrderCartButton.gif);
 }
@@ -315,17 +331,17 @@ h1 { color:#993300; margin-bottom:0px; }
 	background:url(../images/layout/SubNavBg.png) no-repeat;
     width:255px;
     height:158px;
-	padding-top:15px;
+	padding-top:16px;
 	padding-left:20px;
 	position:absolute;
-	top:208px;
+	top:215px;
 	left:3px;
 }
 
 #SubNav h3 {
     margin:0;
 	padding:0;
-	margin-left:16px;
+	margin-left:21px;
 	color:#993300;
 }
 

@@ -34,6 +34,9 @@
 			<sec:ifLoggedIn>
            		<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
       		</sec:ifLoggedIn>
+			<sec:ifNotLoggedIn>
+				&nbsp;
+			</sec:ifNotLoggedIn>
         </div>
     <div id="nav">
     <sec:ifLoggedIn>

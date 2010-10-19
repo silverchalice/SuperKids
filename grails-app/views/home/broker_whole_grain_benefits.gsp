@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="learn" />
+        <meta name="layout" content="broker" />
         <title>SuperKids | Whole Grain Benefits</title>
     </head>
     <body>

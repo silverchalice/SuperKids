@@ -5,15 +5,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="broker" />
-        <title>You landed on: The Landing Page.</title>
+        <title>SuperKids | Broker</title>
     </head>
     <body>
 
-        <div style="width:450px">
-           <g:if test="${flash.message}">
-               <div class="message">${flash.message}</div>
-           </g:if>
-         <div id="contentInsetInner">${content}</div>
-        </div>
+
+	   <g:if test="${flash.message}">
+		   <div class="message">${flash.message}</div>
+	   </g:if>
+	 <div id="contentInsetInner">
+		 <div style="width:445px">${content}</div>
+
+	 </div>
+
     </body>
 </html>
