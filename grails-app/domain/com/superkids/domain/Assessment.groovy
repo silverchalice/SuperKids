@@ -20,4 +20,9 @@ class Assessment {
         product nullable:true
         customer nullable:true
     }
+
+    String toString(){
+        "assessment " + id + " of product " + product + ", assessed by " + customer
+    }
+
 }
