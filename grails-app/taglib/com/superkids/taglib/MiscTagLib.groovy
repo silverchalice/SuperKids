@@ -205,6 +205,16 @@ class MiscTagLib {
 		}
 	}
 
+        def ifNotAssessed = { attrs, body ->
+            def customer = Customer.get(attrs.customerId)
+            def product = Product.get(attrs.productId)
+            if(customer.assessments.find{it.product.id == product.id}){
+                out << ""
+            } else {
+                out << body()
+            }
+        }
+
 	def adminAssessLink = { attrs ->
 		def pOrder = ProductOrder.get(attrs.id)
 		if(pOrder) {
