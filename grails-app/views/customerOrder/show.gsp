@@ -107,8 +107,7 @@
 						<tr>
 							<th>&nbsp;</th>
 							<th>Product</th>
-							<th>Assessment Taken</th>
-							<th>&nbsp;</th>
+							<th>Assessment</th>
 						</tr>
 					<g:each in="${customerOrderInstance.products}" var="p">
 
@@ -119,7 +118,6 @@
 							<td>
 								<g:link controller="product" action="show" id="${p.id}">${p?.product.name}</g:link>
 							</td>
-							<td style="width:120px"><sks:assessmentCheckbox id="${customerOrderInstance?.customer.id}" /></td>
 							<td style="width:70px">
 							    <sks:viewAssessment customer="${customerOrderInstance?.customer?.id}" product="${p.product.id}" />
 							</td>
