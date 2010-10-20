@@ -238,7 +238,7 @@ class AssessmentController {
                  }
              }
          }
-         assessmentInstance.iRating = params.iRating.toInteger()
+         assessmentInstance.iRating = params.iRating?.toInteger()
          assessmentInstance.completed = true
          customer.save(failOnError:true)
          println assessmentInstance.completed

@@ -108,22 +108,11 @@ class PageTextLoader {
 				<p><g:link controller="home" action="index">Student Feedback Form</g:link> - This form was developed for use with younger students (K-3).</p>
 				<br />
 				<p><g:link controller="home" action="index">Student Certificate</g:link> - Download and print it, then give it to student taste-testers to recognize them for participating as a SuperKid.</p>
-						  """
-				).save()
+				""").save()
 
 			def assessmentToolsText = new PageText(name:"assessment_tools", content:"""
-				<h1>Assessment Tools & Resources</h1>
-				<p>You can download the following by clicking on your choice. These tools and resources can be used when conducting in-school taste tests of your SuperKids whole grain product samples:</p>
-				<br />
-				<p><g:link controller="home" action="index">University of Minnesota Module</g:link> - Includes whole grain definitions, nutritional and labeling information.</p>
-				<br />
-				<p><g:link controller="home" action="index">Printable Assessment Form</g:link> - Download and print the assessment form. When complete, just fax or mail to the fax number or address provided.</p>
-				<br />
-				<p><g:link controller="home" action="index">Student Feedback Form</g:link> - This form was developed for use with younger students (K-3).</p>
-				<br />
-				<p><g:link controller="home" action="index">Student Certificate</g:link> - Download and print it, then give it to student taste-testers to recognize them for participating as a SuperKid.</p>
-							  """
-				).save()
+				<h1>Assessment Tools & Resources</h1><br/><br/> <img src="/SuperKids/images/girleating.jpg" id="girleating" /> <div>  <p style="font-size:13px;">You can download the following by clicking on your choice. These tools and resources can be used when conducting in-school taste tests of your SuperKids whole grain product samples:</p>  <br />  <p style="font-size:13px"><a href="/SuperKids/home/minnesota_form">University of Minnesota Module</a> - Includes whole grain definitions, nutritional and labeling information.</p>  <br />  <p style="font-size:13px"><a href="/SuperKids/home/assessment_form">Printable Assessment Form</a> - Download and print the assessment form. When complete, just fax or mail to the fax number or address provided.</p>  <br />  <p style="font-size:13px"><a href="/SuperKids/home/student_form">Student Feedback Form</a> - This form was developed for use with younger students (K-3).</p>  <br />  <p style="font-size:13px"><a href="/SuperKids/home/student_certificate">Student Certificate</a> - Download and print it, then give it to student taste-testers to recognize them for participating as a SuperKid.</p> </div>
+				""").save()
 
 			def whatIsText = new PageText(name:"what_is", content:"""
 				<h1>What Is SuperKids?</h1>

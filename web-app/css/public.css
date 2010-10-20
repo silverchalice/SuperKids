@@ -289,6 +289,17 @@ img#man {
 	width:90px;
 }
 
+img#girleating {
+	float:right;
+	width:250px;
+	height:166px;
+	position:relative;
+	top:13px;
+	right:20px;
+	
+}
+
+
 a.viewCartButton {
 	background-image:url(../images/layout/buttons/OrderCartButton.gif);
 }

@@ -15,8 +15,8 @@
       <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
       <div id="sideLogoBox">
-        <g:link action='ultragrain'><img src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
-        <g:link action='sustagrain'><img src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
+          <g:link action='ultragrain'><img src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
+          <g:link action='sustagrain'><img src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
       </div>
 
       <div class="clear"></div>
