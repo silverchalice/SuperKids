@@ -199,6 +199,43 @@ em {
   height:17px
 }
 
+#assessmentQuestionUpper {
+	background:#FFEBA8;
+	width:553px;
+	position:absolute;
+	top:75px;
+	margin-left:10px;
+}
+
+#assessmentQuestionInner {
+	background:#FFEBA8;
+	padding:35px 19px 18px 20px;
+	width:515px;
+	margin-left:10px;
+	position:absolute;
+	top:85px;
+	color:#FA9F1B;
+	font-weight:bold
+}
+
+#continueAssessment {
+	border:0;
+	background-image:url(/SuperKids/images/layout/buttons/ContinueButton-green.gif); 
+	width:120px;
+	height:40px;
+	position:absolute;
+	bottom:8px;
+	right:20px;
+}
+
+#assessmentQuestionLower {
+	background:#FFEBA8;
+	width:553px;
+	position:absolute;
+	top:248px;
+	margin-left:10px;
+}
+
 img#contentFooterBL {
   float:left;
   position:relative;
@@ -351,6 +388,39 @@ a:hover.viewCartButton {
     left: 2px;
     z-index: 1;
     overflow:auto;
+}
+
+#assessProductsInner {
+	height:330px
+}
+
+.assessmentProduct {
+	padding:2px;
+	width:246px;
+	clear:both;
+	margin-bottom:5px;
+	margin-top:6px;
+	height:80px;
+}
+
+.assessmentProductHover {
+	background-color:white;
+}
+
+.assessmentProduct img {
+	width:88px;
+	height:65px;
+	padding-right:8px;
+	float:left;
+}
+
+a.assessmentDNR {
+	position:relative;
+	top:38px;
+	left:77px;
+	font-size:9px;
+	text-decoration:none;
+	color:#CC0000
 }
 
 

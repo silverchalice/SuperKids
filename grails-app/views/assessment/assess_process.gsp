@@ -42,5 +42,14 @@
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
         </div>
+		<script type="text/javascript">
+			jQuery.noConflict();
+
+			jQuery(document).ready(function() {
+				jQuery('.assessmentProduct').hover(
+						function(){jQuery(this).addClass("assessmentProductHover")},
+						function() {jQuery(this).removeClass("assessmentProductHover")});
+			});
+		</script>
     </body>
 </html>

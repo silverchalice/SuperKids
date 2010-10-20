@@ -6,11 +6,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="assess_landing" />
         <g:set var="entityName" value="${message(code: 'assessment.label', default: 'Assessment')}" />
-        <title>Product Assessment | SuperKids</title>
+        <title>SuperKids | Online Assessment 3/4</title>
+		<style type="text/css">
+			#contentInsetUpper {
+				width:601px;
+				left:309px;
+
+			}
+
+			#contentInsetInner {
+				width:581px;
+				position:relative;
+				left:40px;
+			}
+
+			#contentInsetLower {
+				width:601px;
+				left:309px;
+			}
+		</style>		
     </head>
     <body>
-        <div class="body">
-            <h1>Product Assessment</h1>
+		<div id="contentInsetInner">
+            <h1>${assessmentInstance?.product?.name}</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -22,15 +40,26 @@
             <g:form action="ir" >
                 <g:hiddenField name="id" value="${assessmentInstance?.id}" />
                 <g:hiddenField name="version" value="${assessmentInstance?.version}" />
-                <div class="dialog"><br />
-                  <p>
-                    <label for="changeComment">What, if anything, would you recommend be changed about this sampled product?</label><br /><br />
-                    <textarea name="changeComment" rows="10" cols="50"></textarea>
+
+				<div id="assessmentQuestionUpper">
+					<img src="${resource(dir:'images', file:'AssessTLC.gif')}" style="float:left" alt="" />
+					<img src="${resource(dir:'images', file:'AssessTRC.gif')}" style="float:right" alt="" />
+				</div>
+
+                <div id="assessmentQuestionInner"><br />
+				  <p style="position:absolute; top:1px; left:345px; font-size:14px">Assessment Question 3 of 4</p>
+                  <p style="font-size:14px;">
+                    <label for="changeComment">What, if anything, would you recommend be changed about this sampled product?</label><br/><br/><br/>
+                    <g:textArea name="changeComment" rows="10" cols="50" />
                   </p>
                 </div>
-                <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="Next" /></span>
-                </div>
+
+				<div id="assessmentQuestionLower" style="top:390px">
+					<img src="${resource(dir:'images', file:'AssessLLC.gif')}" style="float:left" alt="" />
+					<img src="${resource(dir:'images', file:'AssessLRC.gif')}" style="float:right" alt="" />
+				</div>
+
+                <input type="submit" id="continueAssessment" value="" />
             </g:form>
         </div>
     </body>

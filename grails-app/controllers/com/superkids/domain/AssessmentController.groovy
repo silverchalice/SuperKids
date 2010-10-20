@@ -146,25 +146,25 @@ class AssessmentController {
                 }
                 if(products){
                     println "the assessmentInstance is " + assessmentInstance + ", and the id is " + params.id
-                    return [id:params.id, products:products.sort{ it.id }, customerId:customer.id]       
+                    return [id:params.id, products:products.sort{ it.id }, customerId:customer.id, product: product]       
                 } else {
                     flash.message = "You have assessed all of the products that you ordered."
-                    redirect controller:"home", action:"index"
+                    redirect controller:"home", action:"assess"
                 }
             } else {
                 flash.message = "You didn't order ${product.name}."
-                redirect controller:"home", action:"index"
+                redirect controller:"home", action:"assess"
             }
         } else {
             flash.message = "Did you order anything yet?"
-            redirect controller:"home", action:"index"
+            redirect controller:"home", action:"assess"
         }
     }
 
     def lc = {
          println "params coming into lc: " + params
          def customer = Customer.get(params.customerId)
-         def product = Product.get(params.productId)
+         def product = Product.get(params.productId.toInteger())
          def products = []
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
