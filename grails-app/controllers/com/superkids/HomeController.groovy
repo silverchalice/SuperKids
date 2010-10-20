@@ -508,18 +508,28 @@ class HomeController {
        }
 
        def change_password = {
-           def adminInstance = Admin.get(params.id)
+           def adminInstance
+           if(params.id){ 
+               adminInstance = Admin.get(params.id)
+           } else {
+               adminInstance = Admin.get(springSecurityService.principal.id)
+           }
            [adminInstance:adminInstance]
        }
 
        def admin_password = {
-           def adminInstance = Admin.get(params.id)
+           def adminInstance
+           if(params.id){ 
+               adminInstance = Admin.get(params.id)
+           } else {
+               adminInstance = Admin.get(springSecurityService.principal.id)
+           }
            if(params.password == params.confirmpassword){
                adminInstance.password = springSecurityService.encodePassword(params.password)
                adminInstance.save()
                flash.message = "Password updated."
                 log.info flash.message
-               redirect uri:"/admin"
+               redirect controller:"customer", action:"list"
            } else {
                flash.message = "New passwords do not match."
                 log.info flash.message
