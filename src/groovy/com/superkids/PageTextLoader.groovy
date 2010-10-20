@@ -40,19 +40,12 @@ class PageTextLoader {
 				).save()
 
 			def assessText = new PageText(name:"assess", content:"""
-				<h1>GET REWARDED JUST BY TELLING US WHAT YOU THINK!</h1>
-				<p>Your feedback is invaluable; it lets us know how to improve the SuperKids program and helps manufacturers better understand your needs.  After you&rsquo;ve received and tried your free samples, please give us your feedback by completing the short five-question survey.  Do so between November 15, 2010 and March 9, 2011, and you&rsquo;ll earn the chance to win one of these special prizes:</p>
-				<ul>
-					<li>FIVE (5) First Place Prizes--\$200 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
-					<li>SEVEN (7) Second Place Prizes--\$100 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
-				</ul>
-				<p>When you receive your samples, a printed Assessment Form will be included in the box.  Complete it, then fax or mail it back and you&rsquo;ll be automatically entered in our drawing.  If you fill out the assessment form online you&rsquo;ll double your chances to win one of our sweepstakes prizes!</p>
-				<p><em>To get started, just <a href="/SuperKids/assessment/assessment_process">click here</a>, or on &ldquo;Begin Online Assessment&rdquo; in the menu.  If you don&rsquo;t finish, your progress will be saved so that you can come back later.</em></p>
-							"""
+				<h1>GET REWARDED JUST BY TELLING US WHAT YOU THINK!</h1> <img src="/SuperKids/images/Starburst.jpg" id="awardstar" /> <div style="width:430px; float:right; margin-top:27px; margin-right:16px;"><p>Your feedback is invaluable; it lets us know how to improve the SuperKids program and helps manufacturers better understand your needs.</p> <p>After you&rsquo;ve received and tried your free samples, please give us your feedback by completing the short five-question survey. Do so between November 15, 2010 and March 9, 2011, and you&rsquo;ll earn the chance to win one of these special prizes:</p><br/>  </div> <div style="clear:both">  <ol style="list-style-type:decimal; font-size:10px;">  <li><span style="color:#800000">FIVE (5) First Place Prizes</span>--&#36;200 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>  <li><span style="color:#800000">SEVEN (7) Second Place Prizes</span>--&#36;100 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>  </ol>  <p>When you receive your samples, a printed Assessment Form will be included in the box. Complete it, then fax or mail it back and you&rsquo;ll be automatically entered in our drawing. If you fill out the assessment form online you&rsquo;ll double your chances to win one of our sweepstakes prizes!</p>  <p><em>To get started, just <a href="/SuperKids/assessment/assessment_process">click here</a>, or on &ldquo;Begin Online Assessment&rdquo; in the menu. If you don&rsquo;t finish, your progress will be saved so that you can come back later.</em></p></div>
+				"""
 				).save()
 
 			def promoteText = new PageText(name:"promote", content:"""
-				<h1>Promote Whole Grain Nutrition</h1>  <div style="width:350px;"><p>Promoting whole grain nutrition in our nation's schools is important. Whole grains improve health, ward off diseases, control weight, help school districts meet gold standards and more. This section includes resources you can use to spread the word about whole grain health, the SuperKids program, and your school's efforts to bolster nutrition.</p>  <p><strong>Send An eCard</strong>-Send an eCard to other school districts or foodservice distributors/brokers to tell them about the SuperKids Whole Grain Product Sampling Program.</p>  <p><strong>Promotional Tools & Resources</strong>-Includes letters, articles and a poster. Promote the importance of whole grain nutrition; request parental approval for child participation in taste tests; download three customizable articles for your school's newsletter.</p>  <p><strong>Additional Promotional Ideas</strong>-Includes "Creative Nutrition Messaging In Your Lunchroom" from <em>The Learning Zone</em>, and more rewards available from The Whole Grains Council.</p>  <h2>Educational Partner Materials</h2>  <p>In addition, to help you promote healthier eating habits with students and their parents, you&rsquo;ll have access to invaluable educational tools from four partners in our program: The Whole Grains Council, Alliance for a Healthier Generation, Learning ZoneXpress and The OrganWise Guys. <em>(<strong><a href="#">Click here</a></strong> for details on specific tools available as well as contact and ordering information.)</em> </p>  <p><strong>Select your choice from the Promote Menu Options on the left.</strong></p></div> <img id="kid4" src="/SuperKids/images/NEWKIDwithcorndog.jpg"/>  
+				<h1>Promote Whole Grain Nutrition</h1> <br/><div style="width:350px;"><p>Promoting whole grain nutrition in our nation's schools is important. Whole grains improve health, ward off diseases, control weight, help school districts meet gold standards and more. This section includes resources you can use to spread the word about whole grain health, the SuperKids program, and your school's efforts to bolster nutrition.</p> <h2>Send An eCard</h2> <p>Send an eCard to other school districts or foodservice distributors/brokers to tell them about the SuperKids Whole Grain Product Sampling Program.</p> <h2>Promotional Tools & Resources</h2><p>Includes letters, articles and a poster. Promote the importance of whole grain nutrition; request parental approval for child participation in taste tests; download three customizable articles for your school's newsletter.</p> <h2>Additional Promotional Ideas</h2><p> Includes "Creative Nutrition Messaging In Your Lunchroom" from <em>The Learning Zone</em>, and more rewards available from The Whole Grains Council.</p> <h2>Educational Partner Materials</h2> <p>In addition, to help you promote healthier eating habits with students and their parents, you&rsquo;ll have access to invaluable educational tools from four partners in our program: The Whole Grains Council, Alliance for a Healthier Generation, Learning ZoneXpress and The OrganWise Guys. <em>(<strong><a href="#">Click here</a></strong> for details on specific tools available as well as contact and ordering information.)</em> </p> <p><strong>Select your choice from the Promote Menu Options on the left.</strong></p></div> <img id="kid4" src="/SuperKids/images/NEWKIDwithcorndog.jpg"/>
 				""" ).save()
 
 			def assessmentDrawingRulesText = new PageText(name:"assessment_drawing_rules", content:"""
@@ -77,10 +70,13 @@ class PageTextLoader {
 
 			def ecardsText = new PageText(name:"ecards", content:"""
 				<h1>Send an eCard</h1>
-				<p>eCards are available for foodservice distributors, brokers, or school foodservice directors. Click on the eCard of your choice. They're the easy way to spread the word about whole grain health and SuperKids.</p>
-				<p><g:link controller="home" action="index">Foodservice Distributor or Broker eCard</g:link></p>
-				<p><g:link controller="home" action="index">Foodservice Director eCard</g:link></p>
-				<p><strong>Click on the options above.</strong></p>
+					<div style="width:500px;">
+					<p>eCards are available for foodservice distributors, brokers, or school foodservice directors. Click on the eCard of your choice. They're the easy way to spread the word about whole grain health and SuperKids.</p>
+					<p><a href="/SuperKids/home/ecards_send" style="#FF6600; font-weight:bolder; text-decoration:none">Foodservice Distributor or Broker eCard</a></p>
+					<p><a href="/SuperKids/home/ecards_send" style="#FF6600; font-weight:bolder; text-decoration:none">Foodservice Director eCard</a></p>
+					<p><strong>Click on the options above.</strong></p>
+				</div>
+				<img src="/SuperKids/images/manatcomputer.jpg" id="man" />
 						  """
 			  ).save()
 

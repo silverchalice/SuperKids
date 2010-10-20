@@ -25,15 +25,6 @@
                 </ul>
         </div>
 
-        <div class="clear"></div>
-        <div id="factoids">
-            <p> <strong>SuperKids Facts</strong><br/>
-            <div id="Factoiddatabox">
-            </div>
-            </p>
-        </div>
-
-        <sks:factoidList />
 	</div>
         <div id="HeaderBar">
 			<sec:ifLoggedIn>
@@ -43,23 +34,30 @@
     <div id="nav">
       <g:link controller="home" action="learn">LEARN</g:link>
       <g:link controller="home" action="order">ORDER</g:link>
-      <g:link controller="home" action="assess">ASSESS</g:link>
+      <g:link class="current" controller="home" action="assess">ASSESS</g:link>
       <g:link controller="home" action="promote">PROMOTE</g:link>
       <span><g:link controller="logout">LOG OUT</g:link></span>
     </div>
-    <div id="content">
+	<div id="content">
 		<div id="contentInsetUpper">
 			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
 			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
 		</div>
-        <div id="contentInset">
-            <g:layoutBody />
-        </div>
-        <div id="contentFooter">
-            <img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-            <img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
-        </div>
-    </div>
+		<div id="contentInset" class="flexcroll">
+			<g:layoutBody />
+		</div>
+
+		<div id="contentInsetLower">
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
+			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
+		</div>
+
+
+		<div id="contentFooter">
+			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+		</div>
+	</div>
 
     <div id="footer">
       <ul>
