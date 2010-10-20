@@ -28,7 +28,7 @@
         <div class="clear"></div>
         <div id="factoids">
             <p> <strong>SuperKids Facts</strong><br/>
-            <div id="Factoiddatabox" style="padding-left:10px; margin-top:-20px;">
+            <div id="Factoiddatabox">
             </div>
             </p>
         </div>

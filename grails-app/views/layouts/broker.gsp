@@ -32,12 +32,15 @@
         </div>
 
         <div class="clear"></div>
-        <div id="factoids">
-            <p> <strong>Lorem Ipsum</strong><br/>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lobortis lectus sit amet diam rhoncus sodales. In massa enim, fermentum nec pulvinar non
+		<div id="factoids">
+            <p> <strong>SuperKids Facts</strong><br/>
+            <div id="Factoiddatabox">
+            </div>
             </p>
         </div>
 	</div>
+
+
         <div id="HeaderBar">
 
 			<sec:ifLoggedIn>
