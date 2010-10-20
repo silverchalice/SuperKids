@@ -9,7 +9,7 @@
 				</tr>
 				<g:form name="OrderProduct" action="add_order" method="post">
 				<g:hiddenField name="id" value="${customerInstance.id}" />
-					<g:each in="${products}" var="product" status="i">
+					<g:each in="${products.sort{it.id}}" var="product" status="i">
 						<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 							<td><img style="float:left; width:50px; margin-right:10px" src="${createLink(controller:'product', action:'displayImage', id:product.id)}" alt="" />
 						${product?.sponsor?.name}<sup>®</sup> ${product?.name}</td>
