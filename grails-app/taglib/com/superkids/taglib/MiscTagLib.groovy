@@ -247,16 +247,18 @@ class MiscTagLib {
 		def customer = Customer.get(attrs.customer)
 		def assessment = Assessment.findByProductAndCustomer(product, customer)
 
-		assessment.properties.each { key, val ->
+		assessment?.properties.each { key, val ->
 			println "$key = $val"
 		}
 
 		if((product) && (assessment) && (assessment.completed)) {
-			out << "<a href='"
+			out << "Assessed | <a href='"
 			out << createLink(controller:'assessment', action:'show', id: assessment.id)
 			out << "'> View Results </a>"
 
-		}
+		} else {
+                    out << "Not Assessed"
+                }
 	}
 
 
