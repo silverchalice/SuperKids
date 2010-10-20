@@ -240,12 +240,30 @@ class CustomerController {
 
 
 	def toggleDidNotReceive = {
-		println 'in ToggleDidNotReceive'
-		println params
-        def productOrderInstance = ProductOrder.get(params.id)
-        if (productOrderInstance){
-            productOrderInstance.received = params.didNotReceive == 'false'
-            productOrderInstance.save(failOnError:true)
+            println 'in ToggleDidNotReceive'
+            println params
+
+            def productOrderInstance = ProductOrder.get(params.id)
+            def customer = Customer.get(productOrderInstance.order.customer.id)
+            def products = []
+            if (productOrderInstance){
+                productOrderInstance.received = params.didNotReceive == 'false'
+                productOrderInstance.save(failOnError:true)
+
+                customer.order.products.findAll{ it.received == true }.each{
+                    def p = Product.get(it.product.id)
+                    if(!customer.assessments.find{ it.product.id == p.id }){
+                        products << p
+                    }
+                }
+
+                if(products.size() > 0){
+                    println "still more products"
+                } else {
+                    customer.status = CustomerStatus.QUALIFIED
+                    customer.hasCompletedCurrentAssessment = true	
+                    customer.save(failOnError:true)                
+                }
         }
         println "the productOrderInstance's received is " + productOrderInstance.received
         render ''
