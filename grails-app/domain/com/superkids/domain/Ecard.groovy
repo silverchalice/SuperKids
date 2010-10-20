@@ -9,6 +9,7 @@ class Ecard {
 	String recipient
 	String recipientEmail
 	String message
+	Date dateCreated
 
     static constraints = {
 		name()

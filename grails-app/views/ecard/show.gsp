@@ -23,19 +23,19 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="ecard.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: ecardInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="ecard.name.label" default="Name" /></td>
+                            <td valign="top" class="name"><g:message code="ecard.name.label" default="Sender Name" /></td>
                             
                             <td valign="top" class="value">${fieldValue(bean: ecardInstance, field: "name")}</td>
                             
                         </tr>
-                    
+
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="ecard.email.label" default="Sender Email" /></td>
+
+                            <td valign="top" class="value">${fieldValue(bean: ecardInstance, field: "email")}</td>
+
+                        </tr>
+
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="ecard.company.label" default="Company" /></td>
                             
@@ -43,12 +43,7 @@
                             
                         </tr>
                     
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="ecard.email.label" default="Email" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: ecardInstance, field: "email")}</td>
-                            
-                        </tr>
+
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="ecard.recipient.label" default="Recipient" /></td>
@@ -65,9 +60,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="ecard.message.label" default="Message" /></td>
+                            <td valign="top" class="name"><g:message code="ecard.message.label" default="Ecard Sent" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: ecardInstance, field: "message")}</td>
+                            <td valign="top" class="value"><g:message code="ecard.message.${ecard?.message}" /></td>
                             
                         </tr>
                     

@@ -22,36 +22,41 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'ecard.id.label', default: 'Id')}" />
-                        
-                            <g:sortableColumn property="name" title="${message(code: 'ecard.name.label', default: 'Name')}" />
-                        
-                            <g:sortableColumn property="company" title="${message(code: 'ecard.company.label', default: 'Company')}" />
-                        
-                            <g:sortableColumn property="email" title="${message(code: 'ecard.email.label', default: 'Email')}" />
-                        
+                            <g:sortableColumn property="name" title="${message(code: 'ecard.name.label', default: 'Sender Name')}" />
+
+                            <g:sortableColumn property="email" title="${message(code: 'ecard.email.label', default: 'Sender Email')}" />
+
                             <g:sortableColumn property="recipient" title="${message(code: 'ecard.recipient.label', default: 'Recipient')}" />
                         
                             <g:sortableColumn property="recipientEmail" title="${message(code: 'ecard.recipientEmail.label', default: 'Recipient Email')}" />
-                        
+
+							<th>Ecard Sent</th>
+							
+							<th>Send Date</th>
+
+							<th>Delete</th>
+
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${ecardInstanceList}" status="i" var="ecardInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${ecardInstance.id}">${fieldValue(bean: ecardInstance, field: "id")}</g:link></td>
-                        
-                            <td>${fieldValue(bean: ecardInstance, field: "name")}</td>
-                        
-                            <td>${fieldValue(bean: ecardInstance, field: "company")}</td>
+                            <td><g:link action="show" id="${ecardInstance.id}">${fieldValue(bean: ecardInstance, field: "name")}</g:link></td>
                         
                             <td>${fieldValue(bean: ecardInstance, field: "email")}</td>
                         
-                            <td>${fieldValue(bean: ecardInstance, field: "recipient")}</td>
+                            <td><g:link action="show" id="${ecardInstance.id}">${fieldValue(bean: ecardInstance, field: "recipient")}</g:link></td>
                         
                             <td>${fieldValue(bean: ecardInstance, field: "recipientEmail")}</td>
-                        
+
+							<td><g:message code="ecard.message.${ecard?.message}" /></td>
+
+							<td><g:formatDate date="${ecardInstance?.dateCreated}" format="MM/dd/yyyy" /> </td>
+
+							<td><g:actionSubmit class="button" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                			</td>
+
                         </tr>
                     </g:each>
                     </tbody>
