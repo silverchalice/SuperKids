@@ -201,6 +201,8 @@ class MiscTagLib {
 		if(customer) {
 			def assessments= Assessment.findAllByCustomerAndCompleted(customer, true)
 			out << assessments.size()
+                        out << " / "
+                        out << customer.order.products.size()
 
 		}
 	}

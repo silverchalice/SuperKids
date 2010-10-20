@@ -36,7 +36,7 @@
                                   <label for="content"><g:message code="factoid.content.label" default="Content" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: factoidInstance, field: 'content', 'errors')}">
-                                    <g:textField name="content" value="${factoidInstance?.content}" />
+                                    <g:textArea name="content" value="${factoidInstance?.content}" />
                                 </td>
                             </tr>
                         

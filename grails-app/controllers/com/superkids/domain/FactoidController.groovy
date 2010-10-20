@@ -25,7 +25,7 @@ class FactoidController {
         def factoidInstance = new Factoid(params)
         if (factoidInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'factoid.label', default: 'Factoid'), factoidInstance.id])}"
-            redirect(action: "show", id: factoidInstance.id)
+            redirect(action: "list")
         }
         else {
             render(view: "create", model: [factoidInstance: factoidInstance])

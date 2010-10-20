@@ -91,18 +91,18 @@ class CustomerController {
             redirect(action: "list")
         }
         else {
-			def products = []
-			if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
-				products = Product.list()
-			} else {
-				customerInstance.order.products.each { productOrder ->
-					if(productOrder.received)
-						products << productOrder
-				}
-			}
-
-            return [customerInstance: customerInstance, products: products, states: states, broker:broker]
-        }
+            def products = []
+            if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
+                products = Product.list()
+                return [customerInstance: customerInstance, products: products.findAll{!it.parent}, states: states, broker:broker]
+            } else {
+                customerInstance.order.products.each { productOrder ->
+                    if(productOrder.received)
+                        products << productOrder
+                    }
+                }
+                return [customerInstance: customerInstance, products: products, states: states, broker:broker]
+          }
     }
 
     def update = {
@@ -179,6 +179,14 @@ class CustomerController {
 				if(p){
 					def productOrder = new ProductOrder(product:p)
 					order.addToProducts(productOrder)
+                                        if(Product.findByParent(p)){
+                                            Product.findAllByParent(p).each{
+                                                def po = new ProductOrder(product:it)
+                                                order.products.each { println it }
+                                                order.addToProducts(po)
+                                                order.products.each { println it }
+                                            }
+                                        }
 				}
 			}
 			customer.order = order
