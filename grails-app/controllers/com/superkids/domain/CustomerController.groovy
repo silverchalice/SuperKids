@@ -308,7 +308,7 @@ class CustomerController {
                             }
                         }
 
-                        if(products.size() > 0){
+                        if(products.find{!Product.findByParent(it)}){
                             redirect action:edit, id:customer.id
                         } else {
                             customer.status = CustomerStatus.QUALIFIED
