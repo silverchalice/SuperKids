@@ -37,6 +37,53 @@ class EcardController {
         }
     }
 
+	def sendEcard = {
+		println "in SendEcard for EcardController"
+		params.each { key, val ->
+			println "$key = $val"
+		}
+
+	 	def ecardInstance = new Ecard(params)
+
+		if(params.Ecard == '1') {
+			println 'Ecard = 1'
+			ecardInstance.message = "broker"
+		}
+
+		if(params.Ecard == '2') {
+			println 'Ecard = 2'
+			ecardInstance.message = "fsd"
+		}
+
+		if (ecardInstance.save(flush: true)) {
+			flash.message = "Your eCard was sent"
+
+			if(ecardInstance.message == "broker") {
+				sendMail {
+					to ecardInstance?.recipientEmail
+					subject "ECard from SuperKidsSampling.com"
+					html g.render(template:"broker", model:[ecard: ecardInstance])
+				}
+			} else {
+				sendMail {
+					to ecardInstance?.recipientEmail
+					subject "ECard from SuperKidsSampling.com"
+					html g.render(template:"fsd", model:[ecard: ecardInstance])
+				}
+			}
+
+			redirect controller:'home', action:'ecards_thanks'
+		}
+
+		else {
+			ecardInstance.errors.allErrors.each {println it}
+
+			flash.message = "Sorry, your eCard was unable to be sent"
+			redirect controller: "home", action: 'ecards_send'
+		}		
+	}
+
+
     def show = {
         def ecardInstance = Ecard.get(params.id)
         if (!ecardInstance) {
