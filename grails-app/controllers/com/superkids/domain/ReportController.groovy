@@ -26,11 +26,11 @@ class ReportController {
             m.fsdTitle = customer.fsdTitle
             m.district = customer.district
             m.address = new Expando()
-            m.address.street = customer.address.street
-            m.address.street2 = customer.address.street2
-            m.address.city = customer.address.city
-            m.address.state = customer.address.state
-            m.address.zip = customer.address.zip
+            m.address.street = customer.address?.street
+            m.address.street2 = customer.address?.street2
+            m.address.city = customer.address?.city
+            m.address.state = customer.address?.state
+            m.address.zip = customer.address?.zip
             m.phone = customer.phone
             m.fax = customer.fax
             m.email = customer.email
