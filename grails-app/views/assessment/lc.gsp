@@ -62,5 +62,6 @@
                 <input type="submit" id="continueAssessment" value="" />
             </g:form>
         </div>
+
     </body>
 </html>

@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="learn" />
-        <title>SuperKids | Food Council Tips</title>
+        <meta name="layout" content="assess" />
+        <title>SuoerKids | </title>
     </head>
     <body>
 

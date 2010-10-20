@@ -357,6 +357,45 @@ class HomeController {
            [content:content]
        }
 
+       def minnesota_form = {
+           def content
+           def pt = PageText.findByName("minnesota_form")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def assessment_form = {
+           def content
+           def pt = PageText.findByName("assessment_form")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def student_form = {
+           def content
+           def pt = PageText.findByName("student_form")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+		def student_certificate = {
+           def content
+           def pt = PageText.findByName("student_certificate")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+
+
+
        def ecards = {
            def content
            def pt = PageText.findByName("ecards")

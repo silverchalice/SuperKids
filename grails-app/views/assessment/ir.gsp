@@ -26,6 +26,7 @@
 				left:309px;
 			}
 		</style>
+		<g:javascript library="jquery" plugin="jquery" />
     </head>
     <body>
 		<div id="contentInsetInner">
@@ -68,5 +69,27 @@
                 <input type="submit" id="continueAssessment" value="" />
             </g:form>
         </div>
+		<script type="text/javascript">
+			jQuery.noConflict();
+
+			jQuery(document).ready(function() {
+				var changedFlag;
+				jQuery(':input').bind('change', function() {
+			    //console.log('changedFlag = true')
+				changedFlag = 'true';
+				});
+
+				jQuery('#continueAssessment').click(function (e) {
+					if(changedFlag == 'true') {
+						return true
+					}
+					else {
+						alert('No rating selected');
+						return false
+					}
+				});
+
+			});
+		</script>	
     </body>
 </html>
