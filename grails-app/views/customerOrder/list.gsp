@@ -53,7 +53,7 @@
                         
                             <td>${fieldValue(bean: customerOrderInstance, field: "customer")}</td>
 
-							<td><sks:assessmentCheckbox id="${customerOrderInstance?.customer?.id}"/></td>
+							<td><sks:completedAssessmentCheckbox id="${customerOrderInstance?.customer?.id}"/></td>
                         
                             <td><g:formatDate date="${customerOrderInstance.dateCreated}" format="M/d/yyyy" /></td>
 
