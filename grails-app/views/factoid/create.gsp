@@ -33,12 +33,13 @@
                                     <label for="content"><g:message code="factoid.content.label" default="Content" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: factoidInstance, field: 'content', 'errors')}">
-                                    <g:textField name="content" value="${factoidInstance?.content}" />
+                                    <g:textArea name="content" value="${factoidInstance?.content}" />
                                 </td>
                             </tr>
                         
                         </tbody>
-                    </table>
+                    </table><br />
+                    <p><strong>NOTE: This factoid will be marked Live by default. You can change this in the Factoid List.</strong></p><br />
                 </div>
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
