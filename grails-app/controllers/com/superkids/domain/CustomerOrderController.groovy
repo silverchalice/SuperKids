@@ -37,7 +37,12 @@ class CustomerOrderController {
             redirect(action: "list")
         }
         else {
-            [customerOrderInstance: customerOrderInstance]
+            def products = []
+            customerOrderInstance.products.each{ po ->
+                if(!Product.findByParent(po.product))
+                products << po
+            }
+            [customerOrderInstance: customerOrderInstance, products:products.sort{it.product?.id}]
         }
     }
 
