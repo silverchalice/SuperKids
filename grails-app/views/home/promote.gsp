@@ -13,7 +13,9 @@
            <g:if test="${flash.message}">
                <div class="message">${flash.message}</div>
            </g:if>
-         <div id="contentInsetInner">${content}</div>
+         <div id="contentInsetInner">
+			${content}
+		 </div>
 
     </body>
 </html>

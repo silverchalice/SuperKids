@@ -227,6 +227,21 @@ img#kid3 {
 	height: 430px;
 }
 
+img#kid4 {
+	position:absolute;
+	right:45px;
+	top:41px;
+	width:260px;
+
+}
+
+img#man {
+	position:absolute;
+	right:40px;
+	top:52px;
+	width:90px;
+}
+
 a.viewCartButton {
 	background-image:url(../images/layout/buttons/OrderCartButton.gif);
 }
@@ -419,7 +434,7 @@ h1 { color:#993300; margin-bottom:0px; }
 #AssessSubNav h3 {
     margin:0;
 	padding:0;
-	margin-left:57px;
+	margin-left:55px;
 	color:#993300;
 }
 

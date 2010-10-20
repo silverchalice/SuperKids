@@ -13,7 +13,7 @@
     <div id="secondaryContent">
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-        <div id="SubNav">
+        <div id="AssessSubNav">
                 <h3>Promote Menu</h3>
                 <ul>
                     <li><g:link controller="home" action="ecards">Send an eCard</g:link></li>
