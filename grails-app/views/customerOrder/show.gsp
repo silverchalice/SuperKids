@@ -109,7 +109,7 @@
 							<th>Product</th>
 							<th>Assessment</th>
 						</tr>
-					<g:each in="${customerOrderInstance.products}" var="p">
+					<g:each in="${products}" var="p">
 
 							<tr>
 							<td style="width:80px">
