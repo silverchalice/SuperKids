@@ -97,11 +97,11 @@ class CustomerController {
                 return [customerInstance: customerInstance, products: products.findAll{!it.parent}, states: states, broker:broker]
             } else {
                 customerInstance.order.products.each { productOrder ->
-                    if(productOrder.received)
+                    if(productOrder.received && !Product.findByParent(productOrder.product))
                         products << productOrder
                     }
                 }
-                return [customerInstance: customerInstance, products: products, states: states, broker:broker]
+                return [customerInstance: customerInstance, products: products.sort{it.product?.id}, states: states, broker:broker]
           }
     }
 
