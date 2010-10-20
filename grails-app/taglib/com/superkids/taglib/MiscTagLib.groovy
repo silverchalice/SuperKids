@@ -184,6 +184,18 @@ class MiscTagLib {
         out << "' disabled='disabled' />"
     }
 
+    def completedAssessmentCheckbox = { attrs ->
+        def customerInstance = Customer.get(attrs.id)
+        out << "<input type='checkbox' "
+        out << "name='"
+        out << attrs.name
+        out << "' "
+        if(customerInstance.hasCompletedCurrentAssessment){
+            out << "checked='checked'"
+        }
+        out << "' disabled='disabled' />"
+    }
+
 	def customerAssessmentTotal = { attrs ->
 		def customer = Customer.get(attrs.id)
 		if(customer) {
@@ -203,10 +215,10 @@ class MiscTagLib {
 
 			if(assessment) {
 
-				out << "Assessed "
+				out << "Assessed | "
 				out << "<a href='"
 				out << createLink(controller:'assessment', action:'show', id:assessment.id)
-				out << "' />| View</a>"
+				out << "' />View</a>"
 			} else if(attrs.show == 'true') {
 				out << ' '
 			}else {
