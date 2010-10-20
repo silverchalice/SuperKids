@@ -22,7 +22,7 @@
 
         <div id="factoids">
             <p> <strong>SuperKids Facts</strong><br/>
-            <div id="Factoiddatabox" style="padding-left:10px; margin-top:-20px;">
+            <div id="Factoiddatabox">
             </div>
             </p>
         </div>
@@ -48,7 +48,7 @@
       </sec:ifLoggedIn>
     </div>
     <div id="content">
-        <div id="contentInset" style="overflow:hidden; padding:0">
+        <div id="contentInset" style="overflow:hidden; padding:0; top:87px; right:19px; height:500px">
             <g:layoutBody />
         </div>
         <div id="contentFooter">

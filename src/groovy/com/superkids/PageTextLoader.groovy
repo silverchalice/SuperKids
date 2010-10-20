@@ -35,7 +35,7 @@ class PageTextLoader {
 				<h2>Sample Availability</h2>
 				<p>Samples will be delivered based upon availability at the time of your order and will be fulfilled while supplies last. Some samples require refrigeration or frozen storage. Packaging will only maintain products during shipment. A street address is required for all shipments. Be sure to verify that your contact information is correct. <strong>(Select 'Edit Profile' in the upper right corner to verify/change this information.)</strong></p>
 				<h2>Rewards For Feedback</h2>
-				<p>Your feedback is essential in helping us improve our products. In appreciation for providing an assessment of each product you sample by March 9, 2011, we'll enter your name in a sweepstakes drawing. You could win a \$100 or \$200 Gift Card to Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys.  <em>(See &ldquo;Assess&rdquo; tab for more details.)</em></p>
+				<p>Your feedback is essential in helping us improve our products. In appreciation for providing an assessment of each product you sample by March 9, 2011, we'll enter your name in a sweepstakes drawing. You could win a \$100 or \$200 Gift Card to Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys.  <em>(See &ldquo;Assess&rdquo; tab for more details.)</em></p>
 							"""
 				).save()
 
@@ -52,17 +52,8 @@ class PageTextLoader {
 				).save()
 
 			def promoteText = new PageText(name:"promote", content:"""
-				<h1>Promote Whole Grain Nutrition</h1>
-				<p>Promoting whole grain nutrition in our nation's schools is important. Whole grains improve health, ward off diseases, control weight, help school districts meet gold standards and more. This section includes resources you can use to spread the word about whole grain health, the SuperKids program, and your school's efforts to bolster nutrition.</p>
-				<p><strong>Send An eCard</strong>-Send an eCard to other school districts or foodservice distributors/brokers to tell them about the SuperKids Whole Grain Product Sampling Program.</p>
-				<p><strong>Promotional Tools & Resources</strong>-Includes letters, articles and a poster. Promote the importance of whole grain nutrition; request parental approval for child participation in taste tests; download three customizable articles for your school's newsletter.</p>
-				<p><strong>Additional Promotional Ideas</strong>-Includes "Creative Nutrition Messaging In Your Lunchroom" from <em>The Learning Zone</em>, and more rewards available from The Whole Grains Council.</p>
-				<h2>Educational Partner Materials</h2>
-				<p>In addition, to help you promote healthier eating habits with students and their parents, you&rsquo;ll have access to invaluable educational tools from four partners in our program: The Whole Grains Council, Alliance for a Healthier Generation, Learning ZoneXpress and The OrganWise Guys.  <em>(<strong><a href="#">Click here</a><strong> for details on specific tools available as well as contact and ordering information.)</em> </p>
-				<p><strong>Select your choice from the Promote Menu Options on the left.</strong></p>
-
-							"""
-				 ).save()
+				<h1>Promote Whole Grain Nutrition</h1>  <p>Promoting whole grain nutrition in our nation's schools is important. Whole grains improve health, ward off diseases, control weight, help school districts meet gold standards and more. This section includes resources you can use to spread the word about whole grain health, the SuperKids program, and your school's efforts to bolster nutrition.</p>  <p><strong>Send An eCard</strong>-Send an eCard to other school districts or foodservice distributors/brokers to tell them about the SuperKids Whole Grain Product Sampling Program.</p>  <p><strong>Promotional Tools & Resources</strong>-Includes letters, articles and a poster. Promote the importance of whole grain nutrition; request parental approval for child participation in taste tests; download three customizable articles for your school's newsletter.</p>  <p><strong>Additional Promotional Ideas</strong>-Includes "Creative Nutrition Messaging In Your Lunchroom" from <em>The Learning Zone</em>, and more rewards available from The Whole Grains Council.</p>  <h2>Educational Partner Materials</h2>  <p>In addition, to help you promote healthier eating habits with students and their parents, you&rsquo;ll have access to invaluable educational tools from four partners in our program: The Whole Grains Council, Alliance for a Healthier Generation, Learning ZoneXpress and The OrganWise Guys. <em>(<strong><a href="#">Click here</a></strong> for details on specific tools available as well as contact and ordering information.)</em> </p>  <p><strong>Select your choice from the Promote Menu Options on the left.</strong></p>
+				""" ).save()
 
 			def assessmentDrawingRulesText = new PageText(name:"assessment_drawing_rules", content:"""
 				<h1>Assessment Drawing Rules</h1>
