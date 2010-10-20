@@ -265,7 +265,7 @@ class CustomerController {
                     }
                 }
 
-                if(products.size() > 0){
+                if(products.find{!Product.findByParent(it)}){
                     println "still more products"
                 } else {
                     customer.status = CustomerStatus.QUALIFIED
