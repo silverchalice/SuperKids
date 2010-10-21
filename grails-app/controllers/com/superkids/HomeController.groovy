@@ -2,10 +2,12 @@
 package com.superkids
 
 import com.superkids.domain.*
+import cr.co.arquetipos.password.PasswordTools
 
 class HomeController {
 
     def springSecurityService
+    def mailService
 
     def index = {
         if(springSecurityService.isLoggedIn()){
@@ -553,6 +555,7 @@ class HomeController {
            } else {
                if(params.password == params.confirmpassword){
                    customerInstance.password = springSecurityService.encodePassword(params.password)
+                   customerInstance.usingResetPassword = false
                    customerInstance.save(failOnError:true)
                    flash.message = "Your password has been updated."
                 log.info flash.message
@@ -581,6 +584,41 @@ class HomeController {
 
        def profile_help = {
 
+       }
+
+       def c_forgot_password = {
+       }
+
+       def c_passwd_reset = {
+           def customerInstance = Customer.findByUsername(params.username)
+           if(customerInstance){
+               def passwd = PasswordTools.generateRandomPassword()
+               customerInstance.password = springSecurityService.encodePassword(passwd)
+               customerInstance.usingResetPassword = true
+               customerInstance.save(failOnError:true)
+               sendMail {
+                   to customerInstance?.email
+                   subject "[SuperKids] Your password has been reset"
+                   body """
+Your password has been reset to the following:
+
+${passwd}
+
+Log in to your SuperKids account with this password. You will be required to change your password once you have logged in.
+
+--
+SuperKids Whole Grain Sampling Program
+http://www.superkidssampling.com/
+"""
+               }
+               redirect action:"c_reset_success"
+           } else {
+               flash.message = "The username you entered could not be found."
+               redirect action:"c_forgot_password"
+           }
+       }
+
+       def c_reset_success = {
        }
 
 }
