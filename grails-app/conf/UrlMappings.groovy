@@ -136,7 +136,7 @@ class UrlMappings {
                     controller = "home"
                     action = "whole_grain_studies"
                 }
-                "/childhood_obesity" {
+                "/childhood-obesity" {
                     controller = "home"
                     action = "childhood_obesity"
                 }
