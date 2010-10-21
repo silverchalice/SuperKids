@@ -331,6 +331,22 @@ class PageTextLoader {
 							  """
 				).save()
 
+			def studentCertificateText = new PageText(name:"student_certificate", content:"""
+				<h1>Student Certificate</h1><br/> <p>Give this certificate to <span>students who participate in student trials.</p> <p>&nbsp;&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> <a href="/SuperKids/pdf/Certificate.pdf"><img style="height:162px; width:250px; border:0" src="/SuperKids/images/studentcertificate.jpg" /></a> <p style="font-weight:bolder; position:relative; bottom:40px; left:255px; width:380px; color:#993300;"><img style="width32px; height:32px; line-height:32px; border:0;" src="/SuperKids/images/pdficon.gif" />&nbsp;Click on the certificate to download and print it.</p> <p> <p>&nbsp;</p> </p> <p>&nbsp;</p>
+			""").save()
+
+			def studentFormText = new PageText(name:"student_form", content:"""
+				<div style="width:620px;"> <h1>Student Feedback Form</h1> <p><a href="/SuperKids/pdf/kidsasessmentform.pdf"><img style="border:0; float:left; height:284px; width:211px" src="/SuperKids/images/kidsformthumb.jpg" /></a></p> <p>&nbsp;</p> <p>Give&nbsp;this form&nbsp;to younger students (grades K-3) who try out the&nbsp;whole grain product samples you receive from&nbsp;SuperKids.</p> <p>&nbsp;</p> <p style="font-weight:bolder; color:#993300;"><img style="width32px; height:32px; line-height:32px; border:0;" src="/SuperKids/images/pdficon.gif" />&nbsp;Click on the image to download and print the Student Feedback Form.</p> </div> 
+			""").save()
+
+			def assessmentFormText = new PageText(name:"assessment_form", content:"""
+				<h1>Assessment Form</h1><br/> <div style="width: 600px;"> <p>Provide feedback for each product you received to be eligible for the Feedback Appreciation Drawing. Your feedback form must be received between November 9, 2009, and March 5, 2010.</p> <p>After you complete your feedback form, fax or mail both sides to the fax number or address shown below. You can also give us your feedback online by logging in at www.superkidssampling.com.</p> <img alt="" src="/SuperKids/images/SDA_Assessment_2009_Page_1.gif" style="margin-left:52px" /><br /> <a href="/SuperKids/pdf/SDA_Assessment_2009.pdf"><img class="downloadPDF" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /> Download Printable Assessment Form </a> <p>&nbsp;</p> </div> 
+			""").save()
+			
+			def minnesotaForm = new PageText(name:"minnesota_form", content:"""
+				<h1>University of Minnesota Module</h1><br/> <p><span style="color: #000000"><span style="font-size: x-small">Provides educational components for school foodservice directors, staff, and dietitians.</span></span></p> <p>Includes whole&nbsp;grain definitions, nutritional and labeling information.</p> <p>Click&nbsp;the link below to download these tools.</p> <p><a target="_blank" style="font-size:13px; color:#FF6600" href="http://www.extension.umn.edu/distribution/nutrition/DJ8498.html">University of Minnesota Module </a></p>
+			""").save()
+
 			def sustagrainText = new PageText(name:"sustagrain", content:"""
 			<h1>Sustagrain&reg;: The Ultra-High Fiber Whole Grain</h1>
 			<div style="float: left; width: 300px;">
