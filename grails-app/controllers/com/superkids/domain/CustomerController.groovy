@@ -118,6 +118,11 @@ class CustomerController {
                 }
             }
             customerInstance.properties = params
+            if(params.email){
+                def user = User.get(params.id)
+                user.username = params.email
+                user.save(failOnError:true)
+            }
             if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
                 redirect(action: "show", id: customerInstance.id)
