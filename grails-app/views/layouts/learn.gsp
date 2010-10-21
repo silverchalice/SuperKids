@@ -33,13 +33,15 @@
 
 							<li><g:link controller="home" action="testimonials">Testimonials</g:link></li>
 
-							<li><g:link controller="home" action="about">What Are Whole Grains?</g:link></li>
+							<li><g:link controller="home" action="what_are_whole_grains">What Are Whole Grains?</g:link></li>
 
 							<li><g:link controller="home" action="whole_grain_list">List of Whole Grains</g:link></li>
 
 							<li><g:link controller="home" action="whole_grain_benefits">Benefits of Whole Grains</g:link></li>
 
 							<li><g:link controller="home" action="whole_grain_studies">Whole Grains & Human Health</g:link></li>
+
+							<li><g:link controller="home" action="childhood_obesity">Meeting the Challenge</g:link></li>
 
 							<li><g:link controller="home" action="council_tips">Whole Grains Council Tips</g:link></li>
 

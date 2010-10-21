@@ -446,6 +446,15 @@ class HomeController {
            [content:content]
        }
 
+	def what_are_whole_grains = {
+           def content
+           def pt = PageText.findByName("what_are_whole_grains")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
        def about = {
            def content
            def pt = PageText.findByName("about")

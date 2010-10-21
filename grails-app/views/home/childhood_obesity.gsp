@@ -5,15 +5,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="learn" />
-        <title>You landed on: The Landing Page.</title>
+        <title>SuperKids | Meeting the Childhood Obesity</title>
     </head>
     <body>
-
-        <div style="width:450px">
-           <g:if test="${flash.message}">
+         <div id="contentInsetInner">
+			 <g:if test="${flash.message}">
                <div class="message">${flash.message}</div>
-           </g:if>
-         ${content}
-        </div>
+          	 </g:if>
+			 ${content}
+		 </div>
+
     </body>
 </html>
