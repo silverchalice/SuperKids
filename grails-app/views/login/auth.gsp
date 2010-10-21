@@ -77,7 +77,7 @@
 						</div>
 						<div class="clear" style="clear:both"><br /></div>
 						<input type="image" class="fancyButton" name="submit" value="Login"src="${request.contextPath}/images/EnterButton-Blue.png"/>
-						<input type="image" class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.png"/>
+						<a href="${createLink(controller:'home', action:'c_forgot_password')}"><img class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.png"/></a>
 
 				</form>
 			</div>
