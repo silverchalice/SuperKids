@@ -102,7 +102,7 @@ class UrlMappings {
                 }
                 "/promotion-tools-and-resources" {
                     controller = "home"
-                    action = "promotion-tools-and-resources"
+                    action = "promotion_tools_and_resources"
                 }
                 "/additional-promotional-ideas" {
                     controller = "home"
