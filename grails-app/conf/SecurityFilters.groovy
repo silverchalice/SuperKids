@@ -29,7 +29,7 @@ class SecurityFilters {
             }
         }
 
-        product(controller:"product", action:"(edit|delete|list|create|save)") {
+        product(controller:"product", action:"(edit|delete|create|save)") {
           before = {
             if(springSecurityService.loggedIn){
               def user = User.get(springSecurityService.principal.id)
