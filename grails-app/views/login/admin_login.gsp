@@ -62,13 +62,13 @@ body { background-color:white; }
 
 </head>
   <body>
-    <div style="width:500px; height:300px; margin:50px 220px; padding:0px 30px; border:1px solid gray;">
+    <div style="width:500px; height:400px; margin:50px 220px; padding:0px 30px; border:1px solid gray;">
             <br/>
             <p>&nbsp;</p>
 	        <span style="padding:15px 0 5px 0;"><strong>Enter your admin user name and password.</strong><p>&nbsp;</p> </span>
 				<g:if test='${flash.message}'>
 				<div class='login_message'>${flash.message}</div>
-				</g:if>
+				</g:if><p>&nbsp;</p>
 			<div id='login' style="width:275px; margin-left:25px;">
 				<form action='${postUrl}' method='post' id='loginForm' class='cssform'>
                         <div style="float:left; text-align:right; width:80px">
@@ -81,7 +81,7 @@ body { background-color:white; }
 						</div>
 						<div class="clear" style="clear:both"><br /></div>
 	                    <input type="image" class="fancyButton" name="submit" value="Login"src="${request.contextPath}/images/EnterButton-Blue.png"/>
-	                    <input type="image" class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.png"/>
+	                    <a href="${createLink(controller:'home', action:'forgot_password')}"><img class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.png"/></a>
 
 				</form>
 			</div>
