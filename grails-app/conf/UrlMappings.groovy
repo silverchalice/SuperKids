@@ -180,6 +180,14 @@ class UrlMappings {
                     controller = "home"
                     action = "c_reset_success"
                 }
+                "/forgot_password" {
+                    controller = "home"
+                    action = "forgot_password"
+                }
+                "/passwd_reset" {
+                    controller = "home"
+                    action = "passwd_reset"
+                }
                 "/contact"{
                     controller = "contactRequest"
                     action = "create"
