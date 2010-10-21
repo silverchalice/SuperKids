@@ -3,6 +3,7 @@
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+        <g:set var="link" value="${pageProperty(name: 'meta.link')}"/>
         <g:layoutHead />
         <g:javascript library="application" />
         <g:javascript library="jquery" plugin="jquery"/>
@@ -18,9 +19,9 @@
                 <ul>
                     <li><g:link controller="assessment" action="assess_process">Begin Online Assessment</g:link></li>
 
-                    <li><g:link controller="home" action="assessment_drawing_rules">Assessment Drawing Rules</g:link></li>
+                    <li id="${link=='assessment_drawing_rules' ? 'current' : ''}"><g:link controller="home" action="assessment_drawing_rules">Assessment Drawing Rules</g:link></li>
 
-                    <li><g:link controller="home" action="assessment_tools">Other Assessment Tools</g:link></li>
+                    <li id="${link=='assessment_tools' ? 'current' : ''}"><g:link controller="home" action="assessment_tools">Other Assessment Tools</g:link></li>
 
                 </ul>
         </div>
