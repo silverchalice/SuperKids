@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="learn" />
+        <meta name="link" content="testimonials" />
         <title>You landed on: The Landing Page.</title>
     </head>
     <body>
