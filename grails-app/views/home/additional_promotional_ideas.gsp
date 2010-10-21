@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="promote" />
+        <meta name="link" content="additional_promotional_ideas" />
         <title>SuperKids | Additional Promotional Ideas</title>
     </head>
     <body>
