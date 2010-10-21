@@ -26,6 +26,7 @@
       <div id="assessProducts">
 		    <div id="assessProductsUpper"></div>
 		    <div id="assessProductsInner" class="flexcroll">
+                            <g:if test="${products}">
 				<g:each in="${products}" var="product">
 					<div class="assessmentProduct">
 						<g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}"/></g:link>
@@ -36,6 +37,10 @@
 						<g:link controller="assessment" action="dnr" class="assessmentDNR" id="${product.id}">Did Not Receive?</g:link>
 					</div>
 				</g:each>
+                            </g:if>
+                            <g:else>
+                            <p style="border:1px solid; margin-left:10px; padding:15px 10px; height:270px; width:160px; background-color:#FFEBA8;"><strong>You haven't ordered any samples yet.</strong> When your order is completed, the samples in your order will appear here and you can assess them.</p>
+                            </g:else>
 			</div>
 		    <div id="assessProductsLower"></div>
       </div>
