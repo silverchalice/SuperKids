@@ -18,7 +18,7 @@
 
 <h2>For Assistance</h2>
 <p>&nbsp;</p>
-<p style="text-align:center;"><strong>melissac@sdastl.com<br /><br />
+<p style="text-align:center;"><strong><a href="mailto:melissac@sdastl.com">melissac@sdastl.com</a><br /><br />
 <span style="font-size:larger;">Toll Free: 1-877-862-8828</span><br />
 Fax: 314-862-8829<br />
 P.O. Box 16170 <br />
