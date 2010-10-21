@@ -223,6 +223,9 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/product/displayImage/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/sponsor/displayImage/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/contactRequest/save':                               ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/c_forgot_password':                                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/c_passwd_reset':                                    ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/c_reset_success':                                    ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/**':                                                                  ['ROLE_ADMIN']
 ]
 
