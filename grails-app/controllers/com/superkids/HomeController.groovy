@@ -277,7 +277,7 @@ class HomeController {
        }
 
        def broker_ecard = {
-		   def content
+           def content
            def pt = PageText.findByName("broker_ecard")
            if(pt){
                content = pt.content
@@ -290,6 +290,41 @@ class HomeController {
 
        }
 
+
+       def public_products = {
+           params.max = Math.min(params.max ? params.int('max') : 10, 100)
+           render view:"/home/public_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+       }
+
+       def public_diets = {
+           
+       }
+
+       def public_other_products = {
+           
+       }
+
+       def public_whole_grain_in_schools = {
+           
+       }
+
+       def public_whole_grain_studies = {
+           def content
+           def pt = PageText.findByName("broker_whole_grain_studies")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def public_whole_grain_benefits = {
+           def content
+           def pt = PageText.findByName("broker_whole_grain_benefits")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
 
        def learn = {
            def content
