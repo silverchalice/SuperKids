@@ -6,6 +6,7 @@ class Sponsor {
 	Address address
 	String phone
 	String website
+        String description
 
 	String salesContact
 	String sampleContact
@@ -20,16 +21,19 @@ class Sponsor {
 		address()
 		phone()
 		website()
-		logo(nullable:true, blank:true)
+		logo nullable:true, blank:true
 
-		salesContact(nullable: true)
-		sampleContact(nullable: true)
+		salesContact nullable: true
+		sampleContact nullable: true
 
-		products(nullable:true)
+                description nullable:true, maxSize: 500000
+
+		products nullable:true
     }
 
     static mapping = {
         logo sqlType:"longblob"
+        description sqlType:"text"
     }
 
 	String toString() {
