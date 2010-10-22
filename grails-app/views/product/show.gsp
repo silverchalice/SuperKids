@@ -9,28 +9,62 @@
 		<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
 		<style type="text/css">
-			#contentInsetUpper {
-				width:492px;
-				left:419px;
+			.contentInset {
+			  width:516px;
+			  padding:0;
+			  height:483px;
+			  margin:0 auto;
+			  position:absolute;
+			  top:100px;
+			  right:15px;
+			  overflow: auto;
 			}
 
-			#contentInsetInner {
-				width:500px;
-				position:relative;
-				left:150px;
-				bottom:33px;
-				padding:0;
-				
+
+			.contentInsetUpper {
+				width:486px;
+				position:absolute;
+				left:424px;
+				top:90px;
+				background:white;
+				height:10px
 			}
 
-			#contentInsetLower {
-				width:492px;
-				left:419px;
+			.contentInsetLower {
+				width:486px;
+				position:absolute;
+				left:424px;
+				top:578px;
+				background:white;
+				height:7px;
+				z-index:2;
+				clear:both;
+				padding-top:1px;
 			}
 
-			#contentInset {
-				overflow:hidden;
+			.contentInset p {
+			  font-size:10px;
+			  margin-top:0px;
+			  margin-bottom:13px;
+			  padding-left:1px;
 			}
+
+			.contentInset strong {
+			  font-size:12px;
+			  font-weight:bold;
+			  color:#333333;
+			  padding-left:1px;
+			}
+
+			.contentFooter {
+			  background:url(../images/layout/contentFooter-bg.gif) repeat-x;
+			  width:728px;
+			  margin-left:4px;
+			  position:absolute;
+			  top:591px;
+			  height:17px
+			}
+
 
 			ul.tabs {
 				margin: 0;
@@ -86,7 +120,7 @@
 
     </head>
     <body>
-		<ul class="tabs" style="float:left">
+	    <ul class="tabs" style="position:relative; top:40px; left:31px">
 			<li><g:link>Order Sample</g:link></li>
 			<li><g:link controller="testShoppingCart" action="show">View Cart</g:link></li>
 			<li id="productAd"><a href="#tab1">Product Ad</a></li>
@@ -95,30 +129,106 @@
 			<li><a href="#tab4">Manufacturer</a></li>
 			<li><g:link action="downloadSummary" id="${productInstance.id}">View Summary PDF</g:link></li>
 		</ul>
-        <div id="contentInsetInner" class="flexcroll">
+		<div id="tab1" class="tab_content">
+			<div class="contentInsetUpper">
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" alt="" style="float:left" />
+				<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" alt="" style="float:right" />
+			</div>
+			<div class="contentInset">
 
-				<div id="tab1" class="tab_content" style="padding:0; background-image:url('${resource(dir:'uploads', file:productInstance?.backgroundImage)}')">
-
+				<div style="width:500px; padding:0 10px 10px 10px; background:white; min-height:468px; right:30px; position:absolute; height:auto !important; height:468px;">
 				</div>
+			</div>
 
-				<div id="tab2" class="tab_content">
+			<div class="contentInsetLower">
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" alt="" style="float:left" />
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" alt="" style="float:right" />
+			</div>
+
+
+			<div class="contentFooter" style="position:absolute; right:0; width:815px; margin-right:0; background:url('/SuperKids/images/layout/contentFooter-bg.gif') repeat-x;">
+				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+			</div>
+		</div>
+
+		<div id="tab2" class="tab_content">
+			<div class="contentInsetUpper">
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" alt="" style="float:left" />
+				<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" alt="" style="float:right" />
+			</div>
+			<div class="contentInset">
+
+				<div style="width:500px; padding:0 10px 10px 10px; background:white; min-height:468px; right:30px; position:absolute; height:auto !important; height:468px;">
 					<h2>${productInstance?.name}</h2>
 					${productInstance?.description}<br/>
 					${productInstance?.details}
 				</div>
+			</div>
 
-				<div id="tab3" class="tab_content">
-					<p style="padding-bottom:800px;">${productInstance?.nutrition}
-					</p>
+			<div class="contentInsetLower">
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" alt="" style="float:left" />
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" alt="" style="float:right" />
+			</div>
+
+
+			<div class="contentFooter" style="position:absolute; right:0; width:815px; margin-right:0; background:url('/SuperKids/images/layout/contentFooter-bg.gif') repeat-x;">
+				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+			</div>
+		</div>
+
+		<div id="tab3" class="tab_content">
+			<div class="contentInsetUpper">
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" alt="" style="float:left" />
+				<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" alt="" style="float:right" />
+			</div>
+			<div class="contentInset">
+
+				<div style="width:500px; padding:0 10px 10px 10px; background:white; min-height:468px; right:30px; position:absolute; height:auto !important; height:468px;">
+					<p>${productInstance?.nutrition}</p>
 				</div>
+			</div>
 
- 				<div id="tab4" class="tab_content">
-					${productInstance?.sponsor?.encodeAsHTML()}
+			<div class="contentInsetLower">
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" alt="" style="float:left" />
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" alt="" style="float:right" />
+			</div>
+
+
+			<div class="contentFooter" style="position:absolute; right:0; width:815px; margin-right:0; background:url('/SuperKids/images/layout/contentFooter-bg.gif') repeat-x;">
+				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+			</div>
+		</div>
+
+		<div id="tab4" class="tab_content">
+			<div class="contentInsetUpper">
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" alt="" style="float:left" />
+				<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" alt="" style="float:right" />
+			</div>
+			<div class="contentInset">
+
+				<div style="width:500px; padding:0 10px 10px 10px; background:white; min-height:468px; right:30px; position:absolute; height:auto !important; height:468px;">
+					<p>${productInstance?.sponsor?.encodeAsHTML()}</p>
 				</div>
+			</div>
+
+			<div class="contentInsetLower">
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" alt="" style="float:left" />
+				<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" alt="" style="float:right" />
+			</div>
+
+
+			<div class="contentFooter" style="position:absolute; right:0; width:815px; margin-right:0; background:url('/SuperKids/images/layout/contentFooter-bg.gif') repeat-x;">
+				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+			</div>								
+		</div>
 
 
 
-        </div>
+
 		<script type="text/javascript">
 			jQuery.noConflict()
 
@@ -137,7 +247,7 @@
 					jQuery(".tab_content").hide(); //Hide all tab content
 
 					var activeTab = jQuery(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-					jQuery(activeTab).fadeIn(); //Fade in the active ID content
+					jQuery(activeTab).show(); //Fade in the active ID content
 					return false;
 				});
 
