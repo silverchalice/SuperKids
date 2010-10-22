@@ -259,7 +259,7 @@ class HomeController {
        }
 
        def incorporating_whole_grains_in_schools = {
-		   def content
+           def content
            def pt = PageText.findByName("incorporating_whole_grains_in_schools")
            if(pt){
                content = pt.content
@@ -287,7 +287,12 @@ class HomeController {
 
 
        def anonymous = {
-
+           def content
+           def pt = PageText.findByName("anonymous")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
 
@@ -297,20 +302,35 @@ class HomeController {
        }
 
        def public_diets = {
-           
+           def content
+           def pt = PageText.findByName("public_diets")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
        def public_other_products = {
-           
+           def content
+           def pt = PageText.findByName("public_other_products")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
        }
 
        def public_whole_grain_in_schools = {
-           
+           def content
+           def pt = PageText.findByName("incorporating_whole_grains_in_schools")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]   
        }
 
        def public_whole_grain_studies = {
            def content
-           def pt = PageText.findByName("broker_whole_grain_studies")
+           def pt = PageText.findByName("whole_grain_studies")
            if(pt){
                content = pt.content
            }
@@ -319,7 +339,7 @@ class HomeController {
 
        def public_whole_grain_benefits = {
            def content
-           def pt = PageText.findByName("broker_whole_grain_benefits")
+           def pt = PageText.findByName("whole_grain_benefits")
            if(pt){
                content = pt.content
            }
