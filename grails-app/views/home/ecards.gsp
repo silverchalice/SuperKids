@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="promote" />
         <meta name="link" content="ecards" />
-        <title>SuperKids | Send an eCard</title>
+        <title>SuperKids | Send An eCard</title>
     </head>
     <body>
 
