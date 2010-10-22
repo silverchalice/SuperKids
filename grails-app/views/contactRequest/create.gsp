@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="public" />
+        <meta name="layout" content="public_li" />
         <g:set var="entityName" value="${message(code: 'contactRequest.label', default: 'ContactRequest')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
