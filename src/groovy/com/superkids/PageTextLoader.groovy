@@ -556,5 +556,16 @@ class PageTextLoader {
                                                          """
                                 ).save()
 
+                             def brokerParticipateText = new PageText(name:"broker_participate", content:"""
+<h1>How You Can Participate</h1><br />
+<h2>An Important Role.</h2>
+<p>Foodservice distributors and brokers can play a significant role in getting more whole grain foods into our nation's schools. One of the biggest ways you can participate is by promoting products offered in the SuperKids program to the school districts you serve.</p>
+<h2>Demand Reports.</h2>
+<p>If your company is listed as the one that serves a school district and that school district provides feedback to us about the whole grain products sampled, you will receive that data in a Demand Report.</p>
+<h2>Talk With SuperKids Manufacturers.</h2>
+<p>SuperKids product manufacturers would like to discuss their products with you. In addition, we would welcome your help in making brokers and foodservice directors aware of these products. You can send eCards to them, as well as ask the manufacturers whose products are presented here to contact you.</p>
+<p><strong>Send an eCard or Request Contact from our participating manufacturers by selecting these options from the menu on the left.</strong></p>	                                                         """
+                                ).save()
+
 	}
 }
