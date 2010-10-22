@@ -83,6 +83,15 @@
                             </td>
                             
                         </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="sponsor.logo.label" default="Logo" /></td>
+                            
+                            <td valign="top" style="text-align: left;" class="value">
+                                    <img src="${createLink(action:'displayImage', id:sponsorInstance.id)}" />
+                            </td>
+                            
+                        </tr>
                     
                     </tbody>
                 </table>
