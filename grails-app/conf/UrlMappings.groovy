@@ -156,6 +156,34 @@ class UrlMappings {
                     controller = "home"
                     action = "anonymous"
                 }
+                "/public-products" {
+                    controller = "home"
+                    action = "public_products"
+                }
+                "/public-diets" {
+                    controller = "home"
+                    action = "public_diets"
+                }
+                "/public-other-products" {
+                    controller = "home"
+                    action = "public_other_products"
+                }
+                "/public-products" {
+                    controller = "home"
+                    action = "public_products"
+                }
+                "/public-whole-grain-in-schools" {
+                    controller = "home"
+                    action = "public_whole_grain_in_schools"
+                }
+                "/public-whole-grain-studies" {
+                    controller = "home"
+                    action = "public_whole_grain_studies"
+                }
+                "/public-whole-grain-benefits" {
+                    controller = "home"
+                    action = "public_whole_grain_benefits"
+                }
                 "/cart/" {
                     controller = "testShoppingCart"
                     action = "show"

@@ -15,19 +15,21 @@
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
         <div id="SubNav">
-                <h3>Broker/Distributor Menu</h3>
+                <h3>Menu</h3>
                 <ul>
-                    <li id="${link=='broker_products' ? 'current' : ''}"><g:link controller="home" action="broker_products">SuperKids Products</g:link></li>
+                    <li id="${link=='public_products' ? 'current' : ''}"><g:link controller="home" action="public_products">SuperKids Products</g:link></li>
 
-                    <li id="${link=='broker_whole_grain_benefits' ? 'current' : ''}"><g:link controller="home" action="broker_whole_grain_benefits">Benefits of Whole Grains</g:link></li>
+                    <li id="${link=='public_whole_grain_benefits' ? 'current' : ''}"><g:link controller="home" action="public_whole_grain_benefits">Benefits of Whole Grains</g:link></li>
 
-                    <li id="${link=='broker_whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="broker_whole_grain_studies">Whole Grains & Human Health</g:link></li>
+                    <li id="${link=='public_whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="public_whole_grain_studies">Whole Grains & Human Health</g:link></li>
 
-                    <li id="${link=='incorporating_whole_grains_in_schools' ? 'current' : ''}"><g:link controller="home" action="incorporating_whole_grains_in_schools">Incorporating Whole Grains Into School Menus</g:link></li>
+                    <li id="${link=='public_diets' ? 'current' : ''}"><g:link controller="home" action="public_diets">Adding Whole Grains In Children's Diets</g:link></li>
 
-                    <li id="${link=='broker_participate' ? 'current' : ''}"><g:link controller="home" action="broker_participate">How You Can Participate</g:link></li>
+                    <li id="${link=='public_other_products' ? 'current' : ''}"><g:link controller="home" action="public_other_products">Other Products With Ultragrain</g:link></li>
 
-                    <li id="${link=='broker_ecard' ? 'current' : ''}"><g:link controller="home" action="broker_ecard">Send An eCard</g:link></li>
+                    <li id="${link=='public_whole_grain_in_schools' ? 'current' : ''}"><g:link controller="home" action="public_whole_grain_in_schools">Incorporating Whole Grains Into School Menus</g:link></li>
+
+                    <li><g:link controller="contactRequest" action="create">Contact Us</g:link></li>
 
                 </ul>
         </div>

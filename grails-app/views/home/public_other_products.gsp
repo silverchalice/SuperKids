@@ -4,9 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="broker" />
-        <meta name="link" content="broker_whole_grain_benefits" />
-        <title>SuperKids | Whole Grain Benefits</title>
+        <meta name="layout" content="public_li" />
+        <meta name="link" content="public_other_products" />
+        <title>SuperKids | Other Products With Ultragrain</title>
     </head>
     <body>
 

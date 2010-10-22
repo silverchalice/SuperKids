@@ -360,5 +360,201 @@ class PageTextLoader {
 			</div>
 							  """
 				).save()
+
+			def anonymousText = new PageText(name:"anonymous", content:"""
+            <h1>Welcome to Superkids!</h1>
+<span style="font-size: x-large;"><span style="color: rgb(153, 51, 0);"><strong><span class="bu"><img width="160" hspace="8" height="442" align="right" src="/SuperKids/images/NEWGIRLeatingpizzaVERTICAL.jpg" alt=""></span></strong></span></span>
+<p>SuperKids targets the largest public school districts in America </span></span></span></strong></span><span style="font-size: x-small;"><span style="color: rgb(0, 0, 0);">by offering foodservice directors the chance to taste-test specific new products from a variety of trusted food companies and bakeries. All of these products are made with Ultragrain<sup>®</sup> and/or Sustagrain<sup>®</sup>, the program is absolutely free, and feedback about the products sampled is reported to our manufacturers and the appropriate foodservice distributors/brokers.</span></span></p>
+<p><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><strong>We can prove high acceptance of whole grain products in our nation's schools.</strong></span></span>&nbsp;&nbsp;<span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">SuperKids is in its forth year. Last year, over 1,284 of the largest public school districts in America requested and received 6,079 product samples from a pool of 16 products made with Ultragrain.&nbsp;In independent studies, elementary school students consumed products made with Ultragrain at the same levels as&nbsp;products made with refined flour. The difference&nbsp;is Ultragrain's taste, look and texture.&nbsp;It's revolutionary, innovative, and a major technological breakthrough.</span></span></p>
+<p><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;"><strong><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;">Ultragrain</span></span></strong></span><span><strong><span style="color: rgb(153, 51, 0);"><span><sup>®</sup></span></span></strong></span><span style="font-size: x-small;"> makes it possible for students to receive high amounts of fiber, along with the full nutritive value of whole grains in foods they are familiar with and love. With Ultragrain, students don't notice changes in color, taste or texture that they often complain about when eating foods that use traditional whole grain flour.</span></span></p>
+<p><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;"><span style="font-size: medium;"><span style="color: rgb(153, 51, 0);"><strong>Sustragrain<span style="font-size: x-small;"><span><span><sup>®</sup></span></span></span> </strong></span></span>is an ultra high-fiber whole grain&nbsp;that is&nbsp;known for its great taste and healthful properties.&nbsp;SuperKids showcases products made with&nbsp;Sustagrain—a way to add&nbsp;fiber into a range of recipes without kids even knowing it. In flour form, Sustagrain can be used in baked goods, meat preparations, sauces and dips.&nbsp;In flake form, it works great in hot cereals, snacks, desserts&nbsp;and toppings.&nbsp;&nbsp;</span></span></p>
+<p><span style="font-size: xx-small;"><span style="color: rgb(153, 51, 0);"><strong>For more information, select from the options shown on the left or bottom of&nbsp;your screen. </strong></span></span></p>
+<p>&nbsp;</p>
+							  """
+				).save()
+
+                             def dietsText = new PageText(name:"public_diets", content:"""
+<h1>Adding Whole Grains In Children's Diets</h1>
+<p>
+  <img width="168" hspace="8" height="270" align="right" src="/SuperKids/images/NEWKIDwithcorndog.jpg" alt="" style="width: 143px; height: 238px;" />
+  Parents want to know that their kids are eating great-tasting, nutritious foods at school. A growing number of America's school cafeterias feature a variety of foods made with Ultragrain. The SuperKids program from&nbsp;ConAgra Mills, the maker of Ultragrain and Sustagrain, gives school districts the opportunity to sample products made with these healthful ingredients.
+</p>
+<h2>Give students whole grain goodness.</h2>
+<p>
+  Whether you are a parent, or are employed by your school district in foodservices, giving students more whole grain foods is one of the healthiest things you can do. Ultragrain and Sustagrain can be found in many foods at your local grocery stores, in restaurants, and even in school cafeterias. Look for these <a href="#" title="Give Your Students Whole Grain Goodness"><strong>products</strong></a> on your grocery shelves.
+</p>
+<p>
+  A variety of food manufacturers have offered their products to school districts. We recommend that your school&nbsp;consider these whole grain <a href="#" title="Meet the Prior Super Heros of Superkids"><strong>products</strong></a> as well.
+</p>
+<p>
+<img width="168" hspace="8" height="70" align="right" src="/SuperKids/images/SATURDAYPBJSANDWICHHORIZ.jpg" alt="" style="width: 144px; height: 53px;" />
+<h2>Check out our whole grain recipes</h2>
+<p>
+  using Eagle Mills All-Purpose Flour made with Ultragrain. Cup-for-cup, you'll get more whole grain nutrition, with the same great taste. Click <a href="http://www.ultragrain.com/where_to_find_recipes.jsp" target="_blank"><strong>here</strong></a> for recipe options you can incorporate into family meals.
+</p>
+<p>
+  <img width="293" vspace="20" hspace="20" height="94" align="right" src="/SuperKids/images/NEWLOGOspread.jpg" alt="" />
+<h2>Make your interest known.</h2>
+<p>If you are a parent and would like your child's school to add these products to its menu, contact the foodservice director in your school district. Products featured in the SuperKids Whole Grain Sampling program include these brands and trusted manufacturers:</span></span></p>
+                                                         """
+                                ).save()
+
+                             def publicOtherProductsText = new PageText(name:"public_other_products", content:"""
+<h1>Other Products With Ultragrain<sup>&reg</sup> and Sustagrain<sup>&reg;</sup></h1>
+<p>
+  These companies use Ultragrain in their products. Look for them on your grocer's shelves.
+</p>
+<table width="593" cellspacing="0" cellpadding="3" align="left" style="width: 593px; height: 800px;">
+    <tbody>
+        <tr>
+            <td align="center" colspan="2"><strong>National Distribution </strong></td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td width="200" valign="top"><a href="http://www.caravaningredients.com/" target="_blank"><strong><span style="color: rgb(255, 102, 0);">Caravan Products Co.</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
+            </span></strong>800-256-5261</td>
+            <td width="400" valign="top">VitoGrain Whole Wheat Bread Mix, 7 Grain Bread Mix, and Krunchy Wheat Bread Mix</td>
+        </tr>
+        <tr>
+            <td width="200" valign="top"><a href="http://www.conagrafoodservice.com/contact_us/contact_us.jsp" target="_blank"><strong><span style="color: rgb(255, 102, 0);">ConAgra Foods, Consumer Foods School Foodservice</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
+            </span></strong>937-498-4511</td>
+            <td width="400" valign="top">
+            <p>Healthy Choice<sup>&reg;</sup> Cinnamon Bakes&trade; (Strawberry and Apple)<br />
+            The Max<sup>&reg;</sup> Stuffed Crust Cheese Pizza<br />
+            The Max<sup>&reg;</sup> Stuffed Crust Pepperoni Pizza<br />
+            The Max<sup>&reg; </sup>Twisted Edge&trade; Pizza<br />
+            MaxWraps&trade; Chili Cheese Wrap<br />
+            The Max<sup>&reg; </sup>Whole Grain Pancakes with Cinnamon Glaze<br />
+            The Max<sup>&reg;&nbsp; </sup>Whole Grain Chees-Filled Breadsticks</p>
+            </td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td width="200" valign="top"><a href="http://www.conagrafoodingredients.com/contact/index.jsp" target="_blank"><strong><span style="color: rgb(255, 102, 0);">ConAgra Mills</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
+            </span></strong>402-595-6324</td>
+            <td width="400" valign="top">Ultragrain<sup>&reg;</sup> 100% Whole Grain Flour - Hard and Soft<br />
+            Healthy Choice<sup>&reg;</sup> All-Purpose Flour Blends Made with Ultragrain<sup>&reg;</sup><font size="2">&mdash;</font>T-1 and T-2</td>
+        </tr>
+        <tr>
+            <td width="200" valign="top"><a href="http://www.dawnfoods.com/" target="_blank"><strong><span style="color: rgb(255, 102, 0);">Dawn Food Products, Inc.</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
+            </span></strong>(517) 789-4400</td>
+            <td width="400" valign="top">Whole Grain Brownies, Cookies, Cr&egrave;me Cake, Donuts &amp; Muffins</td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td width="200" valign="top"><a href="http://www.dominos.com/" target="_blank"><strong><span style="color: rgb(255, 102, 0);">Domino's Pizza</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
+            </span></strong>(800) 810-6633</td>
+            <td width="400" valign="top">Smart Slice&trade;</td>
+        </tr>
+        <tr>
+            <td width="200" valign="top"><a href="http://www.doubleb.com/contact.php" target="_blank"><strong><span style="color: rgb(255, 102, 0);">Double B Foods, Inc.</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
+            </span></strong>800-472-6661</td>
+            <td width="400" valign="top">Whole Grain Wheat Sausage Roll</td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td width="200" valign="top"><a href="http://www.jjsnackfoodservice.com/" target="_blank"><strong><span style="color: rgb(255, 102, 0);">J&amp;J Snack Foods Corp</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
+            </span></strong>888-JJSNACK</td>
+            <td width="400" valign="top">
+            <p>READI-BAKE<sup>&reg; </sup>Bene<em>FIT</em>&trade; Reduced Fat Cookies<br />
+            READI-BAKE<sup>&reg;</sup> Bene<em>FIT</em>&trade; White Wheat Dinner Roll Dough<br />
+            SUPERPRETZEL<sup>&reg; </sup>51% Whole Wheat Soft Pretzel<font size="2">&mdash;</font>1 oz. Rod <br />
+            SUPERPRETZEL<sup>&reg;</sup> 51% Whole Wheat Soft Twisted Pretzel<font size="2">&mdash;</font>2.5 oz.<br />
+            READI-BAKE<sup>&reg;</sup> Bene<em>FIT</em>&trade; 52% Whole Grain Biscuit Dough<br />
+            READI-BAKE<sup>&reg;</sup> Bene<em>FIT</em>&trade; 51% Whole Grain Double Chocolate Chip</p>
+            </td>
+        </tr>
+        <tr>
+            <td width="200" valign="top">J.M. Swank<br />
+            (319) 626-5907</td>
+            <td width="400" valign="top">Ultragrain<sup>&reg;</sup> Macaroni Noodles</td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td width="200" valign="top">Integrated Food Service<br />
+            (310) 523-3664</td>
+            <td width="400" valign="top">Hot Off The Grill&trade; Grilled Cheese Sandwich<br />
+            Hot Off The&trade; Grill Cinnamon Toast</td>
+        </tr>
+        <tr>
+            <td width="200" valign="top">Monarch Food Group<br />
+            (770) 723-8148</td>
+            <td width="400" valign="top">Hilltop Hearth<sup>&reg;</sup> Pullman Loaf made with Whole Grains</td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td width="200" valign="top">Pepperidge Farm<br />
+            (800) 879-7687</td>
+            <td width="400" valign="top">Cheddar Goldfish<sup>&reg;</sup> Made With Whole Grain</td>
+        </tr>
+        <tr>
+            <td width="200" valign="top"><a href="http://www.ralcorpfrozen.com/index.php?idrub=5&amp;page=contactus" target="_blank"><strong><span style="color: rgb(255, 102, 0);">Ralcorp Frozen Bakery Products</span></strong></a><br />
+            (630) 455-5200</td>
+            <td width="400" valign="top">Krusteaz<sup>&reg;</sup> Waffles made with Ultragrain<sup>&reg;</sup><br />
+            Krusteaz<sup>&reg;</sup> Pancakes made with Ultragrain<sup>&reg;</sup></td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td width="200" valign="top">Silver Lake Cookie Company, Inc.<br />
+            (800) 645-9048</td>
+            <td width="400" valign="top">Premium Chocolate Chip Cookies<br />
+            Premium Oatmeal Raisin Cookies<br />
+            Premium Oatmeal White Chocolate Cranberry Cookies</td>
+        </tr>
+        <tr>
+            <td width="200" valign="top">Super Bakery Inc.<br />
+            (800) 722-6841</td>
+            <td width="400" valign="top">
+            <p>Ultra<sup>&reg;</sup> Whole Wheat Mini Loaf<br />
+            Ultra<sup>&reg;</sup> Very Berry Whole Wheat Muffins<br />
+            Ultra<sup>&reg;</sup> WDreamy Orange Whole Wheat Mini Loafs</p>
+            </td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td align="center" colspan="2"><span style="color: rgb(153, 51, 0);"><strong>North Central Distribution</strong></span></td>
+        </tr>
+        <tr>
+            <td width="200" valign="top"><a href="http://www.greatnorthernbaking.com/" target="_blank"><strong><span style="color: rgb(255, 102, 0);">Great Northern Baking Company</span></strong></a><br />
+            (612) 331-1043</td>
+            <td width="400" valign="top">Baked Cookies<br />
+            Baked Danish<br />
+            Baked Muffins<br />
+            Cinnamon Rolls<br />
+            Snackbreads</td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td align="center" colspan="2"><span style="color: rgb(153, 51, 0);"><strong>Northeast Distribution</strong></span></td>
+        </tr>
+        <tr>
+            <td width="200" valign="top"><a href="http://www.lepagebakeries.com/" target="_blank"><strong><span style="color: rgb(255, 102, 0);">Lepage Bakeries/Country Kitchen</span></strong></a><br />
+            (207) 783-9161</td>
+            <td width="400" valign="top">Country Kitchen Whole Grain White Bread<br />
+            Country Kitchen Bakers' Select Whole Grain 100% Whole White Bread</td>
+        </tr>
+        <tr bgcolor="#f9f5e8">
+            <td align="center" colspan="2"><span style="color: rgb(153, 51, 0);"><strong>Contains Sustagrain<br />
+            </strong></span></td>
+        </tr>
+        <tr>
+            <td width="200" valign="top"><strong><span style="color: rgb(255, 102, 0);">Kelloggs</span></strong><br />
+            (877) 511-5777</td>
+            <td width="400" valign="top">Pop-Tarts<sup>&reg;</sup> One Serving of Whole Grain toaster pastries</td>
+        </tr>
+    </tbody>
+</table>                                                         """
+                                ).save()
+
+                             def incorporatingText = new PageText(name:"incorporating_whole_grains_in_schools", content:"""
+<h1>Incorporating Whole Grains Into School Menus</h1>
+<p>
+  <img width="275" height="178" align="left" style="width: 81px; height: 56px;" alt="" src="/SuperKids/images/healthierschoolchallengelog.jpg" />
+  <img width="106" height="287" align="right" alt="" src="/SuperKids/images/NEWGIRLeatingpizzaVERTICAL.jpg" />
+  <strong>SuperKids is the foodservice program that supports your effort to achieve gold certification.</strong> Under the Healthier U.S. School Challenge for Elementary Schools, gold certification standards apply to public school district lunch programs that offer whole grain foods each day. SuperKids helps you provide more great-tasting whole grain menu options. It's one of the most efficient ways to get our nation's students to eat healthier.
+</p>
+<h2>This is the fourth year that SuperKids has offered free samples of whole grain products to foodservice directors.</h2>
+<p>
+  In the last three years, K-12 students have given the whole grain foods they sampled extremely high marks. A major reason: the foods were made with the appealing color, taste and texture of Ultragrain flour.
+</p>
+<p>
+  SuperKids products made with Sustagrain offer another way to increase whole grain and fiber consumption in school lunches. In flour form, Sustagrain can be used in baked goods, meat preparations, sauces and dips. In flake form, it works great in desserts, hot cereals and snacks.
+</p>
+<p>
+  Thanks to Ultragrain and Sustagrain, and products made with these ingredients, the SuperKids program has helped foodservice directors add more whole grain nutrition into their menus.</p>	
+                                                         """
+                                ).save()
+
 	}
 }

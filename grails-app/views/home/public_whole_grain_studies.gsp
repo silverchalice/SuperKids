@@ -4,10 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="broker" />
-        <meta name="link" content="broker_whole_grain_studies" />
+        <meta name="layout" content="public_li" />
+        <meta name="link" content="public_whole_grain_studies" />
         <title>SuperKids | Whole Grains & Human Health</title>
-
     </head>
     <body>
 		<g:javascript library="jquery" plugin="jquery"/>
@@ -19,7 +18,7 @@
 
 		<script type="text/javascript">
 			jQuery.noConflict();
-
+			
 			jQuery(document).ready(function() {
 				var width = jQuery(document).width() / 2;
 				jQuery('.PopUpClass').dialog({
@@ -46,6 +45,6 @@
 
 			<div id="contentInsetInner">
 				${content}
-			</div>
+                       </div>
     </body>
 </html>
