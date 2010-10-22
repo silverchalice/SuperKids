@@ -232,12 +232,8 @@ class HomeController {
        }
 
        def broker_products = {
-		   def content
-           def pt = PageText.findByName("broker_products")
-           if(pt){
-               content = pt.content
-           }
-           [content:content]
+           params.max = Math.min(params.max ? params.int('max') : 10, 100)
+           render view:"/home/broker_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
        }
 
        def broker_whole_grain_benefits = {
