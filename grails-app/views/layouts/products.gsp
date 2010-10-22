@@ -18,9 +18,9 @@
       <div class="clear"></div>
 
       <div id="products" style="top:72px">
-          <p>
+
               <sks:productBox />
-          </p>
+
       </div>
 
     </div>
@@ -37,24 +37,7 @@
       <span><g:link controller="logout">LOG OUT</g:link></span>
     </div>
 	<div id="content">
-		<div id="contentInsetUpper">
-			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
-			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
-		</div>
-		<div id="contentInset">
-			<g:layoutBody />
-		</div>
-
-		<div id="contentInsetLower">
-			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
-			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
-		</div>
-
-
-		<div id="contentFooter">
-			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
-		</div>
+		<g:layoutBody />
 	</div>
 
     <div id="footer">

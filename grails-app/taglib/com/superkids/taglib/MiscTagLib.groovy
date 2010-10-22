@@ -83,7 +83,7 @@ class MiscTagLib {
 					out << "<img src='"
 					out << "${createLink(controller:'product', action:'displayHoverImage', id:product.id)}"
 					out << "' "
-					out << "style='margin:3px; width:65px; height:50px' />"
+					out << "class='productThumb' />"
 					out << "</a>"
 				} else {
 					println "image"
@@ -93,7 +93,7 @@ class MiscTagLib {
 					out << "<img src='"
 					out << "${createLink(controller:'product', action:'displayImage', id:product.id)}"
 					out << "' "
-					out << "style='margin:3px; width:65px; height:50px' />"
+					out << "class='productThumb' />"
 					out << "</a>"
 				}
 			} else {
