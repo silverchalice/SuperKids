@@ -10,30 +10,30 @@
         <title><g:message code="default.show.label" args="[entityName]" /></title>
 		<style type="text/css">
 			.contentInset {
-			  width:516px;
+			  width:518px;
 			  padding:0;
 			  height:483px;
 			  margin:0 auto;
 			  position:absolute;
 			  top:100px;
-			  right:15px;
+			  left:419px;
 			  overflow: auto;
 			}
 
 
 			.contentInsetUpper {
-				width:486px;
+				width:491px;
 				position:absolute;
-				left:424px;
+				left:420px;
 				top:90px;
 				background:white;
 				height:10px
 			}
 
 			.contentInsetLower {
-				width:486px;
+				width:491px;
 				position:absolute;
-				left:424px;
+				left:420px;
 				top:578px;
 				background:white;
 				height:7px;
@@ -68,9 +68,9 @@
 			}
 
 			.productAd {
-				width:516px;
+				width:521px;
 				padding:0;
-				height:496px;
+				height:495px;
 				margin:0 auto;
 				position:absolute;
 				top:90px;
@@ -79,14 +79,21 @@
 			}
 
 			#productAdContainer {
-				width:487px;
+				width:491px;
 				padding:0;
 				background:white;
-				min-height:496px;
-				right:30px;
+				min-height:495px;
+				right:29px;
 				position:absolute;
 				height:auto !important;
-				height:496px;
+				height:495px;
+			}
+
+			img.productAdImage {
+				padding:0;
+				margin:0;
+				width:491px;
+				height:495px;
 			}
 
 
@@ -97,36 +104,36 @@
 				height: 32px; /*--Set height of tabs--*/
 				border: 0;
 				position:relative;
-				top:40px;
-				width:130px;
-				left:70px
+				top:37px;
+				width:134px;
+				left:66px
 			}
 			ul.tabs li {
-				margin-bottom: 21px;
+				margin-bottom: 8px;
 				padding: 0;
-				width:130px;
-				height: 31px; /*--Subtract 1px from the height of the unordered list--*/
-				line-height: 31px; /*--Vertically aligns the text within the tab--*/
-				border: 1px solid #999;
-				border-left: none;
-				
+				width:134px;
+				height: 44px; /*--Subtract 1px from the height of the unordered list--*/
+				line-height: 45px; /*--Vertically aligns the text within the tab--*/
+				border: 0;				
 				overflow: hidden;
 				position: relative;
-				background: #FBB500;
+
 			}
 			ul.tabs li a {
 				text-decoration: none;
 				color: white;
-				width:130px;
-				font-size: 1.2em;
-				padding: 0 0 0 8px;
-				height:32px;
-				line-height:31px;
+				display:block;
+				width:134px;
+				font-size: 14px;
+				padding: 14px 0 14px 5px;
+				height:44px;
+				line-height:15px;
 				outline: none;
+
 			}
 			
 			ul.tabs li a:hover {
-				background: #ccc;
+				
 			}
 			html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
 				 /*--Makes the active tab look like it's connected with its content--*/
@@ -145,25 +152,58 @@
 				padding: 20px;
 				font-size: 1.2em;
 			}
+
+			#orderSample a { background-image:url('/SuperKids/images/layout/buttons/OrderOrderButton.gif'); }
+			#orderSample a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderOrderButton-on.gif'); }
+			
+			#viewCart { margin-bottom:58px }
+			#viewCart a { background-image:url('/SuperKids/images/layout/buttons/OrderCartButton.gif'); }
+			#viewCart a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderCartButton-on.gif'); }
+
+			#productAd { margin-bottom:10px; }
+			#productAd a { background-image:url('/SuperKids/images/layout/buttons/OrderProductButton.gif'); }
+			#productAd a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderProductButton-on.gif'); }
+
+			#details { margin-bottom:13px; }
+			#details a { background-image:url('/SuperKids/images/layout/buttons/OrderSamplePackButton.gif'); }
+			#details a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderSamplePackButton-on.gif'); }
+
+			#nutritional { margin-bottom: 9px }
+			#nutritional a { background-image:url('/SuperKids/images/layout/buttons/OrderNutriButton.gif'); }
+			#nutritional a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderNutriButton-on.gif'); }
+
+			#manufacturer { margin-bottom:68px; }
+			#manufacturer a { background-image:url('/SuperKids/images/layout/buttons/OrderManufButton.gif'); }
+			#manufacturer a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderManufButton-on.gif'); }
+
+			#viewSummary a { background-image:url('/SuperKids/images/layout/buttons/PrintAdButton.gif'); }
+			#viewSummary a:hover { background-image:url('/SuperKids/images/layout/buttons/PrintAdButton-on.gif'); }
+
+
 		</style>
 
     </head>
     <body>
 	    <ul class="tabs">
-			<li style="background:#0058AF"><g:link>Order Sample</g:link></li>
-			<li style="margin-bottom:70px; background:#974300"><g:link controller="testShoppingCart" action="show">View Cart</g:link></li>
-			<li id="productAd"><a href="#tab1">Product Ad</a></li>
-			<li><a href="#tab2">Sample Details</a></li>
-			<li><a href="#tab3">Nutritional Info</a></li>
-			<li style="margin-bottom:85px;"><a href="#tab4">Manufacturer</a></li>
-			<li><g:link action="downloadSummary" id="${productInstance.id}">View Summary PDF</g:link></li>
+			<g:if test="${!inCart}">
+				<li id="orderSample"><g:link controller="product" action="add" id="${productInstance?.id}">&nbsp;</g:link></li>
+				<li id="viewCart"><g:link controller="testShoppingCart" action="show">&nbsp;</g:link></li>
+			</g:if>
+			<g:else>
+				<li id="viewCart" style="margin-top:50px"><g:link controller="testShoppingCart" action="show">&nbsp;</g:link></li>
+			</g:else>
+			<li class="tabbed" id="productAd"><a href="#tab1">&nbsp;</a></li>
+			<li class="tabbed"  id="details"><a href="#tab2">&nbsp;</a></li>
+			<li class="tabbed"  id="nutritional"><a href="#tab3">&nbsp;</a></li>
+			<li class="tabbed"  id="manufacturer"><a href="#tab4">&nbsp;</a></li>
+			<li id="viewSummary"><g:link action="downloadSummary" id="${productInstance.id}">&nbsp;</g:link></li>
 		</ul>
 		<div id="tab1" class="tab_content">
 
 			<div class="productAd">
 
 				<div id="productAdContainer">
-					<img src="/SuperKids/uploads/${productInstance?.backgroundImage}" alt="Background Image" style="padding:0; margin:0" />
+					<img src="/SuperKids/uploads/${productInstance?.backgroundImage}" alt="Background Image" class="productAdImage" />
 				</div>
 
 			</div>
@@ -181,7 +221,7 @@
 			</div>
 			<div class="contentInset">
 
-				<div style="width:467px; padding:0 10px 10px 10px; background:white; min-height:468px; right:30px; position:absolute; height:auto !important; height:468px;">
+				<div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; height:auto !important; height:468px;">
 					<h2>${productInstance?.name}</h2>
 					${productInstance?.description}<br/>
 					${productInstance?.details}
@@ -207,7 +247,7 @@
 			</div>
 			<div class="contentInset">
 
-				<div style="width:467px; padding:0 10px 10px 10px; background:white; min-height:468px; right:30px; position:absolute; height:auto !important; height:468px;">
+				<div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; height:auto !important; height:468px;">
 					<p>${productInstance?.nutrition}</p>
 				</div>
 			</div>
@@ -231,7 +271,7 @@
 			</div>
 			<div class="contentInset">
 
-				<div style="width:467px; padding:0 10px 10px 10px; background:white; min-height:468px; right:30px; position:absolute; height:auto !important; height:468px;">
+				<div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; height:auto !important; height:468px;">
 					<p>${productInstance?.sponsor?.encodeAsHTML()}</p>
 				</div>
 			</div>
@@ -259,9 +299,10 @@
 
 
 				//On Click Event
-				jQuery("ul.tabs li").click(function() {
+				jQuery("ul.tabs li.tabbed").click(function() {
 
-					jQuery("ul.tabs li").removeClass("active"); //Remove any "active" class
+
+					jQuery("ul.tabs li.tabbed").removeClass("active"); //Remove any "active" class
 					jQuery(this).addClass("active"); //Add "active" class to selected tab
 					jQuery(".tab_content").hide(); //Hide all tab content
 

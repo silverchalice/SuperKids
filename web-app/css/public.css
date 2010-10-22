@@ -68,6 +68,9 @@ em {
 #logo {
 	padding: 21px 12px 6px 2px;
 	margin-bottom:22px;
+	width:212px;
+	height:183px;
+	
 }
 
 #nav {
@@ -381,14 +384,20 @@ a:hover.viewCartButton {
 #products {
     background-image: url(../images/product-container.gif);
     background-repeat:no-repeat;
-    width: 250px;
+    width: 270px;
+	overflow:hidden;
     height: 270px;
     position: relative;
-    padding:10px 10px 10px 20px;
+    padding:10px 10px 10px 10px;
     top: 72px;
     left: 2px;
     z-index: 1;
-    overflow:auto;
+}
+
+.productThumb {
+	margin:5px;
+	width:78px; 
+	height:55px
 }
 
 

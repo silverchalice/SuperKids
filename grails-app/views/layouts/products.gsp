@@ -18,9 +18,9 @@
       <div class="clear"></div>
 
       <div id="products" style="top:72px">
-          <p>
+
               <sks:productBox />
-          </p>
+
       </div>
 
     </div>
