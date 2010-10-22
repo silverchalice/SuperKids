@@ -147,6 +147,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/css/**':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/images/**':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/plugins/**':                                        ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/uploads/**':                                        ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/flash/**':                                          ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/admin':                                             ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/caller':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
@@ -189,7 +190,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/whole-grain-list':                                       ['ROLE_USER', 'ROLE_ADMIN'],
    '/whole-grain-benefits':                                   ['ROLE_USER', 'ROLE_ADMIN'],
    '/whole-grain-studies':                                    ['ROLE_USER', 'ROLE_ADMIN'],
-   '/sneaky-chef':                                            ['ROLE_USER', 'ROLE_ADMIN'],
+   '/childhood-obesity':                                      ['ROLE_USER', 'ROLE_ADMIN'],
    '/council-tips':                                           ['ROLE_USER', 'ROLE_ADMIN'],
    '/public':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/home/save':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
@@ -223,6 +224,11 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/product/displayImage/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/sponsor/displayImage/**':                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/contactRequest/save':                               ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/c_forgot_password':                                 ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/c_passwd_reset':                                    ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/c_reset_success':                                   ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/forgot_password':                                   ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/passwd_reset':                                      ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/**':                                                                  ['ROLE_ADMIN']
 ]
 

@@ -61,7 +61,7 @@ class EcardController {
 			if(ecardInstance.message == "broker") {
 				sendMail {
 					to ecardInstance?.recipientEmail
-					subject "ECard from SuperKidsSampling.com"
+					subject "[SuperKids] ECard from SuperKidsSampling.com"
 					html g.render(template:"broker", model:[ecard: ecardInstance])
 				}
 			} else {

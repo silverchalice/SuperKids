@@ -59,6 +59,9 @@ class Customer extends User {
 	boolean purchaseFrozenFood
 
 	boolean topCustomer = false
+
+        boolean usingResetPassword = false
+
 	String otherComments
 
 	Call lastCall

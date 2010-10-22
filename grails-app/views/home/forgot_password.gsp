@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Login | SuperKids</title>
+    <title>SuperKids | Forgot Password</title>
     <link rel="stylesheet" type="text/css" href="${resource(dir:'css',file:'public.css')}" media="screen" />
      <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 	<meta name="layout" content="nonexistent" />
@@ -65,23 +65,20 @@ body { background-color:white; }
     <div style="width:500px; height:400px; margin:50px 220px; padding:0px 30px; border:1px solid gray;">
             <br/>
             <p>&nbsp;</p>
-	        <span style="padding:15px 0 5px 0;"><strong>Enter your admin user name and password.</strong><p>&nbsp;</p> </span>
+	        <span style="padding:15px 0 5px 0;"><strong>Enter your admin user name.</strong><p>&nbsp;</p> </span>
 				<g:if test='${flash.message}'>
 				<div class='login_message'>${flash.message}</div>
-				</g:if><p>&nbsp;</p>
+				</g:if>
 			<div id='login' style="width:275px; margin-left:25px;">
-				<form action='${postUrl}' method='post' id='loginForm' class='cssform'>
+				<form action='passwd_reset' method='post' id='loginForm' class='cssform'>
                         <div style="float:left; text-align:right; width:80px">
                             <label for='username'>Username</label><br/><br/>
-                            <label for='password'>Password</label>
                         </div>
 						<div style="float:right">
-						  <input type='text' class='text_' name='j_username' id='username' /><br/><br/>
-						  <input type='password' class='text_' name='j_password' id='password' />
+						  <input type='text' class='text_' name='username' id='username' /><br/>
 						</div>
 						<div class="clear" style="clear:both"><br /></div>
-	                    <input type="image" class="fancyButton" name="submit" value="Login"src="${request.contextPath}/images/EnterButton-Blue.png"/>
-	                    <a href="${createLink(controller:'home', action:'forgot_password')}"><img class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.png"/></a>
+	                    <input type="image" class="fancyButton" src="${request.contextPath}/images/ForgotPasswordButton.png"/>
 
 				</form>
 			</div>

@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="${resource(dir:'css',file:'tutorsty.css')}" />
 
 		<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+        <g:set var="link" value="${pageProperty(name: 'meta.link')}"/>
         <g:layoutHead />
         <g:javascript library="application" />
         <g:javascript library="jquery" plugin="jquery"/>
@@ -23,27 +24,27 @@
 				<div id="LearnSubNav">
 						<h3 style="margin-left:62px; margin-top:5px; font-size:14px">Learn Menu</h3>
 						<ul>
-							<li><g:link controller="home" action="what_is">What Is SuperKids?</g:link></li>
+							<li id="${link=='what_is' ? 'current' : ''}"><g:link controller="home" action="what_is">What Is SuperKids?</g:link></li>
 
-							<li><g:link controller="home" action="ultragrain">About Ultragrain</g:link></li>
+							<li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain">About Ultragrain</g:link></li>
 
-							<li><g:link controller="home" action="sustagrain">About Sustagrain</g:link></li>
+							<li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain">About Sustagrain</g:link></li>
 
-							<li><g:link controller="product" action="list">SuperKids Products</g:link></li>
+							<li id="${link=='products' ? 'current' : ''}"><g:link controller="product" action="list">SuperKids Products</g:link></li>
 
-							<li><g:link controller="home" action="testimonials">Testimonials</g:link></li>
+							<li id="${link=='testimonials' ? 'current' : ''}"><g:link controller="home" action="testimonials">Testimonials</g:link></li>
 
-							<li><g:link controller="home" action="what_are_whole_grains">What Are Whole Grains?</g:link></li>
+							<li id="${link=='what_are_whole_grains' ? 'current' : ''}"><g:link controller="home" action="what_are_whole_grains">What Are Whole Grains?</g:link></li>
 
-							<li><g:link controller="home" action="whole_grain_list">List of Whole Grains</g:link></li>
+							<li id="${link=='whole_grain_list' ? 'current' : ''}"><g:link controller="home" action="whole_grain_list">List of Whole Grains</g:link></li>
 
-							<li><g:link controller="home" action="whole_grain_benefits">Benefits of Whole Grains</g:link></li>
+							<li id="${link=='whole_grain_benefits' ? 'current' : ''}"><g:link controller="home" action="whole_grain_benefits">Benefits of Whole Grains</g:link></li>
 
-							<li><g:link controller="home" action="whole_grain_studies">Whole Grains & Human Health</g:link></li>
+							<li id="${link=='whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="whole_grain_studies">Whole Grains & Human Health</g:link></li>
 
-							<li><g:link controller="home" action="childhood_obesity">Meeting the Challenge</g:link></li>
+							<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity">Meeting the Challenge</g:link></li>
 
-							<li><g:link controller="home" action="council_tips">Whole Grains Council Tips</g:link></li>
+							<li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips">Whole Grains Council Tips</g:link></li>
 
 						</ul>
 				</div>

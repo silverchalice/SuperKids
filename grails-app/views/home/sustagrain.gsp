@@ -7,6 +7,7 @@
 
     <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
     <meta name="layout" content="learn" />
+    <meta name="link" content="sustagrain" />
   </head>
   <body>
       <g:if test="${flash.message}">

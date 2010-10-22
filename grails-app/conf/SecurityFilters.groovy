@@ -14,16 +14,22 @@ class SecurityFilters {
                     def pass = springSecurityService.encodePassword("superkids")
                     def loggedInUser = User.get(springSecurityService.principal?.id)
                     def ur = Role.findByAuthority("ROLE_USER")
-                    if(loggedInUser.password == pass && UserRole.findByUserAndRole(loggedInUser, ur)){
-                        flash.message = "Please enter a new password."
-                        log.info flash.message
-                        redirect controller:"home", action:"c_change_password"
+                    if(UserRole.findByUserAndRole(loggedInUser, ur)){
+                        if(loggedInUser.password == pass){
+                            flash.message = "Please enter a new password."
+                            log.info flash.message
+                            redirect controller:"home", action:"c_change_password"
+                        } else if(loggedInUser.usingResetPassword) {
+                            flash.message = "Please enter a new password."
+                            log.info flash.message
+                            redirect controller:"home", action:"c_change_password"
+                        }
                     }
                 }
             }
         }
 
-        product(controller:"product", action:"(edit|delete|list|create|save)") {
+        product(controller:"product", action:"(edit|delete|create|save)") {
           before = {
             if(springSecurityService.loggedIn){
               def user = User.get(springSecurityService.principal.id)

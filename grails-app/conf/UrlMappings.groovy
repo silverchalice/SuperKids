@@ -102,7 +102,7 @@ class UrlMappings {
                 }
                 "/promotion-tools-and-resources" {
                     controller = "home"
-                    action = "promotion-tools-and-resources"
+                    action = "promotion_tools_and_resources"
                 }
                 "/additional-promotional-ideas" {
                     controller = "home"
@@ -136,7 +136,7 @@ class UrlMappings {
                     controller = "home"
                     action = "whole_grain_studies"
                 }
-                "/childhood_obesity" {
+                "/childhood-obesity" {
                     controller = "home"
                     action = "childhood_obesity"
                 }
@@ -167,6 +167,26 @@ class UrlMappings {
                 "/change_password/$id" {
                     controller = "home"
                     action = "change_password"
+                }
+                "/c_forgot_password" {
+                    controller = "home"
+                    action = "c_forgot_password"
+                }
+                "/c_passwd_reset" {
+                    controller = "home"
+                    action = "c_passwd_reset"
+                }
+                "/c_reset_success" {
+                    controller = "home"
+                    action = "c_reset_success"
+                }
+                "/forgot_password" {
+                    controller = "home"
+                    action = "forgot_password"
+                }
+                "/passwd_reset" {
+                    controller = "home"
+                    action = "passwd_reset"
                 }
                 "/contact"{
                     controller = "contactRequest"

@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="customer" />
-        <title>Change Password | SuperKids</title>
+        <title>SuperKids | Change Password</title>
     </head>
     <body>
 
