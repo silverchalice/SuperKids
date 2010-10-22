@@ -9,12 +9,42 @@
         <title>SuperKids | Whole Grains & Human Health</title>
     </head>
     <body>
+		<g:javascript library="jquery" plugin="jquery"/>
+		<jqui:resources />
+		<style type="text/css">
+			.ui-dialog-titlebar { display:none; }
+			.ui-widget-content { background:#FEEBA7 }
+		</style>
 
-        <div style="width:450px">
-           <g:if test="${flash.message}">
-               <div class="message">${flash.message}</div>
-           </g:if>
-         <div id="contentInsetInner">${content}</div>
-        </div>
+		<script type="text/javascript">
+			jQuery.noConflict();
+			
+			jQuery(document).ready(function() {
+				var width = jQuery(document).width() / 2;
+				jQuery('.PopUpClass').dialog({
+					autoOpen:false,
+					width:460,
+					position:[width, 370]
+				});
+			});
+
+			function openPopUp(id) {
+				var popUp = '#PopUp' + id
+				jQuery(popUp).dialog('open');
+			}
+
+			function closePopUp(id) {
+				var popUp = '#PopUp' + id
+				jQuery(popUp).dialog('close');
+			}
+
+			</script>
+			<g:if test="${flash.message}">
+				<div class="message">${flash.message}</div>
+			</g:if>
+
+			<div id="contentInsetInner">
+				${content}
+                       </div>
     </body>
 </html>
