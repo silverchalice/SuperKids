@@ -71,7 +71,7 @@ class EcardController {
 					html g.render(template:"fsd", model:[ecard: ecardInstance])
 				}
 			}
-
+                        flash.message = "Your eCard has been sent."
 			redirect controller:'home', action:'ecards_thanks'
 		}
 
