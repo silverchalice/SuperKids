@@ -3,6 +3,7 @@
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+        <g:set var="link" value="${pageProperty(name: 'meta.link')}"/>
         <g:layoutHead />
         <g:javascript library="application" />
         <g:javascript library="jquery" plugin="jquery"/>
@@ -16,30 +17,31 @@
         <div id="SubNav">
                 <h3>Broker/Distributor Menu</h3>
                 <ul>
-                    <li><g:link controller="home" action="broker_products">SuperKids Products</g:link></li>
+                    <li id="${link=='broker_products' ? 'current' : ''}"><g:link controller="home" action="broker_products">SuperKids Products</g:link></li>
 
-                    <li><g:link controller="home" action="broker_whole_grain_benefits">Benefits of Whole Grains</g:link></li>
+                    <li id="${link=='broker_whole_grain_benefits' ? 'current' : ''}"><g:link controller="home" action="broker_whole_grain_benefits">Benefits of Whole Grains</g:link></li>
 
-                    <li><g:link controller="home" action="broker_whole_grain_studies">Whole Grains & Human Health</g:link></li>
+                    <li id="${link=='broker_whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="broker_whole_grain_studies">Whole Grains & Human Health</g:link></li>
 
-                    <li><g:link controller="home" action="incorporating_whole_grains_in_schools">Incorporating Whole Grains Into School Menus</g:link></li>
+                    <li id="${link=='incorporating_whole_grains_in_schools' ? 'current' : ''}"><g:link controller="home" action="incorporating_whole_grains_in_schools">Incorporating Whole Grains Into School Menus</g:link></li>
 
-                    <li><g:link controller="home" action="broker_participate">How You Can Participate</g:link></li>
+                    <li id="${link=='broker_participate' ? 'current' : ''}"><g:link controller="home" action="broker_participate">How You Can Participate</g:link></li>
 
-                    <li><g:link controller="home" action="broker_ecard">Send An eCard</g:link></li>
+                    <li id="${link=='broker_ecard' ? 'current' : ''}"><g:link controller="home" action="broker_ecard">Send An eCard</g:link></li>
 
                 </ul>
         </div>
 
         <div class="clear"></div>
-		<div id="factoids">
+        <div id="factoids">
             <p> <strong>SuperKids Facts</strong><br/>
-            <div id="Factoiddatabox">
-            </div>
+                <div id="Factoiddatabox">
+                </div>
             </p>
         </div>
-	</div>
+        </div>
 
+        <sks:factoidList />
 
         <div id="HeaderBar">
 
