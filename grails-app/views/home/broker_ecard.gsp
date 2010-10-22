@@ -6,21 +6,133 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="broker" />
         <meta name="link" content="broker_ecard" />
-        <title>You landed on: The Landing Page.</title>
+        <title>SuperKids | Send An eCard</title>
+		<style type="text/css">
+			.name {
+				font-size:12px;
+				text-align:right;
+				width:145px;
+				font-weight:bolder;
+				font-family:arial,helvetica,sans-serif;
+
+			}
+
+			td {
+				padding:2px 2px;
+				line-height:22px;
+			}
+		</style>
     </head>
     <body>
 
-		<g:if test="${flash.message}">
-		<div class="message">${flash.message}</div>
-		</g:if>
+
+	
 		<div id="contentInsetInner">
-            <h1>SuperKids Program Overview</h1>
-            <br/>
-			<p><span style="font-size: x-large;"><span style="color: rgb(153, 51, 0);"><strong><span class="bu"><img width="160" hspace="8" height="442" align="right" src="${request.contextPath}/images/NEWGIRLeatingpizzaVERTICAL.jpg" alt=""></span></strong></span></span><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">SuperKids gives foodservice directors free samples of whole grain products from a variety of trusted food companies and bakeries. All products are made with Ultragrain<sup>® </sup>and/or Sustagrain<sup>®</sup>.&nbsp;Sample products are&nbsp;free and come with no purchase obligation.</span></span></p>
-			<p><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">SuperKids asks for foodservice director feedback on how they liked the products. This feedback (in the form of trial assessment data) will be used by our food manufacturers to develop new products. In addition, we use it to report demand to foodservice distributors and brokers&nbsp;like you.</span></span></p>
-			<p><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><strong>We can prove high acceptance of whole grain products in our nation's schools.</strong></span></span>&nbsp;&nbsp;<span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">SuperKids is in its fourth year. Last year, over 1,284 of the largest public school districts in America requested and received 6,079 product samples from a pool of 16 products made with Ultragrain.&nbsp;In independent studies, elementary school students consumed products made with Ultragrain at the same levels as&nbsp;products made with refined flour.&nbsp;The difference&nbsp;is Ultragrain's taste, look and texture.&nbsp;It's revolutionary, innovative, and a major technological breakthrough.</span></span></p>
-			<p><span style="font-size: medium;"><span><strong><span style="color: rgb(153, 51, 0);">Ultragrain: Whole Grain Nutrition. White Flour Appeal.</span></strong></span></span><span style="font-size: medium;"><strong><span style="color: rgb(153, 51, 0);">&nbsp;</span></strong></span><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Ultragrain makes it possible for students to receive higher amounts of fiber, along with the full nutritive value of whole grains in foods they are familiar with and love. With Ultragrain, students don't notice changes in color, taste or texture that they often complain about when eating foods that use traditional whole grain flour.</span></span></p>
-			<p><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><span><strong>Sustragrain:&nbsp;The Ultra High-Fiber Whole Grain.</strong></span></span><span style="font-size: medium;"><strong> </strong></span></span><span style="color: rgb(0, 0, 0);"><span><span style="font-size: x-small;">Known for its great taste and healthful properties, Sustagrain is a great way to add more fiber into a range of recipes. <span style="font-size: x-small;"><span style="color: rgb(0, 0, 0);">SuperKids products made with Sustagrain offer another way to increase whole grain and&nbsp;fiber consumption in school lunches.&nbsp;In flour form, Sustagrain can be&nbsp;used in baked goods, meat preparations, sauces and dips.&nbsp;In&nbsp;flake form, it works great in hot cereals, snacks, desserts and toppings.&nbsp;</span></span></span></span></span><span style="color: rgb(153, 51, 0);"><span style="font-size: xx-small;"><strong>Select your choice from the menu options on the left.&nbsp;</strong></span></span></p>
+
+			<div style="width: 620px;">
+				
+                        <h1>Send an eCard</h1><br />
+
+                        <h2>Do you know someone else who might benefit from knowing about SuperKids products?</h2><br />
+                        <p>Send an eCard to the recipient(s) of your choice by clicking below. The eCard you send will fill in as you begin.</p>
+
+				<g:form name="sendEcard" controller="ecard" action="sendEcard">
+
+				<input type="Radio" name="Ecard" value="1" onclick="toggleform(1);"><strong>Broker or Foodservice Distributor eCard</strong><br><span id="FNameID"></span>
+				<input type="Radio" name="Ecard" value="2" onclick="toggleform(2);"><strong>School District Foodservice Director eCard</strong><br><span id="RFNameID"></span>
+				<div id="EcardData" style="display:none;" >
+
+                                <p>&nbsp;</p>
+				<div style="float:left;width:300px;">
+				<table style="border:0; position:relative; right:7px; bottom:1px">
+				<tr>
+					<td class="name">Your Name: </td>
+					<td>
+						<input type="text" name="name" size="20" maxlength="50" value="">
+					</td>
+				</tr>
+
+				<tr>
+					<td class="name">Your Company Name: </td>
+					<td><input type="text" name="company" size="20" maxlength="50" value=""><br></td>
+				</tr>
+				<tr>
+					<td class="name">Your Email Address</td>
+					<td><input type="text" name="email" size="20" maxlength="50" value=""><br></td>
+				</tr>
+
+				<tr>
+					<td class="name">Recipients Name: </td>
+					<td>
+						<input type="text" name="recipient" size="20" maxlength="50" value="">
+					</td>
+				</tr>
+				<tr>
+					<td class="name">Recipients Email:</td>
+
+					<td><input type="text" name="recipientEmail" size="20" maxlength="50" value=""><br></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="Submit" name="submit" value="Send Ecard"></td>
+				</tr>
+				</table>
+				</div>
+				<div style="float:left;width:300px; padding-left:1px">
+					<div style="display:none;" ID="Ecard1Layout">
+						Greetings <span style="border-bottom:1px solid black;font-weight:bold;" id="RNameID"></span>: <br /><br />
+
+						<div>
+							Whole grain foods are important for our nation's school-age children. I sent
+							you this card because I wanted you to know about a unique program known as SuperKids --
+							a FREE whole grain product sampling program for K-12 school foodservice directors. As someone
+							in foodservice distribution, SuperKids products may be of interest to you.  All are made with
+							Ultragrain and Sustagrain for better-for-you whole grain nutrition . <a style="color:#FA9F1B; font-weight:bolder; text-decoration:none" href="http://www.superkidssampling.com/">Click here</a>
+							to go to the SuperKids website where you can request product information.
+						</div><br />
+						Sincerely<br />
+						<div style="padding-left:20px;"><span style="border-bottom:1px solid black;font-weight:bold;" id="NameID"></span></div>
+					</div>
+					<div style="display:none;" id="Ecard2Layout">
+
+						Greetings <span style="border-bottom:1px solid black;font-weight:bold;" id="RNameID2"></span>: <br /><br />
+						<div>
+							Whole grain foods are important for our nation's school-age children. I sent you this
+							card because I wanted you to know about a unique program known as SuperKids  -- a FREE whole
+							grain product sampling program for K-12 school foodservice directors featuring  better-for-you
+							whole grain products made with Ultragrain and Sustagrain. Your school district may find these
+							products of interest. <a style="color:#FA9F1B; font-weight:bolder;" href="http://www.superkidssampling.com/">Click here</a> to go to the SuperKids
+							website where you can request product information.
+						</div><br />
+						Sincerely<br />
+						<div style="padding-left:20px;"><span style="border-bottom:1px solid black;font-weight:bold; text-decoration:none" id="NameID2"></span></div>
+					</div>
+
+				</div>
+				<div class="clear"></div>
+			</div>
+			</g:form>
+
+
+			</div>
+
+
 		</div>
+
+		<script type="text/javascript">
+			function toggleform(id){
+				document.getElementById('EcardData').style.display = "block";
+				if(id == 1)
+				{
+					document.getElementById('Ecard2Layout').style.display = "none";
+					document.getElementById('Ecard1Layout').style.display = "block";
+				}
+				else
+				{
+					document.getElementById('Ecard1Layout').style.display = "none";
+					document.getElementById('Ecard2Layout').style.display = "block";
+				}
+			}
+
+		</script>
     </body>
 </html>
