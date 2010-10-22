@@ -5,110 +5,143 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="products" />
         <g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
-        <g:javascript library="prototype" />
-        <g:javascript library="scriptaculous" />
+        <g:javascript library="jquery" plugin="jquery"/>
+		<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
+		<style type="text/css">
+			#contentInsetUpper {
+				width:492px;
+				left:419px;
+			}
+
+			#contentInsetInner {
+				width:500px;
+				position:relative;
+				left:150px;
+				bottom:33px;
+				padding:0;
+				
+			}
+
+			#contentInsetLower {
+				width:492px;
+				left:419px;
+			}
+
+			#contentInset {
+				overflow:hidden;
+			}
+
+			ul.tabs {
+				margin: 0;
+				padding: 0;
+				float: left;
+				list-style: none;
+				height: 32px; /*--Set height of tabs--*/
+				border-bottom: 1px solid #999;
+				border-left: 1px solid #999;
+			}
+			ul.tabs li {
+				margin: 0;
+				padding: 0;
+				height: 31px; /*--Subtract 1px from the height of the unordered list--*/
+				line-height: 31px; /*--Vertically aligns the text within the tab--*/
+				border: 1px solid #999;
+				border-left: none;
+				margin-bottom: -1px; /*--Pull the list item down 1px--*/
+				overflow: hidden;
+				position: relative;
+				background: #e0e0e0;
+			}
+			ul.tabs li a {
+				text-decoration: none;
+				color: #000;
+				font-size: 1.2em;
+				padding: 0 20px;
+				
+				outline: none;
+			}
+			ul.tabs li a:hover {
+				background: #ccc;
+			}
+			html ul.tabs li.active, html ul.tabs li.active a:hover  { /*--Makes sure that the active tab does not listen to the hover properties--*/
+				background: #fff;
+				border-bottom: 1px solid #fff; /*--Makes the active tab look like it's connected with its content--*/
+			}
+
+			.tab_container {
+				border: 1px solid #999;
+				border-top: none;
+				overflow: hidden;
+				clear: both;
+				float: left; width: 100%;
+				background: #fff;
+			}
+			.tab_content {
+
+				padding: 20px;
+				font-size: 1.2em;
+			}
+		</style>
+
     </head>
     <body>
-        <div class="body" style="background-image:url('${resource(dir:'uploads', file:productInstance.backgroundImage)}')">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <div class="dialog">
-              <sks:hasNotPlacedCurrentOrder>
-                <div id="shoppingCartContent">
-                    <g:if test="${foo}">
-                        <g:render template="/shopping/contained" model="[productInstance:productInstance]" />
-                    </g:if>
-                    <g:else>
-                        <g:render template="/shopping/initial" model="[productInstance:productInstance]" />
-                    </g:else>
-                </div>
-                </sks:hasNotPlacedCurrentOrder>
-                <p><g:link controller="testShoppingCart" action="show">View Cart</g:link></p>
-               </div>
-                <table>
-                    <tbody>
+		<ul class="tabs" style="float:left">
+			<li><g:link>Order Sample</g:link></li>
+			<li><g:link controller="testShoppingCart" action="show">View Cart</g:link></li>
+			<li id="productAd"><a href="#tab1">Product Ad</a></li>
+			<li><a href="#tab2">Sample Details</a></li>
+			<li><a href="#tab3">Nutritional Info</a></li>
+			<li><a href="#tab4">Manufacturer</a></li>
+			<li><g:link action="downloadSummary" id="${productInstance.id}">View Summary PDF</g:link></li>
+		</ul>
+        <div id="contentInsetInner" class="flexcroll">
 
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.id.label" default="Id" /></td>
+				<div id="tab1" class="tab_content" style="padding:0; background-image:url('${resource(dir:'uploads', file:productInstance?.backgroundImage)}')">
 
-                            <td valign="top" class="value">${fieldValue(bean: productInstance, field: "id")}</td>
+				</div>
 
-                        </tr>
+				<div id="tab2" class="tab_content">
+					<h2>${productInstance?.name}</h2>
+					${productInstance?.description}<br/>
+					${productInstance?.details}
+				</div>
 
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.name.label" default="Name" /></td>
+				<div id="tab3" class="tab_content">
+					<p style="padding-bottom:800px;">${productInstance?.nutrition}
+					</p>
+				</div>
 
-                            <td valign="top" class="value">${fieldValue(bean: productInstance, field: "name")}</td>
+ 				<div id="tab4" class="tab_content">
+					${productInstance?.sponsor?.encodeAsHTML()}
+				</div>
 
-                        </tr>
 
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.description.label" default="Description" /></td>
 
-                            <td valign="top" class="value">${productInstance?.description}</td>
-
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.details.label" default="Details" /></td>
-
-                            <td valign="top" class="value">${productInstance?.details}</td>
-
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.nutrition.label" default="Nutrition" /></td>
-
-                            <td valign="top" class="value">${productInstance?.nutrition}</td>
-
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.image.label" default="Image" /></td>
-
-                            <td valign="top" class="value"><img src="${createLink(action:'displayImage', id:productInstance.id)}" /></td>
-
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.summary.label" default="Summary" /></td>
-
-                            <td valign="top" class="value"><g:link action="downloadSummary" id="${productInstance.id}">Summary PDF</g:link></td>
-
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.sponsor.label" default="Sponsor" /></td>
-
-                            <td valign="top" class="value"><g:link controller="sponsor" action="show" id="${productInstance?.sponsor?.id}">${productInstance?.sponsor?.encodeAsHTML()}</g:link></td>
-
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="product.parent" default="Parent ( if part of a Sample Pack)" /></td>
-
-                            <td valign="top" class="value">
-								<g:if test="${customerInstance?.parent}">${customerInstance?.parent.name}</g:if>
-							    <g:else>None</g:else>
-							</td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            <sec:ifAnyGranted roles="ROLE_ADMIN">
-                <div class="buttons">
-                    <g:form>
-                        <g:hiddenField name="id" value="${productInstance?.id}" />
-                        <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
-                        <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                    </g:form>
-                </div>
-            </sec:ifAnyGranted>
         </div>
+		<script type="text/javascript">
+			jQuery.noConflict()
+
+			jQuery(document).ready(function(){
+				//When page loads...
+				jQuery(".tab_content").hide(); //Hide all content
+				jQuery("ul.tabs li#productAd").addClass("active").show(); //Activate first tab
+				jQuery(".tab_content:first").show(); //Show first tab content
+
+
+				//On Click Event
+				jQuery("ul.tabs li").click(function() {
+
+					jQuery("ul.tabs li").removeClass("active"); //Remove any "active" class
+					jQuery(this).addClass("active"); //Add "active" class to selected tab
+					jQuery(".tab_content").hide(); //Hide all tab content
+
+					var activeTab = jQuery(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
+					jQuery(activeTab).fadeIn(); //Fade in the active ID content
+					return false;
+				});
+
+			});
+   		</script>	
     </body>
 </html>

@@ -62,14 +62,7 @@ th.desc a {
           <br>
           <h2>Checked out items</h2><br />
 
-                   <table>
-                    <thead>
-                        <tr>
-                        
-                            <th>Product</th>
-                        
-                        </tr>
-                    </thead>
+                   <table style="border:0; border-style:none; border-color:white">
                     <tbody>
                 	<g:each in="${session.checkedOutItems}" var="item">
                         <tr>
@@ -82,15 +75,7 @@ th.desc a {
                 </table><br />
         </g:if>
         <g:else>
-                   <table>
-                    <thead>
-                        <tr>
-                        
-                            <g:sortableColumn property="item" title="Product" width="87%" />
-                        
-                            <th> </th>
-                        
-                        </tr>
+                   <table style="border:0; border-style:none; border-color:white">
                     </thead>
                     <tbody>
                     <sc:each>
@@ -109,7 +94,10 @@ th.desc a {
                     </tbody>
                 </table>
                    <sks:hasNotPlacedCurrentOrder>
-                    <br />
-                        <p><g:link controller="product" action="check_out">Check out</g:link></p><p>&nbsp;</p>
+                   	<g:link controller="product" style="background-image:url('/SuperKids/images/layout/buttons/CheckoutButton.gif'); padding:10px 74px; position:absolute; top:443px; left:149px; z-index:3" action="check_out">&nbsp;</g:link>
+				    <g:link controller="home" style="background-image:url('/SuperKids/images/layout/buttons/ContinueShoppingButton.gif'); padding:10px 85px; position:absolute; top:443px; left:303px; z-index:3" action="order">&nbsp;</g:link>
+					<a href="#" style="background-image:url('/SuperKids/images/layout/buttons/PrintButton.gif'); padding:10px 50px; position:absolute; top:443px; left:481px; z-index:3" onclick="window.print(); return false;">&nbsp;</a>
                    </sks:hasNotPlacedCurrentOrder>
+
+					
         </g:else>

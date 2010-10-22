@@ -3,17 +3,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="layout" content="products" />
-        <title>Shopping Cart</title>    
-		<g:javascript library="application" />     
-        <g:javascript library="prototype" />
-        <g:javascript library="scriptaculous" />
+        <meta name="layout" content="cart" />
+        <title>SuperKids | Cart</title>         
+        <g:javascript plugin="jquery" library="jquery" />
+
+		
     </head>
     <body>
 
-        <div class="body">
-            <h1>Shopping Cart</h1>
-            <div class="list">
+        <div id="contentInsetInner">
+            <h1>Sample Cart</h1>
                     <div id="shoppingCartContent">
                       <sks:hasNotPlacedCurrentOrder>
                         <g:render template="/shopping/shoppingCartContent"/><br />
@@ -21,7 +20,8 @@
                       <sks:hasPlacedCurrentOrder>
                           <sks:orderList />
                       </sks:hasPlacedCurrentOrder>
-			</div>
+
+				</div>
         </div>
     </body>
 </html>
