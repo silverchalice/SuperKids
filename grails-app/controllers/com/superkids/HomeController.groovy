@@ -465,9 +465,7 @@ class HomeController {
        }	
 
 	def ecards_thanks = {
-		   def customer = Customer.get(springSecurityService.principal.id)
 
-		   render view:'ecards_send', model: [customer: customer]
        }
 
        def promotion_tools_and_resources = {
