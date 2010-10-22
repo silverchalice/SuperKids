@@ -235,6 +235,8 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/c_reset_success':                                   ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/forgot_password':                                   ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/passwd_reset':                                      ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/ecard/sendEcard':                                   ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/home/ecards_thanks':                                   ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/**':                                                                  ['ROLE_ADMIN']
 ]
 
