@@ -8,8 +8,12 @@ class ContactRequest {
 	String phone
 	String districtName
         Date dateCreated
+        String street
+        String street2
+        String city
+        String state
+        String zip
 
-	Address address
 	String message
 
     static constraints = {
@@ -18,8 +22,11 @@ class ContactRequest {
 		email(email: true)
 		phone(nullable: true)
 		districtName(nullable: true)
-		address(nullable: true)
 		message(nullable: false)    
- 
+                street(nullable:true)
+                street2(nullable:true) 
+                city(nullable:true)
+                state(nullable:true)
+                zip(nullable:true)
     }
 }
