@@ -164,6 +164,10 @@ class UrlMappings {
                     controller = "home"
                     action = "public_diets"
                 }
+                "/public-diets-students" {
+                    controller = "home"
+                    action = "public_diets_students"
+                }
                 "/public-other-products" {
                     controller = "home"
                     action = "public_other_products"
