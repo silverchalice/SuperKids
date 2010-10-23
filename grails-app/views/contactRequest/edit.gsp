@@ -74,16 +74,7 @@
                                 <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'districtName', 'errors')}">
                                     <g:textField name="districtName" value="${contactRequestInstance?.districtName}" />
                                 </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="address"><g:message code="contactRequest.address.label" default="Address" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'address', 'errors')}">
-                                    <g:select name="address.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${contactRequestInstance?.address?.id}" noSelection="['null': '']" />
-                                </td>
-                            </tr>
+                            </tr>                
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
