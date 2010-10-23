@@ -6,9 +6,34 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="public_li" />
         <g:set var="entityName" value="${message(code: 'contactRequest.label', default: 'ContactRequest')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <title>SuperKids | Contact Us</title>
     </head>
     <body>
+        <style type="text/css">
+div.errors {
+    background: #fff3f3;
+    border: 1px solid red;
+    color: #cc0000;
+    margin: 10px 0 5px 0;
+    padding: 5px 0 5px 0;
+}
+div.errors ul {
+    list-style: none;
+    padding: 0;
+}
+div.errors li {
+	background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
+    line-height: 16px;
+    padding-left: 30px;
+}
+
+td.errors select {
+    border: 1px solid red;
+}
+td.errors input {
+    border: 1px solid red;
+}
+</style>
         <div id="contentInsetInner">
             <h1>Contact Us</h1>
             <g:if test="${flash.message}">
@@ -36,10 +61,19 @@ Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label class="required">Full Name:</label>
+                                    <label class="required">First Name:</label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'firstName', 'errors')}">
-                                    <g:textField name="firstName" value="${contactRequestInstance?.firstName}" /> <g:textField name="lastName" value="${contactRequestInstance?.lastName}" />
+                                    <g:textField name="firstName" value="${contactRequestInstance?.firstName}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label class="required">Last Name:</label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'lastName', 'errors')}">
+                                    <g:textField name="lastName" value="${contactRequestInstance?.lastName}" />
                                 </td>
                             </tr>
 
@@ -111,7 +145,7 @@ Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
                                 <td valign="top" class="name">
                                     <label for="message" class="required">Your Interest:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'message', 'errors')}">
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'firstName', 'errors')}">
 			        <textarea name="message" rows="10" cols="30" value="${contactRequestInstance?.message}"></textarea> 
                                 </td>
                             </tr>
