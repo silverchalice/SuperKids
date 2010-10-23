@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="assess_landing" />
+        <meta name="currentProductId" content="${assessmentInstance?.product?.id}" />
         <g:set var="entityName" value="${message(code: 'assessment.label', default: 'Assessment')}" />
         <title>SuperKids | Online Assessment 3/4</title>
 		<style type="text/css">
