@@ -7,6 +7,9 @@
         <g:layoutHead />
         <g:javascript library="application" />
         <g:javascript library="jquery" plugin="jquery"/>
+
+		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
+		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
     </head>
     <body>
   <div id="body">
