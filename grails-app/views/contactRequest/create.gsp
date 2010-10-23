@@ -108,9 +108,9 @@ Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
                                 <td valign="top" class="name">
                                     <label for="street">Address:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance?.address, field: 'street', 'errors')}">
-                                    <g:textField name="street" value="${contactRequestInstance?.address?.street}" /><br /><br />
-                                    <g:textField name="street2" value="${contactRequestInstance?.address?.street2}" />
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'street', 'errors')}">
+                                    <g:textField name="street" value="${contactRequestInstance?.street}" /><br /><br />
+                                    <g:textField name="street2" value="${contactRequestInstance?.street2}" />
                                 </td>
                             </tr>
 
@@ -118,8 +118,8 @@ Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
                                 <td valign="top" class="name">
                                     <label for="city">City:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance?.address, field: 'city', 'errors')}">
-                                    <g:textField name="city" value="${contactRequestInstance?.address?.city}" />
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'city', 'errors')}">
+                                    <g:textField name="city" value="${contactRequestInstance?.city}" />
                                 </td>
                             </tr>
 
@@ -127,8 +127,8 @@ Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
                                 <td valign="top" class="name">
                                     <label for="state">State:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance?.address, field: 'state', 'errors')}">
-                                    <g:select name="address.state" from="${states}" value="${contactRequestInstance?.address?.state}" optionValue="value" valueMessagePrefix="address.state" optionKey="key" />
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'state', 'errors')}">
+                                    <g:select name="state" from="${states}" value="${contactRequestInstance?.state}" optionValue="value" valueMessagePrefix="state" optionKey="key" noSelection="${['':'Select a state...']}" />
                                 </td>
                             </tr>
 
@@ -136,8 +136,8 @@ Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
                                 <td valign="top" class="name">
                                     <label for="zip">Zip:</label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance?.address, field: 'zip', 'errors')}">
-                                    <g:textField name="zip" maxlength="5" value="${fieldValue(bean: contactRequestInstance?.address, field: 'zip')}" />
+                                <td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'zip', 'errors')}">
+                                    <g:textField name="zip" maxlength="5" value="${fieldValue(bean: contactRequestInstance, field: 'zip')}" />
                                 </td>
                             </tr>
 
