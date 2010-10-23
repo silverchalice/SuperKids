@@ -306,6 +306,15 @@ class HomeController {
            [content:content]
        }
 
+       def public_diets_students = {
+           def content
+           def pt = PageText.findByName("public_diets_students")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
        def public_other_products = {
            def content
            def pt = PageText.findByName("public_other_products")
