@@ -43,9 +43,9 @@
                         <tr class="prop">
                             <td valign="top" class="name"><strong>Address:</strong></td>
                             
-                            <td valign="top" class="value">${contactRequestInstance.address?.street}
-                                <g:if test="${contactRequestInstance.address?.street2}">
-                                    <br /> ${contactRequestInstance.address?.street2}
+                            <td valign="top" class="value">${contactRequestInstance.street}
+                                <g:if test="${contactRequestInstance.street2}">
+                                    <br /> ${contactRequestInstance.street2}
                                 </g:if>
                             </td>
                             
@@ -54,21 +54,21 @@
                         <tr class="prop">
                             <td valign="top" class="name"><strong>City:</strong></td>
                             
-                            <td valign="top" class="value">${contactRequestInstance.address?.city}</td>
+                            <td valign="top" class="value">${contactRequestInstance.city}</td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name"><strong>State:</strong></td>
                             
-                            <td valign="top" class="value">${contactRequestInstance.address?.state}</td>
+                            <td valign="top" class="value">${contactRequestInstance.state}</td>
                             
                         </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name"><strong>Zip:</strong></td>
                             
-                            <td valign="top" class="value">${contactRequestInstance.address?.zip}</td>
+                            <td valign="top" class="value">${contactRequestInstance.zip}</td>
                             
                         </tr>
 
