@@ -9,7 +9,7 @@
         <title><g:message code="default.create.label" args="[entityName]" /></title>
     </head>
     <body>
-        <div class="body" style="height:470px; overflow:auto;">
+        <div id="contentInsetInner">
             <h1>Contact Us</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -123,6 +123,6 @@ Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
                     <span class="button"><g:submitButton name="create" class="save" value="Submit" /></span>
                 </div>
             </g:form>
-        </div>
+           </div>
     </body>
 </html>
