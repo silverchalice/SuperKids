@@ -381,10 +381,10 @@ class PageTextLoader {
 </p>
 <h2>Give students whole grain goodness.</h2>
 <p>
-  Whether you are a parent, or are employed by your school district in foodservices, giving students more whole grain foods is one of the healthiest things you can do. Ultragrain and Sustagrain can be found in many foods at your local grocery stores, in restaurants, and even in school cafeterias. Look for these <a href="#" title="Give Your Students Whole Grain Goodness"><strong>products</strong></a> on your grocery shelves.
+  Whether you are a parent, or are employed by your school district in foodservices, giving students more whole grain foods is one of the healthiest things you can do. Ultragrain and Sustagrain can be found in many foods at your local grocery stores, in restaurants, and even in school cafeterias. Look for these <a href="/SuperKids/public-diets-students" title="Give Your Students Whole Grain Goodness"><strong>products</strong></a> on your grocery shelves.
 </p>
 <p>
-  A variety of food manufacturers have offered their products to school districts. We recommend that your school&nbsp;consider these whole grain <a href="#" title="Meet the Prior Super Heros of Superkids"><strong>products</strong></a> as well.
+  A variety of food manufacturers have offered their products to school districts. We recommend that your school&nbsp;consider these whole grain <a href="/SuperKids/public-other-products" title="Meet the Prior Super Heros of Superkids"><strong>products</strong></a> as well.
 </p>
 <p>
 <img width="168" hspace="8" height="70" align="right" src="/SuperKids/images/SATURDAYPBJSANDWICHHORIZ.jpg" alt="" style="width: 144px; height: 53px;" />
@@ -565,6 +565,27 @@ class PageTextLoader {
 <h2>Talk With SuperKids Manufacturers.</h2>
 <p>SuperKids product manufacturers would like to discuss their products with you. In addition, we would welcome your help in making brokers and foodservice directors aware of these products. You can send eCards to them, as well as ask the manufacturers whose products are presented here to contact you.</p>
 <p><strong>Send an eCard or Request Contact from our participating manufacturers by selecting these options from the menu on the left.</strong></p>	                                                         """
+                                ).save()
+
+                             def publicDietsStudentsText = new PageText(name:"public_diets_students", content:"""
+<h1>Give Students Whole Grain Goodness</h1><br />
+<img height="350" alt="" hspace="5" width="112" align="right" src="/SuperKids/images/SATUBREADSLICESMALLVERT.jpg" />
+<h2>You can use Ultragrain at home</h2>
+<p>in your favorite recipes with Eagle Mills All-Purpose Flour made with Ultragrain. It contains 9 grams of whole grains per serving, looks, tastes and bakes like white flour and is available in many grocery stores across the country. Contact your grocer if Eagle Mills Flour made with Ultragrain is not on the shelf.</p>
+<h2>Many foods are made with Ultragrain.</h2>
+<p>In fact, more and more food companies are planning to add Ultragrain as a way to increase the whole grain goodness of their foods. A few of the well-known products currently on the market that feature Ultragrain include:</p>
+<p><strong><span style="color: #993300">Herr's<sup>&reg;</sup> Whole-Grain Pretzel Sticks</span></strong>&mdash;Rich flavor, low in fat, good source of whole grains and&nbsp;higher in fiber than most pretzels.</p>
+<p><strong><span style="color: #993300">Kid Cuisine<sup>&reg;</sup> Dip &amp; Dunk Cheese Pizza Strips, Carnival Corn Dogs and Cheeseburger</span></strong>&mdash;Microwave them in minutes. Each contains a main dish, vegetable and a fun activity. With the added benefits of Ultragrain's whole grain nutrition, you can feel good about serving Kid Cuisine to your kids.</p>
+<p><strong><span style="color: #993300">Lightlife</span></strong>&mdash;A leader in vegetarian meals, Lightlife uses Ultragrain in its popular Smart Tortilla Wraps.</p>
+<p><strong><span style="color: #993300">Pepperidge Farm<sup>&reg;</sup> Whole Grain Goldfish<sup>&reg;</sup> Crackers</span></strong>&mdash;A longtime favorite of kids and adults for snacking. Each serving contains one-half serving of whole grains.</p>
+<p><strong><span style="color: #993300">Sara Lee<sup>&reg; </sup></span></strong></p>
+<ul>
+    <li><span style="color: #000000"><span style="font-size: x-small">Sara Lee Soft &amp; Smooth 100% Whole Wheat Bread </span></span></li>
+    <li><span style="color: #000000"><span style="font-size: x-small">Sara Lee Hearty &amp; Delicious All-Natural 100% Whole Grain breads </span></span></li>
+    <li><span style="color: #000000"><span style="font-size: x-small">Sara Lee Made With Whole Grain Hot Dog Buns, White Hamburger Buns and English Muffins </span></span></li>
+    <li><span style="color: #000000"><span style="font-size: x-small">Sara Lee Plain Bagels made with Ultragrain</span></span><span style="font-size: x-small"> </span></li>
+</ul>
+                                                         """
                                 ).save()
 
 	}
