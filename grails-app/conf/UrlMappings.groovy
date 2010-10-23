@@ -236,6 +236,10 @@ class UrlMappings {
                     controller = "contactRequest"
                     action = "edit"
                 }
+                "/send_message"{
+                    controller = "contactRequest"
+                    action = "save"
+                }                
                 "/find_school_district" {
                     controller = "customer"
                     action = "findSchoolDistrict"
