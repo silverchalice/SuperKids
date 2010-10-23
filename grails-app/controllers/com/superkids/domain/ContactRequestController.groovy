@@ -23,15 +23,7 @@ class ContactRequestController {
     }
 
     def save = {
-        def contactRequestInstance = new ContactRequest()
-        if(params.street && params.city && params.state && params.zip){
-            contactRequestInstance.properties = params
-            def address = new Address(street:params.street, street2:params.street2, city:params.city, state:params.address?.state, zip:params.zip)
-            address.save(failOnError:true)
-            contactRequestInstance.address = address
-        } else {
-            bindData(contactRequestInstance, params, ['address'])
-        }
+        def contactRequestInstance = new ContactRequest(params)
 
         contactRequestInstance.phone = params.phone1 + " " + params.phone2 + " " + params.phone3
 
