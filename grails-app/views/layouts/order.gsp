@@ -21,9 +21,7 @@
         <sks:sponsorList />
 
         <div id="products">
-          <p>
           <sks:productBox />
-          </p>
         </div>
 	</div>
 

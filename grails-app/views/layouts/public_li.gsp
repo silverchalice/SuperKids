@@ -14,7 +14,7 @@
     <div id="secondaryContent">
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-        <div id="SubNav">
+        <div id="PublicSubNav">
                 <h3>Menu</h3>
                 <ul>
                     <li id="${link=='public_products' ? 'current' : ''}"><g:link controller="home" action="public_products">SuperKids Products</g:link></li>

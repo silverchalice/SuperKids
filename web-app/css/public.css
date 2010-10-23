@@ -386,9 +386,9 @@ a:hover.viewCartButton {
     background-repeat:no-repeat;
     width: 270px;
 	overflow:hidden;
-    height: 270px;
+    height: 280px;
     position: relative;
-    padding:10px 10px 10px 10px;
+    padding:7px;
     top: 72px;
     left: 2px;
     z-index: 1;
@@ -397,7 +397,7 @@ a:hover.viewCartButton {
 .productThumb {
 	margin:5px;
 	width:78px; 
-	height:55px
+	height:58px
 }
 
 
@@ -565,6 +565,41 @@ h1 { color:#993300; margin-bottom:0px; }
 }
 
 #AssessSubNav li a {
+	color:#653C00;
+	text-decoration:none;
+	font-weight:bold;
+	font-size:12px;
+    line-height:18px;
+
+}
+
+#PublicSubNav {
+	background:url(../images/layout/PublicSubNavBg.png) no-repeat;
+    width:255px;
+    height:200px;
+	padding-top:16px;
+	padding-left:20px;
+	position:absolute;
+	top:215px;
+	left:3px;
+}
+
+#PublicSubNav h3 {
+    margin:0;
+	padding:0;
+	margin-left:21px;
+	color:#993300;
+}
+
+#PublicSubNav ul {
+    width:190px;
+	list-style:url(../images/layout/SubNavBullet.png);
+	margin-left:6px;
+	margin-top:0;
+	padding:0;
+}
+
+#PublicSubNav li a {
 	color:#653C00;
 	text-decoration:none;
 	font-weight:bold;

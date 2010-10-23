@@ -6,7 +6,10 @@
         <meta name="layout" content="products" />
         <g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
         <g:javascript library="jquery" plugin="jquery"/>
+		
 		<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
+
+
         <title><g:message code="default.show.label" args="[entityName]" /></title>
 		<style type="text/css">
 			.contentInset {
@@ -34,7 +37,7 @@
 				width:491px;
 				position:absolute;
 				left:420px;
-				top:578px;
+				top:577px;
 				background:white;
 				height:7px;
 				z-index:2;
@@ -184,6 +187,7 @@
 
     </head>
     <body>
+ 	    <link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
 	    <ul class="tabs">
 			<g:if test="${!inCart}">
 				<li id="orderSample"><g:link controller="product" action="add" id="${productInstance?.id}">&nbsp;</g:link></li>
@@ -219,9 +223,9 @@
 				<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" alt="" style="float:left" />
 				<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" alt="" style="float:right" />
 			</div>
-			<div class="contentInset">
+			<div style="width:518px; padding:0; height:483px; margin:0 auto; position:absolute; top:100px; left:419px; overflow: auto;" class="flexcroll">
 
-				<div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; height:auto !important; height:468px;">
+				<div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; overflow:auto; height:auto !important; height:468px;">
 					<h2>${productInstance?.name}</h2>
 					${productInstance?.description}<br/>
 					${productInstance?.details}
@@ -294,7 +298,7 @@
 			jQuery(document).ready(function(){
 				//When page loads...
 				jQuery(".tab_content").hide(); //Hide all content
-				jQuery("ul.tabs li#productAd").addClass("active").show(); //Activate first tab
+				jQuery("ul.tabs li#details").addClass("active").show(); //Activate first tab
 				jQuery(".tab_content:first").show(); //Show first tab content
 
 
@@ -312,6 +316,7 @@
 				});
 
 			});
-   		</script>	
+   		</script>
+		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
     </body>
 </html>
