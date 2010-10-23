@@ -197,6 +197,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/public-whole-grain-benefits':                       ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/public-other-products':                             ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/public-diets':                                      ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/public-diets-students':                             ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/public-whole-grain-in-schools':                     ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/public':                                            ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/home/save':                                         ['IS_AUTHENTICATED_ANONYMOUSLY'],
