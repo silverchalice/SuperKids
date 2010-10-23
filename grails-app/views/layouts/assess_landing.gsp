@@ -5,6 +5,7 @@
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
+        <g:set var="currentProductId" value="${pageProperty(name: 'meta.currentProductId')}"/>
         <g:layoutHead />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
 		<link rel="stylesheet" href="${resource(dir:'css',file:'tutorsty.css')}" />
@@ -28,7 +29,7 @@
 		    <div id="assessProductsInner" class="flexcroll">
                             <g:if test="${products}">
 				<g:each in="${products}" var="product">
-					<div class="assessmentProduct">
+					<div class="${product?.id.toInteger() == currentProductId?.toInteger() ? 'assessmentProductHover' : 'assessmentProduct'}">
 						<g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}"/></g:link>
 						<div class="assessmentProductText" style="padding-top:5px; ">
 						<span style="font-size:11px;">${product.name}</span> <br/>
