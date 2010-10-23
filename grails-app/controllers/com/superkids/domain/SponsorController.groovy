@@ -64,7 +64,11 @@ class SponsorController {
                     return
                 }
             }
-            sponsorInstance.properties = params
+            if(params.logo.isEmpty()){
+                bindData(sponsorInstance, params, ['logo'])
+            } else {
+                sponsorInstance.properties = params
+            }
             if (!sponsorInstance.hasErrors() && sponsorInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'sponsor.label', default: 'Sponsor'), sponsorInstance.id])}"
                 redirect(action: "show", id: sponsorInstance.id)

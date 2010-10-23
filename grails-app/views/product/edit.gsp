@@ -44,7 +44,7 @@
                     </p>
                     <p><br />
                         <label for="statesAvailable">States Available:</label><br />
-                        <select name="statesAvailable" id="statesAvailable" multiple size="5">
+                        <select name="statesAvailable" id="statesAvailable" multiple size="15">
                             <g:each in="${states}" var="state">
                                 <option value="${state}" >${state}</option>
                             </g:each>
