@@ -1,6 +1,4 @@
 web-app/WEB-INF/classes/*
 target/
 target/*
-.idea
-.settings
 web-app/css/.*

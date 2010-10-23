@@ -223,9 +223,9 @@
 				<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" alt="" style="float:left" />
 				<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" alt="" style="float:right" />
 			</div>
-			<div style="width:518px; padding:0; height:483px; margin:0 auto; position:absolute; top:100px; left:419px; overflow: auto;" class="flexcroll">
+			<div style="width:518px; padding:0; height:483px; margin:0 auto; position:absolute; top:100px; left:419px; overflow: auto;">
 
-				<div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; overflow:auto; height:auto !important; height:468px;">
+				<div style="width:471px; padding:0 10px 10px 10px; background:white; left:1px; height:468px; position:absolute; overflow:auto;"  class="flexcroll">
 					<h2>${productInstance?.name}</h2>
 					${productInstance?.description}<br/>
 					${productInstance?.details}
@@ -289,7 +289,7 @@
 			<div class="contentFooter">
 				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
 				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
-			</div>								
+			</div>
 		</div>
 
 		<script type="text/javascript">
