@@ -215,9 +215,9 @@ class HomeController {
                  }
                  redirect controller:controller, action:action
             } else {
-                 flash.message = "Uh... those were Olaf's."
+                 flash.message = "Please select an option from the list."
                 log.info flash.message
-                 redirect controller:"home", action:"index"
+                 redirect controller:"login", action:"auth"
             }
        }
 
