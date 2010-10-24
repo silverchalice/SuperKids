@@ -11,6 +11,8 @@ class Ecard {
 	String message
 	Date dateCreated
 
+        String cardType
+
     static constraints = {
 		name()
 		company()
@@ -18,5 +20,6 @@ class Ecard {
 		recipient()
 		recipientEmail(email: true)
 		message(maxSize: 2000)
+                cardType(nullable:true)
     }
 }
