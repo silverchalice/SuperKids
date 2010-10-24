@@ -47,12 +47,14 @@ class EcardController {
 
 		if(params.Ecard == '1') {
 			println 'Ecard = 1'
+			ecardInstance.cardType = "Broker or Foodservice Distributor eCard"
 			ecardInstance.message = "broker"
 		}
 
 		if(params.Ecard == '2') {
 			println 'Ecard = 2'
 			ecardInstance.message = "fsd"
+			ecardInstance.cardType = "School District Foodservice Director eCard"
 		}
 
 		if (ecardInstance.save(flush: true)) {
