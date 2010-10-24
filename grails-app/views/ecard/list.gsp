@@ -50,7 +50,7 @@
                         
                             <td>${fieldValue(bean: ecardInstance, field: "recipientEmail")}</td>
 
-							<td><g:message code="ecard.message.${ecard?.message}" /></td>
+							<td>${ecardInstance?.cardType}</td>
 
 							<td><g:formatDate date="${ecardInstance?.dateCreated}" format="MM/dd/yyyy" /> </td>
 
