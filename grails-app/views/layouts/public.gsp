@@ -13,20 +13,19 @@
   <div id="body">
 	<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
     <div id="secondaryContent">
-      <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
+      <g:link action="index"><img id="logo" alt="SuperKids" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
       <div id="sideLogoBox">
-          <g:link action='ultragrain'><img src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
-          <g:link action='sustagrain'><img src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
+          <g:link action='ultragrain'><img alt="ultragrain" src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
+          <g:link action='sustagrain'><img alt="sustagrain" src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
       </div>
 
       <div class="clear"></div>
 
         <div id="factoids">
-            <p> <strong>SuperKids Facts</strong><br/>
-            <div id="Factoiddatabox">
-            </div>
-            </p>
+			<strong>SuperKids Facts</strong><br/>
+            <div id="Factoiddatabox"></div>
+
         </div>
 
         <sks:factoidList />
@@ -35,7 +34,7 @@
 	<div id="HeaderBar">
 		&nbsp;
 		<sec:ifLoggedIn>
-			<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
+			<div style="float:right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
 		</sec:ifLoggedIn>
 	</div>
 
@@ -45,22 +44,22 @@
 	  
 	<div id="content">
 		<div id="contentInsetUpper">
-			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
-			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
+			<img alt="" src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
+			<img alt="" src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
 		</div>
 		<div id="contentInset" class="flexcroll">
 			<g:layoutBody />
 		</div>
 
 		<div id="contentInsetLower">
-			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
-			<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
+			<img alt="" src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
+			<img alt="" src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
 		</div>
 
 
 		<div id="contentFooter">
-			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+			<img alt=""id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+			<img alt="" id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
 		</div>
 	</div>
 
