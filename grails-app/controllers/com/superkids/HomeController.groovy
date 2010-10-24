@@ -89,7 +89,6 @@ class HomeController {
                UserRole.create customerInstance, userRole, true
                if(params.brokerName){
                    def broker = new Broker(name:params.brokerName, phone:params.brokerPhone, fax:params.brokerFax, email:params.brokerEmail, street:params.brokerStreet, street2:params.brokerStreet2, city:params.brokerCity, state:params.brokerState, zip:params.brokerZip, customer:customerInstance)
-                   broker.save(failOnError:true)
                    println broker.name
                    customerInstance.addToBrokers(broker)
                    customerInstance.save()
