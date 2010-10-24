@@ -428,6 +428,20 @@ a:hover.viewCartButton {
 
 .assessmentProductHover {
 	background-color:white;
+	padding:2px;
+	width:246px;
+	clear:both;
+	margin-bottom:5px;
+	margin-top:6px;
+	height:80px;
+
+}
+
+.assessmentProductHover img {
+	width:88px;
+	height:65px;
+	padding-right:8px;
+	float:left;
 }
 
 .assessmentProduct img {
