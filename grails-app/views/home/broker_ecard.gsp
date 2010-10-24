@@ -62,13 +62,13 @@
 				</tr>
 
 				<tr>
-					<td class="name">Recipients Name: </td>
+					<td class="name">Recipient's Name: </td>
 					<td>
 						<input type="text" name="recipient" size="20" maxlength="50" value="">
 					</td>
 				</tr>
 				<tr>
-					<td class="name">Recipients Email:</td>
+					<td class="name">Recipient's Email:</td>
 
 					<td><input type="text" name="recipientEmail" size="20" maxlength="50" value=""><br></td>
 				</tr>
