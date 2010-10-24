@@ -62,7 +62,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="ecard.message.label" default="Ecard Sent" /></td>
                             
-                            <td valign="top" class="value"><g:message code="ecard.message.${ecard?.message}" /></td>
+                            <td valign="top" class="value">${ecardInstance.cardType}</td>
                             
                         </tr>
                     
