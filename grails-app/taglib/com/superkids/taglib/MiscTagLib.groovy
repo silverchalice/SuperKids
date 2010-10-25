@@ -264,7 +264,7 @@ class MiscTagLib {
 
     def factoidList = { attrs ->
         def f = Factoid.get(1)
-        out << "<script>"
+        out << "<script type='text/javascript'>"
         out << "var nIndex = 1;"
         out << "var timerID = null;"
         out << "function factoidloop(){"

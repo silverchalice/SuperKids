@@ -8,7 +8,6 @@
     <list default="true" id="ddc32fc1-b83d-481e-8c46-f9ebd0d3c893" name="SKS-63 - Style and Layout - General" comment="Trying to fix some IE 6 bugs">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy" afterPath="$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/home/home.gsp" afterPath="$PROJECT_DIR$/grails-app/views/home/home.gsp" />
     </list>
     <ignored path="$USER_HOME_GRAILS$/" />
     <ignored path="$USER_HOME_GRIFFON$/" />
@@ -143,7 +142,7 @@
       <file leaf-file-name="MiscTagLib.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="289" column="45" selection-start="9197" selection-end="9197" vertical-scroll-proportion="0.14137484">
+            <state line="266" column="45" selection-start="8403" selection-end="8403" vertical-scroll-proportion="0.025503356">
               <folding />
             </state>
           </provider>
@@ -717,7 +716,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1356" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36664012" sideWeight="0.4142395" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Atlassian " active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29908404" sideWeight="0.670712" order="6" side_tool="false" content_ui="tabs" />
@@ -727,7 +726,7 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32686085" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18717642" sideWeight="0.64724916" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18717642" sideWeight="0.64724916" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26443648" sideWeight="0.64724916" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -839,7 +838,7 @@
       <ActiveJiraIssueBean>
         <option name="issueKey" value="SKS-63" />
         <option name="issueUrl" value="http://207.223.253.11:8080/browse/SKS-63" />
-        <option name="secondsSpent" value="521105" />
+        <option name="secondsSpent" value="521360" />
         <option name="serverId">
           <ServerIdImpl>
             <option name="id" value="a220c36c-c85c-4e15-92dc-4edbb44923fd" />
@@ -1093,7 +1092,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="289" column="45" selection-start="9197" selection-end="9197" vertical-scroll-proportion="0.14137484">
+        <state line="266" column="45" selection-start="8403" selection-end="8403" vertical-scroll-proportion="0.025503356">
           <folding />
         </state>
       </provider>
