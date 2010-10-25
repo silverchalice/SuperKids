@@ -51,14 +51,13 @@
 				</div>
 
 				<div class="clear"></div>
-				<div id="factoids">
-					<p> <strong>SuperKids Facts</strong><br/>
-					<div id="Factoiddatabox">
-					</div>
-					</p>
-				</div>
+		<div id="factoidsContainer">
+			<strong>SuperKids Facts</strong>
+			<div id="factoids">
+			</div>
+		</div>
 
-				<sks:factoidList />
+        <sks:factoidList />
 
 			</div>
 			<sec:ifLoggedIn>
