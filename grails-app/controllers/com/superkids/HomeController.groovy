@@ -156,14 +156,14 @@ class HomeController {
                customerInstance.properties = params
                if(params.password){ customerInstance.password = springSecurityService.encodePassword(params.password) }
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
-               flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
+               flash.message = "Your profile has been updated."
                 log.info flash.message
                    redirect(action: "index")
                } else {
                    render(view: "edit_profile", model: [customerInstance: customerInstance])
                }
            } else {
-               flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
+               flash.message = "Couldn't find your customer id."
                 log.info flash.message
                redirect(action: "index")
            }
