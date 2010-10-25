@@ -56,18 +56,19 @@ class CustomerController {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
             redirect(action: "list")
         }
-        else {			
-			def products = []
-			if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
-				products = Product.list()
-			} else {
-				customerInstance.order.products.each { productOrder ->
-					if(productOrder.received)
-						products << productOrder
-				}
-			}
-            [customerInstance: customerInstance, products: products]
-        }
+        else {		
+            def products = []
+            if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
+                products = Product.list()
+                return [customerInstance: customerInstance, products: products.findAll{!it.parent}]
+            } else {
+                customerInstance.order.products.each { productOrder ->
+                    if(productOrder.received && !Product.findByParent(productOrder.product))
+                        products << productOrder
+                    }
+                }
+                return [customerInstance: customerInstance, products: products.sort{it.product?.id}]
+            }
     }
 
     def edit = {
