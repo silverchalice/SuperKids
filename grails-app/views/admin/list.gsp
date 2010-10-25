@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'admin.label', default: 'Admin')}" />
+        <g:set var="loggedInAdmin" value="${Admin.get(sec.loggedInUserInfo(field:'id').toLong())}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -38,13 +39,17 @@
                     <g:each in="${adminInstanceList}" status="i" var="adminInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="edit" id="${adminInstance.id}">${fieldValue(bean: adminInstance, field: "username")}</g:link></td>
+                            <td><g:link action="edit" id="${adminInstance.id}">${fieldValue(bean: adminInstance, field: "username")}</g:link>
+                            <g:if test="${adminInstance.id == loggedInAdmin?.id}">
+                                <strong> - you</strong>
+                            </g:if>
+                            </td>
                         
                             <td><g:link action="edit" id="${adminInstance.id}">${adminInstance.firstName} ${adminInstance.lastName}</g:link></td>
                         
-                            <td><g:formatDate date="${adminInstance.lastLogin}" /></td>
+                            <td><g:formatDate format="MMMM dd, yyyy" date="${adminInstance.lastLogin}" /> at <g:formatDate format="HH:mm a" date="${adminInstance.lastLogin}" /></td>
 
-                            <td><g:formatDate date="${adminInstance.lastUpdated}" /></td>
+                            <td><g:formatDate format="MMMM dd, yyyy" date="${adminInstance.lastUpdated}" /> at <g:formatDate format="HH:mm a" date="${adminInstance.lastUpdated}" /></td>
 
                             <td><g:link action="other_delete" id="${adminInstance.id}">[Delete]</g:link></td>
                         
