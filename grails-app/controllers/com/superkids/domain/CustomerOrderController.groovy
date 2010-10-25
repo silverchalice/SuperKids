@@ -1,6 +1,10 @@
 package com.superkids.domain
 
+import com.superkids.domain.Customer
+
 class CustomerOrderController {
+
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -102,4 +106,39 @@ class CustomerOrderController {
             redirect(action: "list")
         }
     }
+
+    def other_delete = {
+        if(springSecurityService.isLoggedIn()){
+            if(User.get(springSecurityService.principal.id).isAdmin()){
+                def customerOrderInstance = CustomerOrder.get(params.id)
+                if (customerOrderInstance) {
+                    def customerInstance = Customer.get(customerOrderInstance.customer.id)
+                    try {
+                        customerInstance.order = null
+                        customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
+                        customerInstance.hasPlacedCurrentOrder = false
+                        customerInstance.save(failOnError:true)
+                        customerOrderInstance.delete(flush: true)
+                        flash.message = "Deleted this customer's order."
+                        redirect(action: "list")
+                    }
+                    catch (org.springframework.dao.DataIntegrityViolationException e) {
+                        flash.message = "This customer's order could not be deleted."
+                        redirect(action: "list")
+                    }
+                }
+                else {
+                    flash.message = "Customer order not found."
+                    redirect(action: "list")
+                }
+            } else {
+                flash.message = "You aren't allowed to access this page."
+                redirect controller:"home", action:"index"
+            }
+        } else {
+            flash.message = "Please log in.."
+            redirect controller:"home", action:"index"
+        }
+    }
+
 }
