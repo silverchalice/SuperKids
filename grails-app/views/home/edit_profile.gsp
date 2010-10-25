@@ -36,7 +36,7 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="email"><g:message code="customer.email.label" default="Email" /></label>
+                                    <label for="email"><strong>Login Email</strong></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'email', 'errors')}">
                                     <g:textField name="email" value="${customerInstance?.email}" />
