@@ -43,14 +43,28 @@
                                 </td>
                             </tr>
 
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="address"><g:message code="customer.address.label" default="Address" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'address', 'errors')}">
-                                    <g:select name="address.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${customerInstance?.address?.id}"  />
-                                </td>
-                            </tr>
+                            <tr class="prop"> 			
+                                <td align="right">School District Address</td> 
+                                <td align="left"><input type="text" name="address.street" value="${customerInstance?.address?.street}" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr class="prop"> 			
+                                <td align="right">&nbsp;</td> 
+                                <td align="left"><input type="text" name="address.street2" value="${customerInstance?.address?.street2}" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr class="prop"> 			
+                                <td align="right">City</td> 
+                                <td align="left"><input type="text" name="address.city" value="${customerInstance?.address?.city}" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr class="prop"> 			
+                                <td align="right">State</td> 
+                                <td align="left"> 
+                                    <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" />
+                                </td> 
+                            </tr> 
+                            <tr class="prop"> 			
+                                <td align="right">Zip</td> 
+                                <td align="left"><input type="text" name="address.zip" value="" size="20" maxlength="50"></td> 
+                            </tr> 
 
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -252,10 +266,10 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="receivedCurrentMailing"><g:message code="customer.receivedCurrentMailing.label" default="Received Current Mailing" /></label>
+                                  <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Received Current Mailing" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'receivedCurrentMailing', 'errors')}">
-                                    <g:checkBox name="receivedCurrentMailing" value="${customerInstance?.receivedCurrentMailing}" />
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'didNotReceiveMailing', 'errors')}">
+                                    <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
                                 </td>
                             </tr>
                             <tr>
