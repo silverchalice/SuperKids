@@ -189,7 +189,7 @@
     <body>
  	    <link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
 	    <ul class="tabs">
-			<g:if test="${!inCart}">
+			<g:if test="${!inCart && !customer.hasPlacedCurrentOrder}">
 				<li id="orderSample"><g:link controller="product" action="add" id="${productInstance?.id}">&nbsp;</g:link></li>
 				<li id="viewCart"><g:link controller="testShoppingCart" action="show">&nbsp;</g:link></li>
 			</g:if>
