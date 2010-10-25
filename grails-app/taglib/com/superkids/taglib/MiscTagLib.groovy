@@ -278,7 +278,7 @@ class MiscTagLib {
         out << "var len = factoids.length;"
         out << "if(nIndex >= len)"
         out << "nIndex = 1;"
-        out << "document.getElementById('Factoiddatabox').innerHTML = factoids[nIndex];"
+        out << "document.getElementById('factoids').innerHTML = factoids[nIndex];"
         out << "nIndex++;"
         out << "timerID = setTimeout('factoidloop()',10000);"
         out << "}"
