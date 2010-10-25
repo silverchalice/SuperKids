@@ -49,6 +49,7 @@ em {
   margin:0 auto;
   padding-top:9px;
   position:relative;
+  top:0;
 }
 
 .clear {
@@ -348,7 +349,7 @@ a:hover.viewCartButton {
 }
 
 
-#factoids {
+#factoidsContainer {
   width:255px;
   height:125px;
   color:white;
@@ -361,17 +362,20 @@ a:hover.viewCartButton {
 	
 }
 
-#Factoiddatabox {
-	padding-left:16px; 
-	margin-top:-20px;
+#factoids {
+	position:relative;
+	top:12px;
+	left:16px;
 	width:225px
 }
 
-#factoids strong {
+#factoidsContainer strong {
   font-size:14px;
   font-weight:bold;
-  margin-left:70px;
   line-height:20px;
+  position:relative;
+  left:87px;
+  top:7px;
 }
 
 #factoids p {

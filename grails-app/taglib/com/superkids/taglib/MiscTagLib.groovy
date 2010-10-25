@@ -264,7 +264,7 @@ class MiscTagLib {
 
     def factoidList = { attrs ->
         def f = Factoid.get(1)
-        out << "<script>"
+        out << "<script type='text/javascript'>"
         out << "var nIndex = 1;"
         out << "var timerID = null;"
         out << "function factoidloop(){"
@@ -278,7 +278,7 @@ class MiscTagLib {
         out << "var len = factoids.length;"
         out << "if(nIndex >= len)"
         out << "nIndex = 1;"
-        out << "document.getElementById('Factoiddatabox').innerHTML = factoids[nIndex];"
+        out << "document.getElementById('factoids').innerHTML = factoids[nIndex];"
         out << "nIndex++;"
         out << "timerID = setTimeout('factoidloop()',10000);"
         out << "}"
@@ -287,7 +287,7 @@ class MiscTagLib {
     }
 
     def sponsorList = { attrs ->
-        out << "<script>"
+        out << "<script type='text/javascript'>"
         out << "var nIndex = 1;"
         out << "var timerID = null;"
         out << "function sponsorloop(){"

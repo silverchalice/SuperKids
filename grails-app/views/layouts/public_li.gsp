@@ -14,7 +14,7 @@
 		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
     </head>
     <body>
-  <div id="body">
+  	<div id="body">
 
     <div id="secondaryContent">
         <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
@@ -40,25 +40,26 @@
         </div>
 
         <div class="clear"></div>
-        <div id="factoids">
-            <p> <strong>SuperKids Facts</strong><br/>
-                <div id="Factoiddatabox">
-                </div>
-            </p>
-        </div>
-        </div>
 
-        <sks:factoidList />
+		<div id="factoidsContainer">
+			<strong>SuperKids Facts</strong>
+			<div id="factoids">
+			</div>
+		</div>
 
-        <div id="HeaderBar">
+	</div>
 
-			<sec:ifLoggedIn>
-           		<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
-      		</sec:ifLoggedIn>
-			<sec:ifNotLoggedIn>
-				&nbsp;
-			</sec:ifNotLoggedIn>
-        </div>
+	<sks:factoidList />
+
+	<div id="HeaderBar">
+
+		<sec:ifLoggedIn>
+			<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
+		</sec:ifLoggedIn>
+		<sec:ifNotLoggedIn>
+			&nbsp;
+		</sec:ifNotLoggedIn>
+	</div>
     <div id="nav">
       <span><g:link controller="home" action="index">LOG OUT</g:link></span>
     </div>

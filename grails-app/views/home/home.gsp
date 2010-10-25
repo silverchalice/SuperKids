@@ -7,15 +7,15 @@
     <link rel="stylesheet" type="text/css" href="${resource(dir:'css',file:'public.css')}" media="screen" />
      <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
 	<meta name="layout" content="public" />
-
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-</head>
-	<body>
-		<style type="text/css">
+	<style type="text/css">
 			#contentInset {
 				overflow:visible;
 			}
-		</style>
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+</head>
+	<body>
+
 		<img alt="kid" src="${resource(dir:'images',file:'layout/kid.jpg')}" id="kid"/>
 		<div id="contentInsetInner">
 			<div style="width:520px">
