@@ -62,12 +62,16 @@ class ProductController {
         if (quantity) {
             inCart = true
         }
+        def customer
+        if(!User.get(springSecurityService.principal.id).isAdmin()){
+            customer = Customer.get(springSecurityService.principal.id)
+        }
         if (!productInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
             redirect(action: "list")
         }
         else {
-            [productInstance: productInstance, inCart:inCart]
+            [productInstance: productInstance, inCart:inCart, customer:customer]
         }
     }
 
