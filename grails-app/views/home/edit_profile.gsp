@@ -63,16 +63,30 @@
                             </tr> 
                             <tr class="prop"> 			
                                 <td align="right">Zip</td> 
-                                <td align="left"><input type="text" name="address.zip" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="address.zip" value="${customerInstance?.address?.zip}" size="20" maxlength="50"></td> 
                             </tr> 
 
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="deliveryAddress"><g:message code="customer.deliveryAddress.label" default="Delivery Address" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'deliveryAddress', 'errors')}">
-                                    <g:select name="deliveryAddress.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${customerInstance?.deliveryAddress?.id}" noSelection="['null': '']" />
-                                </td>
+                            <tr class="prop"> 			
+                                <td align="right">Delivery Address</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr class="prop"> 			
+                                <td align="right">&nbsp;</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr class="prop"> 			
+                                <td align="right">City</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" size="20" maxlength="50"></td> 
+                            </tr> 
+                            <tr class="prop"> 			
+                                <td align="right">State</td> 
+                                <td align="left"> 
+                                    <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" />
+                                </td> 
+                            </tr> 
+                            <tr class="prop"> 			
+                                <td align="right">Zip</td> 
+                                <td align="left"><input type="text" name="deliveryAddress.zip" value="${customerInstance?.deliveryAddress?.zip}" size="20" maxlength="50"></td> 
                             </tr>
 
                             <tr class="prop">
