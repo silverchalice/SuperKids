@@ -6,11 +6,9 @@
     <list id="58e7d457-3339-4fd8-9f7d-93e2088b975d" name="SKS-52 - Assessment Administration" comment="Added Manual Order and Ordered Items tables to the Customer Edit page&#10;" />
     <list id="975f74ae-233c-41c7-a3fd-c1997b7493a1" name="Failed commit: SKS-34 - Caller can edit &amp; update Customer Data" comment="Added ShippingDates and sponsor Products to BootStrap" />
     <list default="true" id="ddc32fc1-b83d-481e-8c46-f9ebd0d3c893" name="SKS-63 - Style and Layout - General" comment="Trying to fix some IE 6 bugs">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/uploads/product1.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/uploads/product2-hover.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/uploads/product1-hover.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web-app/uploads/product2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy" afterPath="$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/home/home.gsp" afterPath="$PROJECT_DIR$/grails-app/views/home/home.gsp" />
     </list>
     <ignored path="$USER_HOME_GRAILS$/" />
     <ignored path="$USER_HOME_GRIFFON$/" />
@@ -79,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="public.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="public.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/css/public.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="8" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0026845639">
+            <state line="63" column="204" selection-start="715" selection-end="715" vertical-scroll-proportion="-8.846154">
               <folding />
             </state>
           </provider>
@@ -127,16 +125,25 @@
       <file leaf-file-name="public.gsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/public.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="1192" selection-end="1300" vertical-scroll-proportion="-14.777778">
+            <state line="36" column="17" selection-start="1400" selection-end="1405" vertical-scroll-proportion="-12.113208">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MiscTagLib.groovy" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home.gsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/home/home.gsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="4" selection-start="616" selection-end="616" vertical-scroll-proportion="-1.4339622">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MiscTagLib.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="280" column="49" selection-start="8911" selection-end="8911" vertical-scroll-proportion="0.0">
+            <state line="289" column="45" selection-start="9197" selection-end="9197" vertical-scroll-proportion="0.14137484">
               <folding />
             </state>
           </provider>
@@ -181,12 +188,12 @@
         <option value="$PROJECT_DIR$/grails-app/views/layouts/movie.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/products.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/learn.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/home/home.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/public.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/promote.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/public_li.gsp" />
         <option value="$PROJECT_DIR$/web-app/css/public.css" />
+        <option value="$PROJECT_DIR$/grails-app/views/home/home.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy" />
       </list>
     </option>
   </component>
@@ -832,7 +839,7 @@
       <ActiveJiraIssueBean>
         <option name="issueKey" value="SKS-63" />
         <option name="issueUrl" value="http://207.223.253.11:8080/browse/SKS-63" />
-        <option name="secondsSpent" value="518700" />
+        <option name="secondsSpent" value="521105" />
         <option name="serverId">
           <ServerIdImpl>
             <option name="id" value="a220c36c-c85c-4e15-92dc-4edbb44923fd" />
@@ -1021,13 +1028,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="280" column="49" selection-start="8911" selection-end="8911" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/cart.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="8" selection-start="232" selection-end="237" vertical-scroll-proportion="-1.3018868">
@@ -1056,20 +1056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/home/home.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="12" selection-start="702" selection-end="702" vertical-scroll-proportion="0.13513513">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/public.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="1192" selection-end="1300" vertical-scroll-proportion="-14.777778">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/public_li.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="45" column="45" selection-start="2375" selection-end="2375" vertical-scroll-proportion="-11.830189">
@@ -1086,7 +1072,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/css/public.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="8" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0026845639">
+        <state line="63" column="204" selection-start="715" selection-end="715" vertical-scroll-proportion="-8.846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/public.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="17" selection-start="1400" selection-end="1405" vertical-scroll-proportion="-12.113208">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/home/home.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="4" selection-start="616" selection-end="616" vertical-scroll-proportion="-1.4339622">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="289" column="45" selection-start="9197" selection-end="9197" vertical-scroll-proportion="0.14137484">
           <folding />
         </state>
       </provider>

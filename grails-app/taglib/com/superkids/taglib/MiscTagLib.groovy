@@ -287,7 +287,7 @@ class MiscTagLib {
     }
 
     def sponsorList = { attrs ->
-        out << "<script>"
+        out << "<script type='text/javascript'>"
         out << "var nIndex = 1;"
         out << "var timerID = null;"
         out << "function sponsorloop(){"
