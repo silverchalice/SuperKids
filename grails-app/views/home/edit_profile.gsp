@@ -50,6 +50,32 @@
 				padding:.5px;
 			}
 
+			div.errors {
+				background: #fff3f3;
+				border: 1px solid red;
+				color: #cc0000;
+				margin: 10px 0 5px 0;
+				padding: 5px 0 5px 0;
+			}
+
+			div.errors ul {
+				list-style: none;
+				padding: 0;
+			}
+
+			div.errors li {
+				background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
+				line-height: 16px;
+				padding-left: 30px;
+			}
+
+			td.errors select {
+				border: 1px solid red;
+			}
+
+			td.errors input {
+				border: 1px solid red;
+			}
 		</style>
     </head>
     <body>
@@ -58,16 +84,13 @@
 
             <h1>School District Profile</h1>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}
-
-			<g:hasErrors bean="${customerInstance}">
+                <div class="message">${flash.message}</div>
+            </g:if>
+	    <g:hasErrors bean="${customerInstance}">
             	<div class="errors">
                 	<g:renderErrors bean="${customerInstance}" as="list" />
             	</div>
             </g:hasErrors>
-
-			</div>
-            </g:if>
 
 			<div>There is a deadline of November 8th</div>
 			<div style="float:left;width:300px;">
@@ -123,12 +146,18 @@
 					   <g:textField name="address.city" value="${customerInstance?.address?.city}" />
 					</td>
 				</tr>
+				</tr>
 				<tr>
 					<td valign="top" class="name">
-					  <label><g:message code="customer.deliveryAddress.state.label" default="State" /></label>
+					  <label><g:message code="customer.address.state.label" default="State" /></label>
 					</td>
 					<td valign="top">
-					   <g:select from="${states}" value="${customerInstance?.address?.state}" />
+                                           <g:if test="${customerInstance?.address?.state}">
+					       <g:select from="${states}" name="address.state" value="${customerInstance?.address?.state}" noSelection="${['null':'']}" />
+                                           </g:if>
+                                           <g:else>
+					       <g:select from="${states}" name="address.state" noSelection="${['null':'']}" />
+                                           </g:else>
 					</td>
 				</tr>
 				<tr>
@@ -196,7 +225,12 @@
 					  <label><g:message code="customer.deliveryAddress.state.label" default="State" /></label>
 					</td>
 					<td valign="top">
-					   <g:select from="${states}" value="${customerInstance?.deliveryAddress?.state}" />
+                                           <g:if test="${customerInstance?.deliveryAddress?.state}">
+					       <g:select from="${states}" name="deliveryAddress.state" value="${customerInstance?.deliveryAddress?.state}" noSelection="${['null':'']}" />
+                                           </g:if>
+                                           <g:else>
+					       <g:select from="${states}" name="deliveryAddress.state" noSelection="${['null':'']}" />
+                                           </g:else>
 					</td>
 				</tr>
 				<tr>
@@ -262,16 +296,6 @@
 				  </td>
 
 				</tr>
-
-				<tr style="padding-bottom:10px;">
-					<td valign="top" style="text-align:right">
-						<g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
-					</td>
-					<td>
-						<label for="purchasePreparedFood">We purchase prepared foods</label>
-					</td>
-
-				  </tr>
 
 				<tr>
 					<td>&nbsp;</td>
