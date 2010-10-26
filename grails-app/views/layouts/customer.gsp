@@ -5,8 +5,10 @@
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
-        <g:javascript library="application" />
-        <g:javascript library="jquery" plugin="jquery"/>
+
+		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
+		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
+		
     </head>
     <body>
   <div id="body">
@@ -21,12 +23,11 @@
 
       <div class="clear"></div>
 
-        <div id="factoids">
-            <p> <strong>SuperKids Facts</strong><br/>
-            <div id="Factoiddatabox">
-            </div>
-            </p>
-        </div>
+		<div id="factoidsContainer">
+			<strong>SuperKids Facts</strong>
+			<div id="factoids">
+			</div>
+		</div>
 
         <sks:factoidList />
 
@@ -67,7 +68,7 @@
 		</div>
 
 
-		<div id="contentFooter">
+		<div id="contentFooter" style="left:223px">
 			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
 			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
 		</div>

@@ -124,7 +124,7 @@ class CustomerController {
                 user.save(failOnError:true)
             }
             if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
+                flash.message = "Your profile was updated"
                 redirect(action: "show", id: customerInstance.id)
             }
             else {

@@ -57,7 +57,9 @@ em {
 }
 
 #secondaryContent {
-  width:218px;
+	/*border:1px pink solid;*/
+	margin-top:1px;
+  width:220px;
   float:left;
 }
 
@@ -66,7 +68,8 @@ em {
 }
 
 #logo {
-	padding: 21px 12px 6px 2px;
+	/*border:1px red solid;*/
+	padding: 19px 0 0 0;
 	margin-bottom:22px;
 	width:212px;
 	height:183px;
@@ -74,6 +77,8 @@ em {
 }
 
 #nav {
+	/*border:1px blue solid;*/
+	margin-top:1px;
   float:right;
   width:731px;
 }
@@ -119,10 +124,11 @@ em {
 }
 
 #content {
-  margin-top:1px;
+	/*border:1px green solid;*/
+	margin-top:1px;
   width:732px;
   float:right;
-  background: #F99F1B url(../images/layout/content-bg.gif) no-repeat;
+  background: #F99F1B url(../images/layout/content-bg.gif) no-repeat left top;
   height:530px;
 }
 
@@ -390,9 +396,9 @@ a:hover.viewCartButton {
     width: 270px;
 	overflow:hidden;
     height: 280px;
-    position: relative;
+    position: absolute;
     padding:7px;
-    top: 72px;
+    top: 313px;
     left: 2px;
     z-index: 1;
 }

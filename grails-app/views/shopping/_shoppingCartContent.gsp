@@ -93,11 +93,7 @@ th.desc a {
                     <tr><td></td><td></td></tr>
                     </tbody>
                 </table>
-                   <sks:hasNotPlacedCurrentOrder>
-                   	<g:link controller="product" style="background-image:url('/SuperKids/images/layout/buttons/CheckoutButton.gif'); padding:10px 74px; position:absolute; top:443px; left:149px; z-index:3" action="check_out">&nbsp;</g:link>
-				    <g:link controller="home" style="background-image:url('/SuperKids/images/layout/buttons/ContinueShoppingButton.gif'); padding:10px 85px; position:absolute; top:443px; left:303px; z-index:3" action="order">&nbsp;</g:link>
-					<a href="#" style="background-image:url('/SuperKids/images/layout/buttons/PrintButton.gif'); padding:10px 50px; position:absolute; top:443px; left:481px; z-index:3" onclick="window.print(); return false;">&nbsp;</a>
-                   </sks:hasNotPlacedCurrentOrder>
+                   
 
 					
         </g:else>

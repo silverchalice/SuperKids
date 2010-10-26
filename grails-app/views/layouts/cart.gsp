@@ -32,9 +32,7 @@
 
         
         <div id="products">
-          <p>
           <sks:productBox />
-          </p>
         </div>
 	</div>
 
@@ -60,14 +58,18 @@
 			<g:layoutBody />
 		</div>
 
-		<div id="contentInsetLower" style="width:601px;left:309px; top:534px">
-			<img src="${resource(dir:'images', file:'YellowBar.gif')}" alt="" />
+		<div id="contentInsetLower" style="width:601px;left:309px; top:534px; height:50px; background:#FFC100; background-image:url('/SuperKids/images/YellowBar.gif')">
+			<sks:hasNotPlacedCurrentOrder>
+			<g:link controller="product" style="background:url('/SuperKids/images/layout/buttons/CheckoutButton.gif') no-repeat left top; height:34px; width:170px; position:absolute; top:10px; left:149px;" action="check_out"></g:link>
+			<g:link controller="home" style="background:url('/SuperKids/images/layout/buttons/ContinueShoppingButton.gif') no-repeat left top; height:34px; width:175px; position:absolute; top:10px; left:303px;" action="order"></g:link>
+			<a href="#" style="background:url('/SuperKids/images/layout/buttons/PrintButton.gif') no-repeat left top; height:34px; width:120px; position:absolute; top:10px; left:481px;" onclick="window.print(); return false;"></a>
+		   </sks:hasNotPlacedCurrentOrder>
 		</div>
 
 
 		<div id="contentFooter">
-			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+			<img id="contentFooterBL" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+			<img id="contentFooterBR" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
 		</div>
 	</div>
 
