@@ -15,8 +15,8 @@ class ProductController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        render view:"/home/superkids_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+        def content = PageText.findByName("superkids_products")
+        render view:"/home/superkids_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count(), content: content]
     }
 
     def admin = {

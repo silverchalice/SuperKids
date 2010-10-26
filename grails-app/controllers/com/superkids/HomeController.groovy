@@ -231,8 +231,8 @@ class HomeController {
        }
 
        def broker_products = {
-           params.max = Math.min(params.max ? params.int('max') : 10, 100)
-           render view:"/home/broker_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+		   def content = PageText.findByName("superkids_products")
+           render view:"/home/broker_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count(), content: content]
        }
 
        def broker_whole_grain_benefits = {
@@ -292,8 +292,8 @@ class HomeController {
 
 
        def public_products = {
-           params.max = Math.min(params.max ? params.int('max') : 10, 100)
-           render view:"/home/public_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+           def content = PageText.findByName("superkids_products")
+           render view:"/home/public_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count(), content: content]
        }
 
        def public_diets = {
