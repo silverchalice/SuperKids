@@ -6,9 +6,14 @@
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
-        <g:javascript library="application" />
+
         <g:javascript library="jquery" plugin="jquery"/>
-       <g:set var="products" value="${Product.findAllByLiveProduct(true)}" />
+        <g:set var="products" value="${Product.findAllByLiveProduct(true)}" />
+
+		<link rel="stylesheet"href="${resource(dir:'css', file:'flexcrollstyles.css')}" />
+		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
+
+
 		<style type="text/css">
 			#contentInsetUpper {
 				width:601px;
