@@ -156,7 +156,7 @@ class HomeController {
                customerInstance.properties = params
                if(params.password){ customerInstance.password = springSecurityService.encodePassword(params.password) }
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
-               flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
+               flash.message = "Your customer profile has been updated"
                 log.info flash.message
                    redirect(action: "index")
                } else {
