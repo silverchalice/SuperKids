@@ -14,8 +14,9 @@
   <div id="body">
 
     <div id="secondaryContent">
-        <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
+        <g:link action="index"><img id="logo" style="margin-bottom:6px" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
+		<h4 style="color:#88484C; font-size:10px; margin:0 0 0 57px; padding:0">SuperKids Participants</h4>
         <div id="Sponsordatabox">
         </div>
 
