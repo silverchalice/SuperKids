@@ -148,7 +148,7 @@ class HomeController {
                if (params.version) {
                    def version = params.version.toLong()
                    if (customerInstance.version > version) {
-                       customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'customer.label', default: 'Customer')] as Object[], "Another user has updated this Customer while you were editing")
+                       customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'customer.label', default: 'Customer')] as Object[], "Another user has updated this profile while you were editing.")
                        render(view: "edit_profile", model: [customerInstance: customerInstance])
                        return
                    }
