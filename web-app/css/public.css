@@ -265,6 +265,10 @@ img#contentFooterBR {
   background:url(../images/layout/content-left.gif);
 }
 
+img#awardstar {
+	float:left;
+}
+
 img#kid {
   position:absolute;
   top:100px; !important;

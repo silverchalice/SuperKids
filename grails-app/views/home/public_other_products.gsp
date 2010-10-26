@@ -8,13 +8,12 @@
         <meta name="link" content="public_other_products" />
         <title>SuperKids | Other Products With Ultragrain</title>
     </head>
-    <body>
-
-        <div style="width:450px">
-           <g:if test="${flash.message}">
+    <body>          
+         <div id="contentInsetInner" style="overflow:auto">
+			 <g:if test="${flash.message}">
                <div class="message">${flash.message}</div>
            </g:if>
-         <div id="contentInsetInner">${content}</div>
-        </div>
+			 ${content}</div>
+
     </body>
 </html>

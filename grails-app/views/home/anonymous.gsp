@@ -8,7 +8,6 @@
         <title>You landed on: The Landing Page.</title>
     </head>
     <body>
-        <div style="width:450px">
         <div id="contentInsetInner">
             ${content}
         </div>

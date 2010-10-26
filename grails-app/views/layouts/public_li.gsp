@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:set var="link" value="${pageProperty(name: 'meta.link')}"/>
         <g:layoutHead />
-        <g:javascript library="application" />
+
         <g:javascript library="jquery" plugin="jquery"/>
 
 		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>

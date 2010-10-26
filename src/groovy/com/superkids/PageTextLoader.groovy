@@ -404,7 +404,7 @@ class PageTextLoader {
 <p>
   These companies use Ultragrain in their products. Look for them on your grocer's shelves.
 </p>
-<table width="593" cellspacing="0" cellpadding="3" align="left" style="width: 593px; height: 800px;">
+<table style="width: 593px; height: 800px; float:left">
     <tbody>
         <tr>
             <td align="center" colspan="2"><strong>National Distribution </strong></td>
@@ -534,7 +534,8 @@ class PageTextLoader {
             <td width="400" valign="top">Pop-Tarts<sup>&reg;</sup> One Serving of Whole Grain toaster pastries</td>
         </tr>
     </tbody>
-</table>                                                         """
+</table>
+                                                         """
                                 ).save()
 
                              def incorporatingText = new PageText(name:"incorporating_whole_grains_in_schools", content:"""
@@ -564,7 +565,8 @@ class PageTextLoader {
 <p>If your company is listed as the one that serves a school district and that school district provides feedback to us about the whole grain products sampled, you will receive that data in a Demand Report.</p>
 <h2>Talk With SuperKids Manufacturers.</h2>
 <p>SuperKids product manufacturers would like to discuss their products with you. In addition, we would welcome your help in making brokers and foodservice directors aware of these products. You can send eCards to them, as well as ask the manufacturers whose products are presented here to contact you.</p>
-<p><strong>Send an eCard or Request Contact from our participating manufacturers by selecting these options from the menu on the left.</strong></p>	                                                         """
+<p><strong>Send an eCard or Request Contact from our participating manufacturers by selecting these options from the menu on the left.</strong></p>	
+                                                         """
                                 ).save()
 
                              def publicDietsStudentsText = new PageText(name:"public_diets_students", content:"""

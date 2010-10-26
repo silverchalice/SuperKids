@@ -16,7 +16,7 @@
       <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
       <div class="clear"></div>
 
-      <div id="products" style="top:72px">
+      <div id="products">
 
               <sks:productBox />
 
