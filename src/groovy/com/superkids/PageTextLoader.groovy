@@ -160,6 +160,49 @@ class PageTextLoader {
 			""").save()
 
 
+			def superKidsProductsText = new PageText(name:"superkids_products", content:"""
+				  <h1>SuperKids Products</h1><br />
+			   <h2>Would you like information about our new whole grain food products?</h2>
+			   <p style="font-size:12px">Shown here is a full list of products available for school district sampling within the SuperKids Whole Grain Sampling Program.</p>
+			   <strong style="color:#993300;">For product details, select 'Download PDF’ underneath the product pictures.</strong>
+			   <p>&nbsp;</p>
+					<g:each in="${productInstanceList}" var="productInstance">
+						<table style="border:0; margin-bottom:35px;">
+							<tbody>
+								<tr>
+									<td colspan="2"><h2>${productInstance?.name}</h2></td>
+								</tr>
+								<tr>
+									<td valign="top" rowspan="2" style="width:150px;">
+
+									<img alt="${productInstance?.name}" src="/SuperKids/uploads/${productInstance?.backgroundImage}" style="width:150px; height:180px; margin-bottom:15px; border:1px yellow solid; float:left" /><br />
+									<br />
+									<div style="line-height:30px;">
+									<img style="float:left; border:0; height:30px; width:30px" alt="Download PDF" src="/SuperKids/images/pdficon.gif" />&nbsp; <a target="_blank" href="/userfiles/file/PDF/ConAgra%20Foods%20Downloadable%20PDF.pdf"><span style="color: rgb(255, 102, 0);">Download PDF</span></a>
+									</div>
+									</td>
+									<td>
+									${productInstance?.description}   <br/>
+									${productInstance?.nutrition}
+									</td>
+								</tr>
+								<tr>
+									<td>
+									<h3 style="color:#D16B00; font-weight:normal">${productInstance.sponsor.name}</h3>
+									<p style="font-size:11px">${productInstance.sponsor.address.street}${productInstance.sponsor.address.street2 ? ", " + productInstance.sponsor.address.street2 : ""} ${productInstance.sponsor.address.city}, ${productInstance.sponsor.address.state} ${productInstance.sponsor.address.zip}<br />
+									${productInstance.sponsor.phone}
+									<a target="_blank" href="${productInstance.sponsor.website}"><strong style="color: rgb(255, 102, 0);">	${productInstance.sponsor.website}</strong></a>
+
+									${productInstance.sponsor.sampleContact}</p>
+
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</g:each>
+			""").save()
+
+
 			def wholeGrainBenefitsText = new PageText(name:"whole_grain_benefits", content:"""
 				<h1>Benefits of&nbsp;Whole Grains</h1> <br/> <img style="width:207px; height:266px; float:right" src="/SuperKids/images/SATStethoscope.jpg" alt="" /> <p><strong><span style="color: rgb(153, 51, 0); font-size:16px"><span>The most documented benefits </span></span></strong> of whole grain consumption are:</span></span></span></p>  <ul> <li>Better weight management</li> <li>Type 2 diabetes risk reduced 21-30% </li> <li>Stroke risk reduced 30-36%</li> <li>Heart disease risk reduced 25-28% </li> </ul>  <p><strong><span style="color: rgb(153, 51, 0); font-size:16px;">Other benefits</span></strong> indicated by recent studies include:</p> <ul> <li>Reduced risk of asthma</li> <li>Less gum disease and tooth loss</li> <li>Healthier carotid arteries </span></span></li> <li>Reduction&nbsp;of inflammatory disease risk</li> <li>Lower risk of colorectal cancer</li> <li>Healthier blood pressure levels</li> </ul>  <p style="font-size: 10px;color: rgb(153, 51, 0);">Select Whole Grains &amp; Human Health for recent health studies.&nbsp;Source: The Whole Grains Council)</p>
 				""").save()
