@@ -1,5 +1,4 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<%@ page import="com.superkids.domain.Product" %>
 <html>
     <head>
         <title><g:layoutTitle default="Grails" /></title>
@@ -7,45 +6,45 @@
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
 
-        <g:javascript library="jquery" plugin="jquery"/>
-       <g:set var="products" value="${Product.findAllByLiveProduct(true)}" />
+		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
+		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
+		
     </head>
     <body>
   <div id="body">
 
     <div id="secondaryContent">
-        <g:link action="index"><img id="logo" style="margin-bottom:6px" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
+      <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-		<h4 style="color:#88484C; font-size:10px; margin:0 0 0 57px; padding:0">SuperKids Participants</h4>
-        <div id="Sponsordatabox">
-        </div>
-
-        <sks:sponsorList />
-
-        <div id="products">
-          <sks:productBox />
-        </div>
-	</div>
-
-        <div id="HeaderBar"> 
-			<sec:ifLoggedIn>
-           		<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
-      		</sec:ifLoggedIn>
-        </div>
+    </div>
+	  
+    <div id="HeaderBar"> 
+        <sec:ifLoggedIn>
+            <div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div> 
+        </sec:ifLoggedIn>
+	  	<sec:ifNotLoggedIn>
+			  &nbsp;
+	  	</sec:ifNotLoggedIn>
+    </div>
 
     <div id="nav">
-      <g:link controller="home" action="learn">LEARN</g:link>
-      <g:link controller="home" class="current" action="order">ORDER</g:link>
-      <g:link controller="home" action="assess">ASSESS</g:link>
-      <g:link controller="home" action="promote">PROMOTE</g:link>
-      <span><g:link controller="logout">LOG OUT</g:link></span>
+        <sec:ifLoggedIn>
+            <g:link controller="home" action="learn">LEARN</g:link>
+            <g:link controller="home" action="order">ORDER</g:link>
+            <g:link controller="home" action="assess">ASSESS</g:link>
+            <g:link controller="home" action="promote">PROMOTE</g:link>
+            <span><g:link controller="logout">LOG OUT</g:link></span>
+        </sec:ifLoggedIn>
+      <sec:ifNotLoggedIn>
+          <span><g:link controller="login" action="auth">LOG IN</g:link></span>
+      </sec:ifNotLoggedIn>
     </div>
-    <div id="content">
+	<div id="content">
 		<div id="contentInsetUpper">
 			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
 			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
 		</div>
-		<div id="contentInset" class="flexcroll" style="height:478px; padding:0; right:15px">
+		<div id="contentInset" class="flexcroll">
 			<g:layoutBody />
 		</div>
 
