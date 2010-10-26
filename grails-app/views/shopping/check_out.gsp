@@ -322,7 +322,7 @@
                           <tr> 			
                               <td><strong>State</strong></td> 
                               <td align="left"> 
-                                    <g:select name="state" from="${states}"  value="${broker?.state}" />
+                                    <g:select name="state" from="${states}"  value="${broker?.state}" noSelection="${['null':'']}" />
                               </td> 
                           </tr> 
                           <tr> 
