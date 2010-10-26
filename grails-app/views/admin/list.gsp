@@ -41,15 +41,26 @@
                         
                             <td><g:link action="edit" id="${adminInstance.id}">${fieldValue(bean: adminInstance, field: "username")}</g:link>
                             <g:if test="${adminInstance.id == loggedInAdmin?.id}">
-                                <strong> - you</strong>
+                                <strong> [you]</strong>
                             </g:if>
                             </td>
                         
                             <td><g:link action="edit" id="${adminInstance.id}">${adminInstance.firstName} ${adminInstance.lastName}</g:link></td>
                         
-                            <td><g:formatDate format="MMMM dd, yyyy" date="${adminInstance.lastLogin}" /> at <g:formatDate format="HH:mm a" date="${adminInstance.lastLogin}" /></td>
+                            <td>
+                                <g:if test="${adminInstance.lastLogin}">
+                                    <g:formatDate format="MMMM dd, yyyy" date="${adminInstance.lastLogin}" /> at <g:formatDate format="h:mm a" date="${adminInstance.lastLogin}" />
+                                </g:if>
+                                <g:else>
+                                    <strong>[user has not logged in yet]</strong>
+                                </g:else>
+                            </td>
 
-                            <td><g:formatDate format="MMMM dd, yyyy" date="${adminInstance.lastUpdated}" /> at <g:formatDate format="HH:mm a" date="${adminInstance.lastUpdated}" /></td>
+                            <td>
+                                <g:if test="${adminInstance.lastUpdated}">
+                                    <g:formatDate format="MMMM dd, yyyy" date="${adminInstance.lastUpdated}" /> at <g:formatDate format="h:mm a" date="${adminInstance.lastUpdated}" />
+                                </g:if>
+                            </td>
 
                             <td><g:link action="other_delete" id="${adminInstance.id}">[Delete]</g:link></td>
                         

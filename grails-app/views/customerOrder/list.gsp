@@ -64,7 +64,7 @@
 
 							<td style="width:120px;">
 								<g:link action="show" id="${customerOrderInstance.id}">View</g:link>&nbsp;|&nbsp;
-								<g:link action="delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerOrderInstance.id}">Delete</g:link>
+								<g:link action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerOrderInstance.id}">Delete</g:link>
 							</td>
                         
                         </tr>

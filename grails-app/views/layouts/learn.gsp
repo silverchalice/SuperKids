@@ -57,7 +57,7 @@
 			</div>
 		</div>
 
-				<sks:factoidList />
+        <sks:factoidList />
 
 			</div>
 			<sec:ifLoggedIn>

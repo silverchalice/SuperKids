@@ -111,7 +111,7 @@ class HomeController {
            
        }
 
-       def edit_profile = {
+       def edit_profile = {      
             def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
 			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
@@ -133,7 +133,7 @@ class HomeController {
                UserRole.list().each{ println it }
                def userRole = Role.findByAuthority("ROLE_USER")
                if (UserRole.findByUserAndRole(user, userRole)){
-                   render view:'edit_profile', model: [customerInstance: user, states:states]
+                   return [customerInstance: user, states:states]
                } else {
                    redirect(action: "index")
                }
@@ -156,15 +156,14 @@ class HomeController {
                customerInstance.properties = params
                if(params.password){ customerInstance.password = springSecurityService.encodePassword(params.password) }
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
-               		flash.message = "Your profile was successfully updated"
-               		log.info flash.message
+               flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customerInstance.id])}"
+                log.info flash.message
                    redirect(action: "index")
                } else {
-				   
                    render(view: "edit_profile", model: [customerInstance: customerInstance])
                }
            } else {
-               flash.message = "Your profile was successfully updated"
+               flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
                 log.info flash.message
                redirect(action: "index")
            }
