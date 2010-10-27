@@ -5,13 +5,24 @@
     <list id="1634b8ad-d683-4bcf-8cdf-f51935ae5299" name="Failed commit: SKS-34 - Caller can edit &amp; update Customer Data (2)" comment="Addined inCal boolean and made Factoid.content sqlType=longblob -overkill..." />
     <list id="58e7d457-3339-4fd8-9f7d-93e2088b975d" name="SKS-52 - Assessment Administration" comment="Added Manual Order and Ordered Items tables to the Customer Edit page&#10;" />
     <list id="975f74ae-233c-41c7-a3fd-c1997b7493a1" name="Failed commit: SKS-34 - Caller can edit &amp; update Customer Data" comment="Added ShippingDates and sponsor Products to BootStrap" />
-    <list default="true" id="ddc32fc1-b83d-481e-8c46-f9ebd0d3c893" name="SKS-63 - Style and Layout - General" comment="Merge branch 'master' of github.com:zak89/SuperKids&#10;&#10;Conflicts:&#10;&#9;grails-app/views/shopping/check_out.gsp&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/product/_checkout_items.gsp" afterPath="$PROJECT_DIR$/grails-app/views/product/_checkout_items.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/shopping/thanks.gsp" afterPath="$PROJECT_DIR$/grails-app/views/shopping/thanks.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/shopping/_shoppingCartContent.gsp" afterPath="$PROJECT_DIR$/grails-app/views/shopping/_shoppingCartContent.gsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/shopping/confirm.gsp" afterPath="$PROJECT_DIR$/grails-app/views/shopping/confirm.gsp" />
+    <list default="true" id="ddc32fc1-b83d-481e-8c46-f9ebd0d3c893" name="SKS-63 - Style and Layout - General" comment="New Checkout pages">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/controllers/com/superkids/HomeController.groovy" afterPath="$PROJECT_DIR$/grails-app/controllers/com/superkids/HomeController.groovy" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/home/where_to_find.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/customer.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/customer.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/home/sustagrain_general.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/learn.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/learn.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/promote.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/promote.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/order.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/order.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/movie.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/movie.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/home/ultragrain_general.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/public_li.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/public_li.gsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/grails-app/views/home/about_manufacturers.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/contactRequest/create.gsp" afterPath="$PROJECT_DIR$/grails-app/views/contactRequest/create.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/cart.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/cart.gsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/checkout.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/checkout.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/home/about.gsp" afterPath="$PROJECT_DIR$/grails-app/views/home/about.gsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/grails-app/views/layouts/products.gsp" afterPath="$PROJECT_DIR$/grails-app/views/layouts/products.gsp" />
     </list>
     <ignored path="$USER_HOME_GRIFFON$/" />
     <ignored path="$USER_HOME_GRAILS$/" />
@@ -70,80 +81,7 @@
   </component>
   <component name="FileColors" enabled="true" enabledForTabs="true" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="_shoppingCartContent.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/shopping/_shoppingCartContent.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="19" selection-start="714" selection-end="714" vertical-scroll-proportion="-7.1698112">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/testShoppingCart/show.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="98" selection-start="1596" selection-end="1596" vertical-scroll-proportion="-8.094339">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="check_out.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/shopping/check_out.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="103" selection-start="1771" selection-end="1771" vertical-scroll-proportion="-9.320755">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="checkout.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/checkout.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="36" selection-start="1205" selection-end="1222" vertical-scroll-proportion="-22.518518">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/cart.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="74" selection-start="2158" selection-end="2158" vertical-scroll-proportion="-41.51852">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thanks.gsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/shopping/thanks.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="565" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.2502195">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/order.gsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="-7.037037">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MiscTagLib.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="28" selection-start="3368" selection-end="3441" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -163,22 +101,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/groovy/com/superkids/PageTextLoader.groovy" />
-        <option value="$PROJECT_DIR$/grails-app/views/home/superkids_products.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/home/public_products.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/home/broker_products.gsp" />
-        <option value="$PROJECT_DIR$/web-app/css/public.css" />
-        <option value="$PROJECT_DIR$/grails-app/views/home/anonymous.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/testShoppingCart/show.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/home/ultragrain_general.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/public.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/controllers/com/superkids/HomeController.groovy" />
+        <option value="$PROJECT_DIR$/grails-app/views/home/sustagrain_general.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/home/about_manufacturers.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/home/where_to_find.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/contactRequest/create.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/public_li.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/promote.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/products.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/order.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/shopping/check_out_copy.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/shopping/check_out.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/shopping/_shoppingCartContent.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/layouts/cart.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/product/_checkout_items.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/shopping/confirm.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/movie.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/learn.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/customer.gsp" />
         <option value="$PROJECT_DIR$/grails-app/views/layouts/checkout.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/shopping/thanks.gsp" />
+        <option value="$PROJECT_DIR$/grails-app/views/layouts/cart.gsp" />
       </list>
     </option>
   </component>
@@ -488,9 +426,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/grails-app/views/home" />
       <recent name="$PROJECT_DIR$/grails-app/views/shopping" />
       <recent name="$PROJECT_DIR$/grails-app/views/layouts" />
-      <recent name="$PROJECT_DIR$/grails-app/views/home" />
       <recent name="$PROJECT_DIR$/grails-app/views/assessment" />
       <recent name="$PROJECT_DIR$/grails-app/views/call" />
     </key>
@@ -744,7 +682,7 @@
     <option name="ENABLE_BACKGROUND_PROCESSES" value="false" />
     <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of github.com:zak89/SuperKids&#10;&#10;Conflicts:&#10;&#9;grails-app/views/shopping/check_out.gsp&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Checkout pages" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -757,7 +695,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="More Layout work" />
     <MESSAGE value="Added missing images" />
     <MESSAGE value="Added PageTextLoader utility class for loading initial pageText" />
     <MESSAGE value="Corrected some Layouts&#9;" />
@@ -782,6 +719,7 @@
     <MESSAGE value="New Shopping Cart" />
     <MESSAGE value="New &quot;1/2&quot; Checkout page." />
     <MESSAGE value="Merge branch 'master' of github.com:zak89/SuperKids&#10;&#10;Conflicts:&#10;&#9;grails-app/views/shopping/check_out.gsp&#10;" />
+    <MESSAGE value="New Checkout pages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -824,7 +762,7 @@
       <ActiveJiraIssueBean>
         <option name="issueKey" value="SKS-63" />
         <option name="issueUrl" value="http://207.223.253.11:8080/browse/SKS-63" />
-        <option name="secondsSpent" value="648057" />
+        <option name="secondsSpent" value="656052" />
         <option name="serverId">
           <ServerIdImpl>
             <option name="id" value="a220c36c-c85c-4e15-92dc-4edbb44923fd" />
@@ -971,114 +909,114 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/home/anonymous.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/home/edit_profile.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="374" selection-end="374" vertical-scroll-proportion="0.39693594">
+        <state line="45" column="34" selection-start="808" selection-end="885" vertical-scroll-proportion="-8.962264">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/home/public_products.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/contactRequest/create.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="21" selection-start="790" selection-end="2479" vertical-scroll-proportion="0.7297297">
+        <state line="6" column="43" selection-start="198" selection-end="198" vertical-scroll-proportion="2.1698112">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/css/public.css">
+    <entry file="file://$PROJECT_DIR$/grails-app/controllers/com/superkids/HomeController.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="681" column="6" selection-start="9713" selection-end="9713" vertical-scroll-proportion="0.0">
+        <state line="534" column="51" selection-start="17857" selection-end="17857" vertical-scroll-proportion="-10.076923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/taglib/com/superkids/taglib/MiscTagLib.groovy">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/assess.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="28" selection-start="3368" selection-end="3441" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/testShoppingCart/show.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/assess_landing.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="98" selection-start="1596" selection-end="1596" vertical-scroll-proportion="-8.094339">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/broker.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/public_li.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="10" selection-start="4617" selection-end="4617" vertical-scroll-proportion="0.9677966">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/promote.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="10" selection-start="4005" selection-end="4005" vertical-scroll-proportion="0.82288134">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/public.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="2513" selection-end="3572" vertical-scroll-proportion="0.5813559">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/products.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="10" selection-start="2459" selection-end="2459" vertical-scroll-proportion="0.88559324">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/order.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="-7.037037">
+        <state line="77" column="10" selection-start="3551" selection-end="3551" vertical-scroll-proportion="0.9677966">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/home/edit_profile.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/movie.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="484" column="74" selection-start="12910" selection-end="17520" vertical-scroll-proportion="-15.754717">
+        <state line="72" column="10" selection-start="3291" selection-end="3291" vertical-scroll-proportion="0.9677966">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/shopping/check_out_copy.gsp">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/learn.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="715" selection-end="951" vertical-scroll-proportion="-8.245283">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/shopping/_shoppingCartContent.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="19" selection-start="714" selection-end="714" vertical-scroll-proportion="-7.1698112">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/product/_checkout_items.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="111" column="22" selection-start="4423" selection-end="5451" vertical-scroll-proportion="0.93559325">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/customer.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/shopping/confirm.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="16" selection-start="1341" selection-end="1341" vertical-scroll-proportion="0.4661984">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/shopping/check_out.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="103" selection-start="1771" selection-end="1771" vertical-scroll-proportion="-9.320755">
+        <state line="90" column="10" selection-start="3924" selection-end="3924" vertical-scroll-proportion="0.9677966">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/checkout.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="36" selection-start="1205" selection-end="1222" vertical-scroll-proportion="-22.518518">
+        <state line="76" column="10" selection-start="3574" selection-end="3574" vertical-scroll-proportion="0.9677966">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/layouts/cart.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="74" selection-start="2158" selection-end="2158" vertical-scroll-proportion="-41.51852">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/shopping/thanks.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="565" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.2502195">
+        <state line="94" column="10" selection-start="4400" selection-end="4400" vertical-scroll-proportion="0.9677966">
           <folding />
         </state>
       </provider>

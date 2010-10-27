@@ -1,8 +1,8 @@
 
 package com.superkids
 
-import com.superkids.domain.*
 import cr.co.arquetipos.password.PasswordTools
+import com.superkids.domain.*
 
 class HomeController {
 
@@ -532,7 +532,7 @@ class HomeController {
 
        def sustagrain_general = {
            def content
-           def pt = PageText.findByName("sustagrain_general")
+           def pt = PageText.findByName("sustagrain")
            if(pt){
                content = pt.content
            }
