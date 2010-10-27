@@ -84,16 +84,13 @@
 
             <h1>School District Profile</h1>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}
-
+                <div class="message">${flash.message}</div>
+            </g:if>
 	    <g:hasErrors bean="${customerInstance}">
             	<div class="errors">
-                    <script>alert('${flash.message}'); </script>
+                	<g:renderErrors bean="${customerInstance}" as="list" />
             	</div>
             </g:hasErrors>
-
-			</div>
-            </g:if>
 
 			<div>There is a deadline of November 8th</div>
 			<div style="float:left;width:300px;">

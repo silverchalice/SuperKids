@@ -1,63 +1,5 @@
-<style type="text/css">
-table {
-    border: 1px solid #ccc;
-    width: 100%
-}
-tr {
-    border: 0;
-}
-td, th {
-    font: 11px verdana, arial, helvetica, sans-serif;
-    line-height: 12px;
-    padding: 5px 6px;
-    text-align: left;
-    vertical-align: top;
-}
-th {
-    background: #fff url(../images/skin/shadow.jpg);
-    color: #666;
-    font-size: 11px;
-    font-weight: bold;
-    line-height: 17px;
-    padding: 2px 6px;
-}
-th a:link, th a:visited, th a:hover {
-    color: #333;
-    display: block;
-    font-size: 10px;
-    text-decoration: none;
-    width: 100%;
-}
-th.asc a, th.desc a {
-    background-position: right;
-    background-repeat: no-repeat;
-}
-th.asc a {
-    background-image: url(../images/skin/sorted_asc.gif);
-}
-th.desc a {
-    background-image: url(../images/skin/sorted_desc.gif);
-}
 
-.odd {
-    background: #f7f7f7;
-}
-.even {
-    background: #fff;
-}
-
-/* LIST */
-
-.list table {
-    border-collapse: collapse;
-}
-.list th, .list td {
-    border-left: 1px solid #ddd;
-}
-.list th:hover, .list tr:hover {
-    background: #b2d1ff;
-}
-</style>
+	<br/><br/>
       <g:if test="${session.checkedOutItems}">
           <br>
           <h2>Checked out items</h2><br />
@@ -76,21 +18,23 @@ th.desc a {
         </g:if>
         <g:else>
                    <table style="border:0; border-style:none; border-color:white">
-                    </thead>
+                   
                     <tbody>
-                    <sc:each>
-                        <tr>
-                        
-                            <td>${com.superkids.domain.Product.findByShoppingItem(it['item'])}</td>
-                        
-                            <td><g:remoteLink controller="product" action="remove"
-				params="${[id:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).id, class:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).class, version:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).version]}"
-				update="shoppingCartContent">
-				Remove
-         			</g:remoteLink></td>                        
-                        </tr>
-                    </sc:each>
-                    <tr><td></td><td></td></tr>
+						<sc:each>
+							<tr>
+								<td style="width:110px; padding-left:18px"><img src="${createLink(controller:'product', action:'displayImage', id:com.superkids.domain.Product.findByShoppingItem(it['item']).id)}" alt="" /> </td>
+
+								<td valign="center" style="float:left;width: 260px;padding-top:30px; font-size:12px">${com.superkids.domain.Product.findByShoppingItem(it['item'])}</td>
+
+								<td style="float:right;width: 100px;padding-top:30px;"><g:remoteLink controller="product" action="remove"
+									params="${[id:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).id, class:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).class, version:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).version]}"
+									update="shoppingCartContent">
+									REMOVE
+									</g:remoteLink>
+								</td>
+							</tr>
+						</sc:each>
+						<tr><td></td><td></td></tr>
                     </tbody>
                 </table>
                    

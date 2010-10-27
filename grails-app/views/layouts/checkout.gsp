@@ -3,51 +3,48 @@
     <head>
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
-		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
-        <g:javascript library="application" />
-        <g:javascript library="jquery" plugin="jquery"/>
+
+		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
+		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
+		
     </head>
     <body>
   <div id="body">
-	<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
+
     <div id="secondaryContent">
-      <g:link action="index"><img id="logo" alt="SuperKids" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
+      <g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
-      <div id="sideLogoBox">
-          <g:link action='ultragrain'><img alt="ultragrain" src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
-          <g:link action='sustagrain'><img alt="sustagrain" src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
-      </div>
-
-      <div class="clear"></div>
-
-		<div id="factoidsContainer">
-			<strong>SuperKids Facts</strong>
-			<div id="factoids">
-			</div>
-		</div>
-
-        <sks:factoidList />
-
-    </div>
-	<div id="HeaderBar">
-		&nbsp;
-		<sec:ifLoggedIn>
-			<div style="float:right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
-		</sec:ifLoggedIn>
-	</div>
-
-    <div id="nav">
-      <span><g:link controller="login" action="auth">LOG IN</g:link></span>
     </div>
 	  
+    <div id="HeaderBar"> 
+        <sec:ifLoggedIn>
+            <div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div> 
+        </sec:ifLoggedIn>
+	  	<sec:ifNotLoggedIn>
+			  &nbsp;
+	  	</sec:ifNotLoggedIn>
+    </div>
+
+    <div id="nav">
+        <sec:ifLoggedIn>
+            <g:link controller="home" action="learn">LEARN</g:link>
+            <g:link class="current" controller="home" action="order">ORDER</g:link>
+            <g:link controller="home" action="assess">ASSESS</g:link>
+            <g:link controller="home" action="promote">PROMOTE</g:link>
+            <span><g:link controller="logout">LOG OUT</g:link></span>
+        </sec:ifLoggedIn>
+      <sec:ifNotLoggedIn>
+          <span><g:link controller="login" action="auth">LOG IN</g:link></span>
+      </sec:ifNotLoggedIn>
+    </div>
 	<div id="content">
 		<div id="contentInsetUpper">
 			<img alt="" src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
 			<img alt="" src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
 		</div>
-		<div id="contentInset" class="flexcroll">
+		<div id="contentInset" style="height:478px; overflow:auto" class="flexcroll">
 			<g:layoutBody />
 		</div>
 
@@ -58,11 +55,10 @@
 
 
 		<div id="contentFooter">
-			<img alt=""id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
+			<img alt="" id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
 			<img alt="" id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
 		</div>
 	</div>
-
 
     <div id="footer">
       <ul>
@@ -79,7 +75,6 @@
       </ul>
 
     </div>
-
   </div>
 
     </body>

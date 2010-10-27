@@ -1,8 +1,8 @@
 
 package com.superkids
 
-import com.superkids.domain.*
 import cr.co.arquetipos.password.PasswordTools
+import com.superkids.domain.*
 
 class HomeController {
 
@@ -148,7 +148,7 @@ class HomeController {
                if (params.version) {
                    def version = params.version.toLong()
                    if (customerInstance.version > version) {
-                       customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'customer.label', default: 'Customer')] as Object[], "Another user has updated this Customer while you were editing")
+                       customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'customer.label', default: 'Customer')] as Object[], "Another user has updated this profile while you were editing.")
                        render(view: "edit_profile", model: [customerInstance: customerInstance])
                        return
                    }
@@ -515,6 +515,42 @@ class HomeController {
        def about = {
            def content
            def pt = PageText.findByName("about")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def ultragrain_general = {
+           def content
+           def pt = PageText.findByName("ultragrain_general")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def sustagrain_general = {
+           def content
+           def pt = PageText.findByName("sustagrain")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def about_manufacturers = {
+           def content
+           def pt = PageText.findByName("about_manufacturers")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def where_to_find = {
+           def content
+           def pt = PageText.findByName("where_to_find")
            if(pt){
                content = pt.content
            }

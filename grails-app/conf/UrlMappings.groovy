@@ -116,6 +116,22 @@ class UrlMappings {
                     controller = "home"
                     action = "about"
                 }
+                "/ultragrain-general/" {
+                    controller = "home"
+                    action = "ultragrain_general"
+                }
+                "/sustagrain-general/" {
+                    controller = "home"
+                    action = "sustagrain_general"
+                }
+                "/about-manufacturers" {
+                    controller = "home"
+                    action = "about_manufacturers"
+                }
+                "/where-to-find" {
+                    controller = "home"
+                    action = "where_to_find"
+                }
                 "/superkids-products/" {
                     controller = "product"
                     action = "list"

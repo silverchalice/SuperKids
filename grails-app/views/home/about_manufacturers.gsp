@@ -4,12 +4,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="public_li" />
-        <title>SuperKids | Welcome to SuperKids</title>
+        <meta name="layout" content="public" />
+        <title>SuperKids | About Our Manufacturers</title>
     </head>
     <body>
-        <div id="contentInsetInner">
-            ${content}
-        </div>
+
+		<div id="contentInsetInner">${content}</div>
+
     </body>
 </html>

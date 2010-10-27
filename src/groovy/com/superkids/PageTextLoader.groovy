@@ -160,49 +160,6 @@ class PageTextLoader {
 			""").save()
 
 
-			def superKidsProductsText = new PageText(name:"superkids_products", content:"""
-				  <h1>SuperKids Products</h1><br />
-			   <h2>Would you like information about our new whole grain food products?</h2>
-			   <p style="font-size:12px">Shown here is a full list of products available for school district sampling within the SuperKids Whole Grain Sampling Program.</p>
-			   <strong style="color:#993300;">For product details, select 'Download PDF’ underneath the product pictures.</strong>
-			   <p>&nbsp;</p>
-					<g:each in="${productInstanceList}" var="productInstance">
-						<table style="border:0; margin-bottom:35px;">
-							<tbody>
-								<tr>
-									<td colspan="2"><h2>${productInstance?.name}</h2></td>
-								</tr>
-								<tr>
-									<td valign="top" rowspan="2" style="width:150px;">
-
-									<img alt="${productInstance?.name}" src="/SuperKids/uploads/${productInstance?.backgroundImage}" style="width:150px; height:180px; margin-bottom:15px; border:1px yellow solid; float:left" /><br />
-									<br />
-									<div style="line-height:30px;">
-									<img style="float:left; border:0; height:30px; width:30px" alt="Download PDF" src="/SuperKids/images/pdficon.gif" />&nbsp; <a target="_blank" href="/userfiles/file/PDF/ConAgra%20Foods%20Downloadable%20PDF.pdf"><span style="color: rgb(255, 102, 0);">Download PDF</span></a>
-									</div>
-									</td>
-									<td>
-									${productInstance?.description}   <br/>
-									${productInstance?.nutrition}
-									</td>
-								</tr>
-								<tr>
-									<td>
-									<h3 style="color:#D16B00; font-weight:normal">${productInstance.sponsor.name}</h3>
-									<p style="font-size:11px">${productInstance.sponsor.address.street}${productInstance.sponsor.address.street2 ? ", " + productInstance.sponsor.address.street2 : ""} ${productInstance.sponsor.address.city}, ${productInstance.sponsor.address.state} ${productInstance.sponsor.address.zip}<br />
-									${productInstance.sponsor.phone}
-									<a target="_blank" href="${productInstance.sponsor.website}"><strong style="color: rgb(255, 102, 0);">	${productInstance.sponsor.website}</strong></a>
-
-									${productInstance.sponsor.sampleContact}</p>
-
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</g:each>
-			""").save()
-
-
 			def wholeGrainBenefitsText = new PageText(name:"whole_grain_benefits", content:"""
 				<h1>Benefits of&nbsp;Whole Grains</h1> <br/> <img style="width:207px; height:266px; float:right" src="/SuperKids/images/SATStethoscope.jpg" alt="" /> <p><strong><span style="color: rgb(153, 51, 0); font-size:16px"><span>The most documented benefits </span></span></strong> of whole grain consumption are:</span></span></span></p>  <ul> <li>Better weight management</li> <li>Type 2 diabetes risk reduced 21-30% </li> <li>Stroke risk reduced 30-36%</li> <li>Heart disease risk reduced 25-28% </li> </ul>  <p><strong><span style="color: rgb(153, 51, 0); font-size:16px;">Other benefits</span></strong> indicated by recent studies include:</p> <ul> <li>Reduced risk of asthma</li> <li>Less gum disease and tooth loss</li> <li>Healthier carotid arteries </span></span></li> <li>Reduction&nbsp;of inflammatory disease risk</li> <li>Lower risk of colorectal cancer</li> <li>Healthier blood pressure levels</li> </ul>  <p style="font-size: 10px;color: rgb(153, 51, 0);">Select Whole Grains &amp; Human Health for recent health studies.&nbsp;Source: The Whole Grains Council)</p>
 				""").save()
@@ -630,6 +587,35 @@ class PageTextLoader {
     <li><span style="color: #000000"><span style="font-size: x-small">Sara Lee Made With Whole Grain Hot Dog Buns, White Hamburger Buns and English Muffins </span></span></li>
     <li><span style="color: #000000"><span style="font-size: x-small">Sara Lee Plain Bagels made with Ultragrain</span></span><span style="font-size: x-small"> </span></li>
 </ul>
+                                                         """
+                                ).save()
+
+                             def aboutText = new PageText(name:"about", content:"""
+<h1>About SuperKids</h1>
+<p>
+  <img width="141" height="200" align="right" style="width: 150px; height: 293px;" alt="" src="/SuperKids/images/NEWKIDEATING3.jpg" />
+  <h2>SuperKids is a unique school foodservice program</h2> offering free samples with higher fiber and whole grain nutrition in better-for-you breakfast, lunch, and snack foods K-12 students will love to eat. Now entering its 4th year, SuperKids is the only sampling program of its kind that:
+</p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Lets schools select free samples of whole grain products </span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Ships the samples free of charge </span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Includes resources to promote whole grain nutrition </span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Offers rewards for timely feedback </span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Provides a method of contact with the companies that offer these products </span></span></li>
+</ul>
+<p>
+  <img width="65" vspace="30" height="57" align="left" alt="" src="/SuperKids/images/healthierschoolchallengelog.jpg" />
+  <h2>SuperKids helps schools meet the U.S. school challenge for elementary schools.</h2>
+  Under the Healthier U.S. School Challenge for Elementary Schools, gold certification standards apply to public school district lunch programs that offer whole grain foods each day. Offering more great-tasting foods made with whole grains is one of the most efficient ways to get our nation's students eating the recommended daily whole grain nutrition intake levels. The fact is, most U.S. school-age children receive less than one serving of whole grains each day. SuperKids is helping to change these statistics for the better by offering easy and cost-effective ways to introduce whole grains into school menus. School foodservice directors are able to try out the products shown in this Web site <strong>free of charge</strong>.
+</p>
+<p>
+  <h2>Ultragrain<sup>&reg;</sup> and Sustagrain<sup>&reg;</sup></h2>
+  All products in the SuperKids program are from trusted food companies and bakeries and all are made with Ultragrain<sup>&reg;</sup> and/or Sustagrain<sup>&reg;</sup>&mdash;two revolutionary ingredients from ConAgra Mills that allow whole grain nutrition to be incorporated into school foodservice menus. In fact, schools will be able to order Ultragrain and Sustagrain samples as well and discover how they can increase the whole grain nutrition in their existing recipes.
+</p>
+<p>
+  <h2>The process is simple.</h2>
+  After ordering a whole grain food product, the samples are shipped free of charge. After schools receive the products, we ask a few and very brief questions about how they liked them. This information will be provided to the food manufacturers whose products are presented here, as well as to food distributors.
+</p>
                                                          """
                                 ).save()
 

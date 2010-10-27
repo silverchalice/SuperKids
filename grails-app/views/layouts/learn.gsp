@@ -97,15 +97,15 @@
 
 				<div id="footer">
 				  <ul>
-					<li><a href="#">Home</a> | </li>
-					<li><a href="#">About Super Kids</a> | </li>
-					<li><a href="#">Ultragrain&reg;</a> | </li>
-					<li><a href="#">Sustagrain&reg;</a> | </li>
-					<li><a href="#">About Our Manufacturers</a> | </li>
-					<li><a href="#">Where to Find</a> | </li>
-					<li><a href="#">Contact Us</a></li><br/>
-					<li><a href="#">Legal Policy</a> | </li>
-					<li><a href="#">Privacy Policy</a> | </li>
+					<li><a href="${createLink(controller:'home', action:'index')}">Home</a> | </li>
+					<li><a href="${createLink(controller:'home', action:'about')}">About Super Kids</a> | </li>
+					<li><a href="${createLink(controller:'home', action:'ultragrain_general')}">Ultragrain&reg;</a> | </li>
+					<li><a href="${createLink(controller:'home', action:'sustagrain_general')}">Sustagrain&reg;</a> | </li>
+					<li><a href="${createLink(controller:'home', action:'about_manufacturers')}">About Our Manufacturers</a> | </li>
+					<li><a href="${createLink(controller:'home', action:'where_to_find')}">Where to Find</a> | </li>
+					<li><a href="${createLink(controller:'contactRequest', action:'create')}">Contact Us</a></li><br/>
+					<li><a href="http://www.conagrafoods.com/utilities/legal.jsp">Legal Policy</a> | </li>
+					<li><a href="http://www.conagrafoods.com/utilities/privacy.jsp">Privacy Policy</a> | </li>
 					<li>&copy; ConAgra Foods, Inc. All rights reserved</li>
 				  </ul>
 
