@@ -60,14 +60,15 @@
             <g:form action="save" method="post" >
                 <div class="dialog">
                     <img style="width: 331px; height: 262px" height="280" alt="" hspace="10" width="350" align="left" src="${request.contextPath}/images/kidsjumpingoutoflogo.jpg" />
-                    <strong>We welcome inquiries, comments and suggestions.</strong></span></span><span style="color: #993300"><strong> </strong></span></p> 
+                    <strong style="color:#993300; font-size:16px">We welcome inquiries, comments and suggestions.</strong>     <br/>
+					
 					<p><span style="color: #000000"><span style="font-size: x-small">You can contact us via phone or fax at the numbers shown. To send us an email, please use the form below.</span></span></p>
-					<p><span style="color: #993300"><strong>SuperKids Headquarters</strong></span><span><span><span><strong><span><span><br />
-					</span></span></strong></span></span></span><span style="color: #000000"><span>P.O. Box 16170<br />
-					St. Louis MO 63105-9713 <br />
-					<br />
+					<p><strong style="color: #993300">SuperKids Headquarters</strong><br/>
+						<span style="color: #000000">P.O. Box 16170</span><br />
+						St. Louis MO 63105-9713 <br />
+						<br />
 					Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
-					</span></span><span style="color: #ff9900"><a href="mailto:melissac@sdastl.com"><strong><span style="color: #ff6600">melissac@sdastl.com</span></strong></a></span><strong><span style="color: #ff9900"><span style="color: #ff6600"> </span></span></strong></p>
+					<span style="color: #ff9900"><a href="mailto:melissac@sdastl.com"><strong><span style="color: #ff6600">melissac@sdastl.com</span></strong></a></span><strong><span style="color: #ff9900"><span style="color: #ff6600"> </span></span></strong></p>
 					<br/>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>
@@ -91,13 +92,13 @@
 										<label for="email" class="required">Your Email Address:</label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'email', 'errors')}">
-										<g:textField name="email" value="${contactRequestInstance?.email}" />
+										<g:textField name="email" style="width:200px" value="${contactRequestInstance?.email}" />
 									</td>
 								</tr>
 
 								<tr class="prop">
 									<td valign="top" class="name">
-										<label for="phone">Your Telephone Number:</label>
+										<label>Your Telephone Number:</label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'phone', 'errors')}">
 										(<g:textField name="phone1" size="3" maxlength="3" value="" />) <g:textField name="phone2" size="3" maxlength="3" value="" />-<g:textField name="phone3" size="4" maxlength="4" value="" />
@@ -109,7 +110,7 @@
 										<label for="districtName">Your School District or Company Name:</label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'districtName', 'errors')}">
-										<g:textField name="districtName" value="${contactRequestInstance?.districtName}" />
+										<g:textField name="districtName" style="width:200px"  value="${contactRequestInstance?.districtName}" />
 									</td>
 								</tr>
 
@@ -118,8 +119,8 @@
 										<label for="street">Address:</label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'street', 'errors')}">
-										<g:textField name="street" value="${contactRequestInstance?.street}" /><br /><br />
-										<g:textField name="street2" value="${contactRequestInstance?.street2}" />
+										<g:textField name="street" style="width:200px"  value="${contactRequestInstance?.street}" /><br /><br />
+										<g:textField name="street2" style="width:200px"  value="${contactRequestInstance?.street2}" />
 									</td>
 								</tr>
 
@@ -128,7 +129,7 @@
 										<label for="city">City:</label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'city', 'errors')}">
-										<g:textField name="city" value="${contactRequestInstance?.city}" />
+										<g:textField name="city" style="width:200px"  value="${contactRequestInstance?.city}" />
 									</td>
 								</tr>
 
@@ -152,7 +153,7 @@
 
 								<tr class="prop">
 									<td valign="top" class="name">
-										<label for="message" class="required">Your Interest:</label>
+										<label class="required">Your Interest:</label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'firstName', 'errors')}">
 									<textarea name="message" rows="10" cols="30" value="${contactRequestInstance?.message}"></textarea>
