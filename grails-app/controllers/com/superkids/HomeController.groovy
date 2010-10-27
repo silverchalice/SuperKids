@@ -521,6 +521,42 @@ class HomeController {
            [content:content]
        }
 
+       def ultragrain_general = {
+           def content
+           def pt = PageText.findByName("ultragrain_general")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def sustagrain_general = {
+           def content
+           def pt = PageText.findByName("sustagrain_general")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def about_manufacturers = {
+           def content
+           def pt = PageText.findByName("about_manufacturers")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
+       def where_to_find = {
+           def content
+           def pt = PageText.findByName("where_to_find")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
        def testimonials = {
            def content
            def pt = PageText.findByName("testimonials")
