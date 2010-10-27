@@ -590,5 +590,34 @@ class PageTextLoader {
                                                          """
                                 ).save()
 
+                             def aboutText = new PageText(name:"about", content:"""
+<h1>About SuperKids</h1>
+<p>
+  <img width="141" height="200" align="right" style="width: 150px; height: 293px;" alt="" src="/SuperKids/images/NEWKIDEATING3.jpg" />
+  <h2>SuperKids is a unique school foodservice program</h2> offering free samples with higher fiber and whole grain nutrition in better-for-you breakfast, lunch, and snack foods K-12 students will love to eat. Now entering its 4th year, SuperKids is the only sampling program of its kind that:
+</p>
+<ul>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Lets schools select free samples of whole grain products </span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Ships the samples free of charge </span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Includes resources to promote whole grain nutrition </span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Offers rewards for timely feedback </span></span></li>
+    <li><span style="color: rgb(0, 0, 0);"><span style="font-size: x-small;">Provides a method of contact with the companies that offer these products </span></span></li>
+</ul>
+<p>
+  <img width="65" vspace="30" height="57" align="left" alt="" src="/SuperKids/images/healthierschoolchallengelog.jpg" />
+  <h2>SuperKids helps schools meet the U.S. school challenge for elementary schools.</h2>
+  Under the Healthier U.S. School Challenge for Elementary Schools, gold certification standards apply to public school district lunch programs that offer whole grain foods each day. Offering more great-tasting foods made with whole grains is one of the most efficient ways to get our nation's students eating the recommended daily whole grain nutrition intake levels. The fact is, most U.S. school-age children receive less than one serving of whole grains each day. SuperKids is helping to change these statistics for the better by offering easy and cost-effective ways to introduce whole grains into school menus. School foodservice directors are able to try out the products shown in this Web site <strong>free of charge</strong>.
+</p>
+<p>
+  <h2>Ultragrain<sup>&reg;</sup> and Sustagrain<sup>&reg;</sup></h2>
+  All products in the SuperKids program are from trusted food companies and bakeries and all are made with Ultragrain<sup>&reg;</sup> and/or Sustagrain<sup>&reg;</sup>&mdash;two revolutionary ingredients from ConAgra Mills that allow whole grain nutrition to be incorporated into school foodservice menus. In fact, schools will be able to order Ultragrain and Sustagrain samples as well and discover how they can increase the whole grain nutrition in their existing recipes.
+</p>
+<p>
+  <h2>The process is simple.</h2>
+  After ordering a whole grain food product, the samples are shipped free of charge. After schools receive the products, we ask a few and very brief questions about how they liked them. This information will be provided to the food manufacturers whose products are presented here, as well as to food distributors.
+</p>
+                                                         """
+                                ).save()
+
 	}
 }
