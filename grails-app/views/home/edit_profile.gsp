@@ -418,7 +418,7 @@
 							  ${broker?.email}
 							</td>
 							<td>
-							  <g:link controller="product" action="brokerEditFromEdit" id="${broker?.id}" params="[rController:'home', rAction:'edit_profile']">Edit</g:link> | <g:link controller="product" action="brokerDeleteFromEdit" id="${broker?.id}">Delete</g:link>
+							  <g:link controller="product" action="brokerEditFromEdit" id="${broker?.id}" params="[rController:'home', rAction:'edit_profile']">Edit</g:link> | <g:link controller="product" action="brokerDeleteFromEdit" id="${broker?.id}" params="[rController:'home', rAction:'edit_profile']">Delete</g:link>
 							</td>
 						</tr>
 					  </g:each>
