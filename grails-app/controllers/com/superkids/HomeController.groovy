@@ -112,6 +112,10 @@ class HomeController {
        }
 
        def edit_profile = {      
+            def broker
+            if(params.brokerId){
+                broker = Broker.get(params.brokerId)
+            }
             def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
 			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
@@ -133,7 +137,7 @@ class HomeController {
                UserRole.list().each{ println it }
                def userRole = Role.findByAuthority("ROLE_USER")
                if (UserRole.findByUserAndRole(user, userRole)){
-                   return [customerInstance: user, states:states]
+                   return [customerInstance: user, states:states, broker:broker]
                } else {
                    redirect(action: "index")
                }
@@ -170,7 +174,9 @@ class HomeController {
        }
 
        def addBroker = {
+           println "here are the addBroker params: " + params
            def customerInstance
+           println "in addBroker, params.rId is " + params.rId
            def id = params.rId
            if(params.customerId){
                customerInstance = Customer.get(params.customerId)
@@ -178,15 +184,15 @@ class HomeController {
                customerInstance = Customer.get(springSecurityService.principal.id)
 
            }
-           println customerInstance
+           println "...and the customerInstance is " + customerInstance
            def controller = params.rController
            def action = params.rAction
            println "controller: " + controller + " action: " + action
            if(params.name){
                def broker = new Broker(params)
-               println broker.name
+               println "this new broker's name is " + broker.name
                customerInstance.addToBrokers(broker)
-               customerInstance.save()
+               customerInstance.save(failOnError:true)
             }
             redirect controller:controller, action:action, id:id
        }
