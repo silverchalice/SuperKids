@@ -1,5 +1,3 @@
-
-
 <%@ page import="com.superkids.domain.ContactRequest" %>
 <html>
     <head>
@@ -23,7 +21,7 @@
 				width:180px;
 				line-height:20px;
 				font-weight:bolder;
-					}
+            }
 
 
 			div.errors ul {
@@ -31,7 +29,7 @@
 				padding: 0;
 			}
 			div.errors li {
-				background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
+				background: url(../images/skin/exclamation.png) 8px 0 no-repeat;
 				line-height: 16px;
 				padding-left: 30px;
 			}
