@@ -48,46 +48,10 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="address.street"><g:message code="address.street1.label" default="Street" /></label>
+                                    <label for="address"><g:message code="address.label" default="Address" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance?.address, field: 'street', 'errors')}">
-                                    <g:textField name="address.street" value="${sponsorInstance?.address?.street}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="address.street2"><g:message code="address.street2.label" default="Street2" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance?.address, field: 'street2', 'errors')}">
-                                    <g:textField name="address.street2" value="${sponsorInstance?.address?.street2}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="address.city"><g:message code="address.city.label" default="City" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance?.address, field: 'city', 'errors')}">
-                                    <g:textField name="address.city" value="${sponsorInstance?.address?.city}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="address.state"><g:message code="address.state.label" default="State" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance?.address, field: 'state', 'errors')}">
-                                    <g:textField name="address.state" value="${sponsorInstance?.address?.state}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="address.zip"><g:message code="address.zip.label" default="Zip" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance?.address, field: 'zip', 'errors')}">
-                                    <g:textField name="address.zip" value="${fieldValue(bean: sponsorInstance?.address, field: 'zip')}" />
+                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'address', 'errors')}">
+                                    <g:textField name="address" value="${sponsorInstance?.address}" />
                                 </td>
                             </tr>
 

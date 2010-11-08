@@ -1,19 +1,6 @@
-import com.superkids.domain.Customer
-import com.superkids.domain.User
-import com.superkids.domain.Admin
-import com.superkids.domain.Product
-import com.superkids.domain.Sponsor
-import com.superkids.domain.Role
-import com.superkids.domain.UserRole
-import com.superkids.domain.Address
-import com.superkids.PageTextLoader
-import com.superkids.domain.Caller
-import com.superkids.domain.ShippingDate
 import com.metasieve.shoppingcart.ShoppingItem
-import com.superkids.domain.CustomerStatus
-import com.superkids.domain.Factoid
-import grails.util.GrailsUtil
-
+import com.superkids.PageTextLoader
+import com.superkids.domain.*
 
 class BootStrap {
     def springSecurityService
@@ -116,7 +103,7 @@ class BootStrap {
 
 		def sponsor1 = new Sponsor(
 			name:'ACME Foods, Inc',
-			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:93456),
+			address: '123 Wall Street Los Angeles CA 93456',
 			phone:'1-800 123 4567',
 			website:'www.acmefoods.com',
 			logo:new File("${superkids}/images/sustagrain.gif").readBytes(),
@@ -127,7 +114,7 @@ class BootStrap {
 
 		def sponsor2 = new Sponsor(
 			name:'Foo, Inc',
-			address: new Address(street:'123 Wall Street', city:'Los Angeles', state: 'CA', zip:93456),
+			address: '123 Wall Street Los Angeles CA, 93456',
 			phone:'1-800 123 4567',
 			website:'www.acmefoods.com',
 			logo:new File("${superkids}/images/ultragrain.gif").readBytes(),

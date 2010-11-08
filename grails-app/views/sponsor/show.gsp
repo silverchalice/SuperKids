@@ -1,4 +1,3 @@
-
 <%@ page import="com.superkids.domain.Sponsor" %>
 <html>
     <head>
@@ -37,11 +36,14 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="sponsor.address.label" default="Address" /></td>
-                            
-                            <td valign="top" class="value"><g:link controller="address" action="show" id="${sponsorInstance?.address?.id}">${sponsorInstance?.address?.encodeAsHTML()}</g:link></td>
-                            
+                            <td valign="top" class="name">
+                                <label for="address"><g:message code="sponsor.address.label" default="Address" /></label>
+                            </td>
+                            <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'address', 'errors')}">
+                                ${sponsorInstance?.address}
+                            </td>
                         </tr>
+
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="sponsor.phone.label" default="Phone" /></td>

@@ -51,12 +51,13 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="address"><g:message code="sponsor.address.label" default="Address" /></label>
+                                    <label for="address"><g:message code="address.label" default="Address" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'address', 'errors')}">
-                                    <g:select name="address.id" from="${com.superkids.domain.Address.list()}" optionKey="id" value="${sponsorInstance?.address?.id}"  />
+                                    <g:textField name="address" value="${sponsorInstance?.address}" />
                                 </td>
                             </tr>
+
                         
                             <tr class="prop">
                                 <td valign="top" class="name">

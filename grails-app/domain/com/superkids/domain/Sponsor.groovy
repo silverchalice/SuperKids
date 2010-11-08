@@ -3,7 +3,7 @@ package com.superkids.domain
 class Sponsor {
 
 	String name
-	Address address
+	String address
 	String phone
 	String website
         String description
