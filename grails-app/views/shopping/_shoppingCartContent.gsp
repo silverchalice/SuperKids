@@ -20,7 +20,7 @@
                    <table style="border:0; border-style:none; border-color:white">
                    
                     <tbody>
-						<sc:each>
+						<sks:eachInProducts>
 							<tr>
 								<td style="width:110px; padding-left:18px"><img src="${createLink(controller:'product', action:'displayImage', id:com.superkids.domain.Product.findByShoppingItem(it['item']).id)}" alt="" /> </td>
 
@@ -33,7 +33,7 @@
 									</g:remoteLink>
 								</td>
 							</tr>
-						</sc:each>
+						</sks:eachInProducts>
 						<tr><td></td><td></td></tr>
                     </tbody>
                 </table>

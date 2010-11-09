@@ -72,8 +72,8 @@
 
         <div id="contentInsetInner">
 
+		<h1>&nbsp;&nbsp;&nbsp;Sample Cart</h1>
                     <div id="shoppingCartContent" class="flexcroll" style="width:620px; height:430px; overflow:auto;">
-						<h1>&nbsp;&nbsp;&nbsp;Sample Cart</h1>
                       <sks:hasNotPlacedCurrentOrder>
                         <g:render template="/shopping/shoppingCartContent"/><br />
                       </sks:hasNotPlacedCurrentOrder>
