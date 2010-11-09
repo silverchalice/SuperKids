@@ -8,7 +8,7 @@
         <g:javascript src="swfobject.js" />
         <g:javascript src="flexcroll.js" />
         <g:javascript src="Menu.js" />
-        <title>You landed on: The Landing Page.</title>
+        <title>SuperKids</title>
     </head>
     <body>
         <div ID="flashcontent"></div> 

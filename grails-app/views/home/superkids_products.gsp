@@ -1,5 +1,3 @@
-
-
 <%@ page import="com.superkids.domain.Customer" %>
 <html>
     <head>
@@ -27,7 +25,7 @@
 							<img alt="${productInstance?.name}" src="/SuperKids/uploads/${productInstance?.backgroundImage}" style="width:150px; height:180px; margin-bottom:15px; border:1px yellow solid; float:left" /><br />
 							<br />
 							<div style="line-height:30px;">
-							<img style="float:left; border:0; height:30px; width:30px" alt="Download PDF" src="/SuperKids/images/pdficon.gif" />&nbsp; <a target="_blank" href="/userfiles/file/PDF/ConAgra%20Foods%20Downloadable%20PDF.pdf"><span style="color: rgb(255, 102, 0);">Download PDF</span></a>
+							    <img style="float:left; border:0; height:30px; width:30px" alt="Download PDF" src="/SuperKids/images/pdficon.gif" />&nbsp; <a target="_blank" href="/userfiles/file/PDF/ConAgra%20Foods%20Downloadable%20PDF.pdf"><span style="color: rgb(255, 102, 0);">Download PDF</span></a>
 							</div>
 							</td>
 							<td>
@@ -38,11 +36,11 @@
 						<tr>
 							<td>
 							<h3 style="color:#D16B00; font-weight:normal">${productInstance.sponsor.name}</h3>
-							<p style="font-size:11px">${productInstance.sponsor.address.street}${productInstance.sponsor.address.street2 ? ", " + productInstance.sponsor.address.street2 : ""} ${productInstance.sponsor.address.city}, ${productInstance.sponsor.address.state} ${productInstance.sponsor.address.zip}<br />
+							<p style="font-size:11px">${productInstance.sponsor.address}<br />
 							${productInstance.sponsor.phone}
 							<a target="_blank" href="${productInstance.sponsor.website}"><strong style="color: rgb(255, 102, 0);">	${productInstance.sponsor.website}</strong></a>
 
-							${productInstance.sponsor.sampleContact}</p>
+                            ${productInstance.sponsor.sampleContact}</p>
 
 							</td>
 						</tr>
