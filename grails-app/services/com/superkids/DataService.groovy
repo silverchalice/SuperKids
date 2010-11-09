@@ -42,10 +42,10 @@ class DataService {
 			}
                         def no = "0"
                         customer.password = springSecurityService.encodePassword("superkids")
-                        if(Email){
-                            customer.username = Email
-                            customer.fsdEmail = Email
-                            customer.email = Email
+                        if(FSD_Email && !Customer.findByUsername(FSD_Email)){
+                            customer.username = FSD_Email
+                            customer.fsdEmail = FSD_Email
+                            customer.email = FSD_Email
                         } else {
                            customer.username = "no-email@no-email${i}.com"
                            customer.email = "no-email@no-email${i}.com"
@@ -63,7 +63,7 @@ class DataService {
                             userRole = new Role(authority:"ROLE_USER").save(failOnError:true)
                         }
                         println "the customer is " + customer + ", and the role is " + userRole
-                        //UserRole.create customer, userRole, true
+                        UserRole.create customer, userRole, true
 		}
 	}
 }
