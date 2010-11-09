@@ -80,7 +80,7 @@ class Customer extends User {
 		district nullable:false, blank:false
 		address nullable:true, blank:true
 		deliveryAddress nullable: false
-		email nullable:false, blank:false, email:true
+		email nullable:false, blank:false
 		website(nullable: true)
 		phone(nullable:true, blank:true)
 		fax nullable: true 
