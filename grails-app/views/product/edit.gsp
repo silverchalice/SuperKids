@@ -39,6 +39,11 @@
                     </p><br />
 
                     <p>
+                        <label for="description">Details:</label>
+                        <g:textArea style="width:95%; height:300px;" name="details" value="${productInstance?.details}" />
+                    </p><br/>
+
+                    <p>
                         <label for="description">Description:</label>
                         <g:textArea style="width:95%; height:300px;" name="description" value="${productInstance?.description}" />
                     </p>
@@ -60,29 +65,10 @@
 
                     <p>Company Address:<p><br />
                     <p>
-                        <label for="sponsor.address.street">Street:</label>
-                        <g:textField name="sponsor.address.street" value="${productInstance?.sponsor?.address.street}" />
+                        <label for="sponsor.address">Address:</label>
+                        <g:textField name="sponsor.address" value="${productInstance?.sponsor?.address}" />
                     </p><br />
 
-                    <p>
-                        <label for="sponsor.address.street2">Street:</label>
-                        <g:textField name="sponsor.address.street2" value="${productInstance?.sponsor?.address.street2}" />
-                    </p><br />
-
-                    <p>
-                        <label for="sponsor.address.city">City:</label>
-                        <g:textField name="sponsor.address.city" value="${productInstance?.sponsor?.address.city}" />
-                    </p><br />
-
-                    <p>
-                        <label for="sponsor.address.state">State:</label>
-                        <g:textField name="sponsor.address.state" value="${productInstance?.sponsor?.address.state}" />
-                    </p><br />
-
-                    <p>
-                        <label for="sponsor.address.zip">Zip:</label>
-                        <g:textField name="sponsor.address.zip" value="${productInstance?.sponsor?.address.zip}" />
-                    </p><br />
 
                     <p>
                         <label for="sponsor.phone">Main Telephone # :</label>

@@ -8,7 +8,9 @@
         <g:javascript library="jquery" plugin="jquery"/>
 		
 		<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui-lightness/jquery-ui-1.8.5.custom.css')}" />
+        <link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'flexcrollstyles.css')}" />
 
+        <script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
 
         <title><g:message code="default.show.label" args="[entityName]" /></title>
 		<style type="text/css">
@@ -151,9 +153,7 @@
 				background: #fff;
 			}
 			.tab_content {
-
 				padding: 20px;
-				font-size: 1.2em;
 			}
 
 			#orderSample a { background-image:url('/SuperKids/images/layout/buttons/OrderOrderButton.gif'); }
@@ -223,9 +223,9 @@
 				<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" alt="" style="float:left" />
 				<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" alt="" style="float:right" />
 			</div>
-			<div style="width:518px; padding:0; height:483px; margin:0 auto; position:absolute; top:100px; left:419px; overflow: auto;">
+			<div  id="detailsContent" style="width:521px; padding:0; height:483px; margin:0 auto; position:absolute; top:100px; left:419px; overflow: auto;">
 
-				<div style="width:471px; padding:0 10px 10px 10px; background:white; left:1px; height:468px; position:absolute; overflow:auto;"  class="flexcroll">
+				<div style="width:471px; padding:0 10px 10px 10px; background:white; left:1px; height:100%; overflow:visible; position:relative;">
 					<h2>${productInstance?.name}</h2>
 					${productInstance?.description}<br/>
 					${productInstance?.details}
@@ -312,6 +312,8 @@
 
 					var activeTab = jQuery(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
 					jQuery(activeTab).show(); //Fade in the active ID content
+
+                    fleXenv.fleXcrollMain("detailsContent");
 					return false;
 				});
 

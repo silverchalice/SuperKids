@@ -663,7 +663,7 @@ tr {
     border: 0;
 }
 td, th {
-    font: 11px verdana, arial, helvetica, sans-serif;
+    font: 11px arial, helvetica, sans-serif;
     line-height: 12px;
     padding: 5px 6px;
     text-align: left;
