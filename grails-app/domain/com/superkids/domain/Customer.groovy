@@ -86,7 +86,7 @@ class Customer extends User {
 		fax nullable: true 
 		inCall nullable:true
 
-		fsdName nullable: false, blank:false
+		fsdName nullable: false
 		fsdEmail nullable: false
 		fsdTitle nullable: true
 
