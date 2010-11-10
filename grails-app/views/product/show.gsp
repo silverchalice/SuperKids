@@ -49,7 +49,7 @@
 
 			.contentInset p {
 			  font-size:10px;
-			  margin-top:0px;
+			  margin-top:0;
 			  margin-bottom:13px;
 			  padding-left:1px;
 			}
