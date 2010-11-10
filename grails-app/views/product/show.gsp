@@ -315,7 +315,7 @@
 
                       <tr>
                         <td class="name" style="width:110px;">Website Address</td>
-                        <td class="value"><a href="http://${productInstance?.sponsor?.website}">${productInstance?.sponsor?.website}</a></td>
+                        <td class="value">${productInstance?.sponsor?.website}</td>
                       </tr>
 
                       <tr>

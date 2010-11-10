@@ -112,19 +112,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="public.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="public.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/css/public.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="105" column="74" selection-start="1315" selection-end="1315" vertical-scroll-proportion="0.8388815">
+            <state line="94" column="38" selection-start="1091" selection-end="1091" vertical-scroll-proportion="-16.192308">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.gsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="show.gsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/grails-app/views/product/show.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="317" column="132" selection-start="10711" selection-end="10711" vertical-scroll-proportion="-9.019608">
+            <state line="317" column="78" selection-start="10657" selection-end="10657" vertical-scroll-proportion="0.6597796">
               <folding />
             </state>
           </provider>
@@ -213,8 +213,8 @@
         <option value="$PROJECT_DIR$/grails-app/views/home/superkids_products.gsp" />
         <option value="$PROJECT_DIR$/web-app/css/flexcrollstyles.css" />
         <option value="$PROJECT_DIR$/grails-app/views/product/edit.gsp" />
-        <option value="$PROJECT_DIR$/grails-app/views/product/show.gsp" />
         <option value="$PROJECT_DIR$/web-app/css/public.css" />
+        <option value="$PROJECT_DIR$/grails-app/views/product/show.gsp" />
       </list>
     </option>
   </component>
@@ -739,7 +739,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1356" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36664012" sideWeight="0.4142395" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -748,7 +748,7 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32686085" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14456391" sideWeight="0.65316045" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14456391" sideWeight="0.65316045" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26443648" sideWeight="0.64724916" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32847896" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1096,16 +1096,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/product/show.gsp">
+    <entry file="file://$PROJECT_DIR$/web-app/css/public.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="317" column="132" selection-start="10711" selection-end="10711" vertical-scroll-proportion="-9.019608">
+        <state line="94" column="38" selection-start="1091" selection-end="1091" vertical-scroll-proportion="-16.192308">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web-app/css/public.css">
+    <entry file="file://$PROJECT_DIR$/grails-app/views/product/show.gsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="74" selection-start="1315" selection-end="1315" vertical-scroll-proportion="0.8388815">
+        <state line="317" column="78" selection-start="10657" selection-end="10657" vertical-scroll-proportion="0.6597796">
           <folding />
         </state>
       </provider>
