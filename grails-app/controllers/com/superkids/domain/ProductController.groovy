@@ -119,7 +119,15 @@ class ProductController {
                     return
                 }
             }
-            productInstance.properties = params
+            if(params.image?.isEmpty() && params.hoverImage?.isEmpty()){
+                bindData(productInstance, params, ['image', 'hoverImage'])
+            } else if(params.image?.isEmpty()){
+                bindData(productInstance, params, ['image'])
+            } else if(params.hoverImage?.isEmpty()){
+                bindData(productInstance, params, ['hoverImage'])
+            } else {
+                productInstance.properties = params
+            }
 
 			if(params.parentProd) {
 				def parent = Product.findByName(params.parentProd)
