@@ -50,20 +50,17 @@ class PageTextLoader {
 
 			def assessmentDrawingRulesText = new PageText(name:"assessment_drawing_rules", content:"""
 				<h1>Assessment Drawing Rules</h1>
-				<p><strong>How To Enter:</strong> No purchase necessary. One entry per school district. ConAgra Mills (&rdquo;Sponsor&rdquo;) is not responsible for lost, late or misdirected assessments not received in time for the random drawing.</p>
-				<p><strong>Prizes</strong></p>
-				<ol>
-				<li><strong>TWO (2) First Place Prizes</strong> - \$1,000 for travel expenses and registration fees for SNA or other foodservice show in 2010.</li>
-				<li><strong>THREE (3) Second Place Prizes</strong> - Three &ldquo;OrganWise Guys Foods of the Month Club Kits,&rdquo; which you can use as an educational resource in three of your school district cafeterias (\$885 value).</li>
-				<li><strong>FIVE (5) Third Place Prizes</strong> - A \$200 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
-				<li><strong>TEN (10) Fourth Place Prizes</strong> - A \$100 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
-				<li><strong>THIRTY-THREE (33) Fifth Place Prizes</strong> - Missy Lapine&rsquo;s <em>Sneaky Chef</em> paperback (\$16 value).</li>
-				</ol>
-				<p>By acceptance of prize, winner agrees to use of name and/or likeness for advertising and promotional purposes without additional compensation, unless prohibited by law. No prize transfers. If prize is unavailable, a prize of equal or greater value wil be substituted, at discretion of Sponsor. Winners may not elect to exchange the travel and accommodations award, or the OrganWise Guys award for their cash equivalent value.</p>
-				<p><strong>Eligibility:</strong> Only foodservice professionals who have sampled products within the SuperKids Whole Grain Sampling Program (2010) are eligible. Employees and families of ConAgra Mills and participating food manufacturers, their subsidiaries or affiliated companies are not eligible. Void where prohibited or restricted by employer's policy. Participants must comply with their own school district's policy and/or directives regarding prize acceptance and must be employed by the school district at program's end. All federal, state and local laws apply.</p>
-				<p><strong>Drawing:</strong> A random drawing will be held on March 8, 2010, by Sales Development Associates, the official sweepstakes administrator. Odds of winning will depend on the number of assessments received. You will be required to sign a Winner&rsquo;s Affidavit and Release within ten business days of attempted delivery or the award will be forfeited. Winners will be notified by mail/phone. All taxes are the sole responsibility of winners. The decisions of Sponsor are final in all matters relating to this sweepstakes.</p>
-				<p><strong>Winners&rsquo; List:</strong> Will be announced.</p>
-				<p><strong>To get started, just click <g:link controller="home" action="index">here</g:link>, or on &ldquo;Begin Online Assessment&rdquo; in the menu. If you don&rsquo;t finish, your progress will be saved so that you can come back later.</strong></p>
+				<p><strong>How To Enter:</strong> No purchase necessary. ConAgra Mills (”Sponsor”) is not responsible for lost, late or misdirected assessments not received in time for the random drawing.</p>
+                                <p><strong>Prizes</strong></p>
+                                <ol>
+                                    <li><span style="color:#993300;">FIVE (5) First Place Prizes</span>--\$200 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
+                                    <li><span style="color:#993300;">SEVEN (7) Second Place Prizes</span>--\$100 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
+                                </ol>
+                                <p>By acceptance of prize, winner agrees to use of name and/or likeness for advertising and promotional purposes without additional compensation, unless prohibited by law. No prize transfers. If prize is unavailable, a prize of equal or greater value will be substituted, at discretion of Sponsor. Winners may not elect to exchange the gift card award for their cash equivalent value.</p>
+                                <p><strong>Eligibility:</strong> Only foodservice professionals who have sampled products within the SuperKids Whole Grain Sampling Program (2011) are eligible. Employees and families of ConAgra Mills and participating food manufacturers, their subsidiaries or affiliated companies are not eligible. Void where prohibited or restricted by employer's policy. Participants must comply with their own school district's policy and/or directives regarding prize acceptance and must be employed by the school district at program's end. All federal, state and local laws apply.</p>
+                                <p><strong>Drawing:</strong> A random drawing will be held on March 23, 2010, by Sales Development Associates, the official sweepstakes administrator. Odds of winning will depend on the number of assessments received. You will be required to sign a Winner’s Affidavit and Release within ten business days of attempted delivery or the award will be forfeited. Winners will be notified by mail/phone. All taxes are the sole responsibility of winners. The decisions of Sponsor are final in all matters relating to this sweepstakes.</p>
+                                <p><strong>Winners’ List:</strong> Will be announced.</p>
+                                <p><strong>To get started, just click here, or on “Begin Online Assessment” in the menu. If you don’t finish, your progress will be saved so that you can come back later.</strong></p>
 
 							"""
 			  ).save()
