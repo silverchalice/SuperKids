@@ -92,9 +92,7 @@
                 var productId = $(this).parent().attr("class");
                 var adId = "#" + productId;
 
-                $(adId).show();
-
-                console.log(productId);
+                $(adId).fadeIn();
 
 
 
@@ -103,7 +101,7 @@
                 var productId = $(this).parent().attr("class");
                 var adId = "#" + productId;
 
-                $(adId).hide();
+                $(adId).fadeOut();
               }
           );
 
