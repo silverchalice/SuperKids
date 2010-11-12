@@ -87,13 +87,23 @@
     <script type="text/javascript">
       $(document).ready(function(){
 
-          $('#productBox a img').hover(
+          $('#products a img').hover(
               function(){
-                var imgId = $(this.parent);
+                var productId = $(this).parent().attr("class");
+                var adId = "#" + productId;
+
+                $(adId).show();
+
+                console.log(productId);
+
+
 
               },
               function(){
+                var productId = $(this).parent().attr("class");
+                var adId = "#" + productId;
 
+                $(adId).hide();
               }
           );
 
