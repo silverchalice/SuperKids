@@ -95,7 +95,6 @@
 			}
 
 			img.productAdImage {
-              display:none;
 				padding:0;
 				margin:0;
 				width:491px;
