@@ -26,7 +26,7 @@
                         
                             <g:sortableColumn property="name" title="${message(code: 'pageText.name.label', default: 'Name')}" />
                         
-                            <g:sortableColumn property="content" title="${message(code: 'pageText.content.label', default: 'Content')}" />
+
                         
                         </tr>
                     </thead>
@@ -37,8 +37,7 @@
                             <td><g:link action="show" id="${pageTextInstance.id}">${fieldValue(bean: pageTextInstance, field: "id")}</g:link></td>
                         
                             <td>${fieldValue(bean: pageTextInstance, field: "name")}</td>
-                        
-                            <td>${fieldValue(bean: pageTextInstance, field: "content")}</td>
+
                         
                         </tr>
                     </g:each>

@@ -76,6 +76,18 @@ em {
 	
 }
 
+
+
+sup {
+  font-size:smaller;
+  padding-bottom:5px;
+}
+
+.reg {
+  font-size:smaller;
+  padding-bottom:5px;
+}
+
 #nav {
 	/*border:1px blue solid;*/
 	margin-top:1px;
