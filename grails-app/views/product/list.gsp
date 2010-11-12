@@ -42,7 +42,7 @@
                                         value="${productInstance.liveProduct}"
                                         onclick="${remoteFunction(action:'toggleLive', id:productInstance.id, params:'\'liveProduct=\' + this.checked')}" /></td>
 
-                            <td width="550px">&nbsp;<g:link action="edit" id="${productInstance.id}">${fieldValue(bean: productInstance, field: "name")}</g:link></td>
+                            <td width="550px">&nbsp;<g:link action="edit" id="${productInstance.id}">${productInstance.name}</g:link></td>
 
                             <td width="520px">&nbsp;<sks:bakeCheckbox name="bake"
                                                   id="bake"
