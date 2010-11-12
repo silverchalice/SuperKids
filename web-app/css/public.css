@@ -424,10 +424,10 @@ a:hover.viewCartButton {
 .hoverProductAd {
     display:none;
     position:absolute;
-    left:418px;
-    top:89px;
-    height:497px;
-    width:493px;
+    left:419px;
+    top:90px;
+    height:496px;
+    width:492px;
     z-index:3;
 
 }
