@@ -85,11 +85,11 @@
     </body>
 
     <script type="text/javascript">
-      $(document).ready({
+      $(document).ready(function(){
 
           $('#productBox a img').hover(
               function(){
-                var imgId = $(this.parent)
+                var imgId = $(this.parent);
 
               },
               function(){
