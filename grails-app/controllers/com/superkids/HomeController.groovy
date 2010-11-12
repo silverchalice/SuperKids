@@ -687,6 +687,51 @@ class HomeController {
            }
        }
 
+       def c_2_change_password = {
+           def customerInstance = Customer.get(springSecurityService.principal.id)
+           [customerInstance:customerInstance]
+       }
+
+       def c_2_password = {
+           println "here is the password we got: " + params.password
+           def customerInstance = Customer.get(springSecurityService.principal.id)
+           def oldpassword = springSecurityService.encodePassword(params.oldpassword)
+           if(params.password == "superkids"){
+               flash.message = "Please enter a new password. Your new password cannot be \"superkids\"."
+                log.info flash.message
+               redirect action:"c_2_change_password"
+           } else {
+               if(oldpassword == customerInstance.password){
+                   if(params.password){
+                       println "supposedly matches..."
+                       if(params.password == params.confirmpassword){
+                           customerInstance.password = springSecurityService.encodePassword(params.password)
+                           customerInstance.usingResetPassword = false
+                           customerInstance.save(failOnError:true)
+                           flash.message = "Your password has been updated."
+                           log.info flash.message
+                           println "!!! redirecting"
+                           redirect action:"index"
+                       } else {
+                           flash.message = "New passwords do not match."
+                           log.info flash.message
+                           render view:"c_2_change_password", model:[customerInstance:customerInstance]
+                       }
+                   } else {
+                       println "there was no new password..."
+                       flash.message = "Please enter a new password."
+                       log.info flash.message
+                       render view:"c_2_change_password", model:[customerInstance:customerInstance]
+                   }
+               } else {
+                   flash.message = "Current password is not correct."
+                   log.info flash.message
+                   render view:"c_2_change_password", model:[customerInstance:customerInstance]
+               }
+           }
+       }
+
+
        def assignRoles = {
            if(springSecurityService.isLoggedIn()){
                if(User.get(springSecurityService.principal.id).isAdmin()){

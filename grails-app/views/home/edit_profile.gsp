@@ -122,6 +122,15 @@
 					</td>
 				</tr>
 
+				<tr>
+					<td valign="top" class="name">
+					  <label for="password"><g:message code="customer.password.label" default="Password" /></label>
+					</td>
+					<td valign="top">
+						<g:link controller="home" action="c_2_change_password">Change Password</g:link>
+					</td>
+				</tr>
+
 			   <tr class="prop">
 					<td valign="top" class="name">
 					  <label><g:message code="customer.address.street.label" default="School District Address" /></label>
