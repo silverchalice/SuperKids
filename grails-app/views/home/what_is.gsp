@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="learn" />
         <meta name="link" content="what_is" />
-        <title>You landed on: The Landing Page.</title>
+        <title>SuperKids | What Is SuperKids?</title>
     </head>
     <body>
 

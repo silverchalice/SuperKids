@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="public" />
         <meta name="link" content="about" />
-        <title>SuperKids | About SuperKids</title>
+        <title>SuperKids | About Ultragrain</title>
     </head>
     <body>
 		<div id="contentInsetInner">

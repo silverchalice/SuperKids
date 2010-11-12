@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="broker" />
         <meta name="link" content="broker_participate" />
-        <title>You landed on: The Landing Page.</title>
+        <title>SuperKids | How You Can Participate</title>
     </head>
     <body>
 

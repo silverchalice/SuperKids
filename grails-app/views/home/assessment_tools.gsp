@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="assess" />
         <meta name="link" content="assessment_tools" />
-        <title>You landed on: The Landing Page.</title>
+        <title>SuperKids | Assessment Tools & Resources</title>
     </head>
     <body>
 

@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="public" />
-        <title>Registration | SuperKids</title>
+        <title>SuperKids | Registration</title>
     </head>
     <body>
             <h1>Registration</h1><br />

@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="customer" />
-        <title>Edit Profile | SuperKids</title>
+        <title>SuperKids | Edit Profile</title>
 
 		<g:javascript library="jquery" plugin="jquery" />
 		<jqui:resources />
