@@ -9,7 +9,7 @@ class PageTextController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.max = Math.min(params.max ? params.int('max') : 20, 100)
         [pageTextInstanceList: PageText.list(params), pageTextInstanceTotal: PageText.count()]
     }
 
