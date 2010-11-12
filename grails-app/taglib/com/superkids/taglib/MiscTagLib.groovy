@@ -79,7 +79,9 @@ class MiscTagLib {
 					println "hoverImage"
 					out << "<a href='"
 					out << g.createLink(controller:'product', action:'show', id: product.id)
-					out << "' />"
+					out << "' class='"
+                    out << product.id
+                    out << "' />"
 					out << "<img src='"
 					out << "${createLink(controller:'product', action:'displayHoverImage', id:product.id)}"
 					out << "' "
@@ -89,13 +91,24 @@ class MiscTagLib {
 					println "image"
 					out << "<a href='"
 					out << g.createLink(controller:'product', action:'show', id: product.id)
-					out << "' />"
+					out << "' class='"
+                    out << product.id
+                    out << "' />"
 					out << "<img src='"
 					out << "${createLink(controller:'product', action:'displayImage', id:product.id)}"
 					out << "' "
 					out << "class='productThumb' />"
 					out << "</a>"
 				}
+
+//              out << "<img class='hoverProductAd' src='/SuperKids/uploads/"
+//              out << product.backgroundImage
+//              out << "' id='"
+//              out << product.name
+//              out << "'/>"
+
+
+
 			} else {
 				out << ""
 			}

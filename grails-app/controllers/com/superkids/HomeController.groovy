@@ -371,7 +371,16 @@ class HomeController {
            if(pt){
                content = pt.content
            }
-           [content:content]
+
+           def products = []
+
+           def customer = Customer.get(springSecurityService.principal.id)
+           Product.list().each {product ->
+               if((product.liveProduct) && (product.statesAvailable.find{ customer?.deliveryAddress?.state }) && (!product.parent)) {
+                   products << product
+               }
+           }
+           [content:content, products: products]
        }
 
        def assess = {

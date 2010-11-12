@@ -40,12 +40,16 @@
       <g:link controller="home" action="promote">PROMOTE</g:link>
       <span><g:link controller="logout">LOG OUT</g:link></span>
     </div>
+    <g:each in="${products}" var="product">
+        <img alt="" src="${resource(dir:'uploads', file:product.backgroundImage)}" class="hoverProductAd" id="${product.id}"/>
+    </g:each>
     <div id="content">
 		<div id="contentInsetUpper">
 			<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
 			<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
 		</div>
 		<div id="contentInset" class="flexcroll" style="height:478px; padding:0; right:15px">
+
 			<g:layoutBody />
 		</div>
 
@@ -79,4 +83,22 @@
   </div>
 
     </body>
+
+    <script type="text/javascript">
+      $(document).ready({
+
+          $('#productBox a img').hover(
+              function(){
+                var imgId = $(this.parent)
+
+              },
+              function(){
+
+              }
+          );
+
+      });
+
+    </script>
+
 </html>
