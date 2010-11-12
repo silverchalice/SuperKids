@@ -86,7 +86,7 @@
 			#productAdContainer {
 				width:491px;
 				padding:0;
-				background:white;
+				background:#FF6600;
 				min-height:495px;
 				right:29px;
 				position:absolute;
