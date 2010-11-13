@@ -643,17 +643,47 @@ class HomeController {
            } else {
                adminInstance = Admin.get(springSecurityService.principal.id)
            }
-           if(params.password == params.confirmpassword){
-               adminInstance.password = springSecurityService.encodePassword(params.password)
-               adminInstance.save()
-               flash.message = "Password updated."
-                log.info flash.message
-               redirect controller:"customer", action:"list"
+           if(params.password){
+               if(params.password == params.confirmpassword){
+                   adminInstance.password = springSecurityService.encodePassword(params.password)
+                   adminInstance.save()
+                   flash.message = "Password updated."
+                    log.info flash.message
+                   redirect controller:"customer", action:"list"
+               } else {
+                   flash.message = "New passwords do not match."
+                   log.info flash.message
+                   adminInstance.password = params.password
+                   render view:"change_password", model:[adminInstance:adminInstance]
+               }
            } else {
-               flash.message = "New passwords do not match."
-                log.info flash.message
-               adminInstance.password = params.password
+               flash.message = "Please enter a new password."
                render view:"change_password", model:[adminInstance:adminInstance]
+           }
+       }
+
+       def a_change_c_password = {
+           def customerInstance = Customer.get(params.id)
+           [customerInstance:customerInstance]
+       }
+
+       def a_c_password = {
+           def customerInstance = Customer.get(params.id)
+           if(params.password){
+               if(params.password == params.confirmpassword){
+                   customerInstance.password = springSecurityService.encodePassword(params.password)
+                   customerInstance.save()
+                   flash.message = "Password for user ${customerInstance.district} updated."
+                    log.info flash.message
+                   redirect controller:"customer", action:"list"
+               } else {
+                   flash.message = "New passwords do not match."
+                   log.info flash.message
+                   render view:"a_change_c_password", model:[customerInstance:customerInstance]
+               }
+           } else {
+               flash.message = "Please enter a new password."
+               render view:"a_change_c_password", model:[customerInstance:customerInstance]
            }
        }
 
