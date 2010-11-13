@@ -82,6 +82,15 @@
                                     <g:textField name="district" value="${customerInstance?.district}" />
                                 </td>
                             </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="password"><g:message code="customer.password.label" default="Password" /></label>
+                                </td>
+                                <td valign="top">
+                                    <g:link controller="home" action="a_change_c_password" id="${customerInstance?.id}">Change Password</g:link>
+                                </td>
+                            </tr>
                         
 						<tr class="prop">
 							<td valign="top" class="name">
