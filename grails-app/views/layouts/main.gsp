@@ -17,7 +17,7 @@
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>
         <div id="grailsLogo" style="height:75px;"><g:link controller="home"><img style="float:left" src="${resource(dir:'images/layout',file:'AdminLogo.jpg')}" alt="SuperKids" border="0" /></g:link>
-            <h1 style="font-size:32px;">Super Kids Administrative Dashboard</h1>
+            <h1 style="font-size:32px;">SuperKids Administrative Dashboard</h1>
         </div>
                 <div id="nav">
             <div class="homePagePanel">
