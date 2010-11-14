@@ -62,7 +62,7 @@
                                 </g:if>
                             </td>
 
-                            <td><g:link action="other_delete" id="${adminInstance.id}">[Delete]</g:link></td>
+                            <td><g:link action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${adminInstance.id}">[Delete]</g:link></td>
                         
                         </tr>
                     </g:each>
