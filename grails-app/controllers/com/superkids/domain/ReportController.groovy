@@ -1,9 +1,6 @@
 package com.superkids.domain
 
 import org.codehaus.groovy.grails.commons.ConfigurationHolder
-import com.superkids.domain.Customer
-import com.superkids.domain.CustomerOrder
-import com.superkids.domain.Product
 
 class ReportController {
 
@@ -13,9 +10,11 @@ class ReportController {
 
     def exportCustomers = {
 
+        def withAssessments = params.withAssessments
+
         def thatWhichIsContainedInOurExportation = []
 
-        def prods = Product.list()
+        def prods = Product.list(sort:'name')
 
         Customer.list().each { customer ->
             def productIds = customer.order?.products.collect{customer.id}
@@ -57,12 +56,26 @@ class ReportController {
             }
             m.order = new Expando()
             m.order.shippingDate = customer.order?.shippingDate
+
+            if(withAssessments) {
+                prods.each { prod ->
+                    def assessment = customer?.assessments.find{ it.product.id == prod.id }
+
+                    m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
+                    m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
+                    m."${prod.name}_Q3" = assessment ? assessment.likeComment : ''
+                    m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''
+                }
+            }
+
             println m
             thatWhichIsContainedInOurExportation << m
         }
 
-        List fields = ["id", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments"]
 
+
+
+        List fields = ["id", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments"]
         prods.each{prod ->
             def foo = prod.name
             fields << foo
@@ -72,12 +85,35 @@ class ReportController {
 
         Map labels = ["id": "Id", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other"]
 
-        prods.each{prod ->
-            labels."${prod.name}" = prod.name
-        }
+        prods.each{prod ->  labels."${prod.name}" = prod.name }
 
         def bar = "order.shippingDate"
         labels."${bar}" = "Req'd Ship Date"
+
+        if(withAssessments) {
+
+          def assessFields = []
+          def assessLabels = [:]
+
+          prods.each { prod ->
+              assessFields << "${prod.name}_Q1"
+              assessFields << "${prod.name}_Q2"
+              assessFields << "${prod.name}_Q3"
+              assessFields << "${prod.name}_Q4"
+
+              assessLabels."${prod.name}_Q1" = "${prod.name}_Like_Rating"
+              assessLabels."${prod.name}_Q2" = "${prod.name}_Interest_Rating"
+              assessLabels."${prod.name}_Q3" = "${prod.name}_Like_Comment"
+              assessLabels."${prod.name}_Q4" = "${prod.name}_Change_Comment"
+          }
+          labels = labels + assessLabels
+          fields = fields + assessFields
+        }
+
+
+
+
+
 
         def upperCase = { domain, value ->
             return value.toUpperCase()
