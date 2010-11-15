@@ -328,11 +328,13 @@
 				 <div style="float:left;">
 				 <a id="helpPopUp">Help</a>
 
-
-				 <g:submitButton name="create" class="save" value="Continue" />
+                                 <p>
+                                 <br />
+                                     <input type="image" src="/SuperKids/images/ContinueButton-green.gif" style="margin-left:220px;" width="123" height="40" name="save">
+                                 </p>
 				 </div>
 				 <div style="float:left; text-align:left;padding-left:20px;">
-				 You must click 'Save Changes' to continue.  If possible, please update or
+				 You must click <img src="/SuperKids/images/ContinueButton-green.gif" width="62" height="20" /> to continue.  If possible, please update or
 				 provide the optional broker/distributor information below before doing so.
 				 </div>
 				 <div style="clear:both;"></div>
