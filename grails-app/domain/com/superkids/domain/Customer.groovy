@@ -123,6 +123,7 @@ class Customer extends User {
 		spring nullable:true
 		am nullable:true
 		pm nullable:true
+                notes nullable:true, blank:true
     }
 	
 	static namedQueries = {
