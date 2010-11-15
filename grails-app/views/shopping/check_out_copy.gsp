@@ -121,15 +121,6 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="fsdEmail"><g:message code="customer.fsdEmail.label" default="Fsd Email" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdEmail', 'errors')}">
-                                    <g:textField name="fsdEmail" value="${customerInstance?.fsdEmail}" />
-                                </td>
-                            </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                   <label for="fsdTitle"><g:message code="customer.fsdTitle.label" default="Fsd Title" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdTitle', 'errors')}">
