@@ -158,6 +158,11 @@ class HomeController {
                    }
                }
                customerInstance.properties = params
+               if(params.email){
+                   def u = User.get(params.id)
+                   u.username = params.email
+                   u.save(failOnError:true)
+               }
                if(params.password){ customerInstance.password = springSecurityService.encodePassword(params.password) }
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                flash.message = "Your customer profile has been updated"
