@@ -21,7 +21,6 @@ class Customer extends User {
 	String fax
 
 	String fsdName
-	String fsdEmail
 	String fsdTitle
 
 	String ndName
