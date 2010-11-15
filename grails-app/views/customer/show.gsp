@@ -341,7 +341,7 @@
                         <tr class="prop">
                             <td valign="top" class="name">Username</td>
 
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "fsdEmail")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "email")}</td>
 
                         </tr>
 
