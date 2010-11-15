@@ -26,13 +26,7 @@
                   <p>
                   <h2>Thank You!</h2>
                   Your assessment has been received, qualifying you for the sweepstakes prize drawing.
-                  <ul>
-                      <li>Reward 1. TWO (2) First Place Prizes – $1,000 for travel expenses and registration fees for SNA or other foodservice show in 2010.</li>
-                      <li>Reward 2. THREE (3) Second Place Prizes – Three “OrganWise Guys Foods of the Month Club Kits,” which you can use as an educational resource in three of your school district cafeterias ($885 value).</li>
-                      <li>Reward 3. FIVE (5) Third Place Prizes – A $200 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
-                      <li>Reward 4. TEN (10) Fourth Place Prizes – A $100 gift card from your choice of Wal-Mart, Target, Apple, Learning ZoneXpress, or the OrganWise Guys.</li>
-                      <li>Reward 5. THIRTY-THREE (33) Fifth Place Prizes – Missy Lapine’s Sneaky Chef paperback ($16 value).</li>
-                  </ul>
+                  <ol style="list-style-type:decimal; font-size:10px;">  <li><span style="color:#800000">FIVE (5) First Place Prizes</span>--&#36;200 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>  <li><span style="color:#800000">SEVEN (7) Second Place Prizes</span>--&#36;100 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>  </ol>
                   Please note that you are responsible for ensuring that any rewards provided to you within this program are authorized by your school district. Click sweepstakes rules for more information. <a href="#">Sweepstakes Rules</a>
                   </p>
                 </div>
