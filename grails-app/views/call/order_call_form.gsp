@@ -300,7 +300,7 @@
 							<td class="prop" style=" background-image:url(${resource(dir:'images', file:'callnote.png')}); background-repeat:no-repeat">
 								<h3 style="padding-top:10px; padding-left:10px">Operator Comments</h3>
 								<br />
-								<g:textArea style="width:355px; height:175px; background:none; margin-left:10px" name="notes" value="${callInstance?.notes}"/>
+								<g:textArea cols="" rows="" style="width:355px; height:175px; background:none; margin-left:10px" name="notes" value="${customerInstance?.notes}"/>
 							</td>
 						</tr>
 					</tbody>

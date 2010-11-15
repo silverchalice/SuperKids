@@ -450,9 +450,9 @@ a:hover.viewCartButton {
     background-repeat:no-repeat;
     width: 280px;
     height: 360px;
-    position: relative;
+    position: absolute;
     padding:18px 10px 10px 20px;
-    bottom: 18px;
+    top: 223px;
     left: 2px;
     z-index: 1;
     overflow:auto;

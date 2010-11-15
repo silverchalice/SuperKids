@@ -20,6 +20,8 @@ class Customer extends User {
 	String phone
 	String fax
 
+    String notes //notes from Callers
+
 	String fsdName
 	String fsdEmail
 	String fsdTitle

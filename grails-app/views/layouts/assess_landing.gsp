@@ -41,7 +41,7 @@
 				</g:each>
                             </g:if>
                             <g:else>
-                            <p style="border:1px solid; margin-left:10px; padding:15px 10px; height:270px; width:160px; background-color:#FFEBA8;"><strong>You haven't ordered any samples yet.</strong> When your order is completed, the samples in your order will appear here and you can assess them.</p>
+                            <p>There are currently no products that require your assessment. Click the Order tab to order your samples and come back here after you receive them. </p>
                             </g:else>
 			</div>
 		    <div id="assessProductsLower"></div>
