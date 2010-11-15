@@ -70,8 +70,8 @@
 				
 
 					   <h1>Your Contact Information</h1> <br/>
-					   <p style="font-size:12px;">Please confirm the information shown. To change your contact information, click <a href="#">here</a>. <br/>
-						To add a sample, click <a href="#">here</a>.</p>
+					   <p style="font-size:12px;">Please confirm the information shown. To change your contact information, click <g:link controller="home" action="edit_profile">here</g:link>. <br/>
+						To add a sample, click <g:link controller="home" action="order">here</g:link>.</p>
 
 					   <table style="margin-left:20px; border:0; line-height:10px">
 						   <tr>
@@ -127,7 +127,8 @@
 						<g:select name="shippingDate" optionKey="id" optionValue="${formatDate(format:'MMMM, yyyy', date:shipDate)}" from="${shippingDates}" />
 
 						<h2>Rewards for Assessments</h2>
-						<p>When you receive your samples and try them out, be sure to come back to SuperKidsSampling.com before March 5, 2010 -- you can earn special rewards for completing your assessments by this deadline. Click Assess to learn more. </p>
+					
+	<p>When you receive your samples and try them out, be sure to come back to SuperKidsSampling.com before March 5, 2010 -- you can earn special rewards for completing your assessments by this deadline. Click Assess to learn more. </p>
 						<p>If this sample order is correct, click here to complete order. If you do not confirm your order by pressing this button, the order will not be placed.</p>
 						<span class="button"><g:submitButton name="create" class="save" value="Continue" /></span>
 
