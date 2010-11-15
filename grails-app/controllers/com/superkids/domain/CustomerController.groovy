@@ -41,7 +41,7 @@ class CustomerController {
 			flash.message = "Your account was created."
             redirect(action: "show", id: customerInstance.id)
 		} else {
-			flash.message = "I was just flying along, and I blew up."
+			flash.message = "There were errors in saving your information."
 			customerInstance.errors.allErrors.each {
 				println it
 				println " "
