@@ -45,7 +45,7 @@
                         <li><g:link controller="call" action="list">View Calls</g:link></li>
                         <li><hr /></li>
                         <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Download Excel" params="[ 'withAssessments': true ]" /></li>
-                        <li><sks:formats formats="['excel']" msg="Excel (no assessments)" /></li>
+                        <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Excel (no assessments)" /></li>
                         <li><hr /></li>
                         <li><g:link controller="home" action="change_password">Change Password</g:link></li>
                         <li><g:link controller="logout" class="logout">Logout</g:link></li>
