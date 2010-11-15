@@ -35,7 +35,7 @@
 					<tr class="prop">
 						<td valign="top" class="name">Email</td>
 
-						<td valign="top" class="value">${fieldValue(bean: customer, field: "fsdEmail")}</td>
+						<td valign="top" class="value">${fieldValue(bean: customer, field: "email")}</td>
 
 					</tr>
 					<tr class="prop">

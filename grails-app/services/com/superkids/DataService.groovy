@@ -45,10 +45,8 @@ class DataService {
                         if(!FSD_Email || Customer.findByUsername(FSD_Email)){
                             customer.username = "no-email@no-email${i}.com"
                             customer.email = "no-email@no-email${i}.com"
-                            customer.fsdEmail = "no-email@no-email${i}.com"
                         } else {
                             customer.username = FSD_Email
-                            customer.fsdEmail = FSD_Email
                             customer.email = FSD_Email
                         }
                         customer.enabled = true

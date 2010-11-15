@@ -54,13 +54,6 @@
                             <td valign="top" class="value">${customerOrderInstance?.customer?.fsdName}</td>
                             
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="customer.fsdEmail" default="Email" /></td>
-
-                            <td valign="top" class="value">${customerOrderInstance?.customer?.fsdEmail}</td>
-
-                        </tr>
 					
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="customer.phone.label" default="Phone" /></td>

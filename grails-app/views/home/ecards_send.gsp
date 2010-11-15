@@ -63,7 +63,7 @@
 				</tr>
 				<tr>
 					<td class="name">Your Email Address</td>
-					<td><input type="Text" name="email" size="20" maxlength="50" value="${customer?.fsdEmail}"><br></td>
+					<td><input type="Text" name="email" size="20" maxlength="50" value="${customer?.email}"><br></td>
 				</tr>
 
 				<tr>

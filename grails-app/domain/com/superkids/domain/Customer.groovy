@@ -23,7 +23,6 @@ class Customer extends User {
     String notes //notes from Callers
 
 	String fsdName
-	String fsdEmail
 	String fsdTitle
 
 	String ndName
@@ -89,7 +88,6 @@ class Customer extends User {
 		inCall nullable:true
 
 		fsdName nullable: false
-		fsdEmail nullable: false
 		fsdTitle nullable: true
 
 		ndName nullable: true
@@ -139,7 +137,7 @@ class Customer extends User {
 	}
     
 	static searchable = {
-		only = ['fsdName', 'ndName', 'cdName', 'district', 'fsdEmail', 'ndEmail', 'cdEmail']
+		only = ['fsdName', 'ndName', 'cdName', 'district', 'email', 'ndEmail', 'cdEmail']
 	}
 
 	String toString() {

@@ -99,15 +99,6 @@
 
 						<tr class="prop">
 							<td valign="top" class="name">
-								<label><g:message code="customer.fsdEmail.label" default="Email" /></label>
-							</td>
-							<td valign="top" class="value">
-								${customerInstance?.fsdEmail}
-							</td>
-						</tr>
-
-						<tr class="prop">
-							<td valign="top" class="name">
 								<label><g:message code="customer.fsdTitle.label" default="Title" /></label>
 							</td>
 							<td valign="top" class="value">
