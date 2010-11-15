@@ -130,34 +130,8 @@ class MiscTagLib {
                     products << p
                 }
             }
-            out << "<br />"
-            out << "<h2>Your order</h2>"
-            out << "<br />"
-            out << "<table>"
-            out << "<thead>"
-            out << "<tr>"   
-            out << g.sortableColumn(property:'item',title:'Product',width:'87%')    
-            out << "<th> </th>"
-            out << "</tr>"
-            out << "</thead>"
-            out << "<tbody>"
-            for(product in products) {
-                out << "<tr>"
-                out << "<td>"    
-                out << product
-                out << "</td>"
-                out << "<td>"
-                out << "</td>"
-                out << "</tr>"
-            }
-            out << "<tr>"
-            out << "<td>"
-            out << "</td>"
-            out << "<td>"
-            out << "</td>"
-            out << "</tr>"
-            out << "</tbody>"
-            out << "</table>"
+
+            out << g.render(template:'/shopping/orderContent', model:[products: products])
         }
     }
 
