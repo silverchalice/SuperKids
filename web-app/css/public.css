@@ -445,6 +445,11 @@ a:hover.viewCartButton {
 }
 
 
+#Sponsordatabox {
+    background-image: url(../uploads/sponsor-bg.png);
+}
+
+
 #assessProducts {
     background-image: url(../images/AssessContainer.gif);
     background-repeat:no-repeat;
