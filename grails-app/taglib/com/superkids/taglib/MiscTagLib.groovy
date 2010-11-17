@@ -66,7 +66,7 @@ class MiscTagLib {
 		def shoppingCart = shoppingCartService.getShoppingCart()
                 def productIds = []
                 if(customer?.order){
-                    productIds = customer?.order.products.collect{ it.product.id }
+                    productIds = customer?.order?.products?.collect{ it?.product?.id }
                 }
 
 		Product.list().each { product ->
