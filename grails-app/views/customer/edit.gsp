@@ -73,22 +73,58 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+                            <tr class="prop">
+                                <td class="name"></td>
+                                <td class="value">
+                                    <h3>Food Service Director</h3>
+                                </td>
+                            </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="district"><g:message code="customer.district.label" default="District" /></label>
+                                    <label for="fsdName"><g:message code="customer.fsdName.label" default="Name" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'district', 'errors')}">
-                                    <g:textField name="district" value="${customerInstance?.district}" />
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdName', 'errors')}">
+                                    <g:textField class="textField" name="fsdName" value="${customerInstance?.fsdName}" />
                                 </td>
                             </tr>
 
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="fsdTitle"><g:message code="customer.fsdTitle.label" default="Title" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdTitle', 'errors')}">
+                                    <g:textField class="textField" name="fsdTitle" value="${customerInstance?.fsdTitle}" />
+                                </td>
+                            </tr>
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="email"><g:message code="customer.email.label" default="Email" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'email', 'errors')}">
+                                    <g:textField name="email" value="${customerInstance?.email}" />
+                                </td>
+                            </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="password"><g:message code="customer.password.label" default="Password" /></label>
                                 </td>
                                 <td valign="top">
                                     <g:link controller="home" action="a_change_c_password" id="${customerInstance?.id}">Change Password</g:link>
+                                </td>
+                            </tr>
+                            <tr class="prop">
+                                <td class="name"></td>
+                                <td class="value">
+                                    <br />
+                                    <h3>School District</h3>
+                                </td>
+                            </tr>
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="district"><g:message code="customer.district.label" default="District" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'district', 'errors')}">
+                                    <g:textField name="district" value="${customerInstance?.district}" />
                                 </td>
                             </tr>
                         
@@ -192,39 +228,6 @@
                                     <g:textField name="fax" value="${customerInstance?.fax}" />
                                 </td>
                             </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="email"><g:message code="customer.email.label" default="Email" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'email', 'errors')}">
-                                    <g:textField name="email" value="${customerInstance?.email}" />
-                                </td>
-                            </tr>
-
-						<tr class="prop">
-							<td class="name"></td>
-							<td class="value">
-								<h3>Food Service Director</h3>
-							</td>
-						</tr>
-						<tr class="prop">
-							<td valign="top" class="name">
-								<label for="fsdName"><g:message code="customer.fsdName.label" default="Name" /></label>
-							</td>
-							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdName', 'errors')}">
-								<g:textField class="textField" name="fsdName" value="${customerInstance?.fsdName}" />
-							</td>
-						</tr>
-
-						<tr class="prop">
-							<td valign="top" class="name">
-								<label for="fsdTitle"><g:message code="customer.fsdTitle.label" default="Title" /></label>
-							</td>
-							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdTitle', 'errors')}">
-								<g:textField class="textField" name="fsdTitle" value="${customerInstance?.fsdTitle}" />
-							</td>
-						</tr>
 						<tr class="prop">
 							<td class="name"></td>
 							<td class="value">
