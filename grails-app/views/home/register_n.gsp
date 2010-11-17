@@ -8,6 +8,7 @@
         <title>SuperKids | Registration</title>
     </head>
     <body>
+        <div id="contentInsetInner">
             <h1>Registration</h1><br />
             <h1>Thank You For Registering</h1><br />
             <h2>You'll be clear to order in just a second.</h2><br />
@@ -23,12 +24,13 @@
 
             <h2>For Assistance</h2>
 
-            <div style="text-align:center; font-size:smaller;">
-                melissac@sdastl.com<br />
+            <div style="text-align:center; font-style:italic; color:#993300">
+                <span style="color: color:#FA9F1B">melissac@sdastl.com</span><br />
                 Toll Free: 1-877-862-8828<br />
                 Fax: 314-862-8829<br />
                 P.O. Box 16170<br />
                 St. Louis, MO 63105-9713<br />
             </div>
+        </div>
     </body>
 </html>

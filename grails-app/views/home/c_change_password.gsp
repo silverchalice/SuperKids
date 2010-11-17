@@ -5,12 +5,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="customer" />
-        <title>SuperKids | Change Password</title>
+        <title>SuperKids | Welcome</title>
     </head>
     <body>
 
 		<div id="contentInsetInner">
-            <h1>Change Password</h1>
+            <h1>Welcome</h1>          <br/>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
@@ -23,12 +23,12 @@
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
 
-                    <table>
+                    <table style="border:0">
                         <tbody>
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="password">New password</label>
+                                    <label for="password" style="font-weight:bold;">New password</label>
                                 </td>
                                 <td valign="top">
                                     <g:passwordField name="password" value="" />
@@ -37,7 +37,7 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="confirmpassword">Confirm new password</label>
+                                    <label for="confirmpassword" style="font-weight:bold;">Confirm new password</label>
                                 </td>
                                 <td valign="top">
                                     <g:passwordField name="confirmpassword" value="" />
@@ -48,7 +48,7 @@
                                 <td>
                                     <div class="buttons">
                                         <br />
-                                        <span class="button"><g:submitButton name="create" class="save" value="Update" /></span>
+                                        <span class="button"><g:submitButton name="create" class="save" value="Submit" /></span>
                                     </div>
                                 </td>
                             </tr>

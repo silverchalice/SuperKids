@@ -14,7 +14,7 @@
             mywindow.moveTo(300,300);
         }
     </script> 
-        <div class="body" class="dialog" style="width:630px; height:460px; overflow:auto;">
+        <div id="contentInsetInner">
             <h1>Registration</h1><br />
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
