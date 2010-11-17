@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-wgc" lang="en-wgc">
+  <head>
+
+    <title>2009 Whole Grains Challenge | The Whole Grains Council</title>
+    <meta name="description" content="The Whole Grains Council is a nonprofit consumer advocacy group that helps consumers find whole grain foods and understand their health benefits; helps manufacturers create delicious whole grain products; and helps the media write accurate, compelling stories about whole grains." />
+    <meta name="keywords" content="whole grains, whole grain stamp, whole grains council, health benefits whole grains, whole grain recipes, amaranth, barley, buckwheat, corn, millet, oats, quinoa, rice, rye, sorghum, teff, triticale, wheat, spelt, emmer, farro, einkorn, Kamut, durum, bulgur, cracked wheat, wheatberries, wild rice, oldways" />
+    <meta name="copyright" content="Copyright (c) 2003-2007, Oldways Preservation Trust/Whole Grains Council. All Rights Reserved." />
+    <meta name="robots" content="all" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript"><!--
+  var BASE_URL = "/";
+--></script>
+
+ <!--[if lte IE 7]>
+    <script type="text/javascript" src="/misc/jquery.js"></script>
+    <script type="text/javascript" src="/misc/drupal.js"></script>
+    <script type="text/javascript" src="/modules/nice_menus/nice_menus.js"></script>
+    <![endif]-->
+<link rel="shortcut icon" href="/files/wgrains_favicon.ico" type="image/x-icon" />
+    <style type="text/css" media="all">@import "/modules/aggregator/aggregator.css";</style>
+<style type="text/css" media="all">@import "/modules/cck/content.css";</style>
+<style type="text/css" media="all">@import "/modules/date/date.css";</style>
+<style type="text/css" media="all">@import "/modules/img_assist/img_assist.css";</style>
+<style type="text/css" media="all">@import "/modules/nice_menus/nice_menus.css";</style>
+<style type="text/css" media="all">@import "/modules/node/node.css";</style>
+<style type="text/css" media="all">@import "/modules/system/defaults.css";</style>
+<style type="text/css" media="all">@import "/modules/system/system.css";</style>
+<style type="text/css" media="all">@import "/modules/taxonomy_context/taxonomy_context.css";</style>
+<style type="text/css" media="all">@import "/modules/user/user.css";</style>
+<style type="text/css" media="all">@import "/modules/cck/fieldgroup.css";</style>
+    <script type="text/javascript" src="/misc/jquery.js"></script>
+<script type="text/javascript" src="/misc/drupal.js"></script>
+<script type="text/javascript" src="/modules/img_assist/img_assist.js"></script>
+    
+	<link href="/css/basic.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="/css/mods.css" rel="stylesheet" type="text/css" media="all" />
+	<!--[if IE]>
+		<link rel="stylesheet" type="text/css" href="/css/ie.css" />
+	<![endif]-->
+    <script type="text/javascript" src="/js/advance.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function(){
+   $(".stripeMe tr").mouseover(function(){$(this).addClass("over");}).mouseout(function(){$(this).removeClass("over");});
+   $(".stripeMe tr:even").addClass("alt");
+ });
+ </script>
+  </head>
+  <body class="sidebars">
+
+<!-- Layout -->
+<div id="wrap">
+<div class="header">
+<a href="/" title="The Whole Grains Council" class="logo"><img src="/images/whole-grains-council_logo.jpg" alt="The Whole Grains Council"  /></a>
+<div class="search">
+<a href="/about-us" title="About Us">About Us</a> | <a href="/for-members" title="For Members">For Members</a> | <a href="/about-us/contact-us" title="Contact">Contact</a>
+
+<form action="/search/node"  method="post" id="search-form" class="search-form">
+<input type="text" maxlength="128" name="search_theme_form_keys" id="edit-search_theme_form_keys"  size="25" value="" title="search by keywords" class="form-text" />
+<input type="image" src="/images/search-button.gif" align="absbottom" name="op" value="Search" class="form-submit" alt="Search Submit Button">
+<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+<input type="hidden" name="form_token" id="a-unique-id" value="acfadefb19b5a8aa74d3cab1d8bd1e4a" />
+</form>
+</div><!-- /search -->
+
+<div id="nav">
+	<ul class="nice-menu nice-menu-down" id="nice-menu-1"><li id="menu-108" class="menu-path-<front>"><a href="/" title="The Whole Grains Council">Home</a></li><li id="menu-109" class="menuparent menu-path-node-1"><a href="/whole-grains-101" title="Whole Grains 101">Whole Grains 101</a><ul><!--[if lt IE 7]><iframe></iframe><![endif]--><li id="menu-118" class="menu-path-node-13"><a href="/whole-grains-101/definition-of-whole-grains" title="definition of whole grains">Definition of Whole Grains</a></li><li id="menu-149" class="menu-path-node-16"><a href="/whole-grains-101/what-are-the-health-benefits" title="health benefits and studies">Health Benefits &amp; Studies</a></li><li id="menu-150" class="menu-path-node-8"><a href="/whole-grains-101/how-much-is-enough" title="how much is enough?">How Much is Enough?</a></li><li id="menu-177" class="menu-path-node-12"><a href="/whole-grains-101/identifying-whole-grain-products" title="identifying whole grains">Identifying Whole Grains</a></li><li id="menu-178" class="menu-path-node-25"><a href="/whole-grains-101/easy-ways-to-enjoy-whole-grains" title="easy ways to enjoy whole grains">Easy Ways to Enjoy Whole Grains</a></li></ul></li><li id="menu-110" class="menuparent menu-path-node-29"><a href="/whole-grain-stamp" title="whole grain stamp">Whole Grain Stamp</a><ul><!--[if lt IE 7]><iframe></iframe><![endif]--><li id="menu-156" class="menu-path-node-30"><a href="/whole-grain-stamp/stamp-faq-consumers" title="Stamp FAQ for consumers">Stamp FAQ – Consumers</a></li><li id="menu-157" class="menu-path-node-31"><a href="/whole-grain-stamp/stamp-faq-manufacturers" title="stamp FAQ for manufacturers">Stamp FAQ - Manufacturers</a></li><li id="menu-354" class="menu-path-node-3080"><a href="/whole-grain-stamp/canadian-stamp" title="Info en français and in English">Canadian WG Stamp</a></li><li id="menu-329" class="menu-path-node-2048"><a href="/whole-grain-stamp/restaurant-menu-symbol" title="Easily find whole grains when you eat out">Restaurant Menu Symbol</a></li><li id="menu-184" class="menu-path-node-42"><a href="/whole-grain-stamp/its-working" title="Stamp is a proven success">It&#039;s Working</a></li><li id="menu-158" class="menu-path-node-14"><a href="/whole-grain-stamp/government-guidance" title="government guidance">Government Guidance</a></li></ul></li><li id="menu-111" class="menuparent menu-path-node-66"><a href="/find-whole-grains" title="find whole grains">Find Whole Grains</a><ul><!--[if lt IE 7]><iframe></iframe><![endif]--><li id="menu-136" class="menu-path-node-75"><a href="/find-whole-grains/stamped-products" title="stamped products">Stamped Products</a></li><li id="menu-137" class="menu-path-node-1510"><a href="/find-whole-grains/eating-away-from-home" title="Eating Away From Home">Eating Away From Home</a></li><li id="menu-138" class="menu-path-find-whole-grains-foodservice-products"><a href="/find-whole-grains/foodservice-products" title="foodservice products">Foodservice Products</a></li></ul></li><li id="menu-112" class="menuparent menu-path-node-67"><a href="/recipes" title="recipes">Recipes</a><ul><!--[if lt IE 7]><iframe></iframe><![endif]--><li id="menu-247" class="menu-path-node-164"><a href="/recipes/cooking-whole-grains" title="Cooking Whole Grains">Cooking Whole Grains</a></li><li id="menu-382" class="menu-path-node-4385"><a href="/recipes/school-recipes" title="Whole grain recipes scaled for foodservice">School Recipes</a></li><li id="menu-356" class="menu-path-node-3121"><a href="/recipes/whole-grain-video-links" title="Links to whole grain cooking videos">WG Video Links</a></li><li id="menu-248" class="menu-path-node-1559"><a href="/recipes/soups-and-starters" title="soups &amp; starters">Soups &amp; Starters</a></li><li id="menu-249" class="menu-path-node-1560"><a href="/recipes/salads-and-sides" title="salads &amp; sides">Salads &amp; Sides</a></li><li id="menu-250" class="menu-path-node-1558"><a href="/recipes/main-dishes" title="main dishes">Main Dishes</a></li><li id="menu-391" class="menu-path-node-5204"><a href="/recipes/breads" title="Breads">Breads</a></li><li id="menu-251" class="menu-path-node-1561"><a href="/recipes/snacks-and-desserts" title="snacks &amp; desserts">Snacks &amp; Desserts</a></li></ul></li><li id="menu-113" class="menuparent menu-path-node-68"><a href="/resources" title="resources">Resources</a><ul><!--[if lt IE 7]><iframe></iframe><![endif]--><li id="menu-141" class="menu-path-node-104"><a href="/resources/books" title="books">Books</a></li><li id="menu-142" class="menu-path-node-133"><a href="/resources/educational-materials" title="educational materials">Educational Materials</a></li><li id="menu-325" class="menu-path-node-1947"><a href="/resources/whole-grain-promo-items" title="Help spread the word with our giveaway goodies.">WG Promo Items</a></li><li id="menu-390" class="menu-path-node-4801"><a href="/resources/recursos-en-espa-ol" title="Links to Spanish info on this site">Recursos en Español</a></li><li id="menu-144" class="menu-path-node-134"><a href="/resources/schools-and-whole-grains" title="Information for schools">Schools and Whole Grains</a></li><li id="menu-338" class="menu-path-node-2284"><a href="/resources/whole-grains-for-wic" title="What foods meet the new WIC rules?">Whole Grains for WIC</a></li><li id="menu-321" class="menu-path-node-1821"><a href="/resources/international-resources" title="What&#039;s happening with whole grains around the world">International Resources</a></li><li id="menu-154" class="menu-path-node-109"><a href="/resources/whole-grains-conference-proceedings" title="whole grains conference proceedings">WG Conference Proceedings</a></li><li id="menu-368" class="menu-path-node-3413"><a href="/resources/whole-grains-store-tour" title="Our great new Store Tour event guide">WG Store Tour</a></li></ul></li><li id="menu-114" class="menuparent menu-path-node-69"><a href="/newsroom" title="newsroom">Newsroom</a><ul><!--[if lt IE 7]><iframe></iframe><![endif]--><li id="menu-349" class="menu-path-newsroom-blog"><a href="/newsroom/blog" title="The latest &quot;newslettes&quot; from the WGC">Blog</a></li><li id="menu-145" class="menu-path-node-58"><a href="/newsroom/whole-grain-statistics" title="whole grain statistics">WG Statistics</a></li><li id="menu-146" class="menu-path-node-1554"><a href="/newsroom/photo-gallery" title="photo gallery">Photo Gallery</a></li><li id="menu-147" class="menu-path-node-86"><a href="/newsroom/press-releases" title="press releases">Press Releases</a></li><li id="menu-148" class="menu-path-newsroom-new-product-announcements"><a href="/newsroom/new-product-announcements" title="new whole grain product announcements">New Products</a></li><li id="menu-359" class="menu-path-node-3216"><a href="/newsroom/whole-grains-giveaway" title="We&#039;re giving away TONS of whole grains.">Whole Grains Giveaway</a></li></ul></li><li id="menu-115" class="menuparent menu-path-node-70"><a href="/get-involved" title="get involved">Get Involved</a><ul><!--[if lt IE 7]><iframe></iframe><![endif]--><li id="menu-372" class="menu-path-node-3477"><a href="/get-involved/friends-of-whole-grains" title="Sign up for our newsletter and join our community">Friends of Whole Grains</a></li><li id="menu-159" class="menu-path-node-51"><a href="/get-involved/just-ask-for-whole-grains" title="enter &quot;just ask&quot; contest">Just Ask for Whole Grains!</a></li><li id="menu-399" class="menu-path-http:--wholegrainscouncil.org-get-involved-whole-grains-challenge"><a href="http://wholegrainscouncil.org/get-involved/whole-grains-challenge" title="Whole Grains Challenge">Whole Grains Challenge</a></li><li id="menu-161" class="menu-path-node-43"><a href="/get-involved/attend-our-conference" title="attend the whole grains conference">Attend our Conference</a></li><li id="menu-332" class="menu-path-node-2205"><a href="/get-involved/celebrate-whole-grains-month-in-september" title="September is Whole Grains Month">Celebrate WG Month</a></li><li id="menu-162" class="menu-path-node-36"><a href="/get-involved/join-the-whole-grains-council" title="join whole grains council">Join the WG Council</a></li></ul></li></ul></div>	
+    
+
+</div><!-- /header -->
+
+<div id="page">
+      
+<div class="location">
+     <img src="/images/just-ask.gif" alt="Ask for Whole Grains" />
+<h3>get involved</h3><br class="clear" />     
+	<div class="breadcrumb"><a href="/" title="Home">Home</a> › <a href="/get-involved" title="">Get Involved</a> › 2009 Whole Grains Challenge</div></div><!-- /location -->
+
+<div id="content">
+      <h1>2009 Whole Grains Challenge</h1>  <div class="toolbelt">
+	<a href="http://digg.com/submit?phase=2&url=example.com&title=Whole Grain CouncilThe&bodytext=Whole grains are a health necessity in every diet&topic=HEALTH" title="digg this"><img src="/images/content/digg-this.gif" alt="digg this" /> digg this</a>	
+	<a href="http://del.icio.us/post" onclick="window.open('http://del.icio.us/post?v=4&noui&jump=close&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=700,height=400'); return false;" title="del.icio.us"><img src="/images/content/delicious.gif" alt="del.icio.us" /> del.icio.us</a>
+</div>
+    
+                  
+  
+<div id="node-4447" class="node">
+
+
+
+  <div class="content">
+    <div class="wgrains-print"><a href="/node/4447/print" class="wgrains-print" target="print">Printer-friendly Version</a></div>
+
+<div class="wrap0"> 
+<div class="wrap1"> 
+<div class="wrap2"> 
+<div class="wrap3"> 
+<div class="box"> 
+     <img src="http://www.wholegrainscouncil.org/files/images/ChallengeWinnerMedal.jpg" alt="" title="" width="233" height="300" /></div> 
+</div> 
+</div> 
+</div> 
+</div>
+ <p>The competition was fierce and the judging wasn't easy, but <b>winners have been chosen in this year's Whole Grains Challenge,</b> a special awards program for foodservice outlets across America – and beyond. The Whole Grains Challenge rewards restaurants and foodservice establishments for offering at least one healthy and delicious whole grain option on their menus at all times. <a href="/get-involved/examples-of-restaurant-servings">Click here to see what qualifies as &quot;a whole grain option.&quot;</a></p><h2>Meet the Winners of the 2009 Whole Grains Challenge!  <br /></h2><p>Want to know how this year’s winners beat the competition to take the top prize in each of the ten Challenge categories?  Here’s what impressed the judges:</p><p><a href="http://www.canyonranch.com"><b>Catering and Lodging:  </b><b>Canyon Ranch</b></a><br />Well known for its innovative and holistic approach to health and wellness, Canyon Ranch has long emphasized nutritional intelligence and engaged eating.  Each menu option is a balanced plate of vegetables, protein, healthy fats, and of course, whole grains.  Guests receive full nutrition information packets detailing Canyon Ranch’s nutrition philosophy, priming them for delectable options such as red coconut curry vegetables with brown rice, oatmeal brulee, wild rice crepes, or quinoa and endive salad.<br /><br /><a href="http://www.cafebonappetit.com/rogerwilliams"><b>College and University:  </b><b>Roger Williams University</b></a><br />In addition to making whole grains standard at every culinary station in both the Upper Commons and Baypoint Café locations, Bon Appetit Management Company keeps students at Roger Williams University well-fueled with a plethora of daily whole grain specials as well.<br /><br /><a href="http://www.pumpenergyfood.com"><b>Fast Casual / Family Dining:  </b><b>The Pump Energy Food</b></a><br />With 6 locations in New York City, this small chain bases their menu on simple, fresh ingredients and healthful preparation.  Serving whole grains is a critical component of their nutrition philosophy, which means long grain brown rice, whole wheat wraps, whole wheat pastas, and home-baked whole wheat pita chips aren’t just options – they’re the only grain options!<br /><b><br /><a href="http://www.ourplaceusa.net">Fine Dining:  Our Place Indian Cuisine</a></b><br />This small restaurant transports diners with its use of traditional Indian clay ovens called tandoors.  In addition to using fresh and natural ingredients to create a variety of delicately spiced dishes, Our Place Indian Cuisine makes roti, paratha, aloo paratha, and poori breads from whole wheat flour and bakes them fresh inside clay ovens.<br /><br /><a href="http://www.snoozeeatery.com"><b>Neighborhood Dining:  </b><b>Snooze</b></a><br />With two locations in Denver, CO, Snooze focuses on local products and from-scratch recipes made fresh each and every day.  With menu items ranging from the decadent to the traditional, Snooze can wake you up with whole grain pancakes, sandwiches, and more every day of the week.<br /><br /><a href="http://www.aramarkcafe.com/layouts/classic_new/locationhome.aspx?locationid=3335"><b>Healthcare:  </b><b>East Carolina Heart Institute</b></a><br />Whole grains have been shown to help reduce the risk of heart disease, improve the health of carotid arteries, and help maintain healthier blood pressure levels, so it’s no surprise that they appear in almost every menu option served by ECHI Café at East Carolina Heart Institute in Greenville, NC, where the foodservice is run by Aramark.<br /><br /><a href="http://www.bamco.com/"><b>Workplace:  </b><b>Cafe Target </b></a><br />From the massive bowls of whole grains at the salad bar and special Target Wellness Wednesday menus, to table tents and full-page signs touting the full flavor of whole grains… Café Target at Target headquarters in Minneapolis wowed us with their entry.  In addition to their Food For Your Well Being week-long healthy food promotion (featuring whole grains, in September, for Whole Grains Month), Bon Appetit’s management of Café Target included a month-long whole grains theme (also in September) and October menu specials such as buckwheat pancakes, free-range turkey and barley burgers, vegetable beef soup with faro, and toasted coconut-banana-cashew brown basmati rice.<br /><br /><a href="http://www.harwood.org/"><b>K-12 (small schools):  </b><b>Harwood Union High School in South Duxbury, VT</b></a><br />Harwood Union High School has been making many changes in the past few years, none the least of which has been serving more whole grain options to their seventh- to twelfth-grade students.  Daily offerings include local farm-fresh eggs and chicken, apples from area orchards, and homemade whole grain breads, cookies, and muffins.<br /><br /><a href="http://www.orchardview.org"><b>K-12 (medium schools):  </b><b>Orchard View Schools in Muskegon, MI</b></a><br />Students at the Orchard View Schools have a reason to look forward to school this year, namely the district’s new – and completely free – breakfast program, featuring whole grains every day.  Students and parents were educated about this new program and the importance of including whole grains at breakfast, and enjoyed an open house event where samples of whole grain products were given to all attendees.  To keep their kids interested and engaged in healthy eating, Orchard View used health classes as a way to teach the importance of whole grains and health.  Not only did whole grains appear on every school menu, samples of different whole grain products were also given out and students voted for their favorites.<br /><a href="http://www.opt-osfns.org/osfns/"><br /><b>K-12 (large schools):  </b><b>SchoolFood for New York, NY</b></a><br />Serving an average of 860,000 meals per day, SchoolFood for New York City schools might have the toughest job going.  Featuring whole grains is one way they stretch their budget dollars while providing healthier options for up to 15 unique menus each month.  From breakfast to lunch, in snacks and on Saturdays, SchoolFood makes sure students in the City that Never Sleeps at least have the whole grain energy to keep up with the hustle and bustle.</p><p><i><b>Runners-Up and Honorable Mentions</b><br />Another six school entries fell just short of winning but displayed so much creativity that they deserve special recognition:<br /><b>K-12 (small):</b>  <a href="http://www.willamina.k12.or.us/">Willamina School District, OR</a>, runner-up; <a href="http://www.ci.amesbury.ma.us/home.nfs?a=amesbury&amp;org=group&amp;group_id=2">Amesbury Public Schools, MA</a>, honorable mention<br /><b>K-12 (medium): </b> <a href="http://www.westonk12-ct.org/page.cfm?p=71">Weston Public Schools, CT</a>, runner-up; <a href="http://www.desoto.k12.mo.us/">De Soto Public Schools, MO</a>, honorable mention<br /><b>K-12 (large):</b>  <a href="http://www.chartwellsschooldining.com/wsfcs">Winston Salem / Forsyth County Schools, NC</a>, runner-up; <a href="http://shelbyed.k12.al.us/">Shelby County Schools, AL</a>, honorable mention <br /><br /></i></p><h2>What Did They Win? </h2><p>Beyond the satisfaction that they're helping large numbers of people learn that nutritious food can be delicious, winners in each category will receive a variety of whole grain foods to try on their menus.  With the cost of ingredients and foods rising daily, who wouldn't want cases and cases of free, healthy whole grain breads, grain blends, pizzas, crackers and more?!? <a href="/get-involved/2009-Challenge-Prizes">Click here to see the list of this year's fantastic prizes.</a>  Winners also receive handsome certificats and medals worthy of framing, and are added to our <a href="/find-whole-grains/eating-away-from-home">Eating Away From Home</a> web page, an important resource for customers looking for restaurants with healthy options.  Special sections for schools and workplace dining halls give recognition to these entrants, too.</p><h2>Past Winners of the Whole Grains Challenge</h2><p>The winners of this year's Challenge join the following trailblazing restaurants and foodservice establishments in setting the stage for increased whole grain consumption:</p><table class="stripeMe" align="left" border="0"><tbody><tr><td> </td><td><b> 2007 Challenge Winners</b><br /></td><td> <b>2008 Challenge Winners</b><br /></td></tr><tr><td> Quick Serve<br /></td><td> <a href="http://www.jerseymikes.com/">Jersey Mike'</a>s <br /></td><td> <a href="http://www.papajohns.com/wheat/grain_council.htm">Papa John's</a><br /></td></tr><tr><td> Family / Casual<br /></td><td> <a href="http://www.pfchangs.com/">PF Chang's China Bistro</a><br /></td><td> <a href="http://www.boloco.com/index2.php">Boloco</a></td></tr><tr><td> Fine Dining<br /></td><td> <a href="http://www.themodern.org/cafe.html">Café Modern, Ft Worth TX </a></td><td> <a href="http://www.fairhillinn.com/restaurant.php">Fair Hill Inn, Elkton MD</a><br /></td></tr><tr><td> Lodging / Catering<br /></td><td> <a href="http://www.firelakerestaurant.com/">FireLake Grill House, Minneapolis</a><br /></td><td> <a href="http://www.compass-group.com/">Compass Catering</a><br /></td></tr><tr><td> K-12 Public Schools<br /></td><td> <a href="http://www.d11.org/lunch.htm">Colorado Springs, CO</a><br /> <a href="http://www.fcps.edu/fs/food/about_us/index.htm">Energy Zone, Fairfax County VA</a><br /></td><td><p>small – <a href="http://mattawancs.schoolwires.com/146210918161312747/site/default.asp">Mattawan MI</a> (Chartwells)<br />medium – <a href="http://www.newtown.k12.ct.us/teachers/home.php?view=t&amp;id=709">Newtown, CT (</a>Chartwells)<br />large – <a href="http://ww2.nps.k12.va.us/education/components/calendar/calendar.php?sectiondetailid=14815&amp;PHPSESSID=caa2f2a2b4ef349afe3a4585d02e156e">Norfolk, VA</a></p></td></tr><tr><td> K-12 Private Schools<br /></td><td> <a href="http://www.diningatmilton.com/contact_staff.html">Milton Academy (Flik)</a><br /> <a href="http://www.ross.org/podium/default.aspx?t=43489">Ross School</a><br /></td><td>(award shifted to public schools due to quantity and quality of K-12 entries) </td></tr><tr><td> College / University<br /></td><td> <a href="http://www.studentprograms.vt.edu/dining/">Virginia Tech Dining Services </a><br /> (Awarded a special Grand Prize)<br /></td><td>(award shifted to public schools due to quantity and quality of K-12 entries) </td></tr><tr><td> Workplace</td><td> <a href="http://www.cgnad.com/default.asp?action=article&amp;ID=23">Merck (Flik)</a><br /></td><td> <a href="http://www.restaurantassociates.com/aboutus/awards.htm">Morgan Stanley (Restaurant Associates)</a></td></tr><tr><td> Healthcare</td><td> <a href="http://www.health.wvu.edu/newsreleases/news-details.aspx?ID=663">HSC Cafeteria</a> <br /> at West Virginia University Hospital<br /></td><td> <a href="http://www.aramark.com/PressReleaseDetailTemplate.aspx?PostingID=784&amp;ChannelID=321">Children's Hospital of Philadelphia (Aramark)</a><br /></td></tr><tr><td> Other</td><td> <a href="http://www.universityvillage.net/Independent-Living/Dining-Catering-Services.aspx">University Village Retirement Center</a>, Tampa<br /></td><td> <a href="http://www.cgnad.com/default.asp?action=article&amp;ID=319">Compass Group</a>, <br /> special award for Nutrition Month campaign</td></tr></tbody></table><p>Interested in planning for the 2010 Whole Grains Challenge?  Great!  For more information, contact Kara Berrini at 617-896-4880 (<a href="mailto:kberrini@oldwayspt.org">kberrini@oldwayspt.org</a>), or just stay tuned to this page of our web site.  We'll post information on the 2010 Challenge in May or June of 2010.  Until then, enjoy a sampling of inspiring Challenge entries in our <a href="/files/BestOf2009Challenge.pdf">&quot;Best of 2009 Challenge&quot;</a> collection!  </p><br class="clear" />  </div>
+
+    </div>   
+  <span class="clear"></span>
+ 
+
+
+</div><!-- /content -->
+
+
+	<div id="leftCol">
+  		<div class="snInvolved">
+
+<ul class="menu">
+<li class="leaf"><a href="/get-involved" title="Get Involved">Overview</a></li>
+<li class="leaf"><a href="/get-involved/friends-of-whole-grains" title="Sign up for our newsletter and join our community">Friends of Whole Grains</a></li>
+<li class="expanded"><a href="/get-involved/just-ask-for-whole-grains" title="report whole grains in restaurants">Just Ask for Whole Grains!</a>
+<ul class="menu">
+<li class="leaf"><a href="/get-involved/report-a-restaurant" title="Restaurant Report Form">Report A Restaurant</a></li>
+<li class="leaf"><a href="/get-involved/just-ask-prizes-and-winners" title="Who won? What did they get?">2007 Prizes and Winners</a></li>
+<li class="leaf"><a href="/get-involved/look-whos-asking-for-whole-grains" title="Click me. Get inspired.">Look Who&#039;s Asking for Whole Grains</a></li>
+
+</ul>
+</li>
+<li class="leaf"><a href="http://wholegrainscouncil.org/get-involved/whole-grains-challenge" title="Whole Grains Challenge">Whole Grains Challenge</a></li>
+<li class="expanded"><a href="/get-involved/attend-our-conference" title="attend our next conference">Attend our Next Conference</a>
+<ul class="menu">
+<li class="leaf"><a href="/get-involved/conference-sponsorship" title="conference sponsorship">Conference Sponsorship</a></li>
+
+</ul>
+</li>
+<li class="leaf"><a href="/get-involved/celebrate-whole-grains-month-in-september" title="September is Whole Grains Month">Celebrate WG Month</a></li>
+<li class="expanded"><a href="/get-involved/join-the-whole-grains-council" title="join the Whole Grains Council">Join the WG Council</a>
+<ul class="menu">
+<li class="leaf"><a href="/get-involved/a-year-in-the-life-of-the-wgc" title="recent accomplishments">A Year in the WGC</a></li>
+<li class="leaf"><a href="/member/register" title="become a member">Membership Application</a></li>
+
+</ul>
+</li>
+
+</ul>
+</div><div class="sidebox">
+<h4>find whole grains</h4>
+<img src="/images/sidebox/whole-grain-stamp.gif" alt="Whole Grain Stamp" />
+<p>Find healthy choices fast by choosing products that have the Whole Grain stamp.<br />
+<a href="/find-whole-grains" title="find whole grains" class="last">more</a></p>
+</div><!--/sidebox -->
+ <br style="clear:both" />
+<br class="clear" />  			</div><!-- /leftCol -->	
+    
+
+</div><!-- /page --> 
+ 
+
+<div id="footer">
+<div class="footnav">
+<a href="/" title="Whole Grains Council" class="none"><img src="/images/whole-grains-council-logo_f.gif" alt="Whole Grains Council"  /></a>
+<ul>
+<li><a  href="/" title="home">Home</a></li>
+<li><a href="/whole-grains-101" title="Whole Grains 101">Whole Grains 101</a></li>
+<li><a href="/whole-grain-stamp" title="Whole Grain Stamp" >Whole Grain Stamp</a></li>
+<li><a href="/find-whole-grains" title="Find Whole Grains" >Find Whole Grains</a></li>
+<li><a href="/recipes" title="Recipes" >Recipes</a></li>
+<li><a href="/resources" title="Resources" >Resources</a></li>
+<li><a href="/newsroom" title="Newsroom" >Newsroom</a></li>
+<li><a href="/get-involved" title="Get Involved" class="none">Get Involved</a></li>
+</ul>
+
+<ul>
+<li><a  href="/about-us" title="About us">About us</a></li>
+<li><a href="/for-members" title="For Members">For Members</a></li>
+<li><a href="/about-us/contact-us" title="Contact" class="none">Contact</a></li>
+</ul>
+
+
+<ul class="old">
+<li><img class="oldways" src="/images/oldways-logo.gif" alt="Oldways"  /></li>
+<li class="oldways">The Oldways Family:</li>
+<li><a  href="http://www.oldwayspt.org/" title="Oldways Preservation Trust">Oldways Preservation Trust</a></li>
+<li><a href="http://www.latinonutrition.org/" title="Latino Nutrition Coalition">Latino Nutrition Coalition</a></li>
+<li><a href="http://mediterraneanmark.org/" title="Med Mark" class="none">Med Mark</a></li>
+</ul>
+</ul>
+</div><!-- end footnav --><br class="clear" /></div>
+<div class="end">
+	<p class="primal">All information on this website is &copy; 2003-2007, Oldways Preservation Trust/Whole Grains Council, unless otherwise noted.</p>
+	<p class="primal"><a href="http://www.primalmedia.com" title="website design Primal Media">Website design by Primal Media.</a></p>
+</div><!-- /end -->
+
+</div><!-- /wrap -->
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-857092-7";
+urchinTracker();
+</script>
+
+    </body>
+</html>
