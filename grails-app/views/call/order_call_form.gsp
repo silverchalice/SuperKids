@@ -507,7 +507,7 @@
 						<g:each in="${products}" var="product" >
 						  <tr class="prop">
 							<td class="name">
-							  <g:checkBox name="order_${product.id}"/>
+							  <g:checkBox name="order_${product.name}"/>
 							</td>
 							<td class="value">
 							  ${product.name}
