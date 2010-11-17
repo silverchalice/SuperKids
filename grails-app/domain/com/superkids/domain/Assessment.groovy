@@ -21,6 +21,11 @@ class Assessment {
         customer nullable:true
     }
 
+    static mapping = {
+        likeComment sqlType:"text"
+        changeComment sqlType:"text"
+    }
+
     String toString(){
         "assessment " + id + " of product " + product + ", assessed by " + customer
     }
