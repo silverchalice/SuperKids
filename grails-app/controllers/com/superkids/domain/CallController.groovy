@@ -359,7 +359,9 @@ class CallController {
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_ORDERED, null)
 			if(customer) {
 				println "End of the line - coming round again"
-				customer.inCall = new Date()
+                println customer
+
+                customer.inCall = new Date()
 				customer.save(flush:true)
 
 				customer.brokers.each { println it?.name }
