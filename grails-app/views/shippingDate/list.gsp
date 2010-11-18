@@ -34,7 +34,7 @@
                         
                             <td><g:link action="show" id="${shippingDateInstance.id}">${fieldValue(bean: shippingDateInstance, field: "id")}</g:link></td>
                         
-                            <td><g:formatDate date="${shippingDateInstance.shipDate}" /></td>
+                            <td><g:formatDate date="${shippingDateInstance?.shipDate}" /></td>
                         
                         </tr>
                     </g:each>
