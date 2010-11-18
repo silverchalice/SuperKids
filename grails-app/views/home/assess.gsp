@@ -17,7 +17,7 @@
             between November 15, 2010 and March 9, 2011, and you&rsquo;ll earn the chance to win one of these special prizes:</p><br/>
           </div>
           <div style="clear:both">
-            <ol style="list-style-type:decimal; font-size:10px;">
+            <ol style="list-style-type:decimal;">
               <li><span style="color:#800000">FIVE (5) First Place Prizes</span>--&#36;200 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
               <li><span style="color:#800000">SEVEN (7) Second Place Prizes</span>--&#36;100 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
             </ol>
