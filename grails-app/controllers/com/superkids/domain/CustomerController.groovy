@@ -87,14 +87,17 @@ class CustomerController {
 			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-        def statusList = ['HAS_NOT_ORDERED':'Has Not Ordered', 'HAS_ORDERED':'Has Ordered', 'QUALIFIED':'Qualified', 'IN_CALL':'In Call', 'CALL_AGAIN':'Call Again', 'NOT_PARTICIPATING':'Not Participating']
-        println "statusList is " + statusList
         def customerInstance = Customer.get(params.id)
         if (!customerInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
             redirect(action: "list")
         }
         else {
+            def currentStatus = CustomerStatus."${customerInstance.status}"
+            String current = customerInstance.status
+            def readableCurrentStatus = current.replaceAll("_", " ").toLowerCase()
+            def statusList = [currentStatus:readableCurrentStatus, 'HAS_NOT_ORDERED':'has not ordered']
+            println "statusList is " + statusList
             def products = []
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
                 products = Product.list()
