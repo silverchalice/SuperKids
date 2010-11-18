@@ -2,6 +2,7 @@
 
 <%@ page import="com.superkids.domain.CustomerStatus; com.superkids.domain.Customer" %>
 <%@ page import="com.superkids.domain.ShippingDate" %>
+<%@ page import="com.superkids.domain.CustomerStatus" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -110,6 +111,14 @@
                                 </td>
                                 <td valign="top">
                                     <g:link controller="home" action="a_change_c_password" id="${customerInstance?.id}">Change Password</g:link>
+                                </td>
+                            </tr>
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="status"><g:message code="customer.status.label" default="Status" /></label>
+                                </td>
+                                <td valign="top">
+                                    <g:select name="status" from="${statusList}" optionKey="key" optionValue="value" value="${customerInstance?.status}" />
                                 </td>
                             </tr>
                             <tr class="prop">
