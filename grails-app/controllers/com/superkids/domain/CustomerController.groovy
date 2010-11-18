@@ -1,4 +1,5 @@
 package com.superkids.domain
+import com.superkids.domain.CustomerStatus
 import com.superkids.domain.OrderType
 
 class CustomerController {
@@ -62,12 +63,12 @@ class CustomerController {
                 products = Product.list()
                 return [customerInstance: customerInstance, products: products.findAll{!it.parent}]
             } else {
-                customerInstance.order.products.each { productOrder ->
-                    if(productOrder.received && !Product.findByParent(productOrder.product))
+                customerInstance.order?.products?.each { productOrder ->
+                    if(productOrder?.received && !Product.findByParent(productOrder?.product))
                         products << productOrder
                     }
                 }
-                return [customerInstance: customerInstance, products: products.sort{it.product?.id}]
+                return [customerInstance: customerInstance, products: products?.sort{it?.product?.id}]
             }
     }
 
@@ -86,6 +87,8 @@ class CustomerController {
 			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+        def statusList = ['HAS_NOT_ORDERED':'Has Not Ordered', 'HAS_ORDERED':'Has Ordered', 'QUALIFIED':'Qualified', 'IN_CALL':'In Call', 'CALL_AGAIN':'Call Again', 'NOT_PARTICIPATING':'Not Participating']
+        println "statusList is " + statusList
         def customerInstance = Customer.get(params.id)
         if (!customerInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
@@ -95,14 +98,15 @@ class CustomerController {
             def products = []
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
                 products = Product.list()
-                return [customerInstance: customerInstance, products: products.findAll{!it.parent}, states: states, broker:broker]
+                println "and now the statusList is " + statusList
+                return [customerInstance: customerInstance, products: products.findAll{!it.parent}, states: states, broker:broker, statusList:statusList]
             } else {
                 customerInstance.order.products.each { productOrder ->
                     if(productOrder.received && !Product.findByParent(productOrder.product))
                         products << productOrder
                     }
                 }
-                return [customerInstance: customerInstance, products: products.sort{it.product?.id}, states: states, broker:broker]
+                return [customerInstance: customerInstance, products: products.sort{it.product?.id}, states: states, broker:broker, statusList:statusList]
           }
     }
 
@@ -119,6 +123,7 @@ class CustomerController {
                 }
             }
             customerInstance.properties = params
+            customerInstance.status = CustomerStatus."${params.status}"
             if(params.email){
                 def user = User.get(params.id)
                 user.username = params.email
