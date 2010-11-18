@@ -41,7 +41,7 @@
 				</g:each>
                             </g:if>
                             <g:else>
-                            <p>There are currently no products that require your assessment. Click the Order tab to order your samples and come back here after you receive them. </p>
+                            <p style="width:220px;">There are currently no products that require your assessment. Click the Order tab to order your samples and come back here after you receive them. </p>
                             </g:else>
 			</div>
 		    <div id="assessProductsLower"></div>

@@ -8,10 +8,6 @@
         <title>SuperKids | Assess</title>
     </head>
     <body>
-
-       <g:if test="${flash.message}">
-           <div class="message">${flash.message}</div>
-       </g:if>
         <div id="contentInsetInner">
           <h1>GET REWARDED JUST BY TELLING US WHAT YOU THINK!</h1>
           <img src="../images/Starburst.jpg" id="awardstar" />

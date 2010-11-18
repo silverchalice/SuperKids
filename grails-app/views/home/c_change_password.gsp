@@ -11,14 +11,6 @@
 
 		<div id="contentInsetInner">
             <h1>Welcome</h1>          <br/>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <g:hasErrors bean="${customerInstance}">
-            <div class="errors">
-                <g:renderErrors bean="${customerInstance}" as="list" />
-            </div>
-            </g:hasErrors>
             <g:form action="c_password" method="post" >
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />

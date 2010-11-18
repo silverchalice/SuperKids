@@ -1,7 +1,5 @@
 package com.superkids.domain
 
-import com.superkids.domain.*
-
 class AssessmentController {
 
     def springSecurityService
@@ -326,8 +324,8 @@ class AssessmentController {
         if(springSecurityService.loggedIn){
             def user = Customer.get(springSecurityService.principal.id)
         }
-        flash.message = "All done!"
-        redirect controller:"home", action:"index"
+
+        redirect controller:"home", action:"promote"
     }
 
     def dnr = {
