@@ -91,7 +91,12 @@ class CustomerOrderController {
     def delete = {
         def customerOrderInstance = CustomerOrder.get(params.id)
         if (customerOrderInstance) {
+            def customerInstance = Customer.get(customerOrderInstance.customer.id)
             try {
+                customerInstance.order = null
+                customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
+                customerInstance.hasPlacedCurrentOrder = false
+                customerInstance.save(failOnError:true)
                 customerOrderInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
                 redirect(action: "list")
