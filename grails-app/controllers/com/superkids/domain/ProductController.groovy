@@ -204,6 +204,11 @@ class ProductController {
 	}
 
 	def remove = {
+                println "params in product remove are: " + params
+                def controller
+                def action
+                if(params.controller){ controller = params.controller }
+                if(params.action){ action = params.action }
 		def product = Product.get(params.id)
 		def qty = 1
 		def previousShoppingCart = null
@@ -213,23 +218,24 @@ class ProductController {
 			return
 		}
 
-		def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
+		def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product?.shoppingItem)
 		if (quantity) {
 			if (quantity.value - qty >= 0) {
 				quantity.value -= qty
 			}
-			quantity.save()
+			quantity?.save()
 		}
-		if (quantity.value == 0) {
+		if (quantity?.value == 0) {
 			// work-around for $$_javassist types in list
-			def itemToRemove = shoppingCart.items.find { item ->
-				if (item.id == product.shoppingItem.id) {
+			def itemToRemove = shoppingCart?.items.find { item ->
+				if (item?.id == product?.shoppingItem.id) {
 					return true
 				}
+                                println "here we return false"
 				return false
 			}
 			shoppingCart.removeFromItems(itemToRemove)
-			quantity.delete()
+			quantity?.delete()
 		}
 
 		shoppingCart.save()
@@ -245,7 +251,7 @@ class ProductController {
 					products << p
 				}
 			}
-			render template:"/product/checkout_items", model:[products:products]
+                        render template:"/shopping/shoppingCartContent", model:[productInstance:product]
 		} else {
 			render template:"/shopping/shoppingCartContent", model:[productInstance:product]
 		}
