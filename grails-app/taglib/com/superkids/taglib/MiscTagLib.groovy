@@ -177,7 +177,7 @@ class MiscTagLib {
         out << "name='"
         out << attrs.name
         out << "' "
-        if(customerInstance.hasCompletedCurrentAssessment){
+        if(customerInstance?.hasCompletedCurrentAssessment){
             out << "checked='checked'"
         }
         out << "' disabled='disabled' />"
