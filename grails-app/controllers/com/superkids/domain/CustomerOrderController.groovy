@@ -1,6 +1,7 @@
 package com.superkids.domain
 
 import com.superkids.domain.Customer
+import com.superkids.domain.Assessment
 
 class CustomerOrderController {
 
@@ -92,6 +93,7 @@ class CustomerOrderController {
         def customerOrderInstance = CustomerOrder.get(params.id)
         if (customerOrderInstance) {
             def customerInstance = Customer.get(customerOrderInstance.customer.id)
+            Assessment.findAllByCustomer(customerInstance).each{ it?.delete() }
             try {
                 customerInstance.order = null
                 customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
@@ -118,6 +120,7 @@ class CustomerOrderController {
                 def customerOrderInstance = CustomerOrder.get(params.id)
                 if (customerOrderInstance) {
                     def customerInstance = Customer.get(customerOrderInstance.customer.id)
+                    Assessment.findAllByCustomer(customerInstance).each{ it?.delete() }
                     try {
                         customerInstance.order = null
                         customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
