@@ -264,6 +264,10 @@ class UrlMappings {
                     controller = "home"
                     action = "profile_help"
                 }
+                "/product/remove"{
+                    controller = "product"
+                    action = "remove"
+                }
 		"500"{
                     controller = "errors"
                     action = "internal_server_error"
