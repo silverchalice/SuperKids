@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="checkout" />
-
+        <g:javascript plugin="jquery" library="jquery" />
 
         <title>SuperKids | Checkout</title>
 		<style type="text/css">
@@ -100,9 +100,10 @@
 						   </tr>
 					   </table>
 					   <h1>The Samples Requested</h1>
+                                             <div id="shoppingCartContent">
 						   <table style="border:0">
 							   <tbody>
-								   <g:each in="${products}" var="product">
+								   <g:each in="${products.sort{it.id}}" var="product">
 									  <tr>
 										   <td style="width:110px; margin-left:0; padding-left:18px"><img src="${createLink(controller:'product', action:'displayImage', id:product?.id)}" alt="" /> </td>
 
@@ -112,7 +113,7 @@
 										   </td>
 
 										   <td style="width: 100px;padding-top:30px;"><g:remoteLink controller="product" action="remove"
-											   params="${[id:product.id, confirm:true]}"
+											   params="${[id:product.id, confirm:true, controller:shopping, action:confirm]}"
 											   update="shoppingCartContent">
 											   REMOVE
 										   </g:remoteLink></td>
@@ -120,6 +121,7 @@
 								   </g:each>
 							   </tbody>
 						   </table>
+                                               </div>
 					   <p>Samples are limited and subject to availability. You will receive an email from our Fulfillment Center telling you the approximate date your samples will ship.</p>
 
 						<h2>When to Ship</h2>
