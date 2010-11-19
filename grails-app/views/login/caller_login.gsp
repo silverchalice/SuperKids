@@ -72,7 +72,7 @@ body { background-color:white; }
 			<div id='login' style="width:275px; margin-left:25px;">
 				<form action='${postUrl}' method='post' id='loginForm' class='cssform'>
                         <div style="float:left; text-align:right; width:80px">
-                            <label for='username'>Email Address</label><br/><br/>
+                            <label for='username'>Username</label><br/><br/>
                             <label for='password'>Password</label>
                         </div>
 						<div style="float:right">

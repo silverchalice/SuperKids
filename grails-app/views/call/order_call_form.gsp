@@ -100,8 +100,21 @@
 
     <style type="text/css">
 
+        html {
+          background-color: #f4f2f2;
+        }
+
+        body {
+          background-color: #f4f2f2;
+        }
+
+        label {
+          font-weight:bold;
+          font-size:12px;
+        }
+
         input, select, textarea {
-          background:#FFF3E0;
+
         }
 
         .prop .textField {
@@ -125,16 +138,16 @@
 		<g:hiddenField name="offset" value="${offset}" /> 
 
 		<div class="callerNavBar">
-			<g:link class="callerButton" style="margin-left:10px" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
+			<g:link class="callerButton" style="left:10px; position:relative; bottom:1px;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
 			<g:if test="${queue}">
-				<g:actionSubmit id="submit" style="margin-left:970px;" class="callerButton" action="save_order_call" value="Next Call" /></g:if>
+				<g:actionSubmit id="submit" style="position:relative; width:100px; left:970px; bottom:1px;" class="callerButton" action="save_order_call" value="Next Call" /></g:if>
 			<g:elseif test="${single}">
 					<g:hiddenField name="single" value="${single}" />
-					<g:actionSubmit style="margin-left:970px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
+					<g:actionSubmit style="position:relative; width:100px; left:970px;" class="callerButton" id="submit" action="save_order_call" value="Finish" />
 
 			</g:elseif>
 			<g:else>
-				<g:link controller="call" class="callerButton" style="margin-left:950px;" action="next_order_call">Start Calling</g:link></span>
+				<g:link controller="call" class="callerButton" style="position:relative; width:100px; left:970px;" action="next_order_call">Start Calling</g:link></span>
 			</g:else>
 
 		</div>
@@ -142,7 +155,7 @@
 		<div class="body" style="width:1200px">
 			<div class="dialog">
 				<div id="row1" style="width:400px; float:left; margin-right:10px; ">
-				<table style="width:400px; margin: 10px 10px 0px 0; margin-left:0">
+				<table style="width:400px; margin: 10px 10px 0 0; margin-left:0">
 					<tbody>
 
 						<tr class="prop">
@@ -191,7 +204,7 @@
 						<tr class="prop">
 							<td class="name"></td>
 							<td class="value">
-								<h3>Food Service Director</h3>
+								<h3>Food Service Director/Main Contact</h3>
 							</td>
 						</tr>
 						<tr class="prop">
@@ -200,6 +213,15 @@
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fsdName', 'errors')}">
 								<g:textField class="textField" name="fsdName" value="${customerInstance?.fsdName}" />
+							</td>
+						</tr>
+
+                      <tr class="prop">
+							<td valign="top" class="name">
+								<label for="email"><g:message code="customer.email.label" default="Email" /></label>
+							</td>
+							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'email', 'errors')}">
+								<g:textField class="textField" name="email" value="${customerInstance?.email}" />
 							</td>
 						</tr>
 
@@ -218,7 +240,7 @@
 						<tr class="prop">
 							<td class="name"></td>
 							<td class="value">
-								<h3>Chief Dietitian</h3>
+								<h3>Alternate Contact</h3>
 							</td>
 						</tr>
 						<tr class="prop">
@@ -249,42 +271,7 @@
 						</tr>
 					</tbody>
 				</table>
-				 <table class="contact">
-					<tbody>
-						<tr class="prop">
-							<td class="name"></td>
-							<td class="value">
-								<h3>Nutritional Director</h3>
-							</td>
-						</tr>
-						<tr class="prop">
-							<td valign="top" class="name">
-								<label for="ndName"><g:message code="customer.ndName.label" default="Name" /></label>
-							</td>
-							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndName', 'errors')}">
-								<g:textField class="textField" name="ndName" value="${customerInstance?.ndName}" />
-							</td>
-						</tr>
 
-						<tr class="prop">
-							<td valign="top" class="name">
-								<label for="ndEmail"><g:message code="customer.ndEmail.label" default="Email" /></label>
-							</td>
-							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndEmail', 'errors')}">
-								<g:textField class="textField" name="ndEmail" value="${customerInstance?.ndEmail}" />
-							</td>
-						</tr>
-
-						<tr class="prop">
-							<td valign="top" class="name">
-								<label for="ndTitle"><g:message code="customer.ndTitle.label" default="Title" /></label>
-							</td>
-							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndTitle', 'errors')}">
-								<g:textField class="textField" name="ndTitle" value="${customerInstance?.ndTitle}" />
-							</td>
-						</tr>
-					 </tbody>
-				 </table>
 				<table style="margin:10px 10px 0px 0px; width:400px; border:none; height:250px;">
 					<tbody>
 						<tr>
@@ -308,7 +295,7 @@
 							</td>
 							<td valign="top">
 								<g:textField style="width:150px;" name="phone" value="${customerInstance?.phone}" />
-								<label for="callbackDate" style="padding: 0 10px 0 50px;"><g:message code="callback.date" default="Callback Date" /></label>
+								<label for="callbackDate" style="padding: 0 5px 0 10px;"><g:message code="callback.date" default="Callback Date" /></label>
 								<input type="text" style="width:90px" id="callbackDate" name="callbackDate"/>
 							</td>
 
@@ -320,7 +307,7 @@
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fax', 'errors')}">
 								<g:textField style="width:150px;" class="textField" name="fax" value="${customerInstance?.fax}" />
-								<label for="callbackTime" style="padding: 0 10px 0 50px;"><g:message code="callback.time" default="Callback Time" /></label>
+								<label for="callbackTime" style="padding: 0 5px 0 10px;"><g:message code="callback.time" default="Callback Time" /></label>
 								<input type="text" style="width:90px" id="callbackTime" name="callbackTime" />
 							</td>
 
