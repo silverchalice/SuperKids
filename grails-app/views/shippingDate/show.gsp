@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'shippingDate.label', default: 'ShippingDate')}" />
+        <g:set var="entityName" value="${message(code: 'shippingDate.label', default: 'Shipping Date')}" />
         <title><g:message code="default.show.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -32,7 +32,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="shippingDate.shipDate.label" default="Ship Date" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${shippingDateInstance?.shipDate}" /></td>
+                            <td valign="top" class="value">${shippingDateInstance?.shipDate}</td>
                             
                         </tr>
                     

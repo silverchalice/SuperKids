@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'shippingDate.label', default: 'ShippingDate')}" />
+        <g:set var="entityName" value="${message(code: 'shippingDate.label', default: 'Shipping Date')}" />
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -34,7 +34,7 @@
                         
                             <td><g:link action="show" id="${shippingDateInstance.id}">${fieldValue(bean: shippingDateInstance, field: "id")}</g:link></td>
                         
-                            <td><g:formatDate date="${shippingDateInstance?.shipDate}" /></td>
+                            <td>${shippingDateInstance.shipDate}</td>
                         
                         </tr>
                     </g:each>

@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'shippingDate.label', default: 'ShippingDate')}" />
+        <g:set var="entityName" value="${message(code: 'shippingDate.label', default: 'Shipping Date')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -36,7 +36,7 @@
                                   <label for="shipDate"><g:message code="shippingDate.shipDate.label" default="Ship Date" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: shippingDateInstance, field: 'shipDate', 'errors')}">
-                                    <g:datePicker name="shipDate" precision="day" value="${shippingDateInstance?.shipDate}"  />
+                                    <g:textField name="shipDate" value="${shippingDateInstance?.shipDate}"  />
                                 </td>
                             </tr>
                         
