@@ -78,8 +78,8 @@
       <ul>
         <li><a href="${createLink(controller:'home', action:'index')}">Home</a> | </li>
         <li><a href="${createLink(controller:'home', action:'about')}">About Super Kids</a> | </li>
-        <li><a href="${createLink(controller:'home', action:'ultragrain_general')}">Ultragrain&reg;</a> | </li>
-        <li><a href="${createLink(controller:'home', action:'sustagrain_general')}">Sustagrain&reg;</a> | </li>
+					<li><a href="${createLink(controller:'home', action:'ultragrain_general')}">Ultragrain<span style="font: normal 8px;"><sup>&reg;</sup></span></a> | </li>
+					<li><a href="${createLink(controller:'home', action:'sustagrain_general')}">Sustagrain<span style="font: normal 8px;"><sup>&reg;</sup></span></a> | </li>
         <li><a href="${createLink(controller:'home', action:'about_manufacturers')}">About Our Manufacturers</a> | </li>
         <li><a href="${createLink(controller:'home', action:'where_to_find')}">Where to Find</a> | </li>
         <li><a href="${createLink(controller:'contactRequest', action:'create')}">Contact Us</a></li><br/>
