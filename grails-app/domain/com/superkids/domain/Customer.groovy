@@ -6,14 +6,17 @@ class Customer extends User {
 	Address address
 	Address deliveryAddress
 
+    String timezone
+    Integer seq
+
 	String email
 
 	String website
 
-        CustomerOrder order
+    CustomerOrder order
 
 	Date dateCreated = new Date()
-        Date lastUpdated
+    Date lastUpdated
 
 	CustomerStatus status = CustomerStatus.HAS_NOT_ORDERED
 	
@@ -61,7 +64,7 @@ class Customer extends User {
 
 	boolean topCustomer = false
 
-        boolean usingResetPassword = false
+    boolean usingResetPassword = false
 
 	String otherComments
 
@@ -73,6 +76,8 @@ class Customer extends User {
 	List calls
 	List assessments
 	List brokers
+
+    String callerBrokers // brokers collected from callers
 
 	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker ]
 

@@ -17,8 +17,9 @@
 <body>
     <div class="callerNavBar">
     	<g:render template="caller_nav"/>
-		<strong style="margin-left:200px;">Welcome Back ${caller?.username}</strong>
-		<g:link controller="logout" class="callerButton">Logout</g:link>
+      <g:link controller="logout" style="float:right; margin-right:40px;" class="callerButton">Logout</g:link>
+		<strong style="float:right; margin-right:10px;">Welcome Back ${caller?.username}</strong>
+
 	</div>
 
 	<div class="body" style="width:100%">

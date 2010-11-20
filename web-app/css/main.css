@@ -458,20 +458,25 @@ a.order {
 	padding:15px;
 /*	background:#FFF3E0;
 	border: 3px solid #DDD;*/
-	margin:50px; 
+	margin:50px;
 }
 
 /*a.order:hover {
     background:#ECDFC6;
 }*/
 
+a.assess h1 {
+    color:#778899;
+}
+
 a.assess {
 	width:300px;
-	float:left;
+	float:right;
 	padding:15px;
 /*	background:#EEFFE3;
 	border: 3px solid #DDD;   */
 	margin:50px;
+    margin-right:100px;
 }
 
 /*

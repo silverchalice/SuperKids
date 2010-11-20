@@ -47,7 +47,8 @@ class CallController {
 		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
 			println "CallResult of Null"
 			customer.inCall = null
-			redirect action: 'next_order_call', id: customer.id
+            if(params.single)  redirect action: 'index', caller: springSecurityService.principal
+            else               redirect action: 'next_order_call', id: customer.id
 			return
 		}
 
@@ -144,7 +145,7 @@ class CallController {
 		} else {
 			println "we didn't get anything?"
 			flash.message = "Customer not found"
-			redirect action:'index'
+			redirect action: 'index', caller: springSecurityService.principal
 		}
 
     }
