@@ -4,12 +4,21 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>SuperKids | Sustagrain</title>
-
+    <g:javascript library="jquery" plugin="jquery" />
     <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
     <meta name="layout" content="learn" />
     <meta name="link" content="sustagrain" />
   </head>
   <body>
+<script>
+    var window1;
+    var window2;
+    function popUp(htmLoc,width,height,theWindow) {
+        var winleft = (screen.width / 2) - (width / 2);
+        var wintop = (screen.height / 2) - (height / 2);
+        window.open(htmLoc,"mainwindow","top="+wintop+",left="+winleft+",width="+width+",height="+height+",buttons=no,scrollbars=no,location=no,menubar=no,resizable=no,status=no,directories=no,toolbar=no");//YesorNo
+    }
+</script>
       <g:if test="${flash.message}">
         <div class="message">${flash.message}</div>
       </g:if>
