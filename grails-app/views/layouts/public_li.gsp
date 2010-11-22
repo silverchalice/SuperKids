@@ -3,7 +3,7 @@
     <head>
         <title><g:layoutTitle default="Grails" /></title>
         <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
-		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
+	<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
 
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:set var="link" value="${pageProperty(name: 'meta.link')}"/>
@@ -11,7 +11,7 @@
 
         <g:javascript library="jquery" plugin="jquery"/>
 
-		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
+	<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
     </head>
     <body>
   	<div id="body">

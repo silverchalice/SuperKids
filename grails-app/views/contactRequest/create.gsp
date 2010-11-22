@@ -153,7 +153,7 @@
 									<td valign="top" class="name">
 										<label class="required">Your Interest:</label>
 									</td>
-									<td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'firstName', 'errors')}">
+									<td valign="top" class="value ${hasErrors(bean: contactRequestInstance, field: 'message', 'errors')}">
 									<textarea name="message" rows="10" cols="30" value="${contactRequestInstance?.message}"></textarea>
 									</td>
 								</tr>
