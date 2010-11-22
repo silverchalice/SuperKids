@@ -775,3 +775,5 @@ td.errors select {
 td.errors input {
     border: 1px solid red;
 }
+
+table { border:0; }
