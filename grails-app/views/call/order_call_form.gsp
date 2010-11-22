@@ -123,7 +123,7 @@
         }
 
         a#timezone-button {
-          width: 74px; position:relative; bottom:28px;;left:980px;
+          width: 74px; position:relative; bottom:31px;;left:980px;
         }
 
         .contact {
@@ -141,6 +141,7 @@
 
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
 		<g:hiddenField name="offset" value="${offset}" />
+		<g:hiddenField name="currentTimezone" value="${currentTimezone}" />
 
 		<div class="callerNavBar">
 			<g:link class="callerButton" style="left:10px; position:relative; bottom:1px;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
@@ -153,8 +154,9 @@
 			</g:elseif>
 			<g:else>
 
-                <g:link controller="call" class="callerButton" style="position:relative; left:1000px;" action="next_order_call">Start Calling</g:link></span>
-                <span style="margin-left:500px;"><g:select id="timezone" name="timezone" from="${['Alaskan', 'Pacific', 'Mountain', 'Central', 'Eastern']}" /></span>
+                <g:actionSubmit controller="call" class="callerButton" style="position:relative; left:1000px; bottom:1px" action="next_order_call" value="Start Calling" />
+                <span style="margin-left:500px;"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
+
 			</g:else>
 
 		</div>

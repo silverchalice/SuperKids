@@ -21,6 +21,9 @@ class CallController {
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
 
+    def timezones=['Alaskan', 'Pacific', 'Mountain', 'Central', 'Eastern']
+
+
     def index = {
         [ caller: springSecurityService.principal ]
     }
@@ -51,6 +54,14 @@ class CallController {
             else               redirect action: 'next_order_call', id: customer.id
 			return
 		}
+
+
+        def currentTimezone
+        if(params?.timezone)
+            currentTimezone = params?.timezone
+        else
+            currentTimezone = params?.currentTimezone
+
 
 
 		if(customer) {
@@ -112,7 +123,7 @@ class CallController {
 						println "order did not save"
 						order.errors.allErrors.each { println it }
 						flash.message = "Invalid Order - please check input"
-						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true']
+						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true', currentTimezone: currentTimezone]
 					}
 				}
 				println "3"
@@ -135,12 +146,12 @@ class CallController {
 				if(params?.single)
 					redirect action: 'index', caller: springSecurityService.principal
 				else
-					redirect action: 'next_order_call', id: customer.id
+					redirect action: 'next_order_call', id: customer.id, currentTimezone: currentTimezone, queue: 'true'
 			}  else {
 				println "Could not save the Customer..."
 				customer.errors.allErrors.each { println it }
 				flash.message = 'invalid customer data'
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true']
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
 			}
 		} else {
 			println "we didn't get anything?"
@@ -232,14 +243,14 @@ class CallController {
     }
 
 	def start_order_call = {
-		render view:'order_call_form', model: [ products: Product.list() ]
+		render view:'order_call_form', model: [ products: Product.list(), timezones: timezones ]
 	}
 
 
 	def next_order_call = {
 		println "in next_Order_Call for CallController"
 		println params
-
+        println params?.currentTimezone
 		//make sure the last customer is no longer 'in call'
 		def currentCustomer = Customer.get(params?.id)
 		if(currentCustomer) {
@@ -249,8 +260,17 @@ class CallController {
 		def order = new CustomerOrder()
 		def call = new Call()
 
+        def currentTimezone
+        if(params?.timezone)
+            currentTimezone = params?.timezone
+        else
+            currentTimezone = params?.currentTimezone
+
+
+
 		println "About to create criteria"
 		def c = Customer.createCriteria()
+
 
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(max: 1, sort: 'id') {
@@ -261,13 +281,13 @@ class CallController {
 
 		if(customer) {
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
 		} else {
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_NOT_ORDERED, null)
 			if(customer) {
 				customer.inCall = new Date()
 				customer.save(flush:true)
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
 			} else redirect action:index
 		}
 	}
@@ -296,7 +316,7 @@ class CallController {
 
 		if(customer) {
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true', timezone: params?.timezone]
 		} else {
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_NOT_ORDERED, null)
 			customer.inCall = new Date()
@@ -316,7 +336,7 @@ class CallController {
 			def call = new Call()
 
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, single: true]
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, single: true, ]
 		}
 		else {
 			redirect action:list
