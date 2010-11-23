@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="public_li" />
+        <meta name="layout" content="customer" />
         <title>SuperKids | Where To Find</title>
     </head>
     <body>
@@ -78,8 +78,9 @@
             <li>Ultra&reg; Very Berry Whole Wheat Muffin</li>
             <li>Ultra&reg; Dreamy Orange Whole Wheat Mini Loaf</li>
         </ul>
-        
+        <p>&nbsp;</p>
         <div><strong><span style="color: rgb(153, 51, 0);font-size: large;">Other Ultragrain&reg; Products</span></strong></div>
+        <p>&nbsp;</p>
 
         <p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.bakenjoy.com/" target="_blank"><u>Bake 'n Joy&reg;</u></a></span></strong></p>
         <ul>
