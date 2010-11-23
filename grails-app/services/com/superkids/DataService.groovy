@@ -15,7 +15,8 @@ class DataService {
 		def is = file.inputStream
 		new ExcelBuilder(is).eachLine([labels:true]) {
 			i++
-			println "Customer ${i} - ${School_District}"
+			println "    ${i}: ${School_District}"
+                        println " "
 
                def customer = new Customer()
 			customer.with {
@@ -39,6 +40,10 @@ class DataService {
 				purchaseFrozenFood = Purchase_frozen_foods == 'Yes' ? true : false
                                 otherComments = Q7_Other ?: ""
 				topCustomer = (Top_100 && Top_100 != '')
+                                timezone = Time_Zone ?: ""
+                                pastParticipant = Previous_Participant == 'TRUE' ? true : false
+                                seq = New_Seq_Num
+                                callerBrokers = Who_are_your_primary_foodservice_distributors ?: ""
 			}
                         def no = "0"
                         customer.password = springSecurityService.encodePassword("superkids")
@@ -60,7 +65,6 @@ class DataService {
                         if(!userRole){
                             userRole = new Role(authority:"ROLE_USER").save(failOnError:true)
                         }
-                        println "the customer is " + customer + ", and the role is " + userRole
                         UserRole.create customer, userRole, true
 		}
 	}
