@@ -40,9 +40,9 @@ class DataService {
 				purchaseFrozenFood = Purchase_frozen_foods == 'Yes' ? true : false
                                 otherComments = Q7_Other ?: ""
 				topCustomer = (Top_100 && Top_100 != '')
-                                timezone = Time_Zone ?: ""
-                                pastParticipant = Previous_Participant == 'TRUE' ? true : false
-                                seq = New_Seq_Num
+                                timezone = cell(34) ?: ""
+                                pastParticipant = cell(35) == 'true' ? true : false
+                                seq = cell(2)
                                 callerBrokers = Who_are_your_primary_foodservice_distributors ?: ""
 			}
                         def no = "0"
