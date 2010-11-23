@@ -41,7 +41,7 @@ class DataService {
                                 otherComments = Q7_Other ?: ""
 				topCustomer = (Top_100 && Top_100 != '')
                                 timezone = cell(34) ?: ""
-                                pastParticipant = cell(35) == 'true' ? true : false
+                                pastParticipant = cell(35) == 'TRUE' ? true : false
                                 seq = cell(2)
                                 callerBrokers = Who_are_your_primary_foodservice_distributors ?: ""
 			}
