@@ -42,6 +42,7 @@ class Customer extends User {
 	Boolean spring
 	Boolean am
 	Boolean pm
+        Boolean pastParticipant
 	Date inCall = null
 
 //	Misc. Stats
@@ -103,9 +104,9 @@ class Customer extends User {
 		cdEmail nullable: true
 		cdTitle nullable: true
 
-        timezone nullable: true
-        seq nullable: true
-        callerBrokers nullable: true
+                timezone nullable: true
+                seq nullable: true
+                callerBrokers nullable: true
 
 		assessments nullable: true
 
@@ -132,7 +133,8 @@ class Customer extends User {
 		spring nullable:true
 		am nullable:true
 		pm nullable:true
-        notes nullable:true, blank:true
+                pastParticipant nullable:true
+                notes nullable:true, blank:true
     }
 	
 	static namedQueries = {
