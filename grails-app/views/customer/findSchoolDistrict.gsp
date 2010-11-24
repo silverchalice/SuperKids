@@ -45,6 +45,8 @@
 
                             <g:sortableColumn property="newCustomer" title="New" />
 
+                            <th>Previous Participant</th>
+
                             <th>Action</th>
 
                         </tr>
@@ -71,6 +73,10 @@
                             <g:checkBox name='newCustomer'
 								value="${customerInstance.newCustomer}"
 								onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'newCustomer=\' + this.checked')}" />
+                            </td>
+
+                            <td width="20px">
+                        	    <sks:propertyCheckbox id="${customerInstance.id}" name="pastParticipant" property="pastParticipant" />
                             </td>
 
                             <td width="180px">
