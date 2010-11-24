@@ -17,6 +17,17 @@ class DataService {
 			i++
 			println "    ${i}: ${School_District}"
                         println " "
+                        /*def bar = []
+                        for(o in 0..36) {
+                            println "it is ${o}"
+                            if(cell(o)){
+                                println "here it is: ${cell(o)}"
+                                bar << "${o}: ${cell(o)}, "
+                            }
+                        }
+                        println "    Here is the full line: ${bar}"
+                        println " "
+                        println " "*/
 
                def customer = new Customer()
 			customer.with {
@@ -26,7 +37,7 @@ class DataService {
 				status = CustomerStatus.HAS_NOT_ORDERED
 				phone = Phone
 				fax = Fax ?: " "
-				fsdName = FSD_Name ?: " "
+				fsdName = Name ?: " "
 				fsdTitle = FSD_Title
 				studentsInDistrict = Q1_No_of_Students_in_District ?: 0
 				facilities = Facilities ? Q2_No_of_Facilities : 0
@@ -41,7 +52,7 @@ class DataService {
                                 otherComments = Q7_Other ?: ""
 				topCustomer = (Top_100 && Top_100 != '')
                                 timezone = cell(34) ?: ""
-                                pastParticipant = cell(35) == 'TRUE' ? true : false
+				pastParticipant = cell(35) == 'Yes' ? true : false
                                 seq = cell(2)
                                 callerBrokers = Who_are_your_primary_foodservice_distributors ?: ""
 			}
