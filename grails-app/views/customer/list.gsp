@@ -77,10 +77,10 @@
 
                             <td width="40px">
                                     <g:if test="${customerInstance.newCustomer}">
-                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'false', rController:'customer', rAction:'list']"><img src="/SuperKids/images/true-g.gif" height="18" width="18"></g:link>
+                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'false', rController:'customer', rAction:'list']"><img src="/SuperKids/images/true-g.png" height="18" width="18"></g:link>
                                     </g:if>
                                     <g:else>
-                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'true', rController:'customer', rAction:'list']"><img src="/SuperKids/images/false.gif" height="18" width="18"></g:link>
+                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'true', rController:'customer', rAction:'list']"><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
                                     </g:else>
                             </td>
 
