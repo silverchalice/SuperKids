@@ -70,6 +70,13 @@
                         </tr>
 
                         <tr class="prop">
+                            <td valign="top" class="name">Previous Participant</td>
+                            
+                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance.id}" name="pastParticipant" property="pastParticipant" /></td>
+                            
+                        </tr>
+
+                        <tr class="prop">
                             <td valign="top" class="name">Phone</td>
                             
                             <td valign="top" class="value">${customerInstance?.phone}</td>
