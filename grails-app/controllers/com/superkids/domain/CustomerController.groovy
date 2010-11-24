@@ -169,7 +169,7 @@ class CustomerController {
             if(customers){
                 return [customerInstanceList:customers]
             } else {
-                flash.message = "No results found for \"${params.query}.\""
+                flash.message = "No results found for \"${params.query}.\" <a href=\"${createLink(controller:'customer', action:'list')}\">Back to customer list &crarr;</a>"
                 return
             }
         } else {
