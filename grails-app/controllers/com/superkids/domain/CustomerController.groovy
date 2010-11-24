@@ -1,6 +1,4 @@
 package com.superkids.domain
-import com.superkids.domain.CustomerStatus
-import com.superkids.domain.OrderType
 
 class CustomerController {
 
@@ -21,7 +19,7 @@ class CustomerController {
         def customerInstance = new Customer()
 		customerInstance.address = new Address()
 		customerInstance.deliveryAddress = new Address()
-		customerInstance.broker = new Broker()
+
 
         customerInstance.properties = params
         return [customerInstance: customerInstance]
