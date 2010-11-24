@@ -137,14 +137,13 @@ class MiscTagLib {
 
     def orderCheckbox = { attrs ->
         def customerInstance = Customer.get(attrs.id)
-        out << "<input type='checkbox' "
-        out << "name='"
-        out << attrs.name
-        out << "' "
+        out << "<img src='/SuperKids/images/"
         if(customerInstance?.order?.products){
-            out << "checked='checked'"
+            out << "true-y.gif"
+        } else {
+            out << "false.gif"
         }
-        out << "' disabled='disabled' />"
+        out << "' width='18' height='18' />"
     }
 
     def propertyCheckbox = { attrs ->
@@ -161,14 +160,13 @@ class MiscTagLib {
 
     def assessmentCheckbox = { attrs ->
         def customerInstance = Customer.get(attrs.id)
-        out << "<input type='checkbox' "
-        out << "name='"
-        out << attrs.name
-        out << "' "
+        out << "<img src='/SuperKids/images/"
         if(customerInstance.status == CustomerStatus.QUALIFIED){
-            out << "checked='checked'"
+            out << "true-r.gif"
+        } else {
+            out << "false.gif"
         }
-        out << "' disabled='disabled' />"
+        out << "' width='18' height='18' />"
     }
 
     def completedAssessmentCheckbox = { attrs ->
