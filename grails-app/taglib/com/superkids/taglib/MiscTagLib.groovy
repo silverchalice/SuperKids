@@ -139,9 +139,9 @@ class MiscTagLib {
         def customerInstance = Customer.get(attrs.id)
         out << "<img src='/SuperKids/images/"
         if(customerInstance?.order?.products){
-            out << "true-y.gif"
+            out << "true-y.png"
         } else {
-            out << "false.gif"
+            out << "false.png"
         }
         out << "' width='18' height='18' />"
     }
@@ -162,9 +162,9 @@ class MiscTagLib {
         def customerInstance = Customer.get(attrs.id)
         out << "<img src='/SuperKids/images/"
         if(customerInstance.status == CustomerStatus.QUALIFIED){
-            out << "true-r.gif"
+            out << "true-r.png"
         } else {
-            out << "false.gif"
+            out << "false.png"
         }
         out << "' width='18' height='18' />"
     }
