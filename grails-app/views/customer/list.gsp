@@ -20,7 +20,7 @@
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <div style="margin:20px 0px; padding:15px;">
+            <div style="margin:20px 0 0 0; padding:15px;">
                 <g:form method="post" action="findSchoolDistrict">
                     <strong>School District:</strong> <input type="text" name="query" />
                     <input type="submit" value="Search" id="customerSearchButton" />
@@ -34,6 +34,8 @@
                 <table>
                     <thead>
                         <tr>
+
+                            <g:sortableColumn property="seq" title="${message(code: 'customer.seq.label', default: 'Seq')}" />
 
                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
 
@@ -55,21 +57,23 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
+                            <td style="width:36px;">${customerInstance?.seq}</td>
+
                             <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
 
                             <td>${fieldValue(bean: customerInstance, field: "fsdName")}</td>
 
-                            <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
+                            <td style="width:80px"><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
-                            <td>
+                            <td style="width:80px">
                           	    <sks:orderCheckbox name="placedOrder" id="${customerInstance.id}" />
                             </td>
 
-                            <td>
+                            <td style="width:80px">
                         	    <sks:assessmentCheckbox name="assessment" id="${customerInstance.id}" />
                             </td>
 
-                            <td>
+                            <td style="width:40px">
                             <g:checkBox name='newCustomer'
 								value="${customerInstance.newCustomer}"
 								onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'newCustomer=\' + this.checked')}" />
@@ -87,7 +91,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${customerInstanceTotal}" />
+                <g:paginate total="${customerInstanceTotal}" maxsteps="20" />
             </div>
         </div>
     </body>
