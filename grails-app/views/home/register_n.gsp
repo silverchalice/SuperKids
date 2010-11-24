@@ -9,7 +9,6 @@
     </head>
     <body>
         <div id="contentInsetInner">
-            <h1>Registration</h1><br />
             <h1>Thank You For Registering</h1><br />
             <h2>You'll be clear to order in just a second.</h2><br />
             <p>The next screen will askfor your user name and a password.  Enter the following:</p><br />
