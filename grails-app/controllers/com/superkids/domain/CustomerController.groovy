@@ -97,7 +97,7 @@ class CustomerController {
             def currentStatus = CustomerStatus."${customerInstance.status}"
             String current = customerInstance.status
             def readableCurrentStatus = current.replaceAll("_", " ").toLowerCase()
-            def statusList = [currentStatus:readableCurrentStatus, 'HAS_NOT_ORDERED':'has not ordered']
+            Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'has not ordered']
             println "statusList is " + statusList
             def products = []
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
@@ -127,14 +127,16 @@ class CustomerController {
                 }
             }
             customerInstance.properties = params
-            customerInstance.status = CustomerStatus."${params.status}"
+            if(params.status != "currentStatus"){
+                customerInstance.status = CustomerStatus."${params.status}"
+            }
             if(params.email){
                 def user = User.get(params.id)
                 user.username = params.email
                 user.save(failOnError:true)
             }
             if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
-                flash.message = "Your profile was updated"
+                flash.message = "Updated profile for customer ${customerInstance.district}"
                 redirect(action: "show", id: customerInstance.id)
             }
             else {
