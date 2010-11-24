@@ -406,7 +406,14 @@
                                     <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
                                 </td>
                             </tr>
-
+							<tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="seq"><g:message code="customer.seq.label" default="Sequence Number (DO NOT CHANGE)" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'seq', 'errors')}">
+                                    <g:textField name="seq" value="${fieldValue(bean: customerInstance, field: 'seq')}" />
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -493,14 +500,11 @@
                           <tr> 
                               <td><strong>Zip: </strong></td> 
                               <td><input type="text" name="zip" size="10" maxlength="20" value="${broker?.zip}"></td> 
-                          </tr> 
-                          <tr> 
-                              <td><g:hiddenField name="rController" value="customer" />
+                          </tr> <g:hiddenField name="rController" value="customer" />
                               <g:hiddenField name="rAction" value="edit" />
                               <g:hiddenField name="rId" value="${customerInstance.id}" />
                               <g:hiddenField name="customerId" value="${customerInstance.id}" />
-                              <g:hiddenField name="id" value="${broker?.id}" /></td> 
-                          </tr> 
+                              <g:hiddenField name="id" value="${broker?.id}" />
                           <tr>
                                 <td>
                                     <input type="submit" name="add" value="Add" id="addBrokerButton" /> 

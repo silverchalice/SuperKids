@@ -47,6 +47,7 @@
             </div>
             </g:hasErrors>
             <g:form action="save" method="post" >
+               <g:hiddenField name="seq" value="9999" />
                <div class="dialog" style="float:left; width:49%; margin:0">
                  <h1>Main Information</h1>
                     <table>

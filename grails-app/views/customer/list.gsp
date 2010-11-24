@@ -22,7 +22,7 @@
         <div class="body">
             <div style="margin:20px 0 0 0; padding:15px;">
                 <g:form method="post" action="findSchoolDistrict">
-                    <strong>School District:</strong> <input type="text" name="query" />
+                    <strong>School District:</strong> <input  style="width:300px" type="text" name="query" />
                     <input type="submit" value="Search" id="customerSearchButton" />
                 </g:form>
             </div>
@@ -49,7 +49,7 @@
 
                             <g:sortableColumn property="newCustomer" title="New" />
 
-                            <th>Previous Participant</th>
+                            <th>'09 Participant</th>
 
                             <th>Action</th>
 
@@ -81,7 +81,7 @@
 								onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'newCustomer=\' + this.checked')}" />
                             </td>
 
-                            <td width="20px">
+                            <td width="95px">
                         	    <sks:propertyCheckbox id="${customerInstance.id}" name="pastParticipant" property="pastParticipant" />
                             </td>
 
