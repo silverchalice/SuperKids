@@ -249,13 +249,18 @@ class CustomerController {
     }
 
     def toggleNew = {
+        def id
         def customerInstance = Customer.get(params.id)
+        def controller = params.rController
+        def action = params.rAction
+        def nc = params.newCustomer
+        id = params.rId
         if (customerInstance){
-            customerInstance.newCustomer = params.newCustomer == 'true'
+            customerInstance.newCustomer = nc == 'true'
             customerInstance.save()
         }
         println "the customerInstance's newCustomer is " + customerInstance.newCustomer
-        render ''
+        redirect controller:controller, action:action, id:id
     }
 
 
