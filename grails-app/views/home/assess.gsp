@@ -10,7 +10,7 @@
     <body>
         <div id="contentInsetInner">
           <h1>GET REWARDED JUST BY TELLING US WHAT YOU THINK!</h1>
-          <img src="../images/Starburst.jpg" width="170" height="170" id="awardstar" />
+          <img src="../images/foo.jpeg" width="170" height="170" id="awardstar" />
           <div style="width:430px; float:right; margin-top:27px; margin-right:16px;">
             <p>Your feedback is invaluable; it lets us know how to improve the SuperKids program and helps manufacturers better understand your needs.</p>
             <p>After you&rsquo;ve received and tried your free samples, please give us your feedback by completing the short five-question survey. Do so
