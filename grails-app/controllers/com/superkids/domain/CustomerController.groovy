@@ -29,6 +29,11 @@ class CustomerController {
     }
 
 	def save = {
+        println "in Save for CustomerController"
+        params.each { key, val ->
+          println "$key = $val"
+        }
+
 		def customerInstance = new Customer(params)
 		customerInstance.username = params.email
 		customerInstance.password = springSecurityService.encodePassword(params.password)
@@ -37,12 +42,15 @@ class CustomerController {
 		customerInstance.accountLocked = false
 		customerInstance.passwordExpired = false
 		def userRole = Role.findByAuthority("ROLE_USER")
+         println "about to save..."
 		if(customerInstance.save()){
+             println "saved!"
 			UserRole.create customerInstance, userRole, true
 			println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
 			flash.message = "Your account was created."
             redirect(action: "show", id: customerInstance.id)
 		} else {
+            println "save failed"
 			flash.message = "There were errors in saving your information."
 			customerInstance.errors.allErrors.each {
 				println it

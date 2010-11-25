@@ -30,7 +30,7 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
-        <div class="body" class="dialog" style="width:60%">
+        <div class="body" style="width:60%">
             <div style="margin:20px 0; padding:15px;">
                 <g:form method="post" action="findSchoolDistrict">
                     School District: <input type="text" name="query" />
@@ -372,14 +372,11 @@
                             </tbody>
                         </table>
                       <div class="buttons">
-                    <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </div>
+                    <span class="button"><g:actionSubmit class="save" action="save" value="${message(code: 'default.button.save.label', default: 'Save')}" /></span>
                     </div>
                 </div>
 
             </g:form>
-            </div>
 
         </div>
     </body>
