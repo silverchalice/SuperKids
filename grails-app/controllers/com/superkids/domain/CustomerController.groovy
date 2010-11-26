@@ -343,32 +343,4 @@ class CustomerController {
 		}
 	}
 
-        def checkParams(params){
-            if(!params.fsdName || !params.email || !params.address.city || !params.address.zip || !params.address.street || !params.breakfastsServed || !params.lunchesServed || !params.snacksServed || Customer.findByEmail(params.email)){
-                if(!params.fsdName){
-                    println "THERE WAS NO NAME"
-                    flash.message += "<br /> Please enter your name"
-                }
-                if(!params.email){
-                }
-                if(!params.address.city){
-                }
-                if(!params.address.zip){
-                }
-                if(!params.address.street){
-                }
-                if(!params.breakfastsServed){
-                }
-                if(!params.lunchesServed){
-                }
-                if(!params.snacksServed){
-                }
-                if(Customer.findByEmail(params.email)){
-                }
-                return false
-            }
-            return true
-        }
-    }
-
 }
