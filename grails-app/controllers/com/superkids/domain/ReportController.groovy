@@ -14,9 +14,9 @@ class ReportController {
 
         def thatWhichIsContainedInOurExportation = []
 
-        def prods = Product.list(sort:'name')
+        def prods = Product.list(sort:'sortOrder')
 
-        Customer.list().each { customer ->
+        Customer.list(sort:"seq").each { customer ->
             def productIds = customer.order?.products.collect{customer.id}
             def m = [:]
             m.id = customer.id
