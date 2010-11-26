@@ -31,6 +31,7 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#assessForm').dialog({ autoOpen: false, width:500, modal:true });
+				$('#completeAssessmentForm').dialog({ autoOpen: false, width:500, modal:true });
 				$('#submitAssessment').button();
 				$('#addBrokerButton').button();
 			});
@@ -39,6 +40,10 @@
 				$('#productOrderId').val(poId) ;
 				$('#assessForm').dialog("open");
 			}
+
+            function showCompleteAssessForm() {
+              $('#completeAssessmentForm').dialog("open")
+            }
 			
 		</script>
 
@@ -57,16 +62,17 @@
                     <input type="submit" value="Search" id="customerSearchButton"/>
                 </g:form>
             </div>
-            <h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:35%">Order Details</h1>
-			<br/>
             <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+               <div class="message">${flash.message}</div>
             </g:if>
             <g:hasErrors bean="${customerInstance}">
-            <div class="errors">
-                <g:renderErrors bean="${customerInstance}" as="list" />
-            </div>
+                <div class="errors">
+                    <g:renderErrors bean="${customerInstance}" as="list" />
+                </div>
             </g:hasErrors>
+            <h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:35%">Order Details</h1>
+			<br/>
+
             <div style="float:left; width:40%;">
             <g:form method="post">
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
