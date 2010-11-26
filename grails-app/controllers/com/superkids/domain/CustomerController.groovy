@@ -135,17 +135,15 @@ class CustomerController {
                 user.username = params.email
                 user.save(failOnError:true)
             }
-            if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
-                flash.message = "Updated profile for customer ${customerInstance.district}"
-                redirect(action: "show", id: customerInstance.id)
+            if(checkParams(params)){
+                if(customerInstance.save(flush: true)){
+                    flash.message = "Updated profile for customer ${customerInstance.district}"
+                    redirect(action: "show", id: customerInstance.id)
+                }
+            } else {
+                flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
+                redirect(action: "list")
             }
-            else {
-                render(view: "edit", model: [customerInstance: customerInstance])
-            }
-        }
-        else {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
-            redirect(action: "list")
         }
     }
 
@@ -344,5 +342,33 @@ class CustomerController {
 			redirect action:index
 		}
 	}
+
+        def checkParams(params){
+            if(!params.fsdName || !params.email || !params.address.city || !params.address.zip || !params.address.street || !params.breakfastsServed || !params.lunchesServed || !params.snacksServed || Customer.findByEmail(params.email)){
+                if(!params.fsdName){
+                    println "THERE WAS NO NAME"
+                    flash.message += "<br /> Please enter your name"
+                }
+                if(!params.email){
+                }
+                if(!params.address.city){
+                }
+                if(!params.address.zip){
+                }
+                if(!params.address.street){
+                }
+                if(!params.breakfastsServed){
+                }
+                if(!params.lunchesServed){
+                }
+                if(!params.snacksServed){
+                }
+                if(Customer.findByEmail(params.email)){
+                }
+                return false
+            }
+            return true
+        }
+    }
 
 }
