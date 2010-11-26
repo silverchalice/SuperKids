@@ -12,8 +12,7 @@ class CustomerController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 50, 100)
-        params.sort = 'seq'
-
+        if (!params.sort) params.sort = 'seq'
 
         [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count()]
     }

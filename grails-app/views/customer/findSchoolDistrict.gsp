@@ -32,23 +32,23 @@
                 <table>
                     <thead>
                         <tr>
-                          <g:sortableColumn property="seq" title="${message(code: 'customer.seq.label', default: 'Seq')}" />
+                            <g:sortableColumn property="seq" title="${message(code: 'customer.seq.label', default: 'Seq')}" />
 
-                                                   <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
+                            <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
 
-                                                   <g:sortableColumn property="fsdName" title="Name" />
+                            <g:sortableColumn property="fsdName" title="Name" />
 
-                                                   <th>EntryDate</th>
+                            <g:sortableColumn property="dateCreated" title="Entry Date" />
 
-                                                   <th>Placed Order</th>
+                            <g:sortableColumn property="hasPlacedCurrentOrder" title="Ordered" />
 
-                                                   <th>Assessment</th>
+                            <g:sortableColumn property="hasCompletedCurrentAssessment" title="Assessed" />
 
-                                                   <g:sortableColumn property="newCustomer" title="New" />
+                            <g:sortableColumn property="newCustomer" title="New" />
 
-                                                   <th>'09 Participant</th>
+                            <g:sortableColumn property="pastParticipant" title="09 Participant" />
 
-                                                   <th>Action</th>
+                            <th>Action</th>
 
 
                         </tr>

@@ -41,15 +41,15 @@
 
                             <g:sortableColumn property="fsdName" title="Name" />
 
-                            <th>EntryDate</th>
+                            <g:sortableColumn property="dateCreated" title="Entry Date" />
 
-                            <th>Placed Order</th>
+                            <g:sortableColumn property="hasPlacedCurrentOrder" title="Ordered" />
 
-                            <th>Assessment</th>
+                            <g:sortableColumn property="hasCompletedCurrentAssessment" title="Assessed" />
 
                             <g:sortableColumn property="newCustomer" title="New" />
 
-                            <th>'09 Participant</th>
+                            <g:sortableColumn property="pastParticipant" title="09 Participant" />
 
                             <th>Action</th>
 
