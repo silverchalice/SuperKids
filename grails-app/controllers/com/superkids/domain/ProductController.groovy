@@ -1,7 +1,6 @@
 package com.superkids.domain
 
 import com.metasieve.shoppingcart.Quantity
-import com.metasieve.shoppingcart.ShoppingItem
 
 class ProductController {
 
@@ -16,11 +15,15 @@ class ProductController {
 
     def list = {
         def content = PageText.findByName("superkids_products")
-        render view:"/home/superkids_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count(), content: content]
+
+
+
+        render view:"/home/superkids_products", model:[productInstanceList: Product.list(sort:'sortOrder'), productInstanceTotal: Product.count(), content: content]
     }
 
     def admin = {
         params.max = Math.min(params.max ? params.int('max') : 23, 100)
+        params.sort = params.sort ?: "sortOrder"
         render view:"list", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
     }
 

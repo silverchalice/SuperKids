@@ -32,7 +32,7 @@ class MiscTagLib {
         if(springSecurityService.loggedIn){
             def customer = Customer.get(springSecurityService.principal?.id)
             def shoppingCart = shoppingCartService.getShoppingCart()
-            def products = Product.list().collect { product ->
+            def products = Product.list(sort:'sortOrder').collect { product ->
                 def isContained = false
                 def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
                 if(quantity){
@@ -69,7 +69,7 @@ class MiscTagLib {
                     productIds = customer?.order?.products?.collect{ it?.product?.id }
                 }
 
-		Product.list().each { product ->
+		Product.list(sort:'sortOrder').each { product ->
 			def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
 			println "quantity is $quantity"
 
@@ -279,7 +279,7 @@ class MiscTagLib {
         out << "var sponsors = new Array();"
         def sponsorNo = 0
         def sponsorProduct
-        Sponsor.list().each { sponsor ->
+        Sponsor.list(sort:'name').each { sponsor ->
             sponsorProduct = Product.findBySponsor(sponsor)
             sponsorNo++
             out << "sponsors[${sponsorNo}] = \""

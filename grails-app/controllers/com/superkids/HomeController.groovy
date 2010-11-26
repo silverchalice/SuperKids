@@ -243,7 +243,7 @@ class HomeController {
 
        def broker_products = {
 		   def content = PageText.findByName("superkids_products")
-           render view:"/home/broker_products", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count(), content: content]
+           render view:"/home/broker_products", model:[productInstanceList: Product.list(sort:'sortOrder'), productInstanceTotal: Product.count(), content: content]
        }
 
        def broker_whole_grain_benefits = {
