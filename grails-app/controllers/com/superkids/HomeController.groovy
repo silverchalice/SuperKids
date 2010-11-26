@@ -79,6 +79,7 @@ class HomeController {
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
          def customerInstance = new Customer(params)
+         if(checkParams(params)){
            customerInstance.password = springSecurityService.encodePassword("superkids")
            customerInstance.enabled = true
            customerInstance.accountExpired = false
@@ -103,6 +104,10 @@ class HomeController {
                    println it
                    println " "
                }
+               render(view:"register", model:[customerInstance:customerInstance, states:states])
+           }
+           } else {
+               flash.message = "AHH!!!!"
                render(view:"register", model:[customerInstance:customerInstance, states:states])
            }
        }
@@ -849,6 +854,16 @@ http://www.superkidssampling.com/
            } else {
                flash.message = "The username you entered could not be found."
                redirect action:"forgot_password"
+           }
+       }
+
+       def checkParams(params){
+           if(!params.fsdName){
+               println "NO fsdName"
+               return false
+           } else {
+               println "THERE WAS A fsdName"
+               return true
            }
        }
 
