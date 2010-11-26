@@ -46,7 +46,7 @@
 
                             <g:sortableColumn property="newCustomer" title="New" />
 
-                            <g:sortableColumn property="pastParticipant" title="09 Participant" />
+                            <g:sortableColumn property="topCustomer" title="Top 100" />
 
                             <th>Action</th>
 
@@ -81,7 +81,7 @@
                             </td>
 
                             <td width="20px">
-                        	    <sks:propertyCheckbox id="${customerInstance.id}" name="pastParticipant" property="pastParticipant" />
+                        	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>
 
                             <td width="180px">
