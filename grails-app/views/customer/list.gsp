@@ -41,15 +41,15 @@
 
                             <g:sortableColumn property="fsdName" title="Name" />
 
-                            <th>EntryDate</th>
+                            <g:sortableColumn property="dateCreated" title="Entry Date" />
 
-                            <th>Placed Order</th>
+                            <g:sortableColumn property="hasPlacedCurrentOrder" title="Ordered" />
 
-                            <th>Assessment</th>
+                            <g:sortableColumn property="hasCompletedCurrentAssessment" title="Assessed" />
 
                             <g:sortableColumn property="newCustomer" title="New" />
 
-                            <th>'09 Participant</th>
+                            <g:sortableColumn property="topCustomer" title="Top 100" />
 
                             <th>Action</th>
 
@@ -77,15 +77,15 @@
 
                             <td width="40px">
                                     <g:if test="${customerInstance.newCustomer}">
-                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'false', rController:'customer', rAction:'list']"><img src="/SuperKids/images/true-g.gif" height="18" width="18"></g:link>
+                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'false', rController:'customer', rAction:'list']"><img src="/SuperKids/images/true-g.png" height="18" width="18"></g:link>
                                     </g:if>
                                     <g:else>
-                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'true', rController:'customer', rAction:'list']"><img src="/SuperKids/images/false.gif" height="18" width="18"></g:link>
+                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'true', rController:'customer', rAction:'list']"><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
                                     </g:else>
                             </td>
 
                             <td width="95px">
-                        	    <sks:propertyCheckbox id="${customerInstance.id}" name="pastParticipant" property="pastParticipant" />
+                        	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>
 
                             <td width="180px">

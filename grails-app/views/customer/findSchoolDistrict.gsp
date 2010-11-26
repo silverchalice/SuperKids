@@ -18,7 +18,7 @@
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <div style="margin:20px 0px; padding:15px;">
+      <div style="margin:20px 0 0 0; padding:15px;">
                 <g:form method="post" action="findSchoolDistrict">
                     <strong>School District:</strong> <input type="text" name="query" />
                     <input type="submit" value="Search" id="customerSearchButton" />
@@ -32,28 +32,33 @@
                 <table>
                     <thead>
                         <tr>
+                            <g:sortableColumn property="seq" title="${message(code: 'customer.seq.label', default: 'Seq')}" />
 
                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
 
                             <g:sortableColumn property="fsdName" title="Name" />
 
-                            <th>EntryDate</th>
+                            <g:sortableColumn property="dateCreated" title="Entry Date" />
 
-                            <th>Placed Order</th>
+                            <g:sortableColumn property="hasPlacedCurrentOrder" title="Ordered" />
 
-                            <th>Assessment</th>
+                            <g:sortableColumn property="hasCompletedCurrentAssessment" title="Assessed" />
 
                             <g:sortableColumn property="newCustomer" title="New" />
 
-                            <th>Previous Participant</th>
+                            <g:sortableColumn property="topCustomer" title="Top 100" />
 
                             <th>Action</th>
+
 
                         </tr>
                     </thead>
                     <tbody>
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
+
+                          <td style="width:36px;">${customerInstance?.seq}</td>
+
 
                             <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
 
@@ -76,7 +81,7 @@
                             </td>
 
                             <td width="20px">
-                        	    <sks:propertyCheckbox id="${customerInstance.id}" name="pastParticipant" property="pastParticipant" />
+                        	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>
 
                             <td width="180px">

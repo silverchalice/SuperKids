@@ -21,6 +21,7 @@ class Product implements IShoppable {
 
 	Product parent
 
+    Integer sortOrder
 
 	String backgroundImage        // file path
 	byte[] image
@@ -43,6 +44,7 @@ class Product implements IShoppable {
 	summaryName(nullable:true)
 	summaryType(nullable:true)
 	servings(nullable:true)
+    sortOrder nullable: true
 	sponsor(nullable:true)
 	assessments(nullable:true)
         parent nullable:true

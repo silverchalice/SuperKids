@@ -12,8 +12,7 @@ class CustomerController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 50, 100)
-        params.sort = 'seq'
-
+        if (!params.sort) params.sort = 'seq'
 
         [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count()]
     }
@@ -29,6 +28,11 @@ class CustomerController {
     }
 
 	def save = {
+        println "in Save for CustomerController"
+        params.each { key, val ->
+          println "$key = $val"
+        }
+
 		def customerInstance = new Customer(params)
 		customerInstance.username = params.email
 		customerInstance.password = springSecurityService.encodePassword(params.password)
@@ -37,12 +41,15 @@ class CustomerController {
 		customerInstance.accountLocked = false
 		customerInstance.passwordExpired = false
 		def userRole = Role.findByAuthority("ROLE_USER")
+         println "about to save..."
 		if(customerInstance.save()){
+             println "saved!"
 			UserRole.create customerInstance, userRole, true
 			println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
 			flash.message = "Your account was created."
             redirect(action: "show", id: customerInstance.id)
 		} else {
+            println "save failed"
 			flash.message = "There were errors in saving your information."
 			customerInstance.errors.allErrors.each {
 				println it
@@ -331,8 +338,8 @@ class CustomerController {
                         if(products.find{!Product.findByParent(it)}){
                             redirect action:edit, id:customer.id
                         } else {
-                            customer.status = CustomerStatus.QUALIFIED
-                            customer.hasCompletedCurrentAssessment = true	                
+                            //customer.status = CustomerStatus.QUALIFIED
+                            //customer.hasCompletedCurrentAssessment = true
                             redirect action:edit, id:customer.id
                         }
  
@@ -342,5 +349,37 @@ class CustomerController {
 			redirect action:index
 		}
 	}
+
+    def completeAssessment = {
+        println "in CompleteAssessment for CustomerController"
+        params.each { key, val ->
+            println "$key = $val"
+        }
+
+        def customer = Customer.get(params?.id)
+
+        if(customer) {
+           customer.programFeedback = params?.programFeedback
+           customer.otherProducts = params?.otherProducts
+           customer.reformulations = params?.reformulations
+
+           if(customer.save(flush:true)) {
+              customer.hasCompletedCurrentAssessment = true
+              customer.status = CustomerStatus.QUALIFIED
+              flash.message = "Assessment Completed!"
+
+           } else flash.message = "Invalid input - assessment not completed"
+
+           redirect action:edit, id:customer.id
+        }
+
+        else {
+          flash.message = "Cannot find customer"
+          redirect action:list
+        }
+
+
+    }
+
 
 }
