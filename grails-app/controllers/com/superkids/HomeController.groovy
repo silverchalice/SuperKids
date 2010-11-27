@@ -89,7 +89,7 @@ class HomeController {
            customerInstance.accountLocked = false
            customerInstance.passwordExpired = false
            def userRole = Role.findByAuthority("ROLE_USER")
-           if(customerInstance.save()){
+           if(!customerInstance.hasErrors() && customerInstance.save()){
                UserRole.create customerInstance, userRole, true
                if(params.brokerName){
                    def broker = new Broker(name:params.brokerName, phone:params.brokerPhone, fax:params.brokerFax, email:params.brokerEmail, street:params.brokerStreet, street2:params.brokerStreet2, city:params.brokerCity, state:params.brokerState, zip:params.brokerZip, customer:customerInstance)
