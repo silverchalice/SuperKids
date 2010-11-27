@@ -55,7 +55,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="sponsor.website.label" default="Website" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: sponsorInstance, field: "website")}</td>
+                            <td valign="top" class="value">${sponsorInstance?.website}</td>
                             
                         </tr>
                     

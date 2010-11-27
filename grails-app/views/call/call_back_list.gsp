@@ -15,7 +15,7 @@
 			<g:render template="caller_nav"/>
         </div>
         <div class="body" style="width:90%">
-            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <h1>Callback List</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
