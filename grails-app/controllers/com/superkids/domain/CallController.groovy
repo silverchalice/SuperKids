@@ -30,6 +30,8 @@ class CallController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 23, 100)
+        params.sort = params.sort ?: "seq"
+
         [callInstanceList: Call.list(params), callInstanceTotal: Call.count()]
     }
 
@@ -47,15 +49,6 @@ class CallController {
 
         def customer = Customer.get(params.id)
 
-		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
-			println "CallResult of Null"
-			customer.inCall = null
-            if(params.single)  redirect action: 'index', caller: springSecurityService.principal
-            else               redirect action: 'next_order_call', id: customer.id
-			return
-		}
-
-
         def currentTimezone
         if(params?.timezone)
             currentTimezone = params?.timezone
@@ -63,6 +56,14 @@ class CallController {
             currentTimezone = params?.currentTimezone
 
 
+
+		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
+			println "CallResult of Null"
+			customer.inCall = null
+            if(params.single)  redirect action: 'index', caller: springSecurityService.principal
+            else               redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone]
+			return
+		}
 
 		if(customer) {
 			println 'Got the customer...' + customer.district
@@ -253,10 +254,21 @@ class CallController {
         println params?.currentTimezone
 		//make sure the last customer is no longer 'in call'
 		def currentCustomer = Customer.get(params?.id)
+
+        Integer currentSeq
+        Long currentId
+
 		if(currentCustomer) {
 			currentCustomer.inCall = null
 			currentCustomer.save(flush:true)
-		}
+
+            currentSeq = currentCustomer.seq
+            currentId = currentCustomer.id
+
+		} else {
+              currentSeq = 1
+              currentId =  1
+        }
 		def order = new CustomerOrder()
 		def call = new Call()
 
@@ -270,20 +282,37 @@ class CallController {
 
 		println "About to create criteria"
 		def c = Customer.createCriteria()
+		def c2 = Customer.createCriteria()
 
 
 		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(max: 1, sort: 'id') {
+		def customer = c.list(sort: 'seq') {
+            eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			isNull 'inCall'
-			gt 'id', currentCustomer?.id
+		  or{
+              and {
+                  eq('seq', currentSeq)
+                  gt('id', currentId)
+              }
+              gt('seq', currentSeq)
+            }
+          maxResults(1)
 		}.getAt(0)
 
 		if(customer) {
+            println "Got a customer from criteria"
 			customer.inCall = new Date()
 			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
 		} else {
-			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_NOT_ORDERED, null)
+            println "Didn't get a customer.... hmm..."
+			customer = c2.list(max: 1, sort: 'seq') {
+                eq 'timezone', currentTimezone
+			    eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			    isNull 'inCall'
+		    }.getAt(0)
+
+
 			if(customer) {
 				customer.inCall = new Date()
 				customer.save(flush:true)
@@ -360,10 +389,10 @@ class CallController {
 		def c = Customer.createCriteria()
 
 		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(max: 1, sort: 'id') {
+		def customer = c.list(max: 1, sort: 'seq') {
 			eq 'status', CustomerStatus.HAS_ORDERED
 			isNull 'inCall'
-			gt 'id', currentCustomer?.id
+			gt 'seq', currentCustomer?.seq
 		}.getAt(0)
 
 		if(customer) {
@@ -505,7 +534,7 @@ class CallController {
 				if(call.result == CallResult.QUALIFIED) {
 					println "The CallResult was QUALIFIED - saving assessments"
 
-					Product.list().each { product ->
+					Product.list(sort:'sortOrder').each { product ->
 						params.assessment."${product.name}".each { key, val ->
 							println "$key = $val"
 						}
@@ -576,7 +605,8 @@ class CallController {
     def assess_list = {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
-		def customers = Customer.findAllByStatus(CustomerStatus.HAS_ORDERED, [max:max, offset:offset, sort: 'seq'])
+        def sort = params.sort ?: "seq"
+		def customers = Customer.findAllByStatus(CustomerStatus.HAS_ORDERED, [max:max, offset:offset, sort: sort])
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_ORDERED)]
    }
@@ -584,7 +614,8 @@ class CallController {
     def order_list = {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
-		def customers = Customer.findAllByStatus(CustomerStatus.HAS_NOT_ORDERED, [max:max, offset:offset, sort:'seq'])
+        def sort = params.sort ?: "seq"
+		def customers = Customer.findAllByStatus(CustomerStatus.HAS_NOT_ORDERED, [max:max, offset:offset, sort:sort])
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]

@@ -81,14 +81,15 @@
 						}
 											
 
-
+                        $('#loader').toggle();
 						return true
 
 					}
 
 
 					// more validation here...
-					return true
+					$('#loader').toggle();
+                    return true
 				}
 	  		});
 
@@ -146,7 +147,10 @@
 		<div class="callerNavBar">
 			<g:link class="callerButton" style="left:10px; position:relative; bottom:1px;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
 			<g:if test="${queue}">
-				<g:actionSubmit id="submit" style="position:relative; width:100px; left:970px; bottom:1px;" class="callerButton" action="save_order_call" value="Next Call" /></g:if>
+				<g:actionSubmit id="submit" style="position:relative; width:100px; left:960px; bottom:1px;" class="callerButton" action="save_order_call" value="Next Call" />
+                 <img id="loader" style="position:absolute; left:1140px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
+            </g:if>
+
 			<g:elseif test="${single}">
 					<g:hiddenField name="single" value="${single}" />
 					<g:actionSubmit style="position:relative; width:100px; left:970px;" class="callerButton" id="submit" action="save_order_call" value="Finish" />
