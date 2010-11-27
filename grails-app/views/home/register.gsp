@@ -183,10 +183,8 @@
                       <span style="color: rgb(153, 51, 0);">
                               <h2>Optional Broker/Distributor Information</h2>
                       </span> 
-                      <div style="font-size: 10px;"> 
-                          One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <BR /><BR /> 
-                          Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br /><br /> 
-                      </div> 
+                          One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <br /><br /> 
+                          Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br /><br />
                       <g:hiddenField name="seq" value="9998" />
                       <table CELLPADDING="3" CELLSPACING="0" BORDER="0" width="300"> 
                           <tr> 
