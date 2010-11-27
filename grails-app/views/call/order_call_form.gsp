@@ -204,11 +204,19 @@
 								<label for="address.city"><g:message code="address.city.label" default="City" /></label>
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'city', 'errors')}">
-								<g:textField class="textField" name="address.city" value="${customerInstance?.address?.city}" style="width:150px; margin-right:10px;" />
+								<g:textField class="textField" name="address.city" value="${customerInstance?.address?.city}" style="width:200px; margin-right:10px;" />
+                            </td>
+                        </tr>
+                        <tr class="prop">
+							<td valign="top" class="name">
 								<label for="address.state"><g:message code="address.state.label" default="State" /></label>
+							</td>
+                            <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
+
 								<g:textField class="textField" name="address.state" value="${customerInstance?.address?.state}" style="width:35px;  margin-right:10px;"/>
 								<label for="address.zip"><g:message code="address.zip.label" default="Zip" /></label>
-								<g:textField class="textField" name="address.zip" value="${fieldValue(bean: customerInstance?.address, field: 'zip')}" style="width:50px" />
+								<g:textField class="textField" name="address.zip" value="${fieldValue(bean: customerInstance?.address, field: 'zip')}" style="width:60px" />
+                          </td>
 						</tr>
 					 </tbody>
 				 </table>

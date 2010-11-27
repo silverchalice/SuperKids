@@ -6,8 +6,10 @@
 								<br/>
 							  </td>
 							</tr>
+
+
 							<g:if test="${customerInstance?.lastCall}">
-								<g:if test="${customerInstance?.lastCall.dateCreated - new Date() < 1 }">
+								<g:if test="${new Date() - customerInstance?.lastCall?.dateCreated < 1 }">
 									<tr class="prop" id="todayCall">
 								</g:if>
 								<g:else>
@@ -18,11 +20,11 @@
 										Caller:
 									</td>
 									<td valign="top" class="value" id="caller">
-										${customerInstance?.lastCall.caller.username}
+										${customerInstance?.lastCall?.caller?.username}
 									</td>
 								</tr>
 
-								<g:if test="${customerInstance?.lastCall.dateCreated - new Date() < 1 }">
+								<g:if test="${new Date() - customerInstance?.lastCall?.dateCreated < 1 }">
 									<tr class="prop" id="todayCall">
 								</g:if>
 								<g:else>
@@ -32,11 +34,11 @@
 										Date
 									</td>
 									<td valign="top" class="value" id="date">
-										<g:formatDate date="${customerInstance?.lastCall.dateCreated}" format="MM/dd/yyyy" />
+										<g:formatDate date="${customerInstance?.lastCall?.dateCreated}" format="MM/dd/yyyy" />
 									</td>
 								</tr>
 
-								<g:if test="${customerInstance?.lastCall.dateCreated - new Date() < 1 }">
+								<g:if test="${new Date() - customerInstance?.lastCall?.dateCreated < 1 }">
 									<tr class="prop" id="todayCall">
 								</g:if>
 								<g:else>
@@ -46,10 +48,9 @@
 										Result
 									</td>
 									<td valign="top" class="value" id="result">
-										${customerInstance?.lastCall.result}
+										${customerInstance?.lastCall?.result}
 									</td>
 								</tr>
-								<g:if test="${customerInstance?.lastCall.dateCreated - new Date() < 1 }"></span></g:if>
 							</g:if>
 
 						    <g:if test="${customerInstance?.calls?.size() > 1}">

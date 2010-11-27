@@ -30,7 +30,6 @@ class CallController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 23, 100)
-        params.sort = params.sort ?: "seq"
 
         [callInstanceList: Call.list(params), callInstanceTotal: Call.count()]
     }
@@ -147,7 +146,7 @@ class CallController {
 				if(params?.single)
 					redirect action: 'index', caller: springSecurityService.principal
 				else
-					redirect action: 'next_order_call', id: customer.id, currentTimezone: currentTimezone, queue: 'true'
+					redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
 			}  else {
 				println "Could not save the Customer..."
 				customer.errors.allErrors.each { println it }
