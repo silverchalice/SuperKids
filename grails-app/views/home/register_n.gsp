@@ -21,7 +21,11 @@
 
             <p>Now, click the blue login button in the upper right corner.  Thank you again for your interest in SuperKids.</p>
 
-            <h2>For Assistance</h2>
+            <br /><br />
+
+            <h2 style="text-align:center;">For Assistance</h2>
+
+            <br />
 
             <div style="text-align:center; font-style:italic; color:#993300">
                 <span style="color: color:#FA9F1B">melissac@sdastl.com</span><br />
