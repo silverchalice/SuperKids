@@ -30,71 +30,71 @@
                         <table width="300" border="0" cellspacing="3" cellpadding="0"> 
                             <tr> 			
                                 <td align="right">Your Name</td> 
-                                <td align="left"><input type="text" name="fsdName" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="fsdName" value="${customerInstance?.fsdName}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">Your Title</td> 
-                                <td align="left"><input type="text" name="fsdTitle" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="fsdTitle" value="${customerInstance?.fsdTitle}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">School District Name</td> 
-                                <td align="left"><input type="text" name="district" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="district" value="${customerInstance?.district}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">School District Address</td> 
-                                <td align="left"><input type="text" name="address.street" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="address.street" value="${customerInstance?.address?.street}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">&nbsp;</td> 
-                                <td align="left"><input type="text" name="address.street2" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="address.street2" value="${customerInstance?.address?.street2}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">City</td> 
-                                <td align="left"><input type="text" name="address.city" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="address.city" value="${customerInstance?.address?.city}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">State</td> 
                                 <td align="left"> 
-                                    <g:select name="address.state" from="${states}" />
+                                    <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" />
                                 </td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">Zip</td> 
-                                <td align="left"><input type="text" name="address.zip" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="address.zip" value="${customerInstance?.address?.zip}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">Telephone</td> 
-                                <td align="left"><input type="text" name="phone" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="phone" value="${customerInstance?.phone}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">Fax</td> 
-                                <td align="left"><input type="text" name="fax" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="fax" value="${customerInstance?.fax}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">Email</td> 
-                                <td align="left"><input type="text" name="email" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="email" value="${customerInstance?.email}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">Sample Delivery Address</td> 
-                                <td align="left"><input type="text" name="deliveryAddress.street" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">&nbsp;</td> 
-                                <td align="left"><input type="text" name="deliveryAddress.street2" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">City</td> 
-                                <td align="left"><input type="text" name="deliveryAddress.city" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">State</td>
                                 <td align="left"> 
-                                    <g:select name="deliveryAddress.state" from="${states}" />
+                                    <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" />
                                 </td> 
                             </tr> 
                             <tr> 			
                                 <td align="right">Zip</td>
-                                <td align="left"><input type="text" name="deliveryAddress.zip" value="" size="20" maxlength="50"></td> 
+                                <td align="left"><input type="text" name="deliveryAddress.zip" value="${customerInstance?.deliveryAddress?.zip}" size="20" maxlength="50"></td> 
                             </tr> 
                         </table> 
                     </div> 
@@ -165,15 +165,15 @@
                                  </td> 
                              </tr> 
                               <tr> 
-                                  <td><input type="text" name="breakfastsServed" size="4" maxlength="6" value="" ></td> 
+                                  <td><input type="text" name="breakfastsServed" size="4" maxlength="6" value="${customerInstance?.breakfastsServed}" ></td> 
                                   <td>Breakfast</td> 
                               </tr> 
                               <tr> 
-                                  <td><input type="text" name="lunchesServed" size="4" maxlength="6" value=""></td> 
+                                  <td><input type="text" name="lunchesServed" size="4" maxlength="6" value="${customerInstance?.lunchesServed}"></td> 
                                   <td>Lunch</td> 
                               </tr> 
                               <tr> 
-                                  <td><input type="text" name="snacksServed" size="4" maxlength="6" value=""></td> 
+                                  <td><input type="text" name="snacksServed" size="4" maxlength="6" value="${customerInstance?.snacksServed}"></td> 
                                   <td>Snacks</td> 
                               </tr> 
                           </table> 
