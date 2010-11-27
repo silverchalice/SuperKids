@@ -78,7 +78,10 @@ class HomeController {
 			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-         def customerInstance = new Customer(params)
+         println "the params are " + params
+         def customerInstance = new Customer()
+         customerInstance.properties = params
+         println "the customer is " + customerInstance
          if(checkParams(params)){
            customerInstance.password = springSecurityService.encodePassword("superkids")
            customerInstance.enabled = true
@@ -107,7 +110,6 @@ class HomeController {
                render(view:"register", model:[customerInstance:customerInstance, states:states])
            }
            } else {
-               flash.message = "AHH!!!!"
                render(view:"register", model:[customerInstance:customerInstance, states:states])
            }
        }
@@ -858,11 +860,79 @@ http://www.superkidssampling.com/
        }
 
        def checkParams(params){
-           if(!params.fsdName){
-               println "NO fsdName"
+           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || !params.breakfastsServed || !params.lunchesServed || !params.snacksServed || Customer.findByEmail(params.email)){
+               if(!params.fsdName){
+                   if(flash.message){
+                       flash.message += "Please enter your name <br />"
+                   } else {
+                       flash.message = "Please enter your name <br />"
+                   }
+               }
+               if(!params.email){
+                   if(flash.message){
+                       flash.message += "Please enter your email address <br />"
+                   } else {
+                       flash.message = "Please enter your email address <br />"
+                   }
+               }
+               if(!params.district){
+                   if(flash.message){
+                       flash.message += "Please enter your school district name <br />"
+                   } else {
+                       flash.message = "Please enter your school district name <br />"
+                   }
+               }
+               if(!params.address.city){
+                   if(flash.message){
+                       flash.message += "Please enter the city of your school district <br />"
+                   } else {
+                       flash.message = "Please enter the city of your school district <br />"
+                   }
+               }
+               if(!params.address.zip){
+                   if(flash.message){
+                       flash.message += "Please enter the zip of your school district <br />"
+                   } else {
+                       flash.message = "Please enter the zip of your school district <br />"
+                   }
+               }
+               if(!params.address.street){
+                   if(flash.message){
+                       flash.message += "Please enter the address of your school district <br />"
+                   } else {
+                       flash.message = "Please enter the address of your school district <br />"
+                   }
+               }
+               if(!params.breakfastsServed){
+                   if(flash.message){
+                       flash.message += "Please enter the number of students that you serve breakfast to <br />"
+                   } else {
+                       flash.message = "Please enter the number of students that you serve breakfast to <br />"
+                   }
+               }
+               if(!params.lunchesServed){
+                   if(flash.message){
+                       flash.message += "Please enter the number of students that you serve lunch to <br />"
+                   } else {
+                       flash.message = "Please enter the number of students that you serve lunch to <br />"
+                   }
+               }
+               if(!params.snacksServed){
+                   if(flash.message){
+                       flash.message += "Please enter the number of students that you serve a snack to <br />"
+                   } else {
+                       flash.message = "Please enter the number of students that you serve a snack to <br />"
+                   }
+               }
+               if(Customer.findByEmail(params.email)){
+                   if(flash.message){
+                       flash.message += "The email address you have entered is already assigned to an account <br />"
+                   } else {
+                       flash.message = "The email address you have entered is already assigned to an account <br />"
+                   }
+               }
                return false
            } else {
-               println "THERE WAS A fsdName"
                return true
            }
        }
