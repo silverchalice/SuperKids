@@ -44,7 +44,7 @@
 
                             <td>${fieldValue(bean: sponsorInstance, field: "phone")}</td>
 
-                            <td>${fieldValue(bean: sponsorInstance, field: "website")}</td>
+                            <td>${sponsorInstance.website}</td>
 
                             <td>${fieldValue(bean: sponsorInstance, field: "salesContact")}</td>
 
