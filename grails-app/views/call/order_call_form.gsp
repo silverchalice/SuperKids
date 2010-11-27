@@ -123,6 +123,11 @@
             width:300px
         }
 
+        input.ui-button {
+          padding: 5px 4px 4px 4px;
+        }
+
+
         a#timezone-button {
           width: 74px; position:relative; bottom:31px;;left:980px;
         }
@@ -145,21 +150,21 @@
 		<g:hiddenField name="currentTimezone" value="${currentTimezone}" />
 
 		<div class="callerNavBar">
-			<g:link class="callerButton" style="left:10px; position:relative; bottom:1px;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
+			<g:link class="callerButton" style="left:10px; position:absolute; " action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
 			<g:if test="${queue}">
-				<g:actionSubmit id="submit" style="position:relative; width:100px; left:960px; bottom:1px;" class="callerButton" action="save_order_call" value="Next Call" />
-                 <img id="loader" style="position:absolute; left:1140px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
+				<g:actionSubmit id="submit" style="position:absolute; width:100px; left:1000px; top:63px;" class="callerButton" action="save_order_call" value="Next Call" />
+                 <img id="loader" style="position:absolute; left:1105px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
             </g:if>
 
 			<g:elseif test="${single}">
 					<g:hiddenField name="single" value="${single}" />
-					<g:actionSubmit style="position:relative; width:100px; left:970px;" class="callerButton" id="submit" action="save_order_call" value="Finish" />
+					<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
 
 			</g:elseif>
 			<g:else>
 
-                <g:actionSubmit controller="call" class="callerButton" style="position:relative; left:1000px; bottom:1px" action="next_order_call" value="Start Calling" />
-                <span style="margin-left:500px;"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
+                <g:actionSubmit controller="call" class="callerButton" style="position:absolute; left:1080px; top:63px" action="next_order_call" value="Start Calling" />
+                <span style="position:absolute; left:0; top:96px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
 
 			</g:else>
 
