@@ -13,6 +13,15 @@
         <meta name="layout" content="public" />
     </sec:ifNotLoggedIn>
     <meta name="link" content="sustagrain" />
+    <script type="text">
+    var window1;
+    var window2;
+    function popUp(htmLoc,width,height,theWindow) {
+        var winleft = (screen.width / 2) - (width / 2);
+        var wintop = (screen.height / 2) - (height / 2);
+        window.open(htmLoc,"mainwindow","top="+wintop+",left="+winleft+",width="+width+",height="+height+",buttons=no,scrollbars=no,location=no,menubar=no,resizable=no,status=no,directories=no,toolbar=no");//YesorNo
+    }
+</script>
   </head>
   <body>
       <g:if test="${flash.message}">
