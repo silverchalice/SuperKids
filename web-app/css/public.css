@@ -211,6 +211,7 @@ a {
 #contentInset p {
   font-size:12px;
   margin-top:0;
+  line-height:13.5px;
   margin-bottom:13px;
   padding-left:1px;
 }

@@ -2,7 +2,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="public" />
+        <sec:ifLoggedIn>
+            <meta name="layout" content="learn" />
+        </sec:ifLoggedIn>
+        <sec:ifNotLoggedIn>
+            <meta name="layout" content="public" />
+        </sec:ifNotLoggedIn>
+
         <meta name="link" content="about" />
         <title>SuperKids | About Ultragrain</title>
     </head>
@@ -12,8 +18,8 @@
 				<h1>About Ultragrain<sup>&reg;</sup></h1><br/> <br/>
 
 				<div style="float: left; width: 600px">
-					<img style="width:200px; height:195px; float:right" alt="" src="/SuperKids/images/UltraGrainlogo.jpg" />
-					<p><strong><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><img width="90" hspace="5" height="280" align="left" src="/SuperKids/images/SATUBREADSLICESMALLVERT(1).jpg" alt="" />Ultragrain is an all-natural, 100% whole wheat flour </span></span></strong>that combines the nutritional benefits of whole grains with the finished recipe qualities of traditional refined flour. Products available for sampling in the SuperKids program demonstrate the use of whole wheat flour instead of refined white flour, with a major difference: Ultragrain delivers the best of both worlds&mdash;whole grain nutrition and refined white flour appeal. </p>
+					<img style="width:200px; height:195px; float:right" alt="" src="${resource(dir:'images', file:'UltraGrainlogo.jpg')}" />
+					<p><strong><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><img style="width:90px; height:280px; float:left"  hspace="5" src="${resource(dir:'images', file:'SATUBREADSLICESMALLVERT(1).jpg')}" alt="" />Ultragrain is an all-natural, 100% whole wheat flour </span></span></strong>that combines the nutritional benefits of whole grains with the finished recipe qualities of traditional refined flour. Products available for sampling in the SuperKids program demonstrate the use of whole wheat flour instead of refined white flour, with a major difference: Ultragrain delivers the best of both worlds&mdash;whole grain nutrition and refined white flour appeal. </p>
 					<p>Ultragrain can be found in many consumer foods across the nation. In fact, you may already be enjoying products made wtih Ultragrain and not even know it.</p>
 					<p>Ultragrain is the whole grain flour used in many packaged foods like whole grain crackers, pasta, pizza and bread, including the popular Sara Lee Soft &amp; Smooth Whole Grain White Bread, Kid Cuisine meals and Chef Boyardee Forkables. Ultragrain can also be found in Eagle Mills All-Purpose Flour, a blend of 30% Ultragrain and 70% premium white flour, which can be used as a direct replacement for white or bread flour in any recipe, making already delicious recipes more nutritious. Eagle Mills All-Purpose Flour offers 9 grams of whole grains per &frac14; cup serving.</p>
 

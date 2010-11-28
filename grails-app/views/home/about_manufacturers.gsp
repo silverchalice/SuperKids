@@ -4,12 +4,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <sec:ifLoggedIn>
+        <meta name="layout" content="customer" />
+    </sec:ifLoggedIn>
+    <sec:ifNotLoggedIn>
         <meta name="layout" content="public" />
+    </sec:ifNotLoggedIn>
         <title>SuperKids | About Our Manufacturers</title>
     </head>
     <body>
 
-		<div id="contentInsetInner">${content}</div>
+		<div id="contentInsetInner">
+
+             ${content}
+
+		</div>
 
     </body>
 </html>
