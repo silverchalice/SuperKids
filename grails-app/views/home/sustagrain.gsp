@@ -10,7 +10,7 @@
     <meta name="link" content="sustagrain" />
   </head>
   <body>
-<script type="text">
+<script type="text/javacsript">
     var window1;
     var window2;
     function popUp(htmLoc,width,height,theWindow) {

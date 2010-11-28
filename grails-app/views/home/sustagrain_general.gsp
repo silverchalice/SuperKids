@@ -13,7 +13,7 @@
         <meta name="layout" content="public" />
     </sec:ifNotLoggedIn>
     <meta name="link" content="sustagrain" />
-    <script type="text">
+    <script type="text/javascript">
     var window1;
     var window2;
     function popUp(htmLoc,width,height,theWindow) {
