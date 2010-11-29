@@ -17,7 +17,8 @@
          <div id="contentInsetInner">
          	  <h1>Assessment Tools & Resources</h1>
               <br/><br/>
-              <img src="${resource(dir:'images', file:'girleating.jpg')}" id="girleating" /> <div>
+              <div style="float:right; margin-left:50px;">
+              <img src="${resource(dir:'images', file:'girleating.jpg')}" id="girleating" /></div><div>
               <p style="font-size:13px;">You can download the following by clicking on your choice. These tools and resources can be used when conducting in-school taste tests of your SuperKids whole grain product samples:</p>
               <br />
               <p style="font-size:13px"><g:link controller="home" action="minnesota_form">University of Minnesota Module</g:link> - Includes whole grain definitions, nutritional and labeling information.</p>  <br />

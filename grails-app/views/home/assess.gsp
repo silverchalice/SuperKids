@@ -18,8 +18,8 @@
           </div>
           <div style="clear:both">
             <ol style="list-style-type:decimal;">
-              <li><span style="color:#800000">FIVE (5) First Place Prizes</span>--&#36;200 Gift Card from your choice of Wal-Mart, Target, Learning ZoneXpress, or the OrganWise Guys</li>
-              <li><span style="color:#800000">SEVEN (7) Second Place Prizes</span>--&#36;100 Gift Card from your choice of Wal-Mart, Target, Learning ZoneXpress, or the OrganWise Guys</li>
+              <li><span style="color:#800000">FIVE (5) First Place Prizes</span>--&#36;200 Gift Card from your choice of Wal-Mart, Target, Learning ZoneXpress, or The OrganWise Guys</li>
+              <li><span style="color:#800000">SEVEN (7) Second Place Prizes</span>--&#36;100 Gift Card from your choice of Wal-Mart, Target, Learning ZoneXpress, or The OrganWise Guys</li>
             </ol>
             <p>When you receive your samples, a printed Assessment Form will be included in the box. Complete it, then fax or mail it back and you&rsquo;ll be
             automatically entered in our drawing. If you fill out the assessment form online you&rsquo;ll double your chances to win one of our sweepstakes prizes!</p>
