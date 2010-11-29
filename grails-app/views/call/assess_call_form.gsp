@@ -27,7 +27,7 @@
 			$("select#result").selectmenu({style:'dropdown'});
 			$("select#bState").selectmenu({style:'dropdown'});
 
-
+            var clicked;
 
 
 			//On Click Event
@@ -42,10 +42,35 @@
 				return false;
 			});
 
+            $("select#timezone").selectmenu({style:'dropdown'});
+
+
+            $('#submit').click(function (e) {
+                if(clicked == 'true') { return false };
+                $('#loader').toggle();
+                clicked = 'true'
+                return true
+
+            });
+
 		});
     </script>
 
     <style type="text/css">
+
+      html {
+        background-color: #f4f2f2;
+      }
+
+      body {
+        background-color: #f4f2f2;
+      }
+
+      label {
+        font-weight:bold;
+        font-size:12px;
+      }
+
 
         input, select, textarea {
           background:#FFF3E0;
@@ -63,25 +88,39 @@
         .contact td {
             padding:0 5px;
         }
+
+        a#timezone-button {
+          width: 74px;
+        }
+
+        input.ui-button {
+          padding: 3px 4px 4px 4px;
+        }
+
     </style>
 
     <g:form>
 
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
+        <g:hiddenField name="offset" value="${offset}" />
+		<g:hiddenField name="currentTimezone" value="${currentTimezone}" />
 
 		<div class="callerNavBar">
 			<g:link class="callerButton" style="margin-left:10px" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
 			<g:if test="${queue}">
-				<span style="margin-left:970px"><g:actionSubmit id="submit" class="callerButton" action="save_assess_call" value="Next Call" /></span>
+				<span style="position:absolute; width:100px; left:1120px; top:60px;"><g:actionSubmit id="submit" class="callerButton" action="save_assess_call" value="Next Call" /></span>
+                <img id="loader" style="position:absolute; left:1200px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
 			</g:if>
 			<g:elseif test="${single}">				
 
 				<g:hiddenField name="single" value="${single}" />
-				<g:actionSubmit id="submit" class="callerButton" style="margin-left:970px" action="finish_call" value="Finish Calling" />
+				<g:actionSubmit id="submit" class="callerButton" style="position:absolute; left:1080px; top:63px; width:100px" action="finish_call" value="Finish" />
 
 			</g:elseif>
 			<g:else>
-				<span style="margin-left:950px;"><g:link controller="call" class="callerButton" action="next_assess_call">Start Calling</g:link></span>
+                <g:actionSubmit id="submit" controller="call" class="callerButton" style="position:absolute; left:1070px; top:62px" action="next_assess_call" value="Start Calling" />
+                <span style="position:absolute; left:975px; top:64px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
+                <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
 			</g:else>
 		</div>
 
@@ -99,10 +138,10 @@
 							<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">
-									<label><g:message code="customer.id.label" default="ID" /></label>
+									<label><g:message code="customer.seq.label" default="Seq" /></label>
 								</td>
 								<td valign="top" class="value">
-									<span style="padding:0px 5px; line-height:20px;">${customerInstance?.id}</span>
+									<span style="padding:0px 5px; line-height:20px;">${customerInstance?.seq}</span>
 								</td>
 							</tr>
 
@@ -247,13 +286,13 @@
 						</tbody>
 					</table>
 
-				<table style="margin:10px 10px 0 0; width:300px; position:absolute; top:370px; left:955px; border:none; height:320px;">
+				<table style="margin:10px 10px 0 0; width:320px; position:absolute; top:370px; left:955px; border:none; height:320px;">
 					<tbody>
 						<tr>
 							<td class="prop" style=" background-image:url(${resource(dir:'images', file:'callnote-assess.png')}); background-repeat:no-repeat">
 								<h3 style="padding-top:10px; padding-left:10px">Operator Comments</h3>
 								<br />
-								<g:textArea rows="" cols="" style="width:260px; height:250px; background:none; margin-left:10px" name="notes" value="${customerInstance?.notes}"/>
+								<g:textArea rows="" cols="" style="width:270px; height:250px; background:none; margin-left:10px" name="notes" value="${customerInstance?.notes}"/>
 							</td>
 						</tr>
 					</tbody>

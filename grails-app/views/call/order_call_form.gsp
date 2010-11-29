@@ -15,6 +15,8 @@
 
    			$("#callbackDate").datepicker({dateFormat: 'mm/dd/yy'});
 
+            var clicked = 'false';
+
 			var changedFlag;
 			$(':input').bind('change', function() {
 			    //console.log('changedFlag = true')
@@ -26,6 +28,7 @@
              $("select#timezone").selectmenu({style:'dropdown'});
 
 			$('#submit').click(function (e) {
+                if(clicked == 'true') { return false };
 
 				if(changedFlag == 'true' && $('#result').val() == "null") {
 					return confirm('You made changes to the form, but did not choose a Call Result - your changes will not be saved. Do you want to continue?')
@@ -82,6 +85,7 @@
 											
 
                         $('#loader').toggle();
+                        clicked = 'true'
 						return true
 
 					}
@@ -89,13 +93,19 @@
 
 					// more validation here...
 					$('#loader').toggle();
+                    clicked = 'true'
                     return true
 				}
 	  		});
 
+
+
 			$('#startSubmit').click(function (e) {
+                if(clicked == 'true') { return false };
                 $('#loader').toggle();
+                clicked = 'true'
                 return true
+
             });
 
 
@@ -155,7 +165,7 @@
 		<div class="callerNavBar">
 			<g:link class="callerButton" style="left:10px; position:absolute;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
 			<g:if test="${queue}">
-				<g:actionSubmit id="submit" style="position:absolute; width:100px; left:1000px; top:63px;" class="callerButton" action="save_order_call" value="Next Call" />
+				 <g:actionSubmit id="submit" style="position:absolute; width:100px; left:1000px; top:63px;" class="callerButton" action="save_order_call" value="Next Call" />
                  <img id="loader" style="position:absolute; left:1105px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
             </g:if>
 

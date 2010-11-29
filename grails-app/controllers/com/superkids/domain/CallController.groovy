@@ -374,24 +374,50 @@ class CallController {
  	def next_assess_call = {
 		println "in next_Assess_Call for CallController"
 		println params
+       println params?.currentTimezone
+       //make sure the last customer is no longer 'in call'
+       def currentCustomer = Customer.get(params?.id)
 
-		//make sure the last customer is no longer 'in call'
-		def currentCustomer = Customer.get(params?.id)
-		if(currentCustomer) {
-			currentCustomer.inCall = null
-			currentCustomer.save(flush:true)
-		}
-		def order = new CustomerOrder()
-		def call = new Call()
+       Integer currentSeq
+       Long currentId
+
+       if(currentCustomer) {
+           currentCustomer.inCall = null
+           currentCustomer.save(flush:true)
+
+           currentSeq = currentCustomer.seq
+           currentId = currentCustomer.id
+
+       } else {
+             currentSeq = 1
+             currentId =  1
+       }
+       def order = new CustomerOrder()
+       def call = new Call()
+
+       def currentTimezone
+       if(params?.timezone)
+           currentTimezone = params?.timezone
+       else
+           currentTimezone = params?.currentTimezone
 
 		println "About to create criteria"
 		def c = Customer.createCriteria()
+		def c2 = Customer.createCriteria()
 
-		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(max: 1, sort: 'seq') {
+		//assess calls are all customers with a current order AND who are not being called atm
+		def customer = c.list(sort: 'seq') {
+            eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_ORDERED
 			isNull 'inCall'
-			gt 'seq', currentCustomer?.seq
+		  or{
+              and {
+                  eq('seq', currentSeq)
+                  gt('id', currentId)
+              }
+              gt('seq', currentSeq)
+            }
+          maxResults(1)
 		}.getAt(0)
 
 		if(customer) {
@@ -403,9 +429,14 @@ class CallController {
 
 			println "Brokers $broker?.name & $broker2?.name"
 
-			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true', states: states, broker: broker, broker2: broker2]
+			render view:'assess_call_form', model: [ customerInstance: customer, call: call, order: order, queue: 'true', states: states, broker: broker, broker2: broker2, currentTimezone: currentTimezone ]
 		} else {
-			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_ORDERED, null)
+            customer = c2.list(max: 1, sort: 'seq') {
+                eq 'timezone', currentTimezone
+                eq 'status', CustomerStatus.HAS_ORDERED
+                isNull 'inCall'
+            }.getAt(0)
+
 			if(customer) {
 				println "End of the line - coming round again"
                 println customer
@@ -418,7 +449,7 @@ class CallController {
 				def broker = customer?.brokers?.getAt(0)
 				def broker2 = customer?.brokers?.size() > 0 ? customer?.brokers?.getAt(-1) : null
 				println "Brokers $broker?.name & $broker2?.name"
-				render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, queue: 'true', states: states, broker: broker, broker2: broker2]
+				render view:'assess_call_form', model: [ customerInstance: customer, call: call, order: order, queue: 'true', states: states, broker: broker, broker2: broker2, currentTimezone: currentTimezone ]
 			} else redirect action:index
 		}
 	}
@@ -456,7 +487,7 @@ class CallController {
 	}
 
 	def start_assess_call = {
-		render view:'assess_call_form', model: [products: Product.list()]
+		render view:'assess_call_form', model: [products: Product.list(),  timezones: timezones ]
 	}
 
 
@@ -487,10 +518,19 @@ class CallController {
 		def customer = Customer.get(params.id)
 		def caller = Caller.get(springSecurityService.principal.id)
 
+
+
+        def currentTimezone
+        if(params?.timezone)
+            currentTimezone = params?.timezone
+        else
+            currentTimezone = params?.currentTimezone
+
+
 		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
 			println "CallResult of Null"
 			customer.inCall = null
-			redirect action: 'next_assess_call', id: customer.id
+			redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue: 'true']
 			return
 		}
 
@@ -589,7 +629,7 @@ class CallController {
 				if(params?.single)
 					redirect action: 'index', caller: springSecurityService.principal
 				else
-					redirect action: 'next_assess_call', id: customer.id                                   
+					redirect action: 'next_assess_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
 			}
 		}
 
@@ -626,7 +666,9 @@ class CallController {
 		def offset = params.offset ?: 0
 
 		println "About to create criteria"
-		
+
+        def currentUser = springSecurityService.principal
+
 		def customers = Customer.createCriteria().list{
 			lastCall{
 				eq('result', CallResult.CALLBACK)
@@ -634,11 +676,16 @@ class CallController {
 		}
 	    println 'break'
 		customers.sort{a, b ->
-			if (a.lastCall.callbackDate == b.lastCall.callbackDate)
-				return a.lastCall.caller.username <=> b.lastCall.caller.username
-			else
-				return a.lastCall.callbackDate <=> b.lastCall.callbackDate
-		}
+          if (a.lastCall.callbackDate == b.lastCall.callbackDate){
+              if (a.lastCall.caller.username == currentUser)
+                  return -1
+              else if (a.lastCall.caller.username == currentUser)
+                  return 1
+              else return a.lastCall.caller.username <=> b.lastCall.caller.username
+         }
+
+         else return a.lastCall.callbackDate <=> b.lastCall.callbackDate
+        }
 
         [customerInstanceList:customers, customerInstanceTotal: customers.size(), caller: springSecurityService.principal]
 

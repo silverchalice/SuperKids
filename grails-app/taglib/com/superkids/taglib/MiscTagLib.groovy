@@ -417,7 +417,7 @@ Modified: get menuButton text from new 'msg' attr
 	def productAssessmentNav = { attrs ->
 		def customer = Customer.get(attrs.id)
 		if(customer) {
-			def products = customer.order.products*.product.sort { it.id }
+			def products = customer?.order?.products*.product.sort { it.id }
 			def totalProducts = products.size()
 			def tabIndex = 2
 			out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
