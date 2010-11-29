@@ -70,7 +70,7 @@
 				
 
 					   <h1>Your Contact Information</h1> <br/>
-					   <p style="font-size:12px;">Please confirm the information shown. To change your contact information, click <g:link controller="home" action="edit_profile">here</g:link>. <br/>
+					   <p style="font-size:12px;">Please confirm the information shown. To change your contact information, click <g:link controller="product" action="check_out">here</g:link>. <br/>
 						To add a sample, click <g:link controller="home" action="order">here</g:link>.</p>
 
 					   <table style="margin-left:20px; border:0; line-height:10px">
