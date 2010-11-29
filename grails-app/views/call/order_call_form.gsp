@@ -93,7 +93,10 @@
 				}
 	  		});
 
-			 
+			$('#startSubmit').click(function (e) {
+                $('#loader').toggle();
+                return true
+            });
 
 
       })
@@ -163,8 +166,9 @@
 			</g:elseif>
 			<g:else>
 
-                <g:actionSubmit controller="call" class="callerButton" style="position:absolute; left:1080px; top:63px" action="next_order_call" value="Start Calling" />
+                <g:actionSubmit id="startSubmit" controller="call" class="callerButton" style="position:absolute; left:1080px; top:63px" action="next_order_call" value="Start Calling" />
                 <span style="position:absolute; left:0; top:96px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
+              <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
 
 			</g:else>
 
