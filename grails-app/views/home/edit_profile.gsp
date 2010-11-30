@@ -435,7 +435,7 @@
 				</table>
 			</td><td valign="top">
 
-			<g:form controller="${brokerId ? 'product' : 'home'}" action="${brokerId ? 'updateBroker': 'addBroker'}" method="post">
+			<g:form controller="${broker ? 'product' : 'home'}" action="${broker ? 'updateBroker': 'addBroker'}" method="post">
             <div style="width:300px; float:left;">
                       <table style="border:0; width:300px">
                           <tr>
@@ -477,7 +477,8 @@
                               <td><input type="text" name="zip" size="10" maxlength="20" value="${broker?.zip}"></td>
                           </tr>
                           <tr>
-                              <td><g:hiddenField name="rController" value="home" />
+                              <td><g:hiddenField name="id" value="${broker?.id}" />
+                              <g:hiddenField name="rController" value="home" />
                               <g:hiddenField name="rAction" value="edit_profile" /></td>
                           </tr>
                             <tr>
