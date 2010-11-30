@@ -429,7 +429,7 @@
                 </div>
             </g:form>
             </div>
-            <div style="float:left; margin-left:10px; width:40%;">
+            <div style="float:left; margin-left:10px; width:58%;">
 
 				<g:if test="${customerInstance.status != CustomerStatus.HAS_NOT_ORDERED}">
 					<g:render template="ordered_items" model="[customerInstance: customerInstance, products: products]" />

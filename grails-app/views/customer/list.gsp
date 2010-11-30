@@ -59,7 +59,7 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td style="width:36px;">${customerInstance?.seq}</td>
+                            <td style="width:32px;">${customerInstance?.seq}</td>
 
                             <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
 
@@ -67,15 +67,15 @@
 
                             <td style="width:80px"><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
-                            <td style="width:80px">
+                            <td style="width:50px">
                           	    <sks:orderCheckbox name="placedOrder" id="${customerInstance.id}" />
                             </td>
 
-                            <td style="width:80px">
+                            <td style="width:55px">
                         	    <sks:assessmentCheckbox name="assessment" id="${customerInstance.id}" />
                             </td>
 
-                            <td width="40px">
+                            <td width="25px">
                                     <g:if test="${customerInstance.newCustomer}">
                                         <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'false', rController:'customer', rAction:'list']"><img src="/SuperKids/images/true-g.png" height="18" width="18"></g:link>
                                     </g:if>
@@ -84,7 +84,7 @@
                                     </g:else>
                             </td>
 
-                            <td width="95px">
+                            <td width="50px">
                         	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>
 
