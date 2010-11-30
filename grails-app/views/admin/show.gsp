@@ -39,63 +39,63 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.password.label" default="Password" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: adminInstance, field: "password")}</td>
+                            <td valign="top" class="value"><g:link controller="home" action="change_password" id="${adminInstance?.id}">Change Password</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.accountExpired.label" default="Account Expired" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.accountExpired}" /></td>
+                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.accountExpired}" true="Yes" false="No" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.accountLocked.label" default="Account Locked" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.accountLocked}" /></td>
+                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.accountLocked}" true="Yes" false="No" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.dateCreated.label" default="Date Created" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${adminInstance?.dateCreated}" /></td>
+                            <td valign="top" class="value"><g:formatDate format="MMMM dd, yyyy" date="${adminInstance?.dateCreated}" /> at <g:formatDate format="h:mm a" date="${adminInstance?.dateCreated}" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.enabled.label" default="Enabled" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.enabled}" /></td>
+                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.enabled}" true="Yes" false="No" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.lastLogin.label" default="Last Login" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${adminInstance?.lastLogin}" /></td>
+                            <td valign="top" class="value"><g:formatDate format="MMMM dd, yyyy" date="${adminInstance?.lastLogin}" /> at <g:formatDate format="h:mm a" date="${adminInstance?.lastLogin}" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.lastUpdated.label" default="Last Updated" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${adminInstance?.lastUpdated}" /></td>
+                            <td valign="top" class="value"><g:formatDate format="MMMM dd, yyyy" date="${adminInstance?.lastUpdated}" /> at <g:formatDate format="h:mm a" date="${adminInstance?.lastUpdated}" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="admin.name.label" default="Name" /></td>
+                            <td valign="top" class="name">Name</td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: adminInstance, field: "name")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: adminInstance, field: "firstName")} ${fieldValue(bean: adminInstance, field: "lastName")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.passwordExpired.label" default="Password Expired" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.passwordExpired}" /></td>
+                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.passwordExpired}" true="Yes" false="No" /></td>
                             
                         </tr>
                     
