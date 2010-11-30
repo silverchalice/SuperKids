@@ -227,7 +227,7 @@
 								<td valign="top">
 									<g:textField style="width:150px;" name="phone" value="${customerInstance?.phone}" />
 									<label for="callbackDate" style="padding: 0 10px 0 3px;"><g:message code="callback.date" default="Callback Date" /></label>
-									<input type="text" style="width:90px" id="callbackDate" />
+									<input type="text" style="width:90px" id="callbackDate" name="callbackDate" />
 								</td>
 
 							</tr>
@@ -238,7 +238,7 @@
 								<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fax', 'errors')}">
 									<g:textField style="width:150px;" class="textField" name="fax" value="${customerInstance?.fax}" />
 									<label for="callbackTime" style="padding: 0 10px 0 3px;"><g:message code="callback.date" default="Callback Time" /></label>
-									<input type="text" style="width:90px" id="callbackTime" />
+									<input type="text" style="width:90px" id="callbackTime" name="callbackTime" />
 								</td>
 
 							</tr>
@@ -290,7 +290,7 @@
 									<label for="result"><strong>Call Result</strong></label>
 								</td>
 								<td valign="top" class="value">
-									 <g:select id="result" name='result' value="${call?.result?.id}" valueMessagePrefix="call.result" optionKey="key"
+									 <g:select style="width:175px" id="result" name='result' value="${call?.result?.id}" valueMessagePrefix="call.result" optionKey="key"
 										noSelection="${['null':'Select One...']}"
 										from='${CallResult.enumConstants}' />
 								</td>

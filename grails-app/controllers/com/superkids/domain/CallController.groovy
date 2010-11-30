@@ -65,7 +65,7 @@ class CallController {
 		}
 
 		if(customer) {
-			println 'Got the customer...' + customer.district
+			println 'Got the customer... ' + customer.district
 			customer.properties = params
 
 			if(customer.save(flush:true)){
@@ -512,9 +512,7 @@ class CallController {
 
 	def save_assess_call = {
 		println "in Save_Assess_Call for CallController"
-		params.each { key,val ->
-			println "$key = $val"
-		}
+		println params
 		def customer = Customer.get(params.id)
 		def caller = Caller.get(springSecurityService.principal.id)
 
@@ -556,8 +554,12 @@ class CallController {
 			if(customer.save(flush:true)){
 				println 'Updated the Customer'
 				def call = new Call(params)
+                call.caller = caller
+				call.customer = customer
+				call.result = CallResult.valueOf(params.result)
 
-				if(call.result == CallResult.CALLBACK) {
+                if(call.result == CallResult.CALLBACK ) {
+                    println "We have a Callback..."
 					if(params.callbackDate) {
 						println "We have a Callback..."
 						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
@@ -568,9 +570,7 @@ class CallController {
 					} else {
 						println "no date..."
 					}
-				}
-
-				if(call.result == CallResult.QUALIFIED) {
+				} else if(call.result == CallResult.QUALIFIED) {
 					println "The CallResult was QUALIFIED - saving assessments"
 
 					Product.list(sort:'sortOrder').each { product ->
@@ -608,9 +608,8 @@ class CallController {
 							}
 						}
 					}
-				}
-
-				if(params.result != ('null' || null )) {
+				} else if(params.result != ('null' || null )) {
+                    println "This should not be null, QUALIFIED, or CALLBACK..."
 					println params.result
 					call.result = CallResult.valueOf(params.result)
 				}
