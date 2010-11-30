@@ -435,7 +435,7 @@
 				</table>
 			</td><td valign="top">
 
-			<g:form action="addBroker" method="post">
+			<g:form controller="${brokerId ? 'product' : 'home'}" action="${brokerId ? 'updateBroker': 'addBroker'}" method="post">
             <div style="width:300px; float:left;">
                       <table style="border:0; width:300px">
                           <tr>
