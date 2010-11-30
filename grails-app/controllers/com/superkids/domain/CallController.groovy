@@ -424,8 +424,8 @@ class CallController {
 			println "Next customer..."
 			customer.inCall = new Date()
 
-			def broker = customer.brokers?.getAt(0)
-			def broker2 = customer.brokers?.size() > 0 ? brokers[-1] : null
+			def broker = customer?.brokers?.getAt(0)
+			def broker2 = customer?.brokers?.size() > 0 ? customer?.brokers[-1] : null
 
 			println "Brokers $broker?.name & $broker2?.name"
 
@@ -592,7 +592,9 @@ class CallController {
 										iRating: params.assessment."${product.name}".interestRating,
 										likeComment: params.assessment."${product.name}".likeComment,
 										changeComment: params.assessment."${product.name}".changeComment,
-										product: product
+										product: product,
+                                        type: OrderType.PHONE
+
 								)
 								customer.addToAssessments(assessment)
 								customer.status = CustomerStatus.QUALIFIED
@@ -600,6 +602,8 @@ class CallController {
 								if (!customer.save()) {
 									println "ERRORS SAVING ASSESSMENT"
 									customer.errors.allErrors.each{println it}
+                                    flash.message = "Error saving the Assessment"
+                                    redirect action:index
 								}
 							}
 						}
