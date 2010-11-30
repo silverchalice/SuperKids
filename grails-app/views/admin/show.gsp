@@ -46,14 +46,14 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.accountExpired.label" default="Account Expired" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.accountExpired}" true="Yes" false="No" /></td>
+                            <td valign="top" class="value"><span style="color:${adminInstance?.accountExpired ? 'red' : 'green'}"><strong><g:formatBoolean boolean="${adminInstance?.accountExpired}" true="Yes" false="No" /></strong></span></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.accountLocked.label" default="Account Locked" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.accountLocked}" true="Yes" false="No" /></td>
+                            <td valign="top" class="value"><span style="color:${adminInstance?.accountLocked ? 'red' : 'green'}"><strong><g:formatBoolean boolean="${adminInstance?.accountLocked}" true="Yes" false="No" /></strong></span></td>
                             
                         </tr>
                     
@@ -67,21 +67,34 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.enabled.label" default="Enabled" /></td>
                             
-                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.enabled}" true="Yes" false="No" /></td>
+                            <td valign="top" class="value"><span style="color:${adminInstance?.enabled ? 'green' : 'red'}"><strong><g:formatBoolean boolean="${adminInstance?.enabled}" true="Yes" false="No" /></strong></span></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.lastLogin.label" default="Last Login" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate format="MMMM dd, yyyy" date="${adminInstance?.lastLogin}" /> at <g:formatDate format="h:mm a" date="${adminInstance?.lastLogin}" /></td>
-                            
+                            <td valign="top" class="value">
+                                <g:if test="${adminInstance?.lastLogin}">
+                                    <g:formatDate format="MMMM dd, yyyy" date="${adminInstance?.lastLogin}" /> at <g:formatDate format="h:mm a" date="${adminInstance?.lastLogin}" />
+                                </g:if>
+                                <g:else>
+                                    <strong>[user has not logged in yet]</strong>
+                                </g:else>
+                            </td>
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.lastUpdated.label" default="Last Updated" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate format="MMMM dd, yyyy" date="${adminInstance?.lastUpdated}" /> at <g:formatDate format="h:mm a" date="${adminInstance?.lastUpdated}" /></td>
+                            <td valign="top" class="value">
+                                <g:if test="${adminInstance?.lastUpdated}">
+                                    <g:formatDate format="MMMM dd, yyyy" date="${adminInstance?.lastUpdated}" /> at <g:formatDate format="h:mm a" date="${adminInstance?.lastUpdated}" />
+                                </g:if>
+                                <g:else>
+                                    <strong>[account has not been updated since created]</strong>
+                                </g:else>
+                            </td>
                             
                         </tr>
                     
