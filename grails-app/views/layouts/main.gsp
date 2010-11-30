@@ -48,7 +48,7 @@
                         <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Excel (no assessments)" /></li>
                         <li><hr /></li>
                         <li><g:link controller="home" action="change_password">Change Password</g:link></li>
-                        <li><g:link controller="logout" class="logout">Logout</g:link></li>
+                        <li><g:link controller="logout" class="logout">Log out</g:link></li>
                     </ul>
 
                 </div>
