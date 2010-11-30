@@ -142,11 +142,9 @@ class CustomerController {
                 user.username = params.email
                 user.save(failOnError:true)
             }
-            if(checkParams(params)){
-                if(customerInstance.save(flush: true)){
-                    flash.message = "Updated profile for customer ${customerInstance.district}"
-                    redirect(action: "show", id: customerInstance.id)
-                }
+            if(customerInstance.save(flush: true)){
+                flash.message = "Updated profile for customer ${customerInstance.district}"
+                redirect(action: "show", id: customerInstance.id)
             } else {
                 flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
                 redirect(action: "list")
