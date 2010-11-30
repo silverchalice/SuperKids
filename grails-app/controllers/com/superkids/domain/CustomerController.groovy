@@ -46,11 +46,11 @@ class CustomerController {
              println "saved!"
 			UserRole.create customerInstance, userRole, true
 			println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
-			flash.message = "Your account was created."
+			flash.message = "Customer account created."
             redirect(action: "show", id: customerInstance.id)
 		} else {
             println "save failed"
-			flash.message = "There were errors in saving your information."
+			flash.message = "There were errors in saving the customer's information."
 			customerInstance.errors.allErrors.each {
 				println it
 				println " "
