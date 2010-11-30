@@ -202,6 +202,19 @@ class MiscTagLib {
             }
         }
 
+        def dnrCheckbox = { attrs ->
+            def pOrder = ProductOrder.get(attrs.pOrderId)
+            if(pOrder.received){
+                out << g.checkBox(value:"${pOrder.product.name}.didNotReceive", checked:'unchecked', name:"${pOrder.product.name}.didNotReceive", onclick:"${g.remoteFunction(action:'toggleDidNotReceive', id:pOrder.id, params:'\'didNotReceive=\' + this.checked')}")
+            } else {
+                out << "<input type='checkBox' value='"
+                out << "${pOrder.product.name}.didNotReceive"
+                out << "' checked='checked' name='"
+                out << "${pOrder.product.name}.didNotReceive"
+                out << "' disabled='disabled' />"
+            }
+        }
+
 	def adminAssessLink = { attrs ->
 		def pOrder = ProductOrder.get(attrs.id)
 		if(pOrder) {
@@ -217,6 +230,8 @@ class MiscTagLib {
 				out << createLink(controller:'assessment', action:'show', id:assessment.id)
 				out << "' />View</a>"
 			} else if(attrs.show == 'true') {
+				out << ' '
+			} else if(!pOrder.received) {
 				out << ' '
 			}else {
 				out << '<a href="javascript:showAssessForm('
