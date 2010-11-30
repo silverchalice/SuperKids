@@ -16,7 +16,7 @@
             </g:if><br />
             <p>Your password has been reset. You will receive an email with your new password and you will be required to change your password again once you have logged in.</p><br />
 
-<h2>For Assistance</h2>
+<br /><span style="text-align:center;"><h2>For Assistance</h2></span>
 <p>&nbsp;</p>
 <p style="text-align:center;"><strong><a href="mailto:melissac@sdastl.com">melissac@sdastl.com</a><br /><br />
 <span style="font-size:larger;">Toll Free: 1-877-862-8828</span><br />
