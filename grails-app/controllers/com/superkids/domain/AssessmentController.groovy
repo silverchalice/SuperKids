@@ -138,7 +138,7 @@ class AssessmentController {
                 println "right after we created it, the assessmentInstance's id is already " + assessmentInstance.id
                 customer.order.products.findAll{ it.received == true }.each{
                     def p = Product.get(it.product.id)
-                    if(!Assessment.findByCustomerAndProduct(customer, p)){
+                    if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                         products << p
                     }
                 }
@@ -167,7 +167,7 @@ class AssessmentController {
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
-                 if(!Assessment.findByCustomerAndProduct(customer, p)){
+                 if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
                  }
              }
@@ -186,7 +186,7 @@ class AssessmentController {
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
-                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p)){
+                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
                  }
              }
@@ -203,7 +203,7 @@ class AssessmentController {
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
-                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p)){
+                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
                  }
              }
@@ -231,7 +231,7 @@ class AssessmentController {
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
-                 if(!Assessment.findByCustomerAndProduct(customer, p)){
+                 if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
                  }
              }
@@ -270,7 +270,7 @@ class AssessmentController {
                user.order.products.each{
                    def p = Product.get(it.product.id)
                    println "the product is " + p
-                   if(!Assessment.findByCustomerAndProduct(user, p) && it.received == true){
+                   if(!Assessment.findByCustomerAndProduct(user, p) && it.received == true && !Product.findByParent(p)){
                        products << p
                    }
                }
@@ -340,7 +340,7 @@ class AssessmentController {
         productOrder.save(failOnError:true)
         customerInstance.order.products.findAll{ it.received == true }.each{
             def p = Product.get(it.product.id)
-            if(!Assessment.findByCustomerAndProduct(customerInstance, p)){
+            if(!Assessment.findByCustomerAndProduct(customerInstance, p) && !Product.findByParent(p)){
                 products << p
             }
         }
