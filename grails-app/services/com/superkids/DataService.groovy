@@ -50,7 +50,7 @@ class DataService {
 				purchasePreparedFood = Purchase_prepared_foods == 'Yes' ? true : false
 				purchaseFrozenFood = Purchase_frozen_foods == 'Yes' ? true : false
                                 otherComments = Q7_Other ?: ""
-				topCustomer = (Top_100 && Top_100 != '')
+				topCustomer = (Top_100 == 'Yes' ? true : false)
                                 timezone = cell(34) ?: ""
 				pastParticipant = cell(35) == 'Yes' ? true : false
                                 seq = cell(2)
