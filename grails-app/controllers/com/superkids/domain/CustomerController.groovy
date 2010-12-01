@@ -46,11 +46,11 @@ class CustomerController {
              println "saved!"
 			UserRole.create customerInstance, userRole, true
 			println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
-			flash.message = "Your account was created."
+			flash.message = "Customer account created."
             redirect(action: "show", id: customerInstance.id)
 		} else {
             println "save failed"
-			flash.message = "There were errors in saving your information."
+			flash.message = "There were errors in saving the customer's information."
 			customerInstance.errors.allErrors.each {
 				println it
 				println " "
@@ -113,7 +113,7 @@ class CustomerController {
                 return [customerInstance: customerInstance, products: products.findAll{!it.parent}, states: states, broker:broker, statusList:statusList]
             } else {
                 customerInstance.order.products.each { productOrder ->
-                    if(productOrder.received && !Product.findByParent(productOrder.product))
+                    if(!Product.findByParent(productOrder.product))
                         products << productOrder
                     }
                 }
@@ -142,11 +142,9 @@ class CustomerController {
                 user.username = params.email
                 user.save(failOnError:true)
             }
-            if(checkParams(params)){
-                if(customerInstance.save(flush: true)){
-                    flash.message = "Updated profile for customer ${customerInstance.district}"
-                    redirect(action: "show", id: customerInstance.id)
-                }
+            if(customerInstance.save(flush: true)){
+                flash.message = "Updated profile for customer ${customerInstance.district}"
+                redirect(action: "show", id: customerInstance.id)
             } else {
                 flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
                 redirect(action: "list")

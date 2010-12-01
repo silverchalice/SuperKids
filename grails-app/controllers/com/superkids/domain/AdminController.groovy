@@ -1,5 +1,9 @@
 package com.superkids.domain
 
+import com.superkids.domain.Role
+import com.superkids.domain.UserRole
+
+
 class AdminController {
 
     def springSecurityService
@@ -23,11 +27,22 @@ class AdminController {
 
     def save = {
         def adminInstance = new Admin(params)
-        if (adminInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'admin.label', default: 'Admin'), adminInstance.id])}"
-            redirect(action: "show", id: adminInstance.id)
-        }
-        else {
+        if(params.password){
+            if(params.password == params.confirmpassword){
+                def adminRole = Role.findByAuthority("ROLE_ADMIN")
+                if (adminInstance.save(flush: true)) {
+                    UserRole.create(adminInstance, adminRole, true)
+                    flash.message = "Created account for user ${adminInstance.username}."
+                    redirect(action: "show", id: adminInstance.id)
+                } else {
+                    render(view: "create", model: [adminInstance: adminInstance])
+                }
+            } else {
+                flash.message = "Passwords do not match."
+                render(view: "create", model: [adminInstance: adminInstance])
+            }
+        } else {
+            flash.message = "Please enter a password."
             render(view: "create", model: [adminInstance: adminInstance])
         }
     }
@@ -55,8 +70,14 @@ class AdminController {
     }
 
     def update = {
+        println "admin update params are " + params
         def adminInstance = Admin.get(params.id)
         if (adminInstance) {
+            if(adminInstance.id == springSecurityService.principal.id && !params.enabled){
+                flash.message = "You cannot disable your own account. Please log in as another enabled admin and try again."
+                render(view: "edit", model: [adminInstance: adminInstance])
+                return
+            }
             if (params.version) {
                 def version = params.version.toLong()
                 if (adminInstance.version > version) {

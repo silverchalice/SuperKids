@@ -42,13 +42,13 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="password"><strong>Password:</strong></label>
+                                  <label for="email"><g:message code="admin.email.label" default="Email" /></label>
                                 </td>
-                                <td valign="top">
-                                    <g:link controller="home" action="change_password" id="${adminInstance.id}">Create New Password</g:link>
+                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'email', 'errors')}">
+                                    <g:textField name="email" value="${adminInstance?.email}" />
                                 </td>
-                            </tr>
-                        
+                            </tr>                        
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="firstName"><strong>First Name:</strong></label>
@@ -69,12 +69,21 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="email"><g:message code="admin.email.label" default="Email" /></label>
+                                  <label for="password"><strong>Password:</strong></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'email', 'errors')}">
-                                    <g:textField name="email" value="${adminInstance?.email}" />
+                                <td valign="top">
+                                    <g:link controller="home" action="change_password" id="${adminInstance.id}">Create New Password</g:link>
                                 </td>
-                            </tr>                        
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="enabled"><g:message code="admin.enabled.label" default="Enabled" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: adminInstance, field: 'enabled', 'errors')}">
+                                    <g:checkBox name="enabled" value="${adminInstance?.enabled}" />
+                                </td>
+                            </tr>
 
                         </tbody>
                     </table>
