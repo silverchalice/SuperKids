@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="assess" />
+        <meta name="layout" content="assess_landing" />
         <g:set var="entityName" value="${message(code: 'assessment.label', default: 'Assessment')}" />
         <title>Product Assessment | SuperKids</title>
     </head>
