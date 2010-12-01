@@ -30,7 +30,7 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
-        <div class="body" style="width:60%">
+        <div class="body">
             <div style="margin:20px 0; padding:15px;">
                 <g:form method="post" action="findSchoolDistrict">
                     School District: <input type="text" name="query" />
