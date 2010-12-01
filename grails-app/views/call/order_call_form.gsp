@@ -189,16 +189,26 @@
 				<div id="row1" style="width:400px; float:left; margin-right:10px; ">
 				<table style="width:400px; margin: 10px 10px 0 0; margin-left:0">
 					<tbody>
+                     <tr class="prop">
+                        <td valign="top" colspan="2">
+                          <g:if test="${customerInstance?.pastParticipant}">
+                              <span style="color:green; font-weight:bold;">Past participant</span>
 
-						<tr class="prop">
-							<td valign="top" class="name">
-								<label for="district"><g:message code="customer.district.label" default="District" /></label>
-							</td>
-							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'district', 'errors')}">
+                          </g:if>
+                          <g:else>
+                              <span style="color:gray">Has not participated in the past</span>
+                          </g:else>
+                        </td>
+                     </tr>
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="district"><g:message code="customer.district.label" default="District" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'district', 'errors')}">
 
-								<g:textField class="textField" name="district" value="${customerInstance?.district}" style="width:300px;" />
-							</td>
-						</tr>
+                            <g:textField class="textField" name="district" value="${customerInstance?.district}" style="width:300px;" />
+                        </td>
+                    </tr>
 
 						<tr class="prop">
 							<td valign="top" class="name">

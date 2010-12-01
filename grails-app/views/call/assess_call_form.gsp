@@ -131,11 +131,21 @@
 				<!-- <li><a href="#tab4">Final Questions</a></li> -->
 			</ul>
 
-				<div id="tab1" class="tab_content">
-					<div class="dialog">
-						<div id="column1" style="width:415px; float:left">
-						<table style="width:400px; margin: 10px 10px 0 0; margin-left:0">
+            <div id="tab1" class="tab_content">
+                <div class="dialog">
+                    <div id="column1" style="width:415px; float:left">
+                        <table style="width:400px; margin: 10px 10px 0 0; margin-left:0">
 							<tbody>
+                            <tr class="prop">
+                                <td valign="top" colspan="2">
+                                    <g:if test="${customerInstance?.pastParticipant}">
+                                        <span style="color:green; font-weight:bold;">Past participant</span>
+                                    </g:if>
+                                    <g:else>
+                                        <span style="color:gray">Has not participated in the past</span>
+                                    </g:else>
+                                </td>
+                            </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
                                     <label for="fsdName"><g:message code="customer.fsdName.label" default="FSD Name" /></label>

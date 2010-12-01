@@ -14,6 +14,7 @@
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#assessForm').dialog({ autoOpen: false, width:500, modal:true });
+				$('#completeAssessmentForm').dialog({ autoOpen: false, width:500, modal:true });
 				$('#submitAssessment').button();
 				$('#addBrokerButton').button();
 			});
@@ -22,6 +23,10 @@
 				$('#productOrderId').val(poId) ;
 				$('#assessForm').dialog("open");
 			}
+
+            function showCompleteAssessForm() {
+              $('#completeAssessmentForm').dialog("open")
+            }
 
 		</script>
     </head>
@@ -47,7 +52,11 @@
 			<div style="float:left; width:40%;">
                 <table>
                     <tbody>
-                    
+
+
+
+
+                        </tr>
                         <tr class="prop">
                             <td valign="top" class="name">School District</td>
                             
@@ -321,12 +330,6 @@
                             
                         </tr>
 
-                        <tr class="prop">
-                            <td valign="top" class="name"># of Meals Served</td>
-                            
-                            <td valign="top" class="value">${customerInstance.breakfastsServed.toInteger() + customerInstance.lunchesServed.toInteger() + customerInstance.snacksServed.toInteger()}</td>
-                            
-                        </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Entry Name</td>
