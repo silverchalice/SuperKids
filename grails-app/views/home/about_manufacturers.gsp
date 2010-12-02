@@ -10,7 +10,7 @@
     <sec:ifNotLoggedIn>
         <meta name="layout" content="public" />
     </sec:ifNotLoggedIn>
-        <title>SuperKids | About Our Manufacturers</title>
+        <title>SuperKids | About The Manufacturers</title>
     </head>
     <body>
 

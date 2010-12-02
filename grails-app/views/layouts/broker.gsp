@@ -92,7 +92,7 @@
         <li><a href="#">Contact Us</a></li><br/>
         <li><a href="#">Legal Policy</a> | </li>
         <li><a href="#">Privacy Policy</a> | </li>
-        <li>&copy; ConAgra Foods, Inc. All rights reserved</li>
+        <li>&copy; ConAgra Foods, Inc. All rights reserved.</li>
       </ul>
 
     </div>
