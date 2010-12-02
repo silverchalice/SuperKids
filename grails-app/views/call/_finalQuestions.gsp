@@ -30,20 +30,21 @@
 		</tr>
 		<tr>
 			<td>
-				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.3" >Other S&U Product #2:</label>
-			</td>
-			<td>
-				<g:textField name="reformulations.3" style="width:250px;"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
 				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.4" >Other S&U MFG #2:</label>
 			</td>
 			<td>
 				<g:textField name="reformulations.4" style="width:250px;"/>
 			</td>
 		</tr>
+		<tr>
+			<td>
+				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.3" >Other S&U Product #2:</label>
+			</td>
+			<td>
+				<g:textField name="reformulations.3" style="width:250px;"/>
+			</td>
+		</tr>
+
 		<tr>
 			<td>
 				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.5" >Other S&U Product #3</label>

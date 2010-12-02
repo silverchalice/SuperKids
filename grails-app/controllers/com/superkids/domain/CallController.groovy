@@ -243,7 +243,8 @@ class CallController {
     }
 
 	def start_order_call = {
-		render view:'order_call_form', model: [ products: Product.list(), timezones: timezones ]
+
+		render view:'order_call_form', model: [ products: Product.findAllByParentIsNull(), timezones: timezones ]
 	}
 
 
@@ -302,7 +303,7 @@ class CallController {
 		if(customer) {
             println "Got a customer from criteria"
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
 		} else {
             println "Didn't get a customer.... hmm..."
 			customer = c2.list(max: 1, sort: 'seq') {
@@ -315,7 +316,7 @@ class CallController {
 			if(customer) {
 				customer.inCall = new Date()
 				customer.save(flush:true)
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
 			} else redirect action:index
 		}
 	}
@@ -487,7 +488,7 @@ class CallController {
 	}
 
 	def start_assess_call = {
-		render view:'assess_call_form', model: [products: Product.list(),  timezones: timezones ]
+		render view:'assess_call_form', model: [timezones: timezones ]
 	}
 
 
@@ -709,6 +710,7 @@ class CallController {
 	}
 
         def findCustomer = {
+            println "In FIndCustomer for CallController"
 
 			def currentCustomer = Customer.get(params.id)
 
@@ -718,6 +720,7 @@ class CallController {
 
             if(params.query){
                 def customers = Customer.search(params.query).results
+
                 if(customers){
                     return [customerInstanceList:customers]
                 } else {

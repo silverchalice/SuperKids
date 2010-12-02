@@ -386,7 +386,13 @@
 					<g:render template="manual_order" model="[customerInstance: customerInstance, products: products,  show: 'true']" />
 				</g:else>
 				<p>&nbsp;</p>
+
+                <h1>Customer Notes</h1>
+                <p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customerInstance?.notes}</p>
+
             </div>
+
+
         </div>
     </body>
 </html>s
