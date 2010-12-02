@@ -32,8 +32,8 @@
 							</div>
 							</td>
 							<td>
-							${productInstance?.description}   <br/>
-							${productInstance?.nutrition}
+							${productInstance?.description}
+
 							</td>
 						</tr>
 						<tr>
