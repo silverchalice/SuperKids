@@ -52,9 +52,10 @@ class ReportController {
             m.otherComments = customer.otherComments
             m.seq = customer.seq
             m.topCustomer = customer.topCustomer ? "YES" : "NO"
+            m.pastParticipant = customer.pastParticipant ? "YES" : "NO"
             def order  = customer.order
             prods.each{prod ->
-                m."${prod.name}" = order?.products.find{it.id == prod.id} ? "Ordered : " + order.orderType : ''
+                m."${prod.name}" = order?.products.find{it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
             }
             m.order = new Expando()
             m.order.shippingDate = customer.order?.shippingDate
@@ -77,17 +78,23 @@ class ReportController {
 
 
 
-        List fields = ["id", "seq", "topCustomer", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments"]
+        List fields = ["id", "seq", "topCustomer", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments", "pastParticipant"]
         prods.each{prod ->
             def foo = prod.name
-            fields << foo
+            if(!prod.parent){
+                fields << foo
+            }
         }
 
         fields << "order.shippingDate"
 
-        Map labels = ["id": "Id", "seq": "New Seq", "topCustomer": "Top 100", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other"]
+        Map labels = ["id": "Id", "seq": "New Seq", "topCustomer": "Top 100", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other", "pastParticipant": "Previous Participant"]
 
-        prods.each{prod ->  labels."${prod.name}" = prod.name }
+        prods.each{prod -> 
+            if(!prod.parent){
+                labels."${prod.name}" = prod.name
+            }
+        }
 
         def bar = "order.shippingDate"
         labels."${bar}" = "Req'd Ship Date"
@@ -98,15 +105,17 @@ class ReportController {
           def assessLabels = [:]
 
           prods.each { prod ->
-              assessFields << "${prod.name}_Q1"
-              assessFields << "${prod.name}_Q2"
-              assessFields << "${prod.name}_Q3"
-              assessFields << "${prod.name}_Q4"
+              if(!Product.findByParent(prod)){
+                  assessFields << "${prod.name}_Q1"
+                  assessFields << "${prod.name}_Q2"
+                  assessFields << "${prod.name}_Q3"
+                  assessFields << "${prod.name}_Q4"
 
-              assessLabels."${prod.name}_Q1" = "${prod.name}_Like_Rating"
-              assessLabels."${prod.name}_Q2" = "${prod.name}_Interest_Rating"
-              assessLabels."${prod.name}_Q3" = "${prod.name}_Like_Comment"
-              assessLabels."${prod.name}_Q4" = "${prod.name}_Change_Comment"
+                  assessLabels."${prod.name}_Q1" = "${prod.name}_Like_Rating"
+                  assessLabels."${prod.name}_Q2" = "${prod.name}_Interest_Rating"
+                  assessLabels."${prod.name}_Q3" = "${prod.name}_Like_Comment"
+                  assessLabels."${prod.name}_Q4" = "${prod.name}_Change_Comment"
+              }
           }
           labels = labels + assessLabels
           fields = fields + assessFields
