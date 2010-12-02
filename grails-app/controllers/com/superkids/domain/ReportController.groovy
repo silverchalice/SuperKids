@@ -62,8 +62,8 @@ class ReportController {
 
             if(withAssessments) {
                 prods.each { prod ->
-                    def assessment = customer?.assessments.find{ it.product.id == prod.id }
-                    def orderedProduct = customer.order.products.find{it.product.id == prod.id}
+                    def assessment = customer?.assessments.find{ it?.product?.id == prod.id }
+                    def orderedProduct = customer?.order?.products?.find{it?.product?.id == prod.id}
                     if(orderedProduct){
                         if(!orderedProduct?.received){
                             m."${prod.name}_Q1" = "Did Not Receive"
