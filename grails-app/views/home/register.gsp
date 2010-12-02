@@ -29,109 +29,109 @@
                     <g:form method="post" action="save" name="profileForm"> 
                         <table width="300" border="0" cellspacing="3" cellpadding="0"> 
                             <tr> 			
-                                <td align="right">Your Name</td> 
-                                <td align="left"><input type="text" name="fsdName" value="${customerInstance?.fsdName}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">Your Name</td>
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="fsdName" value="${customerInstance?.fsdName}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">Your Title</td> 
-                                <td align="left"><input type="text" name="fsdTitle" value="${customerInstance?.fsdTitle}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">Your Title</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="fsdTitle" value="${customerInstance?.fsdTitle}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">School District Name</td> 
-                                <td align="left"><input type="text" name="district" value="${customerInstance?.district}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">School District Name</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="district" value="${customerInstance?.district}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">School District Address</td> 
-                                <td align="left"><input type="text" name="address.street" value="${customerInstance?.address?.street}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">School District Address</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="address.street" value="${customerInstance?.address?.street}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">&nbsp;</td> 
-                                <td align="left"><input type="text" name="address.street2" value="${customerInstance?.address?.street2}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">&nbsp;</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="address.street2" value="${customerInstance?.address?.street2}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">City</td> 
-                                <td align="left"><input type="text" name="address.city" value="${customerInstance?.address?.city}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">City</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="address.city" value="${customerInstance?.address?.city}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">State</td> 
-                                <td align="left"> 
+                                <td style="text-align:right; padding: 0 4px">State</td> 
+                                <td style="text-align:left; padding: 0 4px"> 
                                     <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" />
                                 </td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">Zip</td> 
-                                <td align="left"><input type="text" name="address.zip" value="${customerInstance?.address?.zip}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">Zip</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="address.zip" value="${customerInstance?.address?.zip}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">Telephone</td> 
-                                <td align="left"><input type="text" name="phone" value="${customerInstance?.phone}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">Telephone</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="phone" value="${customerInstance?.phone}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">Fax</td> 
-                                <td align="left"><input type="text" name="fax" value="${customerInstance?.fax}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">Fax</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="fax" value="${customerInstance?.fax}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">Email</td> 
-                                <td align="left"><input type="text" name="email" value="${customerInstance?.email}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">Email</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="email" value="${customerInstance?.email}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">Sample Delivery Address</td> 
-                                <td align="left"><input type="text" name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">Sample Delivery Address</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">&nbsp;</td> 
-                                <td align="left"><input type="text" name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">&nbsp;</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">City</td> 
-                                <td align="left"><input type="text" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">City</td> 
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" size="20" maxlength="50"></td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">State</td>
-                                <td align="left"> 
+                                <td style="text-align:right; padding: 0 4px">State</td>
+                                <td style="text-align:left; padding: 0 4px"> 
                                     <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" />
                                 </td> 
                             </tr> 
                             <tr> 			
-                                <td align="right">Zip</td>
-                                <td align="left"><input type="text" name="deliveryAddress.zip" value="${customerInstance?.deliveryAddress?.zip}" size="20" maxlength="50"></td> 
+                                <td style="text-align:right; padding: 0 4px">Zip</td>
+                                <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.zip" value="${customerInstance?.deliveryAddress?.zip}" size="20" maxlength="50"></td> 
                             </tr> 
                         </table> 
                     </div> 
-                    <div style="float:left;width:300px;"> 
-                        <table width="300" border="0" cellspacing="3" cellpadding="0"> 
+                    <div style="float:left;width:310px;">
+                        <table cellspacing="3" cellpadding="0">
                             <tr> 
                                 <td colspan="2"> 
                                     <div style="font-weight:bold;font-size:12px;">					
-                                        <span style="font-size:14px;">Please Correct or Change Any Incorrect or Incomplete Information.<BR><BR></span> 
+                                        <span style="font-size:14px; line-height:15px">Please Correct or Change Any Incorrect or Incomplete Information.<BR><BR></span>
                                         Samples are limited and subject to availabilty.<BR><br /> 
                                         Please tell us about your school district foodservice program
                                     </div> 
                                 </td> 
                             </tr> 
                             <tr style="padding-bottom:10px;"> 
-                                <td align="right" valign="top"><input type="checkbox" name="hasBakery" value="1" ></td> 
-                                <td>Make our own bread products from scratch in our bakery (proof and bake)</td> 
+                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="hasBakery" value="1" ></td>
+                                <td style="padding:0 0 0 0; line-height:13px;">Make our own bread products from scratch in our bakery (proof and bake)</td>
                             </tr> 
                             <tr style="padding-bottom:10px;"> 
-                                <td align="right" valign="top"><input type="checkbox" name="purchaseFrozenBread" value="1" ></td> 
-                                <td>Purchase frozen bread products and/or bread mixes and bake them in our bakery</td> 
+                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchaseFrozenBread" value="1" ></td>
+                                <td style="padding:0 0 0 0; line-height:13px;">Purchase frozen bread products and/or bread mixes and bake them in our bakery</td>
                             </tr> 
                             <tr style="padding-bottom:10px;"> 
-                                <td align="right" valign="top"><input type="checkbox" name="purchasePreparedFood" value="1" ></td> 
-                                <td>Purchase prepared foods</td> 
+                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchasePreparedFood" value="1" ></td>
+                                <td style="padding:0 0 0 0; line-height:13px;">Purchase prepared foods</td>
                             </tr> 
                             <tr style="padding-bottom:10px;"> 
-                                <td align="right" valign="top"><input type="checkbox" name="purchaseFrozenFood" value="1" ></td> 
-                                <td>Purchase frozen foods</td> 
+                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchaseFrozenFood" value="1" ></td>
+                                <td style="padding:0 0 0 0; line-height:13px;">Purchase frozen foods</td>
                             </tr> 
                             <tr style="padding-bottom:10px;"> 
-                                <td align="right" valign="top"><input type="checkbox" name="purchaseFreshBread" value="1" ></td> 
-                                <td>Purchase fresh bakery and bread products</td> 
+                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchaseFreshBread" value="1" ></td>
+                                <td style="padding:0 0 0 0; line-height:13px;">Purchase fresh bakery and bread products</td>
                             </tr> 
                             <tr> 
                                 <td>&nbsp;</td> 
-                                <td>Other, please describe: <input type="text" name="otherComments" value="" size="25" maxlength="1000"></td> 
+                                <td style="padding:0 0 0 0; line-height:13px;">Other, please describe: <input type="text" name="otherComments" value="" size="25" maxlength="1000"></td>
                             </tr> 
                             <tr> 
                                 <td colspan="2"> 
@@ -166,15 +166,15 @@
                              </tr> 
                               <tr> 
                                   <td><input type="text" name="breakfastsServed" size="4" maxlength="6" value="${customerInstance?.breakfastsServed}" ></td> 
-                                  <td>Breakfast</td> 
+                                  <td style="line-height:20px;">Breakfast</td>
                               </tr> 
                               <tr> 
                                   <td><input type="text" name="lunchesServed" size="4" maxlength="6" value="${customerInstance?.lunchesServed}"></td> 
-                                  <td>Lunch</td> 
+                                  <td style="line-height:20px;">Lunch</td>
                               </tr> 
                               <tr> 
                                   <td><input type="text" name="snacksServed" size="4" maxlength="6" value="${customerInstance?.snacksServed}"></td> 
-                                  <td>Snacks</td> 
+                                  <td style="line-height:20px;">Snacks</td>
                               </tr> 
                           </table> 
                       </div> 
@@ -186,7 +186,7 @@
                           One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <br /><br /> 
                           Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br /><br />
                       <g:hiddenField name="seq" value="9998" />
-                      <table CELLPADDING="3" CELLSPACING="0" BORDER="0" width="300"> 
+                      <table cellpadding="3" cellspacing="0" style="border:none; width:320px">
                           <tr> 
                               <td><strong>Broker/Distributor Name: </strong></td> 
                               <td><input type="text" name="brokerName" size="20" maxlength="50" value=""></td> 
@@ -217,7 +217,7 @@
                           </tr> 
                           <tr> 			
                               <td>State</td> 
-                              <td align="left"> 
+                              <td style="text-align:left"> 
                                     <g:select name="brokerState" from="${states}" />
                               </td> 
                           </tr> 
