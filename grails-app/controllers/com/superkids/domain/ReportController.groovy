@@ -63,11 +63,20 @@ class ReportController {
             if(withAssessments) {
                 prods.each { prod ->
                     def assessment = customer?.assessments.find{ it.product.id == prod.id }
-
-                    m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
-                    m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
-                    m."${prod.name}_Q3" = assessment ? assessment.likeComment : ''
-                    m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''
+                    def orderedProduct = customer.order.products.find{it.product.id == prod.id}
+                    if(orderedProduct){
+                        if(!orderedProduct?.received){
+                            m."${prod.name}_Q1" = "Did Not Receive"
+                            m."${prod.name}_Q2" = "Did Not Receive"
+                            m."${prod.name}_Q3" = "Did Not Receive"
+                            m."${prod.name}_Q4" = "Did Not Receive"
+                        } else if (assessment){                
+                            m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
+                            m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
+                            m."${prod.name}_Q3" = assessment ? assessment.likeComment : ''
+                            m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''
+                        }
+                    }
                 }
             }
 
