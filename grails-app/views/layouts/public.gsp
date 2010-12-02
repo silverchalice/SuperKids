@@ -39,7 +39,12 @@
 	</div>
 
     <div id="nav">
-      <span><g:link controller="login" action="auth">LOG IN</g:link></span>
+      <sec:ifNotLoggedIn>
+          <span><g:link controller="login" action="auth">LOG IN</g:link></span>
+      </sec:ifNotLoggedIn>
+      <sec:ifLoggedIn>
+          <span><g:link controller="login" action="auth">LOG OUT</g:link></span>
+      </sec:ifLoggedIn>
     </div>
 	  
 	<div id="content">
