@@ -110,6 +110,16 @@ class CallController {
 							def productName = key[6..-1]
 							def product = Product.findByName(productName)
 							def pOrder = new ProductOrder(product:product, order:order)
+
+                            if(Product.findAllByParent(product)) {
+                                println 'there were subproducts...'
+                                def subProducts = Product.findAllByParent(product)
+
+                                subProducts.each { sp ->
+                                    def po =  new ProductOrder(product:sp, order:order, received:true)
+                                    order.addToProducts(po)
+                                }
+		                	}
 							pOrder.save()
 						}
 					}
@@ -597,8 +607,16 @@ class CallController {
                                         type: OrderType.PHONE
 
 								)
+
+                                if(assessment.likeRating && assessment.iRating && assessment.likeComment && assessment.changeComment) {
+                                    println "assessment was complete"
+                                    assessment.completed = true
+                                } else println "assessment was not complete"
+
+
 								customer.addToAssessments(assessment)
 								customer.status = CustomerStatus.QUALIFIED
+                                customer.hasCompletedCurrentAssessment = true
 
 								if (!customer.save()) {
 									println "ERRORS SAVING ASSESSMENT"

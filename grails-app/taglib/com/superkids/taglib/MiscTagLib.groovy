@@ -182,12 +182,26 @@ class MiscTagLib {
     }
 
 	def customerAssessmentTotal = { attrs ->
+        println "in customerAssessmentTotal tag..."
 		def customer = Customer.get(attrs.id)
 		if(customer) {
+            println "got a customer"
 			def assessments= Assessment.findAllByCustomerAndCompleted(customer, true)
+
+            assessments.each { println it.product }
+
+            assessments.each { a ->
+
+              def prod = a.product
+              if(Product.findByParent(prod)) {
+                println "found a parent"
+                assessments = assessments - a
+              }
+            }
+
 			out << assessments.size()
-                        out << " / "
-                        out << customer.order.products.size()
+            out << " / "
+            out << customer.order.products.size()
 
 		}
 	}
@@ -406,6 +420,15 @@ Modified: get menuButton text from new 'msg' attr
 		def customer = Customer.get(attrs.id)
 		if(customer) {
 			def products = customer.order.products*.product.sort { it.id }
+
+
+            // remove variety packs - we only want the subproducts
+            products.each { p ->
+                if(Product.findByParent(p))  {
+                   products = products - p
+                }
+            }
+
 			def totalProducts = products.size()
 			def tabIndex = 2
 			out << "<div id='tab${tabIndex}' class='tab_content'>"

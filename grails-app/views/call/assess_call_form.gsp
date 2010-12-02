@@ -159,7 +159,7 @@
 			<g:elseif test="${single}">				
 
 				<g:hiddenField name="single" value="${single}" />
-				<g:actionSubmit id="submit" class="callerButton" style="position:absolute; left:1080px; top:63px; width:100px" action="finish_call" value="Finish" />
+				<g:actionSubmit id="submit" class="callerButton" style="position:absolute; left:1080px; top:63px; width:100px" action="save_assess_call" value="Finish" />
 
 			</g:elseif>
 			<g:else>
