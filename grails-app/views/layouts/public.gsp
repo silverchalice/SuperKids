@@ -43,7 +43,7 @@
           <span><g:link controller="login" action="auth">LOG IN</g:link></span>
       </sec:ifNotLoggedIn>
       <sec:ifLoggedIn>
-          <span><g:link controller="login" action="auth">LOG OUT</g:link></span>
+          <span><g:link controller="logout" action="index">LOG OUT</g:link></span>
       </sec:ifLoggedIn>
     </div>
 	  
