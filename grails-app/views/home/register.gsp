@@ -16,7 +16,10 @@
     </script> 
         <div id="contentInsetInner">
             <h1>Registration</h1><br />
-            <g:if test="${flash.message}">
+
+            <div style="width: 610px;"> 
+                <div style="float:left;width:300px;">
+                        <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <g:hasErrors bean="${customerInstance}">
@@ -24,8 +27,6 @@
                 <g:renderErrors bean="${customerInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <div style="width: 610px;"> 
-                <div style="float:left;width:300px;"> 
                     <g:form method="post" action="save" name="profileForm"> 
                         <table width="300" border="0" cellspacing="3" cellpadding="0"> 
                             <tr> 			
