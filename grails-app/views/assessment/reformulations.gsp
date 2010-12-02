@@ -22,8 +22,8 @@
 				</div>
 
                 <div id="assessmentQuestionInner" style="top:75px; padding-top:25px; padding-bottom:5px;"><br />
-				  <p style="position:absolute; top:1px; left:15px; font-size:14px">Are there any products you're currently using that you would like to see reformulated with Ultragrain and/or Sustagrain? Please list the product name(s) and their manufacturers. </p>
-                  <textarea name="reformulations" rows="10" cols="50"></textarea>
+				  <p style="position:absolute; top:1px; left:15px; font-size:14px; line-height:16px;">Are there any products you're currently using that you would like to see reformulated with Ultragrain and/or Sustagrain? Please list the product name(s) and their manufacturers. </p>
+                  <textarea name="reformulations" rows="9" cols="50" style="margin-top:15px"></textarea>
                 </div>
 
 				<div id="assessmentQuestionLower" style="top:279px">

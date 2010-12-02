@@ -37,12 +37,12 @@
 				</div>
 
                 <div id="assessmentQuestionInner" style="padding-bottom:39px"><br />
-                    <p style="font-size:14px;">
+                    <p style="font-size:14px; line-height:20px">
 						You have completed your assessment of this product. If you have other products waiting to be assessed, click on them one at a time to continue assessing them. 
                     </p>
                 </div>
 
-				<div id="assessmentQuestionLower" style="top:236px">
+				<div id="assessmentQuestionLower" style="top:246px">
 					<img src="${resource(dir:'images', file:'AssessLLC.gif')}" style="float:left" alt="" />
 					<img src="${resource(dir:'images', file:'AssessLRC.gif')}" style="float:right" alt="" />
 				</div>
