@@ -24,7 +24,6 @@ class AssessmentController {
 		//customers << Customer.findAllByStatus(CustomerStatus.HAS_ORDERED)
 		//customers << Customer.findAllByStatus(CustomerStatus.QUALIFIED)
 
-        params.max = Math.min(params.max ? params.int('max') : 20, 100)
         [customerInstanceList: customers, customerInstanceTotal: customers.size()]
     }
 
