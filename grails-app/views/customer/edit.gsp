@@ -136,6 +136,14 @@
                                 </td>
                             </tr>
                             <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="pastParticipant">Previous Participant</label>
+                                </td>
+                                <td valign="top">
+                                    <g:checkBox name="pastParticipant" value="${customerInstance?.pastParticipant}" />
+                                </td>
+                            </tr>
+                            <tr class="prop">
                                 <td class="name"></td>
                                 <td class="value">
                                     <br />
