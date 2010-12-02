@@ -56,6 +56,13 @@
                             <td valign="top" class="value"><span style="color:${adminInstance?.accountLocked ? 'red' : 'green'}"><strong><g:formatBoolean boolean="${adminInstance?.accountLocked}" true="Yes" false="No" /></strong></span></td>
                             
                         </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="admin.passwordExpired.label" default="Password Expired" /></td>
+ 
+                            <td valign="top" class="value"><span style="color:${adminInstance?.passwordExpired ? 'red' : 'green'}"><strong><g:formatBoolean boolean="${adminInstance?.passwordExpired}" true="Yes" false="No" /></strong></span></td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="admin.dateCreated.label" default="Date Created" /></td>
@@ -102,13 +109,6 @@
                             <td valign="top" class="name">Name</td>
                             
                             <td valign="top" class="value">${fieldValue(bean: adminInstance, field: "firstName")} ${fieldValue(bean: adminInstance, field: "lastName")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="admin.passwordExpired.label" default="Password Expired" /></td>
-                            
-                            <td valign="top" class="value"><g:formatBoolean boolean="${adminInstance?.passwordExpired}" true="Yes" false="No" /></td>
                             
                         </tr>
                     
