@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <%@ page import="com.superkids.domain.Product" %>
+<%@ page import="com.superkids.domain.Customer" %>
 
 <html>
     <head>
@@ -14,7 +15,8 @@
     </head>
     <body>
 
-
+        <g:set var="currUserId" value="${sec.loggedInUserInfo(field:'id')}" />
+        <g:set var="current_user" value="${Customer.get(currUserId.toLong())}" />
 
 	<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
 
@@ -40,9 +42,9 @@
 					</div>
 				</g:each>
                             </g:if>
-                            <g:else>
+                            <g:elseif test="${!current_user?.order?.products}">
                             <p style="width:220px;">There are currently no products that require your assessment. Click the Order tab to order your samples and come back here after you receive them. </p>
-                            </g:else>
+                            </g:elseif>
 			</div>
 		    <div id="assessProductsLower"></div>
       </div>
