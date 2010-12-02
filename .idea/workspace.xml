@@ -5,9 +5,7 @@
     <list id="1634b8ad-d683-4bcf-8cdf-f51935ae5299" name="Failed commit: SKS-34 - Caller can edit &amp; update Customer Data (2)" comment="Addined inCal boolean and made Factoid.content sqlType=longblob -overkill..." />
     <list id="58e7d457-3339-4fd8-9f7d-93e2088b975d" name="SKS-52 - Assessment Administration" comment="Added Manual Order and Ordered Items tables to the Customer Edit page&#10;" />
     <list id="975f74ae-233c-41c7-a3fd-c1997b7493a1" name="Failed commit: SKS-34 - Caller can edit &amp; update Customer Data" comment="Added ShippingDates and sponsor Products to BootStrap" />
-    <list default="true" id="ddc32fc1-b83d-481e-8c46-f9ebd0d3c893" name="SKS-63 - Style and Layout - General" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/uploads/Sustagrain-ad.jpg" afterPath="$PROJECT_DIR$/web-app/uploads/Sustagrain-ad.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web-app/uploads/Ultragrain-ad.png" afterPath="$PROJECT_DIR$/web-app/uploads/Ultragrain-ad.png" />
+    <list default="true" id="ddc32fc1-b83d-481e-8c46-f9ebd0d3c893" name="SKS-63 - Style and Layout - General" comment="SKS-63 - Style and Layout - General">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="01e86b68-4f1f-4a9c-938e-44d769072643" name="Rejected commit: SKS-63 - Style and Layout - General" comment="Removed debugging line" />
@@ -112,10 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="public.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="public.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web-app/css/public.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="19" selection-start="992" selection-end="992" vertical-scroll-proportion="0.7506562">
+            <state line="62" column="95" selection-start="739" selection-end="739" vertical-scroll-proportion="-3.7307692">
               <folding />
             </state>
           </provider>
@@ -139,10 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="findSchoolDistrict.gsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/grails-app/views/customer/findSchoolDistrict.gsp">
+      <file leaf-file-name="findCustomer.gsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/grails-app/views/call/findCustomer.gsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="44" selection-start="3882" selection-end="3882" vertical-scroll-proportion="-8.568627">
+            <state line="38" column="35" selection-start="1624" selection-end="1624" vertical-scroll-proportion="0.2578019">
               <folding />
             </state>
           </provider>
@@ -766,7 +764,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="22" width="2560" height="1356" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36664012" sideWeight="0.4142395" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -775,7 +773,7 @@
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32658023" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Grails View" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14336918" sideWeight="0.66207457" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Grails View" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14336918" sideWeight="0.66207457" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297491" sideWeight="0.66207457" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -785,7 +783,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20509757" sideWeight="0.66207457" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33792543" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="714" y="170" width="1371" height="1157" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33792543" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="714" y="170" width="1371" height="1157" />
       <window_info id="Issues - JIRA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32983023" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="444" y="95" width="1304" height="1236" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1036,27 +1034,6 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/grails-app/views/call/order_list.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="48" selection-start="2516" selection-end="2516" vertical-scroll-proportion="-18.254902">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/customer/findSchoolDistrict.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="44" selection-start="3882" selection-end="3882" vertical-scroll-proportion="-8.568627">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/grails-app/views/customer/list.gsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="67" selection-start="3416" selection-end="3416" vertical-scroll-proportion="-11.215686">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/grails-app/views/call/call_back_list.gsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="34" selection-start="588" selection-end="588" vertical-scroll-proportion="-5.2156863">
@@ -1146,7 +1123,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web-app/css/public.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="19" selection-start="992" selection-end="992" vertical-scroll-proportion="0.7506562">
+        <state line="62" column="95" selection-start="739" selection-end="739" vertical-scroll-proportion="-3.7307692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/customer/findSchoolDistrict.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="44" selection-start="3882" selection-end="3882" vertical-scroll-proportion="0.8765265">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/customer/list.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="67" selection-start="3416" selection-end="3416" vertical-scroll-proportion="-11.215686">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grails-app/views/call/findCustomer.gsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="35" selection-start="1624" selection-end="1624" vertical-scroll-proportion="0.2578019">
           <folding />
         </state>
       </provider>

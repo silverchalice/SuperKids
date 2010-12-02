@@ -30,7 +30,6 @@
 							</td>
 							<td>
 							${productInstance?.description}   <br/>
-							${productInstance?.nutrition}
 							</td>
 						</tr>
 						<tr>

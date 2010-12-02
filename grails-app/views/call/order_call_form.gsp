@@ -405,60 +405,6 @@
 				</table>
 					  <table style="margin: 10px 10px 10px 0;width:500px; ">
 						   <tbody>
-							   <tr class="prop">
-								   <td valign="top" class="name">
-									   <label for="hasBakery">We make our own bread products from<br/>
-										   scratch in our bakery (proof & bake)</label>
-								   </td>
-								   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'hasBakery', 'errors')}">
-									   <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
-								   </td>
-							   </tr>
-
-							  <tr class="prop">
-								  <td valign="top" class="name">
-									  <label for="purchaseFreshBread">We purchase fresh bakery and bread products</label>
-								  </td>
-								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFreshBread', 'errors')}">
-									  <g:checkBox name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" />
-								  </td>
-							  </tr>
-
-							  <tr class="prop">
-								  <td valign="top" class="name">
-									  <label for="purchaseFrozenBread">We purchase frozen bread products and/or<br/>  bread mixes and bake them in our bakery</label>
-								  </td>
-								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenBread', 'errors')}">
-									  <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
-								  </td>
-							  </tr>
-
-							  <tr class="prop">
-								  <td valign="top" class="name">
-									  <label for="purchaseFrozenFood">We purchase frozen foods</label>
-								  </td>
-								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenFood', 'errors')}">
-									  <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
-								  </td>
-							  </tr>
-
-							  <tr class="prop">
-								  <td valign="top" class="name">
-									  <label for="purchasePreparedFood">We purchase prepared foods</label>
-								  </td>
-								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchasePreparedFood', 'errors')}">
-									  <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
-								  </td>
-							  </tr>
-
-							  <tr class="prop">
-								  <td valign="top" class="name">
-									  <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Did NOT get mailing/email" /></label>
-								  </td>
-								  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'didNotReceiveMailing', 'errors')}">
-									  <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
-								  </td>
-							  </tr>
 							  <tr class="prop">
 									<td valign="top" class="name">
 										<label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="# of Students In District" /></label>
@@ -467,7 +413,32 @@
 										<g:textField name="studentsInDistrict" value="${fieldValue(bean: customerInstance, field: 'studentsInDistrict')}" />
 									</td>
 								</tr>
+                                <tr class="prop">
+                                    <td valign="top" class="name">
+                                        <label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="# of Breakfasts Served" /></label>
+                                    </td>
+                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'breakfastsServed', 'errors')}">
+                                        <g:textField name="breakfastsServed" value="${fieldValue(bean: customerInstance, field: 'breakfastsServed')}" />
+                                    </td>
+                                </tr>
 
+                                <tr class="prop">
+                                    <td valign="top" class="name">
+                                        <label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="# of Lunches Served" /></label>
+                                    </td>
+                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'lunchesServed', 'errors')}">
+                                        <g:textField name="lunchesServed" value="${fieldValue(bean: customerInstance, field: 'lunchesServed')}" />
+                                    </td>
+                                </tr>
+
+                                <tr class="prop">
+                                    <td valign="top" class="name">
+                                        <label for="snacksServed"><g:message code="customer.snacksServed.label" default="# of Snacks Served" /></label>
+                                    </td>
+                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'snacksServed', 'errors')}">
+                                        <g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}" />
+                                    </td>
+                                </tr>
 								<tr class="prop">
 									<td valign="top" class="name">
 										<label for="facilities"><g:message code="customer.facilities.label" default="# of Facilities" /></label>
@@ -477,33 +448,72 @@
 									</td>
 								</tr>
 
-								<tr class="prop">
-									<td valign="top" class="name">
-										<label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="# of Breakfasts Served" /></label>
-									</td>
-									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'breakfastsServed', 'errors')}">
-										<g:textField name="breakfastsServed" value="${fieldValue(bean: customerInstance, field: 'breakfastsServed')}" />
-									</td>
-								</tr>
-
-								<tr class="prop">
-									<td valign="top" class="name">
-										<label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="# of Lunches Served" /></label>
-									</td>
-									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'lunchesServed', 'errors')}">
-										<g:textField name="lunchesServed" value="${fieldValue(bean: customerInstance, field: 'lunchesServed')}" />
-									</td>
-								</tr>
-
-								<tr class="prop">
-									<td valign="top" class="name">
-										<label for="snacksServed"><g:message code="customer.snacksServed.label" default="# of Snacks Served" /></label>
-									</td>
-									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'snacksServed', 'errors')}">
-										<g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}" />
-									</td>
-								</tr>
-
+								
+                               <tr class="prop">
+                                   <td valign="top" class="name">
+                                       <label for="hasBakery">We make our own bread products from<br/>
+                                           scratch in our bakery (proof & bake)</label>
+                                   </td>
+                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'hasBakery', 'errors')}">
+                                       <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+                                   </td>
+                               </tr>
+                               <tr class="prop">
+                                  <td valign="top" class="name">
+                                      <label for="purchaseFrozenBread">We purchase frozen bread products and/or<br/>  bread mixes and bake them in our bakery</label>
+                                  </td>
+                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenBread', 'errors')}">
+                                      <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
+                                  </td>
+                              </tr>
+                              <tr class="prop">
+                                  <td valign="top" class="name">
+                                      <label for="purchasePreparedFood">We purchase prepared foods</label>
+                                  </td>
+                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchasePreparedFood', 'errors')}">
+                                      <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
+                                  </td>
+                              </tr>
+                              <tr class="prop">
+                                  <td valign="top" class="name">
+                                      <label for="purchaseFrozenFood">We purchase frozen foods</label>
+                                  </td>
+                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenFood', 'errors')}">
+                                      <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
+                                  </td>
+                              </tr>
+                              <tr class="prop">
+                                  <td valign="top" class="name">
+                                      <label for="purchaseFreshBread">We purchase fresh bakery and bread products</label>
+                                  </td>
+                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFreshBread', 'errors')}">
+                                      <g:checkBox name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" />
+                                  </td>
+                              </tr>
+                              <tr class="prop">
+                                   <td valign="top" class="name">
+                                       <label for="otherComments"><g:message code="customer.otherComments.label" default="Other, Please describe:" /></label>
+                                   </td>
+                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'otherComments', 'errors')}">
+                                       <g:textField name="otherComments" value="${fieldValue(bean: customerInstance, field: 'otherComments')}" />
+                                   </td>
+                              </tr>                    
+                              <tr class="prop">
+                                   <td valign="top" class="name">
+                                       <label for="callerBrokers"><g:message code="customer.callerBrokers.label" default="Primary Foodservice Distributors" /></label>
+                                   </td>
+                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'callerBrokers', 'errors')}">
+                                       <g:textField name="callerBrokers" value="${fieldValue(bean: customerInstance, field: 'callerBrokers')}" />
+                                   </td>
+                              </tr>  
+                              <tr class="prop">
+                                  <td valign="top" class="name">
+                                      <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Did NOT get mailing/email" /></label>
+                                  </td>
+                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'didNotReceiveMailing', 'errors')}">
+                                      <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
+                                  </td>
+                              </tr>
 						   </tbody>
 						</table>
 				</div>
