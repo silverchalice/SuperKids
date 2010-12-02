@@ -96,8 +96,9 @@
 
                     <p>
                         <label>Product Summary PDF:</label>
-                        <input type="file" name="summary" id="summary"/>&nbsp;
-                        <g:link action="downloadSummary" id="${productInstance.id}">${productInstance.summaryName}</g:link>
+                        <g:link action="downloadSummary" id="${productInstance.id}">${productInstance.summaryName}</g:link><br /><br />
+                        <g:link controller="product" action="new_summary" id="${productInstance?.id}">New Summary File</g:link>
+
                     </p><br />
 
                     <p>
