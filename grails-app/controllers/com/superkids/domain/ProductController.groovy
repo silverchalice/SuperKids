@@ -75,10 +75,39 @@ class ProductController {
         }
         if (!productInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
-            redirect(action: "list")
+            redirect(action: "admin")
         }
         else {
             [productInstance: productInstance, inCart:inCart, customer:customer]
+        }
+    }
+
+    def new_summary = {
+        def productInstance = Product.get(params.id)
+        if(!productInstance){
+            flash.message = "Product not found with id ${params.id}."
+            redirect(action: "admin")
+        } else {
+            return [productInstance : productInstance]
+        }
+    }
+
+    def save_summary = {
+        def summaryName = params.summary.originalFilename
+        def summaryType = params.summary.contentType
+        def productInstance = Product.get(params.id)
+        if(params.summary.isEmpty()){
+            flash.message = "Please choose a new file."
+            render view:"new_summary", model:[productInstance:productInstance]
+            return
+        } else {
+            productInstance.properties = params
+            productInstance.summaryName = summaryName
+            productInstance.summaryType = summaryType
+            if(productInstance.save()){
+                flash.message = "Saved new summary file."
+                redirect(action: "admin")
+            }
         }
     }
 
@@ -96,7 +125,7 @@ class ProductController {
         def productInstance = Product.get(params.id)
         if (!productInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
-            redirect(action: "list")
+            redirect(action: "admin")
         }
         else {
 
@@ -112,9 +141,6 @@ class ProductController {
 
     def update = {
 		
-
-        def summaryName = params.summary.originalFilename
-        def summaryType = params.summary.contentType
         def productInstance = Product.get(params.id)
         if (productInstance) {
             if (params.version) {
@@ -141,8 +167,6 @@ class ProductController {
 				productInstance.parent = parent
 			}
 
-            productInstance.summaryName = summaryName
-            productInstance.summaryType = summaryType
             if (!productInstance.hasErrors() && productInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'product.label', default: 'Product'), productInstance.id])}"
                 redirect(action: "admin")
@@ -153,7 +177,7 @@ class ProductController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
-            redirect(action: "list")
+            redirect(action: "admin")
         }
     }
 
@@ -163,7 +187,7 @@ class ProductController {
             try {
                 productInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
-                redirect(action: "list")
+                redirect(action: "admin")
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
@@ -172,7 +196,7 @@ class ProductController {
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
-            redirect(action: "list")
+            redirect(action: "admin")
         }
     }
 
