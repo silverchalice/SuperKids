@@ -22,7 +22,7 @@ class ProductController {
 			isNull 'parent'
 		}
 
-        render view:"/home/superkids_products", model:[productInstanceList: products, productInstanceTotal: Product.count(), content: content]
+        render view:"/home/superkids_products", model:[productInstanceList: products, productInstanceTotal: Product.count()]
     }
 
     def admin = {
