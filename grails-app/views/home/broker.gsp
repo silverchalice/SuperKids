@@ -14,7 +14,7 @@
 		   <div class="message">${flash.message}</div>
 	   </g:if>
 	 <div id="contentInsetInner">
-		 <div style="width:445px">${content}</div>
+		 ${content}
 
 	 </div>
 
