@@ -103,8 +103,8 @@ class CustomerController {
         else {
             def currentStatus = CustomerStatus."${customerInstance.status}"
             String current = customerInstance.status
-            def readableCurrentStatus = current.replaceAll("_", " ").toLowerCase()
-            Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'has not ordered']
+            def readableCurrentStatus = current.replaceAll("_", " ")
+            Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'HAS NOT ORDERED']
             println "statusList is " + statusList
             def products = []
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
