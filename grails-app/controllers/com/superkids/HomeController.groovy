@@ -249,7 +249,7 @@ class HomeController {
        }
 
        def broker_products = {
-		   def content = PageText.findByName("superkids_products")
+		   def content = PageText.findByName("superkids_products").content
            render view:"/home/broker_products", model:[ content: content]
        }
 
@@ -310,7 +310,7 @@ class HomeController {
 
 
        def public_products = {
-           def content = PageText.findByName("superkids_products")
+           def content = PageText.findByName("superkids_products").content
            render view:"/home/public_products", model:[content: content]
        }
 

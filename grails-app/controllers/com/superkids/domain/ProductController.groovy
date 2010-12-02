@@ -14,7 +14,7 @@ class ProductController {
     }
 
     def list = {
-       def content = PageText.findByName("superkids_products")
+       def content = PageText.findByName("superkids_products").content
        render view:"/home/superkids_products", model:[content: content]
     }
 
