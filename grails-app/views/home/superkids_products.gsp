@@ -17,7 +17,7 @@
 				<table style="border:0; margin-bottom:35px;">
 					<tbody>
 						<tr>
-							<td colspan="2"><h2>${productInstance?.name}</h2></td>
+							<td colspan="2"><h2 style="font-size:18px">${productInstance?.name}</h2></td>
 						</tr>
 						<tr>
 							<td valign="top" rowspan="2" style="width:150px;">
