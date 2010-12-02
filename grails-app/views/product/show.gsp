@@ -325,7 +325,7 @@
 
                       <tr>
                         <td class="name" style="width:110px;">Sample Contact</td>
-                        <td class="value">${productInstance?.sponsor?.salesContact}</td>
+                        <td class="value">${productInstance?.sponsor?.sampleContact}</td>
                       </tr>
                     </table>
 
