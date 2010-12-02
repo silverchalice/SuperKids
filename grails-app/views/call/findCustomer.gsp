@@ -23,20 +23,19 @@
                     <thead>
                         <tr>
 
-                            <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
+                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
+
+                            <th><g:message code="customer.fsdName.label" default="FSD Name" /></th>
 
                             <th><g:message code="customer.address.label" default="Address" /></th>
 
-							<th><g:message code="customer.fsdName.label" default="FSD Name" /></th>
-
-							<th><g:message code="customer.ndName.label" default="ND Name" /></th>
-
-							<th><g:message code="customer.cdName.label" default="CD Name" /></th>
-
                             <th><g:message code="customer.email.label" default="Email" /></th>
 
+                            <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
 
-			    <th>In Call</th>
+							<th>In Call</th>
+
+
 
                         </tr>
                     </thead>
@@ -46,8 +45,9 @@
 
 
                             <td><sks:linkToCall id="${customerInstance.id}" /></td>
+                            <td>${customerInstance?.fsdName}</td>
                             <td>
-								<g:if test="${customerInstance.address == 'null'}">
+								<g:if test="${customerInstance.deliveryAddress == 'null'}">
 									${fieldValue(bean: customerInstance, field: "address")}
 								</g:if>
 								<g:else>
@@ -55,22 +55,19 @@
 								</g:else>
 							</td>
 
-							<td><g:if test="${customerInstance.fsdName}">${customerInstance.fsdName}</g:if> </td>
+                          <td>${fieldValue(bean: customerInstance, field: "email")}</td>
 
-							<td><g:if test="${customerInstance.ndName}">${customerInstance.ndName}</g:if> </td>
+                          <td>${customerInstance.phone}
+                          </td>
 
-							<td><g:if test="${customerInstance.cdName}">${customerInstance.cdName}</g:if> </td>
+                          <td style="width:100px"><g:if test="${customerInstance.inCall == null}">
+                                  <strong style="color:green">False</strong>
+                              </g:if>
+                              <g:else>
+                                  <strong style="color:red">True </strong>  |<g:link action="unlock_customer" id="${customerInstance.id}" params="[type:'order']"> Unlock</g:link>
+                              </g:else>
+                          </td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "email")}</td>
-
-
-							<td style="width:85px"><g:if test="${customerInstance.inCall == null}">
-								    <strong style="color:green">False</strong>
-								</g:if>
-								<g:else>
-									<strong style="color:red">True </strong>  |<g:link action="unlock_customer" id="${customerInstance.id}" params="[type:'order']"> Unlock</g:link>
-								</g:else>
-							</td>
 
                         </tr>
                     </g:each>

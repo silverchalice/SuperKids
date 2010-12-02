@@ -29,13 +29,12 @@
 							</div>
 							</td>
 							<td>
-							${productInstance?.description}   <br/>
-							${productInstance?.nutrition}
+							${productInstance?.description}
 							</td>
 						</tr>
 						<tr>
 							<td>
-							<h3 style="color:#D16B00; font-weight:normal">${productInstance.sponsor.name}</h3>
+							<h3 style="color:#D16B00; margin-top:0; font-weight:normal">${productInstance.sponsor.name}</h3>
 							<p style="font-size:11px">${productInstance.sponsor.address}<br />
 							${productInstance.sponsor.phone}
 							<a target="_blank" href="${productInstance.sponsor.website}"><strong style="color: rgb(255, 102, 0);">	${productInstance.sponsor.website}</strong></a>

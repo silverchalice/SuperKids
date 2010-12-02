@@ -27,6 +27,8 @@
 
                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
 
+                            <th><g:message code="customer.fsdName.label" default="FSD Name" /></th>
+
                             <th><g:message code="customer.address.label" default="Address" /></th>
 
                             <th><g:message code="customer.email.label" default="Email" /></th>
@@ -41,13 +43,15 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:if test="${customerInstance.inCall == null}"><g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
+                            <td><g:if test="${customerInstance.inCall == null}"><g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link>
 							    </g:if>
 								<g:else>
 									${fieldValue(bean: customerInstance, field: "district")}
 								</g:else>
+                          </td>
+                            <td>${customerInstance?.fsdName}</td>
                             <td>
-								<g:if test="${customerInstance.address == 'null'}">
+								<g:if test="${customerInstance.deliveryAddress == 'null'}">
 									${fieldValue(bean: customerInstance, field: "address")}
 								</g:if>
 								<g:else>
@@ -55,9 +59,11 @@
 								</g:else>
 							</td>
 
+
+
                             <td>${fieldValue(bean: customerInstance, field: "email")}</td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
+                            <td>${customerInstance.phone}</td>
 
 							<td style="width:100px"><g:if test="${customerInstance.inCall == null}">
 								    <strong style="color:green">False</strong>

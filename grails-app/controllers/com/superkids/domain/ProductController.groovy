@@ -14,11 +14,15 @@ class ProductController {
     }
 
     def list = {
-        def content = PageText.findByName("superkids_products")
+        
 
+		def p = Product.createCriteria()
+		
+		def products = p.list(sort:'sortOrder') {			
+			isNull 'parent'
+		}
 
-
-        render view:"/home/superkids_products", model:[productInstanceList: Product.list(sort:'sortOrder'), productInstanceTotal: Product.count(), content: content]
+        render view:"/home/superkids_products", model:[productInstanceList: products, productInstanceTotal: Product.count(), content: content]
     }
 
     def admin = {
