@@ -72,7 +72,7 @@ class ProductController {
         }
         else {
 
-			def mfgContact = PageText.findByName("product_${productInstance.id}").content
+			//def mfgContact = PageText.findByName("product_${productInstance.id}").content
 
             [productInstance: productInstance, inCart:inCart, customer:customer, mfgContact: mfgContact]
         }
