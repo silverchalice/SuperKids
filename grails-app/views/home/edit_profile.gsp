@@ -313,7 +313,7 @@
 
 				<tr>
 					<td>&nbsp;</td>
-					<td>Other, please describe: <g:textField name="otherFoodProgram" value=""/></td>
+					<td>Other, please describe: <g:textField name="otherComments" value="${customerInstance?.otherComments}"/></td>
 
 				</tr>
 				<tr>
