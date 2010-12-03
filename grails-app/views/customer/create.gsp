@@ -359,7 +359,14 @@
                                         <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
                                     </td>
                                 </tr>
-
+                                 <tr class="prop">
+                                    <td valign="top" class="name">
+                                      <label for="callerBrokers"><g:message code="customer.callerBrokers.label" default="Primary Foodservice Distributors" /></label>
+                                    </td>
+                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'callerBrokers', 'errors')}">
+                                        <g:textField class="textField"  name="callerBrokers" value="${customerInstance?.callerBrokers}" />
+                                    </td>
+                                </tr>
                                 <tr class="prop">
                                     <td valign="top" class="name">
                                       <label for="callerBrokers"><g:message code="customer.callerBrokers.label" default="Primary Foodservice Distributors" /></label>

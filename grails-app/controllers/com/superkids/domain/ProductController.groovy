@@ -71,7 +71,10 @@ class ProductController {
             redirect(action: "admin")
         }
         else {
-            [productInstance: productInstance, inCart:inCart, customer:customer]
+
+			def mfgContact = PageText.findByName("product_${productInstance.id}").content
+
+            [productInstance: productInstance, inCart:inCart, customer:customer, mfgContact: mfgContact]
         }
     }
 
