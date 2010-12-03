@@ -161,7 +161,7 @@ class AssessmentController {
     def lc = {
          println "params coming into lc: " + params
          def customer = Customer.get(params.customerId)
-         def product = Product.get(params.productId.toInteger())
+         def product = Product.get(params.productId?.toInteger())
          def products = []
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
