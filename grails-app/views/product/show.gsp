@@ -295,6 +295,7 @@
 			<div class="contentInset">
 
 				<div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; height:auto !important; height:468px;">
+                   <div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; height:auto !important; height:468px;">
                     <h2>${productInstance?.name}</h2>      <br/>
 
                     <table>
@@ -328,6 +329,9 @@
                         <td class="value">${productInstance?.sponsor?.sampleContact}</td>
                       </tr>
                     </table>
+
+
+                </div>
 
 
 				</div>
