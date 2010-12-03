@@ -349,9 +349,9 @@ a:hover.viewCartButton {
 
 #footer {
   position:absolute;
-  top:598px;
+  top:588px;
   text-align:right;
-  padding-top:0px;
+  padding-top:10px;
   width:955px;
   clear:both;
   font-size:10px;
