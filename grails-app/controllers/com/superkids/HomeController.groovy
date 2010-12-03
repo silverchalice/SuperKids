@@ -135,13 +135,6 @@ class HomeController {
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']   
            if(springSecurityService.isLoggedIn()){
                def user = Customer.get(springSecurityService.principal.id)
-               println "this user is of " + user.class + ", and its username is " + user.username
-               println "here's a list of the Customers: "
-               Customer.list().each { println it }
-               println "and here's a list of the Users: "
-               User.list().each{ println it }
-               println "and here is a list of the UserRoles: "
-               UserRole.list().each{ println it }
                def userRole = Role.findByAuthority("ROLE_USER")
                if (UserRole.findByUserAndRole(user, userRole)){
                    return [customerInstance: user, states:states, broker:broker]
