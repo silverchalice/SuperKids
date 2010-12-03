@@ -295,7 +295,43 @@
 			<div class="contentInset">
 
 				<div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; height:auto !important; height:468px;">
-                   ${mfgContact}
+                   <div style="width:471px; padding:0 10px 10px 10px; background:white; min-height:468px; left:1px; position:absolute; height:auto !important; height:468px;">
+                    <h2>${productInstance?.name}</h2>      <br/>
+
+                    <table>
+                      <tr>
+                        <td class="name" style="width:110px;">Manufacturer</td>
+                        <td class="value">${productInstance?.sponsor?.name}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="name" style="width:110px;">Company Address</td>
+                        <td class="value">${productInstance?.sponsor?.address}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="name" style="width:110px;">Main Telephone #</td>
+                        <td class="value">${productInstance?.sponsor?.phone}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="name" style="width:110px;">Website Address</td>
+                        <td class="value">${productInstance?.sponsor?.website}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="name" style="width:110px;">Sales Contact</td>
+                        <td class="value">${productInstance?.sponsor?.salesContact}</td>
+                      </tr>
+
+                      <tr>
+                        <td class="name" style="width:110px;">Sample Contact</td>
+                        <td class="value">${productInstance?.sponsor?.sampleContact}</td>
+                      </tr>
+                    </table>
+
+
+                </div>
 
 
 				</div>
