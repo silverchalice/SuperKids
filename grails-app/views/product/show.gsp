@@ -245,7 +245,7 @@
 			<div  id="detailsContent" style="width:521px; padding:0; height:483px; margin:0 auto; position:absolute; top:100px; left:419px; overflow: auto;">
 
 				<div style="width:471px; padding:0 10px 10px 10px; background:white; left:1px; height:100%; overflow:visible; position:relative;">
-					<h2>${productInstance?.name} <sup>&reg;</sup></h2>      <br/>
+
 					${productInstance?.description}<br/>
 					${productInstance?.details}
 				</div>

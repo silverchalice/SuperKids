@@ -74,7 +74,7 @@
      <div id="footer">
       <ul>
         <li><a href="${createLink(controller:'home', action:'index')}">Home</a> | </li>
-        <li><a href="${createLink(controller:'home', action:'about')}">About Super Kids</a> | </li>
+        <li><a href="${createLink(controller:'home', action:'about')}">About SuperKids</a> | </li>
 					<li><a href="${createLink(controller:'home', action:'ultragrain_general')}">Ultragrain<span style="font: normal 8px;"><sup>&reg;</sup></span></a> | </li>
 					<li><a href="${createLink(controller:'home', action:'sustagrain_general')}">Sustagrain<span style="font: normal 8px;"><sup>&reg;</sup></span></a> | </li>
         <li><a href="${createLink(controller:'home', action:'about_manufacturers')}">About The Manufacturers</a> | </li>
