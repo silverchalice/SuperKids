@@ -20,7 +20,7 @@
             <div style="width: 610px;"> 
                 <div style="float:left;width:300px;">
                         <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+            <div class="message">${flash.message}</div><br />
             </g:if>
             <g:hasErrors bean="${customerInstance}">
             <div class="errors">
