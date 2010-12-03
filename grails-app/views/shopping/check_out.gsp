@@ -86,7 +86,10 @@
 			<h1>Checkout Step 1 of 2</h1>
 
 			<br />
-			<h1>School District Profile</h1>
+			<h1>School District Profile</h1><br />
+                        <g:if test="${flash.message}">
+                            <div class="message">${flash.message}</div><br />
+                        </g:if>
 			<div  style="float:left;width:300px;">
             <g:form controller="shopping" action="confirm" method="post" >
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
@@ -287,7 +290,7 @@
 
 					 <tr>
 						 <td>&nbsp;</td>
-						 <td>Other, please describe: <g:textField name="otherFoodProgram" value=""/></td>
+						 <td>Other, please describe: <g:textField name="otherComments" value="${customerInstance?.otherComments}"/></td>
 
 					 </tr>
 					 <tr>

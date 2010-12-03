@@ -291,7 +291,7 @@
 					  <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
 				  </td>
 				  <td>
-					  <label for="purchasePreparedFood">Purchase prepared foods</label>
+					  <label for="purchasePreparedFood">We purchase prepared foods</label>
 				  </td>
 
 				</tr>
@@ -306,9 +306,14 @@
 
 				</tr>
 
+                                <tr style="padding-bottom:10px;"> 
+                                    <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" ></td>
+                                    <td style="padding:0 0 0 0; line-height:13px;">We purchase fresh bakery and bread products</td>
+                                </tr> 
+
 				<tr>
 					<td>&nbsp;</td>
-					<td>Other, please describe: <g:textField name="otherFoodProgram" value=""/></td>
+					<td>Other, please describe: <g:textField name="otherComments" value="${customerInstance?.otherComments}"/></td>
 
 				</tr>
 				<tr>
