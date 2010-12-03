@@ -193,7 +193,7 @@
                                   <label><g:message code="customer.deliveryAddress.state.label" default="State" /></label>
                                 </td>
                                 <td valign="top">
-                                   <g:textField class="textField"  name="address.state" value="${customerInstance?.address?.state}" />
+                                   <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" />
                                 </td>
                             </tr>
                             <tr class="prop">
@@ -241,7 +241,7 @@
                                   <label><g:message code="customer.deliveryAddress.state.label" default="Del State" /></label>
                                 </td>
                                 <td valign="top">
-                                   <g:textField class="textField"  name="deliveryAddress.state" value="${customerInstance?.deliveryAddress?.state}" />
+									<g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" />
                                 </td>
                             </tr>
                             <tr class="prop">
