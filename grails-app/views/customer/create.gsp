@@ -260,23 +260,32 @@
                         <h1>Additional Information</h1>
                          <table>
                             <tbody>
-                                <tr class="prop">
-                                    <td valign="top" class="name">
-                                      <label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="Students In District" /></label>
-                                    </td>
-                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'studentsInDistrict', 'errors')}">
-                                        <g:textField class="textField"  name="studentsInDistrict" value="${fieldValue(bean: customerInstance, field: 'studentsInDistrict')}" />
-                                    </td>
-                                </tr>
-
-                                <tr class="prop">
-                                    <td valign="top" class="name">
-                                      <label for="facilities"><g:message code="customer.facilities.label" default="Facilities" /></label>
-                                    </td>
-                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'facilities', 'errors')}">
-                                        <g:textField class="textField"  name="facilities" value="${fieldValue(bean: customerInstance, field: 'facilities')}" />
-                                    </td>
-                                </tr>
+                            <tr> 
+                                <td colspan="2"> 
+                                    Number of students in your school district
+                                    <select name="studentsInDistrict"> 
+                                        <option value="500" >Less than 500
+                                        <option value="1000" >500 - 1,000
+                                        <option value="2000" >1,000 - 2,000
+                                        <option value="5000" >3,000 - 5,000
+                                        <option value="10000" >5,000 - 10,000
+                                        <option value="20000" >10,000 - 20,000
+                                        <option value="50000" >20,000 - 50,000
+                                        <option value="50000+" >Over 50,000
+                                    </select> 
+                                </td> 
+                             </tr> 
+                             <tr> 
+                                 <td colspan="2"> 
+                                     Approximate number of cafeterias, food courts or other eating facilities(District Total)
+                                     <select name="facilities"> 
+                                         <option value="3" >Less Than 3
+                                         <option value="5" >3-5
+                                         <option value="10" >6-10
+                                         <option value="10+" >More Than 10
+                                     </select> 
+                                 </td> 
+                             </tr> 
 
                                 <tr class="prop">
                                     <td valign="top" class="name">
