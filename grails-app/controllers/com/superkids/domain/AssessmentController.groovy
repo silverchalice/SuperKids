@@ -172,6 +172,16 @@ class AssessmentController {
              }
          }
          def assessmentInstance = new Assessment(likeRating:params.likeRating, product:product, type:OrderType.WEB)
+         Assessment.findAllByCompleted(false).each{
+             if(it.id != assessmentInstance.id){
+                 try {
+                     it.delete(flush: true)
+                 }
+                 catch (org.springframework.dao.DataIntegrityViolationException e) {
+                     log.error e
+                 }
+             }
+         }
          assessmentInstance.properties = params
          customer.addToAssessments(assessmentInstance)
          customer.save(failOnError:true)
@@ -181,6 +191,16 @@ class AssessmentController {
     def cc = {
          def products = []
          def assessmentInstance = Assessment.get(params.id)
+         Assessment.findAllByCompleted(false).each{
+             if(it.id != assessmentInstance.id){
+                 try {
+                     it.delete(flush: true)
+                 }
+                 catch (org.springframework.dao.DataIntegrityViolationException e) {
+                     log.error e
+                 }
+             }
+         }
          def customer = Customer.get(springSecurityService.principal.id)
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
@@ -198,6 +218,16 @@ class AssessmentController {
     def ir = {
          def products = []
          def assessmentInstance = Assessment.get(params.id)
+         Assessment.findAllByCompleted(false).each{
+             if(it.id != assessmentInstance.id){
+                 try {
+                     it.delete(flush: true)
+                 }
+                 catch (org.springframework.dao.DataIntegrityViolationException e) {
+                     log.error e
+                 }
+             }
+         }
          def customer = Customer.get(springSecurityService.principal.id)
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
@@ -251,6 +281,14 @@ class AssessmentController {
 
     def assess_process = {
        println "foo..."
+         Assessment.findAllByCompleted(false).each{
+             try {
+                 it.delete(flush: true)
+             }
+             catch (org.springframework.dao.DataIntegrityViolationException e) {
+                 log.error e
+             }
+         }
        def products = []
        CustomerOrder.list().each{
            it.products.each {
