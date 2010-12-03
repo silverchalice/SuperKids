@@ -147,6 +147,16 @@ class HomeController {
        }
 
        def update = {
+         def states=['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
            def customerInstance = Customer.get(params.id)
            if (customerInstance) {
                if (params.version) {
@@ -157,19 +167,23 @@ class HomeController {
                        return
                    }
                }
-               customerInstance.properties = params
-               if(params.email){
-                   def u = User.get(params.id)
-                   u.username = params.email
-                   u.save(failOnError:true)
-               }
-               if(params.password){ customerInstance.password = springSecurityService.encodePassword(params.password) }
-               if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
-               flash.message = "Your customer profile has been updated"
-                log.info flash.message
-                   redirect(action: "index")
+               if(checkParams(params)){
+                   customerInstance.properties = params
+                   if(params.email){
+                       def u = User.get(params.id)
+                       u.username = params.email
+                       u.save(failOnError:true)
+                   }
+                   if(params.password){ customerInstance.password = springSecurityService.encodePassword(params.password) }
+                   if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
+                   flash.message = "Your customer profile has been updated"
+                    log.info flash.message
+                       redirect(action: "index")
+                   } else {
+                       render(view: "edit_profile", model: [customerInstance: customerInstance])
+                   }
                } else {
-                   render(view: "edit_profile", model: [customerInstance: customerInstance])
+                   render(view:"edit_profile", model:[customerInstance:customerInstance, states:states])
                }
            } else {
                flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
@@ -853,7 +867,7 @@ http://www.superkidssampling.com/
        }
 
        def checkParams(params){
-           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || !params.breakfastsServed || !params.lunchesServed || !params.snacksServed || Customer.findByEmail(params.email)){
+           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || !params.breakfastsServed || !params.lunchesServed || !params.snacksServed || Customer.findByEmail(params.email) && !springSecurityService.isLoggedIn()){
                if(!params.fsdName){
                    if(flash.message){
                        flash.message += "Please enter your name <br />"
@@ -917,7 +931,7 @@ http://www.superkidssampling.com/
                        flash.message = "Please enter the number of students that you serve a snack to <br />"
                    }
                }
-               if(Customer.findByEmail(params.email)){
+               if(Customer.findByEmail(params.email) && !springSecurityService.isLoggedIn()){
                    if(flash.message){
                        flash.message += "The email address you have entered is already assigned to an account <br />"
                    } else {
