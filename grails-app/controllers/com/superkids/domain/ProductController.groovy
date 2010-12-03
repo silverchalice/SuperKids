@@ -74,7 +74,7 @@ class ProductController {
 
 			//def mfgContact = PageText.findByName("product_${productInstance.id}").content
 
-            [productInstance: productInstance, inCart:inCart, customer:customer, mfgContact: mfgContact]
+            [productInstance: productInstance, inCart:inCart, customer:customer, ]
         }
     }
 
