@@ -152,6 +152,10 @@ class Customer extends User {
 		only = ['fsdName', 'ndName', 'cdName', 'district', 'email', 'ndEmail', 'cdEmail']
 	}
 
+        static mapping = {
+            notes sqlType:"text"
+        }
+
 	String toString() {
 		district
 	}
