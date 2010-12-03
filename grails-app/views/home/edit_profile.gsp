@@ -82,9 +82,9 @@
 
 		<div id="contentInsetInner">
 
-            <h1>School District Profile</h1>
+            <h1>School District Profile</h1><br />
             <g:if test="${flash.message}">
-                <div class="message">${flash.message}</div>
+                <div class="message">${flash.message}</div><br />
             </g:if>
 	    <g:hasErrors bean="${customerInstance}">
             	<div class="errors">
