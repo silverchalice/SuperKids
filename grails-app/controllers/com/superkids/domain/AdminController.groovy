@@ -105,14 +105,20 @@ class AdminController {
     def delete = {
         def adminInstance = Admin.get(params.id)
         if (adminInstance) {
-            try {
-                adminInstance.delete(flush: true)
-                flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'admin.label', default: 'Admin'), params.id])}"
-                redirect(action: "list")
-            }
-            catch (org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'admin.label', default: 'Admin'), params.id])}"
-                redirect(action: "show", id: params.id)
+            if(adminInstance.id == springSecurityService.principal.id){
+                println "adminInstance.id: " + adminInstance.id + "; springSecurityService.principal.id: " + springSecurityService.principal.id
+                flash.message = "You cannot delete yourself. Please log in as another admin and try again."
+                redirect action:"edit", id:adminInstance.id
+            } else {
+                try {
+                    adminInstance.delete(flush: true)
+                    flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'admin.label', default: 'Admin'), params.id])}"
+                    redirect(action: "list")
+                }
+                catch (org.springframework.dao.DataIntegrityViolationException e) {
+                    flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'admin.label', default: 'Admin'), params.id])}"
+                    redirect(action: "show", id: params.id)
+                }
             }
         }
         else {
