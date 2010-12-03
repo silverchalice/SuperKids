@@ -21,7 +21,7 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="id" title="${message(code: 'customerOrder.id.label', default: 'Order ID')}" />
+                            <g:sortableColumn property="id" title="Name" />
 
 							<th>Items Ordered</th>
 
@@ -45,7 +45,7 @@
                     <g:each in="${customerOrderInstanceList}" status="i" var="customerOrderInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td style="width:100px;">${fieldValue(bean: customerOrderInstance, field: "id")}</td>
+                            <td style="width:100px;">${customerOrderInstance?.customer?.fsdName}</td>
 
 							<td>${customerOrderInstance?.products?.size()}</td>
 
