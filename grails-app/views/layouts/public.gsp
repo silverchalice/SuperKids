@@ -27,8 +27,8 @@
       <g:link action="index"><img id="logo" alt="SuperKids" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
       <div id="sideLogoBox">
-          <g:link controller='home' action='ultragrain'><img alt="ultragrain" src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
-          <g:link controller='home' action='sustagrain'><img alt="sustagrain" src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
+          <g:link controller='home' action='ultragrain_general'><img alt="ultragrain" src="${resource(dir:'images',file:'ultragrain.gif')}" /></g:link>
+          <g:link controller='home' action='sustagrain_general'><img alt="sustagrain" src="${resource(dir:'images',file:'sustagrain.gif')}" /></g:link>
       </div>
 
       <div class="clear"></div>
