@@ -287,6 +287,7 @@ class CallController {
 		} else {
               currentSeq = 1
               currentId =  1
+            }
         }
 		def order = new CustomerOrder()
 		def call = new Call()
