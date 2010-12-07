@@ -101,6 +101,7 @@ class CallController {
                                     println "CallResult of Duplicate"
                                     println "We have a Dupe..."
                                     customer?.duplicate = true
+                                    customer.save()
                                 }
 
 				if(call.result == CallResult.QUALIFIED) {
@@ -309,6 +310,7 @@ class CallController {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			isNull 'inCall'
+                        ne 'duplicate', true
                         lastCall {
                             le('dateCreated', oldDate )
                         }  
