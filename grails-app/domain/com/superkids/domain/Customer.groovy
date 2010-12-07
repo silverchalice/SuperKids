@@ -110,6 +110,9 @@ class Customer extends User {
         seq nullable: true
         callerBrokers nullable: true
 
+                duplicate nullable:true
+                invalidEmail nullable:true
+
 		assessments nullable: true
 
 		order nullable:true
