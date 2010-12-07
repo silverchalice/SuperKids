@@ -446,7 +446,19 @@ class CallController {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_ORDERED
 			isNull 'inCall'
-		  or{
+			or {
+				lastCall {
+					lt('dateCreated', oldDate )
+				}
+				isNull('lastCall')
+
+			}
+
+			or {
+				eq('duplicate', false)
+				isNull('duplicate')
+			}
+		   or{
               and {
                   eq('seq', currentSeq)
                   gt('id', currentId)
@@ -656,6 +668,12 @@ class CallController {
                     println "This should not be null, QUALIFIED, or CALLBACK..."
 					println params.result
 					call.result = CallResult.valueOf(params.result)
+				}
+
+				if(call.result == CallResult.DUPLICATE) {
+					println "CallResult of Duplicate"
+					println "We have a Dupe..."
+					customer?.duplicate = true
 				}
 
 				println "3"
