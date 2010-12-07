@@ -382,7 +382,15 @@
                                 </td>
                             </tr>
 
+ 
                             <tr class="prop">
+								<td valign="top" class="name">
+									   <label for="duplicate">Duplicate</label>
+								   </td>
+								   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'duplicate', 'errors')}">
+									   <g:checkBox name="duplicate" value="${customerInstance?.duplicate}" />
+								   </td>
+							   </tr>                           <tr class="prop">
 								<td valign="top" class="name">
 									   <label for="hasBakery">We make our own bread products from<br/>
 										   scratch in our bakery (proof & bake)</label>

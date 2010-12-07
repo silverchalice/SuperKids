@@ -48,6 +48,7 @@
                             <g:sortableColumn property="hasCompletedCurrentAssessment" title="Assessed" />
 
                             <g:sortableColumn property="newCustomer" title="New" />
+			     <g:sortableColumn property="duplicate" title="Dup." />
 
                             <g:sortableColumn property="topCustomer" title="Top 100" />
 
@@ -83,7 +84,9 @@
                                         <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params="[newCustomer:'true', rController:'customer', rAction:'list']"><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
                                     </g:else>
                             </td>
-
+ <td width="50px">
+                        	    <strong>${customerInstance?.duplicate}</strong>
+                            </td>
                             <td width="50px">
                         	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>

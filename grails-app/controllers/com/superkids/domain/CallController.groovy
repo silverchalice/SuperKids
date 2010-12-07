@@ -95,10 +95,18 @@ class CallController {
 					}
 				}
 				println "2"
+
+				if(call.result == CallResult.DUPLICATE) {
+					println "CallResult of Duplicate"
+					if(params.callbackDate) {
+						println "We have a Dupe..."
+						customer?.duplicate = true
+					}	
+
 				if(call.result == CallResult.QUALIFIED) {
 					println "Call Result was QUALIFIED - saving order..."
 					def order = new CustomerOrder(params['order'])
-					order.orderType = OrderType.PHONE
+					order.orderType = OrderTydef twentyFourHoursAgo = new Date(new Date().time - 86400000)pe.PHONE
 
 					def shippingDate = ShippingDate.findByShipDate(params.shippingDate)
 
@@ -294,17 +302,21 @@ class CallController {
 		def c = Customer.createCriteria()
 		def c2 = Customer.createCriteria()
 
-
+		def oldDate = new Date(new Date().time - 24000000)
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
-            eq 'timezone', currentTimezone
-			eq 'status', CustomerStatus.HAS_NOT_ORDERED
-			isNull 'inCall'
-		  or{
-              and {
-                  eq('seq', currentSeq)
-                  gt('id', currentId)
-              }
+         	    eq 'timezone', currentTimezone
+		    eq 'status', CustomerStatus.HAS_NOT_ORDERED
+		    isNull 'inCall'
+                    lastCall {
+			le('dateCreated', oldDate )
+		    }	
+
+		    or{
+                        and {
+                 	    eq('seq', currentSeq)
+                  	    gt('id', currentId)
+               	    }
               gt('seq', currentSeq)
             }
           maxResults(1)

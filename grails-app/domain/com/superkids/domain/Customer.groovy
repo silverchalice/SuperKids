@@ -67,8 +67,8 @@ class Customer extends User {
 
         boolean usingResetPassword = false
 
-        boolean invalidEmail
-
+        Boolean invalidEmail
+        Boolean duplicate
 	String otherComments
 
 	Call lastCall
@@ -81,7 +81,7 @@ class Customer extends User {
 	List brokers
 
     String callerBrokers // brokers collected from callers
-
+ 
 	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker ]
 
     static constraints = {
