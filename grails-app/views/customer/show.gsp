@@ -86,6 +86,13 @@
                         </tr>
 
                         <tr class="prop">
+                            <td valign="top" class="name">Invalid Email</td>
+                            
+                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance.id}" name="invalidEmail" property="invalidEmail" /></td>
+                            
+                        </tr>
+
+                        <tr class="prop">
                             <td valign="top" class="name">Phone</td>
                             
                             <td valign="top" class="value">${customerInstance?.phone}</td>
