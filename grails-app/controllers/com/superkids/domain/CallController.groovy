@@ -97,12 +97,11 @@ class CallController {
 				println "2"
 
 
-                                if(call.result == CallResult.DUPLICATE) {
-                                    println "CallResult of Duplicate"
-                                    println "We have a Dupe..."
-                                    customer?.duplicate = true
-                                    customer.save()
-                                }
+				if(call.result == CallResult.DUPLICATE) {
+					println "CallResult of Duplicate"
+					println "We have a Dupe..."
+					customer?.duplicate = true
+				}
 
 				if(call.result == CallResult.QUALIFIED) {
 					println "Call Result was QUALIFIED - saving order..."
@@ -304,16 +303,28 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
 
-                def oldDate = new Date(new Date().time - 24000000)
+        def oldDate = new Date(new Date().time - 24000000)
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			isNull 'inCall'
-                        ne 'duplicate', true
-                        lastCall {
-                            le('dateCreated', oldDate )
-                        }  
+
+			or {
+				lastCall {
+					lt('dateCreated', oldDate )
+				}
+				isNull('lastCall')
+
+			}
+
+			or{
+				eq('duplicate', false)
+				isNull('duplicate')
+			}
+
+
+
 		  or{
               and {
                   eq('seq', currentSeq)

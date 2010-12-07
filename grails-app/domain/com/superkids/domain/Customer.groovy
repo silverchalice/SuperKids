@@ -67,8 +67,8 @@ class Customer extends User {
 
         boolean usingResetPassword = false
 
-        Boolean invalidEmail
-        Boolean duplicate
+    Boolean invalidEmail
+    Boolean duplicate
 	String otherComments
 
 	Call lastCall
@@ -110,8 +110,8 @@ class Customer extends User {
         seq nullable: true
         callerBrokers nullable: true
 
-                duplicate nullable:true
-                invalidEmail nullable:true
+		duplicate nullable:true
+		invalidEmail nullable:true
 
 		assessments nullable: true
 
