@@ -23,13 +23,6 @@
                     <tbody>
                     
                         <tr class="prop">
-                            <td valign="top" class="name"><g:message code="call.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: callInstance, field: "id")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="call.result.label" default="Result" /></td>
                             
                             <td valign="top" class="value">${callInstance?.result?.encodeAsHTML()}</td>
@@ -42,8 +35,12 @@
                             <td valign="top" class="value"><g:link controller="customer" action="show" id="${callInstance?.customer?.id}">${callInstance?.customer?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
-                    
-                        <tr class="prop">
+						<tr class="prop">
+                            <td valign="top" class="name"><g:message code="call.fsdName.label" default="Contact Name" /></td>
+
+                            <td valign="top" class="value">${callInstance?.customer?.fsdName} - ${callInstance?.customer?.phone}</td>
+
+                        </tr>                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="call.caller.label" default="Caller" /></td>
                             
                             <td valign="top" class="value"><g:link controller="caller" action="show" id="${callInstance?.caller?.id}">${callInstance?.caller?.encodeAsHTML()}</g:link></td>
@@ -56,7 +53,12 @@
                             <td valign="top" class="value"><g:formatDate date="${callInstance?.callbackDate}" /></td>
                             
                         </tr>
-                    
+						<tr class="prop">
+							<td valign="top" class="name"><label>Operator Notes</label></td>
+							<td valign="top" class="value" style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customerInstance?.notes}</td>
+						</tr>
+
+
                     </tbody>
                 </table>
             </div>
