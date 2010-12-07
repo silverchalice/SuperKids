@@ -106,7 +106,8 @@ class CallController {
 				if(call.result == CallResult.QUALIFIED) {
 					println "Call Result was QUALIFIED - saving order..."
 					def order = new CustomerOrder(params['order'])
-					order.orderType = OrderTydef twentyFourHoursAgo = new Date(new Date().time - 86400000)pe.PHONE
+					order.orderType = OrderType.PHONE
+                                        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
 
 					def shippingDate = ShippingDate.findByShipDate(params.shippingDate)
 
