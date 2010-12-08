@@ -65,9 +65,15 @@ class CallController {
 			println "saving order call for customer " + customer.fsdName
 			customer.properties = params
                         if(params.email){
-                            def u = User.get(params.id)
-                            u.username = params.email
-                            u.save(failOnError:true)
+                            if(Customer.findByEmailOrUsername(params.email)){
+                                flash.message = "Another customer is already using this email address -- this is probably a duplicate."
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
+                                return
+                            } else {
+                                def u = User.get(params.id)
+                                u.username = params.email
+                                u.save(failOnError:true)
+                            }
                         }
 
 			if(customer.save(flush:true)){
@@ -160,11 +166,7 @@ class CallController {
 				else
 					redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
 			}  else {
-                                if(Customer.findByEmailOrUsername(params.email)){
-                                    flash.message = "Another customer is already using this email address -- this is probably a duplicate."
-                                } else {
-  				    flash.message = 'invalid customer data'
-                                }
+				flash.message = 'invalid customer data'
 				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
 			}
 		} else {
