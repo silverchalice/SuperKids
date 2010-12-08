@@ -25,7 +25,6 @@ class ShoppingController {
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']   
        if(springSecurityService.isLoggedIn()){
-       println "the params are " + params
        def customerInstance = Customer.get(params.id)
        if (customerInstance) {
            if (params.version) {
@@ -48,7 +47,6 @@ class ShoppingController {
                            products << product
                        }
                    }
-                   println products
                    flash.message = "Your customer details have been updated."
                    render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.list(), products:products]
                } else {
@@ -76,7 +74,6 @@ class ShoppingController {
             order.addToProducts(productOrder)
 
 			if(Product.findAllByParent(product)) {
-				println 'there were subproducts...'
 				def subProducts = Product.findAllByParent(product)
 
 				subProducts.each { sp ->
@@ -86,10 +83,10 @@ class ShoppingController {
 			}
 
             order.save()
-            println order.products
         }
         customer.order = order
         customer.save(failOnError:true)
+        println "customer " + customer.fsdName + " placed order through site"
         session.checkedOutItems = shoppingCartService.checkOut()
         redirect action:"thanks"
     }

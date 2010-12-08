@@ -40,7 +40,7 @@ class CustomerController {
     }
 
 	def save = {
-        println "in Save for CustomerController"
+        println "saving a new customer through admin site"
         params.each { key, val ->
           println "$key = $val"
         }
@@ -53,15 +53,13 @@ class CustomerController {
 		customerInstance.accountLocked = false
 		customerInstance.passwordExpired = false
 		def userRole = Role.findByAuthority("ROLE_USER")
-         println "about to save..."
 		if(customerInstance.save()){
-             println "saved!"
 			UserRole.create customerInstance, userRole, true
-			println "we just saved a user. (pause for deafening applause.) this user's username is " + customerInstance.username + "; its email address is " + customerInstance.email + "; its password is " + params.password + "."
+			println "we just saved a new customer. (pause for deafening applause.) username: " + customerInstance.username + "; email: " + customerInstance.email + "; password: " + params.password
 			flash.message = "Customer account created."
             redirect(action: "show", id: customerInstance.id)
 		} else {
-            println "save failed"
+            println "customer save action: save failed"
 			flash.message = "There were errors in saving the customer's information."
 			customerInstance.errors.allErrors.each {
 				println it
@@ -117,11 +115,9 @@ class CustomerController {
             String current = customerInstance.status
             def readableCurrentStatus = current.replaceAll("_", " ")
             Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'HAS NOT ORDERED']
-            println "statusList is " + statusList
             def products = []
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
                 products = Product.list()
-                println "and now the statusList is " + statusList
                 return [customerInstance: customerInstance, products: products.findAll{!it.parent}, states: states, broker:broker, statusList:statusList]
             } else {
                 customerInstance.order.products.each { productOrder ->
@@ -199,8 +195,8 @@ class CustomerController {
     }
 
     def add_order = {
-        println "the params in add_order are " + params
 
+        def admin = Admin.get(springSecurityService.principal.id)
         def shippingDate = ShippingDate.findByShipDate(params.shippingDate)
         def oo = Enum.valueOf(OrderType.class, params.orderType)
         def customer = Customer.get(params.id)
@@ -225,11 +221,9 @@ class CustomerController {
 			customer.hasPlacedCurrentOrder = true
 			customer.status = CustomerStatus.HAS_ORDERED
 			customer.save(failOnError:true)
-			println "customer.hasPlacedCurrentOrder: " + customer.hasPlacedCurrentOrder
 
             flash.message = "Added selected products to customer's order."
-            println "here's the customer's order: "
-            customer.order.products.each{ println it }
+            println "admin " + admin?.firstName + " " + admin?.lastName + " placed order for customer " + customer.fsdName
             redirect action:"edit", id:customer.id
         } else {
             flash.message = "Couldn't find that customer record."
@@ -279,14 +273,14 @@ class CustomerController {
             customerInstance.newCustomer = nc == 'true'
             customerInstance.save()
         }
-        println "the customerInstance's newCustomer is " + customerInstance.newCustomer
+        println "Q: Is customer " + customerInstance.fsdName + " new?"
+        println "A: " + customerInstance.newCustomer
         redirect controller:controller, action:action, id:id
     }
 
 
 	def toggleDidNotReceive = {
-            println 'in ToggleDidNotReceive'
-            println params
+            println 'in toggleDidNotReceive'
 
             def productOrderInstance = ProductOrder.get(params.id)
             def customer = Customer.get(productOrderInstance.order.customer.id)
@@ -303,27 +297,23 @@ class CustomerController {
                 }
 
                 if(products.find{!Product.findByParent(it)}){
-                    println "still more products"
                 } else {
                     customer.status = CustomerStatus.QUALIFIED
                     customer.hasCompletedCurrentAssessment = true	
                     customer.save(failOnError:true)                
                 }
         }
-        println "the productOrderInstance's received is " + productOrderInstance.received
+        println "Q: Is customer " + customer.fsdName + "'s order of " + productOrderInstance + " received?"
+        println "A: " + productOrderInstance.received
         render ''
     }
 
 	def adminAssessProduct = {
-		println 'in AdminAssessProduct for CustomerController'
-		params.each { key, val ->
-			println "$key : $val"
-		}
+		println 'in adminAssessProduct for CustomerController'
 
 		def pOrder = ProductOrder.get(params.productOrderId)
 
 		if(pOrder) {
-			println "Product Order found"
 			def assessment = new Assessment(params)
 			def customer = Customer.get(pOrder.order.customer.id)
 			def product = Product.get(pOrder.product.id)
@@ -355,16 +345,12 @@ class CustomerController {
  
 		} else {
 			flash.message = "Product not found"
-			println flash.message
 			redirect action:index
 		}
 	}
 
     def completeAssessment = {
-        println "in CompleteAssessment for CustomerController"
-        params.each { key, val ->
-            println "$key = $val"
-        }
+        println "in completeAssessment for CustomerController"
 
         def customer = Customer.get(params?.id)
 

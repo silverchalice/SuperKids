@@ -70,7 +70,6 @@ class AdminController {
     }
 
     def update = {
-        println "admin update params are " + params
         def adminInstance = Admin.get(params.id)
         if (adminInstance) {
             if(adminInstance.id == springSecurityService.principal.id && !params.enabled){
@@ -106,7 +105,6 @@ class AdminController {
         def adminInstance = Admin.get(params.id)
         if (adminInstance) {
             if(adminInstance.id == springSecurityService.principal.id){
-                println "adminInstance.id: " + adminInstance.id + "; springSecurityService.principal.id: " + springSecurityService.principal.id
                 flash.message = "You cannot delete yourself. Please log in as another admin and try again."
                 redirect action:"edit", id:adminInstance.id
             } else {
@@ -134,7 +132,6 @@ class AdminController {
                 def adminRole = Role.findByAuthority("ROLE_ADMIN")
                 if (adminInstance) {
                     if(adminInstance.id == springSecurityService.principal.id){
-                        println "adminInstance.id: " + adminInstance.id + "; springSecurityService.principal.id: " + springSecurityService.principal.id
                         flash.message = "You cannot delete yourself. Please log in as another admin and try again."
                         redirect action:"list"
                     } else {

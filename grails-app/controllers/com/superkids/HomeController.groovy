@@ -78,10 +78,9 @@ class HomeController {
 			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-         println "the params are " + params
          def customerInstance = new Customer()
          customerInstance.properties = params
-         println "the customer is " + customerInstance
+         println "saved new customer: " + customerInstance
          if(checkParams(params)){
            customerInstance.password = springSecurityService.encodePassword("superkids")
            customerInstance.enabled = true
@@ -102,7 +101,7 @@ class HomeController {
                redirect(action:"register_n")
            } else {
                flash.message = "There were errors with your information."
-               log.info flash.message
+               println "errors saving customer " + customerInstance + ":"
                customerInstance.errors.allErrors.each {
                    println it
                    println " "
@@ -193,9 +192,7 @@ class HomeController {
        }
 
        def addBroker = {
-           println "here are the addBroker params: " + params
            def customerInstance
-           println "in addBroker, params.rId is " + params.rId
            def id = params.rId
            if(params.customerId){
                customerInstance = Customer.get(params.customerId)
@@ -203,13 +200,11 @@ class HomeController {
                customerInstance = Customer.get(springSecurityService.principal.id)
 
            }
-           println "...and the customerInstance is " + customerInstance
            def controller = params.rController
            def action = params.rAction
-           println "controller: " + controller + " action: " + action
            if(params.name){
                def broker = new Broker(params)
-               println "this new broker's name is " + broker.name
+               println "in addBroker, saved new broker: " + broker.name
                customerInstance.addToBrokers(broker)
                customerInstance.save(failOnError:true)
             }
@@ -712,11 +707,11 @@ class HomeController {
        }
 
        def c_password = {
-           println "here is the password we got: " + params.password
            def customerInstance = Customer.get(springSecurityService.principal.id)
+           println "changing password for customer " + customerInstance + " (c_password action of HomeController). here is the password we got: " + params.password
            if(params.password == "superkids"){
                flash.message = "Please enter a new password. Your new password cannot be \"superkids\"."
-                log.info flash.message
+               println "new password for customer " + customerInstance + " was 'superkids' (c_password)"
                redirect action:"c_change_password"
            } else {
                if(params.password == params.confirmpassword){
@@ -724,12 +719,11 @@ class HomeController {
                    customerInstance.usingResetPassword = false
                    customerInstance.save(failOnError:true)
                    flash.message = "Your password has been updated."
-                log.info flash.message
-                   println "!!! redirecting"
+                   println "updated password for customer " + customerInstance + " (c_password)"
                    redirect action:"index"
                } else {
                    flash.message = "New passwords do not match."
-                log.info flash.message
+                   println "new passwords for customer " + customerInstance + " did not match (c_password)"
                    customerInstance.password = params.password
                    render view:"c_change_password", model:[customerInstance:customerInstance]
                }
@@ -742,32 +736,30 @@ class HomeController {
        }
 
        def c_2_password = {
-           println "here is the password we got: " + params.password
            def customerInstance = Customer.get(springSecurityService.principal.id)
+           println "changing password for customer " + customerInstance + " (c_2_password action of HomeController). here is the password we got: " + params.password
            def oldpassword = springSecurityService.encodePassword(params.oldpassword)
            if(params.password == "superkids"){
                flash.message = "Please enter a new password. Your new password cannot be \"superkids\"."
-                log.info flash.message
+                println "new password for customer " + customerInstance + " was 'superkids' (c_2_password)"
                redirect action:"c_2_change_password"
            } else {
                if(oldpassword == customerInstance.password){
                    if(params.password){
-                       println "supposedly matches..."
                        if(params.password == params.confirmpassword){
                            customerInstance.password = springSecurityService.encodePassword(params.password)
                            customerInstance.usingResetPassword = false
                            customerInstance.save(failOnError:true)
                            flash.message = "Your password has been updated."
-                           log.info flash.message
-                           println "!!! redirecting"
+                           println "updated password for customer " + customerInstance + " (c_2_password)"
                            redirect action:"index"
                        } else {
                            flash.message = "New passwords do not match."
-                           log.info flash.message
+                           println "new passwords for customer " + customerInstance + " did not match (c_2_password)"
                            render view:"c_2_change_password", model:[customerInstance:customerInstance]
                        }
                    } else {
-                       println "there was no new password..."
+                       println "there was no new password... (c_2_password)"
                        flash.message = "Please enter a new password."
                        log.info flash.message
                        render view:"c_2_change_password", model:[customerInstance:customerInstance]

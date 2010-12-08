@@ -53,7 +53,6 @@ class LoginController {
 
 		String view = 'auth'
 		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-                println "in auth " + flash.message
 		render view: view, model: [postUrl: postUrl,
 		                           rememberMeParameter: config.rememberMe.parameter]
 	}
@@ -87,7 +86,6 @@ class LoginController {
 	def authfail = {
 
                 def current_action = session.current_view
-                println current_action
 		def username = session[UsernamePasswordAuthenticationFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
 		String msg = ''
 		def exception = session[AbstractAuthenticationProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY]
@@ -108,8 +106,7 @@ class LoginController {
 				msg = SpringSecurityUtils.securityConfig.errors.login.fail
 			}
 		}
-                //println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + User.findByUsername(params.j_username) + " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-                println "!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + msg + " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+                println "User login attempt failed; message: " + msg
 
 		if (springSecurityService.isAjax(request)) {
 			render([error: msg] as JSON)

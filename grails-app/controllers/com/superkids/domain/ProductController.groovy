@@ -52,7 +52,6 @@ class ProductController {
     }
 
     def show = {
-        println "in Product show, dude"
         def productInstance = Product.get(params.id)
         def shoppingCart = shoppingCartService.getShoppingCart()
         def qty = 1
@@ -128,7 +127,7 @@ class ProductController {
 			def subProducts = Product.findAllByParent(productInstance)
 
 			if(subProducts) {
-				println "There are sub products"
+                            println " "
 			}
 
             return [productInstance: productInstance, subProducts: subProducts, states:states]
@@ -197,7 +196,6 @@ class ProductController {
     }
 
 	def displayImage = {
-		println "entering displayImage"
 		def productInstance = Product.get(params.id)
 
 		response.contentType = "image/jpeg"
@@ -206,7 +204,6 @@ class ProductController {
 	}
 
 	def displayHoverImage = {
-		println "entering displayImage"
 		def productInstance = Product.get(params.id)
 
 		response.contentType = "image/jpeg"
@@ -223,20 +220,22 @@ class ProductController {
 	}
 
 	def add = {
-		println "in Product add action"
 		def product = Product.get(params.id)
+                def customer = Customer.get(springSecurityService.principal.id)
+                println "customer " + customer?.fsdName + " added " + product + " to cart"
 		shoppingCartService.addToShoppingCart(product, 1)
 		redirect controller:'testShoppingCart', action:'show'
 		return
 	}
 
 	def remove = {
-                println "params in product remove are: " + params
                 def controller
                 def action
                 if(params.controller){ controller = params.controller }
                 if(params.action){ action = params.action }
 		def product = Product.get(params.id)
+                def customer = Customer.get(springSecurityService.principal.id)
+                println "customer " + customer?.fsdName + " removed " + product + " from cart"
 		def qty = 1
 		def previousShoppingCart = null
 		def shoppingCart = shoppingCartService.getShoppingCart()
@@ -258,7 +257,6 @@ class ProductController {
 				if (item?.id == product?.shoppingItem.id) {
 					return true
 				}
-                                println "here we return false"
 				return false
 			}
 			shoppingCart.removeFromItems(itemToRemove)
@@ -338,7 +336,8 @@ class ProductController {
 			productInstance.liveProduct = params.liveProduct == 'true'
 			productInstance.save()
 		}
-		println "the productInstance's liveProduct is " + productInstance.liveProduct
+		println "Q: Is " + productInstance + " live?"
+                println "A: " + productInstance.liveProduct
 		render ''
     }
 
@@ -361,18 +360,16 @@ class ProductController {
     }
 
     def updateBroker = {
-        println "our updateBroker params are " + params
         def controller = params.rController
         def action = params.rAction
         def rId = params.rId
         def brokerInstance = Broker.get(params.id)
-        println "broker is " + brokerInstance
         if (brokerInstance) {
             brokerInstance.properties = params
 
             if(!brokerInstance.save()) {
 				flash.message = "Invalid Broker Details"
-			}
+	    }
         }
         redirect controller:controller, action:action, id:rId, broker:brokerInstance
     }
@@ -384,7 +381,6 @@ class ProductController {
         def controller = params.rController
         def action = params.rAction
         def rId = params.rId
-        println "controller: " + controller + " action: " + action
         if(brokerInstance){
             try {
                 customerInstance.removeFromBrokers(brokerInstance)
