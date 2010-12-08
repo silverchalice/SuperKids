@@ -86,7 +86,7 @@
                                     </g:else>
                             </td>
  <td width="50px">
-                        	  <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="duplicate" />
+                        	  <sks:propertyCheckbox id="${customerInstance.id}" name="duplicate" property="duplicate" />
                             </td>
                             <td width="50px">
                         	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />

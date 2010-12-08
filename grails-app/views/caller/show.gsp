@@ -14,32 +14,41 @@
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <h1>${fieldValue(bean: callerInstance, field: "username")}</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
-                <table>
-                    <tbody>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="caller.id.label" default="Id" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: callerInstance, field: "id")}</td>
-                            
+
+
+				<br/>
+				<g:if test="${callerInstance?.calls}">
+					<h1>Call Log</h1>
+					<table>
+						<tbody>
+							<th>Customer</th>
+							<th>Date</th>
+							<th>Result</th>
+						</tbody>
+
+						<g:each in="${callerInstance?.calls}" var="call">
+
+                        <tr>
+							 <td><g:link controller="customer" action="show" id="${call?.customer?.id}">${call?.customer}</g:link> </td>
+
+							<td>${call?.dateCreated}</td>
+
+                            <td>${call?.result}</td>
+
                         </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="caller.username.label" default="Username" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: callerInstance, field: "username")}</td>
-                            
-                        </tr>
-                            
-                        </tr>
-                    
-                    </tbody>
-                </table>
+						</g:each>
+
+
+					</table>
+
+				</g:if>
+
+
             </div>
             <div class="buttons">
                 <g:form>

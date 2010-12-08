@@ -86,9 +86,9 @@
                         </tr>
 
                         <tr class="prop">
-                            <td valign="top" class="name">Invalid Email</td>
+                            <td valign="top" class="name">Duplicate</td>
                             
-                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance.id}" name="invalidEmail" property="invalidEmail" /></td>
+                            <td valign="top" class="value"> <sks:propertyCheckbox id="${customerInstance.id}" name="duplicate" property="duplicate" /></td>
                             
                         </tr>
 
@@ -396,6 +396,42 @@
 
                 <h1>Customer Notes</h1>
                 <p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customerInstance?.notes}</p>
+				    <br/>
+				     <h1>Call Log</h1>
+					<g:each in="${customerInstance?.calls}" var="call">
+						<br/>
+						<table>
+							<tr class="prop">
+								<td valign="top" class="name">
+									Caller:
+								</td>
+								<td valign="top" class="value">
+									<g:link controller="caller" action="show" id="${call?.caller?.id}">${call?.caller?.username}</g:link>
+								</td>
+							</tr>
+
+							<tr class="prop">
+								<td valign="top" class="name">
+									Date
+								</td>
+								<td valign="top" class="value">
+									<g:formatDate date="${call?.dateCreated}" format="MM/dd/yyyy" />
+								</td>
+							</tr>
+
+
+							<tr class="prop">
+								<td valign="top" class="name">
+									Result
+								</td>
+								<td valign="top" class="value">
+									${call?.result}
+								</td>
+							</tr>
+						</table>
+
+					</g:each>
+
 
             </div>
 

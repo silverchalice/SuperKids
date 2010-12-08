@@ -26,9 +26,9 @@
                         
                             <g:sortableColumn property="result" title="${message(code: 'call.result.label', default: 'Result')}" />
                         
-                            <th><g:message code="call.customer.label" default="Customer" /></th>
+                            <g:sortableColumn property="customer" title="${message(code: 'call.customer.label', default: 'Customer')}" />
                         
-                            <th><g:message code="call.caller.label" default="Caller" /></th>
+                            <g:sortableColumn property="caller" title="${message(code: 'call.caller.label', default: 'Caller')}" />
                         
                             <g:sortableColumn property="callbackDate" title="${message(code: 'call.callbackDate.label', default: 'Callback Date')}" />
                         
@@ -42,9 +42,9 @@
                         
                             <td>${fieldValue(bean: callInstance, field: "result")}</td>
                         
-                            <td>${fieldValue(bean: callInstance, field: "customer")}</td>
+                            <td><g:link controller="customer" action="show" id="${callInstance?.customer.id}">${callInstance?.customer}</g:link></td>
                         
-                            <td>${fieldValue(bean: callInstance, field: "caller")}</td>
+                            <td><g:link controller="caller" action="show" id="${callInstance?.caller.id}">${fieldValue(bean: callInstance, field: "caller")}</g:link></td>
                         
                             <td><g:formatDate date="${callInstance.callbackDate}" /></td>
                         
