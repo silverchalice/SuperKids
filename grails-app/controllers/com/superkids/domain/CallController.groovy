@@ -160,7 +160,11 @@ class CallController {
 				else
 					redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
 			}  else {
-				flash.message = 'invalid customer data'
+                                if(Customer.findByEmailOrUsername(params.email)){
+                                    flash.message = "Another customer is already using this email address -- this is probably a duplicate."
+                                } else {
+  				    flash.message = 'invalid customer data'
+                                }
 				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
 			}
 		} else {
