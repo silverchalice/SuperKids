@@ -44,8 +44,11 @@ class CustomerOrderController {
         else {
             def products = []
             customerOrderInstance.products.each{ po ->
-                if(!Product.findByParent(po.product))
-                products << po
+                if(po?.product){
+                    if(!Product.findByParent(po?.product))
+                        products << po
+                    }
+                }
             }
             [customerOrderInstance: customerOrderInstance, products:products.sort{it.product?.id}]
         }
