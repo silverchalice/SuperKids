@@ -24,7 +24,8 @@
                         <tr>
 
                              <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
-
+							 <th>&nbsp;</th>
+							 <th>&nbsp;</th>
                             <th><g:message code="customer.fsdName.label" default="FSD Name" /></th>
 
                             <th><g:message code="customer.address.label" default="Address" /></th>
@@ -43,8 +44,9 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-
-                            <td><sks:linkToCall id="${customerInstance.id}" /></td>
+							<td >${customerInstance?.district}</td>
+                            <td style="width:70px;"><g:link action="get_order_call" id="${customerInstance?.id}" >Order Form</g:link></td>
+                            <td style="width:80px;"><g:link action="get_assess_call" id="${customerInstance?.id}" >Assess Form</g:link></td>
                             <td>${customerInstance?.fsdName}</td>
                             <td>
 								<g:if test="${customerInstance.deliveryAddress == 'null'}">
@@ -60,13 +62,13 @@
                           <td>${customerInstance.phone}
                           </td>
 
-                          <td style="width:100px"><g:if test="${customerInstance.inCall == null}">
-                                  <strong style="color:green">False</strong>
-                              </g:if>
-                              <g:else>
-                                  <strong style="color:red">True </strong>  |<g:link action="unlock_customer" id="${customerInstance.id}" params="[type:'order']"> Unlock</g:link>
-                              </g:else>
-                          </td>
+                       <td style="width:100px"><g:if test="${customerInstance.inCall == null}">
+								    <strong style="color:green">False</strong>
+								</g:if>
+								<g:else>
+									<strong style="color:red">True </strong>  |<g:link action="unlock_customer" id="${customerInstance.id}" params="[type:'order']"> Unlock</g:link>
+								</g:else>
+							</td>
 
 
                         </tr>

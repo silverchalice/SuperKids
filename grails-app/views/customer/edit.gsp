@@ -175,7 +175,14 @@
                                     <g:textField name="district" value="${customerInstance?.district}" />
                                 </td>
                             </tr>
-                        
+						<tr class="prop">
+							<td valign="top" class="name">
+							  <label for="timezone"><g:message code="customer.timezone.label" default="Timezone" /></label>
+							</td>
+							<td valign="top">
+							   <g:textField name="timezone" value="${customerInstance?.timezone}" />
+							</td>
+						</tr>
 						<tr class="prop">
 							<td valign="top" class="name">
 							  <label><g:message code="customer.address.street.label" default="Street" /></label>
@@ -208,6 +215,7 @@
 							   <g:textField name="address.state" value="${customerInstance?.address?.state}" />
 							</td>
 						</tr>
+
 						<tr class="prop">
 							<td valign="top" class="name">
 							  <label><g:message code="customer.address.zip.label" default="Zip" /></label>

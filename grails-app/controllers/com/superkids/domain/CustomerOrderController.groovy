@@ -1,8 +1,5 @@
 package com.superkids.domain
 
-import com.superkids.domain.Customer
-import com.superkids.domain.Assessment
-
 class CustomerOrderController {
 
     def springSecurityService
@@ -52,7 +49,7 @@ class CustomerOrderController {
             }
             [customerOrderInstance: customerOrderInstance, products:products.sort{it.product?.id}]
         }
-    }
+
 
     def edit = {
         def customerOrderInstance = CustomerOrder.get(params.id)

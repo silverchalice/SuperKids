@@ -109,8 +109,8 @@
             });
 
 
-      })
-      
+      });
+
     </script>
 
     <style type="text/css">
@@ -155,7 +155,9 @@
         }
 
     </style>
-
+      <g:if test="${flash.message}">
+            <div class="message">${flash.message}</div>
+      </g:if>
     <g:form controller="call">
 
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
