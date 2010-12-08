@@ -11,7 +11,6 @@ class AssessmentController {
     }
 
     def list = {
-		println "in List for AssessmentController"
 
 		def customers = []
 
@@ -56,10 +55,6 @@ class AssessmentController {
     }
 
 	def viewAssessment = {
-		println "in ViewAssessment for AssessmentController"
-		params.each { key, val ->
-			println "$key = $val"
-		}
 
 		def customer = Customer.get(params.id)
 		def assessments = Assessment.findAllByCustomerAndCompleted(customer, true)
@@ -127,14 +122,13 @@ class AssessmentController {
     }
 
     def start = {
-        println "params coming into the start action are: " + params
         def products = []
         def customer = Customer.get(springSecurityService.principal.id)
         if(customer.order){
             def product = Product.get(params.id)
+            println "customer " + customer?.fsdName + "is assessing " + product
             if(customer.order.products*.product.collect{it.id}.contains(product.id)){
                 def assessmentInstance = new Assessment(product:product)
-                println "right after we created it, the assessmentInstance's id is already " + assessmentInstance.id
                 customer.order.products.findAll{ it.received == true }.each{
                     def p = Product.get(it.product.id)
                     if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
@@ -159,7 +153,6 @@ class AssessmentController {
     }
 
     def lc = {
-         println "params coming into lc: " + params
          def customer = Customer.get(params.customerId)
          def product = Product.get(params.productId?.toInteger())
          def products = []
@@ -243,7 +236,6 @@ class AssessmentController {
      }
 
     def complete = {
-         println "params.iRating is " + params.iRating
          def products = []
          def assessmentInstance = Assessment.get(params.id)
          Assessment.findAllByCompleted(false).each{
@@ -268,19 +260,14 @@ class AssessmentController {
          assessmentInstance.iRating = params.iRating?.toInteger()
          assessmentInstance.completed = true
          customer.save(failOnError:true)
-         println assessmentInstance.completed
-         println "and now the assessmentInstance's iRating is " + assessmentInstance.iRating
          if(products.size() > 0){
-             println "foo!"
              return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
          } else {
-             println "bar!"
              redirect controller:"assessment", action:"broker_contact"
          }
     }
 
     def assess_process = {
-       println "foo..."
          Assessment.findAllByCompleted(false).each{
              try {
                  it.delete(flush: true)
@@ -290,23 +277,12 @@ class AssessmentController {
              }
          }
        def products = []
-       CustomerOrder.list().each{
-           it.products.each {
-               println it.received
-           }
-       }
        if(springSecurityService.isLoggedIn()){
            def user = User.get(springSecurityService.principal.id)
            def userRole = Role.findByAuthority("ROLE_USER")
-           println "...bar..."
            if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
-               println "...bas"
-               println user.order.class
-               println user.order.properties
-               println user.order.products
                user.order.products.each{
                    def p = Product.get(it.product.id)
-                   println "the product is " + p
                    if(!Assessment.findByCustomerAndProduct(user, p) && it.received == true && !Product.findByParent(p)){
                        products << p
                    }
@@ -325,10 +301,6 @@ class AssessmentController {
         def customerInstance = Customer.get(springSecurityService.principal.id)
         customerInstance.properties = params
         customerInstance.save(failOnError:true)
-        println "am: " + customerInstance.am
-        println "pm: " + customerInstance.pm
-        println "fall: " + customerInstance.fall
-        println "spring: " + customerInstance.spring
         [customerInstance:customerInstance]
     }
 
@@ -336,7 +308,6 @@ class AssessmentController {
         def customerInstance = Customer.get(springSecurityService.principal.id)
         customerInstance.properties = params
         customerInstance.save(failOnError:true)
-        println "programFeedback: " + customerInstance.programFeedback
         [customerInstance:customerInstance]
     }
 
@@ -344,7 +315,6 @@ class AssessmentController {
         def customerInstance = Customer.get(springSecurityService.principal.id)
         customerInstance.properties = params
         customerInstance.save(failOnError:true)
-        println "reformulations: " + customerInstance.reformulations
         [customerInstance:customerInstance]
     }
 
@@ -353,7 +323,6 @@ class AssessmentController {
         customerInstance.properties = params
 		customerInstance.status = CustomerStatus.QUALIFIED
         customerInstance.save(failOnError:true)
-        println "otherProducts: " + customerInstance.otherProducts
         [customerInstance:customerInstance]
     }
 
@@ -366,13 +335,11 @@ class AssessmentController {
     }
 
     def dnr = {
-        println "in dnr action.."
         def products = []
         def customerInstance = Customer.get(springSecurityService.principal.id)
-        println "the customer is " + customerInstance
         def product = Product.get(params.id)
+        println "customer " + customerInstance?.fsdName + " did not receive " + product
         def productOrder = ProductOrder.findByProductAndOrder(product, customerInstance.order)
-        println "the product is " + product + ", and the productOrder is " + productOrder
         productOrder.received = false
         productOrder.save(failOnError:true)
         customerInstance.order.products.findAll{ it.received == true }.each{
@@ -382,10 +349,8 @@ class AssessmentController {
             }
         }
         if(products.size() > 0){
-            println "foo!"
             redirect controller:"assessment", action:"assess_process"
         } else {
-            println "bar!"
             redirect controller:"assessment", action:"broker_contact"
         }
     }

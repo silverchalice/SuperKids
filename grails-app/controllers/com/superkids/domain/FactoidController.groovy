@@ -106,21 +106,16 @@ class FactoidController {
                 def factoidInstance = Factoid.get(params.id)
                 if (factoidInstance) {
                     try {
-                        println "trying to delete factoid..."
                         factoidInstance.delete(flush: true)
-                        println "...done"
-                        flash.message = "Deleted this factoid."
                         redirect(action: "list")
                     }
                     catch (org.springframework.dao.DataIntegrityViolationException e) {
-                        println "there was an exception; redirecting..."
                         flash.message = "This factoid could not be deleted."
                         redirect(action: "list")
                     }
                 }
                 else {
                     flash.message = "Factoid not found."
-                    println "couldn't find factoid"
                     redirect(action: "list")
                 }
             } else {
@@ -139,7 +134,6 @@ class FactoidController {
             factoidInstance.liveFactoid = params.liveFactoid == 'true'
             factoidInstance.save()
         }
-        println "the factoidInstance's liveFactoid is " + factoidInstance.liveFactoid
         render ''
     }
 

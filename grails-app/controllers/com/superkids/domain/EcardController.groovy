@@ -38,10 +38,7 @@ class EcardController {
     }
 
 	def sendEcard = {
-		println "in SendEcard for EcardController"
-		params.each { key, val ->
-			println "$key = $val"
-		}
+		println "in sendEcard action of EcardController"
 
 	 	def ecardInstance = new Ecard(params)
 
@@ -78,6 +75,7 @@ class EcardController {
 		}
 
 		else {
+                        println "there were errors with this ecard"
 			ecardInstance.errors.allErrors.each {println it}
 
 			flash.message = "Sorry, your eCard was unable to be sent"
