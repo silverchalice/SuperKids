@@ -881,21 +881,21 @@ http://www.superkidssampling.com/
                        flash.message = "Please enter your school district name <br />"
                    }
                }
-               if(!params.address.city){
+               if(!params.address?.city){
                    if(flash.message){
                        flash.message += "Please enter the city of your school district <br />"
                    } else {
                        flash.message = "Please enter the city of your school district <br />"
                    }
                }
-               if(!params.address.zip){
+               if(!params.address?.zip){
                    if(flash.message){
                        flash.message += "Please enter the zip of your school district <br />"
                    } else {
                        flash.message = "Please enter the zip of your school district <br />"
                    }
                }
-               if(!params.address.street){
+               if(!params.address?.street){
                    if(flash.message){
                        flash.message += "Please enter the address of your school district <br />"
                    } else {
