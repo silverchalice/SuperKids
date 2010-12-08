@@ -65,7 +65,7 @@ class CallController {
 			println "saving order call for customer " + customer.fsdName
 			customer.properties = params
                         if(params.email){
-                            if(Customer.findByEmailOrUsername(params.email)){
+                            if(Customer.findByEmail(params.email)){
                                 flash.message = "Another customer is already using this email address -- this is probably a duplicate."
 				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
                                 return
