@@ -34,12 +34,13 @@ class CustomerOrderController {
 
     def show = {
         def customerOrderInstance = CustomerOrder.get(params.id)
+		 def products = []
         if (!customerOrderInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
             redirect(action: "list")
         }
         else {
-            def products = []
+
             customerOrderInstance.products.each{ po ->
                 if(po?.product){
                     if(!Product.findByParent(po?.product))
@@ -47,7 +48,7 @@ class CustomerOrderController {
                     }
                 }
             }
-            [customerOrderInstance: customerOrderInstance, products:products.sort{it.product?.id}]
+            [customerOrderInstance: customerOrderInstance, products: products.sort{it.product?.id}]
         }
 
 
