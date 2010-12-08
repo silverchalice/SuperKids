@@ -2,7 +2,6 @@ package com.superkids.domain
 
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-import com.superkids.domain.Product
 
 class CallController {
 
@@ -392,7 +391,7 @@ class CallController {
 			def call = new Call()
 
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, single: true, ]
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, ]
 		}
 		else {
 			redirect action:list
