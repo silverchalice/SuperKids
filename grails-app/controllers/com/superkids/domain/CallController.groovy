@@ -2,6 +2,7 @@ package com.superkids.domain
 
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+import com.superkids.domain.Product
 
 class CallController {
 
@@ -115,15 +116,16 @@ class CallController {
 							def productName = key[6..-1]
 							def product = Product.findByName(productName)
 							def pOrder = new ProductOrder(product:product, order:order)
+                            if(product){
+                                if(Product.findAllByParent(product)) {
+                                    def subProducts = Product.findAllByParent(product)
 
-                            if(Product.findAllByParent(product)) {
-                                def subProducts = Product.findAllByParent(product)
-
-                                subProducts.each { sp ->
-                                    def po =  new ProductOrder(product:sp, order:order, received:true)
-                                    order.addToProducts(po)
+                                    subProducts.each { sp ->
+                                        def po =  new ProductOrder(product:sp, order:order, received:true)
+                                        order.addToProducts(po)
+                                    }
                                 }
-		                	}
+		            }
 							pOrder.save()
 						}
 					}
@@ -294,11 +296,6 @@ class CallController {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			isNull 'inCall'
-<<<<<<< HEAD:grails-app/controllers/com/superkids/domain/CallController.groovy
-                        lastCall {
-                            le('dateCreated', oldDate )
-                        }  
-=======
 
 			or {
 				lastCall {
@@ -315,7 +312,7 @@ class CallController {
 
 
 
->>>>>>> 2de6c231a20c1d2d34e480cd36fe3900793005d3:grails-app/controllers/com/superkids/domain/CallController.groovy
+
 		  or{
               and {
                   eq('seq', currentSeq)
