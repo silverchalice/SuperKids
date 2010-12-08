@@ -2,7 +2,7 @@ dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
     username = "sks"
-    password = "sks5551212"
+    password = "sks"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -14,7 +14,7 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://207.223.251.80:3306/sksdb"
+            url = "jdbc:mysql://localhost:3306/sks"
         }
     }
     test {
@@ -30,7 +30,7 @@ environments {
 			username = "sks"
 			password = "sks5551212"
 			dbCreate = "update"			
-            url = "jdbc:mysql://207.223.251.80:3306/sksdb"
+            url = "jdbc:mysql://localhost:3306/sksdb"
         }
     }
 }

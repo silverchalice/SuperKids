@@ -48,7 +48,8 @@
                             <g:sortableColumn property="hasCompletedCurrentAssessment" title="Assessed" />
 
                             <g:sortableColumn property="newCustomer" title="New" />
-			     <g:sortableColumn property="duplicate" title="Dup." />
+
+							<g:sortableColumn property="duplicate" title="Dup." />
 
                             <g:sortableColumn property="topCustomer" title="Top 100" />
 
@@ -85,7 +86,7 @@
                                     </g:else>
                             </td>
  <td width="50px">
-                        	    <strong>${customerInstance?.duplicate}</strong>
+                        	  <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="duplicate" />
                             </td>
                             <td width="50px">
                         	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />

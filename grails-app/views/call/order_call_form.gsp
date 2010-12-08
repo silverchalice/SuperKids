@@ -499,11 +499,10 @@
                                    </td>
                               </tr>                    
                               <tr class="prop">
-                                   <td valign="top" class="name">
-                                       <label for="callerBrokers"><g:message code="customer.callerBrokers.label" default="Primary Foodservice Distributors" /></label>
-                                   </td>
-                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'callerBrokers', 'errors')}">
-                                       <g:textField name="callerBrokers" value="${fieldValue(bean: customerInstance, field: 'callerBrokers')}" />
+                                   <td valign="top" class="value" colspan="2">
+                                       <label for="callerBrokers"><g:message code="customer.callerBrokers.label" default="Primary FS Distributors" /></label>
+
+                                       <g:textField name="callerBrokers" style="width:300px" value="${fieldValue(bean: customerInstance, field: 'callerBrokers')}" />
                                    </td>
                               </tr>  
                               <tr class="prop">
