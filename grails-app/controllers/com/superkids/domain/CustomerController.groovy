@@ -82,13 +82,16 @@ class CustomerController {
                 return [customerInstance: customerInstance, products: products.findAll{!it.parent}]
             } else {
                 customerInstance.order?.products?.each { productOrder ->
-                    if(productOrder?.received && !Product.findByParent(productOrder?.product))
-                        products << productOrder
+                    if(productOrder?.received && productOrder?.product){
+						if(!Product.findByParent(productOrder?.product)){
+                            products << productOrder
+						}
                     }
                 }
                 return [customerInstance: customerInstance, products: products?.sort{it?.product?.id}]
             }
-    }
+    	}
+	}
 
     def edit = {
          def broker = null
