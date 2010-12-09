@@ -43,6 +43,7 @@
                         <li><h1>Caller Module</h1></li>
                         <li><g:link controller="caller" action="list">Manage Callers</g:link></li>
                         <li><g:link controller="call" action="list">View Calls</g:link></li>
+						<li><sks:formats controller="report" action="exportCalls" formats="['csv']" msg="CSV Call Report" /></li>
                         <li><hr /></li>
                         <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Download Excel" params="[ 'withAssessments': true ]" /></li>
                         <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Excel (no assessments)" /></li>

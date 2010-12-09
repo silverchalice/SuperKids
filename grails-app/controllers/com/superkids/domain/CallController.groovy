@@ -340,16 +340,12 @@ class CallController {
 					ne('result', CallResult.REFUSED)
 				}
 				isNull('lastCall')
-
 			}
 
 			or{
 				eq('duplicate', false)
 				isNull('duplicate')
 			}
-
-
-
 
 		  or{
               and {

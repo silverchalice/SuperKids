@@ -161,4 +161,47 @@ class ReportController {
         exportService.export(params.format, response.outputStream, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
 		println ("After export - ${new Date().time - startTime}")
     }
+
+
+	def exportCalls = {
+		def startTime = new Date().time
+
+
+        def calls = []
+
+		Call.list(sort: "dateCreated").each {call ->
+
+			def m = [:]
+			m.id = call.id
+			m.dateCreated = call?.dateCreated
+			m.customer = call?.customer?.district
+			m.caller = call?.caller?.username
+			m.result = call?.result
+
+			calls << m
+		}
+
+		println ("After Calls.list - ${new Date().time - startTime}")
+
+
+
+
+        List fields = ["id", "dateCreated", "customer", "caller", "result"]
+
+        Map labels = ["id": "Id", "dateCreated": "Date", "customer": "Customer", "caller": "Caller", "result": "Result"]
+
+
+
+
+        Map formatters = [:]
+        Map parameters = [:]
+
+
+        response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
+        response.setHeader("Content-disposition", "attachment; filename=SK_Calls.csv")
+
+        exportService.export(params.format, response.outputStream, calls, fields, labels, formatters, parameters)
+		println ("After export - ${new Date().time - startTime}")
+    }
+
 }
