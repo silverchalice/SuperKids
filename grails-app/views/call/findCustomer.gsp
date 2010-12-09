@@ -13,7 +13,7 @@
 		<strong style="margin-left:200px;">Welcome Back <sec:loggedInUserInfo field="username"/></strong>
 		<span class="callerButton"><g:link controller="logout">Logout</g:link></span>
         </div>
-        <div class="body">
+        <div class="body" style="width:90%">
             <h1>Search Results</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
@@ -23,9 +23,8 @@
                     <thead>
                         <tr>
 
-                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
-							 <th>&nbsp;</th>
-							 <th>&nbsp;</th>
+                            <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
+
                             <th><g:message code="customer.fsdName.label" default="FSD Name" /></th>
 
                             <th><g:message code="customer.address.label" default="Address" /></th>
@@ -44,29 +43,16 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-							<td >${customerInstance?.district}</td>
-                            <td style="width:70px;"><g:link action="get_order_call" id="${customerInstance?.id}" >Order Form</g:link></td>
-                            <td style="width:80px;"><g:link action="get_assess_call" id="${customerInstance?.id}" >Assess Form</g:link></td>
+							<td ><g:link action="get_order_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >${customerInstance?.district}</g:link></td>
                             <td>${customerInstance?.fsdName}</td>
-                            <td>
-								<g:if test="${customerInstance.deliveryAddress == 'null'}">
-									${fieldValue(bean: customerInstance, field: "address")}
-								</g:if>
-								<g:else>
-									${fieldValue(bean: customerInstance, field: "deliveryAddress")}
-								</g:else>
-							</td>
-
-                          <td>${fieldValue(bean: customerInstance, field: "email")}</td>
-
-                          <td>${customerInstance.phone}
-                          </td>
-
-                       <td style="width:100px"><g:if test="${customerInstance.inCall == null}">
+                            <td>${fieldValue(bean: customerInstance, field: "address")}</td>
+                            <td>${fieldValue(bean: customerInstance, field: "email")}</td>
+                            <td>${customerInstance.phone}</td>
+						    <td style="width:100px"><g:if test="${customerInstance.inCall == null}">
 								    <strong style="color:green">False</strong>
 								</g:if>
 								<g:else>
-									<strong style="color:red">True </strong>  |<g:link action="unlock_customer" id="${customerInstance.id}" params="[type:'order']"> Unlock</g:link>
+									<strong style="color:red">True </strong>  |<g:link action="unlock_customer" id="${customerInstance.id}" params="[query: query, search:'true' ]"> Unlock</g:link>
 								</g:else>
 							</td>
 

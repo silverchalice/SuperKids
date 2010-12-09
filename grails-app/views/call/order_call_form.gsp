@@ -164,6 +164,8 @@
 		<g:hiddenField name="offset" value="${offset}" />
 		<g:hiddenField name="currentTimezone" value="${currentTimezone}" />
 
+
+
 		<div class="callerNavBar">
 			<g:link class="callerButton" style="left:10px; position:absolute;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
 			<g:if test="${queue}">
@@ -172,6 +174,10 @@
             </g:if>
 
 			<g:elseif test="${single}">
+					<g:if test="${search}">
+						<g:hiddenField name="search" value="true" />
+						<g:hiddenField name="query" value="${query}" />
+					</g:if>
 					<g:hiddenField name="single" value="${single}" />
 					<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
 
