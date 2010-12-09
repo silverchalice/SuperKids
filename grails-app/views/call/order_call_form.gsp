@@ -155,9 +155,7 @@
         }
 
     </style>
-      <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-      </g:if>
+
     <g:form controller="call">
 
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
@@ -193,6 +191,9 @@
 		</div>
 
 		<div class="body" style="width:1200px">
+			  <g:if test="${flash.message}">
+            <div class="message">${flash.message}</div>
+      </g:if>
 			<div class="dialog">
 				<div id="row1" style="width:400px; float:left; margin-right:10px; ">
 				<table style="width:400px; margin: 10px 10px 0 0; margin-left:0">

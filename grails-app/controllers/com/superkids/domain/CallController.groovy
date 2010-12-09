@@ -71,19 +71,12 @@ class CallController {
 		if(customer) {
 			println "saving order call for customer " + customer.fsdName
 			customer.properties = params
-                        if(params.email){
-                            if(Customer.findByEmail(params.email)){
-                                flash.message = "Another customer is already using this email address -- this is probably a duplicate."
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
-                                return
-                            } else {
-                                def u = User.get(params.id)
-                                u.username = params.email
-                                u.save(failOnError:true)
-                            }
-                        }
 
-			if(customer.save(flush:true)){
+			def user = User.get(params.id)
+			user.username = params.email
+
+
+			if(customer.save(flush:true) && user.save(flush:true)){
 
 				def call = new Call(params)
 				def caller = Caller.get(springSecurityService.principal.id)
@@ -179,8 +172,26 @@ class CallController {
 				} else
 					redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
 			}  else {
-				flash.message = 'invalid customer data'
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
+				println "Customer did not save"
+
+				if(customer.errors.getFieldError("username").code == "unique") {
+					flash.message = 'Another Customer is already using this email address - this is probably a duplicate. If you are using a noemail@noemail.com address, please try adding some numbers to make the address unique'
+				    println "Duplicate customer email"
+				} else {
+					println "invalid customer data"
+					flash.message = 'invalid customer data'
+				}
+
+				if(params?.single) {
+					println "This is a non-queue call"
+					if(params?.search) {
+						println "This call was made from a search results page - storing the query before rendering"
+						def query = params?.query
+						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), search: 'true', single:'true', query: query, currentTimezone: currentTimezone]
+					} else {
+						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), single: 'true', currentTimezone: currentTimezone]
+					}
+				} else	render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
 			}
 		} else {
 			flash.message = "Customer not found"
