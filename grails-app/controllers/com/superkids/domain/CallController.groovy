@@ -42,6 +42,9 @@ class CallController {
 
     def save_order_call = {
 
+        def caller
+        if(Caller.get(springSecurityService.principal.id))
+            caller = Caller.get(springSecurityService.principal.id)
         def customer = Customer.get(params.id)
 
         def currentTimezone
@@ -69,7 +72,7 @@ class CallController {
 		}
 
 		if(customer) {
-			println "saving order call for customer " + customer.fsdName
+			println "$caller is saving order call for customer " + customer.fsdName
 			customer.properties = params
 
 			def user = User.get(params.id)
@@ -86,7 +89,7 @@ class CallController {
 				call.customer = customer
 				call.result = CallResult.valueOf(params.result)
 
-				println "the call result from order call for customer " + customer + " was " + call.result
+				println "the call result from " + caller + "'s order call for customer " + customer + " was " + call.result
 
 				if(call.result == CallResult.CALLBACK) {
 					println "CallResult of Callback"
@@ -101,13 +104,13 @@ class CallController {
 				println "2"
 
 				if(call.result == CallResult.DUPLICATE) {
-					println "We have a duplicate..."
+					println "$caller found a duplicate..."
 					customer?.duplicate = true
 					customer.save()
 				}
 
 				if(call.result == CallResult.QUALIFIED) {
-					println "Call Result for customer " + customer + " was QUALIFIED - saving order..."
+					println "Call Result for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving order..."
 					def order = new CustomerOrder(params['order'])
 					order.orderType = OrderType.PHONE
 
@@ -136,11 +139,11 @@ class CallController {
 					}
 
 					if(order.save(flush:true)) {
-						println "w00t! saved order for customer " + order.customer.fsdName
+						println "w00t! $caller saved order for customer " + order.customer.fsdName
 						customer.status = CustomerStatus.HAS_ORDERED
 						customer.order = order
 					} else {
-						println "oops... couldn't save order for customer " + customer?.fsdName
+						println "oops... $caller had problems saving order for customer " + customer?.fsdName
 						order.errors.allErrors.each { println it }
 						flash.message = "Invalid Order - please check input"
 						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true', currentTimezone: currentTimezone]
@@ -163,7 +166,7 @@ class CallController {
 				if(params?.single) {
 					println "This is a non-queue call"
 					if(params?.search) {
-						println "This call was made from a search results page - redirecting back to results"
+						println "$caller made this call from a search results page - redirecting back to results"
 						def query = params?.query
 						redirect action:'findCustomer', params: [query:query]
 					} else if(params?.cb) {
@@ -174,11 +177,11 @@ class CallController {
 				} else
 					redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
 			}  else {
-				println "Customer did not save"
+				println "$caller could not save customer " + customer.fsdName
 
 				if(customer.errors.getFieldError("username").code == "unique") {
 					flash.message = 'Another Customer is already using this email address - this is probably a duplicate. If you are using a noemail@noemail.com address, please try adding some numbers to make the address unique'
-				    println "Duplicate customer email"
+				    println "$caller used a duplicate customer email for customer " + customer.fsdName
 				} else {
 					println "invalid customer data"
 					flash.message = 'invalid customer data'
@@ -187,7 +190,7 @@ class CallController {
 				if(params?.single) {
 					println "This is a non-queue call"
 					if(params?.search) {
-						println "This call was made from a search results page - storing the query before rendering"
+						println "$caller made this call from a search results page - storing the query before rendering"
 						def query = params?.query
 						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), search: 'true', single:'true', query: query, currentTimezone: currentTimezone]
 					} else {
@@ -290,12 +293,15 @@ class CallController {
 
 
 	def next_order_call = {
-		println "in next_order_call for CallController"
-		//make sure the last customer is no longer 'in call'
-		def currentCustomer = Customer.get(params?.id)
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+	    println "$caller is in next_order_call for CallController"
+	    //make sure the last customer is no longer 'in call'
+	    def currentCustomer = Customer.get(params?.id)
 
-        Integer currentSeq
-        Long currentId
+            Integer currentSeq
+            Long currentId
 
 		if(currentCustomer) {
 			currentCustomer.inCall = null
@@ -372,6 +378,7 @@ class CallController {
 				customer.save(flush:true)
 				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
 			} else {
+                                println "$caller reached the end of the customer list for timezone $currentTimezone"
 				flash.message = "No more Customers in this Timezone!"
 				redirect action:index
 			}
@@ -379,7 +386,10 @@ class CallController {
 	}
 
 	def prev_order_call = {
-		println "in prev_order_call for CallController"
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+            println "$caller is in prev_order_call for CallController"
 
 
 		//make sure the last customer is no longer 'in call'
@@ -413,7 +423,10 @@ class CallController {
 
 
 	def get_order_call = {
-		println "in get_order_call for CallController"
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+		println "$caller is in get_order_call for CallController"
 		println params
 
 		def customer = Customer.get(params?.id)
@@ -439,7 +452,10 @@ class CallController {
 	}
 
  	def next_assess_call = {
-		println "in next_assess_call for CallController"
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+		println "$caller is in next_assess_call for CallController"
        //make sure the last customer is no longer 'in call'
        def currentCustomer = Customer.get(params?.id)
 
@@ -525,7 +541,10 @@ class CallController {
 	}
 
 	def prev_assess_call = {
-		println "in prev_assess_call for CallController"
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+		println "$caller is in prev_assess_call for CallController"
 
 		//make sure the last customer is no longer 'in call'
 		def currentCustomer = Customer.get(params.id)
@@ -561,7 +580,10 @@ class CallController {
 
 
 	def get_assess_call = {
-		println "in get_assess_call for CallController"
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+	    println "$caller is in get_assess_call for CallController"
 
 		//make sure the last customer is no longer 'in call'
 		def customer = Customer.get(params?.id)
@@ -579,9 +601,12 @@ class CallController {
 
 
 	def save_assess_call = {
-		println "in save_assess_call for CallController"
-		def customer = Customer.get(params.id)
-		def caller = Caller.get(springSecurityService.principal.id)
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+ 	    println "$caller is in save_assess_call for CallController"
+	    def customer = Customer.get(params.id)
+            def caller = Caller.get(springSecurityService.principal.id)
 
 
 
@@ -593,14 +618,14 @@ class CallController {
 
 
 		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
-			println "CallResult of Null"
+			println caller + "'s call got a CallResult of Null"
 			customer.inCall = null
 			redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue: 'true']
 			return
 		}
 
 		if(customer) {
-			println "saving assess call for customer " + customer.fsdName
+			println "$caller is saving assess call for customer " + customer.fsdName
 			customer.properties = params
 
 			def broker1 = Broker.findByName(params.broker.name)
@@ -625,7 +650,7 @@ class CallController {
 				call.result = CallResult.valueOf(params.result)
 
                 if(call.result == CallResult.CALLBACK ) {
-                    println "We have a Callback..."
+                    println "$caller has a Callback..."
 					if(params.callbackDate) {
 						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 						call.callbackDate = df.parse(params.callbackDate);
@@ -633,7 +658,7 @@ class CallController {
 					} else {
 					}
 				} else if(call.result == CallResult.QUALIFIED) {
-					println "The CallResult for customer " + customer + " was QUALIFIED - saving assessments"
+					println "The CallResult for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving assessments"
 
 					Product.list(sort:'sortOrder').each { product ->
 
@@ -645,7 +670,7 @@ class CallController {
 								po.save()
 							}
 							else {
-								println "saving customer " + customer.fsdName + "'s assessment of " + product
+								println "$caller is saving customer " + customer.fsdName + "'s assessment of " + product
 								def assessment = new Assessment(
 										likeRating: params.assessment."${product.name}".likeRating,
 										iRating: params.assessment."${product.name}".interestRating,
@@ -666,7 +691,7 @@ class CallController {
                                 customer.hasCompletedCurrentAssessment = true
 
 								if (!customer.save()) {
-									println "errors saving customer " + customer.fsdName + "'s assessment of " + product
+									println "$caller had errors saving customer " + customer.fsdName + "'s assessment of " + product
 									customer.errors.allErrors.each{println it}
                                     flash.message = "Error saving the Assessment"
                                     redirect action:index
@@ -679,8 +704,7 @@ class CallController {
 				}
 
 				if(call.result == CallResult.DUPLICATE) {
-					println "CallResult of Duplicate"
-					println "We have a Dupe..."
+					println "$caller had a CallResult of Duplicate"
 					customer?.duplicate = true
 				}
 
@@ -761,8 +785,12 @@ class CallController {
 
 
 	def unlock_customer = {
-		def customer = Customer.get(params.id)
-		if(customer) {
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+	    def customer = Customer.get(params.id)
+	    if(customer) {
+                        println "$caller is unlocking customer " + customer.fsdName
 			customer.inCall = null
 			flash.message = "Customer unlocked"
 
@@ -779,7 +807,10 @@ class CallController {
 	}
 
         def findCustomer = {
-            println "In findCustomer action of CallController"
+            def caller
+            if(Caller.get(springSecurityService.principal.id))
+                caller = Caller.get(springSecurityService.principal.id)
+            println "$caller is in findCustomer action of CallController"
 
 			def currentCustomer = Customer.get(params.id)
 
@@ -788,7 +819,7 @@ class CallController {
 			}
 
             if(params.query){
-                println "searching for '" + params.query + "'"
+                println "$caller is searching for '" + params.query + "'"
                 def customers = []
 
 				Customer.search(params?.query, [max:100]).results?.each {
@@ -800,7 +831,7 @@ class CallController {
                     println "found " + customers?.size() + " results"
                     return [customerInstanceList:customers, query: params?.query ]
                 } else {
-                    println "found no results"
+                    println "$caller found no results for query '" + params.query + "'"
                     flash.message = "No results found for \"${params.query}.\""
                     return
                 }
