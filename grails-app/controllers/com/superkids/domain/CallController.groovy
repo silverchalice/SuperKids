@@ -82,7 +82,6 @@ class CallController {
 			if(customer.save(flush:true) && user.save(flush:true)){
 
 				def call = new Call(params)
-				def caller = Caller.get(springSecurityService.principal.id)
 				println "1"
 				
 				call.caller = caller
@@ -601,14 +600,11 @@ class CallController {
 
 
 	def save_assess_call = {
-            def caller
-            if(Caller.get(springSecurityService.principal.id))
-                caller = Caller.get(springSecurityService.principal.id)
- 	    println "$caller is in save_assess_call for CallController"
-	    def customer = Customer.get(params.id)
-            def caller = Caller.get(springSecurityService.principal.id)
-
-
+		def caller
+		if(Caller.get(springSecurityService.principal.id))
+			caller = Caller.get(springSecurityService.principal.id)
+		println "$caller is in save_assess_call for CallController"
+		def customer = Customer.get(params.id)
 
         def currentTimezone
         if(params?.timezone)
