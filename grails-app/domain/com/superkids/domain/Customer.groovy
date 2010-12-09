@@ -139,7 +139,7 @@ class Customer extends User {
 		am nullable:true
 		pm nullable:true
         pastParticipant nullable:true
-        notes nullable:true, blank:true, maxSize:10000
+        notes nullable:true, blank:true, maxSize: 10000
     }
 	
 	static namedQueries = {
@@ -156,6 +156,10 @@ class Customer extends User {
 	static searchable = {
 		only = ['fsdName', 'ndName', 'cdName', 'district', 'email', 'ndEmail', 'cdEmail']
 	}
+
+        static mapping = {
+            notes sqlType:"longtext"
+        }
 
 	String toString() {
 		district
