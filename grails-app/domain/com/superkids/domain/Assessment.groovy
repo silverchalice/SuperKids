@@ -22,8 +22,8 @@ class Assessment {
     }
 
     static mapping = {
-        likeComment sqlType:"text"
-        changeComment sqlType:"text"
+        likeComment sqlType:"longtext"
+        changeComment sqlType:"longtext"
     }
 
     String toString(){

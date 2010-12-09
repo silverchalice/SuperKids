@@ -56,8 +56,8 @@ class Product implements IShoppable {
 		image sqlType:"longblob"
 		hoverImage sqlType:"longblob"
 		summary sqlType:"longblob"
-		description sqlType:"text"
-		nutrition sqlType:"text"
+		description sqlType:"longtext"
+		nutrition sqlType:"longtext"
 	}
 
 	String toString(){ name }

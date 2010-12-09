@@ -33,7 +33,7 @@ class Sponsor {
 
     static mapping = {
         logo sqlType:"longblob"
-        description sqlType:"text"
+        description sqlType:"longtext"
     }
 
 	String toString() {
