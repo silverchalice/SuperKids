@@ -786,7 +786,7 @@ class CallController {
                 println "searching for '" + params.query + "'"
                 def customers = []
 
-				Customer.search(params.query).results.each {
+				Customer.search(params?.query, [max:100]).results?.each {
 					def customer =	Customer.get(it.id)
 					customers << customer
 				}
