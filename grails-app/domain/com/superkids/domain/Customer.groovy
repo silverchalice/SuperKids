@@ -158,7 +158,7 @@ class Customer extends User {
 	}
 
         static mapping = {
-            notes sqlType:"text"
+            notes sqlType:"longtext"
         }
 
 	String toString() {
