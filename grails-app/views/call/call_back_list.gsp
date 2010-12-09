@@ -47,12 +47,7 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
                             <td><g:if test="${customerInstance.inCall == null}">
-									<g:if test="${customerInstance.status == CustomerStatus.HAS_ORDERED}">
-										<g:link action="get_assess_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link>
-							    	</g:if>
-									<g:else>
-										<g:link action="get_order_call" params="[id:customerInstance?.id]">${fieldValue(bean: customerInstance, field: "district")}</g:link>
-									</g:else>
+									<g:link action="get_order_call" params="[id:customerInstance?.id, cb:'true']">${fieldValue(bean: customerInstance, field: "district")}</g:link>
 								</g:if>
 								<g:else>
 									${fieldValue(bean: customerInstance, field: "district")}

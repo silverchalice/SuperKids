@@ -166,6 +166,8 @@ class CallController {
 						println "This call was made from a search results page - redirecting back to results"
 						def query = params?.query
 						redirect action:'findCustomer', params: [query:query]
+					} else if(params?.cb) {
+						println "This call was made from the Callback list - redirecting back to CB List"
 					} else {
 						redirect action: 'index', caller: springSecurityService.principal
 					}
@@ -330,6 +332,7 @@ class CallController {
 			or {
 				lastCall {
 					lt('dateCreated', oldDate )
+					ne('result', CallResult.REFUSED)
 				}
 				isNull('lastCall')
 
@@ -399,12 +402,12 @@ class CallController {
 
 		if(customer) {
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true', timezone: params?.timezone]
+			render view:'order_call_form', model: [ customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true', timezone: params?.timezone ]
 		} else {
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_NOT_ORDERED, null)
 			customer.inCall = new Date()
 			customer.save(flush:true)
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true']
+			render view:'order_call_form', model: [ customerInstance: customer, products: Product.list(), call: call, order: order, queue: 'true' ]
 		}
 	}
 
@@ -422,9 +425,11 @@ class CallController {
 
 			if(params?.search) {
 				def query = params?.query
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, search: true, query: query]
-			} else {
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, ]
+				render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, search: true, query: query ]
+			} else if(params?.cb) {
+				render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, cb: true ]
+			} else{
+				render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true ]
 			}
 
 		}

@@ -176,7 +176,13 @@
 						<g:hiddenField name="search" value="true" />
 						<g:hiddenField name="query" value="${query}" />
 					</g:if>
+
 					<g:hiddenField name="single" value="${single}" />
+
+					<g:if test="${cb}">
+						<g:hiddenField name="cb" value="${cb}" />
+				    </g:if>
+
 					<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
 
 			</g:elseif>
