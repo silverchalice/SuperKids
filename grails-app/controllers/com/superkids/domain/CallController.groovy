@@ -55,27 +55,28 @@ class CallController {
 		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
 			println "CallResult of Null"
 			customer.inCall = null
-            if(params.single)  redirect action: 'index', caller: springSecurityService.principal
-            else               redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone]
+            if(params.single)  {
+				if(params?.search) {
+					println "This call was made from a search results page - redirecting back to results"
+					def query = params?.query
+					redirect action:'findCustomer', params: [query:query]
+				} else {
+					redirect action: 'index', caller: springSecurityService.principal
+				}
+			}
+            else redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone]
 			return
 		}
 
 		if(customer) {
 			println "saving order call for customer " + customer.fsdName
 			customer.properties = params
-                        if(params.email){
-                            if(Customer.findByEmail(params.email)){
-                                flash.message = "Another customer is already using this email address -- this is probably a duplicate."
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
-                                return
-                            } else {
-                                def u = User.get(params.id)
-                                u.username = params.email
-                                u.save(failOnError:true)
-                            }
-                        }
 
-			if(customer.save(flush:true)){
+			def user = User.get(params.id)
+			user.username = params.email
+
+
+			if(customer.save(flush:true) && user.save(flush:true)){
 
 				def call = new Call(params)
 				def caller = Caller.get(springSecurityService.principal.id)
@@ -94,17 +95,16 @@ class CallController {
 						call.callbackDate = df.parse(params.callbackDate);
 						call.callbackTime = params.callbackTime
 					} else {
-                                                println " "
+                    	println " "
 					}
 				}
 				println "2"
 
-
-                                if(call.result == CallResult.DUPLICATE) {
-                                    println "We have a duplicate..."
-                                    customer?.duplicate = true
-                                    customer.save()
-                                }
+				if(call.result == CallResult.DUPLICATE) {
+					println "We have a duplicate..."
+					customer?.duplicate = true
+					customer.save()
+				}
 
 				if(call.result == CallResult.QUALIFIED) {
 					println "Call Result for customer " + customer + " was QUALIFIED - saving order..."
@@ -160,13 +160,38 @@ class CallController {
 				customer.save(flush:true)
 
 
-				if(params?.single)
-					redirect action: 'index', caller: springSecurityService.principal
-				else
+				if(params?.single) {
+					println "This is a non-queue call"
+					if(params?.search) {
+						println "This call was made from a search results page - redirecting back to results"
+						def query = params?.query
+						redirect action:'findCustomer', params: [query:query]
+					} else {
+						redirect action: 'index', caller: springSecurityService.principal
+					}
+				} else
 					redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
 			}  else {
-				flash.message = 'invalid customer data'
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
+				println "Customer did not save"
+
+				if(customer.errors.getFieldError("username").code == "unique") {
+					flash.message = 'Another Customer is already using this email address - this is probably a duplicate. If you are using a noemail@noemail.com address, please try adding some numbers to make the address unique'
+				    println "Duplicate customer email"
+				} else {
+					println "invalid customer data"
+					flash.message = 'invalid customer data'
+				}
+
+				if(params?.single) {
+					println "This is a non-queue call"
+					if(params?.search) {
+						println "This call was made from a search results page - storing the query before rendering"
+						def query = params?.query
+						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), search: 'true', single:'true', query: query, currentTimezone: currentTimezone]
+					} else {
+						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), single: 'true', currentTimezone: currentTimezone]
+					}
+				} else	render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
 			}
 		} else {
 			flash.message = "Customer not found"
@@ -343,7 +368,10 @@ class CallController {
 				customer.inCall = new Date()
 				customer.save(flush:true)
 				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
-			} else redirect action:index
+			} else {
+				flash.message = "No more Customers in this Timezone!"
+				redirect action:index
+			}
 		}
 	}
 
@@ -391,7 +419,14 @@ class CallController {
 			def call = new Call()
 
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, ]
+
+			if(params?.search) {
+				def query = params?.query
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, search: true, query: query]
+			} else {
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, ]
+			}
+
 		}
 		else {
 			redirect action:list
@@ -725,12 +760,17 @@ class CallController {
 		if(customer) {
 			customer.inCall = null
 			flash.message = "Customer unlocked"
+
+			if(params?.search) {
+				def query = params?.query
+				redirect action:'findCustomer', params: [query:query]
+			}
+
+
 			redirect action:"${params.type}_list"
 		} else {
 			redirect action:'index'
 		}
-
-
 	}
 
         def findCustomer = {
@@ -744,11 +784,16 @@ class CallController {
 
             if(params.query){
                 println "searching for '" + params.query + "'"
-                def customers = Customer.search(params.query).results
+                def customers = []
+
+				Customer.search(params?.query, [max:100]).results?.each {
+					def customer =	Customer.get(it.id)
+					customers << customer
+				}
 
                 if(customers){
                     println "found " + customers?.size() + " results"
-                    return [customerInstanceList:customers]
+                    return [customerInstanceList:customers, query: params?.query ]
                 } else {
                     println "found no results"
                     flash.message = "No results found for \"${params.query}.\""

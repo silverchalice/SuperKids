@@ -155,14 +155,14 @@
         }
 
     </style>
-      <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-      </g:if>
+
     <g:form controller="call">
 
 		<g:hiddenField name="id" value="${customerInstance?.id}" />
 		<g:hiddenField name="offset" value="${offset}" />
 		<g:hiddenField name="currentTimezone" value="${currentTimezone}" />
+
+
 
 		<div class="callerNavBar">
 			<g:link class="callerButton" style="left:10px; position:absolute;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
@@ -172,6 +172,10 @@
             </g:if>
 
 			<g:elseif test="${single}">
+					<g:if test="${search}">
+						<g:hiddenField name="search" value="true" />
+						<g:hiddenField name="query" value="${query}" />
+					</g:if>
 					<g:hiddenField name="single" value="${single}" />
 					<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
 
@@ -187,6 +191,9 @@
 		</div>
 
 		<div class="body" style="width:1200px">
+			  <g:if test="${flash.message}">
+            <div class="message">${flash.message}</div>
+      </g:if>
 			<div class="dialog">
 				<div id="row1" style="width:400px; float:left; margin-right:10px; ">
 				<table style="width:400px; margin: 10px 10px 0 0; margin-left:0">
