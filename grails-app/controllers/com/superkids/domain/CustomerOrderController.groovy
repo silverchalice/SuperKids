@@ -12,6 +12,7 @@ class CustomerOrderController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 23, 100)
+		params.sort = "dateCreated"
         [customerOrderInstanceList: CustomerOrder.list(params), customerOrderInstanceTotal: CustomerOrder.count()]
     }
 
