@@ -38,7 +38,7 @@
                     <g:each in="${callerInstanceList}" status="i" var="callerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="edit" id="${callerInstance.id}">${fieldValue(bean: callerInstance, field: "username")}</g:link></td>
+                            <td><g:link action="show" id="${callerInstance.id}">${fieldValue(bean: callerInstance, field: "username")}</g:link></td>
                         
                             <td>${callerInstance.calls.size()}</td>
                         

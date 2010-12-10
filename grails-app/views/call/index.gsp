@@ -26,15 +26,24 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-		<g:link class="order" action="start_order_call">
-			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; font-size:18pt;">
-				<g:message code="default.caller.start.label" default="Start Order Call"/>
-			</h1>
-		</g:link>
+		<div style="width:500px; float:left;">
+			<g:link class="order" action="start_order_call" params="[queue:'new']">
+				<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:0; font-size:18pt;">
+					Start Order Call<br/> (New Customers)
+				</h1>
+			</g:link>
 
-		<g:link class="assess" action="start_assess_call">
-			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; font-size:18pt;">
-					<g:message code="default.caller.start.label" default="Start Assess Call"/>
+			<g:link class="order" action="start_order_call" params="[queue:'prev']" style="padding-right:0; margin-right:0; float:left">
+				<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; font-size:18pt;">
+					Previously Called <br/>Customers
+				</h1>
+			</g:link>
+			<div style="clear:both">&nbsp;</div>
+		</div>
+
+		<g:link class="assess" action="start_assess_call" style="padding-left:0; margin-left:0">
+			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; margin-left:0; font-size:18pt;">
+				Start Assess Call
 			</h1>
 		</g:link>
 

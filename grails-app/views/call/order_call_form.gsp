@@ -162,37 +162,31 @@
 		<g:hiddenField name="offset" value="${offset}" />
 		<g:hiddenField name="currentTimezone" value="${currentTimezone}" />
 
-
-
 		<div class="callerNavBar">
 			<g:link class="callerButton" style="left:10px; position:absolute;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
-			<g:if test="${queue}">
+
+			<g:if test="${start && queue}">
+				<g:hiddenField name="queue" value="${queue}" />
+                <g:actionSubmit id="startSubmit" controller="call" class="callerButton" style="position:absolute; left:1080px; top:63px" action="next_order_call" value="Start Calling" />
+                <span style="position:absolute; left:0; top:96px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
+                <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
+			</g:if>
+
+			<g:if test="${queue && !start}">
 				 <g:actionSubmit id="submit" style="position:absolute; width:100px; left:1000px; top:63px;" class="callerButton" action="save_order_call" value="Next Call" />
+				 <g:hiddenField name="queue" value="${queue}" />
                  <img id="loader" style="position:absolute; left:1105px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
             </g:if>
 
-			<g:elseif test="${single}">
-					<g:if test="${search}">
-						<g:hiddenField name="search" value="true" />
-						<g:hiddenField name="query" value="${query}" />
-					</g:if>
+			<g:if test="${single}">
+				<g:hiddenField name="search" value="${search}" />
+				<g:hiddenField name="query" value="${query}" />
+				<g:hiddenField name="single" value="${single}" />
+				<g:hiddenField name="cb" value="${cb}" />
+				<g:hiddenField name="ocl" value="${ocl}" />
+				<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
+			</g:if>
 
-					<g:hiddenField name="single" value="${single}" />
-
-					<g:if test="${cb}">
-						<g:hiddenField name="cb" value="${cb}" />
-				    </g:if>
-
-					<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
-
-			</g:elseif>
-			<g:else>
-
-                <g:actionSubmit id="startSubmit" controller="call" class="callerButton" style="position:absolute; left:1080px; top:63px" action="next_order_call" value="Start Calling" />
-                <span style="position:absolute; left:0; top:96px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
-              <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
-
-			</g:else>
 
 		</div>
 
@@ -343,7 +337,7 @@
 							<td class="prop" style=" background-image:url(${resource(dir:'images', file:'callnote.png')}); background-repeat:no-repeat">
 								<h3 style="padding-top:10px; padding-left:10px">Operator Comments</h3>
 								<br />
-								<g:textArea cols="" rows="" style="width:355px; height:175px; background:none; margin-left:10px" name="notes" value="${customerInstance?.notes}"/>
+								<g:textArea cols="" rows="" style="width:355px; height:175px; background:none; margin-left:10px" name="opNotes" value="${customerInstance?.opNotes}"/>
 							</td>
 						</tr>
 					</tbody>

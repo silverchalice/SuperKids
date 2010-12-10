@@ -1,5 +1,7 @@
 package com.superkids
 
+import com.superkids.domain.Customer
+
 class DataController {
 
     def dataService
@@ -16,4 +18,20 @@ class DataController {
 	        dataService.importCustomers(file)
 	    redirect(controller:'customer', action:'list')
 	}
+
+	def opNoteTransfer = {
+		Customer.list().each { c ->
+			if(c.notes && (c.notes)) {
+				println "$c notes = $c.notes"
+				c.opNotes = c.notes
+				c.save(flush:true)
+			}
+		}
+
+		flash.message = "Notes Transfered"
+		println flash.message
+		redirect controller: 'customer', action: 'list'
+
+	}
+
 }
