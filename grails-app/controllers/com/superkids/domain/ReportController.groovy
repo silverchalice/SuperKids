@@ -85,14 +85,10 @@ class ReportController {
 
 			}
 
-
 			thatWhichIsContainedInOurExportation << m
 		}
 
 		println ("After Customer.list - ${new Date().time - startTime}")
-
-
-
 
         List fields = ["id", "seq", "topCustomer", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments", "pastParticipant", "callerBrokers", "notes"]
 		for (prod in prods) {
@@ -142,11 +138,6 @@ class ReportController {
             fields = fields + assessFields
         }
 
-
-
-
-
-
         def upperCase = { domain, value ->
             return value.toUpperCase()
         }
@@ -154,9 +145,8 @@ class ReportController {
         Map formatters = [:]		
         Map parameters = [:]
 
-
         response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
-        response.setHeader("Content-disposition", "attachment; filename=SK_Customers.xls")
+        response.setHeader("Content-disposition", "attachment; filename=SK_Customers.csv")
 
         exportService.export(params.format, response.outputStream, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
 		println ("After export - ${new Date().time - startTime}")
@@ -165,7 +155,6 @@ class ReportController {
 
 	def exportCalls = {
 		def startTime = new Date().time
-
 
         def calls = []
 
@@ -183,19 +172,12 @@ class ReportController {
 
 		println ("After Calls.list - ${new Date().time - startTime}")
 
-
-
-
-        List fields = ["id", "dateCreated", "customer", "caller", "result"]
+ 	    List fields = ["id", "dateCreated", "customer", "caller", "result"]
 
         Map labels = ["id": "Id", "dateCreated": "Date", "customer": "Customer", "caller": "Caller", "result": "Result"]
 
-
-
-
         Map formatters = [:]
         Map parameters = [:]
-
 
         response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
         response.setHeader("Content-disposition", "attachment; filename=SK_Calls.xls")
