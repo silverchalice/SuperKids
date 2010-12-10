@@ -26,7 +26,7 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-		<div style="width:500px; float:left;">
+		<div style="width:300px; float:left;">
 			<g:link class="order" action="start_order_call" params="[queue:'new']">
 				<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:0; font-size:18pt;">
 					Start Order Call<br/> (New Customers)
@@ -40,13 +40,13 @@
 			</g:link>
 			<div style="clear:both">&nbsp;</div>
 		</div>
-
-		<g:link class="assess" action="start_assess_call" style="padding-left:0; margin-left:0">
-			<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; margin-left:0; font-size:18pt;">
-				Start Assess Call
-			</h1>
-		</g:link>
-
+		<div style="width:500px; float:right;">
+			<g:link class="assess" action="start_assess_call" params="[queue:'new']" style="padding-left:0; margin-left:0">
+				<h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; margin-left:0; font-size:18pt;">
+					Start Assess Call
+				</h1>
+			</g:link>
+		</div>
 
 
     </div>
