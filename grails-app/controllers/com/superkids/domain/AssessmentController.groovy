@@ -55,9 +55,13 @@ class AssessmentController {
     }
 
 	def viewAssessment = {
-
+		println "in ViewAssessment for AssessmentController"
+		println params
 		def customer = Customer.get(params.id)
 		def assessments = Assessment.findAllByCustomerAndCompleted(customer, true)
+		assessments.each { println "Assessment for product it.product"}
+
+		println "$customer has $assessments.size() assessments"
 
 		[ customer: customer, assessments: assessments ]
 	}

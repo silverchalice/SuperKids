@@ -30,6 +30,8 @@ class CallController {
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 24, 100)
+		params.sort = params?.sort ?: "dateCreated"
+		params.order = params?.order ?: "desc"
 
         [callInstanceList: Call.list(params), callInstanceTotal: Call.count()]
     }
@@ -336,9 +338,9 @@ class CallController {
 
 
 	def next_order_call = {
-            def caller
-            if(Caller.get(springSecurityService.principal.id))
-                caller = Caller.get(springSecurityService.principal.id)
+		def caller
+		if(Caller.get(springSecurityService.principal.id))
+			caller = Caller.get(springSecurityService.principal.id)
 	    println "$caller is in next_order_call for CallController"
 	    //make sure the last customer is no longer 'in call'
 	    def currentCustomer = Customer.get(params?.id)
@@ -410,7 +412,15 @@ class CallController {
 
 		if(customer) {
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone]
+			if(customer.save(flush:true)) {
+				println "$caller is calling $customer?.fsdName"
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone]
+			} else {
+				customer.errors.allErrors.each { println it }
+				flash.message = "Oops! An error occured"
+				redirect action:index
+			}
+
 		} else {
 			customer = c2.list(max: 1, sort: 'seq') {
                 eq 'timezone', currentTimezone
@@ -438,8 +448,15 @@ class CallController {
 
 			if(customer) {
 				customer.inCall = new Date()
-				customer.save(flush:true)
+				if(customer.save(flush:true)) {
+				println "$caller is calling $customer?.fsdName"
 				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone]
+			} else {
+				customer.errors.allErrors.each { println it }
+				flash.message = "Oops! An error occured"
+				redirect action:index
+			}
+
 			} else {
                 println "$caller reached the end of the customer list for timezone $currentTimezone"
 				flash.message = "No more Customers in this Timezone!"
@@ -516,9 +533,9 @@ class CallController {
 	}
 
  	def next_assess_call = {
-            def caller
-            if(Caller.get(springSecurityService.principal.id))
-                caller = Caller.get(springSecurityService.principal.id)
+		def caller
+		if(Caller.get(springSecurityService.principal.id))
+			caller = Caller.get(springSecurityService.principal.id)
 		println "$caller is in next_assess_call for CallController"
        //make sure the last customer is no longer 'in call'
        def currentCustomer = Customer.get(params?.id)
@@ -550,23 +567,23 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
 		//assess calls are all customers with a current order AND who are not being called atm
+ 		def now = new Date()
+		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_ORDERED
 			isNull 'inCall'
-			or {
-				lastCall {
-					lt('dateCreated', oldDate )
-				}
-				isNull('lastCall')
 
-			}
+			//lastCall {
+			//	not { between('dateCreated', now -1, now) }
+			//}
 
-			or {
+			or{
 				eq('duplicate', false)
 				isNull('duplicate')
 			}
-		   or{
+
+		  or{
               and {
                   eq('seq', currentSeq)
                   gt('id', currentId)
@@ -577,30 +594,52 @@ class CallController {
 		}.getAt(0)
 
 		if(customer) {
+			println "$caller got $customer from the assess queue"
 			customer.inCall = new Date()
+			if(customer.save(flush:true)) {
+				println "$caller is calling $customer?.fsdName"
+				render view:'assess_call_form', model: [customerInstance: customer,  call: call, queue: params?.queue, currentTimezone: currentTimezone, timezones : timezones]
+			} else {
+				customer.errors.allErrors.each { println it }
+				flash.message = "Oops! An error occured"
+				redirect action:index
+			}
 
-			def broker = customer?.brokers?.getAt(0)
-			def broker2 = customer?.brokers?.size() > 0 ? customer?.brokers[-1] : null
-
-
-			render view:'assess_call_form', model: [ customerInstance: customer, call: call, order: order, queue: 'true', states: states, broker: broker, broker2: broker2, currentTimezone: currentTimezone ]
 		} else {
-            customer = c2.list(max: 1, sort: 'seq') {
+			customer = c2.list(max: 1, sort: 'seq') {
                 eq 'timezone', currentTimezone
-                eq 'status', CustomerStatus.HAS_ORDERED
-                isNull 'inCall'
-            }.getAt(0)
+			    eq 'status', CustomerStatus.HAS_ORDERED
+			    isNull 'inCall'
+
+				//lastCall {
+				//	not {
+				//		between('dateCreated', now - 2, now)
+				//	}
+				//}
+				or{
+					eq('duplicate', false)
+					isNull('duplicate')
+				}
+
+		    }.getAt(0)
 
 			if(customer) {
+				println "$caller is coming around the end of the assess list"
+				customer.inCall = new Date()
+				if(customer.save(flush:true)) {
+				println "$caller is calling $customer?.fsdName"
+				render view:'assess_call_form', model: [customerInstance: customer,  call: call, queue: params?.queue, currentTimezone: currentTimezone, timezones : timezones]
+			} else {
+				customer.errors.allErrors.each { println it }
+				flash.message = "Oops! An error occured"
+				redirect action:index
+			}
 
-                customer.inCall = new Date()
-				customer.save(flush:true)
-
-
-				def broker = customer?.brokers?.getAt(0)
-				def broker2 = customer?.brokers?.size() > 0 ? customer?.brokers?.getAt(-1) : null
-				render view:'assess_call_form', model: [ customerInstance: customer, call: call, order: order, queue: 'true', states: states, broker: broker, broker2: broker2, currentTimezone: currentTimezone ]
-			} else redirect action:index
+			} else {
+                println "$caller reached the end of the assess customer list for timezone $currentTimezone"
+				flash.message = "No more Customers in this Timezone!"
+				redirect action:index
+			}
 		}
 	}
 
@@ -639,7 +678,7 @@ class CallController {
 	}
 
 	def start_assess_call = {
-		render view:'assess_call_form', model: [timezones: timezones ]
+		render view:'assess_call_form', model: [timezones: timezones, queue: params?.queue, start:'start' ]
 	}
 
 
@@ -665,11 +704,14 @@ class CallController {
 
 
 	def save_assess_call = {
-		def caller
-		if(Caller.get(springSecurityService.principal.id))
-			caller = Caller.get(springSecurityService.principal.id)
-		println "$caller is in save_assess_call for CallController"
+
+		def caller = Caller.get(springSecurityService.principal.id)
 		def customer = Customer.get(params.id)
+
+		println "$caller is in save_assess_call for CallController, customer $customer"
+		params.each { key, val ->
+			println "$key = $val"
+		}
 
         def currentTimezone
         if(params?.timezone)
@@ -679,7 +721,7 @@ class CallController {
 
 
 		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
-			println caller + "'s call got a CallResult of Null"
+			println "$caller with $customer got a CallResult of Null"
 			customer.inCall = null
 			redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue: 'true']
 			return
@@ -732,17 +774,22 @@ class CallController {
 							}
 							else {
 								println "$caller is saving customer " + customer.fsdName + "'s assessment of " + product
+								println params?.assessment?."${product.name}".likeRating
+								println params?.assessment?."${product.name}".interestRating
+								println params?.assessment?."${product.name}".likeComment
+								println params?.assessment?."${product.name}".changeComment
+
 								def assessment = new Assessment(
-										likeRating: params.assessment."${product.name}".likeRating,
-										iRating: params.assessment."${product.name}".interestRating,
-										likeComment: params.assessment."${product.name}".likeComment,
-										changeComment: params.assessment."${product.name}".changeComment,
+										likeRating: params?.assessment?."${product.name}".likeRating,
+										iRating: params?.assessment?."${product.name}".interestRating,
+										likeComment: params?.assessment?."${product.name}".likeComment,
+										changeComment: params?.assessment?."${product.name}".changeComment,
 										product: product,
                                         type: OrderType.PHONE
-
 								)
 
-                                if(assessment.likeRating && assessment.iRating && assessment.likeComment && assessment.changeComment) {
+                                if(assessment?.likeRating && assessment?.iRating && assessment?.likeComment && assessment?.changeComment) {
+									println "assessment was completed"
                                     assessment.completed = true
                                 }
 
@@ -760,9 +807,29 @@ class CallController {
 							}
 						}
 					}
-				} else if(params.result != ('null' || null )) {
+
+					println "Now we save final questions"
+					customer.otherProducts = params?.otherProducts
+					params.reformulations?.each { key, value ->
+						println "adding a reformulation..."
+						println value
+						if(value && customer.reformulations) {
+							customer.reformulations += value
+							customer.reformulations += "<br/> "
+						} else {
+							customer.reformulations = value
+							customer.reformulations += "<br/> "
+						}
+					}
+					println customer.reformulations
+
+
+
+
+				} else {
 					call.result = CallResult.valueOf(params.result)
 				}
+
 
 				if(call.result == CallResult.DUPLICATE) {
 					println "$caller had a CallResult of Duplicate"
@@ -771,21 +838,27 @@ class CallController {
 
 				println "3"
 				customer.addToCalls(call)
-				customer.save(flush:true)
+				if(!customer.save(flush:true)) {
+					customer.errors.allErrors.each { println it }
+				}
 				println "4"
 
 				caller.addToCalls(call)
-				caller.save(flush:true)
+				if(!caller.save(flush:true)) {
+					caller.errors.allErrors.each { println it }
+				}
 
 				customer.inCall = null
 				customer.lastCall = call
 
-				customer.save(flush:true)
+				if(!customer.save(flush:true)) {
+					customer.errors.allErrors.each { println it }
+				}
 
 				if(params?.single)
 					redirect action: 'index', caller: springSecurityService.principal
 				else
-					redirect action: 'next_assess_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
+					redirect action: 'next_assess_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: params?.queue]
 			}
 		}
 

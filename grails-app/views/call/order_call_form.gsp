@@ -23,7 +23,7 @@
 				changedFlag = 'true';
 			});
 
-			$("select#result").selectmenu({style:'dropdown'});
+			//$("select#result").selectmenu({style:'dropdown'});
 			$("select#shippingDate").selectmenu({style:'dropdown'});
              $("select#timezone").selectmenu({style:'dropdown'});
 

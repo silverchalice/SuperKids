@@ -417,19 +417,25 @@ Modified: get menuButton text from new 'msg' attr
 	}
 
 	def productAssessmentTabs = { attrs ->
-		def customer = Customer.get(attrs.id)
+		def customer = Customer.get(attrs?.id)
 		if(customer) {
-			def products = customer.order.products*.product.sort { it.id }
+			def products = customer.order.products*.product.sort { it?.id }
 
 
             // remove variety packs - we only want the subproducts
             products.each { p ->
-                if(Product.findByParent(p))  {
-                   products = products - p
-                }
+                if(p) {
+					if(Product.findByParent(p))  {
+                    	println "parent"
+                   		products = products - p
+              	    }
+				}
             }
 
 			def totalProducts = products.size()
+
+            println totalProducts
+
 			def tabIndex = 2
 			out << "<div id='tab${tabIndex}' class='tab_content'>"
 			products.eachWithIndex{product, i ->
@@ -453,9 +459,18 @@ Modified: get menuButton text from new 'msg' attr
 	}
 
 	def productAssessmentNav = { attrs ->
-		def customer = Customer.get(attrs.id)
+		def customer = Customer.get(attrs?.id)
 		if(customer) {
-			def products = customer?.order?.products*.product.sort { it.id }
+			def products = customer?.order?.products*.product.sort { it?.id }
+            products.each { p ->
+				if(p) {
+					if(Product.findByParent(p))  {
+                    	println "parent"
+                   		products = products - p
+              	    }
+				}
+
+            }
 			def totalProducts = products.size()
 			def tabIndex = 2
 			out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
@@ -519,10 +534,30 @@ Modified: get menuButton text from new 'msg' attr
         }
     }
 
+
+
+	def linkToOrderCall = { attrs ->
+		def customerOrderInstance = CustomerOrder.get(attrs.id)
+		if(customerOrderInstance) {
+			def customer = customerOrderInstance?.customer
+			if(customerOrderInstance.orderType == OrderType.PHONE) {
+				def call = Call.findByCustomerAndResult(customer, CallResult.QUALIFIED)
+				if(call) {
+					out << "Phone <a href='"
+					out << createLink(controller:'call', action:'show', id:call.id)
+					out << "'>(View Call)</a>"
+				} else {
+					out << "Phone"
+				}
+
+			}
+		}
+	}
+
 	def eachInProducts = { attrs, body ->
 		def items = shoppingCartService.getItems().sort{it.id}
 		if(items){	
-			items?.sort { a, b -> a.id <=> b.id }.each { item ->
+			items?.sort { a, b -> a?.id <=> b?.id }?.each { item ->
 				def itemInfo = ['item':item,
 								'qty':shoppingCartService.getQuantity(item)]
 	

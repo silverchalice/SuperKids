@@ -40,10 +40,20 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="customerOrder.orderType.label" default="Order Placed" /></td>
 
-                            <td valign="top" class="value">${customerOrderInstance?.orderType?.encodeAsHTML()}</td>
+                            <td valign="top" class="value"><g:if test="${customerOrderInstance?.orderType?.toString() == 'Phone'}">
+								<sks:linkToOrderCall id="${customerOrderInstance?.id}" />
+                            </g:if>
+							<g:else>
+								${customerOrderInstance?.orderType.encodeAsHTML()}
+							</g:else></td>
 
                         </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name"><g:message code="customerOrder.customer.label" default="Customer" /></td>
 
+                            <td valign="top" class="value"><g:link controller="customer" action="show" id="${customerOrderInstance?.customer?.id}">${customerOrderInstance?.customer?.district}</g:link></td>
+
+                        </tr>
                         <tr class="prop">
                             <td valign="top" colspan="2" class="name" style="float:left"><h2 style="margin: 0 2px 2px 0">FSD Contact Info</h2></td>
                         </tr>

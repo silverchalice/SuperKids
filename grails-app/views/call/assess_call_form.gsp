@@ -69,8 +69,8 @@
 			$(".tab_content:first").show(); //Show first tab content
 
 			
-			$("select#result").selectmenu({style:'dropdown'});
-			$("select#bState").selectmenu({style:'dropdown'});
+			//$("select#result").selectmenu({style:'dropdown'});
+			//$("select#bState").selectmenu({style:'dropdown'});
 
             var clicked;
 
@@ -152,21 +152,28 @@
 
 		<div class="callerNavBar">
 			<g:link class="callerButton" style="margin-left:10px" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
-			<g:if test="${queue}">
+			<g:if test="${queue && !start}">
+				<g:hiddenField name="queue" value="${queue}" />
 				<span style="position:absolute; width:100px; left:1120px; top:60px;"><g:actionSubmit id="submit" class="callerButton" action="save_assess_call" value="Next Call" /></span>
                 <img id="loader" style="position:absolute; left:1200px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
 			</g:if>
-			<g:elseif test="${single}">				
 
+			<g:if test="${single}">
+				<g:hiddenField name="search" value="${search}" />
+				<g:hiddenField name="query" value="${query}" />
 				<g:hiddenField name="single" value="${single}" />
+				<g:hiddenField name="cb" value="${cb}" />
+				<g:hiddenField name="ocl" value="${ocl}"/>
 				<g:actionSubmit id="submit" class="callerButton" style="position:absolute; left:1080px; top:63px; width:100px" action="save_assess_call" value="Finish" />
 
-			</g:elseif>
-			<g:else>
+			</g:if>
+			<g:if test="${start && queue}">
+				<g:hiddenField name="queue" value="${queue}" />
                 <g:actionSubmit id="submit" controller="call" class="callerButton" style="position:absolute; left:1070px; top:62px" action="next_assess_call" value="Start Calling" />
                 <span style="position:absolute; left:975px; top:64px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
                 <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
-			</g:else>
+			</g:if>
+
 		</div>
 
 		<div class="body" style="width:1250px">

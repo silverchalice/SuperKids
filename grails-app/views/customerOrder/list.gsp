@@ -59,11 +59,11 @@
 
 							<td>${fieldValue(bean: customerOrderInstance, field: "shippingDate")}</td>
                         
-                            <td><g:if test="${customerOrderInstance?.orderType.toString() == 'Phone'}">
-								<sks:linkToOrderCall id="${customerOrderInstance?.customer?.id}" />
+                            <td><g:if test="${customerOrderInstance?.orderType?.toString() == 'Phone'}">
+								<sks:linkToOrderCall id="${customerOrderInstance?.id}" />
                             </g:if>
 							<g:else>
-								${customerOrderInstance?.orderType.toString() == 'Phone'}
+								${customerOrderInstance?.orderType}
 							</g:else></td>
 
 

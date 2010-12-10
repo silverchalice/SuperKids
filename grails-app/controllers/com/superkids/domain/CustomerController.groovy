@@ -133,15 +133,20 @@ class CustomerController {
             Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'HAS NOT ORDERED']
             def products = []
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
-                products = Product.list()
-                return [customerInstance: customerInstance, products: products.findAll{!it.parent}, states: states, broker:broker, statusList:statusList]
+                products = Product.findAllWhere(parent: null)
+
+				products.each {
+					println it
+					println it.parent
+				}
+                return [customerInstance: customerInstance, products: products, states: states, broker:broker, statusList:statusList]
             } else {
                 customerInstance.order.products.each { productOrder ->
                     if(!Product.findByParent(productOrder.product))
                         products << productOrder
                     }
                 }
-                return [customerInstance: customerInstance, products: products.sort{it.product?.id}, states: states, broker:broker, statusList:statusList]
+                return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, broker:broker, statusList:statusList]
           }
     }
 
@@ -168,7 +173,7 @@ class CustomerController {
             }
             if(customerInstance.save(flush: true)){
                 flash.message = "Updated profile for customer ${customerInstance.district}"
-                redirect(action: "show", id: customerInstance.id)
+                redirect(action: "list")
             } else {
                 flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
                 redirect(action: "list")
@@ -346,22 +351,22 @@ class CustomerController {
 
 			customer.save(failOnError:true)
 
-                        def products = []
+			def products = []
 
-                        customer.order.products.findAll{ it.received == true }.each{
-                            def p = Product.get(it.product.id)
-                            if(!customer.assessments.find{ it.product.id == p.id }){
-                                products << p
-                            }
-                        }
+			customer.order.products.findAll{ it.received == true }.each{
+				def p = Product.get(it.product.id)
+				if(!customer.assessments.find{ it.product.id == p.id }){
+					products << p
+				}
+			}
 
-                        if(products.find{!Product.findByParent(it)}){
-                            redirect action:edit, id:customer.id
-                        } else {
-                            //customer.status = CustomerStatus.QUALIFIED
-                            //customer.hasCompletedCurrentAssessment = true
-                            redirect action:edit, id:customer.id
-                        }
+			if(products.find{!Product.findByParent(it)}){
+				redirect action:edit, id:customer.id
+			} else {
+				//customer.status = CustomerStatus.QUALIFIED
+				//customer.hasCompletedCurrentAssessment = true
+				redirect action:edit, id:customer.id
+			}
  
 		} else {
 			flash.message = "Product not found"
