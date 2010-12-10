@@ -1,5 +1,7 @@
 package com.superkids
 
+import com.superkids.domain.Customer
+
 class DataController {
 
     def dataService
@@ -29,5 +31,20 @@ class DataController {
                println "there was no file."
            }
        }
+
+	def opNoteTransfer = {
+		Customer.list().each { c ->
+			if(c.notes && (c.notes)) {
+				println "$c notes = $c.notes"
+				c.opNotes = c.notes
+				c.save(flush:true)
+			}
+		}
+
+		flash.message = "Notes Transfered"
+		println flash.message
+		redirect controller: 'customer', action: 'list'
+
+	}
 
 }

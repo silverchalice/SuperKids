@@ -24,6 +24,7 @@ class Customer extends User {
 	String fax
 
     String notes //notes from Callers
+    String opNotes //notes from Callers
 
 	String fsdName
 	String fsdTitle
@@ -42,7 +43,7 @@ class Customer extends User {
 	Boolean spring
 	Boolean am
 	Boolean pm
-        Boolean pastParticipant
+	Boolean pastParticipant
 	Date inCall = null
 
 //	Misc. Stats
@@ -65,7 +66,7 @@ class Customer extends User {
 
 	boolean topCustomer = false
 
-        boolean usingResetPassword = false
+	boolean usingResetPassword = false
 
     Boolean invalidEmail
     Boolean duplicate
@@ -139,7 +140,8 @@ class Customer extends User {
 		am nullable:true
 		pm nullable:true
         pastParticipant nullable:true
-        notes nullable:true, blank:true, maxSize: 10000
+        notes nullable:true, blank:true, maxSize: 12000
+        opNotes nullable:true, blank:true, maxSize: 12000
     }
 	
 	static namedQueries = {
@@ -152,14 +154,14 @@ class Customer extends User {
 			eq 'status', CustomerStatus.HAS_ORDERED
 		}
 	}
-    
+
 	static searchable = {
 		only = ['fsdName', 'ndName', 'cdName', 'district', 'email', 'ndEmail', 'cdEmail']
 	}
 
-        static mapping = {
-            notes sqlType:"longtext"
-        }
+	static mapping = {
+		opNotes sqlType:"longtext"
+	}
 
 	String toString() {
 		district

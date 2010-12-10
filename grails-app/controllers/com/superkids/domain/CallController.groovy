@@ -29,7 +29,7 @@ class CallController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 23, 100)
+        params.max = Math.min(params.max ? params.int('max') : 24, 100)
 
         [callInstanceList: Call.list(params), callInstanceTotal: Call.count()]
     }
@@ -42,9 +42,7 @@ class CallController {
 
     def save_order_call = {
 
-        def caller
-        if(Caller.get(springSecurityService.principal.id))
-            caller = Caller.get(springSecurityService.principal.id)
+		def caller = Caller.get(springSecurityService.principal.id)
         def customer = Customer.get(params.id)
 
         def currentTimezone
@@ -59,19 +57,30 @@ class CallController {
 			println "CallResult of Null"
 			customer.inCall = null
             if(params.single)  {
-				if(params?.search) {
+				if(params?.search == 'true') {
 					println "This call was made from a search results page - redirecting back to results"
 					def query = params?.query
 					redirect action:'findCustomer', params: [query:query]
+					return
+				} else if(params?.cb) {
+					println "This call was made from the Callback list - redirecting back to CB List"
+					redirect action:'call_back_list'
+					return
+				} else if(params?.ocl) {
+					println "This call was made from the Order Call list - redirecting back to OC List"
+					redirect action:'order_list'
+					return
 				} else {
 					redirect action: 'index', caller: springSecurityService.principal
+					return
 				}
 			}
-            else redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone]
+            else redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: params?.queue]
 			return
 		}
 
 		if(customer) {
+			//customer.inCall = null
 			println "$caller is saving order call for customer " + customer.fsdName
 			customer.properties = params
 
@@ -99,16 +108,11 @@ class CallController {
 					} else {
                     	println " "
 					}
-				}
-				println "2"
-
-				if(call.result == CallResult.DUPLICATE) {
+				} else if(call.result == CallResult.DUPLICATE) {
 					println "$caller found a duplicate..."
 					customer?.duplicate = true
 					customer.save()
-				}
-
-				if(call.result == CallResult.QUALIFIED) {
+				} else if(call.result == CallResult.QUALIFIED) {
 					println "Call Result for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving order..."
 					def order = new CustomerOrder(params['order'])
 					order.orderType = OrderType.PHONE
@@ -145,32 +149,57 @@ class CallController {
 						println "oops... $caller had problems saving order for customer " + customer?.fsdName
 						order.errors.allErrors.each { println it }
 						flash.message = "Invalid Order - please check input"
-						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call, queue: 'true', currentTimezone: currentTimezone]
+						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call,  queue: params?.queue, currentTimezone: currentTimezone]
 					}
+				} else {
+					call.result = CallResult.valueOf(params.result)
 				}
+
 				println "3"
 				customer.addToCalls(call)
-				customer.save(flush:true)
 				println "4"
-				call.save()
+				if(!customer.save(flush:true)) {
+					customer.errors.allErrors.each {println it}
+				}
+
+				println "5"
+				if(!call.save()) {
+					customer.errors.allErrors.each {println it}
+				}
 
 				caller.addToCalls(call)
 				caller.save(flush:true)
 
 				customer.inCall = null
 				customer.lastCall = call
-				customer.save(flush:true)
-
+				if(!customer.save(flush:true)) {
+					customer.errors.allErrors.each {println it}
+				}
+				println "The customer's last call result is now $customer.lastCall.result"
 
 				if(params?.single) {
-					println "This is a non-queue call"
+					println "This is a non-queued call"
 					if(params?.search) {
 						println "$caller made this call from a search results page - redirecting back to results"
 						def query = params?.query
+						customer.inCall = null
+						customer.save()
 						redirect action:'findCustomer', params: [query:query]
+						return
 					} else if(params?.cb) {
 						println "This call was made from the Callback list - redirecting back to CB List"
-					} else {
+						customer.inCall = null
+						customer.save()
+						redirect action:'call_back_list'
+						return
+					} else if(params?.ocl) {
+						customer.inCall = null
+						customer.save()
+						println "This call was made from the Order Call list - redirecting back to OC List"
+						redirect action:'order_list'
+
+						return
+					}else {
 						redirect action: 'index', caller: springSecurityService.principal
 					}
 				} else
@@ -186,16 +215,24 @@ class CallController {
 					flash.message = 'invalid customer data'
 				}
 
+				def model = [:]
+
 				if(params?.single) {
 					println "This is a non-queue call"
 					if(params?.search) {
 						println "$caller made this call from a search results page - storing the query before rendering"
-						def query = params?.query
-						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), search: 'true', single:'true', query: query, currentTimezone: currentTimezone]
+						model = [customerInstance: customer, products: Product.list(), search: 'true', single:'true', query: params?.query, currentTimezone: currentTimezone]
+					} else if(params?.cb) {
+						println "This call was made from the Callback list - redirecting back to CB List"
+						model = [customerInstance: customer, products: Product.list(), single:'true', cb: params?.cb, currentTimezone: currentTimezone]
+					} else if(params?.ocl) {
+						println "This call was made from the Order Call list - redirecting back to OC List"
+						model = [customerInstance: customer, products: Product.list(), single:'true', olc: params?.ocl, currentTimezone: currentTimezone]
 					} else {
-						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), single: 'true', currentTimezone: currentTimezone]
+						model = [customerInstance: customer, products: Product.list(), single: 'true', currentTimezone: currentTimezone]
 					}
-				} else	render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), queue: 'true', currentTimezone: currentTimezone]
+				}
+				render view:'order_call_form', model: model
 			}
 		} else {
 			flash.message = "Customer not found"
@@ -209,6 +246,7 @@ class CallController {
 
 		if(customer) {
 			customer.inCall = null
+			customer.save(flush:true)
 		}
 
 		redirect action:'index'
@@ -270,6 +308,12 @@ class CallController {
         def callInstance = Call.get(params.id)
         if (callInstance) {
             try {
+
+				 def customer = callInstance.customer
+				 customer.removeFromCalls(callInstance)
+				 def caller = callInstance.caller
+				 caller.removeFromCalls(callInstance)
+
                 callInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'call.label', default: 'Call'), params.id])}"
                 redirect(action: "list")
@@ -287,7 +331,7 @@ class CallController {
 
 	def start_order_call = {
 
-		render view:'order_call_form', model: [ products: Product.findAllByParentIsNull(), timezones: timezones ]
+		render view:'order_call_form', model: [ products: Product.findAllByParentIsNull(), timezones: timezones, queue: params?.queue, start:'start' ]
 	}
 
 
@@ -327,29 +371,32 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
 
-        def oldDate = new Date(new Date().time - 24000000)
+        def now = new Date()
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			isNull 'inCall'
 
-			or {
-				lastCall {
-					lt('dateCreated', oldDate )
-					ne('result', CallResult.REFUSED)
-				}
-				isNull('lastCall')
 
+			if(params?.queue == "new") {
+				println "$caller is using the new calls queue"
+				isNull "lastCall"
+			} else {
+				println "$caller is using the prev calls queue"
+					lastCall {
+						not {
+							between('dateCreated', now -1, now)
+						}
+						ne('result', CallResult.REFUSED)
+					}
 			}
+
 
 			or{
 				eq('duplicate', false)
 				isNull('duplicate')
 			}
-
-
-
 
 		  or{
               and {
@@ -363,21 +410,38 @@ class CallController {
 
 		if(customer) {
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
+			render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone]
 		} else {
 			customer = c2.list(max: 1, sort: 'seq') {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			    isNull 'inCall'
+				if(params?.queue == "new") {
+					println "$caller is using the new calls queue"
+					isNull "lastCall"
+				} else {
+					println "$caller is using the prev calls queue"
+						lastCall {
+							not {
+								between('dateCreated', now - 2, now)
+							}
+							ne('result', CallResult.REFUSED)
+						}
+				}
+				or{
+					eq('duplicate', false)
+					isNull('duplicate')
+				}
+
 		    }.getAt(0)
 
 
 			if(customer) {
 				customer.inCall = new Date()
 				customer.save(flush:true)
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: 'true', currentTimezone: currentTimezone]
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone]
 			} else {
-                                println "$caller reached the end of the customer list for timezone $currentTimezone"
+                println "$caller reached the end of the customer list for timezone $currentTimezone"
 				flash.message = "No more Customers in this Timezone!"
 				redirect action:index
 			}
@@ -422,27 +486,28 @@ class CallController {
 
 
 	def get_order_call = {
-            def caller
-            if(Caller.get(springSecurityService.principal.id))
-                caller = Caller.get(springSecurityService.principal.id)
+		def caller
+		if(Caller.get(springSecurityService.principal.id))
+		caller = Caller.get(springSecurityService.principal.id)
 		println "$caller is in get_order_call for CallController"
 		println params
 
 		def customer = Customer.get(params?.id)
+
 		if(customer) {
 			def order = new CustomerOrder()
 			def call = new Call()
 
 			customer.inCall = new Date()
 
-			if(params?.search) {
-				def query = params?.query
-				render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, search: true, query: query ]
-			} else if(params?.cb) {
-				render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, cb: true ]
-			} else{
-				render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true ]
-			}
+			def model = [:]
+
+			if(params?.search) 	model = [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, search: true, query: params?.query ]
+			else if(params?.cb) model = [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, cb: params?.cb ]
+			else if(params?.ocl) model = [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true, ocl: params?.ocl ]
+			else model = [ customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, single: true ]
+
+			render view:'order_call_form', model:  model
 
 		}
 		else {
@@ -755,12 +820,12 @@ class CallController {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
 
-
         def currentUser = springSecurityService.principal
 
 		def customers = Customer.createCriteria().list{
 			lastCall{
 				eq('result', CallResult.CALLBACK)
+				isNotNull("callbackDate")
 			}
 		}
 		customers.sort{a, b ->
@@ -793,6 +858,8 @@ class CallController {
 			if(params?.search) {
 				def query = params?.query
 				redirect action:'findCustomer', params: [query:query]
+			} else if(params?.type == 'cb') {
+				redirect action: 'call_back_list'
 			}
 
 

@@ -25,15 +25,15 @@
 
 							<th>Items Ordered</th>
 
-							<th><g:message code="customerOrder.customer.label" default="Customer" /></th>
+							<g:sortableColumn property="customer" title="Customer" />
 
 							<th>Assessment Completed</th>
 
-							<th>Order Date</th>
+							<g:sortableColumn property="dateCreated" title="Order Date" />
 
 							 <th><g:message code="customerOrder.shippingDate.label" default="Req'd Ship Date" /></th>
 
-							<th>Ordered From</th>
+							<g:sortableColumn property="orderType" title="Ordered From" />
                         
 							<th>Actions</th>
                         
@@ -45,9 +45,9 @@
                     <g:each in="${customerOrderInstanceList}" status="i" var="customerOrderInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td style="width:100px;">${customerOrderInstance?.customer?.fsdName}</td>
+                            <td>${customerOrderInstance?.customer?.fsdName}</td>
 
-							<td>${customerOrderInstance?.products?.size()}</td>
+							<td style="width:50px;">${customerOrderInstance?.products?.size()}</td>
 
 
                         
@@ -59,7 +59,9 @@
 
 							<td>${fieldValue(bean: customerOrderInstance, field: "shippingDate")}</td>
                         
-                            <td>${fieldValue(bean: customerOrderInstance, field: "orderType")}</td>
+                            <td>
+								${customerOrderInstance?.orderType}
+							</td>
 
 
 							<td style="width:120px;">

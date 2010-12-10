@@ -22,6 +22,7 @@ class Call {
 		caller(nullable:true)
 		callbackDate(nullable:true)
 		callbackTime(nullable:true)
+		notes(nullable:true)
     }
 
 }

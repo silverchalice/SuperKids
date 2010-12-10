@@ -395,7 +395,7 @@
 				<p>&nbsp;</p>
 
                 <h1>Customer Notes</h1>
-                <p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customerInstance?.notes}</p>
+                <p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customerInstance?.opNotes}</p>
 				    <br/>
 				     <h1>Call Log</h1>
 					<g:each in="${customerInstance?.calls}" var="call">

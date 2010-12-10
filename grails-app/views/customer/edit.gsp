@@ -463,7 +463,7 @@
                             </tr>
                             <tr class="prop">
                               <td colspan="2"><h3>Customer Notes</h3></td> </tr>
-                            <tr class="prop"><td colspan="2"><g:textArea cols="" rows="" value="${customerInstance?.notes}" name="notes" style="width:360px;"/></td></tr>
+                            <tr class="prop"><td colspan="2"><g:textArea cols="" rows="" value="${customerInstance?.opNotes}" name="opNotes" style="width:360px;"/></td></tr>
                         </tbody>
                     </table>
                 </div>
