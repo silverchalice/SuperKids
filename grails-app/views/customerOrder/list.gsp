@@ -23,7 +23,7 @@
                         
                             <g:sortableColumn property="id" title="Name" />
 
-							<th>Items Ordered</th>
+							<th>Items</th>
 
 							<g:sortableColumn property="customer" title="Customer" />
 
@@ -59,9 +59,12 @@
 
 							<td>${fieldValue(bean: customerOrderInstance, field: "shippingDate")}</td>
                         
-                            <td>
-								${customerOrderInstance?.orderType}
-							</td>
+                            <td><g:if test="${customerOrderInstance?.orderType.toString() == 'Phone'}">
+								<sks:linkToOrderCall id="${customerOrderInstance?.customer?.id}" />
+                            </g:if>
+							<g:else>
+								${customerOrderInstance?.orderType.toString() == 'Phone'}
+							</g:else></td>
 
 
 							<td style="width:120px;">
