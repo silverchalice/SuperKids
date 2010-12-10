@@ -42,9 +42,7 @@ class CallController {
 
     def save_order_call = {
 
-        def caller
-        if(Caller.get(springSecurityService.principal.id))
-            caller = Caller.get(springSecurityService.principal.id)
+		def caller = Caller.get(springSecurityService.principal.id)
         def customer = Customer.get(params.id)
 
         def currentTimezone
@@ -82,6 +80,7 @@ class CallController {
 		}
 
 		if(customer) {
+			//customer.inCall = null
 			println "$caller is saving order call for customer " + customer.fsdName
 			customer.properties = params
 
@@ -109,16 +108,11 @@ class CallController {
 					} else {
                     	println " "
 					}
-				}
-				println "2"
-
-				if(call.result == CallResult.DUPLICATE) {
+				} else if(call.result == CallResult.DUPLICATE) {
 					println "$caller found a duplicate..."
 					customer?.duplicate = true
 					customer.save()
-				}
-
-				if(call.result == CallResult.QUALIFIED) {
+				} else if(call.result == CallResult.QUALIFIED) {
 					println "Call Result for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving order..."
 					def order = new CustomerOrder(params['order'])
 					order.orderType = OrderType.PHONE
@@ -157,32 +151,53 @@ class CallController {
 						flash.message = "Invalid Order - please check input"
 						render view:'order_call_form', model: [customerInstance: customer, products: Product.list(), call: call,  queue: params?.queue, currentTimezone: currentTimezone]
 					}
+				} else {
+					call.result = CallResult.valueOf(params.result)
 				}
+
 				println "3"
 				customer.addToCalls(call)
-				customer.save(flush:true)
 				println "4"
-				call.save()
+				if(!customer.save(flush:true)) {
+					customer.errors.allErrors.each {println it}
+				}
+
+				println "5"
+				if(!call.save()) {
+					customer.errors.allErrors.each {println it}
+				}
 
 				caller.addToCalls(call)
 				caller.save(flush:true)
 
 				customer.inCall = null
 				customer.lastCall = call
-				customer.save(flush:true)
-
+				if(!customer.save(flush:true)) {
+					customer.errors.allErrors.each {println it}
+				}
+				println "The customer's last call result is now $customer.lastCall.result"
 
 				if(params?.single) {
-					println "This is a non-queue call"
+					println "This is a non-queued call"
 					if(params?.search) {
 						println "$caller made this call from a search results page - redirecting back to results"
 						def query = params?.query
+						customer.inCall = null
+						customer.save()
 						redirect action:'findCustomer', params: [query:query]
+						return
 					} else if(params?.cb) {
 						println "This call was made from the Callback list - redirecting back to CB List"
+						customer.inCall = null
+						customer.save()
+						redirect action:'call_back_list'
+						return
 					} else if(params?.ocl) {
+						customer.inCall = null
+						customer.save()
 						println "This call was made from the Order Call list - redirecting back to OC List"
 						redirect action:'order_list'
+
 						return
 					}else {
 						redirect action: 'index', caller: springSecurityService.principal
@@ -231,6 +246,7 @@ class CallController {
 
 		if(customer) {
 			customer.inCall = null
+			customer.save(flush:true)
 		}
 
 		redirect action:'index'
@@ -355,7 +371,7 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
 
-        def oldDate = new Date(new Date().time - 24000000)
+        def oldDate = new Date() - 3
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
@@ -369,7 +385,7 @@ class CallController {
 			} else {
 				println "$caller is using the prev calls queue"
 					lastCall {
-						lt('dateCreated', oldDate )
+						gt('dateCreated', oldDate )
 						ne('result', CallResult.REFUSED)
 					}
 			}
@@ -823,6 +839,8 @@ class CallController {
 			if(params?.search) {
 				def query = params?.query
 				redirect action:'findCustomer', params: [query:query]
+			} else if(params?.type == 'cb') {
+				redirect action: 'call_back_list'
 			}
 
 
