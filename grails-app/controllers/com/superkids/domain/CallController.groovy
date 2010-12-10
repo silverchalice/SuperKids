@@ -29,7 +29,7 @@ class CallController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 23, 100)
+        params.max = Math.min(params.max ? params.int('max') : 24, 100)
 
         [callInstanceList: Call.list(params), callInstanceTotal: Call.count()]
     }

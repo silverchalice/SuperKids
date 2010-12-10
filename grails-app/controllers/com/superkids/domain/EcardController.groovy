@@ -9,7 +9,7 @@ class EcardController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.max = Math.min(params.max ? params.int('max') : 24, 100)
         [ecardInstanceList: Ecard.list(params), ecardInstanceTotal: Ecard.count()]
     }
 

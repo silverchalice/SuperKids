@@ -11,7 +11,7 @@ class ContactRequestController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        params.max = Math.min(params.max ? params.int('max') : 24, 100)
         [contactRequestInstanceList: ContactRequest.list(params), contactRequestInstanceTotal: ContactRequest.count()]
     }
 
