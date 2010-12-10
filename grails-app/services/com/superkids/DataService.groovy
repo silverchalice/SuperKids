@@ -79,4 +79,20 @@ class DataService {
                         UserRole.create customer, userRole, true
 		}
 	}
+
+        def markEmailsInvalid(file) {
+		def i = 0
+		def is = file.inputStream
+		new ExcelBuilder(is).eachLine([labels:true]) {
+			i++
+			println "    ${i}: ${School_District}"
+                        println " "
+                        def customer = Customer.get(${Id})
+                        if(customer){
+                            customer.invalidEmail = true
+                            customer.save(failOnError:true)
+                        }
+                }
+	}
+
 }
