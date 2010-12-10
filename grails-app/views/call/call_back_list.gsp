@@ -51,9 +51,7 @@
 								</g:if>
 								<g:else>
 									${fieldValue(bean: customerInstance, field: "district")}
-								</g:else><br/>
-								${customerInstance.lastCall.result}
-							</td>
+								</g:else></td>
 
                             <td>${customerInstance.fsdName}</td>
 

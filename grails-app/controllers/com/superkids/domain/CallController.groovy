@@ -371,7 +371,7 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
 
-        def oldDate = new Date() - 3
+        def now = new Date()
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
@@ -385,7 +385,9 @@ class CallController {
 			} else {
 				println "$caller is using the prev calls queue"
 					lastCall {
-						gt('dateCreated', oldDate )
+						not {
+							between('dateCreated', now -1, now)
+						}
 						ne('result', CallResult.REFUSED)
 					}
 			}
@@ -414,6 +416,23 @@ class CallController {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			    isNull 'inCall'
+				if(params?.queue == "new") {
+					println "$caller is using the new calls queue"
+					isNull "lastCall"
+				} else {
+					println "$caller is using the prev calls queue"
+						lastCall {
+							not {
+								between('dateCreated', now - 2, now)
+							}
+							ne('result', CallResult.REFUSED)
+						}
+				}
+				or{
+					eq('duplicate', false)
+					isNull('duplicate')
+				}
+
 		    }.getAt(0)
 
 
