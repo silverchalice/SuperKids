@@ -186,26 +186,30 @@ class CallController {
 						def query = params?.query
 						customer.inCall = null
 						customer.save()
+						flash.message = "Call saved"
 						redirect action:'findCustomer', params: [query:query]
 						return
 					} else if(params?.cb) {
 						println "This call was made from the Callback list - redirecting back to CB List"
 						customer.inCall = null
 						customer.save()
+						flash.message = "Call saved"
 						redirect action:'call_back_list'
 						return
 					} else if(params?.ocl) {
 						customer.inCall = null
 						customer.save()
 						println "This call was made from the Order Call list - redirecting back to OC List"
+						flash.message = "Call saved"
 						redirect action:'order_list'
 
 						return
 					}else {
+						flash.message = "Call saved"
 						redirect action: 'index', caller: springSecurityService.principal
 					}
 				} else
-					redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: 'true']
+					redirect action: 'next_order_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: params?.queue]
 			}  else {
 				println "$caller could not save customer " + customer.fsdName
 
