@@ -303,6 +303,24 @@ class CustomerController {
         redirect controller:controller, action:action, id:id
     }
 
+	def toggleDuplicate = {
+		println params
+		def customerInstance = Customer.get(params.id)
+		def controller = params.rController
+		def action = params.rAction
+		def dc = params.duplicate
+		def id = params.rId
+		if (customerInstance){
+			customerInstance.duplicate = dc == 'true'
+			if(!customerInstance.save()) {
+				customer.errors.alErros.each {println it}
+			}
+		}
+		println "Q: Is customer " + customerInstance.fsdName + "  a duplicate?"
+		println "A: " + customerInstance.duplicate
+		redirect controller:controller, action:action, id:id, sort:params?.sort, offset: params?.offset, max: params?.max
+	}
+
 
 	def toggleDidNotReceive = {
             println 'in toggleDidNotReceive'

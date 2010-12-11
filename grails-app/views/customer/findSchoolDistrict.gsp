@@ -46,6 +46,8 @@
 
                             <g:sortableColumn property="newCustomer" title="New" />
 
+							<g:sortableColumn property="duplicate" title="Dup." />
+
                             <g:sortableColumn property="topCustomer" title="Top 100" />
 
                             <th>Action</th>
@@ -78,6 +80,15 @@
                             <g:checkBox name='newCustomer'
 								value="${customerInstance.newCustomer}"
 								onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'newCustomer=\' + this.checked')}" />
+                            </td>
+
+							<td width="50px">
+                        	  <g:if test="${customerInstance.duplicate}">
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"false", rController:"customer", rAction:"list"]'><img src="/SuperKids/images/true-r.png" height="18" width="18"></g:link>
+								</g:if>
+								<g:else>
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"true", rController:"customer", rAction:"list"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
+								</g:else>
                             </td>
 
                             <td width="50px">
