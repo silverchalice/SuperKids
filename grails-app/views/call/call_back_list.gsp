@@ -30,10 +30,6 @@
 
                             <th><g:message code="customer.address" default="Address" /></th>
 
-                            <th><g:message code="customer.phone.label" default="Phone" />
-
-                            <th><g:message code="customer.dateCalled.label" default="Date Called" />
-
 							<th><g:message code="customer.callback.date.label"  default="Call Back Date & Time" /></th>
 
 							<th><g:message code="customer.callback.caller.label"  default="Caller" /></th>
@@ -57,11 +53,16 @@
 
                             <td>${fieldValue(bean: customerInstance, field: "address")}</td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "phone")}</td>
-							
-                            <td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.calls[-1].dateCreated}" /></td>
-
-							<td><g:formatDate format="MM/dd/yyyy" date="${customerInstance.calls[-1].callbackDate}" /> - ${customerInstance.calls[-1].callbackTime}</td>
+							<td>
+								<g:if test="${customerInstance.calls[-1].callbackDate < new Date()}">
+									<span style="color:#cc0000; font-weight:bold">
+										<g:formatDate format="MM/dd/yyyy" date="${customerInstance.calls[-1].callbackDate}" /> - ${customerInstance.calls[-1].callbackTime}
+									</span>
+								</g:if>
+								<g:else>
+									<g:formatDate format="MM/dd/yyyy" date="${customerInstance.calls[-1].callbackDate}" /> - ${customerInstance.calls[-1].callbackTime}
+								</g:else>
+							</td>
 
 						    <td>
 								<g:if test="${caller?.username == customerInstance.calls[-1].caller.username}"><strong style="color:green">${customerInstance.calls[-1].caller}</strong></g:if>
@@ -80,9 +81,6 @@
                     </g:each>
                     </tbody>
                 </table>
-            </div>
-            <div class="paginateButtons">
-                <g:paginate total="${customerInstanceTotal}" max="35" />
             </div>
         </div>
     </body>

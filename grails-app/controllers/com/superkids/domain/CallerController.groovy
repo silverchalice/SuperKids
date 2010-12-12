@@ -42,7 +42,20 @@ class CallerController {
             redirect(action: "list")
         }
         else {
-            [callerInstance: callerInstance]
+			def calls
+			if(callerInstance?.calls) {
+
+				def c = Call.createCriteria()
+
+				calls = c.list(sort: 'dateCreated', order:'desc') {
+				   eq 'caller', callerInstance
+				}
+
+				params.sort = 'dateCreated'
+				[callerInstance: callerInstance, calls: calls]
+			}
+
+
         }
     }
 

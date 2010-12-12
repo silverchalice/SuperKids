@@ -22,15 +22,15 @@
                     <thead>
                         <tr>
                         
-                            <g:sortableColumn property="username" title="${message(code: 'caller.username.label', default: 'Username')}" />
+                            <th>Username</th>
                         
-                            <g:sortableColumn property="password" title="${message(code: 'caller.calls', default: 'Total Calls')}" />
+                            <th>Calls</th>
                         
-                            <g:sortableColumn property="accountExpired" title="${message(code: 'caller.accountExpired.label', default: 'Account Expired')}" />
+                            <th>Account Expired</th>
                         
-                            <g:sortableColumn property="accountLocked" title="${message(code: 'caller.accountLocked.label', default: 'Account Locked')}" />
+                            <th>Account Locked</th>
                         
-                            <g:sortableColumn property="enabled" title="${message(code: 'caller.enabled.label', default: 'Enabled')}" />
+                            <th>Enabled</th>
                         
                         </tr>
                     </thead>

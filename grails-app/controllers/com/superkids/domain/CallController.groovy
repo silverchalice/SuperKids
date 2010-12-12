@@ -894,8 +894,6 @@ class CallController {
     }
 
     def call_back_list = {
-		def max = params.max ?: 35
-		def offset = params.offset ?: 0
 
         def currentUser = springSecurityService.principal
 

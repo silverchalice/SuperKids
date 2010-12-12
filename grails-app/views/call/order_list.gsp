@@ -31,8 +31,6 @@
 
                             <th><g:message code="customer.address.label" default="Address" /></th>
 
-                            <th><g:message code="customer.email.label" default="Email" /></th>
-
                             <g:sortableColumn property="phone" title="${message(code: 'customer.phone.label', default: 'Phone')}" />
 
 							<th>In Call</th>
@@ -58,10 +56,6 @@
 									${fieldValue(bean: customerInstance, field: "deliveryAddress")}
 								</g:else>
 							</td>
-
-
-
-                            <td>${fieldValue(bean: customerInstance, field: "email")}</td>
 
                             <td>${customerInstance.phone}</td>
 

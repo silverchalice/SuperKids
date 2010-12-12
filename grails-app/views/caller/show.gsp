@@ -19,6 +19,38 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="dialog">
+				<table>
+					<tbody>
+
+						<tr class="prop">
+							<td valign="top" class="name">
+							  <label for="accountExpired"><g:message code="caller.accountExpired.label" default="Account Expired" /></label>
+							</td>
+							<td valign="top" class="value ${hasErrors(bean: callerInstance, field: 'accountExpired', 'errors')}">
+								<g:checkBox disabled="true" name="accountExpired" value="${callerInstance?.accountExpired}" />
+							</td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name">
+							  <label for="accountLocked"><g:message code="caller.accountLocked.label" default="Account Locked" /></label>
+							</td>
+							<td valign="top" class="value ${hasErrors(bean: callerInstance, field: 'accountLocked', 'errors')}">
+								<g:checkBox disabled="true" name="accountLocked" value="${callerInstance?.accountLocked}" />
+							</td>
+						</tr>
+
+						<tr class="prop">
+							<td valign="top" class="name">
+							  <label for="enabled"><g:message code="caller.enabled.label" default="Enabled" /></label>
+							</td>
+							<td valign="top" class="value ${hasErrors(bean: callerInstance, field: 'enabled', 'errors')}">
+								<g:checkBox disabled="true" name="enabled" value="${callerInstance?.enabled}" />
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
 
 				<div class="buttons">
 					<g:form>
@@ -37,7 +69,7 @@
 							<th>Result</th>
 						</tbody>
 
-						<g:each in="${callerInstance?.calls}" var="call">
+						<g:each in="${calls}" var="call">
 
                         <tr>
 							 <td><g:link controller="customer" action="show" id="${call?.customer?.id}">${call?.customer}</g:link> </td>
