@@ -64,6 +64,13 @@
                             
                         </tr>
 
+						<tr class="prop">
+                            <td valign="top" class="name">Did Not Receive Email/Mailing</td>
+
+                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance?.id}" name="didNotReceiveMailing" property="didNotReceiveMailing" /></td>
+
+                        </tr>
+
                         <tr class="prop">
                             <td valign="top" class="name">Order Placed</td>
                             

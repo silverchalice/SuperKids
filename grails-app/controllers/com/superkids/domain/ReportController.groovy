@@ -9,8 +9,12 @@ class ReportController {
     def index = { }
 
     def exportCustomers = {
+		println "exporting customers..."
+
 		def startTime = new Date().time
         def withAssessments = params.withAssessments
+
+		if(withAssessments) println "with assessments..."
 
         def thatWhichIsContainedInOurExportation = []
 
@@ -154,6 +158,7 @@ class ReportController {
 
 
 	def exportCalls = {
+		println "Exporing Calls..."
 		def startTime = new Date().time
 
         def calls = []
@@ -185,5 +190,48 @@ class ReportController {
         exportService.export(params.format, response.outputStream, calls, fields, labels, formatters, parameters)
 		println ("After export - ${new Date().time - startTime}")
     }
+
+	def exportDNRCustomers = {
+		println "Exporting DNR Customers...."
+		def startTime = new Date().time
+
+        def customers = []
+
+		def c = Customer.createCriteria()
+
+		c.list(sort: "seq") {
+				eq 'didNotReceiveMailing', true
+		}.each {customer ->
+
+			def m = [:]
+			m.id = customer.id
+			m.district = customer?.district
+			m.fsdName = customer?.fsdName
+			m.email = customer?.email
+			m.address = customer?.address
+
+			customers << m
+		}
+
+		println ("After Customers.list - ${new Date().time - startTime}")
+
+ 	    List fields = ["id", "district", "fsdName", "email", "address"]
+
+        Map labels = ["id": "Id", "district": "School District", "fsdName": "FSD", "email": "Email", "address": "Address"]
+
+        Map formatters = [:]
+        Map parameters = [:]
+
+        response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
+        response.setHeader("Content-disposition", "attachment; filename=SK_Calls.csv")
+
+        exportService.export(params.format, response.outputStream, customers, fields, labels, formatters, parameters)
+		println ("After export - ${new Date().time - startTime}")
+    }
+
+
+
+
+
 
 }

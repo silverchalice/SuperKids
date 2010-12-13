@@ -164,6 +164,15 @@
 									   <g:checkBox name="duplicate" value="${customerInstance?.duplicate}" />
 								   </td>
 							   </tr>
+
+                            <tr class="prop">
+								<td valign="top" class="name">
+									   <label for="didNotReceiveMailing">Did Not Receive Email/Mailing</label>
+								   </td>
+								   <td valign="top">
+									   <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
+								   </td>
+							   </tr>
                             <tr class="prop">
                                 <td class="name"></td>
                                 <td class="value">

@@ -40,11 +40,18 @@
 
                             <td valign="top" class="value">${callInstance?.customer?.fsdName} - ${callInstance?.customer?.phone}</td>
 
-                        </tr>                        <tr class="prop">
+                        </tr>
+						<tr class="prop">
                             <td valign="top" class="name"><g:message code="call.caller.label" default="Caller" /></td>
                             
                             <td valign="top" class="value"><g:link controller="caller" action="show" id="${callInstance?.caller?.id}">${callInstance?.caller?.encodeAsHTML()}</g:link></td>
                             
+                        </tr>
+					    <tr class="prop">
+                            <td valign="top" class="name"><g:message code="call.dateCreated.label" default="Date/Time" /></td>
+
+                            <td valign="top" class="value"><g:formatDate date="${callInstance?.dateCreated}" format="EEEE, MMM dd yyyy - h:mm a zz" /></td>
+
                         </tr>
                     
                         <tr class="prop">

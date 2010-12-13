@@ -27,7 +27,7 @@
 
 							<g:sortableColumn property="customer" title="Customer" />
 
-							<th>Assessment Completed</th>
+							<th>Assessed</th>
 
 							<g:sortableColumn property="dateCreated" title="Order Date" />
 
