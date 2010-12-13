@@ -1,8 +1,6 @@
 package com.superkids
 
 import com.superkids.domain.*
-import com.superkids.domain.UserRole
-
 
 class DataService {
 
@@ -49,34 +47,34 @@ class DataService {
 				purchaseFreshBread = Q6e_Purchase_fresh_bakery_and_bread_products == 'Yes' ? true : false
 				purchasePreparedFood = Purchase_prepared_foods == 'Yes' ? true : false
 				purchaseFrozenFood = Purchase_frozen_foods == 'Yes' ? true : false
-                                otherComments = Q7_Other ?: ""
+				otherComments = Q7_Other ?: ""
 				topCustomer = (Top_100 == 'Yes' ? true : false)
-                                timezone = cell(34) ?: ""
+				timezone = cell(34) ?: ""
 				pastParticipant = cell(35) == 'Yes' ? true : false
-                                seq = cell(2)
-                                callerBrokers = Who_are_your_primary_foodservice_distributors ?: ""
+				seq = cell(2)
+				callerBrokers = Who_are_your_primary_foodservice_distributors ?: ""
 			}
-                        def no = "0"
-                        customer.password = springSecurityService.encodePassword("superkids")
-                        if(!FSD_Email || Customer.findByUsername(FSD_Email)){
-                            customer.username = "no-email@no-email${i}.com"
-                            customer.email = "no-email@no-email${i}.com"
-                        } else {
-                            customer.username = FSD_Email
-                            customer.email = FSD_Email
-                        }
-                        customer.enabled = true
-                        customer.accountExpired = false
-                        customer.accountLocked = false
-                        customer.passwordExpired = false
+			def no = "0"
+			customer.password = springSecurityService.encodePassword("superkids")
+			if(!FSD_Email || Customer.findByUsername(FSD_Email)){
+				customer.username = "no-email@no-email${i}.com"
+				customer.email = "no-email@no-email${i}.com"
+			} else {
+				customer.username = FSD_Email
+				customer.email = FSD_Email
+			}
+			customer.enabled = true
+			customer.accountExpired = false
+			customer.accountLocked = false
+			customer.passwordExpired = false
 			if (!customer.save()) {
 				customer.errors.each {println it}
 			}
-                        def userRole = Role.findByAuthority("ROLE_USER")
-                        if(!userRole){
-                            userRole = new Role(authority:"ROLE_USER").save(failOnError:true)
-                        }
-                        UserRole.create customer, userRole, true
+			def userRole = Role.findByAuthority("ROLE_USER")
+			if(!userRole){
+				userRole = new Role(authority:"ROLE_USER").save(failOnError:true)
+			}
+			UserRole.create customer, userRole, true
 		}
 	}
 
@@ -84,15 +82,38 @@ class DataService {
 		def i = 0
 		def is = file.inputStream
 		new ExcelBuilder(is).eachLine([labels:true]) {
-			i++
-			println "    ${i}: ${School_District}"
-                        println " "
-                        def customer = Customer.get(${Id})
-                        if(customer){
-                            customer.invalidEmail = true
-                            customer.save(failOnError:true)
-                        }
-                }
+		i++
+		println "    ${i}: ${School_District}"
+			println " "
+			def customer = Customer.get(${Id})
+			if(customer){
+				customer.invalidEmail = true
+				customer.save(failOnError:true)
+			}
+		}
 	}
+
+
+	def processDNRUpdate(file) {
+		println "in processDNRUpdate"
+		def i = 0
+		def is = file.inputStream
+		new ExcelBuilder(is).eachLine([labels:true]) {
+			i++
+			println "cell"
+			println cell(0)
+			def customer = Customer.get(cell(0))
+			if(customer) {
+				println customer?.district
+				println "setting DNRMailing..."
+				customer.didNotReceiveMailing = false
+
+				customer.save(flush:true)
+				println "saved the customer"
+				println customer.didNotReceiveMailing
+			}
+		}
+	 }
+
 
 }

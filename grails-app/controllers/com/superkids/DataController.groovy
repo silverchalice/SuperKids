@@ -19,18 +19,29 @@ class DataController {
 	    redirect(controller:'customer', action:'list')
 	}
 
-       def invalidEmail = {
+	def customerDNRUpdate = {
 
-       }
+	}
 
-       def markEmail = {
-           def file = request.getFile('cust_data')
-           if (file && !file.isEmpty()){
-               dataService.markEmailsInvalid(file)
-	   } else {
-               println "there was no file."
-           }
-       }
+	def processDNRUpdate = {
+		println "in processDNRUpdate for DataController"
+	    def file = request.getFile('cust_data')
+	    if (file && !file.isEmpty())
+			println "about to call dataService"
+	        dataService.processDNRUpdate(file)
+	    redirect(controller:'customer', action:'list')
+	}
+
+    def invalidEmail = { }
+
+    def markEmail = {
+	   def file = request.getFile('cust_data')
+	   if (file && !file.isEmpty()){
+		   dataService.markEmailsInvalid(file)
+    } else {
+		   println "there was no file."
+	   }
+    }
 
 	def opNoteTransfer = {
 		Customer.list().each { c ->
