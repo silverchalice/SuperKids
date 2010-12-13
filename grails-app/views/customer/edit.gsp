@@ -141,6 +141,14 @@
                             </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                  <label for="newCustomer">New Customer</label>
+                                </td>
+                                <td valign="top">
+                                    <g:checkBox name="newCustomer" value="${customerInstance?.newCustomer}" />
+                                </td>
+                            </tr>
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                   <label for="pastParticipant">Previous Participant</label>
                                 </td>
                                 <td valign="top">
@@ -457,15 +465,6 @@
 								  <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
 							  </td>
 						    </tr>
-
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Did not Receive Mailing" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'didNotReceiveMailing', 'errors')}">
-                                    <g:checkBox name="didNotReceiveMailing" value="${customerInstance?.didNotReceiveMailing}" />
-                                </td>
-                            </tr>
 							<tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="seq"><g:message code="customer.seq.label" default="Sequence Number (DO NOT CHANGE)" /></label>

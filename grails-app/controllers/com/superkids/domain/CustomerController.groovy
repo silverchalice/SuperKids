@@ -151,6 +151,7 @@ class CustomerController {
     }
 
     def update = {
+		println params
         def customerInstance = Customer.get(params.id)
         if (customerInstance) {
             if (params.version) {
