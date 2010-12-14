@@ -11,7 +11,7 @@ class FactoidController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 24, 100)
+        params.max = Math.min(params.max ? params.int('max') : 50, 100)
         [factoidInstanceList: Factoid.list(params), factoidInstanceTotal: Factoid.count()]
     }
 
