@@ -1,5 +1,5 @@
 
-<%@ page import="com.superkids.domain.Caller" %>
+<%@ page import="com.superkids.domain.CallResult; com.superkids.domain.Caller" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -25,7 +25,9 @@
                             <th>Username</th>
                         
                             <th>Calls</th>
-                        
+
+                            <th>QUALIFIED</th>
+
                             <th>Account Expired</th>
                         
                             <th>Account Locked</th>
@@ -40,8 +42,17 @@
                         
                             <td><g:link action="show" id="${callerInstance.id}">${fieldValue(bean: callerInstance, field: "username")}</g:link></td>
                         
-                            <td>${callerInstance.calls.size()}</td>
-                        
+                            <td>${callerInstance?.calls?.size()}</td>
+
+
+                            <td><% def size = 0%>
+								<g:each in="${callerInstance?.calls}" var="call">
+
+								<% if(call.result == CallResult.QUALIFIED){ size++ } %>
+                            </g:each>
+							    <% println size %>
+							</td>
+
                             <td><g:formatBoolean boolean="${callerInstance.accountExpired}" /></td>
                         
                             <td><g:formatBoolean boolean="${callerInstance.accountLocked}" /></td>

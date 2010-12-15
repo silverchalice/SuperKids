@@ -350,8 +350,8 @@ class CallController {
 	    //make sure the last customer is no longer 'in call'
 	    def currentCustomer = Customer.get(params?.id)
 
-            Integer currentSeq
-            Long currentId
+		Integer currentSeq
+		Long currentId
 
 		if(currentCustomer) {
 			currentCustomer.inCall = null
@@ -417,13 +417,24 @@ class CallController {
 
 		if(customer && customer?.inCall == null) {
 			customer.inCall = new Date()
-			if(customer.save(flush:true)) {
+
+			def saveResult
+			try{
+				saveResult = customer.save(flush:true)
+			}
+			catch(ex){
+				log.error(ex.message)
+				log.error(ex.stackTrace)
+				saveResult = false
+			}
+			if(saveResult){
 				println "$caller is calling $customer?.fsdName"
 				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull(), call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone]
-			} else {
+			}
+			else{
 				customer.errors.allErrors.each { println it }
 				flash.message = "Oops! An error occured"
-				redirect action:index
+				redirect action:next_order_call, params: [id: params?.id]
 			}
 
 		} else {
@@ -459,12 +470,12 @@ class CallController {
 			} else {
 				customer.errors.allErrors.each { println it }
 				flash.message = "Oops! An error occured"
-				redirect action:index
+				redirect action:next_order_call, params: [id: params?.id]
 			}
 
 			} else {
                 println "$caller reached the end of the customer list for timezone $currentTimezone"
-				flash.message = "No more Customers in this Timezone!"
+				flash.message = "No more Customers in the $currentTimezone Timezone!"
 				redirect action:index
 			}
 		}
@@ -608,6 +619,7 @@ class CallController {
 				customer.errors.allErrors.each { println it }
 				flash.message = "Oops! An error occured"
 				redirect action:index
+				r
 			}
 
 		} else {
@@ -638,12 +650,14 @@ class CallController {
 				customer.errors.allErrors.each { println it }
 				flash.message = "Oops! An error occured"
 				redirect action:index
+				return
 			}
 
 			} else {
                 println "$caller reached the end of the assess customer list for timezone $currentTimezone"
 				flash.message = "No more Customers in this Timezone!"
 				redirect action:index
+				return
 			}
 		}
 	}
@@ -704,6 +718,7 @@ class CallController {
 		}
 		else {
 			redirect action:list
+			return
 		}
 	}
 
@@ -808,6 +823,7 @@ class CallController {
 									customer.errors.allErrors.each{println it}
                                     flash.message = "Error saving the Assessment"
                                     redirect action:index
+									return
 								}
 							}
 						}
@@ -860,10 +876,15 @@ class CallController {
 					customer.errors.allErrors.each { println it }
 				}
 
-				if(params?.single)
+				if(params?.single){
 					redirect action: 'index', caller: springSecurityService.principal
-				else
+					return
+				}
+				else {
 					redirect action: 'next_assess_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: params?.queue]
+					return
+				}
+
 			}
 		}
 
@@ -934,12 +955,14 @@ class CallController {
 			if(params?.search) {
 				def query = params?.query
 				redirect action:'findCustomer', params: [query:query]
+				return
 			} else if(params?.type == 'cb') {
 				redirect action: 'call_back_list'
+				return
 			}
 
-
 			redirect action:"${params.type}_list"
+			return
 		} else {
 			redirect action:'index'
 		}
