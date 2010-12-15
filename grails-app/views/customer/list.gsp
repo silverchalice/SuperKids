@@ -87,10 +87,10 @@
                             </td>
 							<td width="50px">
                           	    <g:if test="${customerInstance.duplicate}">
-									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"false", rController:"customer", rAction:"list"]'><img src="/SuperKids/images/true-r.png" height="18" width="18"></g:link>
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"false", rController:"customer", rAction:"list", rMax: "${max}", rSort: "${sort}", rOffset: "${offset}"]'><img src="/SuperKids/images/true-r.png" height="18" width="18"></g:link>
 								</g:if>
 								<g:else>
-									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"true", rController:"customer", rAction:"list"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"true", rController:"customer", rAction:"list", rMax: "${max}", rSort: "${sort}", rOffset: "${offset}"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
 								</g:else>
 
                             </td>
@@ -110,7 +110,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${customerInstanceTotal}" maxsteps="20" />
+                <g:paginate total="${customerInstanceTotal}" maxsteps="32" />
             </div>
         </div>
     </body>

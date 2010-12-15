@@ -11,10 +11,10 @@ class CustomerController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 50, 100)
+        params.max = Math.min(params.max ? params.int('max') : 150, 150)
         if (!params.sort) params.sort = 'seq'
 
-        [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count()]
+        [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count(), sort:params?.sort, max: params?.max, offset: params?.offset]
     }
 
     def create = {
@@ -319,7 +319,7 @@ class CustomerController {
 		}
 		println "Q: Is customer " + customerInstance.fsdName + "  a duplicate?"
 		println "A: " + customerInstance.duplicate
-		redirect controller:controller, action:action, id:id, sort:params?.sort, offset: params?.offset, max: params?.max
+		redirect controller:controller, action:action, id:id, params: [sort:params?.rSort, offset: params?.rOffset, max: params?.rMax, query: params?.rQuery ]
 	}
 
 
