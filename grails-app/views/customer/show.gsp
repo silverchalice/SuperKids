@@ -47,72 +47,73 @@
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>
             </g:if>
-			<h1 style="display:inline"><g:message code="default.show.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:34%">FSD Login Information</h1>
+			<h1 style="display:inline">Customer Information</h1>  <h1 style="display:inline; margin-left:34%">FSD Login Information</h1>
 			<br/>			
 			<div style="float:left; width:40%;">
+				   <div class="buttons">
+					   <g:form>
+						   <g:hiddenField name="id" value="${customerInstance?.id}"/>
+						   <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.update.label', default: 'Edit')}" /></span>
+					   </g:form>
+                    </div>
                 <table>
                     <tbody>
-
-
-
-
-                        </tr>
                         <tr class="prop">
                             <td valign="top" class="name">School District</td>
                             
                             <td valign="top" class="value">${customerInstance?.district}</td>
                             
                         </tr>
- <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="topCustomer">Top 100</label>
-                                </td>
-                                <td valign="top">
-                                    <sks:propertyCheckbox id="${customerInstance?.id}" name="topCustomer" property="topCustomer" />
-                                </td>
-                            </tr>
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="newCustomer">New Customer</label>
-                                </td>
-                                <td valign="top">
-                                    <sks:propertyCheckbox id="${customerInstance?.id}" name="newCustomer" property="newCustomer" />
-                                </td>
-                            </tr>
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="pastParticipant">Previous Participant</label>
-                                </td>
-                                <td valign="top">
-                                    <sks:propertyCheckbox id="${customerInstance?.id}" name="pastParticipant" property="pastParticipant" />
-                                </td>
-                            </tr>
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="invalidEmail">Invalid Email</label>
-                                </td>
-                                <td valign="top">
-                                    <sks:propertyCheckbox id="${customerInstance?.id}" name="invalidEmail" property="invalidEmail" />
-                                </td>
-                            </tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+							  <label for="topCustomer">Top 100</label>
+							</td>
+							<td valign="top">
+								<sks:propertyCheckbox id="${customerInstance?.id}" name="topCustomer" property="topCustomer" />
+							</td>
+						</tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+							  <label for="newCustomer">New Customer</label>
+							</td>
+							<td valign="top">
+								<sks:propertyCheckbox id="${customerInstance?.id}" name="newCustomer" property="newCustomer" />
+							</td>
+						</tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+							  <label for="pastParticipant">Previous Participant</label>
+							</td>
+							<td valign="top">
+								<sks:propertyCheckbox id="${customerInstance?.id}" name="pastParticipant" property="pastParticipant" />
+							</td>
+						</tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+							  <label for="invalidEmail">Invalid Email</label>
+							</td>
+							<td valign="top">
+								<sks:propertyCheckbox id="${customerInstance?.id}" name="invalidEmail" property="invalidEmail" />
+							</td>
+						</tr>
 
-                            <tr class="prop">
-								<td valign="top" class="name">
-									   <label for="duplicate">Duplicate</label>
-								   </td>
-								   <td valign="top">
-									   <sks:propertyCheckbox id="${customerInstance?.id}" name="duplicate" property="duplicate" />
-								   </td>
-							   </tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+								   <label for="duplicate">Duplicate</label>
+							   </td>
+							   <td valign="top">
+								   <sks:propertyCheckbox id="${customerInstance?.id}" name="duplicate" property="duplicate" />
+							   </td>
+					    </tr>
 
-                            <tr class="prop">
-								<td valign="top" class="name">
-									   <label for="didNotReceiveMailing">Did Not Receive Email/Mailing</label>
-								   </td>
-								   <td valign="top">
-									   <sks:propertyCheckbox id="${customerInstance?.id}" name="didNotReceiveMailing" property="didNotReceiveMailing" />
-								   </td>
-							   </tr>
+						<tr class="prop">
+							<td valign="top" class="name">
+								   <label for="didNotReceiveMailing">Did Not Receive Email/Mailing</label>
+							   </td>
+							   <td valign="top">
+								   <sks:propertyCheckbox id="${customerInstance?.id}" name="didNotReceiveMailing" property="didNotReceiveMailing" />
+							   </td>
+					    </tr>
 
                         <tr class="prop">
                             <td valign="top" class="name">Phone</td>
@@ -373,7 +374,6 @@
 				</div>
 
 			<div style="float:left; margin-left:10px; width:40%;">
-
                 <table>
                     <tbody>
 

@@ -32,7 +32,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="call.customer.label" default="Customer" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="customer" action="show" id="${callInstance?.customer?.id}">${callInstance?.customer?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="customer" action="show" id="${callInstance?.customer?.id}"> ${callInstance?.customer?.id} - ${callInstance?.customer?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
 						<tr class="prop">
@@ -62,7 +62,7 @@
                         </tr>
 						<tr class="prop">
 							<td valign="top" class="name"><label>Operator Notes</label></td>
-							<td valign="top" class="value" style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customerInstance?.notes}</td>
+							<td valign="top" class="value" style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${callInstance?.customer?.opNotes}</td>
 						</tr>
 
 

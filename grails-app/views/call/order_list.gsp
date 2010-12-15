@@ -41,10 +41,12 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:if test="${customerInstance.inCall == null}"><g:link action="get_order_call" params="[id:customerInstance?.id, ocl:'true', single:'true']">${fieldValue(bean: customerInstance, field: "district")}</g:link>
-							    </g:if>
+                            <td>
+								<g:if test="${customerInstance.inCall == null}">
+								    <g:link action="get_order_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >${customerInstance?.district}</g:link>
+								</g:if>
 								<g:else>
-									${fieldValue(bean: customerInstance, field: "district")}
+									${customerInstance?.district}
 								</g:else>
                           </td>
                             <td>${customerInstance?.fsdName}</td>

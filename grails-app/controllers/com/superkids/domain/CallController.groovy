@@ -82,6 +82,7 @@ class CallController {
 		}
 
 		if(customer) {
+
 			//customer.inCall = null
 			println "$caller is saving order call for customer " + customer.fsdName
 			customer.properties = params
@@ -414,7 +415,7 @@ class CallController {
           maxResults(1)
 		}.getAt(0)
 
-		if(customer) {
+		if(customer && customer?.inCall == null) {
 			customer.inCall = new Date()
 			if(customer.save(flush:true)) {
 				println "$caller is calling $customer?.fsdName"

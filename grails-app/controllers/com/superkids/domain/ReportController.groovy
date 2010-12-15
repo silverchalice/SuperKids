@@ -150,7 +150,7 @@ class ReportController {
         Map parameters = [:]
 
         response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
-        response.setHeader("Content-disposition", "attachment; filename=SK_Customers.csv")
+        response.setHeader("Content-disposition", "attachment; filename=SK_Customers.xls")
 
         exportService.export(params.format, response.outputStream, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
 		println ("After export - ${new Date().time - startTime}")
