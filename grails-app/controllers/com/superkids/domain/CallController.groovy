@@ -315,12 +315,6 @@ class CallController {
         def callInstance = Call.get(params.id)
         if (callInstance) {
             try {
-
-				 def customer = callInstance.customer
-				 customer.removeFromCalls(callInstance)
-				 def caller = callInstance.caller
-				 caller.removeFromCalls(callInstance)
-
                 callInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'call.label', default: 'Call'), params.id])}"
                 redirect(action: "list")
@@ -392,10 +386,20 @@ class CallController {
 			} else {
 				println "$caller is using the prev calls queue"
 					lastCall {
-						not {
-							between('dateCreated', now -1, now)
-						}
 						ne('result', CallResult.REFUSED)
+						or {
+							and {
+								not { between('dateCreated', now.getTime() -3600000, now) }
+								or {
+									eq('result', CallResult.BUSY)
+									eq('result', CallResult.NO_ANSWER)
+								}
+							}
+							and {
+								not { between('dateCreated', now.getTime() -86400000, now) }
+							}
+						}
+
 					}
 			}
 
