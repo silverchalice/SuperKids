@@ -318,7 +318,32 @@ class CallController {
         if (callInstance) {
             try {
 
-				callInstance.delete(flush: true)
+				def customer = callInstance?.customer
+				def caller = callInstance?.caller
+
+				if(customer) {
+					customer.removeFromCalls(callInstance)
+
+					if(customer.lastCall == callInstance) {
+						println "this was a lastCall"
+						customer.lastCall = null
+						if(customer?.calls?.size() > 0){
+							println "found another call - bumping it up to lastCall"
+						   customer.lastCall = customer.calls.getAt(-1)
+						}
+
+					}
+
+					if(!customer.save(flush:true)) {
+						customer.errors.allErrors.each { println it }
+					}
+				}
+ 				if(caller) {
+					caller.removeFromCalls(callInstance)
+					caller.save(flush:true)
+				}
+
+				callInstance.delete()
 
 
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'call.label', default: 'Call'), params.id])}"

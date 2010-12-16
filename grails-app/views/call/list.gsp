@@ -44,7 +44,7 @@
                         
                             <td><g:link controller="customer" action="show" id="${callInstance?.customer?.id}">${callInstance?.customer?.id} - ${callInstance?.customer}</g:link></td>
                         
-                            <td><g:link controller="caller" action="show" id="${callInstance?.caller.id}">${fieldValue(bean: callInstance, field: "caller")}</g:link></td>
+                            <td><g:link controller="caller" action="show" id="${callInstance?.caller?.id}">${fieldValue(bean: callInstance, field: "caller")}</g:link></td>
                         
                             <td><g:formatDate date="${callInstance.callbackDate}" /></td>
                         
