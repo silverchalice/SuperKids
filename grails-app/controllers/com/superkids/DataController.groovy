@@ -19,10 +19,6 @@ class DataController {
 	    redirect(controller:'customer', action:'list')
 	}
 
-	def customerDNRUpdate = {
-
-	}
-
 	def processDNRUpdate = {
 		println "in processDNRUpdate for DataController"
 	    def file = request.getFile('cust_data')
@@ -31,6 +27,16 @@ class DataController {
 	        dataService.processDNRUpdate(file)
 	    redirect(controller:'customer', action:'list')
 	}
+
+	def processFSDTitleUpdate = {
+		println "in processFSDTitleUpdate for DataController"
+	    def file = request.getFile('cust_data')
+	    if (file && !file.isEmpty())
+			println "about to call dataService"
+	        dataService.addFSDTitles(file)
+	    redirect(controller:'customer', action:'list')
+	}
+
 
     def invalidEmail = { }
 

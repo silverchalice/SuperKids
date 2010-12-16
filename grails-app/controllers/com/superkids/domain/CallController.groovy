@@ -238,6 +238,8 @@ class CallController {
 					} else {
 						model = [customerInstance: customer, products: Product.list(), single: 'true', currentTimezone: currentTimezone]
 					}
+				} else {
+					model = [customerInstance: customer, products: Product.list(), queue:params?.queue, currentTimezone: currentTimezone]
 				}
 				render view:'order_call_form', model: model
 			}
@@ -315,7 +317,10 @@ class CallController {
         def callInstance = Call.get(params.id)
         if (callInstance) {
             try {
-                callInstance.delete(flush: true)
+
+				callInstance.delete(flush: true)
+
+
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'call.label', default: 'Call'), params.id])}"
                 redirect(action: "list")
             }
@@ -371,8 +376,10 @@ class CallController {
 		def c = Customer.createCriteria()
 		def c2 = Customer.createCriteria()
 
+		def now = new Date()
+        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
+        def oneHourAgo = new Date(new Date().time - 3600000)
 
-        def now = new Date()
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
@@ -389,14 +396,14 @@ class CallController {
 						ne('result', CallResult.REFUSED)
 						or {
 							and {
-								not { between('dateCreated', now.getTime() -3600000, now) }
+								not { between('dateCreated', oneHourAgo, now) }
 								or {
 									eq('result', CallResult.BUSY)
 									eq('result', CallResult.NO_ANSWER)
 								}
 							}
 							and {
-								not { between('dateCreated', now.getTime() -86400000, now) }
+								not { between('dateCreated', twentyFourHoursAgo, now) }
 							}
 						}
 

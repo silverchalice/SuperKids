@@ -170,7 +170,11 @@ class CustomerController {
             if(params.email){
                 def user = User.get(params.id)
                 user.username = params.email
-                user.save(failOnError:true)
+                if(!user.save()) {
+					flash.message = "invalid data!"
+					redirect action:'edit', id:customerInstance?.id
+					return
+				}
             }
             if(customerInstance.save(flush: true)){
                 flash.message = "Updated profile for customer ${customerInstance.district}"
@@ -265,7 +269,7 @@ class CustomerController {
                 if (customerInstance) {
                     UserRole.findByUserAndRole(customerInstance, userRole).delete()
                     try {
-                        customerInstance.delete(flush: true)
+                        customerInstance.delete()
                         flash.message = "Deleted this customer record."
                         redirect(action: "list")
                     }

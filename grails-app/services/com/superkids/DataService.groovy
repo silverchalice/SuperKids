@@ -116,4 +116,29 @@ class DataService {
 	 }
 
 
+	def addFSDTitles(file) {
+		println "in addFSDTitles"
+		def i = 0
+		def is = file.inputStream
+		new ExcelBuilder(is).eachLine([labels:true]) {
+			i++
+			println "cell 5 & 6"
+			println cell(5)
+			println cell(6)
+			if(cell(5)) {
+				if(Customer.findByFsdName(cell(5))) {
+					def customer = Customer.findByFsdName(cell(5))
+					println customer?.fsdName
+					println "setting fsdTitle..."
+					customer.fsdTitle = cell(6)
+
+					customer.save(flush:true)
+					println "saved the customer"
+					println customer.fsdTitle
+				}
+			}
+		}
+	}
+
+
 }
