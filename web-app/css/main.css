@@ -71,6 +71,8 @@ input:focus, select:focus, textarea:focus {
 
 }
 
+.deleted {text-decoration: line-through;}
+
 ul.tabs {
 	margin: 0;
 	padding: 0;

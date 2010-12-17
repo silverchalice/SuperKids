@@ -63,9 +63,27 @@
 
                             <td style="width:32px;">${customerInstance?.seq}</td>
 
-                            <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
+                            <td><g:link action="show" id="${customerInstance.id}">
+								<g:if test="${customerInstance.deleted}">
+									<span class="deleted">
+									    ${fieldValue(bean: customerInstance, field: "district")}
+									</span>
+								</g:if>
+								<g:else>
+									${fieldValue(bean: customerInstance, field: "district")}
+								</g:else>
+							</g:link></td>
 
-                            <td>${fieldValue(bean: customerInstance, field: "fsdName")}</td>
+                            <td>
+								<g:if test="${customerInstance.deleted}">
+									<span class="deleted">
+									    ${fieldValue(bean: customerInstance, field: "fsdName")}
+									</span>
+								</g:if>
+								<g:else>
+									${fieldValue(bean: customerInstance, field: "fsdName")}
+								</g:else>
+								</td>
 
                             <td style="width:80px"><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
@@ -98,8 +116,8 @@
                         	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>
 
-                            <td width="180px">
-                            <g:link controller="customer" class="button" action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerInstance.id}">Delete</g:link>
+                            <td width="110px">
+
                             <g:link controller="customer" class="button" action="edit" id="${customerInstance.id}">Edit</g:link>
                             <g:link controller="customer" class="button" action="show" id="${customerInstance.id}">View</g:link>
                             </td>

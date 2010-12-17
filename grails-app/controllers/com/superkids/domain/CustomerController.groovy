@@ -194,7 +194,7 @@ class CustomerController {
         def customerInstance = Customer.get(params.id)
         if (customerInstance) {
             try {
-                customerInstance.delete(flush: true)
+                customerInstance.deleted = true
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
                 redirect(action: "list")
             }

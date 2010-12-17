@@ -428,7 +428,7 @@ class CallController {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			isNull 'inCall'
-
+			eq 'deleted', false
 
 			if(params?.queue == "new") {
 				println "$caller is using the new calls queue"
@@ -496,6 +496,7 @@ class CallController {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			    isNull 'inCall'
+				eq 'deleted', false
 				if(params?.queue == "new") {
 					println "$caller is using the new calls queue"
 					isNull "lastCall"
@@ -643,6 +644,7 @@ class CallController {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_ORDERED
 			isNull 'inCall'
+			eq 'deleted', false
 
 			//lastCall {
 			//	not { between('dateCreated', now -1, now) }
@@ -681,6 +683,7 @@ class CallController {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_ORDERED
 			    isNull 'inCall'
+				eq 'deleted', false
 
 				//lastCall {
 				//	not {
@@ -953,7 +956,7 @@ class CallController {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
         def sort = params.sort ?: "seq"
-		def customers = Customer.findAllByStatus(CustomerStatus.HAS_ORDERED, [max:max, offset:offset, sort: sort])
+		def customers = Customer.findAllByStatusAndDeleted(CustomerStatus.HAS_ORDERED, false, [max:max, offset:offset, sort: sort])
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_ORDERED)]
    }
@@ -962,7 +965,7 @@ class CallController {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
         def sort = params.sort ?: "seq"
-		def customers = Customer.findAllByStatus(CustomerStatus.HAS_NOT_ORDERED, [max:max, offset:offset, sort:sort])
+		def customers = Customer.findAllByStatusAndDeleted(CustomerStatus.HAS_NOT_ORDERED, false, [max:max, offset:offset, sort:sort])
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
@@ -975,6 +978,7 @@ class CallController {
 
 		def customers = Customer.createCriteria().list{
 			lastCall{
+				eq 'deleted', false
 				eq('result', CallResult.CALLBACK)
 				isNotNull("callbackDate")
 			}
@@ -1040,7 +1044,10 @@ class CallController {
 
 				Customer.search(params?.query, [max:100]).results?.each {
 					def customer =	Customer.get(it.id)
-					customers << customer
+					if(!customer.deleted){
+						customers << customer
+					}
+
 				}
 
                 if(customers){

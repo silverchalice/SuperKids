@@ -70,6 +70,7 @@ class Customer extends User {
 
     Boolean invalidEmail
     Boolean duplicate
+    Boolean deleted = false
 	String otherComments
 
 	Call lastCall
@@ -112,6 +113,7 @@ class Customer extends User {
         callerBrokers nullable: true
 
 		duplicate nullable:true
+		deleted nullable:true
 		invalidEmail nullable:true
 
 		assessments nullable: true

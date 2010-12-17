@@ -21,75 +21,79 @@ class ReportController {
         def prods = Product.list(sort:'sortOrder')
 		println ("After Product.list - ${new Date().time - startTime}")
 		Customer.list(sort: "seq").each {customer ->
-			def productIds = customer.order?.products.collect {customer.id}
-			def m = [:]
-			m.id = customer.id
-			m.lastUpdated = customer.lastUpdated
-			m.fsdName = customer.fsdName
-			m.fsdTitle = customer.fsdTitle
-			m.district = customer.district
-			m.address = new Expando()
-			m.address.street = customer.address?.street
-			m.address.street2 = customer.address?.street2
-			m.address.city = customer.address?.city
-			m.address.state = customer.address?.state
-			m.address.zip = customer.address?.zip
-			m.phone = customer.phone
-			m.fax = customer.fax
-			m.email = customer.email
-			m.deliveryAddress = new Expando()
-			m.deliveryAddress.street = customer.deliveryAddress?.street
-			m.deliveryAddress.street2 = customer.deliveryAddress?.street2
-			m.deliveryAddress.city = customer.deliveryAddress?.city
-			m.deliveryAddress.state = customer.deliveryAddress?.state
-			m.deliveryAddress.zip = customer.deliveryAddress?.zip
-			m.studentsInDistrict = customer.studentsInDistrict
-			m.facilities = customer.facilities
-			m.breakfastsServed = customer.breakfastsServed
-			m.lunchesServed = customer.lunchesServed
-			m.snacksServed = customer.snacksServed
-			m.hasBakery = customer.hasBakery ? "YES" : "NO"
-			m.purchaseFrozenBread = customer.purchaseFrozenBread ? "YES" : "NO"
-			m.purchasePreparedFood = customer.purchasePreparedFood ? "YES" : "NO"
-			m.purchaseFrozenFood = customer.purchaseFrozenFood ? "YES" : "NO"
-			m.purchaseFreshBread = customer.purchaseFreshBread ? "YES" : "NO"
-			m.otherComments = customer.otherComments
-			m.seq = customer.seq
-			m.topCustomer = customer.topCustomer ? "YES" : "NO"
-			m.pastParticipant = customer.pastParticipant ? "YES" : "NO"
-			m.callerBrokers = customer.callerBrokers
-			m.notes = customer.notes
-			def order = customer.order
-			prods.each {prod ->
-				m."${prod.name}" = order?.products.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
-			}
-			m.order = new Expando()
-			m.order.shippingDate = customer.order?.shippingDate
+			if(!customer.deleted) {
+				def productIds = customer.order?.products.collect {customer.id}
+				def m = [:]
+				m.id = customer.id
+				m.lastUpdated = customer.lastUpdated
+				m.fsdName = customer.fsdName
+				m.fsdTitle = customer.fsdTitle
+				m.district = customer.district
+				m.address = new Expando()
+				m.address.street = customer.address?.street
+				m.address.street2 = customer.address?.street2
+				m.address.city = customer.address?.city
+				m.address.state = customer.address?.state
+				m.address.zip = customer.address?.zip
+				m.phone = customer.phone
+				m.fax = customer.fax
+				m.email = customer.email
+				m.deliveryAddress = new Expando()
+				m.deliveryAddress.street = customer.deliveryAddress?.street
+				m.deliveryAddress.street2 = customer.deliveryAddress?.street2
+				m.deliveryAddress.city = customer.deliveryAddress?.city
+				m.deliveryAddress.state = customer.deliveryAddress?.state
+				m.deliveryAddress.zip = customer.deliveryAddress?.zip
+				m.studentsInDistrict = customer.studentsInDistrict
+				m.facilities = customer.facilities
+				m.breakfastsServed = customer.breakfastsServed
+				m.lunchesServed = customer.lunchesServed
+				m.snacksServed = customer.snacksServed
+				m.hasBakery = customer.hasBakery ? "YES" : "NO"
+				m.purchaseFrozenBread = customer.purchaseFrozenBread ? "YES" : "NO"
+				m.purchasePreparedFood = customer.purchasePreparedFood ? "YES" : "NO"
+				m.purchaseFrozenFood = customer.purchaseFrozenFood ? "YES" : "NO"
+				m.purchaseFreshBread = customer.purchaseFreshBread ? "YES" : "NO"
+				m.otherComments = customer.otherComments
+				m.seq = customer.seq
+				m.topCustomer = customer.topCustomer ? "YES" : "NO"
+				m.pastParticipant = customer.pastParticipant ? "YES" : "NO"
+				m.callerBrokers = customer.callerBrokers
+				m.notes = customer.notes
+				def order = customer.order
+				prods.each {prod ->
+					m."${prod.name}" = order?.products.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
+				}
+				m.order = new Expando()
+				m.order.shippingDate = customer.order?.shippingDate
 
-			if (withAssessments == 'true') {
+				if (withAssessments == 'true') {
 
-				for (prod in prods) {
-					def assessment = customer?.assessments.find { it?.product?.id == prod.id }
-					def orderedProduct = customer?.order?.products?.find {it?.product?.id == prod.id}
-					if (orderedProduct) {
-						if (!orderedProduct?.received) {
-							m."${prod.name}_Q1" = "Did Not Receive"
-							m."${prod.name}_Q2" = "Did Not Receive"
-							m."${prod.name}_Q3" = "Did Not Receive"
-							m."${prod.name}_Q4" = "Did Not Receive"
-						} else if (assessment) {
-							m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
-							m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
-							m."${prod.name}_Q3" = assessment ? assessment.likeComment : ''
-							m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''
+					for (prod in prods) {
+						def assessment = customer?.assessments.find { it?.product?.id == prod.id }
+						def orderedProduct = customer?.order?.products?.find {it?.product?.id == prod.id}
+						if (orderedProduct) {
+							if (!orderedProduct?.received) {
+								m."${prod.name}_Q1" = "Did Not Receive"
+								m."${prod.name}_Q2" = "Did Not Receive"
+								m."${prod.name}_Q3" = "Did Not Receive"
+								m."${prod.name}_Q4" = "Did Not Receive"
+							} else if (assessment) {
+								m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
+								m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
+								m."${prod.name}_Q3" = assessment ? assessment.likeComment : ''
+								m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''
+							}
 						}
 					}
+
+
 				}
 
 
+				thatWhichIsContainedInOurExportation << m
 			}
 
-			thatWhichIsContainedInOurExportation << m
 		}
 
 		println ("After Customer.list - ${new Date().time - startTime}")
@@ -169,15 +173,15 @@ class ReportController {
         def calls = []
 
 		Call.list(sort: "dateCreated").each {call ->
-
-			def m = [:]
-			m.id = call.id
-			m.dateCreated = call?.dateCreated
-			m.customer = call?.customer?.district
-			m.caller = call?.caller?.username
-			m.result = call?.result
-
-			calls << m
+			if(!call?.customer?.deleted) {
+				def m = [:]
+				m.id = call.id
+				m.dateCreated = call?.dateCreated
+				m.customer = call?.customer?.district
+				m.caller = call?.caller?.username
+				m.result = call?.result
+				calls << m
+			}
 		}
 
 		println ("After Calls.list - ${new Date().time - startTime}")
@@ -211,15 +215,18 @@ class ReportController {
 		c.list(sort: "seq") {
 				eq 'didNotReceiveMailing', true
 		}.each {customer ->
+			if(!customer.deleted) {
+				def m = [:]
+				m.id = customer.id
+				m.district = customer?.district
+				m.fsdName = customer?.fsdName
+				m.email = customer?.email
+				m.address = customer?.address
 
-			def m = [:]
-			m.id = customer.id
-			m.district = customer?.district
-			m.fsdName = customer?.fsdName
-			m.email = customer?.email
-			m.address = customer?.address
 
-			customers << m
+				customers << m
+			}
+
 		}
 
 		println ("After Customers.list - ${new Date().time - startTime}")
