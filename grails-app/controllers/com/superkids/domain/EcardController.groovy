@@ -14,6 +14,9 @@ class EcardController {
     }
 
     def create = {
+        def current_user
+        if(springSecurityService.isLoggedIn()){ current_user = Customer.get(springSecurityService.principal.id) }
+        println current_user + " is about to send an ecard; the params are: " + params
         def ecardInstance = new Ecard()
         ecardInstance.properties = params
         return [ecardInstance: ecardInstance]
@@ -53,6 +56,13 @@ class EcardController {
 			ecardInstance.message = "fsd"
 			ecardInstance.cardType = "School District Foodservice Director eCard"
 		}
+
+                println " "
+		def current_user
+		if(springSecurityService.isLoggedIn()){ current_user = Customer.get(springSecurityService.principal.id) }
+		println current_user + " is trying to send a " + ecardInstance.cardType + " to " + ecardInstance.recipient + " (" + ecardInstance.recipientEmail + "); the ecard's properties are: "
+                ecardInstance?.properties.each { println it; println " " }
+                println " "
 
 		if (ecardInstance.save(flush: true)) {
 			flash.message = "Your eCard was sent"
