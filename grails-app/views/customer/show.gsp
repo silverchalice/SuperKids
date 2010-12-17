@@ -420,7 +420,7 @@
                 <p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customerInstance?.opNotes}</p>
 				    <br/>
 				     <h1>Call Log</h1>
-					<g:each in="${customerInstance?.calls}" var="call">
+					<g:each in="${customerCalls}" var="call">
 						<br/>
 						<table>
 							<tr class="prop">
@@ -447,7 +447,7 @@
 									Result
 								</td>
 								<td valign="top" class="value">
-									${call?.result}
+									${call?.result} | <g:link controller="call" action="show" id="${call?.id}">View</g:link>
 								</td>
 							</tr>
 						</table>

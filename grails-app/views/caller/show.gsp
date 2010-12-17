@@ -67,6 +67,7 @@
 							<th>Customer</th>
 							<th>Date</th>
 							<th>Result</th>
+							<th>&nbsp;</th>
 						</tbody>
 
 						<g:each in="${calls}" var="call">
@@ -77,6 +78,7 @@
 							<td>${call?.dateCreated}</td>
 
                             <td>${call?.result}</td>
+                            <td><g:link controller="call" action="show" id="${call?.id}">View</g:link></td>
 
                         </tr>
 						</g:each>

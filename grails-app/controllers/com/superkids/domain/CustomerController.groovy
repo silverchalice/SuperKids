@@ -90,9 +90,13 @@ class CustomerController {
         }
         else {		
             def products = []
+			def customerCalls = []
+			customerCalls = Call.findAllByCustomer(customerInstance, [sort:"dateCreated", order:"desc"])
+			println customerCalls
+
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
                 products = Product.list()
-                return [customerInstance: customerInstance, products: products.findAll{!it.parent}]
+                return [customerInstance: customerInstance, products: products.findAll{!it.parent}, customerCalls: customerCalls]
             } else {
                 customerInstance.order?.products?.each { productOrder ->
                     if(productOrder?.received && productOrder?.product){
@@ -101,7 +105,7 @@ class CustomerController {
 						}
                     }
                 }
-                return [customerInstance: customerInstance, products: products?.sort{it?.product?.id}]
+                return [customerInstance: customerInstance, products: products?.sort{it?.product?.id}, customerCalls: customerCalls]
             }
     	}
 	}
