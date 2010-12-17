@@ -43,15 +43,23 @@ class CallController {
     }
 
     def save_order_call = {
+		println "In Save_Order_Call for CallController"
 
 		def caller = Caller.get(springSecurityService.principal.id)
         def customer = Customer.get(params.id)
 
         def currentTimezone
-        if(params?.timezone)
+        if(params?.timezone){
+			println params.timezone
             currentTimezone = params?.timezone
-        else
-            currentTimezone = params?.currentTimezone
+		}
+        else if(params?.currentTimezone) {
+			println params.currentTimezone
+			currentTimezone = params?.currentTimezone
+		} else {
+			println "we have no timezone!"
+		}
+
 
 
 
@@ -73,6 +81,7 @@ class CallController {
 					redirect action:'order_list'
 					return
 				} else {
+					println  "This call was made without a return param - returning home"
 					redirect action: 'index', caller: springSecurityService.principal
 					return
 				}
@@ -206,6 +215,7 @@ class CallController {
 
 						return
 					}else {
+						println "no return param - heading home"
 						flash.message = "Call saved"
 						redirect action: 'index', caller: springSecurityService.principal
 					}
@@ -392,11 +402,19 @@ class CallController {
 		def call = new Call()
 
         def currentTimezone
-        if(params?.timezone)
+        if(params?.timezone){
+			println params?.timezone
             currentTimezone = params?.timezone
-        else
-            currentTimezone = params?.currentTimezone
-
+		}
+        else if(params?.currentTimezone) {
+			println params?.timezone
+			currentTimezone = params?.currentTimezone
+		} else {
+			println "we have no timezone!"
+			flash.message = "Please choose a timezone!"
+			redirect action:'start_order_call'
+			return
+		}
 
 		def c = Customer.createCriteria()
 		def c2 = Customer.createCriteria()
