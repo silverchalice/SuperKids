@@ -11,10 +11,12 @@ class CustomerController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 150, 150)
-        if (!params.sort) params.sort = 'seq'
+        params.max = 150
+        params.offset = params?.offset ?: 0
 
-        [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count(), sort:params?.sort, max: params?.max, offset: params?.offset]
+        params.sort = params?.sort ?: "seq"
+
+        [customerInstanceList: Customer.list(params), customerInstanceTotal: Customer.count(), sort:params?.sort, max: params.max, offset: params?.offset]
     }
 
     def create = {
@@ -96,7 +98,8 @@ class CustomerController {
 
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
                 products = Product.list()
-                return [customerInstance: customerInstance, products: products.findAll{!it.parent}, customerCalls: customerCalls]
+                return [customerInstance: customerInstance, products: products.findAll{!it.parent}, customerCalls: customerCalls,
+						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
                 customerInstance.order?.products?.each { productOrder ->
                     if(productOrder?.received && productOrder?.product){
@@ -105,12 +108,16 @@ class CustomerController {
 						}
                     }
                 }
-                return [customerInstance: customerInstance, products: products?.sort{it?.product?.id}, customerCalls: customerCalls]
+                return [customerInstance: customerInstance, products: products?.sort{it?.product?.id}, customerCalls: customerCalls,
+						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             }
     	}
 	}
 
     def edit = {
+		println "in Edit for CustomerController"
+		println params
+
          def broker = null
          if(params.brokerId){
              broker = Broker.get(params.brokerId)
@@ -143,19 +150,26 @@ class CustomerController {
 					println it
 					println it.parent
 				}
-                return [customerInstance: customerInstance, products: products, states: states, broker:broker, statusList:statusList]
+                return [customerInstance: customerInstance, products: products, states: states, broker:broker, statusList:statusList,
+				rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
                 customerInstance.order.products.each { productOrder ->
                     if(!Product.findByParent(productOrder.product))
                         products << productOrder
                     }
                 }
-                return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, broker:broker, statusList:statusList]
+                return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, broker:broker, statusList:statusList,
+						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
           }
     }
 
     def update = {
+		println "In Update for CustomerController"
 		println params
+
+		def rController = params?.rController ?: "customer"
+		def rAction = params?.rAction ?: "list"
+
         def customerInstance = Customer.get(params.id)
         if (customerInstance) {
             if (params.version) {
@@ -163,7 +177,8 @@ class CustomerController {
                 if (customerInstance.version > version) {
 
                     customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'customer.label', default: 'Customer')] as Object[], "Another user has updated this Customer while you were editing")
-                    render(view: "edit", model: [customerInstance: customerInstance])
+                    render(view: "edit", model: [customerInstance: customerInstance,
+						rController:rController, rAction:rAction, sort:params?.sort, offset:params?.offset, query:params?.query])
                     return
                 }
             }
@@ -182,7 +197,7 @@ class CustomerController {
             }
             if(customerInstance.save(flush: true)){
                 flash.message = "Updated profile for customer ${customerInstance.district}"
-                redirect(action: "list")
+                redirect(controller: rController, action: rAction, params:[sort:params?.sort, offset:params?.offset, query:params?.query])
             } else {
                 flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
                 redirect(action: "list")
@@ -210,6 +225,8 @@ class CustomerController {
     }
 
     def findSchoolDistrict = {
+		println "in FindSchoolDistrict for CustomerController"
+		println params
         if(params.query){
 			def customers = []
             Customer.search(params?.query, [max:100]).results?.each {
@@ -217,7 +234,7 @@ class CustomerController {
 					customers << customer
 			}
             if(customers){
-                return [customerInstanceList:customers]
+                return [customerInstanceList:customers, sort:params?.sort, offset:params?.offset, query:params.query]
             } else {
                 flash.message = "No results found for \"${params.query}.\" <a href=\"${createLink(controller:'customer', action:'list')}\">Back to customer list &crarr;</a>"
                 return

@@ -118,8 +118,8 @@
 
                             <td width="110px">
 
-                            <g:link controller="customer" class="button" action="edit" id="${customerInstance.id}">Edit</g:link>
-                            <g:link controller="customer" class="button" action="show" id="${customerInstance.id}">View</g:link>
+                            <g:link controller="customer" class="button" action="edit" id="${customerInstance.id}" params='[sort:"${sort}", offset:"${offset}", rController:"customer", rAction:"list"]'>Edit</g:link>
+                            <g:link controller="customer" class="button" action="show" id="${customerInstance.id}" params='[sort:"${sort}", offset:"${offset}", rController:"customer", rAction:"list"]' >View</g:link>
                             </td>
 
                         </tr>

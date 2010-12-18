@@ -53,7 +53,12 @@
 				   <div class="buttons">
 					   <g:form>
 						   <g:hiddenField name="id" value="${customerInstance?.id}"/>
-						   <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.update.label', default: 'Edit')}" /></span>
+							<g:hiddenField name="offset" value="${offset}" />
+							<g:hiddenField name="query" value="${query}" />
+							<g:hiddenField name="sort" value="${sort}" />
+							<g:hiddenField name="rController" value="${rController}" />
+							<g:hiddenField name="rAction" value="${rAction}" />
+						   <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
 					   </g:form>
                     </div>
                 <table>

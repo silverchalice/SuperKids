@@ -85,7 +85,7 @@
 
 							<td width="50px">
                         	  <g:if test="${customerInstance.duplicate}">
-									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"false", rController:"customer", rAction:"list"]'><img src="/SuperKids/images/true-r.png" height="18" width="18"></g:link>
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"false", rController:"customer", rAction:"find"]'><img src="/SuperKids/images/true-r.png" height="18" width="18"></g:link>
 								</g:if>
 								<g:else>
 									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"true", rController:"customer", rAction:"list"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
@@ -96,10 +96,9 @@
                         	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>
 
-                            <td width="180px">
-                            <g:link controller="customer" class="button" action="other_delete" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" id="${customerInstance.id}">Delete</g:link>
-                            <g:link controller="customer" class="button" action="edit" id="${customerInstance.id}">Edit</g:link>
-                            <g:link controller="customer" class="button" action="show" id="${customerInstance.id}">View</g:link>
+                            <td width="110px">
+                            <g:link controller="customer" class="button" action="edit" id="${customerInstance.id}" params='[query:"${query}", rController:"customer", rAction: "findSchoolDistrict"]'>Edit</g:link>
+                            <g:link controller="customer" class="button" action="show" id="${customerInstance.id}" params='[query:"${query}", rController:"customer", rAction:"findSchoolDistrict"]' >View</g:link>
                             </td>
 
                         </tr>

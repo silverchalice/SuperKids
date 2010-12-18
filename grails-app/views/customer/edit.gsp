@@ -77,6 +77,12 @@
             <g:form method="post">
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
+                <g:hiddenField name="offset" value="${offset}" />
+                <g:hiddenField name="query" value="${query}" />
+                <g:hiddenField name="sort" value="${sort}" />
+                <g:hiddenField name="rController" value="${rController}" />
+                <g:hiddenField name="rAction" value="${rAction}" />
+
                 <div class="dialog">
 				<div class="buttons">
                     <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
