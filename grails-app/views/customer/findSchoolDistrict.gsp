@@ -78,17 +78,20 @@
                             </td>
 
                             <td width="25px">
-                            <g:checkBox name='newCustomer'
-								value="${customerInstance.newCustomer}"
-								onclick="${remoteFunction(action:'toggleNew', id:customerInstance.id, params:'\'newCustomer=\' + this.checked')}" />
+								<g:if test="${customerInstance.newCustomer}">
+									<g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params='[newCustomer:"false", rController:"customer", rAction:"findSchoolDistrict", query:"${query}"]'><img src="/SuperKids/images/true-g.png" height="18" width="18"></g:link>
+								</g:if>
+								<g:else>
+									<g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params='[newCustomer:"true", rController:"customer", rAction:"findSchoolDistrict", query:"${query}"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
+								</g:else>
                             </td>
 
 							<td width="50px">
                         	  <g:if test="${customerInstance.duplicate}">
-									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"false", rController:"customer", rAction:"find"]'><img src="/SuperKids/images/true-r.png" height="18" width="18"></g:link>
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[query:"${query}",duplicate:"false", rController:"customer", rAction:"findSchoolDistrict"]'><img src="/SuperKids/images/true-r.png" height="18" width="18"></g:link>
 								</g:if>
 								<g:else>
-									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"true", rController:"customer", rAction:"list"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[query:"${query}",duplicate:"true", rController:"customer", rAction:"findSchoolDistrict"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
 								</g:else>
                             </td>
 

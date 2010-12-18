@@ -158,7 +158,7 @@ class Customer extends User {
 	}
 
 	static searchable = {
-		only = ['fsdName', 'ndName', 'cdName', 'district', 'email', 'ndEmail', 'cdEmail']
+		only = ['fsdName', 'ndName', 'cdName', 'district', 'email', 'ndEmail', 'cdEmail', 'seq']
 	}
 
 	static mapping = {

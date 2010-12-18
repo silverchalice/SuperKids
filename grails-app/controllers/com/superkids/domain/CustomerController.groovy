@@ -227,9 +227,12 @@ class CustomerController {
     def findSchoolDistrict = {
 		println "in FindSchoolDistrict for CustomerController"
 		println params
+
+		def sort = params?.sort ?: "seq"
+
         if(params.query){
 			def customers = []
-            Customer.search(params?.query, [max:100]).results?.each {
+            Customer.search(params?.query, [max:100, sort:sort]).results?.each {
 					def customer =	Customer.get(it.id)
 					customers << customer
 			}
@@ -326,10 +329,11 @@ class CustomerController {
         }
         println "Q: Is customer " + customerInstance.fsdName + " new?"
         println "A: " + customerInstance.newCustomer
-        redirect controller:controller, action:action, id:id
+        redirect controller:controller, action:action, id:id, params: [sort:params?.sort ?: "seq", offset: params?.offset, query: params?.query ]
     }
 
 	def toggleDuplicate = {
+		println "toggling Duplicate"
 		println params
 		def customerInstance = Customer.get(params.id)
 		def controller = params.rController
@@ -344,7 +348,7 @@ class CustomerController {
 		}
 		println "Q: Is customer " + customerInstance.fsdName + "  a duplicate?"
 		println "A: " + customerInstance.duplicate
-		redirect controller:controller, action:action, id:id, params: [sort:params?.rSort, offset: params?.rOffset, max: params?.rMax, query: params?.rQuery ]
+		redirect controller:controller, action:action, id:id, params: [sort:params?.sort ?: "seq", offset: params?.offset, query: params?.query ]
 	}
 
 
