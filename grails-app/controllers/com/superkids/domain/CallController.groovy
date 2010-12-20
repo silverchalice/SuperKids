@@ -959,7 +959,7 @@ class CallController {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
         def sort = params.sort ?: "seq"
-		def customers = Customer.findAllByStatusAndDeleted(CustomerStatus.HAS_ORDERED, false, [max:max, offset:offset, sort: sort])
+		def customers = Customer.findAllByStatus(CustomerStatus.HAS_ORDERED, [max:max, offset:offset, sort: sort])
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_ORDERED)]
    }
