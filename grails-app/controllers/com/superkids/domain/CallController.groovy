@@ -428,7 +428,10 @@ class CallController {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			isNull 'inCall'
-			eq 'deleted', false
+			or {
+				eq 'deleted', false
+				isNull('deleted')
+			}
 
 			if(params?.queue == "new") {
 				println "$caller is using the new calls queue"
