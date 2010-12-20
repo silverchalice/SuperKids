@@ -296,7 +296,7 @@ class CallController {
         }
     }
 
-    def update = {
+    def update = {                  next
         def callInstance = Call.get(params.id)
         if (callInstance) {
             if (params.version) {
@@ -977,8 +977,9 @@ class CallController {
         def currentUser = springSecurityService.principal
 
 		def customers = Customer.createCriteria().list{
+			eq 'deleted', false
 			lastCall{
-				eq 'deleted', false
+
 				eq('result', CallResult.CALLBACK)
 				isNotNull("callbackDate")
 			}
