@@ -968,7 +968,7 @@ class CallController {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
         def sort = params.sort ?: "seq"
-		def customers = Customer.findAllByStatusAndDeleted(CustomerStatus.HAS_NOT_ORDERED, false, [max:max, offset:offset, sort:sort])
+		def customers = Customer.findAllByStatus(CustomerStatus.HAS_NOT_ORDERED, [max:max, offset:offset, sort:sort])
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
@@ -980,7 +980,10 @@ class CallController {
         def currentUser = springSecurityService.principal
 
 		def customers = Customer.createCriteria().list{
-			eq 'deleted', false
+			or {
+				eq 'deleted', false
+				isNull('deleted')
+			}
 			lastCall{
 
 				eq('result', CallResult.CALLBACK)
