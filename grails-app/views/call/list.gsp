@@ -54,7 +54,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${callInstanceTotal}" />
+                <g:paginate total="${callInstanceTotal}" maxsteps="30" />
             </div>
         </div>
     </body>

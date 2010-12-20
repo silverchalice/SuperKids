@@ -67,6 +67,9 @@ class CustomerOrderController {
     }
 
     def update = {
+		println "in Update for CustomerOrderController"
+		println params
+
         def customerOrderInstance = CustomerOrder.get(params.id)
         if (customerOrderInstance) {
             if (params.version) {
@@ -78,8 +81,17 @@ class CustomerOrderController {
                     return
                 }
             }
+
+			params.orderType = params.orderType.toUpperCase()
+
             customerOrderInstance.properties = params
+			customerOrderInstance.orderType = OrderType."${params.orderType}"
+			customerOrderInstance.customer = Customer.get(params?.customer.id)
+
             if (!customerOrderInstance.hasErrors() && customerOrderInstance.save(flush: true)) {
+				println customerOrderInstance.properties.each { key, val ->
+				println "$key = $val"
+				}
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), customerOrderInstance.id])}"
                 redirect(action: "show", id: customerOrderInstance.id)
             }
@@ -96,21 +108,26 @@ class CustomerOrderController {
     def delete = {
         def customerOrderInstance = CustomerOrder.get(params.id)
         if (customerOrderInstance) {
-            def customerInstance = Customer.get(customerOrderInstance.customer.id)
-            Assessment.findAllByCustomer(customerInstance).each{ it?.delete() }
-            try {
-                customerInstance.order = null
-                customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
-                customerInstance.hasPlacedCurrentOrder = false
-                customerInstance.save(failOnError:true)
-                customerOrderInstance.delete(flush: true)
-                flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
-                redirect(action: "list")
-            }
-            catch (org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
-                redirect(action: "show", id: params.id)
-            }
+            def customerInstance = Customer.get(customerOrderInstance?.customer?.id)
+
+			if(customerInstance){
+				Assessment.findAllByCustomer(customerInstance)?.each{ it?.delete() }
+				try {
+					customerInstance.order = null
+					customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
+					customerInstance.hasPlacedCurrentOrder = false
+					customerInstance.save(failOnError:true)
+
+				}
+				catch (org.springframework.dao.DataIntegrityViolationException e) {
+					flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
+					redirect(action: "show", id: params.id)
+				}
+			}
+			customerOrderInstance.delete(flush: true)
+			flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
+			redirect(action: "list")
+
         }
         else {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"

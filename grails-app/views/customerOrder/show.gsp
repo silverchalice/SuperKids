@@ -44,7 +44,7 @@
 								<sks:linkToOrderCall id="${customerOrderInstance?.id}" />
                             </g:if>
 							<g:else>
-								${customerOrderInstance?.orderType.encodeAsHTML()}
+								${customerOrderInstance?.orderType?.encodeAsHTML()}
 							</g:else></td>
 
                         </tr>
@@ -86,15 +86,15 @@
                             <td valign="top" class="name"><g:message code="customer.address" default="Address" /></td>
 
                             <td valign="top" class="value">
-								${customerOrderInstance?.customer?.deliveryAddress.street}
-							    <g:if test="${customerOrderInstance?.customer?.deliveryAddress.street2}">${customerOrderInstance?.customer?.deliveryAddress.street2}</g:if> 
+								${customerOrderInstance?.customer?.deliveryAddress?.street}
+							    <g:if test="${customerOrderInstance?.customer?.deliveryAddress?.street2}">${customerOrderInstance?.customer?.deliveryAddress?.street2}</g:if>
 							</td>
 
                         </tr>
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="customer.deliveryAddress" default="City/State/Zip" /></td>
 
-                            <td valign="top" class="value">${customerOrderInstance?.customer?.deliveryAddress.city} ${customerOrderInstance?.customer?.deliveryAddress.state}, ${customerOrderInstance?.customer?.deliveryAddress.zip}</td>
+                            <td valign="top" class="value">${customerOrderInstance?.customer?.deliveryAddress?.city} ${customerOrderInstance?.customer?.deliveryAddress?.state}, ${customerOrderInstance?.customer?.deliveryAddress?.zip}</td>
 
                         </tr>					
 

@@ -29,7 +29,7 @@ class CallController {
     }
 
     def list = {
-        params.max = Math.min(params.max ? params.int('max') : 24, 100)
+        params.max = Math.min(params.max ? params.int('max') : 50, 50)
 		params.sort = params?.sort ?: "dateCreated"
 		params.order = params?.order ?: "desc"
 
