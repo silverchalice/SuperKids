@@ -41,7 +41,6 @@ class MiscTagLib {
                 new Expando(toString: {-> product.name}, id: product.id, isInCart: isContained)
             }
             for(product in products) {
-                println product.isInCart
                 out << "<tr>"
                 out << "<td>"    
                 out << product
@@ -49,7 +48,6 @@ class MiscTagLib {
                 out << "<td>"
                 if(!customer.hasPlacedCurrentOrder) {
                     if(!product.isInCart){
-                        println "add link"
                         out << g.remoteLink(controller: 'product', action: 'add', update:'shoppingCartContent', params: [id: product.id, cartPage:true]) { 'Add' }
                     }
                 }
@@ -61,7 +59,6 @@ class MiscTagLib {
 
 
 	def productBox = { attrs ->
-		println "entering productBox tag..."
 		def customer = Customer.get(springSecurityService.principal?.id)
 		def shoppingCart = shoppingCartService.getShoppingCart()
                 def productIds = []
@@ -71,12 +68,9 @@ class MiscTagLib {
 
 		Product.list(sort:'sortOrder').each { product ->
 			def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)
-			println "quantity is $quantity"
-
 
 			if((product.liveProduct) && (product.statesAvailable.find{ customer?.deliveryAddress?.state }) && (!product.parent)){
 				if(quantity || productIds?.contains(product.id)) {
-					println "hoverImage"
 					out << "<a href='"
 					out << g.createLink(controller:'product', action:'show', id: product.id)
 					out << "' class='"
@@ -88,7 +82,6 @@ class MiscTagLib {
 					out << "class='productThumb' />"
 					out << "</a>"
 				} else {
-					println "image"
 					out << "<a href='"
 					out << g.createLink(controller:'product', action:'show', id: product.id)
 					out << "' class='"
@@ -182,19 +175,14 @@ class MiscTagLib {
     }
 
 	def customerAssessmentTotal = { attrs ->
-        println "in customerAssessmentTotal tag..."
 		def customer = Customer.get(attrs.id)
 		if(customer) {
-            println "got a customer"
 			def assessments= Assessment.findAllByCustomerAndCompleted(customer, true)
-
-            assessments.each { println it.product }
 
             assessments.each { a ->
 
               def prod = a.product
               if(Product.findByParent(prod)) {
-                println "found a parent"
                 assessments = assessments - a
               }
             }
@@ -232,7 +220,6 @@ class MiscTagLib {
 	def adminAssessLink = { attrs ->
 		def pOrder = ProductOrder.get(attrs.id)
 		if(pOrder) {
-			println "Found ProductOrder"
 			def product = pOrder.product
 			def customer = pOrder.order.customer
 			def assessment = Assessment.findByProductAndCustomer(product, customer)
@@ -256,14 +243,9 @@ class MiscTagLib {
 	}
 
 	def viewAssessment = { attrs ->
-		println 'entering viewAssessment tag'
 		def product = Product.get(attrs.product)
 		def customer = Customer.get(attrs.customer)
 		def assessment = Assessment.findByProductAndCustomer(product, customer)
-
-		assessment?.properties.each { key, val ->
-			println "$key = $val"
-		}
 
 		if((product) && (assessment) && (assessment.completed)) {
 			out << "Assessed | <a href='"
@@ -520,8 +502,6 @@ Modified: get menuButton text from new 'msg' attr
 
     def linkToCall = { attrs ->
         def customerInstance = Customer.get(attrs.id)
-        println "exactly what is the customerInstance's inCall? let's see... ...ok. it is: " + customerInstance.inCall
-        println "and what is the customerInstance's status? ... " + customerInstance.status
         if(!customerInstance.inCall){
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED){
                 out << g.link(controller:"call", action:"get_order_call", params:[id:customerInstance.id]){ customerInstance.district }
