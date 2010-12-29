@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="${resource(dir:'css', file:'ui.selectmenu.css')}" />
 	<script type="text/javascript" src="${resource(dir:'js', file:'ui.selectmenu.js')}"></script>
 	<script type="text/javascript">
+
+
    		$(document).ready(function() {
 
    			$("#callbackDate").datepicker({dateFormat: 'mm/dd/yy'});

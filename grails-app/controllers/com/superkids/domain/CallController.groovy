@@ -640,18 +640,36 @@ class CallController {
 		def c = Customer.createCriteria()
 		def c2 = Customer.createCriteria()
 
+		def now = new Date()
+        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
+        def oneHourAgo = new Date(new Date().time - 3600000)
+
 		//assess calls are all customers with a current order AND who are not being called atm
- 		def now = new Date()
-		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
 			eq 'status', CustomerStatus.HAS_ORDERED
 			isNull 'inCall'
-			eq 'deleted', false
+			or {
+				eq 'deleted', false
+				isNull('deleted')
+			}
 
-			//lastCall {
-			//	not { between('dateCreated', now -1, now) }
-			//}
+			lastCall {
+				ne('result', CallResult.REFUSED)
+				or {
+					and {
+						not { between('dateCreated', oneHourAgo, now) }
+						or {
+							eq('result', CallResult.BUSY)
+							eq('result', CallResult.NO_ANSWER)
+						}
+					}
+					and {
+						not { between('dateCreated', twentyFourHoursAgo, now) }
+					}
+				}
+
+			}
 
 			or{
 				eq('duplicate', false)
