@@ -29,6 +29,12 @@
 			$("select#shippingDate").selectmenu({style:'dropdown'});
              $("select#timezone").selectmenu({style:'dropdown'});
 
+			$('#home').click(function (e) {
+			   if(changedFlag == 'true' && $('#result').val() == "null") {
+					return confirm('You made changes to the form, but did not click Finish - your changes will not be saved. Do you want to continue?')
+				}
+		   });
+
 			$('#submit').click(function (e) {
                 if(clicked == 'true') { return false };
 
@@ -165,7 +171,7 @@
 		<g:hiddenField name="currentTimezone" value="${currentTimezone}" />
 
 		<div class="callerNavBar">
-			<g:link class="callerButton" style="left:10px; position:absolute;" action="finish_call" id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
+			<g:actionSubmit id="home" controller="call" class="callerButton" style="width:60px; left:60px; position:absolute;" action="finish_call" value="Home" />
 
 			<g:if test="${start && queue}">
 				<g:hiddenField name="queue" value="${queue}" />
