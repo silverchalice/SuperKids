@@ -43,7 +43,7 @@
 
                             <td>
 								<g:if test="${customerInstance.inCall == null}">
-								    <g:link action="get_order_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >${customerInstance?.district}</g:link>
+								    <g:link action="get_order_call" id="${customerInstance?.id}" params="[ocl:'true']" >${customerInstance?.district}</g:link>
 								</g:if>
 								<g:else>
 									${customerInstance?.district}
