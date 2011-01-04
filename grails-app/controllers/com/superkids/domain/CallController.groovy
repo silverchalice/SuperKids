@@ -137,7 +137,13 @@ class CallController {
 					params.each { key, val ->
 						if (key.size() > 5 && key[0..5] == 'order_' && val == 'on'){
 							def productName = key[6..-1]
+
+							println "product is $productName"
+
 							def product = Product.findByName(productName)
+
+							println "product looked up is $product.name"
+
 							def pOrder = new ProductOrder(product:product, order:order)
                             if(product){
                                 if(Product.findAllByParent(product)) {
@@ -148,8 +154,13 @@ class CallController {
                                         order.addToProducts(po)
                                     }
                                 }
-		            }
-							pOrder.save()
+
+								if(!pOrder.save()) {
+									pOrder.errors.allErrors.each {println it}
+								}
+		           	        }
+
+
 						}
 					}
 
