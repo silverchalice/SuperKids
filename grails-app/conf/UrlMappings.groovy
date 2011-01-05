@@ -268,6 +268,10 @@ class UrlMappings {
                     controller = "product"
                     action = "remove"
                 }
+                "/demo"{
+	                controller = "home"
+	                action = "demo"
+                }
 		"500"{
                     controller = "errors"
                     action = "internal_server_error"
