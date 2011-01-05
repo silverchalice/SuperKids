@@ -159,8 +159,6 @@ class CallController {
 									pOrder.errors.allErrors.each {println it}
 								}
 		           	        }
-
-
 						}
 					}
 

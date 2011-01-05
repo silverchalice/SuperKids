@@ -154,9 +154,12 @@ class CustomerController {
 				rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
                 customerInstance.order.products.each { productOrder ->
-                    if(!Product.findByParent(productOrder.product))
+					if(productOrder?.received && productOrder?.product){
+						if(!Product.findByParent(productOrder.product))
                         products << productOrder
                     }
+					}
+
                 }
                 return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, broker:broker, statusList:statusList,
 						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]

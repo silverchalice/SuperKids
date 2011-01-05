@@ -8,6 +8,82 @@ class ReportController {
 
     def index = { }
 
+
+	def incompleteOrders = {
+		println "exporting incomplete orders"
+
+		def incomplete = []
+
+		def customers = Customer.list(sort:'seq').each { c ->
+			if(c.order) {
+				println "$c has placed order"
+				def order =  c.order
+				c.order.products.each {
+					println "checking $it.product"
+					if(!it.product) {
+						println "$c has a missing product"
+						incomplete << c
+					}
+				}
+			}
+		}
+
+		def export = []
+
+		incomplete.each { customer ->
+			def c = [:]
+
+
+			def total = 0
+
+			customer.order.products.each {
+				if(!it.product) {
+					total++
+				}
+			}
+
+			if(total < 5) {
+				def caller
+			def call = Call.findByCustomerAndResult(customer, CallResult.QUALIFIED)
+			println "looking for the call"
+			if(call) {
+				println "found the call"
+				caller = call.caller
+			}
+
+
+			c.seq = customer.seq
+			c.fsdName = customer.fsdName
+			c.fsdTitle = customer.fsdTitle
+			c.district = customer.district
+			c.missingProducts = total
+			c.caller = caller?.username
+			c.callTime = call?.dateCreated
+
+			export << c
+			}
+
+
+		}
+
+		List fields = ["seq", "fsdName", "fsdTitle", "district", "missingProducts", "caller", "callTime"]
+
+        Map labels = ["id": "seq", "name": "Name", "title": "Title", "district": "District", "missingProducts": "Missing Products", "caller":"Caller", "callTime" : "Date Called/Ordered"]
+
+        Map formatters = [:]
+        Map parameters = [:]
+
+		export = export.unique()
+
+        response.contentType = ConfigurationHolder.config.grails.mime.types["excel"]
+        response.setHeader("Content-disposition", "attachment; filename=Incomplete_Orders.xls")
+
+        exportService.export("excel", response.outputStream, export, fields, labels, formatters, parameters)
+
+	}
+
+
+
     def exportCustomers = {
 		println "exporting customers..."
 

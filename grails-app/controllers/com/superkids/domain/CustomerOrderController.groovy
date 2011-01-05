@@ -43,7 +43,7 @@ class CustomerOrderController {
             redirect(action: "list")
         }
         else {
-
+			customerOrderInstance.products.each {println it}
             customerOrderInstance.products.each{ po ->
                 if(po?.product){
                     if(!Product.findByParent(po?.product))
