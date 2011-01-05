@@ -59,7 +59,10 @@ class AssessmentController {
 		println params
 		def customer = Customer.get(params.id)
 		def assessments = Assessment.findAllByCustomerAndCompleted(customer, true)
-		def dnrProducts = ProductOrder.findAllByCustomerAndReceived(customer, false)
+		def dnrProducts = []
+		customer.order.products.each{
+			if(it.received == false){ dnrProducts << it }
+		}
 		assessments.each { println "Assessment for product it.product"}
 
 		println "$customer has $assessments.size() assessments"
