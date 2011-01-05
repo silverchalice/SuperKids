@@ -73,7 +73,7 @@
 					<g:render template="view_product_assessment" model="[assessment: assessment]" />
 				</g:each>
 				<g:each in="${dnrProducts}" var="productOrder">
-					<g:render template="view_dnr_product" model="[assessment: assessment]" />
+					<g:render template="view_dnr_product" model="[productOrder: productOrder]" />
 				</g:each>
 				<h2 style="margin: 10px 2px 5px 2">Final Questions</h2>
 				 <h3>What other whole grain products would you like to see developed?</h3>
