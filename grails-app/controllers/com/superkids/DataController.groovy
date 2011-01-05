@@ -1,6 +1,7 @@
 package com.superkids
 
 import com.superkids.domain.Customer
+import com.superkids.domain.IncompleteOrder
 import com.superkids.domain.Product
 import com.superkids.domain.ProductOrder
 
@@ -76,6 +77,14 @@ class DataController {
 					c.save()
 
 					println "saved customer"
+				} else {
+					println "this will be an incomplete order"
+
+					def incompleteOrder = new IncompleteOrder(customer:c)
+					if(incompleteOrder.save()){
+						println "saved incomplete order for $c"
+					}
+
 				}
 			}
 
@@ -131,7 +140,5 @@ class DataController {
 		flash.message = "Notes Transfered"
 		println flash.message
 		redirect controller: 'customer', action: 'list'
-
 	}
-
 }
