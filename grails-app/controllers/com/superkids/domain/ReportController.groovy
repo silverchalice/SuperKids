@@ -53,9 +53,11 @@ class ReportController {
 
 
 			c.seq = customer.seq
+			c.top = customer.topCustomer
 			c.fsdName = customer.fsdName
 			c.fsdTitle = customer.fsdTitle
 			c.district = customer.district
+			c.bakes = customer.hasBakery
 			c.missingProducts = total
 			c.caller = caller?.username
 			c.callTime = call?.dateCreated
@@ -66,9 +68,9 @@ class ReportController {
 
 		}
 
-		List fields = ["seq", "fsdName", "fsdTitle", "district", "missingProducts", "caller", "callTime"]
+		List fields = ["seq", "top", "fsdName", "fsdTitle", "district", "bakes", "missingProducts", "caller", "callTime"]
 
-        Map labels = ["id": "seq", "name": "Name", "title": "Title", "district": "District", "missingProducts": "Missing Products", "caller":"Caller", "callTime" : "Date Called/Ordered"]
+        Map labels = ["seq": "seq", "top": "Top Customer", "name": "Name", "title": "Title", "district": "District", "bakes": "Has Bakery", "missingProducts": "Missing Products", "caller":"Caller", "callTime" : "Date Called/Ordered"]
 
         Map formatters = [:]
         Map parameters = [:]
