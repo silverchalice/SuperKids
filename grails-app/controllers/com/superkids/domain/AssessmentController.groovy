@@ -59,11 +59,12 @@ class AssessmentController {
 		println params
 		def customer = Customer.get(params.id)
 		def assessments = Assessment.findAllByCustomerAndCompleted(customer, true)
+		def dnrProducts = ProductOrder.findAllByCustomerAndReceived(customer, false)
 		assessments.each { println "Assessment for product it.product"}
 
 		println "$customer has $assessments.size() assessments"
 
-		[ customer: customer, assessments: assessments ]
+		[ customer: customer, assessments: assessments, dnrProducts: dnrProducts ]
 	}
 
 
