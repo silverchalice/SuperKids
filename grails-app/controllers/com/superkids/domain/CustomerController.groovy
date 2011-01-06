@@ -253,7 +253,7 @@ class CustomerController {
 
     def add_order = {
 		println "in Add_Order for CustomerController"
-		params.each { key, val ->
+		params.each {key, val ->
 			println "$key = $val"
 		}
         def admin = Admin.get(springSecurityService.principal.id)
@@ -262,17 +262,9 @@ class CustomerController {
         def customer = Customer.get(params.id)
         if(customer) {
 			def order = new CustomerOrder(shippingDate:shippingDate, orderType:oo)
-
-			def products = []
-			products << params.product
-
-
-			products.each {
-				println "going through each product"
-				println it
+			params.product.each {
 				def p = Product.get(it)
 				if(p){
-					println "got the product $p.name"
 					def productOrder = new ProductOrder(product:p)
 					order.addToProducts(productOrder)
 					if(Product.findByParent(p)){
@@ -285,7 +277,21 @@ class CustomerController {
 					}
 				}
 			}
-
+			if(order?.products?.size() < 1) {
+				def p = Product.get(params.product)
+				if(p){
+					def productOrder = new ProductOrder(product:p)
+					order.addToProducts(productOrder)
+					if(Product.findByParent(p)){
+						Product.findAllByParent(p).each{
+							def po = new ProductOrder(product:it)
+							order.products.each { println it }
+							order.addToProducts(po)
+							order.products.each { println it }
+						}
+					}
+				}
+			}
 
 			customer.order = order
 			customer.hasPlacedCurrentOrder = true
