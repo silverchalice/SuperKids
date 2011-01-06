@@ -16,6 +16,16 @@ class DataController {
 	}
 
 
+	def updateIncompleteOrders = {
+		println "in updateIncompleteOrders for DataController"
+	    def file = request.getFile('cust_data')
+	    if (file && !file.isEmpty())
+			println "about to call dataService"
+	        dataService.updateIncompleteOrders(file)
+	    redirect(controller:'customer', action:'list')
+	}
+
+
 	def repairIncompleteOrders = {
 
 

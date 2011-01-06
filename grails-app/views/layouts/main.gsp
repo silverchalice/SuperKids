@@ -43,9 +43,13 @@
                         <li><h1>Caller Module</h1></li>
                         <li><g:link controller="caller" action="list">Manage Callers</g:link></li>
                         <li><g:link controller="call" action="list">View Calls</g:link></li>
+						 <li><hr /></li>
+                        <li><h1>Report Downloads</h1></li>
 						<li><sks:formats controller="report" action="exportCalls" formats="['csv']" msg="Download CSV Call Log" /></li>
-						<li><sks:formats controller="report" action="exportDNRCustomers" formats="['excel']" msg="CSV (DNR Mailing)" /></li>
+						<li><sks:formats controller="report" action="exportDNRCustomers" formats="['csv']" msg="CSV (DNR Mailing)" /></li>
+						<li><sks:formats controller="report" action="exportPotentialParticipants" formats="['excel']" msg="Potential Participants" /></li>
                         <li><hr /></li>
+                        <li><h1>Master Report</h1></li>
                         <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Download Excel" params="[ 'withAssessments': true ]" /></li>
                         <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Excel (no assessments)" /></li>
 
