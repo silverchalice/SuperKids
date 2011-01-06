@@ -86,12 +86,40 @@ class CustomerOrderController {
 
             customerOrderInstance.properties = params
 			customerOrderInstance.orderType = OrderType."${params.orderType}"
-			customerOrderInstance.customer = Customer.get(params?.customer.id)
+
+			if(params.products) {
+				println "there are products"
+
+				def toRemove = []
+				customerOrderInstance.products.each { pO ->
+					println "found a prop to remove"
+					  toRemove << pO
+				}
+
+				toRemove.each {
+					println "removing a product"
+					customerOrderInstance.removeFromProducts(it)
+					it.delete()
+				}
+				if(customerOrderInstance.save()) {
+					println "saved!"
+				}
+
+				params.products.each {
+
+					def p = Product.get(it)
+					if(p) {
+						println "found the product"
+						def pO = new ProductOrder(order:customerOrderInstance, product: Product.get())
+						customerOrderInstance.addToProducts(pO)
+					}
+
+				}
+
+
+			}
 
             if (!customerOrderInstance.hasErrors() && customerOrderInstance.save(flush: true)) {
-				println customerOrderInstance.properties.each { key, val ->
-				println "$key = $val"
-				}
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), customerOrderInstance.id])}"
                 redirect(action: "show", id: customerOrderInstance.id)
             }
