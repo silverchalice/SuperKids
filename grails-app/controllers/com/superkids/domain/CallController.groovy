@@ -435,7 +435,11 @@ class CallController {
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
-			eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			or {
+				eq 'status', CustomerStatus.HAS_NOT_ORDERED
+				eq 'hasPlacedCurrentOrder', false
+			}
+
 			isNull 'inCall'
 			or {
 				eq 'deleted', false
@@ -656,7 +660,10 @@ class CallController {
 		//assess calls are all customers with a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
-			eq 'status', CustomerStatus.HAS_ORDERED
+			or {
+				eq 'status', CustomerStatus.HAS_ORDERED
+				eq 'hasPlacedCurrentOrder', true
+			}
 			isNull 'inCall'
 			or {
 				eq 'deleted', false
