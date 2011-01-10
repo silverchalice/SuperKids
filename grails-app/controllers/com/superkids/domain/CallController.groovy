@@ -165,6 +165,7 @@ class CallController {
 					if(order.save(flush:true)) {
 						println "w00t! $caller saved order for customer " + order.customer.fsdName
 						customer.status = CustomerStatus.HAS_ORDERED
+						customer.hasPlacedCurrentOrder = true
 						customer.order = order
 					} else {
 						println "oops... $caller had problems saving order for customer " + customer?.fsdName
@@ -453,6 +454,7 @@ class CallController {
 				println "$caller is using the prev calls queue"
 					lastCall {
 						ne('result', CallResult.REFUSED)
+						ne('result', CallResult.QUALIFIED)
 						or {
 							and {
 								not { between('dateCreated', oneHourAgo, now) }
