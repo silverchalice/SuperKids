@@ -2,3 +2,8 @@ web-app/WEB-INF/classes/*
 target/
 target/*
 web-app/css/.*
+
+.idea/workspace.xml
+SuperKids-grailsPlugins.iml
+SuperKids.iml
+SuperKids.war

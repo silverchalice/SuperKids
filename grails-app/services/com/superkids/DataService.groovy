@@ -140,5 +140,102 @@ class DataService {
 		}
 	}
 
+	def updateIncompleteOrders(file) {
+		println "in updateIncompleteOrders"
+		def i = 0
+		def is = file.inputStream
+
+		def ultragrain = Product.get(20)
+		def sustagrain = Product.get(19)
+		def hotdogbuns = Product.get(17)
+		def ultragrainpasta = Product.get(23)
+
+		new ExcelBuilder(is).eachLine([labels:true]) {
+			i++
+			if(cell(2)) {
+				if(Customer.findByFsdName(cell(2))) {
+					def customer = Customer.findByFsdName(cell(2))
+					def order = customer.order
+
+					println customer?.fsdName
+					println cell(9)
+					println cell(10)
+					println cell(11)
+					println cell(12)
+
+
+					if(order) {
+						if(cell(9) == "X") {
+							println "Adding Ultragrain"
+							order.addToProducts(new ProductOrder(product:ultragrain, order:order))
+							if(order.save()) removeOneNullProduct(order)
+							order.products.each{
+								println "$it.order with $it.product"
+							}
+						}
+						if(cell(10) == "X") {
+							println "Adding Sustagrain"
+							order.addToProducts(new ProductOrder(product:sustagrain, order:order))
+							if(order.save()) removeOneNullProduct(order)
+							order.products.each{
+								println "$it.order with $it.product"
+							}
+
+						}
+						if(cell(11) == "X") {
+							println "Adding Hot Dog Buns"
+							order.addToProducts(new ProductOrder(product:hotdogbuns, order:order))
+							if(order.save()) removeOneNullProduct(order)
+							order.products.each{
+								println "$it.order with $it.product"
+							}
+						}
+						if(cell(12) == "X") {
+							println "Adding Ultragrain Pasta"
+							order.addToProducts(new ProductOrder(product:ultragrainpasta, order:order))
+							if(order.save()) removeOneNullProduct(order)
+							order.products.each{
+								println "$it.order with $it.product"
+							}
+						}
+
+						if(order.products.find {!it.product}) {
+							println "still missing one product"
+						} else {
+							println "all products are accounted for"
+							def iO = IncompleteOrder.findByCustomer(customer)
+							if(iO) {
+								iO.delete(flush: true)
+							   println "deleted IncompleteOrder"
+							}
+
+
+						}
+
+					}
+				}
+			}
+		}
+	}
+
+	def removeOneNullProduct(order) {
+		println "in removeOneNullProduct for DataService"
+		def nullPO = null
+		order.products.each {
+		   if(!it.product && !nullPO) {
+			   println it
+			   nullPO = it
+		   }
+		}
+		if(nullPO) {
+			order.removeFromProducts(nullPO)
+			nullPO = null
+			if(order.save()) {
+				println "removed one null product"
+			}
+		}
+	}
+
+
 
 }

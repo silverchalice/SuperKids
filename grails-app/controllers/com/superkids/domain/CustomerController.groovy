@@ -252,7 +252,10 @@ class CustomerController {
     }
 
     def add_order = {
-
+		println "in Add_Order for CustomerController"
+		params.each {key, val ->
+			println "$key = $val"
+		}
         def admin = Admin.get(springSecurityService.principal.id)
         def shippingDate = ShippingDate.findByShipDate(params.shippingDate)
         def oo = Enum.valueOf(OrderType.class, params.orderType)
@@ -264,16 +267,32 @@ class CustomerController {
 				if(p){
 					def productOrder = new ProductOrder(product:p)
 					order.addToProducts(productOrder)
-                                        if(Product.findByParent(p)){
-                                            Product.findAllByParent(p).each{
-                                                def po = new ProductOrder(product:it)
-                                                order.products.each { println it }
-                                                order.addToProducts(po)
-                                                order.products.each { println it }
-                                            }
-                                        }
+					if(Product.findByParent(p)){
+						Product.findAllByParent(p).each{
+							def po = new ProductOrder(product:it)
+							order.products.each { println it }
+							order.addToProducts(po)
+							order.products.each { println it }
+						}
+					}
 				}
 			}
+			if(order?.products?.size() < 1) {
+				def p = Product.get(params.product)
+				if(p){
+					def productOrder = new ProductOrder(product:p)
+					order.addToProducts(productOrder)
+					if(Product.findByParent(p)){
+						Product.findAllByParent(p).each{
+							def po = new ProductOrder(product:it)
+							order.products.each { println it }
+							order.addToProducts(po)
+							order.products.each { println it }
+						}
+					}
+				}
+			}
+
 			customer.order = order
 			customer.hasPlacedCurrentOrder = true
 			customer.status = CustomerStatus.HAS_ORDERED

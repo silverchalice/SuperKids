@@ -39,14 +39,7 @@
                                 </td>
                             </tr>
                         
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="customer"><g:message code="customerOrder.customer.label" default="Customer" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: customerOrderInstance, field: 'customer', 'errors')}">
-                                    <g:select name="customer.id" from="${com.superkids.domain.Customer.list()}" optionKey="id" value="${customerOrderInstance?.customer?.id}"  />
-                                </td>
-                            </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="dateCreated"><g:message code="customerOrder.dateCreated.label" default="Date Created" /></label>

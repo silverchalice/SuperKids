@@ -81,6 +81,7 @@
 				top:90px;
 				right:15px;
 				overflow: hidden;
+				z-index:3;
 			}
 
 			#productAdContainer {

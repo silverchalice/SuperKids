@@ -165,6 +165,7 @@ class CallController {
 					if(order.save(flush:true)) {
 						println "w00t! $caller saved order for customer " + order.customer.fsdName
 						customer.status = CustomerStatus.HAS_ORDERED
+						customer.hasPlacedCurrentOrder = true
 						customer.order = order
 					} else {
 						println "oops... $caller had problems saving order for customer " + customer?.fsdName
@@ -435,7 +436,11 @@ class CallController {
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
-			eq 'status', CustomerStatus.HAS_NOT_ORDERED
+			or {
+				eq 'status', CustomerStatus.HAS_NOT_ORDERED
+				eq 'hasPlacedCurrentOrder', false
+			}
+
 			isNull 'inCall'
 			or {
 				eq 'deleted', false
@@ -449,6 +454,7 @@ class CallController {
 				println "$caller is using the prev calls queue"
 					lastCall {
 						ne('result', CallResult.REFUSED)
+						ne('result', CallResult.QUALIFIED)
 						or {
 							and {
 								not { between('dateCreated', oneHourAgo, now) }
@@ -656,7 +662,10 @@ class CallController {
 		//assess calls are all customers with a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
-			eq 'status', CustomerStatus.HAS_ORDERED
+			or {
+				eq 'status', CustomerStatus.HAS_ORDERED
+				eq 'hasPlacedCurrentOrder', true
+			}
 			isNull 'inCall'
 			or {
 				eq 'deleted', false

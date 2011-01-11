@@ -19,5 +19,11 @@
 		<input type="file" name="cust_data" /><br/>
 		<input type="submit" value="Upload File" />
 	</g:form>
+<h1>Update Incomplete Orders</h1>
+    <g:form action="updateIncompleteOrders" enctype="multipart/form-data" name="cust_data_form">
+		<input type="file" name="cust_data" /><br/>
+		<input type="submit" value="Upload File" />
+	</g:form>
+
 </body>
 </html>

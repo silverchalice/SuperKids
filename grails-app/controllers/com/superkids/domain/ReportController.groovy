@@ -53,9 +53,11 @@ class ReportController {
 
 
 			c.seq = customer.seq
+			c.top = customer.topCustomer
 			c.fsdName = customer.fsdName
 			c.fsdTitle = customer.fsdTitle
 			c.district = customer.district
+			c.bakes = customer.hasBakery
 			c.missingProducts = total
 			c.caller = caller?.username
 			c.callTime = call?.dateCreated
@@ -66,9 +68,9 @@ class ReportController {
 
 		}
 
-		List fields = ["seq", "fsdName", "fsdTitle", "district", "missingProducts", "caller", "callTime"]
+		List fields = ["seq", "top", "fsdName", "fsdTitle", "district", "bakes", "missingProducts", "caller", "callTime"]
 
-        Map labels = ["id": "seq", "name": "Name", "title": "Title", "district": "District", "missingProducts": "Missing Products", "caller":"Caller", "callTime" : "Date Called/Ordered"]
+        Map labels = ["seq": "seq", "top": "Top Customer", "name": "Name", "title": "Title", "district": "District", "bakes": "Has Bakery", "missingProducts": "Missing Products", "caller":"Caller", "callTime" : "Date Called/Ordered"]
 
         Map formatters = [:]
         Map parameters = [:]
@@ -329,7 +331,51 @@ class ReportController {
 		println ("After export - ${new Date().time - startTime}")
     }
 
+	def exportPotentialParticipants = {
+		println "Exporting Potential Paticipants Customers...."
 
+        def customers = []
+
+		def c = Customer.createCriteria()
+
+		c.list(sort: "seq") {
+			eq 'duplicate', false
+			eq 'invalidEmail', false
+			lastCall {
+					not { eq('result', CallResult.REFUSED) }
+					not { eq('result', CallResult.NOT_QUALIFIED) }
+					not { eq('result', CallResult.QUALIFIED) }
+			}
+		}.each {customer ->
+			if(!customer.deleted) {
+				def m = [:]
+				m.id = customer.id
+				m.district = customer?.district
+				m.fsdName = customer?.fsdName
+				m.email = customer?.email
+				m.address = customer?.address
+
+
+				customers << m
+			}
+		}
+
+ 	    List fields = ["id", "district", "fsdName", "email", "address"]
+
+        Map labels = ["id": "Id", "district": "School District", "fsdName": "FSD", "email": "Email", "address": "Address"]
+
+        Map formatters = [:]
+        Map parameters = [:]
+
+		Date now = new Date()
+		def df = new java.text.SimpleDateFormat('MM-dd-yyyy')
+        String exDate = df.format(now)
+
+        response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
+        response.setHeader("Content-disposition", "attachment; filename=SK_Potential_Participants-${exDate}.xls")
+
+        exportService.export(params.format, response.outputStream, customers, fields, labels, formatters, parameters)
+    }
 
 
 
