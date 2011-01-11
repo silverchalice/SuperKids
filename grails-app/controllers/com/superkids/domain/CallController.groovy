@@ -455,6 +455,7 @@ class CallController {
 					lastCall {
 						ne('result', CallResult.REFUSED)
 						ne('result', CallResult.QUALIFIED)
+						ne('result', CallResult.NOT_QUALIFIED)
 						or {
 							and {
 								not { between('dateCreated', oneHourAgo, now) }
