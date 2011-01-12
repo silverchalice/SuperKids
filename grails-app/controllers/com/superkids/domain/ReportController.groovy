@@ -301,10 +301,8 @@ class ReportController {
 				m.email = customer?.email
 				m.address = customer?.address
 
-
 				customers << m
 			}
-
 		}
 
 		println ("After Customers.list - ${new Date().time - startTime}")
