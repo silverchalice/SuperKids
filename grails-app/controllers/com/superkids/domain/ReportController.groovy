@@ -276,7 +276,7 @@ class ReportController {
         String exDate = df.format(now)
 
         response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
-        response.setHeader("Content-disposition", "attachment; filename=SK_Calls-${exDate}.xls")
+        response.setHeader("Content-disposition", "attachment; filename=SK_Calls-${exDate}.csv")
 
         exportService.export(params.format, response.outputStream, calls, fields, labels, formatters, parameters)
 		println ("After export - ${new Date().time - startTime}")
@@ -322,7 +322,7 @@ class ReportController {
 
 
         response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
-        response.setHeader("Content-disposition", "attachment; filename=SK_DNRMailing-${exDate}.xls")
+        response.setHeader("Content-disposition", "attachment; filename=SK_DNRMailing-${exDate}.csv")
 
 
 

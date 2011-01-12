@@ -1,5 +1,5 @@
 
-<%@ page import="com.superkids.domain.CustomerOrder" %>
+<%@ page import="com.superkids.domain.Customer; com.superkids.domain.CustomerOrder" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -45,7 +45,7 @@
                     <g:each in="${customerOrderInstanceList}" status="i" var="customerOrderInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td>${customerOrderInstance?.customer?.fsdName}</td>
+                            <td>${Customer.findByOrder(customerOrderInstance)}</td>
 
 							<td style="width:50px;">${customerOrderInstance?.products?.size()}</td>
 
@@ -55,7 +55,7 @@
 
 							<td><sks:completedAssessmentCheckbox id="${customerOrderInstance?.customer?.id}"/></td>
                         
-                            <td><g:formatDate date="${customerOrderInstance.dateCreated}" format="M/d/yyyy" /></td>
+                            <td>${customerOrderInstance.dateCreated}</td>
 
 							<td>${fieldValue(bean: customerOrderInstance, field: "shippingDate")}</td>
                         

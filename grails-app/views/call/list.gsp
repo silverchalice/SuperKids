@@ -38,7 +38,7 @@
                     <g:each in="${callInstanceList}" status="i" var="callInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${callInstance.id}"><g:formatDate date="${callInstance.dateCreated}" format="EEEE, MMM dd yyyy - h:mm a zz" /> </g:link></td>
+                            <td><g:link action="show" id="${callInstance.id}"><g:formatDate date="${callInstance.dateCreated}" timeZone="America/Chicago" format="EEEE, MMM dd yyyy - h:mm a zz" /> </g:link></td>
                         
                             <td>${fieldValue(bean: callInstance, field: "result")}</td>
                         

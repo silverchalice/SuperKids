@@ -76,34 +76,34 @@
 					   <table style="margin-left:20px; border:0; line-height:10px">
 						   <tr>
 							   <td class="name">Name: </td>
-							   <td class="value">${customerInstance.fsdName}</td>
+							   <td class="value">${customerInstance?.fsdName}</td>
 						   </tr>
 						   <tr>
 							   <td class="name">School District:</td>
-							   <td class="value">${customerInstance.district}</td>
+							   <td class="value">${customerInstance?.district}</td>
 						   </tr>
 						   <tr>
 							   <td class="name">Shipping Address: </td>
 							   <td class="value">
-								   ${customerInstance.address.street}<br />
+								   ${customerInstance?.address?.street}<br />
 
-								   ${customerInstance.address.street2}
+								   ${customerInstance?.address?.street2}
 							   </td>
 						   </tr>
 						   <tr>
 							   <td class="name">Phone Number:</td>
-							   <td class="value">${customerInstance.phone}</td>
+							   <td class="value">${customerInstance?.phone}</td>
 						   </tr>
 						   <tr>
 							   <td class="name">Email Address:</td>
-							   <td class="value">${customerInstance.email}</td>
+							   <td class="value">${customerInstance?.email}</td>
 						   </tr>
 					   </table>
 					   <h1>The Samples Requested</h1>
                                              <div id="shoppingCartContent">
 						   <table style="border:0">
 							   <tbody>
-								   <g:each in="${products.sort{it.id}}" var="product">
+								   <g:each in="${products?.sort{it.id}}" var="product">
 									  <tr>
 										   <td style="width:110px; margin-left:0; padding-left:18px"><img src="${createLink(controller:'product', action:'displayImage', id:product?.id)}" alt="" /> </td>
 
