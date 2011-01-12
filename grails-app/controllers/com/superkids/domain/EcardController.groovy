@@ -4,6 +4,8 @@ class EcardController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+	def springSecurityService
+
     def index = {
         redirect(action: "list", params: params)
     }
@@ -60,7 +62,7 @@ class EcardController {
                 println " "
 		def current_user
 		if(springSecurityService.isLoggedIn()){ current_user = Customer.get(springSecurityService.principal.id) }
-		println current_user + " is trying to send a " + ecardInstance.cardType + " to " + ecardInstance.recipient + " (" + ecardInstance.recipientEmail + "); the ecard's properties are: "
+		//println current_user + " is trying to send a " + ecardInstance.cardType + " to " + ecardInstance.recipient + " (" + ecardInstance.recipientEmail + "); the ecard's properties are: "
                 ecardInstance?.properties.each { println it; println " " }
                 println " "
 
