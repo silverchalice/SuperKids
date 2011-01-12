@@ -62,6 +62,7 @@ class EcardController {
                 println " "
 		def current_user
 		if(springSecurityService.isLoggedIn()){ current_user = Customer.get(springSecurityService.principal.id) }
+
 		//println current_user + " is trying to send a " + ecardInstance.cardType + " to " + ecardInstance.recipient + " (" + ecardInstance.recipientEmail + "); the ecard's properties are: "
                 ecardInstance?.properties.each { println it; println " " }
                 println " "
