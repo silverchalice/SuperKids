@@ -165,7 +165,7 @@ class DataService {
 
 
 					if(order) {
-						if(cell(9) == "X") {
+						if(cell(9) == "x") {
 							println "Adding Dominoes"
 							order.addToProducts(new ProductOrder(product:dominoes, order:order))
 							if(order.save()) removeOneNullProduct(order)
