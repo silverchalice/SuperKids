@@ -145,10 +145,10 @@ class DataService {
 		def i = 0
 		def is = file.inputStream
 
-		def ultragrain = Product.get(20)
-		def sustagrain = Product.get(19)
-		def hotdogbuns = Product.get(17)
-		def ultragrainpasta = Product.get(23)
+		def dominoes = Product.get(14)
+		//def sustagrain = Product.get(19)
+		//def hotdogbuns = Product.get(17)
+		//def ultragrainpasta = Product.get(23)
 
 		new ExcelBuilder(is).eachLine([labels:true]) {
 			i++
@@ -159,45 +159,45 @@ class DataService {
 
 					println customer?.fsdName
 					println cell(9)
-					println cell(10)
-					println cell(11)
-					println cell(12)
+					//println cell(10)
+					//println cell(11)
+					//println cell(12)
 
 
 					if(order) {
 						if(cell(9) == "X") {
-							println "Adding Ultragrain"
-							order.addToProducts(new ProductOrder(product:ultragrain, order:order))
+							println "Adding Dominoes"
+							order.addToProducts(new ProductOrder(product:dominoes, order:order))
 							if(order.save()) removeOneNullProduct(order)
 							order.products.each{
 								println "$it.order with $it.product"
 							}
 						}
-						if(cell(10) == "X") {
-							println "Adding Sustagrain"
-							order.addToProducts(new ProductOrder(product:sustagrain, order:order))
-							if(order.save()) removeOneNullProduct(order)
-							order.products.each{
-								println "$it.order with $it.product"
-							}
-
-						}
-						if(cell(11) == "X") {
-							println "Adding Hot Dog Buns"
-							order.addToProducts(new ProductOrder(product:hotdogbuns, order:order))
-							if(order.save()) removeOneNullProduct(order)
-							order.products.each{
-								println "$it.order with $it.product"
-							}
-						}
-						if(cell(12) == "X") {
-							println "Adding Ultragrain Pasta"
-							order.addToProducts(new ProductOrder(product:ultragrainpasta, order:order))
-							if(order.save()) removeOneNullProduct(order)
-							order.products.each{
-								println "$it.order with $it.product"
-							}
-						}
+//						if(cell(10) == "X") {
+//							println "Adding Sustagrain"
+//							order.addToProducts(new ProductOrder(product:sustagrain, order:order))
+//							if(order.save()) removeOneNullProduct(order)
+//							order.products.each{
+//								println "$it.order with $it.product"
+//							}
+//
+//						}
+//						if(cell(11) == "X") {
+//							println "Adding Hot Dog Buns"
+//							order.addToProducts(new ProductOrder(product:hotdogbuns, order:order))
+//							if(order.save()) removeOneNullProduct(order)
+//							order.products.each{
+//								println "$it.order with $it.product"
+//							}
+//						}
+//						if(cell(12) == "X") {
+//							println "Adding Ultragrain Pasta"
+//							order.addToProducts(new ProductOrder(product:ultragrainpasta, order:order))
+//							if(order.save()) removeOneNullProduct(order)
+//							order.products.each{
+//								println "$it.order with $it.product"
+//							}
+//						}
 
 						if(order.products.find {!it.product}) {
 							println "still missing one product"
