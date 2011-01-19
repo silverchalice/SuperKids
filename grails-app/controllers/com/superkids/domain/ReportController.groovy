@@ -252,9 +252,16 @@ class ReportController {
 
 		Call.list(sort: "dateCreated").each {call ->
 			if(!call?.customer?.deleted) {
+
+				def sdf = new java.text.SimpleDateFormat('MM/dd/yyyy')
+				def sdf2 = new java.text.SimpleDateFormat('h:mm a z')
+				def dateCreated = sdf.format(call?.dateCreated)
+				def timeCreated = sdf2.format(call?.dateCreated)
+
 				def m = [:]
 				m.id = call.id
-				m.dateCreated = call?.dateCreated
+				m.dateCreated = dateCreated
+				m.timeCreated = timeCreated
 				m.customer = call?.customer?.district
 				m.caller = call?.caller?.username
 				m.result = call?.result
@@ -264,9 +271,9 @@ class ReportController {
 
 		println ("After Calls.list - ${new Date().time - startTime}")
 
- 	    List fields = ["id", "dateCreated", "customer", "caller", "result"]
+ 	    List fields = ["id", "dateCreated", "timeCreated", "customer", "caller", "result"]
 
-        Map labels = ["id": "Id", "dateCreated": "Date", "customer": "Customer", "caller": "Caller", "result": "Result"]
+        Map labels = ["id": "Id", "dateCreated": "Date", "timeCreated": "Time", "customer": "Customer", "caller": "Caller", "result": "Result"]
 
         Map formatters = [:]
         Map parameters = [:]
