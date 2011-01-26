@@ -3,6 +3,7 @@ target/
 target/*
 web-app/css/.*
 
+.idea/*
 .idea/workspace.xml
 SuperKids-grailsPlugins.iml
 SuperKids.iml
