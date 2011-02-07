@@ -160,7 +160,11 @@ class ReportController {
 								m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
 								m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
 								m."${prod.name}_Q3" = assessment ? assessment.likeComment : ''
-								m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''
+								m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''								
+								if(prod?.id == 23) {
+									println "more pasta!"
+									m."${prod.name}_Q5" = assessment.favorite
+								}
 							}
 						}
 					}
@@ -216,6 +220,12 @@ class ReportController {
 					assessLabels."${prod.name}_Q2" = "${prod.name}_Interest_Rating"
 					assessLabels."${prod.name}_Q3" = "${prod.name}_Like_Comment"
 					assessLabels."${prod.name}_Q4" = "${prod.name}_Change_Comment"
+					
+					if(prod.id == 23) {
+						println "product is pasta!"
+						assessFields << "${prod.name}_Q5"
+						assessLabels."${prod.name}_Q5" = "${prod.name}_Favorite_Pasta"
+					}
 				}
 			}
 

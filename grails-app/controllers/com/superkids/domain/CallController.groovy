@@ -901,6 +901,7 @@ class CallController {
 										iRating: params?.assessment?."${product.name}".interestRating,
 										likeComment: params?.assessment?."${product.name}".likeComment,
 										changeComment: params?.assessment?."${product.name}".changeComment,
+										favorite: params?.assessment?."${product.name}".favorite ?: null,
 										product: product,
                                         type: OrderType.PHONE
 								)

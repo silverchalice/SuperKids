@@ -22,11 +22,14 @@
                 <table style="width:100%">
                     <thead>
                         <tr>
-
+							<th>&nbsp;</th>	
+								
+							<th>&nbsp;</th>
+								
                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
-
+				
                             <th><g:message code="customer.fsdName.label" default="FSD Name" /></th>
-
+				
                             <th><g:message code="customer.address.label" default="Address" /></th>
 
                             <th><g:message code="customer.email.label" default="Email" /></th>
@@ -42,7 +45,9 @@
                     <tbody>
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-
+							<td class="buttonCell" style="width:100px"><g:link controller="call" action="get_order_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >Order Form</g:link></td>
+							
+							<td class="buttonCell" style="width:100px"><g:link controller="call" action="get_assess_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >Assess Form</g:link></td>
 							<td >
 								<g:if test="${customerInstance.inCall == null}">
 								    <g:link action="get_order_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >${customerInstance?.district}</g:link>
@@ -52,6 +57,7 @@
 								</g:else>
 							</td>
                             <td>${customerInstance?.fsdName}</td>
+
                             <td>${fieldValue(bean: customerInstance, field: "address")}</td>
                             <td>${fieldValue(bean: customerInstance, field: "email")}</td>
                             <td>${customerInstance.phone}</td>

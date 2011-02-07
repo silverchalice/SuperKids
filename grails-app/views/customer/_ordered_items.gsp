@@ -81,6 +81,11 @@
 		</g:radioGroup>
 		<br/>
 		<br/>
+		<h3>OPTIONAL (Only for Ultragrain Pasta)</h3> 
+		Favorite Pasta<br/>
+		<g:textArea rows="" cols="" name="favorite"  style="height:16px; width:465px" />			
+		<br/>
+		<br/>
 		<g:submitButton name="submitAssessment" id="submitAssessment" value="Continue" /> 
 
 	</g:form>

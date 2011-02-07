@@ -5,7 +5,8 @@ class Assessment {
     Integer likeRating
     Integer iRating
     String likeComment
-    String changeComment
+    String changeComment		
+	String favorite
     Product product
     Boolean completed = false
 	OrderType type
@@ -16,6 +17,7 @@ class Assessment {
         likeRating nullable:true
         iRating nullable:true
         likeComment nullable:true
+		favorite nullable:true
         changeComment nullable:true
         product nullable:true
         customer nullable:true
@@ -24,6 +26,7 @@ class Assessment {
     static mapping = {
         likeComment sqlType:"longtext"
         changeComment sqlType:"longtext"
+		favorite sqlType:"longtext"
     }
 
     String toString(){

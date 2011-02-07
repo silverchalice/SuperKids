@@ -414,6 +414,7 @@ class CustomerController {
 			def product = Product.get(pOrder.product.id)
 
 			assessment.product = product
+			assessment.favorite = params?.favorite
 			assessment.type = Enum.valueOf(OrderType.class, params.orderType)
 			assessment.completed = true
 

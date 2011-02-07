@@ -22,4 +22,10 @@
 		<td class="name" valign="top"><label for="assessment.${product?.name}.changeComment"><g:message code="assessment.changeComment" default="Change Comments" /></label></td>
 		<td class="value" valign="top"><g:textArea rows="" tabindex="4" cols="" name="assessment.${product?.name}.changeComment" style="padding:2px; 5px; height:70px; width:270px;"/></td>
 	</tr>
+	<g:if test="${product?.id == 23}">
+		<tr class="prop">
+			<td class="name" valign="top"><label for="assessment.${product?.name}.favorite"><g:message code="assessment.favorite" default="Favorite Pasta" /></label></td>
+			<td class="value" valign="top"><g:textArea rows="1" tabindex="4" cols="" name="assessment.${product?.name}.favorite" style="padding:2px; height:16px; width:270px;"/></td>
+		</tr>	
+	</g:if>
 </table>

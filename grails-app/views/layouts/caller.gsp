@@ -12,6 +12,7 @@
 			$(document).ready(function() {
 				$('#search').button();
 				$('.callerButton').button();
+				$('.buttonCell a').button();
 			});
 		</script>
         <script type="text/javascript">
