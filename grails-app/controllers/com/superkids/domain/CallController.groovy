@@ -667,14 +667,17 @@ class CallController {
 				eq 'status', CustomerStatus.HAS_ORDERED
 				eq 'hasPlacedCurrentOrder', true
 			}
+
 			isNull 'inCall'
 			or {
 				eq 'deleted', false
 				isNull('deleted')
 			}
-
+ 
 			lastCall {
 				ne('result', CallResult.REFUSED)
+				ne('result', CallResult.QUALIFIED)
+				ne('result', CallResult.NOT_QUALIFIED)
 				or {
 					and {
 						not { between('dateCreated', oneHourAgo, now) }
@@ -686,10 +689,8 @@ class CallController {
 					and {
 						not { between('dateCreated', twentyFourHoursAgo, now) }
 					}
-				}
-
+				}					
 			}
-
 			or{
 				eq('duplicate', false)
 				isNull('duplicate')
@@ -704,7 +705,7 @@ class CallController {
             }
           maxResults(1)
 		}.getAt(0)
-
+		
 		if(customer) {
 			println "$caller got $customer from the assess queue"
 			customer.inCall = new Date()

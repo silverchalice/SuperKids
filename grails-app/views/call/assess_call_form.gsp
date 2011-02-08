@@ -19,6 +19,13 @@
             var allRadios = $('input[type=radio]')
             var radioChecked;
 
+			var changedFlag;
+			$(':input').bind('change', function() {
+			    //console.log('changedFlag = true')
+				changedFlag = 'true';
+			});
+			
+
             var setCurrent =
                             function(e) {
                                 var obj = e.target;
@@ -92,11 +99,19 @@
 
             $('#submit').click(function (e) {
                 if(clicked == 'true') { return false };
+
+				if(changedFlag == 'true' && $('#result').val() == "null") {
+					return confirm('You made changes to the form, but did not choose a Call Result - your changes will not be saved. Do you want to continue?')
+				};
+			
+			
                 $('#loader').toggle();
                 clicked = 'true'
                 return true
 
             });
+
+		
 
 		});
     </script>
