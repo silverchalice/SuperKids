@@ -405,7 +405,7 @@ class HomeController {
                if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
                    def customer = Customer.get(springSecurityService.principal.id)
                    customer.order.products.each{
-                       def product = Product.get(it.product.id)
+                       def product = Product.get(it?.product?.id)
                        if(!Assessment.findByCustomerAndProduct(customer, product)){
                            products << product
                        }
@@ -937,7 +937,7 @@ http://www.superkidssampling.com/
        }
 
        def demo = {
-	       redirect(uri:'http://173.255.197.53/')
+	       redirect controller:"login", action:"demo"
        }
 
 }

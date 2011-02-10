@@ -25,7 +25,7 @@ class LoginController {
 	 * Default action; redirects to 'defaultTargetUrl' if logged in, /login/auth otherwise.
 	 */
 	def index = {
-		println "entering logout:index"
+		println "entering login:index"
 		if (springSecurityService.isLoggedIn()) {
 			//redirect uri: SpringSecurityUtils.securityConfig.successHandler.defaultTargetUrl
                         redirect controller:"home", action:"index"
@@ -39,7 +39,7 @@ class LoginController {
 	 * Show the login page.
 	 */
 	def auth = {
-		println "entering logout:auth"
+		println "entering login:auth"
 		session.current_view = "auth"
 		def config = SpringSecurityUtils.securityConfig
 
@@ -50,15 +50,29 @@ class LoginController {
 
 		String view = 'auth'
 		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-		render view: view, model: [postUrl: postUrl,
-		                           rememberMeParameter: config.rememberMe.parameter]
+		render view: view, model: [postUrl: postUrl, rememberMeParameter: config.rememberMe.parameter]
+	}
+
+	def demo = {
+		println "entering login:demo"
+		session.current_view = "demo"
+		def config = SpringSecurityUtils.securityConfig
+
+		if (springSecurityService.isLoggedIn()) {
+			redirect uri: config.successHandler.defaultTargetUrl
+			return
+		}
+
+		String view = 'demo'
+		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+		render view: view, model: [postUrl: postUrl, rememberMeParameter: config.rememberMe.parameter]
 	}
 
 	/**
 	 * Show denied page.
 	 */
 	def denied = {
-		println "entering logout:denied"
+		println "entering login:denied"
 		log.info "hit denied action"
 		redirect uri:"/"
                 /*if (springSecurityService.isLoggedIn() &&
@@ -72,7 +86,7 @@ class LoginController {
 	 * Login page for users with a remember-me cookie but accessing a IS_AUTHENTICATED_FULLY page.
 	 */
 	def full = {
-		println "entering logout:full"
+		println "entering login:full"
 		def config = SpringSecurityUtils.securityConfig
 		render view: 'auth', params: params,
 		model: [hasCookie: authenticationTrustResolver.isRememberMe(SCH.context?.authentication),
@@ -83,7 +97,7 @@ class LoginController {
 	 * Callback after a failed login. Redirects to the auth page with a warning message.
 	 */
 	def authfail = {
-		println "entering logout:authfail"
+		println "entering login:authfail"
 		println params
 		def current_action = session.current_view
 		def username = session[UsernamePasswordAuthenticationFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
@@ -121,7 +135,7 @@ class LoginController {
 	 * The Ajax success redirect url.
 	 */
 	def ajaxSuccess = {
-		println "entering logout:ajaxSuccess"
+		println "entering login:ajaxSuccess"
 		render([success: true, username: springSecurityService.authentication.name] as JSON)
 	}
 
@@ -129,7 +143,7 @@ class LoginController {
 	 * The Ajax denied redirect url.
 	 */
 	def ajaxDenied = {
-		println "entering logout:ajaxDenied"
+		println "entering login:ajaxDenied"
 		render([error: 'access denied'] as JSON)
 	}
 
