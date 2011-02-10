@@ -810,9 +810,12 @@ class CallController {
 		if(customer) {
 			def order = new CustomerOrder()
 			def call = new Call()
-
+			def model = [:]
 			customer.inCall = new Date()
-			render view:'assess_call_form', model: [customerInstance: customer, call: call, order: order, single: true]
+			if(params?.search) 	model = [ customerInstance: customer, order: order, call: call, single: true, search: true, query: params?.query ]
+			else if(params?.cb) model = [ customerInstance: customer, call: call, order: order, single: true, cb: params?.cb ]
+			else if(params?.acl) model = [ customerInstance: customer, call: call, order: order, single: true, acl: params?.acl ]
+			render view:'assess_call_form', model: model
 		}
 		else {
 			redirect action:list
@@ -841,9 +844,31 @@ class CallController {
 		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
 			println "$caller with $customer got a CallResult of Null"
 			customer.inCall = null
-			redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue: 'true']
-			return
-		}
+
+			if(params.single)  {
+				if(params?.search == 'true') {
+					println "This call was made from a search results page - redirecting back to results"
+					def query = params?.query
+					redirect action:'findCustomer', params: [query:query]
+					return
+				} else if(params?.cb) {
+					println "This call was made from the Callback list - redirecting back to CB List"
+					redirect action:'call_back_list'
+					return
+				} else if(params?.acl) {
+					println "This call was made from the Assess Call list - redirecting back to AC List"
+					redirect action:'assess_list'
+					return
+				} else {
+					println  "This call was made without a return param - returning home"
+					redirect action: 'index', caller: springSecurityService.principal
+					return
+				}
+			}
+			else {
+				redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue: 'true']
+				}
+			}
 
 		if(customer) {
 			println "$caller is saving assess call for customer " + customer.fsdName
@@ -975,9 +1000,36 @@ class CallController {
 					customer.errors.allErrors.each { println it }
 				}
 
-				if(params?.single){
-					redirect action: 'index', caller: springSecurityService.principal
-					return
+				if(params?.single) {
+					println "This is a non-queued call"
+					if(params?.search) {
+						println "$caller made this call from a search results page - redirecting back to results"
+						def query = params?.query
+						customer.inCall = null
+						customer.save()
+						flash.message = "Call saved"
+						redirect action:'findCustomer', params: [query:query]
+						return
+					} else if(params?.cb) {
+						println "This call was made from the Callback list - redirecting back to CB List"
+						customer.inCall = null
+						customer.save()
+						flash.message = "Call saved"
+						redirect action:'call_back_list'
+						return
+					} else if(params?.acl) {
+						customer.inCall = null
+						customer.save()
+						println "This call was made from the Assess Call list - redirecting back to AC List"
+						flash.message = "Call saved"
+						redirect action:'assess_list'
+
+						return
+					}else {
+						println "no return param - heading home"
+						flash.message = "Call saved"
+						redirect action: 'index', caller: springSecurityService.principal
+					}
 				}
 				else {
 					redirect action: 'next_assess_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: params?.queue]

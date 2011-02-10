@@ -290,7 +290,7 @@ class AssessmentController {
            def userRole = Role.findByAuthority("ROLE_USER")
            if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
                user.order.products.each{
-                   def p = Product.get(it.product.id)
+                   def p = Product.get(it?.product?.id)
                    if(!Assessment.findByCustomerAndProduct(user, p) && it.received == true && !Product.findByParent(p)){
                        products << p
                    }

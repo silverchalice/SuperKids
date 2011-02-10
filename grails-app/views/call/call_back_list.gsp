@@ -23,7 +23,8 @@
                 <table>     
                     <thead>
                         <tr>
-
+							<th>&nbsp;</th>
+							<th>&nbsp;</th>
                             <th><g:message code='customer.district.label' default='District' />
 
                             <th><g:message code="customer.fsd.name" default="Name" /></th>
@@ -42,12 +43,17 @@
                     <g:each in="${customerInstanceList}" status="i" var="customerInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
-                            <td><g:if test="${customerInstance.inCall == null}">
-									<g:link action="get_order_call" params="[id:customerInstance?.id, cb:'true', single:'true']">${fieldValue(bean: customerInstance, field: "district")}</g:link>
+ 							<td class="buttonCell" style="width:100px"><g:link controller="call" action="get_order_call" id="${customerInstance?.id}" params="[cb:'true']" >Order Form</g:link></td>
+
+							<td class="buttonCell" style="width:100px">
+								<g:if test="${customerInstance?.order}">
+									<g:link controller="call" action="get_assess_call" id="${customerInstance?.id}" params="[cb:'true']" >Assess Form</g:link>
 								</g:if>
-								<g:else>
-									${fieldValue(bean: customerInstance, field: "district")}
-								</g:else></td>
+							</td>
+
+                            <td>
+								${fieldValue(bean: customerInstance, field: "district")}
+							</td>
 
                             <td>${customerInstance.fsdName}</td>
 
@@ -69,7 +75,7 @@
 								<g:else>${customerInstance.calls[-1].caller}</g:else>
 							</td>
 
- 							<td style="width:100px"><g:if test="${customerInstance.inCall == null}">
+ 							<td style="width:75px"><g:if test="${customerInstance.inCall == null}">
 								    <strong style="color:green">False</strong>
 								</g:if>
 								<g:else>

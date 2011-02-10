@@ -178,9 +178,8 @@
 				<g:hiddenField name="query" value="${query}" />
 				<g:hiddenField name="single" value="${single}" />
 				<g:hiddenField name="cb" value="${cb}" />
-				<g:hiddenField name="ocl" value="${ocl}"/>
-				<g:actionSubmit id="submit" class="callerButton" style="position:absolute; left:1080px; top:63px; width:100px" action="save_assess_call" value="Finish" />
-
+				<g:hiddenField name="acl" value="${acl}" />
+				<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_assess_call" value="Finish" />
 			</g:if>
 			<g:if test="${start && queue}">
 				<g:hiddenField name="queue" value="${queue}" />

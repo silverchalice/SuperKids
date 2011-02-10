@@ -47,7 +47,10 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 							<td class="buttonCell" style="width:100px"><g:link controller="call" action="get_order_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >Order Form</g:link></td>
 							
-							<td class="buttonCell" style="width:100px"><g:link controller="call" action="get_assess_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >Assess Form</g:link></td>
+							<td class="buttonCell" style="width:100px">
+								<g:if test="${customerInstance?.order}">
+									<g:link controller="call" action="get_assess_call" id="${customerInstance?.id}" params="[cb:'true']" >Assess Form</g:link>
+								</g:if></td>
 							<td >
 								<g:if test="${customerInstance.inCall == null}">
 								    <g:link action="get_order_call" id="${customerInstance?.id}" params="[search:'true', query: query]" >${customerInstance?.district}</g:link>
