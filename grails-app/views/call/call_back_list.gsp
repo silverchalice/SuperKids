@@ -75,7 +75,7 @@
 								<g:else>${customerInstance.calls[-1].caller}</g:else>
 							</td>
 
- 							<td style="width:75px"><g:if test="${customerInstance.inCall == null}">
+ 							<td style="width:100px"><g:if test="${customerInstance.inCall == null}">
 								    <strong style="color:green">False</strong>
 								</g:if>
 								<g:else>
