@@ -496,6 +496,8 @@ class HomeController {
        }
 
 	   def ecards_send = {
+
+		   println springSecurityService.principal.id
 		   def customer = Customer.get(springSecurityService.principal.id)
 
 		   [customer: customer]
