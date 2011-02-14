@@ -914,8 +914,11 @@ class CallController {
 								def po = ProductOrder.findByOrderAndProduct(customer.order, product)
 								po.received = false
 								po.save()
-							}
-							else {
+							} else if(params.assessment."${product.name}".didNotSample) {
+								def po = ProductOrder.findByOrderAndProduct(customer.order, product)
+								po.sampled = false
+								po.save()
+							} else {
 								println "$caller is saving customer " + customer.fsdName + "'s assessment of " + product
 								println params?.assessment?."${product.name}".likeRating
 								println params?.assessment?."${product.name}".interestRating

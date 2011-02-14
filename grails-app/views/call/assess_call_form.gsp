@@ -350,6 +350,53 @@
 							</tr>
 						</tbody>
 					</table>
+					<br/>
+					<table>
+						<tbody>
+						    <tr class="prop">
+								<td valign="top" class="name">
+									<label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="# of Students In District" /></label>
+								</td>
+								<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'studentsInDistrict', 'errors')}">
+									<g:textField name="studentsInDistrict" value="${fieldValue(bean: customerInstance, field: 'studentsInDistrict')}" />
+								</td>
+							</tr>
+							<tr class="prop">
+								<td valign="top" class="name">
+									<label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="# of Breakfasts Served" /></label>
+								</td>
+								<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'breakfastsServed', 'errors')}">
+									<g:textField name="breakfastsServed" value="${fieldValue(bean: customerInstance, field: 'breakfastsServed')}" />
+								</td>
+							</tr>
+
+							<tr class="prop">
+								<td valign="top" class="name">
+									<label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="# of Lunches Served" /></label>
+								</td>
+								<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'lunchesServed', 'errors')}">
+									<g:textField name="lunchesServed" value="${fieldValue(bean: customerInstance, field: 'lunchesServed')}" />
+								</td>
+							</tr>
+
+							<tr class="prop">
+								<td valign="top" class="name">
+									<label for="snacksServed"><g:message code="customer.snacksServed.label" default="# of Snacks Served" /></label>
+								</td>
+								<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'snacksServed', 'errors')}">
+									<g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}" />
+								</td>
+							</tr>
+							<tr class="prop">
+								<td valign="top" class="name">
+									<label for="facilities"><g:message code="customer.facilities.label" default="# of Facilities" /></label>
+								</td>
+								<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'facilities', 'errors')}">
+									<g:textField name="facilities" value="${fieldValue(bean: customerInstance, field: 'facilities')}" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 
 

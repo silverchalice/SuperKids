@@ -12,7 +12,8 @@
 	<tr class="prop">
 		<td class="name" valign="top"><label for="assessment.${product?.name}.interestRating"><g:message code="assessment.interestRating" default="Interest Rating"  /></label></td>
 		<td class="value" valign="top">	<g:select name="assessment.${product?.name}.interestRating" from="${1..5}" value="${interestRating}" tabindex="2"
-          noSelection="['':'']" style="width:100px;"/></td>
+          noSelection="['':'']" style="width:100px;"/>
+		<label style="margin-left:40px;">Did not Sample</label><g:checkBox style="float:right; margin-top:8px" name="assessment.${product?.name}.didNotSample" value="${false}"/></td>
 	</tr>
 	<tr class="prop">
 		<td class="name" valign="top"><label for="assessment.${product?.name}.likeComment"><g:message code="assessment.likeComment" default="Like Comments" /></label></td>

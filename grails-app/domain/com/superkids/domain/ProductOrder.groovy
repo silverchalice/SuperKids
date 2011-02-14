@@ -4,6 +4,7 @@ class ProductOrder {
 
     Product product
     Boolean received = true
+    Boolean sampled = true
 
     static belongsTo = [order: CustomerOrder]
 

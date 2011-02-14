@@ -4,14 +4,25 @@
 			<td>
 				<label style="font:12px" for="otherProducts" >What other whole grain products would you like to see developed?</label>
 				<br/><br/>
-				<g:textArea name="otherProducts" style="width:390px;; height:140px"/>
+				<g:textArea name="otherProducts" style="width:390px; height:110px"/>
 			</td>
 		</tr>
 	</table>
-	<br/>
-	<p style="font-size:12px; font-weight:bolder">Are there other products that you are currently using that you would like to see reformulated with Sustagrain and/or Ultragrain? Please be specific:</p>
-	<br/>
-	<table>
+	<table style="margin-top:10px">
+		<tr>
+			<td>
+				<label style="font:12px" for="programFeedback" >What positive or negative comments do you have about the SuperKids program in general?</label>
+				<br/><br/>
+				<g:textArea name="programFeedback" style="width:390px; height:110px"/>
+			</td>
+		</tr>
+	</table>
+	<table style="margin-top:10px">
+		<tr>
+			<td colspan="2">
+				<label style="font-size:12px">Are there other products that you are currently using that you would like to see reformulated with Sustagrain and/or Ultragrain? Please be specific:</label>
+			</td>
+		</tr>
 		<tr>
 			<td>
 				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.1" >Other S&U MFG #1:</label>

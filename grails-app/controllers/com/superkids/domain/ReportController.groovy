@@ -156,6 +156,11 @@ class ReportController {
 								m."${prod.name}_Q2" = "Did Not Receive"
 								m."${prod.name}_Q3" = "Did Not Receive"
 								m."${prod.name}_Q4" = "Did Not Receive"
+							} else if (!orderedProduct?.sampled) {
+								m."${prod.name}_Q1" = "Did Not Sample"
+								m."${prod.name}_Q2" = "Did Not Sample"
+								m."${prod.name}_Q3" = "Did Not Sample"
+								m."${prod.name}_Q4" = "Did Not Sample"
 							} else if (assessment) {
 								m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
 								m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
