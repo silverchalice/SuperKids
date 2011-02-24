@@ -101,6 +101,10 @@ class ReportController {
 		Customer.list(sort: "seq").each {customer ->
 			if(!customer.deleted) {
 				def productIds = customer.order?.products.collect {customer.id}
+
+				def contactTime = "${customer.fall ? 'Fall, ' : ''}${customer.spring ? 'Spring, ' : ''}${customer.am ? 'AM, ' : ''}${customer.pm ? 'PM' : ''}"
+
+
 				def m = [:]
 				m.id = customer.id
 				m.lastUpdated = customer.lastUpdated
@@ -138,6 +142,8 @@ class ReportController {
 				m.pastParticipant = customer.pastParticipant ? "YES" : "NO"
 				m.callerBrokers = customer.callerBrokers
 				m.notes = customer.notes
+				m.contact = contactTime
+
 				def order = customer.order
 				prods.each {prod ->
 					m."${prod.name}" = order?.products.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
@@ -185,7 +191,7 @@ class ReportController {
 
 		println ("After Customer.list - ${new Date().time - startTime}")
 
-        List fields = ["id", "seq", "topCustomer", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments", "pastParticipant", "callerBrokers", "notes"]
+        List fields = ["id", "seq", "topCustomer", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments", "pastParticipant", "callerBrokers", "notes" , "contact"]
 		for (prod in prods) {
 			def foo = prod.name
 			if (!prod.parent) {
@@ -197,7 +203,7 @@ class ReportController {
 
         fields << "order.shippingDate"
 
-        Map labels = ["id": "Id", "seq": "New Seq", "topCustomer": "Top 100", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other", "pastParticipant": "Previous Participant", "callerBrokers":"Who are your primary foodservice distributors", "notes":"Operator Comments"]
+        Map labels = ["id": "Id", "seq": "New Seq", "topCustomer": "Top 100", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other", "pastParticipant": "Previous Participant", "callerBrokers":"Who are your primary foodservice distributors", "notes":"Operator Comments", "contact":"Contact Times"]
 
 		for (prod in prods) {
 			if (!prod.parent) {

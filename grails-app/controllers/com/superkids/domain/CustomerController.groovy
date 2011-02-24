@@ -451,9 +451,10 @@ class CustomerController {
         def customer = Customer.get(params?.id)
 
         if(customer) {
-           customer.programFeedback = params?.programFeedback
-           customer.otherProducts = params?.otherProducts
-           customer.reformulations = params?.reformulations
+			customer.properties = params
+            customer.programFeedback = params?.programFeedback
+            customer.otherProducts = params?.otherProducts
+            customer.reformulations = params?.reformulations
 
            if(customer.save(flush:true)) {
               customer.hasCompletedCurrentAssessment = true

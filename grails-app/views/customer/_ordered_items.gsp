@@ -113,6 +113,14 @@
 		What one thing would you recommend be changed about this sampled product? <br/>
 		<g:textArea cols="" rows="" name="otherProducts"  style="width:465px" />
 		<br/>
+		<h3>Contact Time</h3>
+		<ul>
+			<li><g:checkBox name="fall" value="${customerInstance?.fall}" /> <b>Fall</b></li>
+			<li><g:checkBox name="spring" value="${customerInstance?.spring}" /> <b>Spring</b></li>
+			<li><g:checkBox name="am" value="${customerInstance?.am}" /> <b>AM</b></li>
+			<li><g:checkBox name="pm" value="${customerInstance?.pm}" /> <b>PM</b></li>
+		</ul>
+		<br/>
 		<h3>Rewards</h3>
           Thank You!Your assessment has been received, qualifying you for the sweepstakes prize drawing.
           <ol style="list-style-type:decimal; color:#000000; font-weight:normal">

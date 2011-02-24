@@ -673,24 +673,31 @@ class CallController {
 				eq 'deleted', false
 				isNull('deleted')
 			}
- 
-			lastCall {
-				ne('result', CallResult.REFUSED)
-				ne('result', CallResult.QUALIFIED)
-				ne('result', CallResult.NOT_QUALIFIED)
-				or {
-					and {
-						not { between('dateCreated', oneHourAgo, now) }
-						or {
-							eq('result', CallResult.BUSY)
-							eq('result', CallResult.NO_ANSWER)
+
+
+			or {
+				lastCall {
+					ne('result', CallResult.REFUSED)
+					ne('result', CallResult.QUALIFIED)
+					ne('result', CallResult.NOT_QUALIFIED)
+					or {
+						and {
+							not { between('dateCreated', oneHourAgo, now) }
+							or {
+								eq('result', CallResult.BUSY)
+								eq('result', CallResult.NO_ANSWER)
+							}
+						}
+						and {
+							not { between('dateCreated', twentyFourHoursAgo, now) }
 						}
 					}
-					and {
-						not { between('dateCreated', twentyFourHoursAgo, now) }
-					}
-				}					
+				}
+
+				isNull('lastCall')
 			}
+
+
 			or{
 				eq('duplicate', false)
 				isNull('duplicate')
@@ -830,9 +837,9 @@ class CallController {
 		def customer = Customer.get(params.id)
 
 		println "$caller is in save_assess_call for CallController, customer $customer"
-		params.each { key, val ->
-			println "$key = $val"
-		}
+		//params.each { key, val ->
+		//	println "$key = $val"
+		//}
 
         def currentTimezone
         if(params?.timezone)
@@ -866,7 +873,9 @@ class CallController {
 				}
 			}
 			else {
+				println "In-queue call... redirecting..."
 				redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue: 'true']
+				return
 				}
 			}
 

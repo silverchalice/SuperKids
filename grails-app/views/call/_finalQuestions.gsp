@@ -149,5 +149,24 @@
 			<td><input type="text" name="broker2.zip" size="10" maxlength="20" value="${broker2?.zip}"></td>
 		</tr>
 	</table>
+	<table>
+		<tr><td colspan="2"><label style="font:12px" for="programFeedback" >What would be a good time for your broker to contact you?</label></td></tr>
+		<tr>
+			<td>Fall:</td>
+			<td><g:checkBox name="fall" value="${customerInstance?.fall}" /> </td>
+		</tr>
+		<tr>
+			<td>Spring:</td>
+			<td><g:checkBox name="spring" value="${customerInstance?.spring}" /> </td>
+		</tr>
+		<tr>
+			<td>AM:</td>
+			<td><g:checkBox name="am" value="${customerInstance?.am}" /> </td>
+		</tr>
+		<tr>
+			<td>PM:</td>
+			<td><g:checkBox name="pm" value="${customerInstance?.pm}" /> </td>
+		</tr>
+	</table>
 	
 </div>

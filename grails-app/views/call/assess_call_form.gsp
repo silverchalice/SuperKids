@@ -20,7 +20,7 @@
             var radioChecked;
 
 			var changedFlag;
-			$(':input').bind('change', function() {
+			$('.body :input').bind('change', function() {
 			    //console.log('changedFlag = true')
 				changedFlag = 'true';
 			});
