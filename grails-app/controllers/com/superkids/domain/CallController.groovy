@@ -912,7 +912,7 @@ class CallController {
 						call.callbackTime = params.callbackTime
 					} else {
 					}
-				} else if(call.result == CallResult.QUALIFIED) {
+				} else if(call.result == (CallResult.QUALIFIED || CallResult.INCOMPLETE)) {
 					println "The CallResult for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving assessments"
 
 					Product.list(sort:'sortOrder').each { product ->
@@ -949,10 +949,12 @@ class CallController {
                                     assessment.completed = true
                                 }
 
-
 								customer.addToAssessments(assessment)
-								customer.status = CustomerStatus.QUALIFIED
-                                customer.hasCompletedCurrentAssessment = true
+
+								if(call.result == CallResult.QUALIFIED) {
+									customer.status = CustomerStatus.QUALIFIED
+                                	customer.hasCompletedCurrentAssessment = true
+								}
 
 								if (!customer.save()) {
 									println "$caller had errors saving customer " + customer.fsdName + "'s assessment of " + product
