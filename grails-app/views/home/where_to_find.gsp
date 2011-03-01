@@ -24,6 +24,50 @@
         	<strong><span style="color: rgb(153, 51, 0);">Several manufacturers are delivering great-tasting, better-for-you whole grain products for use in foodservice. Scroll down to see the entire list.</span></strong></p>
         </div>
         <br />
+
+
+        <p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.aztecafoods.com/" target="_blank"><u>Azteca</u></a></span></strong></p>
+        <ul>
+            <li>Ultragrain® Tortillas</li>
+        </ul>
+
+        <p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.comfortcake.com/" target="_blank"><u>ComfortCake Kitchen</u></a></span></strong></p>
+        <ul>
+            <li>16” Par-Baked, 52% White Whole Wheat Pizza Crusts</li>
+        </ul>
+
+        <p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.dominosbiz.com/Biz-Public-EN/Biz+Footer/School+Lunch/" target="_blank"><u>Domino’s</u></a></span></strong></p>
+        <ul>
+            <li>Smart Slice</li>
+        </ul>
+
+	 	<p><strong><span style="color: rgb(153, 51, 0);">Integrated Foodservice (800-560-9999) </a></span></strong></p>
+        <ul>
+            <li>Whole-Grain Grilled Cheese Sandwich and Cinnamon Toast</li>
+        </ul>
+
+		<p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.jmswank.com/" target="_blank"><u>J.M. Swank</u></a></span></strong></p>
+        <ul>
+            <li>Ultragrain Pasta™</li>
+            <li>Ultragrain® 100% Whole Wheat Flour (Hard & Soft)</li>
+            <li>Healthy Choice® All-Purpose Flour Blends made with Ultragrain (T-1 & T-2)</li>
+            <li>Sustagrain® Flour</li>
+            <li>Sustagrain® Flakes</li>
+        </ul>
+
+		<p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.fafh.com/" target="_blank"><u>Kellogg’s</u></a></span></strong></p>
+        <ul>
+            <li>One Serving of Whole Grain Frosted Strawberry Pop-Tarts®</li>
+        </ul>
+
+
+
+		<p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.usfoodservice.com/default.htm" target="_blank"><u>U.S. Foodservice</u></a></span></strong></p>
+		<ul>
+			<li>Hilltop Hearth&reg; Hamburger Buns, Hot Buns and Pullman Loaves</li>
+		</ul>
+
+        <p>&nbsp;</p>
         <div><strong><span style="color: rgb(153, 51, 0); font-size:large">Past SuperKids Products</span></strong></div>
         <p>&nbsp;</p>
         
@@ -51,10 +95,7 @@
             <li>Whole Grain Brownies, Cookies, Crème Cake, Donuts & Muffins</li>
         </ul>
         
-        <p><strong><span style="color: rgb(153, 51, 0);">Integrated Foodservice (800-560-9999) </a></span></strong></p>
-        <ul>
-            <li>Whole-Grain Grilled Cheese Sandwich and Cinnamon Toast</li>
-        </ul>
+
         
         <p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.jjsnack.com/" target="_blank"><u>J&J Snack Foods Corp.</u></a></span></strong></p>
         <ul>
@@ -70,19 +111,7 @@
             <li>Krusteaz&reg; Waffles made w/Ultragrain&reg;</li>
             <li>Krusteaz&reg; Pancakes made w/Ultragrain&reg;</li>
         </ul>
-        
-        <p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.usfoodservice.com/default.htm" target="_blank"><u>U.S. Foodservice</u></a></span></strong></p>
-        <ul>
-            <li>Hilltop Hearth&reg; Hamburger Buns, Hot Buns and Pullman Loaves</li>
-        </ul>
-        
-        <p><strong><span style="color: rgb(153, 51, 0);">Super Bakery, Inc. (800-722-6841) </span></strong></p>
-        <ul>
-            <li>Ultra&reg; Whole Wheat Mini Loaf</li>
-            <li>Ultra&reg; Wrapped Turkey Frank</li>
-            <li>Ultra&reg; Very Berry Whole Wheat Muffin</li>
-            <li>Ultra&reg; Dreamy Orange Whole Wheat Mini Loaf</li>
-        </ul>
+
         <p>&nbsp;</p>
         <div><strong><span style="color: rgb(153, 51, 0);font-size: large;">Other Ultragrain&reg; Products</span></strong></div>
         <p>&nbsp;</p>
