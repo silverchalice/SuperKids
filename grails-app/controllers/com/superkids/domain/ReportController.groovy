@@ -101,7 +101,6 @@ class ReportController {
 		Customer.list(sort: "seq").each {customer ->
 			if(!customer.deleted) {
 				def productIds = customer.order?.products.collect {customer.id}
-
 				def contactTime = "${customer.fall ? 'Fall, ' : ''}${customer.spring ? 'Spring, ' : ''}${customer.am ? 'AM, ' : ''}${customer.pm ? 'PM' : ''}"
 
 
@@ -180,6 +179,11 @@ class ReportController {
 						}
 					}
 
+					m.programFeedback = customer.programFeedback
+					m.reformulations = customer.reformulations
+					m.otherProducts = customer.otherProducts
+
+
 
 				}
 
@@ -203,7 +207,7 @@ class ReportController {
 
         fields << "order.shippingDate"
 
-        Map labels = ["id": "Id", "seq": "New Seq", "topCustomer": "Top 100", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other", "pastParticipant": "Previous Participant", "callerBrokers":"Who are your primary foodservice distributors", "notes":"Operator Comments", "contact":"Contact Times"]
+        Map labels = ["id": "Id", "seq": "New Seq", "topCustomer": "Top 100", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other", "pastParticipant": "Previous Participant", "callerBrokers":"Who are your primary foodservice distributors", "notes":"Operator Comments", "contact": "Contact Times"]
 
 		for (prod in prods) {
 			if (!prod.parent) {
@@ -219,6 +223,14 @@ class ReportController {
 
             def assessFields = []
             def assessLabels = [:]
+
+			assessLabels.programFeedback = "General Feedback"
+			assessLabels.reformulations = "Reformulations"
+			assessLabels.otherProducts = "Other Products"
+
+			assessFields << "programFeedback"
+			assessFields << "reformulations"
+			assessFields << "otherProducts"
 
 			for (prod in prods) {
 				if (!Product.findByParent(prod)) {
@@ -237,8 +249,11 @@ class ReportController {
 						assessFields << "${prod.name}_Q5"
 						assessLabels."${prod.name}_Q5" = "${prod.name}_Favorite_Pasta"
 					}
+
+
 				}
 			}
+
 
 			println ("After prods.each 3 - ${new Date().time - startTime}")
             labels = labels + assessLabels
