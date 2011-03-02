@@ -60,7 +60,15 @@
             <li>One Serving of Whole Grain Frosted Strawberry Pop-Tarts®</li>
         </ul>
 
-
+  <p><strong><span style="color: rgb(153, 51, 0);">Super Bakery, Inc. (800-722-6841) </span></strong></p>
+        <ul>
+            <li>Ultra&reg; Whole Wheat Mini Loaf</li>
+            <li>Ultra&reg; Wrapped Turkey Frank</li>
+            <li>Ultra&reg; Very Berry Whole Wheat Muffin</li>
+            <li>Ultra&reg; Dreamy Orange Whole Wheat Mini Loaf</li>
+			<li>ULTRA DOG® Turkey Frank</li>
+			<li>ULTRA DOG® Turkey Sausage Breakfast Link </li>
+        </ul>
 
 		<p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.usfoodservice.com/default.htm" target="_blank"><u>U.S. Foodservice</u></a></span></strong></p>
 		<ul>
