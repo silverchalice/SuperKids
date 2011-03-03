@@ -171,6 +171,7 @@ class ReportController {
 								m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
 								m."${prod.name}_Q3" = assessment ? assessment.likeComment : ''
 								m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''								
+								m.type = assessment.type
 								if(prod?.id == 23) {
 									println "more pasta!"
 									m."${prod.name}_Q5" = assessment.favorite
@@ -178,6 +179,7 @@ class ReportController {
 							}
 						}
 					}
+
 
 					m.programFeedback = customer.programFeedback
 					m.reformulations = customer.reformulations
@@ -224,13 +226,16 @@ class ReportController {
             def assessFields = []
             def assessLabels = [:]
 
+
 			assessLabels.programFeedback = "General Feedback"
 			assessLabels.reformulations = "Reformulations"
 			assessLabels.otherProducts = "Other Products"
 
+
 			assessFields << "programFeedback"
 			assessFields << "reformulations"
 			assessFields << "otherProducts"
+
 
 			for (prod in prods) {
 				if (!Product.findByParent(prod)) {
@@ -238,12 +243,14 @@ class ReportController {
 					assessFields << "${prod.name}_Q2"
 					assessFields << "${prod.name}_Q3"
 					assessFields << "${prod.name}_Q4"
+					assessFields << "type"
 
 					assessLabels."${prod.name}_Q1" = "${prod.name}_Like_Rating"
 					assessLabels."${prod.name}_Q2" = "${prod.name}_Interest_Rating"
 					assessLabels."${prod.name}_Q3" = "${prod.name}_Like_Comment"
 					assessLabels."${prod.name}_Q4" = "${prod.name}_Change_Comment"
-					
+					assessLabels.type = "Origin"
+
 					if(prod.id == 23) {
 						println "product is pasta!"
 						assessFields << "${prod.name}_Q5"
