@@ -912,7 +912,7 @@ class CallController {
 						call.callbackTime = params.callbackTime
 					} else {
 					}
-				} else if(call.result == (CallResult.QUALIFIED || CallResult.INCOMPLETE)) {
+				} else if (call.result == CallResult.QUALIFIED || call.result == CallResult.INCOMPLETE) {
 					println "The CallResult for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving assessments"
 
 					Product.list(sort:'sortOrder').each { product ->
