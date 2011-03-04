@@ -837,9 +837,9 @@ class CallController {
 		def customer = Customer.get(params.id)
 
 		println "$caller is in save_assess_call for CallController, customer $customer"
-		//params.each { key, val ->
-		//	println "$key = $val"
-		//}
+		params.each { key, val ->
+			println "$key = $val"
+		}
 
         def currentTimezone
         if(params?.timezone)
