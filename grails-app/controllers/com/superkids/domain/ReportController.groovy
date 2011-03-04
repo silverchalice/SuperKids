@@ -180,7 +180,9 @@ class ReportController {
 						}
 					}
 
+				   	def rA =  customer?.assessments.find {it}
 
+					m.assessmentOrigin = rA?.type
 					m.programFeedback = customer.programFeedback
 					m.reformulations = customer.reformulations
 					m.otherProducts = customer.otherProducts
@@ -227,14 +229,17 @@ class ReportController {
             def assessLabels = [:]
 
 
+
 			assessLabels.programFeedback = "General Feedback"
 			assessLabels.reformulations = "Reformulations"
 			assessLabels.otherProducts = "Other Products"
+			assessLabels.assessmentOrigin = "Assessment Origin"
 
 
 			assessFields << "programFeedback"
 			assessFields << "reformulations"
 			assessFields << "otherProducts"
+			assessFields << "assessmentOrigin"
 
 
 			for (prod in prods) {
@@ -243,13 +248,13 @@ class ReportController {
 					assessFields << "${prod.name}_Q2"
 					assessFields << "${prod.name}_Q3"
 					assessFields << "${prod.name}_Q4"
-					assessFields << "type"
+
 
 					assessLabels."${prod.name}_Q1" = "${prod.name}_Like_Rating"
 					assessLabels."${prod.name}_Q2" = "${prod.name}_Interest_Rating"
 					assessLabels."${prod.name}_Q3" = "${prod.name}_Like_Comment"
 					assessLabels."${prod.name}_Q4" = "${prod.name}_Change_Comment"
-					assessLabels.type = "Origin"
+
 
 					if(prod.id == 23) {
 						println "product is pasta!"

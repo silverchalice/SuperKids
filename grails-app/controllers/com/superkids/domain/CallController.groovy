@@ -920,14 +920,17 @@ class CallController {
 						if(params.assessment."${product.name}") {
 
 							if(params.assessment."${product.name}".didNotReceive) {
+								println "did not receive"
 								def po = ProductOrder.findByOrderAndProduct(customer.order, product)
 								po.received = false
 								po.save()
 							} else if(params.assessment."${product.name}".didNotSample) {
+								println "did not sample"
 								def po = ProductOrder.findByOrderAndProduct(customer.order, product)
 								po.sampled = false
 								po.save()
 							} else {
+
 								println "$caller is saving customer " + customer.fsdName + "'s assessment of " + product
 								println params?.assessment?."${product.name}".likeRating
 								println params?.assessment?."${product.name}".interestRating
@@ -949,7 +952,16 @@ class CallController {
                                     assessment.completed = true
                                 }
 
-								customer.addToAssessments(assessment)
+								if(customer.addToAssessments(assessment)) {
+									println "added assessment"
+								} else {
+									println "surprise! something went wrong"
+								}
+
+								customer.save()
+
+
+
 
 								if(call.result == CallResult.QUALIFIED) {
 									customer.status = CustomerStatus.QUALIFIED
