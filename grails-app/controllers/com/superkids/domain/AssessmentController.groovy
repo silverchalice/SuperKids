@@ -193,7 +193,7 @@ class AssessmentController {
          def products = []
          def assessmentInstance = Assessment.get(params.id)
          Assessment.findAllByCompleted(false).each{
-             if(it.id != assessmentInstance.id){
+             if(it.id != assessmentInstance?.id){
                  try {
                      it.delete(flush: true)
                  }
@@ -220,7 +220,7 @@ class AssessmentController {
          def products = []
          def assessmentInstance = Assessment.get(params.id)
          Assessment.findAllByCompleted(false).each{
-             if(it.id != assessmentInstance.id){
+             if(it.id != assessmentInstance?.id){
                  try {
                      it.delete(flush: true)
                  }
