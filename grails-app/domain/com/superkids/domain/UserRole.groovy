@@ -34,6 +34,7 @@ class UserRole implements Serializable {
 
 	static boolean remove(User user, Role role, boolean flush = false) {
 		UserRole instance = UserRole.findByUserAndRole(user, role)
+		println "deleting a UserRole"
 		instance ? instance.delete(flush: flush) : false
 	}
 

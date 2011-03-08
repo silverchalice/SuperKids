@@ -134,11 +134,13 @@ class CustomerOrderController {
     }
 
     def delete = {
+		println "CustomerOrderController:delete"
         def customerOrderInstance = CustomerOrder.get(params.id)
         if (customerOrderInstance) {
             def customerInstance = Customer.get(customerOrderInstance?.customer?.id)
 
 			if(customerInstance){
+				println "deleting an asssessment"
 				Assessment.findAllByCustomer(customerInstance)?.each{ it?.delete() }
 				try {
 					customerInstance.order = null
@@ -152,6 +154,7 @@ class CustomerOrderController {
 					redirect(action: "show", id: params.id)
 				}
 			}
+			println "deleting an order"
 			customerOrderInstance.delete(flush: true)
 			flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
 			redirect(action: "list")
@@ -164,17 +167,20 @@ class CustomerOrderController {
     }
 
     def other_delete = {
+		println "CustomerOrderController:other_delete"
         if(springSecurityService.isLoggedIn()){
             if(User.get(springSecurityService.principal.id).isAdmin()){
                 def customerOrderInstance = CustomerOrder.get(params.id)
                 if (customerOrderInstance) {
                     def customerInstance = Customer.get(customerOrderInstance.customer.id)
+					println "deleting an asssessment"
                     Assessment.findAllByCustomer(customerInstance).each{ it?.delete() }
                     try {
                         customerInstance.order = null
                         customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
                         customerInstance.hasPlacedCurrentOrder = false
                         customerInstance.save(failOnError:true)
+						println "deleting an order"
                         customerOrderInstance.delete(flush: true)
                         flash.message = "Deleted this customer's order."
                         redirect(action: "list")

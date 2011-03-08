@@ -111,9 +111,11 @@ class AssessmentController {
     }
 
     def delete = {
+		println "in delete for AssessmentController"
         def assessmentInstance = Assessment.get(params.id)
         if (assessmentInstance) {
             try {
+				println "deleting an assessment"
                 assessmentInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'assessment.label', default: 'Assessment'), params.id])}"
                 redirect(action: "list")
@@ -161,6 +163,7 @@ class AssessmentController {
     }
 
     def lc = {
+		 println "AssessmentController:lc"
          def customer = Customer.get(params.customerId)
          def product = Product.get(params.productId?.toInteger())
          def products = []
@@ -176,6 +179,7 @@ class AssessmentController {
          Assessment.findAllByCompleted(false).each{
              if(it.id != assessmentInstance.id){
                  try {
+					 println "deleting an assessment"
                      it.delete(flush: true)
                  }
                  catch (org.springframework.dao.DataIntegrityViolationException e) {
@@ -190,11 +194,13 @@ class AssessmentController {
     }
 
     def cc = {
+		println "AssessmentController:cc"
          def products = []
          def assessmentInstance = Assessment.get(params.id)
          Assessment.findAllByCompleted(false).each{
              if(it.id != assessmentInstance?.id){
                  try {
+					 println "deleting assessment"
                      it.delete(flush: true)
                  }
                  catch (org.springframework.dao.DataIntegrityViolationException e) {
@@ -217,11 +223,13 @@ class AssessmentController {
     }
 
     def ir = {
+		println "AsssessmentController:ir"
          def products = []
          def assessmentInstance = Assessment.get(params.id)
          Assessment.findAllByCompleted(false).each{
              if(it.id != assessmentInstance?.id){
                  try {
+					 println "deleting an asssessment"
                      it.delete(flush: true)
                  }
                  catch (org.springframework.dao.DataIntegrityViolationException e) {
@@ -244,11 +252,13 @@ class AssessmentController {
      }
 
     def complete = {
+		println "AssessmentController:complete"
          def products = []
          def assessmentInstance = Assessment.get(params.id)
          Assessment.findAllByCompleted(false).each{
              if(it.id != assessmentInstance.id){
                  try {
+					 println "deleting an asssessment"
                      it.delete(flush: true)
                  }
                  catch (org.springframework.dao.DataIntegrityViolationException e) {
@@ -276,8 +286,10 @@ class AssessmentController {
     }
 
     def assess_process = {
+		println "AssessmentController:assess_process"
          Assessment.findAllByCompleted(false).each{
              try {
+				 println "deleting an asssessment"
                  it.delete(flush: true)
              }
              catch (org.springframework.dao.DataIntegrityViolationException e) {

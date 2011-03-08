@@ -87,6 +87,7 @@ class SponsorController {
         def sponsorInstance = Sponsor.get(params.id)
         if (sponsorInstance) {
             try {
+				println "deleting a Sponsor"
                 sponsorInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'sponsor.label', default: 'Sponsor'), params.id])}"
                 redirect(action: "list")
