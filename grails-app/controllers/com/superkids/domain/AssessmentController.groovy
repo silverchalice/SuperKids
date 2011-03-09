@@ -176,7 +176,7 @@ class AssessmentController {
              }
          }
          def assessmentInstance = new Assessment(likeRating:params.likeRating, product:product, type:OrderType.WEB)
-         Assessment.findAllByCompleted(false).each{
+         customer.assessments.findAll {it.completed == false }.each{
              if(it.id != assessmentInstance.id){
                  try {
 					 println "deleting an assessment"
@@ -197,7 +197,7 @@ class AssessmentController {
 		println "AssessmentController:cc"
          def products = []
          def assessmentInstance = Assessment.get(params.id)
-         Assessment.findAllByCompleted(false).each{
+         customer.assessments.findAll {it.completed == false }.each{
              if(it.id != assessmentInstance?.id){
                  try {
 					 println "deleting assessment"
@@ -226,7 +226,7 @@ class AssessmentController {
 		println "AsssessmentController:ir"
          def products = []
          def assessmentInstance = Assessment.get(params.id)
-         Assessment.findAllByCompleted(false).each{
+         customer.assessments.findAll {it.completed == false }.each{
              if(it.id != assessmentInstance?.id){
                  try {
 					 println "deleting an asssessment"
@@ -255,7 +255,7 @@ class AssessmentController {
 		println "AssessmentController:complete"
          def products = []
          def assessmentInstance = Assessment.get(params.id)
-         Assessment.findAllByCompleted(false).each{
+         customer.assessments.findAll {it.completed == false }.each{
              if(it.id != assessmentInstance.id){
                  try {
 					 println "deleting an asssessment"
@@ -287,7 +287,7 @@ class AssessmentController {
 
     def assess_process = {
 		println "AssessmentController:assess_process"
-         Assessment.findAllByCompleted(false).each{
+         customer.assessments.findAll {it.completed == false }.each{
              try {
 				 println "deleting an asssessment"
                  it.delete(flush: true)

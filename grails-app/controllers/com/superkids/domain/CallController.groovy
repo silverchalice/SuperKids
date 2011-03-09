@@ -944,7 +944,8 @@ class CallController {
 										changeComment: params?.assessment?."${product.name}".changeComment,
 										favorite: params?.assessment?."${product.name}".favorite ?: null,
 										product: product,
-                                        type: OrderType.PHONE
+                                        type: OrderType.PHONE,
+										completed = true
 								)
 
                                 if(assessment?.likeRating && assessment?.iRating && assessment?.likeComment && assessment?.changeComment) {
