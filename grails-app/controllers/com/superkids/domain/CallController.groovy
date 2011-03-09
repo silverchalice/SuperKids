@@ -945,7 +945,7 @@ class CallController {
 										favorite: params?.assessment?."${product.name}".favorite ?: null,
 										product: product,
                                         type: OrderType.PHONE,
-										completed = true
+										completed: true
 								)
 
                                 if(assessment?.likeRating && assessment?.iRating && assessment?.likeComment && assessment?.changeComment) {
