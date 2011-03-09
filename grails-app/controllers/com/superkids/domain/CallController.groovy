@@ -362,7 +362,7 @@ class CallController {
 					caller.removeFromCalls(callInstance)
 					caller.save(flush:true)
 				}
-
+				 println "deleting a call"
 				callInstance.delete()
 
 
