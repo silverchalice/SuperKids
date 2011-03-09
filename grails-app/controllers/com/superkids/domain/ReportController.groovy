@@ -385,13 +385,15 @@ class ReportController {
 		c.list(sort: "seq") {
 			eq 'duplicate', false
 			eq 'invalidEmail', false
+			eq 'deleted', false
+			eq 'hasPlacedCurrentOrder', true
+			eq 'hasCompletedCurrentAssessment', false
 			lastCall {
 					not { eq('result', CallResult.REFUSED) }
 					not { eq('result', CallResult.NOT_QUALIFIED) }
 					not { eq('result', CallResult.QUALIFIED) }
 			}
 		}.each {customer ->
-			if(!customer.deleted) {
 				def m = [:]
 				m.id = customer.id
 				m.district = customer?.district
@@ -401,7 +403,7 @@ class ReportController {
 
 
 				customers << m
-			}
+
 		}
 
  	    List fields = ["id", "district", "fsdName", "email", "address"]
@@ -420,8 +422,6 @@ class ReportController {
 
         exportService.export(params.format, response.outputStream, customers, fields, labels, formatters, parameters)
     }
-
-
 
 
 }
