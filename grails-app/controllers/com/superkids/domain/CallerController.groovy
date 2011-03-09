@@ -53,6 +53,8 @@ class CallerController {
 
 				params.sort = 'dateCreated'
 				[callerInstance: callerInstance, calls: calls]
+			} else {
+				[callerInstance: callerInstance]
 			}
 
 
