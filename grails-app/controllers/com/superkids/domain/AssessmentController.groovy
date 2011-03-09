@@ -194,7 +194,9 @@ class AssessmentController {
     }
 
     def cc = {
+
 		println "AssessmentController:cc"
+		def customer = Customer.get(springSecurityService.principal.id)
          def products = []
          def assessmentInstance = Assessment.get(params.id)
          customer.assessments.findAll {it.completed == false }.each{
@@ -208,7 +210,7 @@ class AssessmentController {
                  }
              }
          }
-         def customer = Customer.get(springSecurityService.principal.id)
+
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
@@ -225,6 +227,7 @@ class AssessmentController {
     def ir = {
 		println "AsssessmentController:ir"
          def products = []
+		 def customer = Customer.get(springSecurityService.principal.id)
          def assessmentInstance = Assessment.get(params.id)
          customer.assessments.findAll {it.completed == false }.each{
              if(it.id != assessmentInstance?.id){
@@ -237,7 +240,7 @@ class AssessmentController {
                  }
              }
          }
-         def customer = Customer.get(springSecurityService.principal.id)
+
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
@@ -254,6 +257,7 @@ class AssessmentController {
     def complete = {
 		println "AssessmentController:complete"
          def products = []
+		def customer = Customer.get(springSecurityService.principal.id)
          def assessmentInstance = Assessment.get(params.id)
          customer.assessments.findAll {it.completed == false }.each{
              if(it.id != assessmentInstance.id){
@@ -266,7 +270,7 @@ class AssessmentController {
                  }
              }
          }
-         def customer = Customer.get(springSecurityService.principal.id)
+
          if(customer.order){
              customer.order.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
@@ -287,7 +291,8 @@ class AssessmentController {
 
     def assess_process = {
 		println "AssessmentController:assess_process"
-         customer.assessments.findAll {it.completed == false }.each{
+		def customer = Customer.get(springSecurityService.principal.id)
+        customer.assessments.findAll {it.completed == false }.each{
              try {
 				 println "deleting an asssessment"
                  it.delete(flush: true)
