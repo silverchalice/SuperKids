@@ -199,7 +199,7 @@ class AssessmentController {
 		def customer = Customer.get(springSecurityService.principal.id)
          def products = []
          def assessmentInstance = Assessment.get(params.id)
-         customer.assessments.findAll {it.completed == false }.each{
+         Assessment.findAllByCustomerAndCompleted(customer, false).each{
              if(it.id != assessmentInstance?.id){
                  try {
 					 println "deleting assessment"
@@ -229,7 +229,7 @@ class AssessmentController {
          def products = []
 		 def customer = Customer.get(springSecurityService.principal.id)
          def assessmentInstance = Assessment.get(params.id)
-         customer.assessments.findAll {it.completed == false }.each{
+         Assessment.findAllByCustomerAndCompleted(customer, false).each{
              if(it.id != assessmentInstance?.id){
                  try {
 					 println "deleting an asssessment"
@@ -259,7 +259,7 @@ class AssessmentController {
          def products = []
 		def customer = Customer.get(springSecurityService.principal.id)
          def assessmentInstance = Assessment.get(params.id)
-         customer.assessments.findAll {it.completed == false }.each{
+         Assessment.findAllByCustomerAndCompleted(customer, false).each{
              if(it.id != assessmentInstance.id){
                  try {
 					 println "deleting an asssessment"
@@ -292,7 +292,7 @@ class AssessmentController {
     def assess_process = {
 		println "AssessmentController:assess_process"
 		def customer = Customer.get(springSecurityService.principal.id)
-        customer.assessments.findAll {it.completed == false }.each{
+        Assessment.findAllByCustomerAndCompleted(customer, false).each{
              try {
 				 println "deleting an asssessment"
                  it.delete(flush: true)
