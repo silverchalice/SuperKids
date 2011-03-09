@@ -225,16 +225,13 @@ class MiscTagLib {
 			def assessment = Assessment.findByProductAndCustomer(product, customer)
 
 			if(assessment) {
-
 				out << "Assessed | "
 				out << "<a href='"
 				out << createLink(controller:'assessment', action:'show', id:assessment.id)
 				out << "' />View</a>"
-			} else if(attrs.show == 'true') {
-				out << ' '
-			} else if(!pOrder.received) {
-				out << ' '
-			}else {
+			} else if(pOrder.received == false) {
+				out << 'Did Not Receive '
+			} else {
 				out << '<a href="javascript:showAssessForm('
 				out << pOrder.id
 				out << ')">Assess</a>'

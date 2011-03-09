@@ -42,7 +42,7 @@
                                     <label for="changeComment"><g:message code="assessment.changeComment.label" default="Change Comment" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'changeComment', 'errors')}">
-                                    <g:textField name="changeComment" value="${assessmentInstance?.changeComment}" />
+                                    <g:textArea cols="100" rows="20" name="changeComment" value="${assessmentInstance?.changeComment}" />
                                 </td>
                             </tr>
                         
@@ -66,10 +66,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="interestRating"><g:message code="assessment.interestRating.label" default="Interest Rating" /></label>
+                                    <label for="iRating"><g:message code="assessment.iRating.label" default="Interest Rating" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'interestRating', 'errors')}">
-                                    <g:textField name="interestRating" value="${fieldValue(bean: assessmentInstance, field: 'interestRating')}" />
+                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'iRating', 'errors')}">
+                                    <g:textField name="iRating" value="${fieldValue(bean: assessmentInstance, field: 'iRating')}" />
                                 </td>
                             </tr>
                         
@@ -78,10 +78,18 @@
                                     <label for="likeComment"><g:message code="assessment.likeComment.label" default="Like Comment" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'likeComment', 'errors')}">
-                                    <g:textField name="likeComment" value="${assessmentInstance?.likeComment}" />
+                                    <g:textArea cols="100" rows="20"  name="likeComment" value="${assessmentInstance?.likeComment}" />
                                 </td>
                             </tr>
-                        
+						<tr class="prop">
+							 <td valign="top" class="name">
+								 <label for="favorite"><g:message code="assessment.favorite.label" default="Favorite Pasta" /></label>
+							 </td>
+							 <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'favorite', 'errors')}">
+								 <g:textArea cols="100" rows="20" name="favorite" value="${assessmentInstance?.favorite}" />
+							 </td>
+						 </tr>
+
                         </tbody>
                     </table>
                 </div>
