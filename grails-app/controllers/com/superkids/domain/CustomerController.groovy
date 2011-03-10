@@ -426,7 +426,7 @@ class CustomerController {
 
 			customer.order.products.findAll{ it.received == true }.each{
 				def p = Product.get(it.product.id)
-				if(!customer.assessments.find{ it.product.id == p.id }){
+				if(!customer.assessments.find{ it?.product?.id == p?.id }){
 					products << p
 				}
 			}
