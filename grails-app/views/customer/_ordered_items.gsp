@@ -39,7 +39,7 @@
 								onclick="${remoteFunction(action:'toggleDidNotReceive', id:productOrder.id, params:'\'didNotReceive=\' + this.checked')}"/>
 						</g:if>
 						<g:else>
-                                                    <sks:ifNotAssessed customerId="${customerInstance?.id}" productId="${productOrder?.product.id}">
+                                                    <sks:ifNotAssessed customerId="${customerInstance?.id}" productId="${productOrder?.product?.id}">
 							<sks:dnrCheckbox pOrderId="${productOrder?.id}" />
                                                     </sks:ifNotAssessed>
 				    	</g:else>

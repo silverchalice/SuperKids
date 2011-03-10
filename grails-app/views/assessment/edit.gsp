@@ -69,10 +69,10 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                  <label for="interestRating"><g:message code="assessment.interestRating.label" default="Interest Rating" /></label>
+                                  <label for="iRating"><g:message code="assessment.iRating.label" default="Interest Rating" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'interestRating', 'errors')}">
-                                    <g:textField name="interestRating" value="${fieldValue(bean: assessmentInstance, field: 'interestRating')}" />
+                                <td valign="top" class="value ${hasErrors(bean: assessmentInstance, field: 'iRating', 'errors')}">
+                                    <g:textField name="iRating" value="${fieldValue(bean: assessmentInstance, field: 'iRating')}" />
                                 </td>
                             </tr>
                         
