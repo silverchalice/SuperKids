@@ -25,6 +25,34 @@ class DataController {
 	    redirect(controller:'customer', action:'list')
 	}
 
+	def trimFields = {
+	   Customer.list().each { customer ->
+		  String fax = customer?.fax
+
+		  def faxArray = fax?.split(',')
+
+
+		  println "$customer.fsdName with old fax $customer.fax"
+		  println "faxArray is $faxArray"
+
+		  def tempFax = faxArray.find{it}
+		  println "tempFax is $tempFax"
+
+		  def students = customer?.studentsInDistrict?.split(',')
+		  def tempStudents = students.find{it}
+		   println "old students is $customer.studentsInDistrict"
+		   println "tempStudents is $tempStudents"
+
+		   customer.studentsInDistrict = tempStudents
+
+		   customer.fax = tempFax
+
+
+
+
+	   }
+	}
+
 
 	def repairIncompleteOrders = {
 
