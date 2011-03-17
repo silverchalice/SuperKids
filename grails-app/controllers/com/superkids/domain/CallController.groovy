@@ -663,6 +663,7 @@ class CallController {
 		//assess calls are all customers with a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
+			eq 'hasCompletedCurrentAssessment', false
 			or {
 				eq 'status', CustomerStatus.HAS_ORDERED
 				eq 'hasPlacedCurrentOrder', true
