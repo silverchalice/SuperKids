@@ -140,6 +140,17 @@ class ReportController {
 				m.topCustomer = customer.topCustomer ? "YES" : "NO"
 				m.pastParticipant = customer.pastParticipant ? "YES" : "NO"
 				m.callerBrokers = customer.callerBrokers
+                m.brokerName = customer.brokers[0]?.name ?: ""
+                m.brokerEmail = customer.brokers[0]?.email ?: ""
+                m.brokerPhone = customer.brokers[0]?.phone ?: ""
+                m.brokerFax = customer.brokers[0]?.fax ?: ""
+                m.brokerStreet = customer.brokers[0]?.street ?: ""
+                m.brokerStreet2 = customer.brokers[0]?.street2 ?: ""
+                m.brokerCity = customer.brokers[0]?.city ?: ""
+                m.brokerState = customer.brokers[0]?.state ?: ""
+                m.brokerZip = customer.brokers[0]?.zip ?: ""
+
+
 				m.notes = customer.notes
 				m.contact = contactTime
 
@@ -206,7 +217,7 @@ class ReportController {
 
 		println ("After Customer.list - ${new Date().time - startTime}")
 
-        List fields = ["id", "seq", "topCustomer", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments", "pastParticipant", "callerBrokers", "notes" , "contact"]
+        List fields = ["id", "seq", "topCustomer", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments", "pastParticipant", "callerBrokers", "brokerName", "brokerEmail", "brokerPhone", "brokerFax", "brokerStreet", "brokerStreet2", "brokerCity", "brokerState", "brokerZip", "notes" , "contact"]
 		for (prod in prods) {
 			def foo = prod.name
 			if (!prod.parent) {
@@ -218,7 +229,7 @@ class ReportController {
 
         fields << "order.shippingDate"
 
-        Map labels = ["id": "Id", "seq": "New Seq", "topCustomer": "Top 100", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other", "pastParticipant": "Previous Participant", "callerBrokers":"Who are your primary foodservice distributors", "notes":"Operator Comments", "contact": "Contact Times"]
+        Map labels = ["id": "Id", "seq": "New Seq", "topCustomer": "Top 100", "lastUpdated": "Last Updated", "fsdName": "FSD Name", "fsdTitle": "FSD Title", "district": "School District", "address.street": "Address", "address.street2": "Address 2", "address.city": "City", "address.state": "State", "address.zip": "Zip", "phone": "Phone", "fax": "Fax", "email": "Email", "deliveryAddress.street": "Delivery Address", "deliveryAddress.street2": "Delivery Address 2", "deliveryAddress.city": "Delivery City", "deliveryAddress.state": "Delivery State", "deliveryAddress.zip": "Delivery Zip", "studentsInDistrict": "Students in District", "facilities": "Facilities", "breakfastsServed": "Breakfasts Served", "lunchesServed": "Lunches Served", "snacksServed": "Snacks Served", "hasBakery": "Make our own bread products", "purchaseFrozenBread": "Purchase frozen bread products", "purchasePreparedFood": "Purchase prepared foods", "purchaseFrozenFood": "Purchase frozen foods", "purchaseFreshBread": "Purchase fresh bread products", "otherComments": "Other", "pastParticipant": "Previous Participant", "callerBrokers":"Who are your primary foodservice distributors", "brokerName":"Distributor Name", "brokerEmail":"Distributor Email", "brokerPhone":"Distributor Phone", "brokerFax":"Distributor Fax", "brokerStreet":"Distributor Street", "brokerStreet2":"Distributor Street 2", "brokerCity":"Distributor City", "brokerState":"Distributor State", "brokerZip":"Distributor Zip", "notes":"Operator Comments", "contact": "Contact Times"]
 
 		for (prod in prods) {
 			if (!prod.parent) {
