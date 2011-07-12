@@ -285,6 +285,7 @@ class AssessmentController {
          if(products.size() > 0){
              return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
          } else {
+
              redirect controller:"assessment", action:"broker_contact"
          }
     }
@@ -346,6 +347,7 @@ class AssessmentController {
     def rewards = {
         def customerInstance = Customer.get(springSecurityService.principal.id)
         customerInstance.properties = params
+		customerInstance.hasCompletedCurrentAssessment = true
 		customerInstance.status = CustomerStatus.QUALIFIED
         customerInstance.save(failOnError:true)
         [customerInstance:customerInstance]
