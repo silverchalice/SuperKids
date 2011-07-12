@@ -3,6 +3,7 @@ dataSource {
     driverClassName = "com.mysql.jdbc.Driver"
     username = "sks"
     password = "sks5551212"
+
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -30,7 +31,7 @@ environments {
 			username = "sks"
 			password = "sks5551212"
 			dbCreate = "update"			
-            url = "jdbc:mysql://127.0.0.1:3306/sksdb"
+            url = "jdbc:mysql://superkidssampling.com :3306/sksdb"
 			dialect=org.hibernate.dialect.MySQLInnoDBDialect
 			properties {
 				validationQuery="select 1"
