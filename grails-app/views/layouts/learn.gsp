@@ -37,9 +37,9 @@
 						<ul>
 							<li id="${link=='what_is' ? 'current' : ''}"><g:link controller="home" action="what_is">What Is SuperKids?</g:link></li>
 
-							<li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain">About Ultragrain</g:link></li>
+							<!--<li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain">About Ultragrain</g:link></li> -->
 
-							<li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain">About Sustagrain</g:link></li>
+							<!-- <li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain">About Sustagrain</g:link></li> -->
 
 							<li id="${link=='products' ? 'current' : ''}"><g:link controller="product" action="list">SuperKids Products</g:link></li>
 
@@ -50,6 +50,10 @@
 							<li id="${link=='whole_grain_list' ? 'current' : ''}"><g:link controller="home" action="whole_grain_list">List of Whole Grains</g:link></li>
 
 							<li id="${link=='whole_grain_benefits' ? 'current' : ''}"><g:link controller="home" action="whole_grain_benefits">Benefits of Whole Grains</g:link></li>
+
+							<li id="${link=='healthy_hunger_free' ? 'current' : ''}"><g:link controller="home" action="healthy_hunger_free">Healthy Hunger-Free Kids Act</g:link></li>
+
+							<li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate">My Plate</g:link></li>
 
 							<li id="${link=='whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="whole_grain_studies">Whole Grains & Human Health</g:link></li>
 

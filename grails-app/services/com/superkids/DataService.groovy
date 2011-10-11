@@ -13,7 +13,7 @@ class DataService {
 		def is = file.inputStream
 		new ExcelBuilder(is).eachLine([labels:true]) {
 			i++
-			println "    ${i}: ${School_District}"
+			println "    ${i}: ${cell(7)}"
                         println " "
                         /*def bar = []
                         for(o in 0..36) {
@@ -29,39 +29,40 @@ class DataService {
 
                def customer = new Customer()
 			customer.with {
-				district = School_District ?: null
-				address = new Address(street: Address_1 ?: " ", street2:Address_2 ?: " ", city:City ?: " ", state:State ?: " ", zip:Zip ?: " ")
-				deliveryAddress = new Address(street:Delivery_Address ?: " ", street2:Delivery_Address_2 ?: " ", city:Deliver_City ?: " ", state:Delivery_State ?: " ", zip:Delivery_Zip ?: " ")
+				district = cell(7) ?: null
+				address = new Address(street: cell(8) ?: " ", street2: cell(9) ?: " ", city: cell(10) ?: " ", state: cell(11) ?: " ", zip: cell(12) ?: " ")
+				deliveryAddress = new Address(street: cell(16) ?: " ", street2: cell(17) ?: " ", city: cell(18) ?: " ", state: cell(19) ?: " ", zip: cell(20) ?: " ")
 				status = CustomerStatus.HAS_NOT_ORDERED
-				phone = Phone
-				fax = Fax ?: " "
-				fsdName = Name ?: " "
-				fsdTitle = FSD_Title
-				studentsInDistrict = Q1_No_of_Students_in_District ?: 0
-				facilities = Facilities ? Q2_No_of_Facilities : 0
-				breakfastsServed = Q3_No_of_Breakfasts_Served ? Q3_No_of_Breakfasts_Served : 0
-				lunchesServed = Q4_of_Lunches_Served ? Q4_of_Lunches_Served : 0
-				snacksServed = Q5_No_of_Snacks_Served ? Q5_No_of_Snacks_Served : 0
-				hasBakery = Q6a_Make_our_own_bread_products_from_scratch == 'Yes' ? true : false
-				purchaseFrozenBread = Q6b_Purchase_frozen_bread_products_or_bread_mixes_and_bake_them == 'Yes' ? true : false
-				purchaseFreshBread = Q6e_Purchase_fresh_bakery_and_bread_products == 'Yes' ? true : false
-				purchasePreparedFood = Purchase_prepared_foods == 'Yes' ? true : false
-				purchaseFrozenFood = Purchase_frozen_foods == 'Yes' ? true : false
-				otherComments = Q7_Other ?: ""
-				topCustomer = (Top_100 == 'Yes' ? true : false)
-				timezone = cell(34) ?: ""
-				pastParticipant = cell(35) == 'Yes' ? true : false
+				source = cell(0)
+				phone = cell(13)
+				fax = cell(14) ?: " "
+				fsdName = cell(5) ?: " "
+				fsdTitle = cell(6)
+				studentsInDistrict = cell(21) ?: 0
+				facilities = cell(22) ?: 0
+				breakfastsServed = cell(23) ?: 0
+				lunchesServed = cell(24) ?: 0
+				snacksServed = cell(25) ?: 0
+				hasBakery = (cell(26) == "Yes")
+				purchaseFrozenBread = (cell(27) == "Yes")
+				purchaseFreshBread = (cell(30) == "Yes")
+				purchasePreparedFood = (cell(29) == "Yes")
+				purchaseFrozenFood = (cell(29) == "Yes")
+				otherComments = cell(34) ?: ""
+				topCustomer = cell(3) ? true : false
+				timezone = ""
+				pastParticipant = (cell(35) == 'Yes')
 				seq = cell(2)
-				callerBrokers = Who_are_your_primary_foodservice_distributors ?: ""
+				callerBrokers = cell(33) ?: ""
 			}
 			def no = "0"
 			customer.password = springSecurityService.encodePassword("superkids")
-			if(!FSD_Email || Customer.findByUsername(FSD_Email)){
+			if(!cell(15) || Customer.findByUsername(cell(15))){
 				customer.username = "no-email@no-email${i}.com"
 				customer.email = "no-email@no-email${i}.com"
 			} else {
-				customer.username = FSD_Email
-				customer.email = FSD_Email
+				customer.username = cell(15)
+				customer.email = cell(15)
 			}
 			customer.enabled = true
 			customer.accountExpired = false

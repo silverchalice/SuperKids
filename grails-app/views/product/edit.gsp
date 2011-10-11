@@ -39,17 +39,34 @@
 
                     <p>
                         <label for="nutrition">Nutrition Information:</label>
-                        <g:textArea style="width:95%; height:300px;" name="nutrition" value="${productInstance?.nutrition}" />
+                        <fckeditor:editor
+                            name="nutrition"
+                            width="100%"
+                            height="400">
+                            ${productInstance?.nutrition}
+                        </fckeditor:editor>
                     </p><br />
 
                     <p>
-                        <label for="description">Details:</label>
-                        <g:textArea style="width:95%; height:300px;" name="details" value="${productInstance?.details}" />
+                        <label for="details">Details:</label>
+
+                            <fckeditor:editor
+                                name="details"
+                                width="100%"
+                                height="400">
+                                ${productInstance?.details}
+                            </fckeditor:editor>
                     </p><br/>
 
                     <p>
                         <label for="description">Description:</label>
-                        <g:textArea style="width:95%; height:300px;" name="description" value="${productInstance?.description}" />
+
+                        <fckeditor:editor
+                            name="description"
+                            width="100%"
+                            height="400">
+                            ${productInstance?.description}
+                        </fckeditor:editor>
                     </p>
                     <p><br />
                         <label for="statesAvailable">States Available:</label><br />

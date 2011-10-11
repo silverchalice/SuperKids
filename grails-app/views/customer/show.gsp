@@ -121,6 +121,13 @@
 					    </tr>
 
                         <tr class="prop">
+                            <td valign="top" class="name">Source</td>
+
+                            <td valign="top" class="value">${customerInstance?.source}</td>
+
+                        </tr>
+
+                        <tr class="prop">
                             <td valign="top" class="name">Phone</td>
                             
                             <td valign="top" class="value">${customerInstance?.phone}</td>

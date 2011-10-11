@@ -627,6 +627,24 @@ class HomeController {
            [content:content]
        }
 
+        def healthy_hunger_free = {
+            def content
+            def pt = PageText.findByName("healthy_hunger_free")
+            if(pt){
+                content = pt.content
+            }
+            [content:content]
+        }
+
+        def my_plate = {
+            def content
+            def pt = PageText.findByName("my_plate")
+            if(pt){
+                content = pt.content
+            }
+            [content:content]
+        }
+
        def childhood_obesity = {
            def content
            def pt = PageText.findByName("childhood_obesity")

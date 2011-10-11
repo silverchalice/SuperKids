@@ -37,6 +37,8 @@
 
                             <g:sortableColumn property="seq" title="${message(code: 'customer.seq.label', default: 'Seq')}" />
 
+                            <g:sortableColumn property="source" title="${message(code: 'customer.source.label', default: 'Source')}" />
+
                             <g:sortableColumn property="district" title="${message(code: 'customer.district.label', default: 'District')}" />
 
                             <g:sortableColumn property="fsdName" title="Name" />
@@ -62,6 +64,8 @@
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 
                             <td style="width:32px;">${customerInstance?.seq}</td>
+
+                            <td style="width:32px;">${customerInstance?.source}</td>
 
                             <td><g:link action="show" id="${customerInstance.id}">
 								<g:if test="${customerInstance.deleted}">

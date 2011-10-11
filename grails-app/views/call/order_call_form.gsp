@@ -219,6 +219,14 @@
                      </tr>
                     <tr class="prop">
                         <td valign="top" class="name">
+                            <label for="source"><g:message code="customer.source.label" default="Source" /></label>
+                        </td>
+                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'source', 'errors')}">
+                            ${customerInstance?.source}
+                        </td>
+                    </tr>
+                    <tr class="prop">
+                        <td valign="top" class="name">
                             <label for="district"><g:message code="customer.district.label" default="District" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'district', 'errors')}">

@@ -138,6 +138,12 @@
                                 </td>
                             </tr>
                             <tr class="prop">
+                                <td valign="top" class="name">Source</td>
+
+                                <g:textField name="source" value="${customerInstance?.source}" />
+
+                            </tr>
+                            <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="topCustomer">Top 100</label>
                                 </td>

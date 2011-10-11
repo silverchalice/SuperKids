@@ -9,6 +9,8 @@ class Customer extends User {
     String timezone
     Integer seq
 
+    String source
+
 	String email
 
 	String website
@@ -64,6 +66,7 @@ class Customer extends User {
 	boolean purchasePreparedFood
 	boolean purchaseFrozenFood
 
+
 	boolean topCustomer = false
 
 	boolean usingResetPassword = false
@@ -96,6 +99,8 @@ class Customer extends User {
 		phone(nullable:true, blank:true)
 		fax nullable: true 
 		inCall nullable:true
+
+        source nullable:true
 
 		fsdName nullable: false
 		fsdTitle nullable: true
