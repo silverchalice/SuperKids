@@ -5,7 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="learn" />
-        <meta name="link" content="whole_grain_benefits" />
+        <meta name="link" content="healthy_hunger_free" />
         <title>SuperKids | Healthy Hunger Free Kids Act</title>
     </head>
     <body>

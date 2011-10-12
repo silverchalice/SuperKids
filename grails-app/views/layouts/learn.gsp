@@ -33,13 +33,13 @@
 				<g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
 
 				<div id="LearnSubNav">
-						<h3 style="margin-left:62px; margin-top:5px; font-size:14px">Learn Menu</h3>
+						<h3 style="margin-left:62px; margin-top:1px; font-size:12px">Learn Menu</h3>
 						<ul>
 							<li id="${link=='what_is' ? 'current' : ''}"><g:link controller="home" action="what_is">What Is SuperKids?</g:link></li>
 
-							<!--<li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain">About Ultragrain</g:link></li> -->
+							<li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain">About Ultragrain</g:link></li>
 
-							<!-- <li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain">About Sustagrain</g:link></li> -->
+							<li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain">About Sustagrain</g:link></li>
 
 							<li id="${link=='products' ? 'current' : ''}"><g:link controller="product" action="list">SuperKids Products</g:link></li>
 
