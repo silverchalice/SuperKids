@@ -27,6 +27,12 @@ class HomeController {
         }
     }
 
+    def superkids_products_gen = {
+
+        [productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+
+    }
+
 	def ultragrain = {
            def content
            def pt = PageText.findByName("ultragrain")
@@ -309,6 +315,7 @@ class HomeController {
            }
            [content:content]
        }
+
 
 
        def public_products = {
