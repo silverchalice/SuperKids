@@ -253,3 +253,4 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/**':                                                                  ['ROLE_ADMIN']
 ]
 
+grails.mail.default.from = 'superkidssampling@gmail.com'
