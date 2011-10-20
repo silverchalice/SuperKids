@@ -53,7 +53,7 @@
 
 							<li id="${link=='healthy_hunger_free' ? 'current' : ''}"><g:link controller="home" action="healthy_hunger_free">Healthy Hunger-Free Kids Act</g:link></li>
 
-							<li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate">My Plate</g:link></li>
+							<li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate">MyPlate</g:link></li>
 
 							<li id="${link=='whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="whole_grain_studies">Whole Grains & Human Health</g:link></li>
 
