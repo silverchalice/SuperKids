@@ -18,7 +18,7 @@
                      <tr>
                          <td valign="top"><img hspace="20" height="27" width="80" vspace="20" src="${resource(dir:'images', file:'newlearningzonelogo.jpg')}" alt="The LearningZone" /></td>
                          <td>
-                             <p><strong><span style="color: rgb(153, 51, 0); font-size:16px">The Learning Zone &mdash;</span></strong>Feed Student’s Minds with Creative Nutrition Messaging.  Place an order before April 1, 2011 and get 20% off.  Use promo code CONAG10.</p>
+                             <p><strong><span style="color: rgb(153, 51, 0); font-size:16px">The Learning Zone &mdash;</span></strong>Feed Student’s Minds with Creative Nutrition Messaging.</p>
                              <p><a target="_blank" href="${resource(dir:'pdf', file:'learningzone.pdf')}"><img style="height:32px; border:0; width:32px;" src="${resource(dir:'images', file:'pdficon.gif')}" alt="Download PDF" /> <strong><span style="color: rgb(255, 102, 0);">Download the Learning ZoneXpress PDF</span></strong></a></p><br />
                          </td>
                      </tr>
