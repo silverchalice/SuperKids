@@ -114,26 +114,23 @@
                                 <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="hasBakery" value="1" ></td>
                                 <td style="padding:0 0 0 0; line-height:13px;">Make our own bread products from scratch in our bakery (proof and bake)</td>
                             </tr> 
-                            <tr style="padding-bottom:10px;"> 
-                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchaseFrozenBread" value="1" ></td>
-                                <td style="padding:0 0 0 0; line-height:13px;">Purchase frozen bread products and/or bread mixes and bake them in our bakery</td>
-                            </tr> 
-                            <tr style="padding-bottom:10px;"> 
-                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchasePreparedFood" value="1" ></td>
-                                <td style="padding:0 0 0 0; line-height:13px;">Purchase prepared foods</td>
-                            </tr> 
-                            <tr style="padding-bottom:10px;"> 
-                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchaseFrozenFood" value="1" ></td>
-                                <td style="padding:0 0 0 0; line-height:13px;">Purchase frozen foods</td>
-                            </tr> 
-                            <tr style="padding-bottom:10px;"> 
-                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="purchaseFreshBread" value="1" ></td>
-                                <td style="padding:0 0 0 0; line-height:13px;">Purchase fresh bakery and bread products</td>
-                            </tr> 
-                            <tr> 
-                                <td>&nbsp;</td> 
-                                <td style="padding:0 0 0 0; line-height:13px;">Other, please describe: <input type="text" name="otherComments" value="" size="25" maxlength="1000"></td>
-                            </tr> 
+
+                            <tr>
+                                <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">How much flour does your district use on a monthly basis in pounds? <input type="text" name="monthlyFlourUsage" value="" size="25" maxlength="1000" style="float:right"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
+                                                            contact them about the program, please list them here.<input type="text" name="localBakeries" value="" size="25" maxlength="1000" style="float:right"></td>
+                            </tr>
+                            <tr>
+
+                                <td colspan="2" style="padding:0 0 0 0; line-height:13px;"> Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:<input type="text" name="usedUltragrainSustagrainProducts" value="" size="25" maxlength="1000" style="float:right"></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">Other, please describe: <input type="text" name="otherComments" value="" size="25" maxlength="1000" style="float:right"></td>
+                            </tr>
+
                             <tr> 
                                 <td colspan="2"> 
                                     Number of students in your school district
