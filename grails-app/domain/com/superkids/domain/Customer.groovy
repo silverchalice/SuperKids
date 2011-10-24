@@ -61,11 +61,10 @@ class Customer extends User {
 	String otherProducts
 
 	boolean hasBakery
-	boolean purchaseFrozenBread
-	boolean purchaseFreshBread
-	boolean purchasePreparedFood
-	boolean purchaseFrozenFood
-
+	
+	String monthlyFlourUsage
+	String localBakeries
+	String usedUltragrainSustagrainProducts
 
 	boolean topCustomer = false
 
@@ -134,6 +133,10 @@ class Customer extends User {
 		snacksServed nullable: true
 
 		newCustomer nullable:true
+
+        localBakeries nullable: true
+        monthlyFlourUsage nullable:true
+        usedUltragrainSustagrainProducts nullable: true
 
 		//Final Questions cont...
 		programFeedback nullable:true
