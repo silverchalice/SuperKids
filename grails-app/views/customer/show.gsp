@@ -299,30 +299,23 @@
                         </tr>
 
                         <tr class="prop">
-                            <td valign="top" class="name">Bake Frozen Bread</td>
+                            <td valign="top" class="name">Monthly Flour Usage</td>
                             
-                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance.id}" name="purchaseFrozenBread" property="purchaseFrozenBread" /></td>
-                            
-                        </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name">Purchase prepared foods</td>
-                            
-                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance.id}" name="purchasePreparedFood" property="purchasePreparedFood" /></td>
+                            <td valign="top" class="value">${customerInstance.monthlyFlourUsage}</td>
                             
                         </tr>
 
                         <tr class="prop">
-                            <td valign="top" class="name">Purchase frozen foods</td>
+                            <td valign="top" class="name">Local Bakeries</td>
                             
-                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance.id}" name="purchaseFrozenFood" property="purchaseFrozenFood" /></td>
+                            <td valign="top" class="value">${customerInstance.localBakeries}</td>
                             
                         </tr>
 
                         <tr class="prop">
-                            <td valign="top" class="name">Purchase fresh bakery</td>
+                            <td valign="top" class="name">Ultragrain/Sustagrain Products Used</td>
                             
-                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance.id}" name="purchaseFreshBread" property="purchaseFreshBread" /></td>
+                            <td valign="top" class="value">${customerInstance.usedUltragrainSustagrainProducts}</td>
                             
                         </tr>
 

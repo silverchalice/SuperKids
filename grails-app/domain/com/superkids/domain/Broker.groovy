@@ -12,7 +12,7 @@ class Broker {
     String street2
 	String city
 	String state
-	Integer zip
+	String zip
 
 	static belongsTo = [customer: Customer]
 

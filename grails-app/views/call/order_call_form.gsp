@@ -483,38 +483,48 @@
                                        <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
                                    </td>
                                </tr>
-                               <tr class="prop">
+
+                               <tr>
                                   <td valign="top" class="name">
-                                      <label for="purchaseFrozenBread">We purchase frozen bread products and/or<br/>  bread mixes and bake them in our bakery</label>
+
+                                         <label for="monthlyFlourUsage">How much flour usage on a monthly basis (lbs)?</label>
                                   </td>
-                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenBread', 'errors')}">
-                                      <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
-                                  </td>
-                              </tr>
-                              <tr class="prop">
+                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'monthlyFlourUsage', 'errors')}">
+                                         <g:textField name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}"/>
+
+                                   </td>
+
+                                 </tr>
+
+
+
+                                <tr>
+                                 <td valign="top" class="name">
+
+
+                                        <label for="localBakeries"> Do you work with a local bakery to supply your fresh bakery products? Please list them here.</label>
+                                 </td>
+                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'localBakeries', 'errors')}">
+
+                                     <g:textField name="localBakeries" value="${customerInstance?.localBakeries}"/>
+                                    </td>
+
+                                </tr>
+
+
+                                 <tr>
                                   <td valign="top" class="name">
-                                      <label for="purchasePreparedFood">We purchase prepared foods</label>
+
+                                         <label for="usedUltragrainSustagrainProducts"> Do you currently use Ultragrain® or Sustagrain® products in your district?</label>
                                   </td>
-                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchasePreparedFood', 'errors')}">
-                                      <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
+                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'usedUltragrainSustagrainProducts', 'errors')}">
+
+                                      <g:textField name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" />
+
                                   </td>
-                              </tr>
-                              <tr class="prop">
-                                  <td valign="top" class="name">
-                                      <label for="purchaseFrozenFood">We purchase frozen foods</label>
-                                  </td>
-                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenFood', 'errors')}">
-                                      <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
-                                  </td>
-                              </tr>
-                              <tr class="prop">
-                                  <td valign="top" class="name">
-                                      <label for="purchaseFreshBread">We purchase fresh bakery and bread products</label>
-                                  </td>
-                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFreshBread', 'errors')}">
-                                      <g:checkBox name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" />
-                                  </td>
-                              </tr>
+
+                                 </tr>
+
                               <tr class="prop">
                                    <td valign="top" class="name">
                                        <label for="otherComments"><g:message code="customer.otherComments.label" default="Other, Please describe:" /></label>

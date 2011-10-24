@@ -237,7 +237,7 @@
 				 </div>
 				 <div style="float:left;width:300px;">
 
-				 <table style="width:300px; border:0">
+				 <table style="width:300px; border:0" cellspacing="5">
 					 <tr>
 						 <td colspan="2">
 							 <div style="font-weight:bold;font-size:12px;">
@@ -254,43 +254,49 @@
 						</td>
 						 <td>
 							<label for="hasBakery">Make our own bread products from<br/>
-								scratch in our bakery (proof & bake)</label>
+								scratch in our bakery (proof & bake)</label>    <br/>
 						</td>
 
 					</tr>
 
-					 <tr style="padding-bottom:10px;">
-					   <td valign="top" style="text-align:right">
-						   <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
-					   </td>
-					   <td>
-						   <label for="purchaseFrozenBread">Purchase frozen bread products and/or<br/>  bread mixes and bake them in our bakery</label>
-					   </td>
 
-					 </tr>
-					 <tr style="padding-bottom:10px;">
-					   <td valign="top" style="text-align:right">
-						   <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
-					   </td>
-					   <td>
-						   <label for="purchasePreparedFood">Purchase prepared foods</label>
-					   </td>
+                     <tr>
+                      <td valign="top" colspan="2">
 
-					 </tr>
+                             <label for="monthlyFlourUsage"> If yes, how much flour does your district use on a monthly basis in pounds?</label>
+                             <g:textField name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}"  style="float:right"/>   <br/>
 
-					 <tr style="padding-bottom:10px;">
-					   <td valign="top" style="text-align:right">
-						   <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
-					   </td>
-					   <td>
-						   <label for="purchaseFrozenFood">We purchase frozen foods</label>
-					   </td>
+                         </td>
 
-					 </tr>
+                     </tr>
+
+
+
+                    <tr>
+                     <td valign="top" colspan="2">
+
+
+                            <label for="localBakeries"> Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
+                            contact them about the program, please list them here.</label>
+                         <g:textField name="localBakeries" value="${customerInstance?.localBakeries}" style="float:right"/>   <br/>
+                        </td>
+
+                    </tr>
+
+
+                     <tr>
+                      <td valign="top" colspan="2">
+
+                             <label for="usedUltragrainSustagrainProducts"> Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:</label>
+                          <g:textField name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}"  style="float:right"/>    <br/>
+
+                      </td>
+
+                     </tr>
 
 					 <tr>
-						 <td>&nbsp;</td>
-						 <td>Other, please describe: <g:textField name="otherComments" value="${customerInstance?.otherComments}"/></td>
+
+						 <td  valign="top" colspan="2"><label>Other, please describe:</label> <g:textField name="otherComments" value="${customerInstance?.otherComments}"  style="float:right"/></td>
 
 					 </tr>
 					 <tr>

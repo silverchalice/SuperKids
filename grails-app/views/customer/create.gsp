@@ -326,39 +326,33 @@
 
                                    <tr class="prop">
                                       <td valign="top" class="name">
-                                          <label for="purchaseFreshBread">We purchase fresh bakery and bread products</label>
+                                          <label for="monthlyFlourUsage">If yes, how much flour does your district use on a monthly basis in pounds?</label>
                                       </td>
-                                      <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFreshBread', 'errors')}">
-                                          <g:checkBox name="purchaseFreshBread" value="${customerInstance?.purchaseFreshBread}" />
+                                      <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'monthlyFlourUsage', 'errors')}">
+                                          <g:textField class="textField" name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}" />
                                       </td>
                                     </tr>
 
                                 <tr class="prop">
                                       <td valign="top" class="name">
-                                          <label for="purchaseFrozenBread">We purchase frozen bread products and/or<br/>  bread mixes and bake them in our bakery</label>
+                                          <label for="localBakeries">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
+                                          contact them about the program, please list them here: </label>
                                       </td>
-                                      <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenBread', 'errors')}">
-                                          <g:checkBox name="purchaseFrozenBread" value="${customerInstance?.purchaseFrozenBread}" />
+                                      <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'localBakeries', 'errors')}">
+                                          <g:textField class="textField" name="localBakeries" value="${customerInstance?.localBakeries}" />
                                       </td>
                                     </tr>
 
                                 <tr class="prop">
                                   <td valign="top" class="name">
-                                      <label for="purchaseFrozenFood">We purchase frozen foods</label>
+                                      <label for="usedUltragrainSustagrainProducts">Do you currently use Ultragrain or Sustagrain products in your district? If so, please list: </label>
                                   </td>
-                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchaseFrozenFood', 'errors')}">
-                                      <g:checkBox name="purchaseFrozenFood" value="${customerInstance?.purchaseFrozenFood}" />
+                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'usedUltragrainSustagrainProducts', 'errors')}">
+                                      <g:textField class="texField" name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" />
                                   </td>
                                 </tr>
 
-                                <tr class="prop">
-                                  <td valign="top" class="name">
-                                      <label for="purchasePreparedFood">We purchase prepared foods</label>
-                                  </td>
-                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'purchasePreparedFood', 'errors')}">
-                                      <g:checkBox name="purchasePreparedFood" value="${customerInstance?.purchasePreparedFood}" />
-                                  </td>
-                                </tr>
+
 
                                 <tr class="prop">
                                     <td valign="top" class="name">

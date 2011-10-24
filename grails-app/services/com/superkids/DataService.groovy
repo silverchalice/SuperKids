@@ -15,24 +15,24 @@ class DataService {
 			i++
 			println "    ${i}: ${cell(7)}"
                         println " "
-                        /*def bar = []
-                        for(o in 0..36) {
+                        def bar = []
+                        for(o in 0..50) {
                             println "it is ${o}"
-                            if(cell(o)){
-                                println "here it is: ${cell(o)}"
+
                                 bar << "${o}: ${cell(o)}, "
-                            }
+
                         }
                         println "    Here is the full line: ${bar}"
                         println " "
-                        println " "*/
+                        println " "
 
                def customer = new Customer()
 			customer.with {
 				district = cell(7) ?: null
 				address = new Address(street: cell(8) ?: " ", street2: cell(9) ?: " ", city: cell(10) ?: " ", state: cell(11) ?: " ", zip: cell(12) ?: " ")
 				deliveryAddress = new Address(street: cell(16) ?: " ", street2: cell(17) ?: " ", city: cell(18) ?: " ", state: cell(19) ?: " ", zip: cell(20) ?: " ")
-				status = CustomerStatus.HAS_NOT_ORDERED
+
+                status = CustomerStatus.HAS_NOT_ORDERED
 				source = cell(0)
 				phone = cell(13)
 				fax = cell(14) ?: " "
@@ -43,15 +43,15 @@ class DataService {
 				breakfastsServed = cell(23) ?: 0
 				lunchesServed = cell(24) ?: 0
 				snacksServed = cell(25) ?: 0
-				hasBakery = (cell(26) == "Yes")
-				purchaseFrozenBread = (cell(27) == "Yes")
-				purchaseFreshBread = (cell(30) == "Yes")
-				purchasePreparedFood = (cell(29) == "Yes")
-				purchaseFrozenFood = (cell(29) == "Yes")
-				otherComments = cell(34) ?: ""
-				topCustomer = cell(3) ? true : false
-				timezone = ""
-				pastParticipant = (cell(35) == 'Yes')
+				hasBakery = (cell(26) == "YES")
+				//purchaseFrozenBread = (cell(27) == "Yes")
+				//purchaseFreshBread = (cell(30) == "Yes")
+				//purchasePreparedFood = (cell(28) == "Yes")
+				//purchaseFrozenFood = (cell(29) == "Yes")
+				otherComments = cell(31) ?: ""
+				topCustomer = (cell(32) == 'YES')
+				timezone = cell(50) ?: " "
+				pastParticipant = (cell(32) == 'YES')
 				seq = cell(2)
 				callerBrokers = cell(33) ?: ""
 			}
@@ -64,6 +64,22 @@ class DataService {
 				customer.username = cell(15)
 				customer.email = cell(15)
 			}
+
+            if(cell(34)) {
+                println "creating broker record..."
+                def broker = new Broker(name: cell(34),
+                        email: cell(35) ?: "",
+                        phone: cell(36) ?: " ",
+                        fax: cell(37) ?: " ",
+                        street: cell(38) ?: "",
+                        street2: cell(39) ?: " ",
+                        city: cell(40) ?: ",",
+                        state: cell(41) ?: " ",
+                        zip: cell(42) ?: " ")
+
+                customer.addToBrokers(broker)
+            }
+
 			customer.enabled = true
 			customer.accountExpired = false
 			customer.accountLocked = false
