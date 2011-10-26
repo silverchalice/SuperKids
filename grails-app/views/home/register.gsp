@@ -1,6 +1,6 @@
 
 
-<%@ page import="com.superkids.domain.Customer" %>
+<%@ page import="com.superkids.domain.Sponsor; com.superkids.domain.Customer" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,11 +17,12 @@
         <div id="contentInsetInner">
             <h1>Registration</h1><br />
 
-            <div style="width: 610px;"> 
+            <div style="width: 610px; height: 960px">
+            <g:if test="${flash.message}">
+                    <div class="message">${flash.message}</div><br />
+                    </g:if>
                 <div style="float:left;width:300px;">
-                        <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div><br />
-            </g:if>
+
             <g:hasErrors bean="${customerInstance}">
             <div class="errors">
                 <g:renderErrors bean="${customerInstance}" as="list" />
@@ -97,8 +98,64 @@
                                 <td style="text-align:right; padding: 0 4px">Zip</td>
                                 <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.zip" value="${customerInstance?.deliveryAddress?.zip}" size="20" maxlength="50"></td> 
                             </tr> 
-                        </table> 
-                    </div> 
+                        </table>
+                        <br/>
+                    <span style="color: rgb(153, 51, 0);">
+                            <h2 style="font-size:15px;">Optional Broker/Distributor Information</h2>
+                    </span>
+                        <br/>
+                        <p>One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <br /><br />
+                        </p>
+                        <p>
+                            Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br /><br />
+                        </p>
+                    <g:hiddenField name="seq" value="9998" />
+                    <table cellpadding="3" cellspacing="0" style="border:none; width:300px">
+                        <tr>
+                            <td><strong>Broker/Distributor Name: </strong></td>
+                            <td><input type="text" name="brokerName" size="20" maxlength="50" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email: </strong></td>
+                            <td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Telephone: </strong></td>
+                            <td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fax: </strong></td>
+                            <td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Address: </strong></td>
+                            <td><input type="text" name="brokerStreet" size="20" maxlength="255" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><strong></strong></td>
+                            <td><input type="text" name="brokerStreet2" size="20" maxlength="255" value=""></td>
+                        </tr>
+                        <tr>
+                            <td><strong>City: </strong></td>
+                            <td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td>
+                        </tr>
+                        <tr>
+                            <td>State</td>
+                            <td style="text-align:left">
+                                  <g:select name="brokerState" from="${states}" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zip: </strong></td>
+                            <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td>
+                        </tr>
+                    </table>
+                    <div style="clear:both;" align="center">
+                        <a href="javascript:help();"><strong>Help</strong></a>
+                        <input type="hidden" name="Register" value="1">
+                        <input type="submit" name="save" value="Save">
+                    </div>
+                    </div>
                     <div style="float:left;width:310px;">
                         <table cellspacing="3" cellpadding="0">
                             <tr> 
@@ -173,64 +230,28 @@
                               <tr> 
                                   <td><input type="text" name="snacksServed" size="4" maxlength="6" value="${customerInstance?.snacksServed}"></td> 
                                   <td style="line-height:20px;">Snacks</td>
-                              </tr> 
+                              </tr>
+                            <tr>
+                                <td colspan="2">
+                                Please let us know if you would any of these manufacturers to contact you immediately.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <g:each in="${sponsors}" var="sponsor">
+                                        <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}"/>${sponsor.name}</span>
+                                    </g:each>
+                                </td>
+                            </tr>
                           </table> 
                       </div> 
-                      <div style="clear:both;" align="center"> 
-                      </div> 
-                      <span style="color: rgb(153, 51, 0);">
-                              <h2>Optional Broker/Distributor Information</h2>
-                      </span> 
-                          One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <br /><br /> 
-                          Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br /><br />
-                      <g:hiddenField name="seq" value="9998" />
-                      <table cellpadding="3" cellspacing="0" style="border:none; width:320px">
-                          <tr> 
-                              <td><strong>Broker/Distributor Name: </strong></td> 
-                              <td><input type="text" name="brokerName" size="20" maxlength="50" value=""></td> 
-                          </tr> 
-                          <tr> 
-                              <td><strong>Email: </strong></td> 
-                              <td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td> 
-                          </tr> 
-                          <tr> 
-                              <td><strong>Telephone: </strong></td> 
-                              <td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td> 
-                          </tr> 
-                          <tr> 
-                              <td><strong>Fax: </strong></td> 
-                              <td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td> 
-                          </tr> 
-                          <tr> 
-                              <td><strong>Address: </strong></td> 
-                              <td><input type="text" name="brokerStreet" size="20" maxlength="255" value=""></td> 
-                          </tr> 
-                          <tr> 
-                              <td><strong></strong></td> 
-                              <td><input type="text" name="brokerStreet2" size="20" maxlength="255" value=""></td> 
-                          </tr> 
-                          <tr> 
-                              <td><strong>City: </strong></td> 
-                              <td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td> 
-                          </tr> 
-                          <tr> 			
-                              <td>State</td> 
-                              <td style="text-align:left"> 
-                                    <g:select name="brokerState" from="${states}" />
-                              </td> 
-                          </tr> 
-                          <tr> 
-                              <td><strong>Zip: </strong></td> 
-                              <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td> 
-                          </tr> 
-                      </table> 
-                      <div style="clear:both;" align="center"> 
-                          <a href="javascript:help();"><strong>Help</strong></a> 
-                          <input type="hidden" name="Register" value="1"> 
-                          <input type="submit" name="save" value="Save"> 
-                      </g:form> 
-                  </div> 
-                </div> 
+
+
+                      </g:form>
+                      <span style="clear: both;">&nbsp;</span>
+                      <span style="clear: both;">&nbsp;</span>
+                      <span style="clear: both;">&nbsp;</span>
+                </div>
            </div>
     </body>
 </html>

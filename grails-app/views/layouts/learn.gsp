@@ -43,7 +43,7 @@
 
 							<li id="${link=='products' ? 'current' : ''}"><g:link controller="product" action="list">SuperKids Products</g:link></li>
 
-							<li id="${link=='testimonials' ? 'current' : ''}"><g:link controller="home" action="testimonials">Testimonials</g:link></li>
+							<li id="${link=='chef_jeff' ? 'current' : ''}"><g:link controller="home" action="chef_jeff">Chef Jeff at SNA</g:link></li>
 
 							<li id="${link=='what_are_whole_grains' ? 'current' : ''}"><g:link controller="home" action="what_are_whole_grains">What Are Whole Grains?</g:link></li>
 

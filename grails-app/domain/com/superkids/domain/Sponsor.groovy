@@ -11,6 +11,8 @@ class Sponsor {
 	String salesContact
 	String sampleContact
 
+    Boolean inactive
+
 	byte[] logo
 
 	static hasMany = [products: Product]
@@ -22,7 +24,7 @@ class Sponsor {
 		phone()
 		website()
 		logo nullable:true, blank:true
-
+        inactive nullable: true
 		salesContact nullable: true
 		sampleContact nullable: true
 

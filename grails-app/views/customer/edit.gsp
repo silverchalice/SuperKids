@@ -20,6 +20,18 @@
 				width:500px;
 			}
 
+            label {
+                white-space: normal;
+            }
+
+            .prop .name {
+                width:auto
+            }
+
+            .prop .value {
+                width:auto
+            }
+
 			#assessForm input {
 				width:auto
 			}
@@ -393,7 +405,7 @@
                         </tbody>
                     </table>
 					<h1>Additional Information</h1>
-					 <table>
+					 <table style="width: 320px;">
 						<tbody>
 							<tr class="prop">
                                 <td valign="top" class="name">
@@ -442,7 +454,7 @@
 
  		                   <tr class="prop">
 								<td valign="top" class="name">
-									   <label for="hasBakery">We make our own bread products from<br/>
+									   <label for="hasBakery">We make our own bread products from
 										   scratch in our bakery (proof & bake)</label>
 								   </td>
 								   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'hasBakery', 'errors')}">
@@ -486,6 +498,18 @@
                                     <g:textField name="seq" value="${fieldValue(bean: customerInstance, field: 'seq')}" />
                                 </td>
                             </tr>
+                        <tr>
+                            <td colspan="2">
+                            Please let us know if you would any of these manufacturers to contact you immediately.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <g:each in="${sponsors}" var="sponsor">
+                                    <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}" checked="${customerInstance.contactManufacturers.contains(sponsor)}"/>${sponsor.name}</span>
+                                </g:each>
+                            </td>
+                        </tr>
                             <tr class="prop">
                               <td colspan="2"><h3>Customer Notes</h3></td> </tr>
                             <tr class="prop"><td colspan="2"><g:textArea cols="" rows="" value="${customerInstance?.opNotes}" name="opNotes" style="width:360px;"/></td></tr>

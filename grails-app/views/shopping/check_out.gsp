@@ -293,7 +293,18 @@
                       </td>
 
                      </tr>
-
+                     <tr>
+                         <td colspan="2">
+                         Please let us know if you would any of these manufacturers to contact you immediately.
+                         </td>
+                     </tr>
+                     <tr>
+                         <td colspan="2">
+                             <g:each in="${sponsors}" var="sponsor">
+                                 <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}"/>${sponsor.name}</span>
+                             </g:each>
+                         </td>
+                     </tr>
 					 <tr>
 
 						 <td  valign="top" colspan="2"><label>Other, please describe:</label> <g:textField name="otherComments" value="${customerInstance?.otherComments}"  style="float:right"/></td>

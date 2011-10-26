@@ -287,7 +287,7 @@ class MiscTagLib {
         out << "var sponsors = new Array();"
         def sponsorNo = 0
         def sponsorProduct
-        Sponsor.list(sort:'name').each { sponsor ->
+        Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
             sponsorProduct = Product.findBySponsor(sponsor)
             sponsorNo++
             out << "sponsors[${sponsorNo}] = \""

@@ -68,8 +68,8 @@ class HomeController {
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
 
             customerInstance.properties = params
-            
-            return [customerInstance: customerInstance, states:states]
+
+            return [customerInstance: customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
        }
 
        def save = {
@@ -84,8 +84,19 @@ class HomeController {
 			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-         def customerInstance = new Customer()
+         Customer customerInstance = new Customer()
          customerInstance.properties = params
+
+           Sponsor.list().each { sponsor ->
+                println "checking for sponsor $sponsor"
+                if(params["sponsor.${sponsor.id}"]) {
+                    customerInstance.addToContactManufacturers(sponsor)
+                } else if(customerInstance.contactManufacturers.contains(sponsor)) {
+                   customerInstance.removeFromContactManufacturers(sponsor)
+                }
+           }
+
+
          println "saved new customer: " + customerInstance
          if(checkParams(params)){
            customerInstance.password = springSecurityService.encodePassword("superkids")
@@ -112,10 +123,10 @@ class HomeController {
                    println it
                    println " "
                }
-               render(view:"register", model:[customerInstance:customerInstance, states:states])
+               render(view:"register", model:[customerInstance:customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
            }
            } else {
-               render(view:"register", model:[customerInstance:customerInstance, states:states])
+               render(view:"register", model:[customerInstance:customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
            }
        }
 
@@ -606,6 +617,16 @@ class HomeController {
            }
            [content:content]
        }
+
+       def chef_jeff = {
+           def content
+           def pt = PageText.findByName("chef_jeff")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+       }
+
 
        def whole_grain_list = {
            def content

@@ -80,13 +80,14 @@ class Customer extends User {
 	boolean hasPlacedCurrentOrder
 	boolean hasCompletedCurrentAssessment
 
+
 	List calls
 	List assessments
 	List brokers
 
     String callerBrokers // brokers collected from callers
  
-	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker ]
+	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker, contactManufacturers: Sponsor ]
 
     static constraints = {
 
@@ -125,6 +126,8 @@ class Customer extends User {
 		order nullable:true
 		otherComments nullable:true
 		lastCall nullable:true
+
+        contactManufacturers nullable:true
 
 		studentsInDistrict nullable: true
 		facilities nullable: true

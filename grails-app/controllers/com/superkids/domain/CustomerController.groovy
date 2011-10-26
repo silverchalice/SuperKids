@@ -150,7 +150,7 @@ class CustomerController {
 					println it
 					println it.parent
 				}
-                return [customerInstance: customerInstance, products: products, states: states, broker:broker, statusList:statusList,
+                return [customerInstance: customerInstance, products: products, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, broker:broker, statusList:statusList,
 				rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
                 customerInstance.order.products.each { productOrder ->
@@ -161,7 +161,7 @@ class CustomerController {
 					}
 
                 }
-                return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, broker:broker, statusList:statusList,
+                return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, broker:broker, statusList:statusList,
 						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
           }
     }
@@ -186,6 +186,16 @@ class CustomerController {
                 }
             }
             customerInstance.properties = params
+
+            Sponsor.list().each { sponsor ->
+                 println "checking for sponsor $sponsor"
+                 if(params["sponsor.${sponsor.id}"]) {
+                     customerInstance.addToContactManufacturers(sponsor)
+                 } else if(customerInstance.contactManufacturers.contains(sponsor)) {
+                    customerInstance.removeFromContactManufacturers(sponsor)
+                 }
+            }
+
             if(params.status != "currentStatus"){
                 customerInstance.status = CustomerStatus."${params.status}"
             }

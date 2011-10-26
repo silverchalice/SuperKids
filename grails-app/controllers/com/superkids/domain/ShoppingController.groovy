@@ -31,12 +31,22 @@ class ShoppingController {
                def version = params.version.toLong()
                if (customerInstance.version > version) {
                    customerInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'customer.label', default: 'Customer')] as Object[], "Another user has updated this Customer while you were editing")
-                   render(view: "check_out", model: [customerInstance: customerInstance])
+                   render(view: "check_out", model: [customerInstance: customerInstance,  sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
                    return
                }
            }
            if(checkParams(params)){
                customerInstance.properties = params
+
+               Sponsor.list().each { sponsor ->
+                    println "checking for sponsor $sponsor"
+                    if(params["sponsor.${sponsor.id}"]) {
+                        customerInstance.addToContactManufacturers(sponsor)
+                    } else if(customerInstance.contactManufacturers.contains(sponsor)) {
+                       customerInstance.removeFromContactManufacturers(sponsor)
+                    }
+               }
+
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                    def cartItems = shoppingCartService.getItems()
                    def products = []
@@ -50,10 +60,10 @@ class ShoppingController {
                    flash.message = "Your customer details have been updated."
                    render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.list(), products:products]
                } else {
-                   render(view: "check_out", model: [customerInstance: customerInstance])
+                   render(view: "check_out", model: [customerInstance: customerInstance, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
                }
            } else {
-               render(view:"check_out", model:[customerInstance:customerInstance, states:states])
+               render(view:"check_out", model:[customerInstance:customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
            }
          }
        } else {

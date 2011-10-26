@@ -30,7 +30,14 @@
                 <div class="dialog">
                     <table>
                         <tbody>
-                        
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                              <label for="inactive">Inactive</label>
+                            </td>
+                            <td valign="top">
+                                <g:checkBox name="inactive" value="${sponsorInstance?.inactive}" />
+                            </td>
+                        </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="name"><g:message code="sponsor.name.label" default="Name" /></label>
