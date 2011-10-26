@@ -131,10 +131,14 @@ class ReportController {
 				m.lunchesServed = customer.lunchesServed
 				m.snacksServed = customer.snacksServed
 				m.hasBakery = customer.hasBakery ? "YES" : "NO"
-				m.purchaseFrozenBread = customer.purchaseFrozenBread ? "YES" : "NO"
-				m.purchasePreparedFood = customer.purchasePreparedFood ? "YES" : "NO"
-				m.purchaseFrozenFood = customer.purchaseFrozenFood ? "YES" : "NO"
-				m.purchaseFreshBread = customer.purchaseFreshBread ? "YES" : "NO"
+                m.monthlyFlourUsage = customer.monthlyFlourUsage
+                m.localBakeries = customer.localBakeries
+                m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
+
+                Sponsor.findAllByInactive(false).each { sponsor ->
+                    m."${sponsor.name}" = customer.contactManufacturers?.contains(sponsor) ? "YES" : "NO"
+                }
+
 				m.otherComments = customer.otherComments
 				m.seq = customer.seq
 				m.topCustomer = customer.topCustomer ? "YES" : "NO"

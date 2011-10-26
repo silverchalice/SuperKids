@@ -506,7 +506,7 @@
                         <tr>
                             <td colspan="2">
                                 <g:each in="${sponsors}" var="sponsor">
-                                    <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}" checked="${customerInstance.contactManufacturers.contains(sponsor)}"/>${sponsor.name}</span>
+                                    <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}" checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
                                 </g:each>
                             </td>
                         </tr>
