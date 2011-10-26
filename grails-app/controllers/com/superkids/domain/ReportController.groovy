@@ -292,7 +292,7 @@ class ReportController {
 		}
 
         Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
-            labels."${sponsor.name}" << sponsor.name
+            labels."${sponsor.name}" = sponsor.name
         }
 
 		println ("After prods.each 2 - ${new Date().time - startTime}")
