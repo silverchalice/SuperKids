@@ -298,7 +298,7 @@ class ProductController {
 		  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 		  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
 		def customerInstance = Customer.get(springSecurityService.principal.id)
-		render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states, broker:broker]
+		render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states, broker:broker, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
 	}
 
 	def other_delete = {
