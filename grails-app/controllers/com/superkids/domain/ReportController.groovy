@@ -135,10 +135,6 @@ class ReportController {
                 m.localBakeries = customer.localBakeries
                 m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
 
-                Sponsor.findAllByInactive(false).each { sponsor ->
-                    m."${sponsor.name}" = customer.contactManufacturers?.contains(sponsor) ? "YES" : "NO"
-                }
-
 				m.otherComments = customer.otherComments
 				m.seq = customer.seq
 				m.topCustomer = customer.topCustomer ? "YES" : "NO"
@@ -162,8 +158,13 @@ class ReportController {
 				prods.each {prod ->
 					m."${prod.name}" = order?.products.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
 				}
+
 				m.order = new Expando()
 				m.order.shippingDate = customer.order?.shippingDate
+
+                Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
+                    m."${sponsor.name}" = customer.contactManufacturers?.contains(sponsor) ? "YES" : "NO"
+                }
 
 				if (withAssessments == 'true') {
 
@@ -221,13 +222,62 @@ class ReportController {
 
 		println ("After Customer.list - ${new Date().time - startTime}")
 
-        List fields = ["id", "seq", "topCustomer", "lastUpdated", "fsdName", "fsdTitle", "district", "address.street", "address.street2", "address.city", "address.state", "address.zip", "phone", "fax", "email", "deliveryAddress.street", "deliveryAddress.street2", "deliveryAddress.city", "deliveryAddress.state", "deliveryAddress.zip", "studentsInDistrict", "facilities", "breakfastsServed", "lunchesServed", "snacksServed", "hasBakery", "purchaseFrozenBread", "purchasePreparedFood", "purchaseFrozenFood", "purchaseFreshBread", "otherComments", "pastParticipant", "callerBrokers", "brokerName", "brokerEmail", "brokerPhone", "brokerFax", "brokerStreet", "brokerStreet2", "brokerCity", "brokerState", "brokerZip", "notes" , "contact"]
+        List fields = ["id",
+                "seq",
+                "topCustomer",
+                "lastUpdated",
+                "fsdName",
+                "fsdTitle",
+                "district",
+                "address.street",
+                "address.street2",
+                "address.city",
+                "address.state",
+                "address.zip",
+                "phone",
+                "fax",
+                "email",
+                "deliveryAddress.street",
+                "deliveryAddress.street2",
+                "deliveryAddress.city",
+                "deliveryAddress.state",
+                "deliveryAddress.zip",
+                "studentsInDistrict",
+                "facilities",
+                "breakfastsServed",
+                "lunchesServed",
+                "snacksServed",
+                "hasBakery",
+                "monthlyFlourUsage",
+                "localBakeries",
+                "usedUltragrainSustagrainProducts",
+
+                "otherComments",
+                "pastParticipant",
+                "callerBrokers",
+                "brokerName",
+                "brokerEmail",
+                "brokerPhone",
+                "brokerFax",
+                "brokerStreet",
+                "brokerStreet2",
+                "brokerCity",
+                "brokerState",
+                "brokerZip",
+                "notes" ,
+                "contact"]
 		for (prod in prods) {
 			def foo = prod.name
 			if (!prod.parent) {
 				fields << foo
 			}
 		}
+
+        Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
+            fields << sponsor.name
+        }
+
+
 		println ("After prods.each - ${new Date().time - startTime}")
 
 
@@ -240,6 +290,11 @@ class ReportController {
 				labels."${prod.name}" = prod.name
 			}
 		}
+
+        Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
+            labels."${sponsor.name}" << sponsor.name
+        }
+
 		println ("After prods.each 2 - ${new Date().time - startTime}")
 
         def bar = "order.shippingDate"
