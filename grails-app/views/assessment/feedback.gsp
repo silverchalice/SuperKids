@@ -21,12 +21,12 @@
 					<img src="${resource(dir:'images', file:'AssessTRC.gif')}" style="float:right" alt="" />
 				</div>
 
-                <div id="assessmentQuestionInner" style="top:75px; padding-top:25px; padding-bottom:5px;"><br />
+                <div id="assessmentQuestionInner" style="top:75px; padding-top:25px;"><br />
 				  <p style="position:absolute; top:1px; left:15px; font-size:14px">We welcome your feedback. Please enter any positive or negative comments about the SuperKids program in general.</p>
                   <textarea name="programFeedback" rows="10" cols="50"></textarea>
                 </div>
 
-				<div id="assessmentQuestionLower" style="top:279px">
+				<div id="assessmentQuestionLower" style="top:260px">
 					<img src="${resource(dir:'images', file:'AssessLLC.gif')}" style="float:left" alt="" />
 					<img src="${resource(dir:'images', file:'AssessLRC.gif')}" style="float:right" alt="" />
 				</div>

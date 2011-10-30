@@ -26,7 +26,7 @@
                   <textarea name="otherProducts" rows="10" cols="50"></textarea>
                 </div>
 
-				<div id="assessmentQuestionLower" style="top:279px">
+				<div id="assessmentQuestionLower" style="top:262px">
 					<img src="${resource(dir:'images', file:'AssessLLC.gif')}" style="float:left" alt="" />
 					<img src="${resource(dir:'images', file:'AssessLRC.gif')}" style="float:right" alt="" />
 				</div>

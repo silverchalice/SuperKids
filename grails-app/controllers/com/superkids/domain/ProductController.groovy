@@ -135,7 +135,7 @@ class ProductController {
     }
 
     def update = {
-		
+		println "Entering ProductController:update..."
         def productInstance = Product.get(params.id)
         if (productInstance) {
             if (params.version) {

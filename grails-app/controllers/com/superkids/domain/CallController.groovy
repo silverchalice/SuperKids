@@ -96,6 +96,18 @@ class CallController {
 			println "$caller is saving order call for customer " + customer.fsdName
 			customer.properties = params
 
+            println "saving contact mfgrs.."
+            Sponsor.list().each { sponsor ->
+                println "checking for sponsor $sponsor"
+                if(params["sponsor.${sponsor.id}"]) {
+                    println "adding $sponsor"
+                    customer.addToContactManufacturers(sponsor)
+                } else if(customer.contactManufacturers?.contains(sponsor)) {
+                    customer.removeFromContactManufacturers(sponsor)
+                }
+           }
+
+
 			def user = User.get(params.id)
 			user.username = params.email
 

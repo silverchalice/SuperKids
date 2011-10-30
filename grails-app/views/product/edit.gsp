@@ -1,6 +1,6 @@
 
 
-<%@ page import="com.superkids.domain.Product" %>
+<%@ page import="com.superkids.domain.Sponsor; com.superkids.domain.Product" %>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -78,38 +78,18 @@
                     </p>
                 </fieldset>
                 <fieldset style="float:left;  width:420px; margin:10px">
-                    <legend>Manufacturer Information</legend>
-                    <p>
-                        <label for="sponsor.name">Manufacturer Name:</label>
-                        <g:textField name="sponsor.name" value="${productInstance?.sponsor?.name}" />
-                    </p><br />
-
-                    <p>Company Address:<p><br />
-                    <p>
-                        <label for="sponsor.address">Address:</label>
-                        <g:textField name="sponsor.address" value="${productInstance?.sponsor?.address}" />
-                    </p><br />
+                    <legend>Manufacturer </legend>
 
 
-                    <p>
-                        <label for="sponsor.phone">Main Telephone # :</label>
-                        <g:textField name="sponsor.phone" value="${productInstance?.sponsor?.phone}" />
-                    </p><br />
-
-                    <p>
-                        <label for="sponsor.website">Website Address:</label>
-                        <g:textField name="sponsor.website" value="${productInstance?.sponsor?.website}" />
-                    </p><br />
-
-                    <p>
-                        <label for="sponsor.salesContact">Sales Contact:</label>
-                        <g:textField name="sponsor.salesContact" value="${productInstance?.sponsor?.salesContact}" />
-                    </p><br />
-
-                    <p>
-                        <label for="sponsor.sampleContact">Samples Contact:</label>
-                        <g:textField name="sponsor.sampleContact" value="${productInstance?.sponsor?.sampleContact}" />
-                    </p><br />
+                            <g:select name="sponsor.id"
+                              id="sponsor.id"
+                              from="${Sponsor.list()}"
+                              style="width:220px;"
+                              value="${productInstance.sponsor?.id}"
+                              optionKey="id"
+                              noSelection="${['null':'Select a Manufacturer...']}" />
+                    </p>
+                    <br />
 
                     <p>
                         <label>Product Summary PDF:</label>

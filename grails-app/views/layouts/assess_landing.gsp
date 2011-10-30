@@ -47,7 +47,7 @@
 						<g:link controller="assessment" action="start" id="${product.id}"><img src="${createLink(controller:'product', action:'displayImage', id:product.id)}"/></g:link>
 						<div class="assessmentProductText" style="padding-top:5px; ">
 						<span style="font-size:11px;">${product.name}</span> <br/>
-						<span style="font-size:9px;">${product.sponsor.name}</span><br />
+						<span style="font-size:9px;">${product.sponsor?.name}</span><br />
 						</div>
 						<g:link controller="assessment" action="dnr" class="assessmentDNR" id="${product.id}">Did Not Receive?</g:link>
 					</div>

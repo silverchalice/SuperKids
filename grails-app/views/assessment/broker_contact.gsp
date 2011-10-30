@@ -21,7 +21,7 @@
 					<img src="${resource(dir:'images', file:'AssessTRC.gif')}" style="float:right" alt="" />
 				</div>
 
-                <div id="assessmentQuestionInner" style="top:50px; padding-top:25px; padding-bottom:5px;"><br />
+                <div id="assessmentQuestionInner" style="top:50px; padding-top:25px;"><br />
 				  <p style="position:absolute; top:1px; left:15px; font-size:14px">Your Broker or Distributor May Be Contacting You. What is the best time of<br/> year and day?</p>
                   <table style="color:#000000; border:none">
                     <tr>
