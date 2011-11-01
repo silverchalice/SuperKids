@@ -390,10 +390,10 @@
 
 						<tr class="prop">
 							<td valign="top">
-								<label for="fax"><g:message code="customer.website.label" default="Website" /></label>
+								<label for="website"><g:message code="customer.website.label" default="Website" /></label>
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'website', 'errors')}">
-								<g:textField class="textField" name="fax" value="${customerInstance?.website}" />
+								<g:textField class="textField" name="wbset" value="${customerInstance?.website}" />
 							</td>
 						</tr>
 

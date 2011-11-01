@@ -49,7 +49,7 @@
             </g:if>
 			<h1 style="display:inline">Customer Information</h1>  <h1 style="display:inline; margin-left:34%">FSD Login Information</h1>
 			<br/>			
-			<div style="float:left; width:40%;">
+			<div style="float:left; width:420px;">
 				   <div class="buttons">
 					   <g:form>
 						   <g:hiddenField name="id" value="${customerInstance?.id}"/>
@@ -61,7 +61,7 @@
 						   <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
 					   </g:form>
                     </div>
-                <table>
+                <table style="width:420px">
                     <tbody>
                         <tr class="prop">
                             <td valign="top" class="name">School District</td>
@@ -379,7 +379,7 @@
 				</div>
 
 			<div style="float:left; margin-left:10px; width:40%;">
-                <table>
+                <table style="width:420px">
                     <tbody>
 
                         <tr class="prop">
@@ -427,7 +427,7 @@
 				     <h1>Call Log</h1>
 					<g:each in="${customerCalls}" var="call">
 						<br/>
-						<table>
+						<table style="width:420px">
 							<tr class="prop">
 								<td valign="top" class="name">
 									Caller:

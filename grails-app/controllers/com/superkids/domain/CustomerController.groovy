@@ -213,7 +213,7 @@ class CustomerController {
             if(params.email){
                 def user = User.get(params.id)
                 user.username = params.email
-                if(!user.save()) {
+                if(!user.save(flush:true)) {
 					flash.message = "invalid data!"
 					redirect action:'edit', id:customerInstance?.id
 					return
@@ -256,10 +256,13 @@ class CustomerController {
 
         if(params.query){
 			def customers = []
-            Customer.search(params?.query, [max:100, sort:sort]).results?.each {
-					def customer =	Customer.get(it.id)
-					customers << customer
-			}
+            Customer.search(params?.query, [max:100]).results?.each {
+                def customer =	Customer.get(it.id)
+                if(customer && !customer?.deleted){
+                    customers << customer
+                }
+
+            }
             if(customers){
                 return [customerInstanceList:customers, sort:params?.sort, offset:params?.offset, query:params.query]
             } else {
