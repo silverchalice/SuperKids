@@ -67,6 +67,17 @@ class CustomerController {
 		customerInstance.accountExpired = false
 		customerInstance.accountLocked = false
 		customerInstance.passwordExpired = false
+
+        Sponsor.list().each { sponsor ->
+            println "checking for sponsor $sponsor"
+            if(params["sponsor.${sponsor.id}"]) {
+                customerInstance.addToContactManufacturers(sponsor)
+            } else if(customerInstance.contactManufacturers.contains(sponsor)) {
+               customerInstance.removeFromContactManufacturers(sponsor)
+            }
+       }
+
+
 		def userRole = Role.findByAuthority("ROLE_USER")
 		if(customerInstance.save()){
 			UserRole.create customerInstance, userRole, true
