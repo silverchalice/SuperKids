@@ -365,7 +365,7 @@
 					<tbody>
 
 						<tr class="prop">
-							<td valign="top" class="name">
+							<td valign="top">
 								<label for="phone"><g:message code="customer.phone.label" default="Phone" /></label>
 							</td>
 							<td valign="top">
@@ -377,7 +377,7 @@
 						</tr>
 
 						<tr class="prop">
-							<td valign="top" class="name">
+							<td valign="top">
 								<label for="fax"><g:message code="customer.fax.label" default="Fax" /></label>
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'fax', 'errors')}">
@@ -389,7 +389,7 @@
 						</tr>
 
 						<tr class="prop">
-							<td valign="top" class="name">
+							<td valign="top">
 								<label for="fax"><g:message code="customer.website.label" default="Website" /></label>
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'website', 'errors')}">
@@ -398,7 +398,7 @@
 						</tr>
 
 						<tr class="prop">
-							<td valign="top" class="name">
+							<td valign="top">
 								<label for="deliveryAddress.street"><g:message code="address.street.label" default="Del. Street" /></label>
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'street', 'errors')}">
@@ -407,7 +407,7 @@
 						</tr>
 
 						<tr class="prop">
-							<td valign="top" class="name">
+							<td valign="top">
 								<label for="deliveryAddress.street2"><g:message code="address.street2.label" default="Del. Street 2" /></label>
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'street2', 'errors')}">
@@ -415,7 +415,7 @@
 							</td>
 						</tr>
 						<tr class="prop">
-							<td valign="top" class="name">
+							<td valign="top">
 								<label for="deliveryAddress.city"><g:message code="address.city.label" default="Del. City" /></label>
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'city', 'errors')}">
@@ -431,7 +431,7 @@
 					  <table style="margin: 10px 10px 10px 0;width:500px; ">
 						   <tbody>
 							  <tr class="prop">
-									<td valign="top" class="name">
+									<td valign="top">
 										<label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="# of Students In District" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'studentsInDistrict', 'errors')}">
@@ -439,7 +439,7 @@
 									</td>
 								</tr>
                                 <tr class="prop">
-                                    <td valign="top" class="name">
+                                    <td valign="top">
                                         <label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="# of Breakfasts Served" /></label>
                                     </td>
                                     <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'breakfastsServed', 'errors')}">
@@ -448,7 +448,7 @@
                                 </tr>
 
                                 <tr class="prop">
-                                    <td valign="top" class="name">
+                                    <td valign="top">
                                         <label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="# of Lunches Served" /></label>
                                     </td>
                                     <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'lunchesServed', 'errors')}">
@@ -457,7 +457,7 @@
                                 </tr>
 
                                 <tr class="prop">
-                                    <td valign="top" class="name">
+                                    <td valign="top">
                                         <label for="snacksServed"><g:message code="customer.snacksServed.label" default="# of Snacks Served" /></label>
                                     </td>
                                     <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'snacksServed', 'errors')}">
@@ -465,7 +465,7 @@
                                     </td>
                                 </tr>
 								<tr class="prop">
-									<td valign="top" class="name">
+									<td valign="top">
 										<label for="facilities"><g:message code="customer.facilities.label" default="# of Facilities" /></label>
 									</td>
 									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'facilities', 'errors')}">
@@ -475,7 +475,7 @@
 
 								
                                <tr class="prop">
-                                   <td valign="top" class="name">
+                                   <td valign="top">
                                        <label for="hasBakery">We make our own bread products from<br/>
                                            scratch in our bakery (proof & bake)</label>
                                    </td>
@@ -485,7 +485,7 @@
                                </tr>
 
                                <tr>
-                                  <td valign="top" class="name">
+                                  <td valign="top">
 
                                          <label for="monthlyFlourUsage">How much flour usage on a monthly basis (lbs)?</label>
                                   </td>
@@ -499,7 +499,7 @@
 
 
                                 <tr>
-                                 <td valign="top" class="name">
+                                 <td valign="top">
 
 
                                         <label for="localBakeries"> Do you work with a local bakery to supply your fresh bakery products? Please list them here.</label>
@@ -513,7 +513,7 @@
 
 
                                  <tr>
-                                  <td valign="top" class="name">
+                                  <td valign="top">
 
                                          <label for="usedUltragrainSustagrainProducts"> Do you currently use Ultragrain® or Sustagrain® products in your district?</label>
                                   </td>
@@ -528,7 +528,7 @@
 
                                <tr>
                                    <td colspan="2">
-                                   Please let us know if you would any of these manufacturers to contact you immediately.
+                                       <label>Please let us know if you would any of these manufacturers to contact you immediately. </label>
                                    </td>
                                </tr>
                                <tr>
@@ -541,8 +541,8 @@
 
 
                               <tr class="prop">
-                                   <td valign="top" class="name">
-                                       <label for="otherComments"><g:message code="customer.otherComments.label" default="Other, Please describe:" /></label>
+                                   <td valign="top">
+                                       <label for="otherComments"><g:message code="customer.otherComments.label" default="Please list any special requests for the manufacturers you checked:" /></label>
                                    </td>
                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'otherComments', 'errors')}">
                                        <g:textField name="otherComments" value="${fieldValue(bean: customerInstance, field: 'otherComments')}" />
@@ -556,7 +556,7 @@
                                    </td>
                               </tr>  
                               <tr class="prop">
-                                  <td valign="top" class="name">
+                                  <td>
                                       <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Did NOT get mailing/email" /></label>
                                   </td>
                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'didNotReceiveMailing', 'errors')}">
@@ -593,16 +593,16 @@
 						</tbody>
 					</table>
 
-					<table id="products">
+					<table id="products" style="width:280px">
 					  <tbody>
 						<tr class="prop">
-						  <td class="name"></td>
+						  <td></td>
 						  <td class="value"><h3>Order Samples</h3></td>
 						</tr>
 
 						<g:each in="${products}" var="product" >
 						  <tr class="prop">
-							<td class="name">
+							<td>
 							  <g:checkBox name="order_${product.name}"/>
 							</td>
 							<td class="value">

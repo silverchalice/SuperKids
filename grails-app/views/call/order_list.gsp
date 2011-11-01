@@ -21,7 +21,7 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table style="width:100%">
+                <table style="width: 960px">
                     <thead>
                         <tr>
 

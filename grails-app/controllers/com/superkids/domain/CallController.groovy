@@ -21,7 +21,7 @@ class CallController {
 			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
 			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
 
-    def timezones=['Alaskan', 'Pacific', 'Mountain', 'Central', 'Eastern']
+    def timezones=['Eastern', 'Mountain', 'Central', 'Pacific', 'Alaskan']
 
 
     def index = {
@@ -1182,7 +1182,7 @@ class CallController {
 
 				Customer.search(params?.query, [max:100]).results?.each {
 					def customer =	Customer.get(it.id)
-					if(!customer.deleted){
+					if(customer && !customer?.deleted){
 						customers << customer
 					}
 

@@ -65,7 +65,7 @@
                <g:hiddenField name="seq" value="9999" />
                <div class="dialog" style="float:left; width:320px; margin:0">
                  <h1>Main Information</h1>
-                    <table>
+                    <table style="width:320px;">
                         <tbody>
                             <tr class="prop">
                                 <td class="name"></td>
@@ -273,7 +273,7 @@
                     </div>
                     <div style="float:left; width:420px; margin-left:10px">
                         <h1>Additional Information</h1>
-                         <table>
+                         <table style="width:420px;">
                             <tbody>
                             <tr> 
                                 <td colspan="2"> 

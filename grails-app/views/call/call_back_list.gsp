@@ -20,7 +20,7 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table>     
+                <table style="width: 960px">
                     <thead>
                         <tr>
 							<th>&nbsp;</th>
@@ -31,7 +31,7 @@
 
                             <th><g:message code="customer.address" default="Address" /></th>
 
-							<th><g:message code="customer.callback.date.label"  default="Call Back Date & Time" /></th>
+							<th><g:message code="customer.callback.date.label"  default="Call Back Date" /></th>
 
 							<th><g:message code="customer.callback.caller.label"  default="Caller" /></th>
 
