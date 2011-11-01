@@ -38,7 +38,7 @@ class CustomerController {
 
 
         customerInstance.properties = params
-        return [ customerInstance: customerInstance, states: states ]
+        return [ customerInstance: customerInstance, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name} ]
     }
 
 	def save = {
@@ -80,7 +80,7 @@ class CustomerController {
 				println it
 				println " "
 			}
-            render(view: "create", model: [customerInstance: customerInstance, states:states])
+            render(view: "create", model: [customerInstance: customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
 		}
 	}
 

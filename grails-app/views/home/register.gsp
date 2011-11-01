@@ -168,15 +168,14 @@
                                 </td> 
                             </tr> 
                             <tr style="padding-bottom:10px;"> 
-                                <td style="text-align:right; padding: 0 0 0 4px" valign="top"><input type="checkbox" name="hasBakery" value="1" ></td>
-                                <td style="padding:0 0 0 0; line-height:13px;">Make our own bread products from scratch in our bakery (proof and bake)</td>
+                                <td colspan="2" style="padding:0 0 0 0; line-height:13px;"><input type="checkbox" name="hasBakery" value="1" >Make our own bread products from scratch in our bakery (proof and bake)</td>
                             </tr> 
 
                             <tr>
-                                <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">How much flour does your district use on a monthly basis in pounds? <input type="text" name="monthlyFlourUsage" value="" size="25" maxlength="1000" style="float:right"></td>
+                                <td colspan="2" style="padding:0 0 0 0; line-height:13px;">How much flour does your district use on a monthly basis in pounds? <input type="text" name="monthlyFlourUsage" value="" size="25" maxlength="1000" style="float:right"></td>
                             </tr>
                             <tr>
-                                <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
+                                <td colspan="2" style="padding:0 0 0 0; line-height:13px;">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
                                                             contact them about the program, please list them here.<input type="text" name="localBakeries" value="" size="25" maxlength="1000" style="float:right"></td>
                             </tr>
                             <tr>
@@ -184,9 +183,7 @@
                                 <td colspan="2" style="padding:0 0 0 0; line-height:13px;"> Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:<input type="text" name="usedUltragrainSustagrainProducts" value="" size="25" maxlength="1000" style="float:right"></td>
                             </tr>
 
-                            <tr>
-                                <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">Other, please describe: <input type="text" name="otherComments" value="" size="25" maxlength="1000" style="float:right"></td>
-                            </tr>
+
 
                             <tr> 
                                 <td colspan="2"> 
@@ -242,6 +239,10 @@
                                         <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}" checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
                                     </g:each>
                                 </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">Please list any special requests for the manufacturers you checked: <input type="text" name="otherComments" value="" size="25" maxlength="1000" style="float:right"></td>
                             </tr>
                           </table> 
                       </div> 

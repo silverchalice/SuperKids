@@ -105,6 +105,7 @@
 					<label><input type="radio" name="job" value="B" >Foodservice Broker or Distributor?</label><br/>
 					<label><input type="radio" name="job" value="C" >Parent?</label><br/>
 					<label><input type="radio" name="job" value="D" >School Official?</label><br/>
+					<label><input type="radio" name="job" value="D" >Influencer?</label><br/>
 					<label><input type="radio" name="job" value="E" >Other?</label><br/>
 					<input type="hidden" name="position" value="1" />
 					<input type="image" value="Enter" style="padding-left:40px; padding-top:10px" name="Enter" src="${request.contextPath}/images/EnterButton-Blue.png" class="fancyButton" />

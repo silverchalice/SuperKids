@@ -20,18 +20,6 @@
 				width:500px;
 			}
 
-            label {
-                white-space: normal;
-            }
-
-            .prop .name {
-                width:auto
-            }
-
-            .prop .value {
-                width:auto
-            }
-
 			#assessForm input {
 				width:auto
 			}
@@ -85,7 +73,7 @@
             <h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:35%">Order Details</h1>
 			<br/>
 
-            <div style="float:left; width:40%;">
+            <div style="float:left;">
             <g:form method="post">
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
@@ -100,7 +88,7 @@
                     <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </div>
-                    <table>
+                    <table style=" width:380px;">
                         <tbody>
                             <tr class="prop">
                                 <td class="name"></td>
@@ -152,8 +140,9 @@
                             <tr class="prop">
                                 <td valign="top" class="name">Source</td>
 
-                                <g:textField name="source" value="${customerInstance?.source}" />
-
+                               <td>
+                                   <g:textField name="source" value="${customerInstance?.source}" />
+                               </td>
                             </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
@@ -510,6 +499,9 @@
                                 </g:each>
                             </td>
                         </tr>
+                        <tr>
+                           <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">Please list any special requests for the manufacturers you checked: <input type="text" name="otherComments" value="" size="25" maxlength="1000" style="float:right"></td>
+                       </tr>
                             <tr class="prop">
                               <td colspan="2"><h3>Customer Notes</h3></td> </tr>
                             <tr class="prop"><td colspan="2"><g:textArea cols="" rows="" value="${customerInstance?.opNotes}" name="opNotes" style="width:360px;"/></td></tr>
@@ -519,7 +511,7 @@
 
             </g:form>
             </div>
-            <div style="float:left; margin-left:10px; width:58%;">
+            <div style="float:left; margin-left:10px; width:420px;">
 
 				<g:if test="${customerInstance.status != CustomerStatus.HAS_NOT_ORDERED}">
 					<g:render template="ordered_items" model="[customerInstance: customerInstance, products: products]" />
@@ -530,7 +522,7 @@
 
 				<br/>
 				<h1>Brokers/Distributors</h1>
-				<table>
+				<table style="width:420px;">
 					<thead>
 						<th><strong>Name</strong></th>
 						<th><strong>Email</strong></th>
@@ -554,7 +546,7 @@
 				</table><p>&nbsp;</p>
                 <h1>Add Broker</h1>
 				<g:form controller="${broker ? 'product' : 'home'}" action="${broker ? 'updateBroker': 'addBroker'}" method="post">
-					<table cellpadding="5" cellspacing="0" border="0" width="100%">
+					<table cellpadding="5" cellspacing="0" border="0" style="width:420px;">
 
                           <tr> 
                               <td><strong>Broker/Distributor Name: </strong></td> 

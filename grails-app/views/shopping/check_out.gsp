@@ -307,7 +307,7 @@
                      </tr>
 					 <tr>
 
-						 <td  valign="top" colspan="2"><label>Other, please describe:</label> <g:textField name="otherComments" value="${customerInstance?.otherComments}"  style="float:right"/></td>
+						 <td  valign="top" colspan="2"><label>Please list any special requests for the manufacturers you checked:</label> <g:textField name="otherComments" value="${customerInstance?.otherComments}"  style="float:right"/></td>
 
 					 </tr>
 					 <tr>

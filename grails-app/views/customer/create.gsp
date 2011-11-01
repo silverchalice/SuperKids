@@ -10,10 +10,25 @@
 		<script type="text/javascript" src="${resource(dir:'js', file:'sks.js')}">
 		</script>
       		<style type="text/css">
+              input {
+                width:auto
+                }
 
-            input.textField {
-              width:360px
-            }
+                #assessForm {
+                    width:500px;
+             }
+
+               label {
+                   white-space: normal;
+               }
+
+               .prop .name {
+                   width:auto
+               }
+
+               .prop .value {
+                   width:auto
+               }
 
 			#assessForm {
 				width:500px;
@@ -48,7 +63,7 @@
             </g:hasErrors>
             <g:form action="save" method="post" >
                <g:hiddenField name="seq" value="9999" />
-               <div class="dialog" style="float:left; width:49%; margin:0">
+               <div class="dialog" style="float:left; width:320px; margin:0">
                  <h1>Main Information</h1>
                     <table>
                         <tbody>
@@ -256,7 +271,7 @@
                         </tbody>
                     </table>
                     </div>
-                    <div style="float:right; width:50%; margin:0">
+                    <div style="float:left; width:420px; margin-left:10px">
                         <h1>Additional Information</h1>
                          <table>
                             <tbody>
@@ -314,45 +329,72 @@
                                     </td>
                                 </tr>
 
-                                <tr class="prop">
-                                    <td valign="top" class="name">
-                                           <label for="hasBakery">We make our own bread products from<br/>
-                                               scratch in our bakery (proof & bake)</label>
-                                       </td>
-                                       <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'hasBakery', 'errors')}">
-                                           <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
-                                       </td>
-                                   </tr>
+                            <tr class="prop">
+      								<td valign="top" class="name">
+      									   <label for="hasBakery">We make our own bread products from
+      										   scratch in our bakery (proof & bake)</label>
+      								   </td>
+      								   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'hasBakery', 'errors')}">
+      									   <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+      								   </td>
+      							   </tr>
 
-                                   <tr class="prop">
+                              <tr class="prop">
+                                 <td valign="top" class="name">
+                                     <label for="monthlyFlourUsage">If yes, how much flour does your district use on a monthly basis in pounds?</label>
+                                 </td>
+                                 <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'monthlyFlourUsage', 'errors')}">
+                                     <g:textField class="textField" name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}" />
+                                 </td>
+                               </tr>
+
+                           <tr class="prop">
+                                 <td valign="top" class="name">
+                                     <label for="localBakeries">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
+                                     contact them about the program, please list them here: </label>
+                                 </td>
+                                 <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'localBakeries', 'errors')}">
+                                     <g:textField class="textField" name="localBakeries" value="${customerInstance?.localBakeries}" />
+                                 </td>
+                               </tr>
+
+                           <tr class="prop">
+                             <td valign="top" class="name">
+                                 <label for="usedUltragrainSustagrainProducts">Do you currently use Ultragrain or Sustagrain products in your district? If so, please list: </label>
+                             </td>
+                             <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'usedUltragrainSustagrainProducts', 'errors')}">
+                                 <g:textField class="texField" name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" />
+                             </td>
+                           </tr>
+
+      							<tr class="prop">
                                       <td valign="top" class="name">
-                                          <label for="monthlyFlourUsage">If yes, how much flour does your district use on a monthly basis in pounds?</label>
+                                        <label for="seq"><g:message code="customer.seq.label" default="Sequence Number (DO NOT CHANGE)" /></label>
                                       </td>
-                                      <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'monthlyFlourUsage', 'errors')}">
-                                          <g:textField class="textField" name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}" />
+                                      <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'seq', 'errors')}">
+                                          <g:textField name="seq" value="${fieldValue(bean: customerInstance, field: 'seq')}" />
                                       </td>
-                                    </tr>
-
-                                <tr class="prop">
-                                      <td valign="top" class="name">
-                                          <label for="localBakeries">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
-                                          contact them about the program, please list them here: </label>
-                                      </td>
-                                      <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'localBakeries', 'errors')}">
-                                          <g:textField class="textField" name="localBakeries" value="${customerInstance?.localBakeries}" />
-                                      </td>
-                                    </tr>
-
-                                <tr class="prop">
-                                  <td valign="top" class="name">
-                                      <label for="usedUltragrainSustagrainProducts">Do you currently use Ultragrain or Sustagrain products in your district? If so, please list: </label>
+                                  </tr>
+                              <tr>
+                                  <td colspan="2">
+                                  Please let us know if you would any of these manufacturers to contact you immediately.
                                   </td>
-                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'usedUltragrainSustagrainProducts', 'errors')}">
-                                      <g:textField class="texField" name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" />
+                              </tr>
+                              <tr>
+                                  <td colspan="2">
+                                      <g:each in="${sponsors}" var="sponsor">
+                                          <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}" checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
+                                      </g:each>
                                   </td>
-                                </tr>
-
-
+                              </tr>
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                  <label for="seq"><g:message code="customer.otherComments.label" default="Please list any special requests for the manufacturers you checked:" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'seq', 'errors')}">
+                                    <g:textField name="otherComments" value="${fieldValue(bean: customerInstance, field: 'otherComments')}" />
+                                </td>
+                            </tr>
 
                                 <tr class="prop">
                                     <td valign="top" class="name">

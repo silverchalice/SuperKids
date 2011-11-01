@@ -272,7 +272,7 @@ td.errors input {
 
 table {
     border: 1px solid #ccc;
-    width: 100%
+    width: 900px;
 }
 tr {
     border: 1px solid #ccc;
@@ -375,12 +375,11 @@ table.callerRecord table {
 .prop .name {
 	line-height:20px;
     text-align: right;
-    width: 15%;
-    white-space: nowrap;
+    width:120px;
+
 }
 .prop .value {
     text-align: left;
-    width: 85%;
 	line-height:20px;
 }
 
