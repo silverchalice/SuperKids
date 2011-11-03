@@ -46,7 +46,7 @@ class ShoppingController {
                        customerInstance.removeFromContactManufacturers(sponsor)
                     }
                }
-                                            
+
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                    def cartItems = shoppingCartService.getItems()
                    def products = []
