@@ -8,6 +8,9 @@ class DataService {
 
     def springSecurityService
 
+
+
+
     def importCustomers(file) {
 		def i = 0
 		def is = file.inputStream
@@ -49,7 +52,7 @@ class DataService {
 				//purchasePreparedFood = (cell(28) == "Yes")
 				//purchaseFrozenFood = (cell(29) == "Yes")
 				otherComments = cell(31) ?: ""
-				topCustomer = (cell(32) == 'YES')
+				topCustomer = (cell(3) == 'YES')
 				timezone = cell(50) ?: " "
 				pastParticipant = (cell(32) == 'YES')
 				seq = cell(2)

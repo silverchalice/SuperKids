@@ -6,6 +6,19 @@ class ReportController {
 
     def exportService
 
+
+    def states = ['Alabama':'AL', 'Alaska':'AK', 'Arizona':'AZ', 'Arkansas':'AR', 'California':'CA',
+            'Colorado':'CO', 'Connecticut':'CT', 'Delaware':'DE', 'District of Columbia':'DC',
+            'Florida':'FL', 'Georgia':'GA', 'Hawaii':'HI', 'Idaho':'ID', 'Illinois':'IL', 'Indiana':'IN',
+            'Iowa':'IA', 'Kansas':'KS', 'Kentucky':'KY', 'Louisiana':'LA', 'Maine':'ME', 'Maryland':'MD',
+            'Massachusetts':'MA', 'Michigan':'MI', 'Minnesota':'MN', 'Mississippi':'MS', 'Missouri':'MO',
+            'Montana':'MT', 'Nebraska':'NE', 'Nevada':'NV', 'New Hampshire':'NH', 'New Jersey':'NJ',
+            'New Mexico':'NM', 'New York':'NY', 'North Carolina':'NC', 'North Dakota':'ND', 'Ohio':'OH',
+            'Oklahoma':'OK', 'Oregon':'OR', 'Pennsylvania':'PA', 'Rhode Island':'RI', 'South Carolina':'SC',
+            'South Dakota':'SD', 'Tennessee':'TN', 'Texas':'TX', 'Utah':'UT', 'Vermont':'VT', 'Virginia':'VA',
+            'Virgin Islands':'VI', 'Washington':'WA', 'West Virginia':'WV', 'Wisconsin':'WI', 'Wyoming':'WY']
+
+
     def index = { }
 
 
@@ -114,7 +127,7 @@ class ReportController {
 				m.address.street = customer.address?.street
 				m.address.street2 = customer.address?.street2
 				m.address.city = customer.address?.city
-				m.address.state = customer.address?.state
+				m.address.state = states[customer.address?.state] ?: customer?.address?.state
 				m.address.zip = customer.address?.zip
 				m.phone = customer.phone
 				m.fax = customer.fax
@@ -123,7 +136,7 @@ class ReportController {
 				m.deliveryAddress.street = customer.deliveryAddress?.street
 				m.deliveryAddress.street2 = customer.deliveryAddress?.street2
 				m.deliveryAddress.city = customer.deliveryAddress?.city
-				m.deliveryAddress.state = customer.deliveryAddress?.state
+				m.deliveryAddress.state = states[customer.address?.state] ?: customer?.address?.state
 				m.deliveryAddress.zip = customer.deliveryAddress?.zip
 				m.studentsInDistrict = customer.studentsInDistrict
 				m.facilities = customer.facilities
@@ -147,7 +160,7 @@ class ReportController {
                 m.brokerStreet = customer.brokers[0]?.street ?: ""
                 m.brokerStreet2 = customer.brokers[0]?.street2 ?: ""
                 m.brokerCity = customer.brokers[0]?.city ?: ""
-                m.brokerState = customer.brokers[0]?.state ?: ""
+                m.brokerState = states[customer.brokers[0]?.state] ?: ""
                 m.brokerZip = customer.brokers[0]?.zip ?: ""
 
 
