@@ -57,6 +57,7 @@ class DataService {
 				pastParticipant = (cell(32) == 'YES')
 				seq = cell(2)
 				callerBrokers = cell(33) ?: ""
+
 			}
 			def no = "0"
 			customer.password = springSecurityService.encodePassword("superkids")
