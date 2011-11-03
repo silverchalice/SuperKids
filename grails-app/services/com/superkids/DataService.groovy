@@ -48,7 +48,7 @@ class DataService {
 				snacksServed = cell(25) ?: 0
 				hasBakery = (cell(26) == "YES")
 				//purchaseFrozenBread = (cell(27) == "Yes")
-				//purchaseFreshBread = (cell(30) == "Yes")
+				//purchaseFreshBread = (cell(30) == "Yes")                                                           
 				//purchasePreparedFood = (cell(28) == "Yes")
 				//purchaseFrozenFood = (cell(29) == "Yes")
 				otherComments = cell(31) ?: ""
@@ -57,6 +57,7 @@ class DataService {
 				pastParticipant = (cell(32) == 'YES')
 				seq = cell(2)
 				callerBrokers = cell(33) ?: ""
+
 			}
 			def no = "0"
 			customer.password = springSecurityService.encodePassword("superkids")
