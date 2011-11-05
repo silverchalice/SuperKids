@@ -102,7 +102,7 @@ class CallController {
                 if(params["sponsor.${sponsor.id}"]) {
                     println "adding $sponsor"
                     customer.addToContactManufacturers(sponsor)
-                } else if(customer.contactManufacturers?.contains(sponsor)) {
+                } else if(customer.contactManufacturers && customer.contactManufacturers.contains(sponsor)) {
                     customer.removeFromContactManufacturers(sponsor)
                 }
            }

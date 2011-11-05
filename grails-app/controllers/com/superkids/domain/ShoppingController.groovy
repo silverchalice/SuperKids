@@ -42,7 +42,7 @@ class ShoppingController {
                     println "checking for sponsor $sponsor"
                     if(params["sponsor.${sponsor.id}"]) {
                         customerInstance.addToContactManufacturers(sponsor)
-                    } else if(customerInstance.contactManufacturers?.contains(sponsor)) {
+                    } else if(customerInstance.contactManufacturers && customerInstance.contactManufacturers?.contains(sponsor)) {
                        customerInstance.removeFromContactManufacturers(sponsor)
                     }
                }
