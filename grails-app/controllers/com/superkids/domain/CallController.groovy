@@ -443,6 +443,7 @@ class CallController {
 
 		def now = new Date()
         def twentyFourHoursAgo = new Date(new Date().time - 86400000)
+        def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
         def oneHourAgo = new Date(new Date().time - 3600000)
 
 		//order calls are all customers with out a current order AND who are not being called atm
@@ -476,6 +477,10 @@ class CallController {
 									eq('result', CallResult.NO_ANSWER)
 								}
 							}
+                            and {
+                                not { between('dateCreated', seventyTwoHoursAgo, now) }
+                                eq('result', CallResult.VOICEMAIL)
+                            }
 							and {
 								not { between('dateCreated', twentyFourHoursAgo, now) }
 							}
