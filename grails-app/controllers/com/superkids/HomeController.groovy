@@ -134,8 +134,8 @@ class HomeController {
            
        }
 
-       def edit_profile = {      
-            def broker
+       def edit_profile = {
+            def broker = null
             if(params.brokerId){
                 broker = Broker.get(params.brokerId)
             }
@@ -153,7 +153,7 @@ class HomeController {
                def user = Customer.get(springSecurityService.principal.id)
                def userRole = Role.findByAuthority("ROLE_USER")
                if (UserRole.findByUserAndRole(user, userRole)){
-                   return [customerInstance: user, states:states, broker:broker]
+                   return [customerInstance: user, states:states, broker:broker, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
                } else {
                    redirect(action: "index")
                }
