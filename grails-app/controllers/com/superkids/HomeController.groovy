@@ -515,13 +515,19 @@ class HomeController {
 
 	   def ecards_send = {
 
-		   println "in ecard_send for HomeController"
-		   println "principle" + springSecurityService.principal
-		   println "principle.id" + springSecurityService.principal.id
+           if(springSecurityService.isLoggedIn()) {
+               println "in ecard_send for HomeController"
+               println "principle" + springSecurityService.principal
+               println "principle.id" + springSecurityService.principal.id
 
-		   def customer = Customer.get(springSecurityService.principal.id)
+               def customer = Customer.get(springSecurityService.principal.id)
 
-		   [customer: customer]
+               [customer: customer]
+           } else {
+               redirect(controller: "login")
+           }
+
+
        }	
 
 	def ecards_thanks = {
