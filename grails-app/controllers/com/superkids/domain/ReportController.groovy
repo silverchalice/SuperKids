@@ -173,7 +173,7 @@ class ReportController {
 				def order = customer.order
 
                 println "order for $customer.district"
-                order.products.each { println "$it.product.id $it.product.name"}
+                order?.products?.each { println "$it.product.id $it.product.name"}
 
 				prods.each {prod ->
 
