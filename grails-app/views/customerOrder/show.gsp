@@ -118,7 +118,7 @@
 								<img src="${createLink(controller:'product', action:'displayImage', id: p?.product.id)}" alt="" style="height:50px" />&nbsp;
 							</td>
 							<td>
-								<g:link controller="product" action="show" id="${p.id}">${p?.product.name}</g:link>
+								<g:link controller="product" action="edit" id="${p.product.id}">${p?.product.name}</g:link>
 							</td>
 							<td style="width:70px">
 							    <sks:viewAssessment customer="${customerOrderInstance?.customer?.id}" product="${p.product.id}" />

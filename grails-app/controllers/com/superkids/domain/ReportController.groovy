@@ -110,6 +110,9 @@ class ReportController {
         def thatWhichIsContainedInOurExportation = []
 
         def prods = Product.list(sort:'sortOrder')
+        
+        prods.each { println "$it.id $it.name" }
+        
 		println ("After Product.list - ${new Date().time - startTime}")
 		Customer.list(sort: "seq").each {customer ->
 			if(!customer.deleted) {
@@ -168,8 +171,11 @@ class ReportController {
 				m.contact = contactTime
 
 				def order = customer.order
+
 				prods.each {prod ->
-					m."${prod.name}" = order?.products.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
+                    println prod.name
+
+					m."${prod.name}" = order?.products?.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
 				}
 
 				m.order = new Expando()
