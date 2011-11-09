@@ -178,7 +178,8 @@ class ReportController {
 				prods.each {prod ->
 
 
-					m."${prod.name}" = order?.products?.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
+
+					m."${prod.id}" = order?.products?.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
 				}
 
 				m.order = new Expando()
@@ -289,7 +290,7 @@ class ReportController {
                 "notes" ,
                 "contact"]
 		for (prod in prods) {
-			def foo = prod.name
+			def foo = prod.id
 			if (!prod.parent) {
 				fields << foo
 			}
@@ -309,7 +310,7 @@ class ReportController {
 
 		for (prod in prods) {
 			if (!prod.parent) {
-				labels."${prod.name}" = prod.name
+				labels."${prod.id}" = prod.name
 			}
 		}
 
