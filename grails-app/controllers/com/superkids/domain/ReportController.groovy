@@ -172,8 +172,11 @@ class ReportController {
 
 				def order = customer.order
 
+                println "order for $customer.district"
+                order.products.each { println "$it.product.id $it.product.name"}
+
 				prods.each {prod ->
-                    println prod.name
+
 
 					m."${prod.name}" = order?.products?.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
 				}
