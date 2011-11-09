@@ -148,13 +148,13 @@ class CallController {
 
 					params.each { key, val ->
 						if (key.size() > 5 && key[0..5] == 'order_' && val == 'on'){
-							def productName = key[6..-1]
+							def productId = key[6..-1]
 
-							println "product is $productName"
+							println "product is $productId"
 
-							def product = Product.findByName(productName)
+							def product = Product.get(productId)
 
-							println "product looked up is $product.name"
+							println "product looked up is $product?.name"
 
 							def pOrder = new ProductOrder(product:product, order:order)
                             if(product){
