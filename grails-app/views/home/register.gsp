@@ -17,7 +17,7 @@
         <div id="contentInsetInner">
             <h1>Registration</h1><br />
 
-            <div style="width: 610px; height: 960px">
+            <div style="width: 610px; height: 1000px">
             <g:if test="${flash.message}">
                     <div class="message">${flash.message}</div><br />
                     </g:if>

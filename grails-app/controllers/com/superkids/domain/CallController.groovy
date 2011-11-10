@@ -318,7 +318,7 @@ class CallController {
         }
     }
 
-    def update = {                  next
+    def update = {
         def callInstance = Call.get(params.id)
         if (callInstance) {
             if (params.version) {
