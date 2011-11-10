@@ -255,23 +255,39 @@ class CallController {
 				}
 
 				def model = [:]
+                
+                def checkedProducts = []
+                
+                params.each { key, val ->
+                    if (key.size() > 5 && key[0..5] == 'order_' && val == 'on'){
+                        def productId = key[6..-1]
+
+                        println "checkedProduct id is $productId"
+                        def product = Product.get(productId)
+
+                        if (product) {
+                            println "product checked is $product?.name"
+                            checkedProducts.add(product)
+                        }
+                    }
+                }
 
 				if(params?.single) {
 					println "This is a non-queue call"
 					if(params?.search) {
 						println "$caller made this call from a search results page - storing the query before rendering"
-						model = [customerInstance: customer, search: 'true', single:'true', query: params?.query, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
+						model = [customerInstance: customer, search: 'true', single:'true', query: params?.query, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, checkedProducts: checkedProducts]
 					} else if(params?.cb) {
 						println "This call was made from the Callback list - redirecting back to CB List"
-						model = [customerInstance: customer, single:'true', cb: params?.cb, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
+						model = [customerInstance: customer, single:'true', cb: params?.cb, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, checkedProducts: checkedProducts]
 					} else if(params?.ocl) {
 						println "This call was made from the Order Call list - redirecting back to OC List"
-						model = [customerInstance: customer, single:'true', olc: params?.ocl, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
+						model = [customerInstance: customer, single:'true', olc: params?.ocl, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, checkedProducts: checkedProducts]
 					} else {
-						model = [customerInstance: customer, single: 'true', currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
+						model = [customerInstance: customer, single: 'true', currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, checkedProducts: checkedProducts]
 					}
 				} else {
-					model = [customerInstance: customer, queue:params?.queue, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
+					model = [customerInstance: customer, queue:params?.queue, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, checkedProducts: checkedProducts]
 				}
 				render view:'order_call_form', model: model
 			}

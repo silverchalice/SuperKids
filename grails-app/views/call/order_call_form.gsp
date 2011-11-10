@@ -603,7 +603,7 @@
 						<g:each in="${products}" var="product" >
 						  <tr class="prop">
 							<td>
-							  <g:checkBox name="order_${product.id}"/>
+							  <g:checkBox name="order_${product.id}" checked="${checkedProducts?.find {it.id == product.id}}"/>
 							</td>
 							<td class="value">
 							  ${product.name}
