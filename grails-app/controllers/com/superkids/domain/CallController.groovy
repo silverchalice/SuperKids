@@ -276,7 +276,7 @@ class CallController {
 					println "This is a non-queue call"
 					if(params?.search) {
 						println "$caller made this call from a search results page - storing the query before rendering"
-						model = [customerInstance: customer, search: 'true', single:'true', query: params?.query, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, checkedProducts: checkedProducts]
+						model = [customerInstance: customer, search: 'true', single:'true', query: params?.query, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, rrs: Sponsor.findAllByInactive(false).sort {it.name}, checkedProducts: checkedProducts]
 					} else if(params?.cb) {
 						println "This call was made from the Callback list - redirecting back to CB List"
 						model = [customerInstance: customer, single:'true', cb: params?.cb, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, checkedProducts: checkedProducts]
@@ -459,7 +459,7 @@ class CallController {
 
 		def now = new Date()
         def twentyFourHoursAgo = new Date(new Date().time - 86400000)
-        def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
+        def fortyEightHoursAgo = new Date(new Date().time - 172800000)
         def oneHourAgo = new Date(new Date().time - 3600000)
 
 		//order calls are all customers with out a current order AND who are not being called atm
@@ -494,7 +494,7 @@ class CallController {
 								}
 							}
                             and {
-                                not { between('dateCreated', seventyTwoHoursAgo, now) }
+                                not { between('dateCreated', fortyEightHoursAgo, now) }
                                 eq('result', CallResult.VOICEMAIL)
                             }
 							and {
