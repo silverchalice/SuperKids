@@ -625,7 +625,7 @@
 								<td>
 									<g:select name="shippingDate"
 									  id="shippingDate"
-									  from="${ShippingDate.list()}"
+									  from="${ShippingDate.findAllByShipDate('January 2012')}"
 									  style="width:220px;"
 									  noSelection="${['null':'Select a Shipping Date...']}" />
 								</td>

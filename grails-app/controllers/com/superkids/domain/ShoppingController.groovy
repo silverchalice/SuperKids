@@ -58,7 +58,7 @@ class ShoppingController {
                        }
                    }
                    flash.message = "Your customer details have been updated."
-                   render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.list(), products:products]
+                   render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.findAllByShipDate('January 2012'), products:products]
                } else {
                    render(view: "check_out", model: [customerInstance: customerInstance, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
                }
