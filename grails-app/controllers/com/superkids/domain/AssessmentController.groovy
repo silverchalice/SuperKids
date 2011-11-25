@@ -190,7 +190,53 @@ class AssessmentController {
          assessmentInstance.properties = params
          customer.addToAssessments(assessmentInstance)
          customer.save(failOnError:true)
-         return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
+        
+         if(product.id == 23 && params.pasta == "true") {
+             println "This is pasta, and we must go to favorites"
+             render(view: "favorite", model:[id:params.id, products:products.sort{ it.id }, customerId:customer.id, product: product, assessmentInstance: assessmentInstance,])
+         } else {
+             return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]    
+         }
+    }
+
+    def favorite = {
+        println "saving favorites"
+
+        
+        def customer = Customer.get(springSecurityService.principal.id)
+         def products = []
+         def assessmentInstance = Assessment.get(params.id)
+         Assessment.findAllByCustomerAndCompleted(customer, false).each{
+             if(it.id != assessmentInstance?.id){
+                 try {
+                     println "deleting assessment"
+                     it.delete(flush: true)
+                 }
+                 catch (org.springframework.dao.DataIntegrityViolationException e) {
+                     log.error e
+                 }
+             }
+         }
+
+         if(customer.order){
+             customer.order.products.findAll{ it.received == true }.each{
+                 def p = Product.get(it.product.id)
+                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
+                     products << p
+                 }
+             }
+         }
+        
+        String favorites = ""
+        params['favorites'].each { k, v ->
+            println v
+            favorites = favorites + v + ", "
+
+        }
+        assessmentInstance.favorite = favorites
+        customer.save(failOnError:true)
+
+        render(view: "lc", model:[assessmentInstance: assessmentInstance, products:products.sort{ it.id }])
     }
 
     def cc = {

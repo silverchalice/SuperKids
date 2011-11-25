@@ -29,7 +29,7 @@
 
                     <ol style="list-style-type:decimal; color:#000000; font-weight:normal">
                     <li><span style="color:#800000">FIVE (5) First Place Prizes</span>--&#36;200 Gift Card from your choice of Wal-Mart, Target, Learning ZoneXpress, or The OrganWise Guys</li>
-                    <li><span style="color:#800000">SEVEN (7) Second Place Prizes</span>--&#36;100 Gift Card from your choice of Wal-Mart, Target, Learning ZoneXpress, or The OrganWise Guys</li>
+                    <li><span style="color:#800000">TEN (10) Second Place Prizes</span>--&#36;100 Gift Card from your choice of Wal-Mart, Target, Learning ZoneXpress, or The OrganWise Guys</li>
                     </ol>
                     <p style="color:#000000; font-weight:normal">Please note that you are responsible for ensuring that any rewards provided to you within this program are authorized by your school district.
                     Click sweepstakes rules for more information. <g:link controller="home" action="assessment_drawing_rules">Sweepstakes Rules</g:link>    </p>

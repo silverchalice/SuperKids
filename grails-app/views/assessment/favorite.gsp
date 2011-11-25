@@ -39,9 +39,11 @@
                 <g:renderErrors bean="${assessmentInstance}" as="list" />
             </div>
             </g:hasErrors>
-            <g:form action="lc" >
+            <g:form action="favorite" >
                 <g:hiddenField name="productId" value="${id}" />
                 <g:hiddenField name="customerId" value="${customerId}" />
+                <g:hiddenField name="id" value="${assessmentInstance?.id}" />
+                <g:hiddenField name="version" value="${assessmentInstance?.version}" />
 
 				<div id="assessmentQuestionUpper">
 					<img src="${resource(dir:'images', file:'AssessTLC.gif')}" style="float:left" alt="" />
@@ -49,25 +51,21 @@
 				</div>
 
                 <div id="assessmentQuestionInner"><br />
-				  <p style="position:absolute; top:1px; left:345px; font-size:14px">Assessment Question 1 of 4</p>
+				  <p style="position:absolute; top:1px; left:345px; font-size:14px">Assessment Question 1.5 of 4</p>
                   <p style="font-size:14px;">
-                    <label>On a scale of 1 to 5 where 1 is 'not liked' and 5 is 'well liked', how did you like this product?</label> <br/><br/><br/>
-                    <label style="margin-left:20px"><input type="radio" name="likeRating" value="1" >1</label>
-                    <label><input type="radio" name="likeRating" value="2" >2</label>
-                    <label><input type="radio" name="likeRating" value="3" >3</label>
-                    <label><input type="radio" name="likeRating" value="4" >4</label>
-                    <label><input type="radio" name="likeRating" value="5" >5</label>
+                    <label>Please check which varieties of the pasta you like:</label> <br/><br/><br/>
+                    <label><input type="checkbox" name="favorites.1" value="Penne" >Penne</label>
+                    <label><input type="checkbox" name="favorites.2" value="Spaghetti" >Spaghetti</label>
+                    <label><input type="checkbox" name="favorites.3" value="Macaroni" >Macaroni</label>
+                    <label><input type="checkbox" name="favorites.4" value="Rotini" >Rotini</label>
+                    <label><input type="checkbox" name="favorites.5" value="Lasagna" >Lasagna</label>
+                    <label><input type="checkbox" name="favorites.6" value="9-Grain orzo" >9-Grain orzo</label>
                     <g:hiddenField name="product.id" value="${product?.id}" />
-
-                   <g:if test="${product?.id == 23}">
-                       <g:hiddenField name="pasta" value="true" />
-
-                   </g:if>
 
                   </p>
                 </div>
 
-				<div id="assessmentQuestionLower" style="top:222px">
+				<div id="assessmentQuestionLower">
 					<img src="${resource(dir:'images', file:'AssessLLC.gif')}" style="float:left" alt="" />
 					<img src="${resource(dir:'images', file:'AssessLRC.gif')}" style="float:right" alt="" />
 				</div>

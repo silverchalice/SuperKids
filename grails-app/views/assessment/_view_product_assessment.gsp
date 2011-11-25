@@ -17,9 +17,14 @@
 		<td width="60%">What one thing would you recommend be changed about this sampled product? </td>
 		<td>${assessment.changeComment}</td>
 	</tr>
-	</tr>
 	<tr>
 		<td width="60%">Please rate your interest in purchasing this product (where 1 is "low interest" and 5 is "high interest). </td>
 		<td>${assessment.iRating}</td>
 	</tr>
+    <g:if test="${assessment.product.id == 23}">
+        <tr>
+       		<td width="60%">Favorite Pasta </td>
+       		<td>${assessment.favorite}</td>
+       	</tr>
+    </g:if>
 </table>
