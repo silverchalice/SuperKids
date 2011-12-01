@@ -75,8 +75,8 @@
 
 	</table>
 </div>
-<div style="width:450px;float:left; margin-top:10px; margin-left:20px">
-	<table>
+<div style="float:left; margin-top:10px; margin-left:20px">
+	<table style="width: 450px;">
 		<tr>
 			<td><strong>Broker/Distributor #1 Name: </strong></td>
 			<td><input type="text" name="broker.name" size="20" maxlength="50" value="${broker?.name}"></td>
@@ -113,7 +113,7 @@
 		</tr>
 	</table>
     <br/>
-	<table>
+	<table style="width: 450px;">
 		<tr>
 			<td><strong>Broker/Distributor #2 Name: </strong></td>
 			<td><input type="text" name="broker2.name" size="20" maxlength="50" value="${broker2?.name}"></td>
@@ -149,7 +149,7 @@
 			<td><input type="text" name="broker2.zip" size="10" maxlength="20" value="${broker2?.zip}"></td>
 		</tr>
 	</table>
-	<table>
+	<table style="width:450px;">
 		<tr><td colspan="2"><label style="font:12px" for="programFeedback" >What would be a good time for your broker to contact you?</label></td></tr>
 		<tr>
 			<td>Fall:</td>

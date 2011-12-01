@@ -118,18 +118,18 @@
 
     <style type="text/css">
 
-      html {
-        background-color: #f4f2f2;
-      }
+        html {
+          background-color: #f4f2f2;
+        }
 
-      body {
-        background-color: #f4f2f2;
-      }
+        body {
+          background-color: #f4f2f2;
+        }
 
-      label {
-        font-weight:bold;
-        font-size:12px;
-      }
+        label {
+          font-weight:bold;
+          font-size:12px;
+        }
 
 
         input, select, textarea {
@@ -138,6 +138,10 @@
 
         .prop .textField {
             width:300px
+        }
+
+        .prop .name {
+            width: auto
         }
 
         .contact {
@@ -155,6 +159,10 @@
 
         input.ui-button {
           padding: 3px 4px 4px 4px;
+        }
+
+        table {
+            width:auto;
         }
 
     </style>
@@ -361,7 +369,7 @@
 						</tbody>
 					</table>
 					<br/>
-					<table>
+					<table style="width:500px;">
 						<tbody>
 						    <tr class="prop">
 								<td valign="top" class="name">
@@ -445,7 +453,7 @@
 				</table>
 
 
-			</table>
+
 
 
 
