@@ -29,7 +29,8 @@
 
 					<p><strong><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><span class="bu">Ultragrain's patented manufacturing process</span></span></span></strong><span style="color: rgb(153, 51, 0);"><span style="font-size: medium;"><span><strong><span class="bu"> </span></strong></span></span></span><img width="150" vspace="5" hspace="5" height="97" align="left" src="/SuperKids/images/whats-ultragrain2.jpg" alt="" />delivers whole grain flour with the same particle size as traditional refined white flour.</p>
 					<p>The milling of Ultragrain allows it to retain the fiber, protein, vitamins, minerals and other phytonutrients concentrated within the bran and germ. Ultragrain also uses special wheat selected for its mild flavor and light color. The combination of special wheat and patented milling results in a whole grain wheat flour with a taste, ultra smooth texture and appearance similar to traditional refined white flour.</p>
-					<p><strong><img width="32" height="32" border="0" align="absmiddle" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /> <strong>Ultragrain® Sausage, Egg & Cheese Biscuit Recipe: (PDF) <a href="/SuperKids/pdf/ultragrain-buscuit-recipe.pdf">Download</a></strong></strong>
+					<p><strong><img width="32" height="32" border="0" align="absmiddle" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /> <strong>Ultragrain® Sausage, Egg & Cheese Biscuit Recipe: (PDF) <a href="/SuperKids/pdf/ultragrain-buscuit-recipe.pdf">Download</a></strong></strong></p>
+                    <p><strong><img width="32" height="32" border="0" align="absmiddle" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /> <strong>Ultragrain® Rotini Pasta Salad Recipe: (PDF) <a taget="_blank" href="/SuperKids/pdf/UltragrainRotiniPastaSaladRecipe.pdf">Download</a></strong></strong>
 </p>
 				</div>
 				
