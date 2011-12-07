@@ -137,6 +137,7 @@
                                     <g:select name="status" from="${statusList}" optionKey="key" optionValue="value" value="${customerInstance?.status}" />
                                 </td>
                             </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">Source</td>
 
@@ -152,6 +153,14 @@
                                     <g:checkBox name="topCustomer" value="${customerInstance?.topCustomer}" />
                                 </td>
                             </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                              <label for="hasCompletedCurrentAssessment">Completed Assessment</label>
+                            </td>
+                            <td valign="top">
+                                <g:checkBox name="hasCompletedCurrentAssessment" value="${customerInstance?.hasCompletedCurrentAssessment}" />
+                            </td>
+                        </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="newCustomer">New Customer</label>
