@@ -150,7 +150,7 @@ class CustomerController {
             def currentStatus = CustomerStatus."${customerInstance.status}"
             String current = customerInstance.status
             def readableCurrentStatus = current.replaceAll("_", " ")
-            Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'HAS NOT ORDERED']
+            Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'HAS NOT ORDERED', 'HAS_ORDERED':'HAS ORDERED']
             def products = []
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
                 products = Product.findAllWhere(parent: null)
