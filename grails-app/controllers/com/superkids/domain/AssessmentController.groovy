@@ -116,6 +116,9 @@ class AssessmentController {
         if (assessmentInstance) {
             try {
 				println "deleting an assessment"
+                def customer = assessmentInstance.customer
+                customer.removeFromAssessments(assessmentInstance)
+
                 assessmentInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'assessment.label', default: 'Assessment'), params.id])}"
                 redirect(action: "list")
