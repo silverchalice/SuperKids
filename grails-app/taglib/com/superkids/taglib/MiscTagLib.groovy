@@ -217,6 +217,19 @@ class MiscTagLib {
             }
         }
 
+        def dnsCheckbox = { attrs ->
+            def pOrder = ProductOrder.get(attrs.pOrderId)
+            if(pOrder.sampled){
+                out << g.checkBox(value:"${pOrder.product.name}.didNotSample", checked:'unchecked', name:"${pOrder.product.name}.didNotSample", onclick:"${g.remoteFunction(action:'toggleDidNotSample', id:pOrder.id, params:'\'didNotSample=\' + this.checked')}")
+            } else {
+                out << "<input type='checkBox' value='"
+                out << "${pOrder.product.name}.didNotSample"
+                out << "' checked='checked' name='"
+                out << "${pOrder.product.name}.didNotSample"
+                out << "' disabled='disabled' />"
+            }
+        }
+
 	def adminAssessLink = { attrs ->
 		def pOrder = ProductOrder.get(attrs.id)
 		if(pOrder) {
@@ -229,9 +242,11 @@ class MiscTagLib {
 				out << "<a href='"
 				out << createLink(controller:'assessment', action:'show', id:assessment.id)
 				out << "' />View</a>"
-			} else if(pOrder.received == false) {
+			} else if(!pOrder.received) {
 				out << 'Did Not Receive '
-			} else {
+			} else if(!pOrder.sampled) {
+                out << 'Did Not Sample '
+            } else {
 				out << '<a href="javascript:showAssessForm('
 				out << pOrder.id
 				out << ')">Assess</a>'

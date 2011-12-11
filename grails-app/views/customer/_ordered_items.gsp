@@ -3,7 +3,7 @@
 		<tr>
 			<td colspan="3" align="left" class="adminheadline">Ordered Items &nbsp;
 			 <g:link controller="customerOrder" action="show" id="${customerInstance?.order?.id}">(View Order)</g:link></td>
-			<td colspan="2" align="left" class="">
+			<td colspan="3" align="left" class="">
                 <g:if test="${customerInstance?.hasCompletedCurrentAssessment == false}">
                     <a href="javascript:showCompleteAssessForm()">Complete Assessment</a>
                 </g:if>
@@ -14,10 +14,10 @@
 		</tr>
 		<tr>
 			<th>Item Name</th>
-			<th>Ordered</th>
-			<th>Req'd Ship Date</th>
+			<th>Ship Date</th>
 			<th>Assessed</th>
-			<th style="width:85px;">Not Received</th>
+			<th style="width:75px;">Not Received</th>
+			<th style="width:75px;">Not Sampled</th>
 		</tr>
 		<g:form name="OrderProduct" action="add_order" method="post">
 		<g:hiddenField name="id" value="${customerInstance.id}" />
@@ -25,12 +25,11 @@
 				<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 					<td><img style="float:left; width:50px; margin-right:10px" src="${createLink(controller:'product', action:'displayImage', id:productOrder.product.id)}" alt="" />
 						${productOrder.product?.sponsor?.name}<sup>®</sup> ${productOrder.product?.name}</td>
-					<td><p style="margin-top:5px"><g:formatDate date="${customerInstance?.order.dateCreated}" format="M/d/yyyy" /></p></td>
 					<td style="width:120px;"><p style="margin-top:5px">${customerInstance?.order?.shippingDate}</p></td>
 					<td><p style="margin-top:5px">
 						<sks:adminAssessLink id="${productOrder.id}" show="${show}"/>
 					</p></td>
-					<td style="width:85px;">  <p style="margin-top:4px">
+					<td style="width:75px;">  <p style="margin-top:4px">
 						<g:if test="${show}">
 							<g:checkBox value="${productOrder.product.name}.didNotReceive"
 								checked='unchecked'
@@ -39,11 +38,25 @@
 								onclick="${remoteFunction(action:'toggleDidNotReceive', id:productOrder.id, params:'\'didNotReceive=\' + this.checked')}"/>
 						</g:if>
 						<g:else>
-                                                    <sks:ifNotAssessed customerId="${customerInstance?.id}" productId="${productOrder?.product?.id}">
-							<sks:dnrCheckbox pOrderId="${productOrder?.id}" />
-                                                    </sks:ifNotAssessed>
+                            <sks:ifNotAssessed customerId="${customerInstance?.id}" productId="${productOrder?.product?.id}">
+							    <sks:dnrCheckbox pOrderId="${productOrder?.id}" />
+                            </sks:ifNotAssessed>
 				    	</g:else>
 					</td>
+                    <td style="width:75px;">  <p style="margin-top:4px">
+                    <g:if test="${show}">
+                        <g:checkBox value="${productOrder.product.name}.didNotSample"
+                            checked='unchecked'
+                            disabled='true'
+                            name="${productOrder.product.name}.didNotSample"
+                            onclick="${remoteFunction(action:'toggleDidNotSample', id:productOrder.id, params:'\'didNotSample=\' + this.checked')}"/>
+                    </g:if>
+                    <g:else>
+                        <sks:ifNotAssessed customerId="${customerInstance?.id}" productId="${productOrder?.product?.id}">
+                            <sks:dnsCheckbox pOrderId="${productOrder?.id}" />
+                        </sks:ifNotAssessed>
+                    </g:else>
+                </td>
 				</tr>
 			</g:each>
 	</g:form>
@@ -58,6 +71,8 @@
 			<g:message code="${it.label}" />: ${it.radio}
 		</g:radioGroup>
 		<br/>
+        <h3>Did not receive product?</h3>
+        <g:checkBox name="didNotReceive"/>
 		<br/>
 		<h3>Assessment Question 1 of 4</h3>
 		On a scale of 1 to 5 where 1 is 'not liked' and 5 is 'well liked', how did you like this product?:<br/>

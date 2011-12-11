@@ -425,41 +425,77 @@ class CustomerController {
         render ''
     }
 
+    def toggleDidNotSample = {
+               println 'in toggleDidNotSample'
+
+               def productOrderInstance = ProductOrder.get(params.id)
+               def customer = Customer.get(productOrderInstance.order.customer.id)
+               def products = []
+               if (productOrderInstance){
+                   productOrderInstance.sampled = params.didNotSample == 'false'
+                   productOrderInstance.save(failOnError:true)
+
+                   customer.order.products.findAll{ it.sampled }.each{
+                       def p = Product.get(it.product.id)
+                       if(!customer.assessments.find{ it.product.id == p.id }){
+                           products << p
+                       }
+                   }
+
+                   if(!products.find{!Product.findByParent(it)}){
+                       customer.status = CustomerStatus.QUALIFIED
+                       customer.hasCompletedCurrentAssessment = true
+                       customer.save(failOnError:true)
+                   }
+           }
+           println "Q: Is customer " + customer.fsdName + "'s order of " + productOrderInstance + " sampled?"
+           println "A: " + productOrderInstance.sampled
+           render ''
+       }
+
+
 	def adminAssessProduct = {
 		println 'in adminAssessProduct for CustomerController'
-
+        println params.didNotReceive
 		def pOrder = ProductOrder.get(params.productOrderId)
 
 		if(pOrder) {
-			def assessment = new Assessment(params)
-			def customer = Customer.get(pOrder.order.customer.id)
-			def product = Product.get(pOrder.product.id)
+            
+            if (params.didNotReceive) {
+                pOrder.received = false
+            } else {
 
-			assessment.product = product
-			assessment.favorite = params?.favorite
-			assessment.type = Enum.valueOf(OrderType.class, params.orderType)
-			assessment.completed = true
+                def assessment = new Assessment(params)
+                def customer = Customer.get(pOrder.order.customer.id)
+                def product = Product.get(pOrder.product.id)
 
-			customer.addToAssessments(assessment)
+                assessment.product = product
+                assessment.favorite = params?.favorite
+                assessment.type = Enum.valueOf(OrderType.class, params.orderType)
+                assessment.completed = true
 
-			customer.save(failOnError:true)
+                customer.addToAssessments(assessment)
 
-			def products = []
+                customer.save(failOnError:true)
 
-			customer.order.products.findAll{ it.received == true }.each{
-				def p = Product.get(it.product?.id)
-				if(!customer.assessments.find{ it?.product?.id == p?.id }){
-					products << p
-				}
-			}
+                def products = []
 
-			if(products.find{!Product.findByParent(it)}){
-				redirect action:edit, id:customer.id
-			} else {
-				//customer.status = CustomerStatus.QUALIFIED
-				//customer.hasCompletedCurrentAssessment = true
-				redirect action:edit, id:customer.id
-			}
+                customer.order.products.findAll{ it.received == true }.each{
+                    def p = Product.get(it.product?.id)
+                    if(!customer.assessments.find{ it?.product?.id == p?.id }){
+                        products << p
+                    }
+                }
+
+                if(products.find{!Product.findByParent(it)}){
+                    redirect action:edit, id:customer.id
+                } else {
+                    //customer.status = CustomerStatus.QUALIFIED
+                    //customer.hasCompletedCurrentAssessment = true
+                    redirect action:edit, id:customer.id
+                }
+
+            }
  
 		} else {
 			flash.message = "Product not found"
