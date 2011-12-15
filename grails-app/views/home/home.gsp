@@ -33,7 +33,9 @@
 			<p>SuperKids is a unique, FREE sampling program for K-12 foodservice directors featuring whole grain products made with Ultragrain whole wheat and Sustagrain, the ultra-high fiber whole grain. It offers multiple options for introducing higher fiber and healthy whole grains into snack, breakfast and lunch school district menus.</p>
 
 			<p>SuperKids gives foodservice directors the opportunity to easily evaluate new whole grain products for taste, texture and appearance. With SuperKids, every snack and meal can deliver more whole grains and taste great. <br/>
-			<br/><strong>To get started, click the login button in the upper-right corner.</strong></p>
+			<br/><strong>To get started, click the login button in the upper-right corner.</strong>
+            <br/><a target="_blank" style="font-weight: bold" href="/SuperKids/images/ChefJeffVideo.wmv">To see a video of Chef Jeff demonstrating recipes using Ultragrain® at SNA, please click here</a></p>
+
                         </div>
 			</div>
 
