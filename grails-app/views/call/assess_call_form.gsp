@@ -218,6 +218,7 @@
                                     <g:else>
                                         <span style="color:gray">Has not participated in the past</span>
                                     </g:else>
+
                                 </td>
                             </tr>
 

@@ -178,7 +178,7 @@ class CallController {
 						println "w00t! $caller saved order for customer " + order.customer.fsdName
 						customer.status = CustomerStatus.HAS_ORDERED
 						customer.hasPlacedCurrentOrder = true
-						customer.order = order
+						customer.customerOrder = order
 					} else {
 						println "oops... $caller had problems saving order for customer " + customer?.fsdName
 						order.errors.allErrors.each { println it }
@@ -660,31 +660,31 @@ class CallController {
 		if(Caller.get(springSecurityService.principal.id))
 			caller = Caller.get(springSecurityService.principal.id)
 		println "$caller is in next_assess_call for CallController"
-       //make sure the last customer is no longer 'in call'
-       def currentCustomer = Customer.get(params?.id)
-
-       Integer currentSeq
-       Long currentId
-
-       if(currentCustomer) {
-           currentCustomer.inCall = null
-           currentCustomer.save(flush:true)
-
-           currentSeq = currentCustomer.seq
-           currentId = currentCustomer.id
-
-       } else {
-             currentSeq = 1
-             currentId =  1
-       }
-       def order = new CustomerOrder()
-       def call = new Call()
-
-       def currentTimezone
-       if(params?.timezone)
-           currentTimezone = params?.timezone
-       else
-           currentTimezone = params?.currentTimezone
+        //make sure the last customer is no longer 'in call'
+        def currentCustomer = Customer.get(params?.id)
+        
+        Integer currentSeq
+        Long currentId
+        
+        if(currentCustomer) {
+            currentCustomer.inCall = null
+            currentCustomer.save(flush:true)
+        
+            currentSeq = currentCustomer.seq
+            currentId = currentCustomer.id
+        
+        } else {
+              currentSeq = 1
+              currentId =  1
+        }
+        def order = new CustomerOrder()
+        def call = new Call()
+        
+        def currentTimezone
+        if(params?.timezone)
+            currentTimezone = params?.timezone
+        else
+            currentTimezone = params?.currentTimezone
 
 		def c = Customer.createCriteria()
 		def c2 = Customer.createCriteria()
@@ -708,6 +708,11 @@ class CallController {
 				isNull('deleted')
 			}
 
+            customerOrder {
+                shippingDate {
+                    eq 'shipDate', "November, 2011"
+                }
+            }
 
 			or {
 				lastCall {
@@ -737,14 +742,14 @@ class CallController {
 				isNull('duplicate')
 			}
 
-		  or{
-              and {
-                  eq('seq', currentSeq)
-                  gt('id', currentId)
-              }
-              gt('seq', currentSeq)
+		    or{
+                and {
+                    eq('seq', currentSeq)
+                    gt('id', currentId)
+                }
+                gt('seq', currentSeq)
             }
-          maxResults(1)
+            maxResults(1)
 		}.getAt(0)
 		
 		if(customer) {
@@ -757,21 +762,17 @@ class CallController {
 				customer.errors.allErrors.each { println it }
 				flash.message = "Oops! An error occured"
 				redirect action:index
-				r
+				return 
 			}
 
 		} else {
 			customer = c2.list(max: 1, sort: 'seq') {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_ORDERED
+
 			    isNull 'inCall'
 				eq 'deleted', false
 
-				//lastCall {
-				//	not {
-				//		between('dateCreated', now - 2, now)
-				//	}
-				//}
 				or{
 					eq('duplicate', false)
 					isNull('duplicate')
@@ -955,12 +956,12 @@ class CallController {
 
 							if(params.assessment."${product.name}".didNotReceive) {
 								println "did not receive"
-								def po = ProductOrder.findByOrderAndProduct(customer.order, product)
+								def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
 								po.received = false
 								po.save()
 							} else if(params.assessment."${product.name}".didNotSample) {
 								println "did not sample"
-								def po = ProductOrder.findByOrderAndProduct(customer.order, product)
+								def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
 								po.sampled = false
 								po.save()
 							} else {

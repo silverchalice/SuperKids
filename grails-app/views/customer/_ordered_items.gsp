@@ -2,7 +2,7 @@
 <table cellpadding="5" cellspacing="0" style="width:420px; border: 1px solid #cccccc;">
 		<tr>
 			<td colspan="3" align="left" class="adminheadline">Ordered Items &nbsp;
-			 <g:link controller="customerOrder" action="show" id="${customerInstance?.order?.id}">(View Order)</g:link></td>
+			 <g:link controller="customerOrder" action="show" id="${customerInstance?.customerOrder?.id}">(View Order)</g:link></td>
 			<td colspan="3" align="left" class="">
                 <g:if test="${customerInstance?.hasCompletedCurrentAssessment == false}">
                     <a href="javascript:showCompleteAssessForm()">Complete Assessment</a>
@@ -25,7 +25,7 @@
 				<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 					<td><img style="float:left; width:50px; margin-right:10px" src="${createLink(controller:'product', action:'displayImage', id:productOrder.product.id)}" alt="" />
 						${productOrder.product?.sponsor?.name}<sup>®</sup> ${productOrder.product?.name}</td>
-					<td style="width:120px;"><p style="margin-top:5px">${customerInstance?.order?.shippingDate}</p></td>
+					<td style="width:120px;"><p style="margin-top:5px">${customerInstance?.customerOrder?.shippingDate}</p></td>
 					<td><p style="margin-top:5px">
 						<sks:adminAssessLink id="${productOrder.id}" show="${show}"/>
 					</p></td>

@@ -60,7 +60,7 @@ class AssessmentController {
 		def customer = Customer.get(params.id)
 		def assessments = Assessment.findAllByCustomerAndCompleted(customer, true)
 		def dnrProducts = []
-		customer.order.products.each{
+		customer.customerOrder.products.each{
 			if(it.received == false){ dnrProducts << it }
 		}
 		assessments.each { println "Assessment for product it.product"}
@@ -138,12 +138,12 @@ class AssessmentController {
     def start = {
         def products = []
         def customer = Customer.get(springSecurityService.principal.id)
-        if(customer.order){
+        if(customer.customerOrder){
             def product = Product.get(params.id)
             println "customer " + customer?.fsdName + "is assessing " + product
-            if(customer.order.products*.product.collect{it.id}.contains(product.id)){
+            if(customer.customerOrder.products*.product.collect{it.id}.contains(product.id)){
                 def assessmentInstance = new Assessment(product:product)
-                customer.order.products.findAll{ it.received == true }.each{
+                customer.customerOrder.products.findAll{ it.received == true }.each{
                     def p = Product.get(it.product.id)
                     if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                         products << p
@@ -171,8 +171,8 @@ class AssessmentController {
          def customer = Customer.get(params.customerId)
          def product = Product.get(params.productId?.toInteger())
          def products = []
-         if(customer.order){
-             customer.order.products.findAll{ it.received == true }.each{
+         if(customer.customerOrder){
+             customer.customerOrder.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
                  if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
@@ -222,8 +222,8 @@ class AssessmentController {
              }
          }
 
-         if(customer.order){
-             customer.order.products.findAll{ it.received == true }.each{
+         if(customer.customerOrder){
+             customer.customerOrder.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
                  if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
@@ -261,8 +261,8 @@ class AssessmentController {
              }
          }
 
-         if(customer.order){
-             customer.order.products.findAll{ it.received == true }.each{
+         if(customer.customerOrder){
+             customer.customerOrder.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
                  if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
@@ -291,8 +291,8 @@ class AssessmentController {
              }
          }
 
-         if(customer.order){
-             customer.order.products.findAll{ it.received == true }.each{
+         if(customer.customerOrder){
+             customer.customerOrder.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
                  if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
@@ -321,8 +321,8 @@ class AssessmentController {
              }
          }
 
-         if(customer.order){
-             customer.order.products.findAll{ it.received == true }.each{
+         if(customer.customerOrder){
+             customer.customerOrder.products.findAll{ it.received == true }.each{
                  def p = Product.get(it.product.id)
                  if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
@@ -356,8 +356,8 @@ class AssessmentController {
        if(springSecurityService.isLoggedIn()){
            def user = User.get(springSecurityService.principal.id)
            def userRole = Role.findByAuthority("ROLE_USER")
-           if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
-               user.order.products.each{
+           if(user && UserRole.findByUserAndRole(user, userRole) && user.customerOrder){
+               user.customerOrder.products.each{
                    def p = Product.get(it?.product?.id)
                    if(!Assessment.findByCustomerAndProduct(user, p) && it.received == true && !Product.findByParent(p)){
                        products << p
@@ -416,10 +416,10 @@ class AssessmentController {
         def customerInstance = Customer.get(springSecurityService.principal.id)
         def product = Product.get(params.id)
         println "customer " + customerInstance?.fsdName + " did not receive " + product
-        def productOrder = ProductOrder.findByProductAndOrder(product, customerInstance.order)
+        def productOrder = ProductOrder.findByProductAndOrder(product, customerInstance.customerOrder)
         productOrder.received = false
         productOrder.save(failOnError:true)
-        customerInstance.order.products.findAll{ it.received == true }.each{
+        customerInstance.customerOrder.products.findAll{ it.received == true }.each{
             def p = Product.get(it.product.id)
             if(!Assessment.findByCustomerAndProduct(customerInstance, p) && !Product.findByParent(p)){
                 products << p

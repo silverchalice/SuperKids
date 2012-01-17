@@ -15,7 +15,7 @@ class Customer extends User {
 
 	String website
 
-    CustomerOrder order
+    CustomerOrder customerOrder
 
 	Date dateCreated = new Date()
     Date lastUpdated
@@ -123,7 +123,7 @@ class Customer extends User {
 
 		assessments nullable: true
 
-		order nullable:true
+		customerOrder nullable:true
 		otherComments nullable:true
 		lastCall nullable:true
 
@@ -174,6 +174,8 @@ class Customer extends User {
 
 	static mapping = {
 		opNotes sqlType:"longtext"
+
+
 	}
 
 	String toString() {

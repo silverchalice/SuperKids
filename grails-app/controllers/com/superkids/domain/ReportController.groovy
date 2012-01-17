@@ -28,10 +28,10 @@ class ReportController {
 		def incomplete = []
 
 		def customers = Customer.list(sort:'seq').each { c ->
-			if(c.order) {
+			if(c.customerOrder) {
 				println "$c has placed order"
-				def order =  c.order
-				c.order.products.each {
+				def order =  c.customerOrder
+				c.customerOrder.products.each {
 					println "checking $it.product"
 					if(!it.product) {
 						println "$c has a missing product"
@@ -49,7 +49,7 @@ class ReportController {
 
 			def total = 0
 
-			customer.order.products.each {
+			customer.customerOrder.products.each {
 				if(!it.product) {
 					total++
 				}
@@ -113,7 +113,7 @@ class ReportController {
 		println ("After Product.list - ${new Date().time - startTime}")
 		Customer.list(sort: "seq").each {customer ->
 			if(!customer.deleted) {
-				def productIds = customer.order?.products.collect {customer.id}
+				def productIds = customer.customerOrder?.products.collect {customer.id}
 				def contactTime = "${customer.fall ? 'Fall, ' : ''}${customer.spring ? 'Spring, ' : ''}${customer.am ? 'AM, ' : ''}${customer.pm ? 'PM' : ''}"
 
 
@@ -167,13 +167,13 @@ class ReportController {
 				m.notes = customer.notes
 				m.contact = contactTime
 
-				def order = customer.order
+				def order = customer.customerOrder
 				prods.each {prod ->
 					m."${prod.name}" = order?.products?.find {it?.product?.id == prod?.id} ? "Ordered : " + order?.orderType : ''
 				}
 
 				m.order = new Expando()
-				m.order.shippingDate = customer.order?.shippingDate
+				m.order.shippingDate = customer.customerOrder?.shippingDate
 
                 Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
                     m."${sponsor.name}" = customer.contactManufacturers?.contains(sponsor) ? "YES" : "NO"
@@ -184,7 +184,7 @@ class ReportController {
 					for (prod in prods) {
 						def assessment = customer?.assessments.find { it?.product?.id == prod.id }
 
-						def orderedProduct = customer?.order?.products?.find {it?.product?.id == prod.id}
+						def orderedProduct = customer?.customerOrder?.products?.find {it?.product?.id == prod.id}
 						if (orderedProduct) {
 
 							if (orderedProduct?.received == false) {

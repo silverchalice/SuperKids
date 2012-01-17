@@ -176,7 +176,7 @@ class DataService {
 			if(cell(2)) {
 				if(Customer.findByFsdName(cell(2))) {
 					def customer = Customer.findByFsdName(cell(2))
-					def order = customer.order
+					def order = customer.customerOrder
 
 					println customer?.fsdName
 					println cell(9)

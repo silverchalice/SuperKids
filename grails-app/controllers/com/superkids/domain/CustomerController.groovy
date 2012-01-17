@@ -110,7 +110,7 @@ class CustomerController {
                 return [customerInstance: customerInstance, products: products.findAll{!it.parent}, customerCalls: customerCalls,
 						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
-                customerInstance.order?.products?.each { productOrder ->
+                customerInstance.customerOrder?.products?.each { productOrder ->
                     if(productOrder?.received && productOrder?.product){
 						if(!Product.findByParent(productOrder?.product)){
                             products << productOrder
@@ -162,7 +162,7 @@ class CustomerController {
                 return [customerInstance: customerInstance, products: products, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, broker:broker, statusList:statusList,
 				rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
-                customerInstance.order.products.each { productOrder ->
+                customerInstance.customerOrder.products.each { productOrder ->
 					if(productOrder?.received && productOrder?.product){
 						if(!Product.findByParent(productOrder.product))
                         products << productOrder
@@ -315,7 +315,7 @@ class CustomerController {
 				}
 			}
 
-			customer.order = order
+			customer.customerOrder = order
 			customer.hasPlacedCurrentOrder = true
 			customer.status = CustomerStatus.HAS_ORDERED
 			customer.save(failOnError:true)
@@ -406,7 +406,7 @@ class CustomerController {
                 productOrderInstance.received = params.didNotReceive == 'false'
                 productOrderInstance.save(failOnError:true)
 
-                customer.order.products.findAll{ it.received == true }.each{
+                customer.customerOrder.products.findAll{ it.received == true }.each{
                     def p = Product.get(it.product.id)
                     if(!customer.assessments.find{ it.product.id == p.id }){
                         products << p
@@ -435,7 +435,7 @@ class CustomerController {
                    productOrderInstance.sampled = params.didNotSample == 'false'
                    productOrderInstance.save(failOnError:true)
 
-                   customer.order.products.findAll{ it.sampled }.each{
+                   customer.customerOrder.products.findAll{ it.sampled }.each{
                        def p = Product.get(it.product.id)
                        if(!customer.assessments.find{ it.product.id == p.id }){
                            products << p
@@ -480,7 +480,7 @@ class CustomerController {
 
                 def products = []
 
-                customer.order.products.findAll{ it.received == true }.each{
+                customer.customerOrder.products.findAll{ it.received == true }.each{
                     def p = Product.get(it.product?.id)
                     if(!customer.assessments.find{ it?.product?.id == p?.id }){
                         products << p

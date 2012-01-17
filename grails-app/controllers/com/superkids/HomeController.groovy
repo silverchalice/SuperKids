@@ -420,9 +420,9 @@ class HomeController {
            if(springSecurityService.isLoggedIn()){
                def user = User.get(springSecurityService.principal.id)
                def userRole = Role.findByAuthority("ROLE_USER")
-               if(user && UserRole.findByUserAndRole(user, userRole) && user.order){
+               if(user && UserRole.findByUserAndRole(user, userRole) && user.customerOrder){
                    def customer = Customer.get(springSecurityService.principal.id)
-                   customer.order.products.each{
+                   customer.customerOrder.products.each{
                        def product = Product.get(it?.product?.id)
                        if(!Assessment.findByCustomerAndProduct(customer, product)){
                            products << product

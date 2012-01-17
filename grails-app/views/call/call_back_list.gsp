@@ -46,7 +46,7 @@
  							<td class="buttonCell" style="width:100px"><g:link controller="call" action="get_order_call" id="${customerInstance?.id}" params="[cb:'true']" >Order Form</g:link></td>
 
 							<td class="buttonCell" style="width:100px">
-								<g:if test="${customerInstance?.order}">
+								<g:if test="${customerInstance?.customerOrder}">
 									<g:link controller="call" action="get_assess_call" id="${customerInstance?.id}" params="[cb:'true']" >Assess Form</g:link>
 								</g:if>
 							</td>

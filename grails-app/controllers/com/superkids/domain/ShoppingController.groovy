@@ -1,9 +1,5 @@
 package com.superkids.domain
 
-import com.superkids.domain.ShippingDate
-import com.superkids.domain.Product
-import com.superkids.domain.CustomerStatus
-
 class ShoppingController {
 
     def springSecurityService
@@ -94,7 +90,7 @@ class ShoppingController {
 
             order.save()
         }
-        customer.order = order
+        customer.customerOrder = order
         customer.save(failOnError:true)
         println "customer " + customer.fsdName + " placed order through site"
         session.checkedOutItems = shoppingCartService.checkOut()

@@ -143,7 +143,7 @@ class CustomerOrderController {
 				println "deleting an asssessment"
 				Assessment.findAllByCustomer(customerInstance)?.each{ it?.delete() }
 				try {
-					customerInstance.order = null
+					customerInstance.customerOrder = null
 					customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
 					customerInstance.hasPlacedCurrentOrder = false
 					customerInstance.save(failOnError:true)
@@ -176,7 +176,7 @@ class CustomerOrderController {
 					println "deleting an asssessment"
                     Assessment.findAllByCustomer(customerInstance).each{ it?.delete() }
                     try {
-                        customerInstance.order = null
+                        customerInstance.customerOrder = null
                         customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
                         customerInstance.hasPlacedCurrentOrder = false
                         customerInstance.save(failOnError:true)

@@ -63,10 +63,10 @@ class DataController {
 
 		customers.each { c->
 
-			if(c.order) {
+			if(c.customerOrder) {
 				def total = 0
 
-				c.order.products.each {
+				c.customerOrder.products.each {
 					if(!it.product) {
 						total++
 					}
@@ -74,7 +74,7 @@ class DataController {
 
 				if(total == 5) {
 					println "this customer ordered all problem products"
-					def order = c.order
+					def order = c.customerOrder
 
 					def toRemove = []
 

@@ -62,8 +62,8 @@ class MiscTagLib {
 		def customer = Customer.get(springSecurityService.principal?.id)
 		def shoppingCart = shoppingCartService.getShoppingCart()
                 def productIds = []
-                if(customer?.order){
-                    productIds = customer?.order?.products?.collect{ it?.product?.id }
+                if(customer?.customerOrder){
+                    productIds = customer?.customerOrder?.products?.collect{ it?.product?.id }
                 }
 
 		Product.list(sort:'sortOrder').each { product ->
@@ -117,7 +117,7 @@ class MiscTagLib {
         if(springSecurityService.loggedIn){
             def customer = Customer.get(springSecurityService.principal?.id)
             def products = []
-            customer.order.products.sort{ it.product.id }.each{
+            customer.customerOrder.products.sort{ it.product.id }.each{
                 def p = Product.get(it.product.id)
                 if(!p.parent){
                     products << p
@@ -131,7 +131,7 @@ class MiscTagLib {
     def orderCheckbox = { attrs ->
         def customerInstance = Customer.get(attrs.id)
         out << "<img src='/SuperKids/images/"
-        if(customerInstance?.order?.products){
+        if(customerInstance?.customerOrder?.products){
             out << "true-y.png"
         } else {
             out << "false.png"
@@ -189,7 +189,7 @@ class MiscTagLib {
 
 			out << assessments.size()
             out << " / "
-            out << customer.order.products.size()
+            out << customer.customerOrder.products.size()
 
 		}
 	}
@@ -413,7 +413,7 @@ Modified: get menuButton text from new 'msg' attr
 	def productAssessmentTabs = { attrs ->
 		def customer = Customer.get(attrs?.id)
 		if(customer) {
-			def products = customer.order.products*.product.sort { it?.id }
+			def products = customer.customerOrder.products*.product.sort { it?.id }
 
 
             // remove variety packs - we only want the subproducts
@@ -455,7 +455,7 @@ Modified: get menuButton text from new 'msg' attr
 	def productAssessmentNav = { attrs ->
 		def customer = Customer.get(attrs?.id)
 		if(customer) {
-			def products = customer?.order?.products*.product.sort { it?.id }
+			def products = customer?.customerOrder?.products*.product.sort { it?.id }
             products.each { p ->
 				if(p) {
 					if(Product.findByParent(p))  {
