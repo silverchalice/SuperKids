@@ -61,7 +61,7 @@ class AssessmentController {
 		def assessments = Assessment.findAllByCustomerAndCompleted(customer, true)
 		def dnrProducts = []
 		customer.customerOrder.products.each{
-			if(it.received == false){ dnrProducts << it }
+			if(!it.received){ dnrProducts << it }
 		}
 		assessments.each { println "Assessment for product it.product"}
 
@@ -143,7 +143,7 @@ class AssessmentController {
             println "customer " + customer?.fsdName + "is assessing " + product
             if(customer.customerOrder.products*.product.collect{it.id}.contains(product.id)){
                 def assessmentInstance = new Assessment(product:product)
-                customer.customerOrder.products.findAll{ it.received == true }.each{
+                customer.customerOrder.products.findAll{ it.received }.each{
                     def p = Product.get(it.product.id)
                     if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                         products << p
@@ -172,7 +172,7 @@ class AssessmentController {
          def product = Product.get(params.productId?.toInteger())
          def products = []
          if(customer.customerOrder){
-             customer.customerOrder.products.findAll{ it.received == true }.each{
+             customer.customerOrder.products.findAll{ it.received }.each{
                  def p = Product.get(it.product.id)
                  if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
@@ -180,7 +180,7 @@ class AssessmentController {
              }
          }
          def assessmentInstance = new Assessment(likeRating:params.likeRating, product:product, type:OrderType.WEB)
-         customer.assessments.findAll {it.completed == false }.each{
+         customer.assessments.findAll {(!it.completed) }.each{
              if(it.id != assessmentInstance.id){
                  try {
 					 println "deleting an assessment"
@@ -223,7 +223,7 @@ class AssessmentController {
          }
 
          if(customer.customerOrder){
-             customer.customerOrder.products.findAll{ it.received == true }.each{
+             customer.customerOrder.products.findAll{ it.received }.each{
                  def p = Product.get(it.product.id)
                  if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
                      products << p
@@ -249,29 +249,36 @@ class AssessmentController {
 		def customer = Customer.get(springSecurityService.principal.id)
          def products = []
          def assessmentInstance = Assessment.get(params.id)
-         Assessment.findAllByCustomerAndCompleted(customer, false).each{
-             if(it.id != assessmentInstance?.id){
-                 try {
-					 println "deleting assessment"
-                     it.delete(flush: true)
-                 }
-                 catch (org.springframework.dao.DataIntegrityViolationException e) {
-                     log.error e
+        
+         if (assessmentInstance) {
+             Assessment.findAllByCustomerAndCompleted(customer, false).each{
+                 if(it.id != assessmentInstance?.id){
+                     try {
+    					 println "deleting assessment"
+                         it.delete(flush: true)
+                     }
+                     catch (org.springframework.dao.DataIntegrityViolationException e) {
+                         log.error e
+                     }
                  }
              }
+
+             if(customer.customerOrder){
+                 customer.customerOrder.products.findAll{ it.received }.each{
+                     def p = Product.get(it.product.id)
+                     if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
+                         products << p
+                     }
+                 }
+             }
+            assessmentInstance.likeComment = params.likeComment
+            customer.save(failOnError:true)
+            return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
+         } else {
+             flash.message = "Sorry, an error occurred. Please try again."
+             redirect action: ""
          }
 
-         if(customer.customerOrder){
-             customer.customerOrder.products.findAll{ it.received == true }.each{
-                 def p = Product.get(it.product.id)
-                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
-                     products << p
-                 }
-             }
-         }
-        assessmentInstance.likeComment = params.likeComment
-        customer.save(failOnError:true)
-        return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
     }
 
     def ir = {
@@ -419,7 +426,7 @@ class AssessmentController {
         def productOrder = ProductOrder.findByProductAndOrder(product, customerInstance.customerOrder)
         productOrder.received = false
         productOrder.save(failOnError:true)
-        customerInstance.customerOrder.products.findAll{ it.received == true }.each{
+        customerInstance.customerOrder.products.findAll{ it.received }.each{
             def p = Product.get(it.product.id)
             if(!Assessment.findByCustomerAndProduct(customerInstance, p) && !Product.findByParent(p)){
                 products << p

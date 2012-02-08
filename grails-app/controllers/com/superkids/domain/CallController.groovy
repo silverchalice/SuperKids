@@ -707,13 +707,6 @@ class CallController {
 				eq 'deleted', false
 				isNull('deleted')
 			}
-
-            customerOrder {
-                shippingDate {
-                    eq 'shipDate', "November, 2011"
-                }
-            }
-
 			or {
 				lastCall {
 					ne('result', CallResult.REFUSED)
