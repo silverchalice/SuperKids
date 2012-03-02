@@ -113,7 +113,7 @@ class ReportController {
 		println ("After Product.list - ${new Date().time - startTime}")
 		Customer.list(sort: "seq").each {customer ->
 			if(!customer.deleted) {
-				def productIds = customer.customerOrder?.products.collect {customer.id}
+				def productIds = customer.customerOrder?.products?.collect {customer.id}
 				def contactTime = "${customer.fall ? 'Fall, ' : ''}${customer.spring ? 'Spring, ' : ''}${customer.am ? 'AM, ' : ''}${customer.pm ? 'PM' : ''}"
 
 
@@ -182,19 +182,19 @@ class ReportController {
 				if (withAssessments == 'true') {
 
 					for (prod in prods) {
-						def assessment = customer?.assessments.find { it?.product?.id == prod.id }
+						def assessment = customer?.assessments?.find { it?.product?.id == prod.id }
 
 						def orderedProduct = customer?.customerOrder?.products?.find {it?.product?.id == prod.id}
 						if (orderedProduct) {
 
-							if (orderedProduct?.received == false) {
+							if (!orderedProduct?.received) {
 								m."${prod.name}_Q1" = "Did Not Receive"
 								m."${prod.name}_Q2" = "Did Not Receive"
 								m."${prod.name}_Q3" = "Did Not Receive"
 								m."${prod.name}_Q4" = "Did Not Receive"
 							}
 
-							if (orderedProduct?.sampled == false) {
+							if (!orderedProduct?.sampled) {
 								m."${prod.name}_Q1" = "Did Not Sample"
 								m."${prod.name}_Q2" = "Did Not Sample"
 								m."${prod.name}_Q3" = "Did Not Sample"
@@ -209,14 +209,13 @@ class ReportController {
 								m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''								
 								m.type = assessment.type
 								if(prod?.id == 23) {
-									println "more pasta!"
 									m."${prod.name}_Q5" = assessment.favorite
 								}
 							}
 						}
 					}
 
-				   	def rA =  customer?.assessments.find {it}
+				   	def rA =  customer?.assessments?.find {it}
 
 					m.assessmentOrigin = rA?.type
 					m.programFeedback = customer.programFeedback
@@ -226,6 +225,8 @@ class ReportController {
 
 
 				}
+
+                println "$m.id: $m.district $m.fsdName"
 
 
 				thatWhichIsContainedInOurExportation << m
@@ -347,7 +348,6 @@ class ReportController {
 
 
 					if(prod.id == 23) {
-						println "product is pasta!"
 						assessFields << "${prod.name}_Q5"
 						assessLabels."${prod.name}_Q5" = "${prod.name}_Favorite_Pasta"
 					}

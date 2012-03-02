@@ -50,8 +50,8 @@
 						<li><sks:formats controller="report" action="exportPotentialParticipants" formats="['excel']" msg="Potential Participants" /></li>
                         <li><hr /></li>
                         <li><h1>Master Report</h1></li>
-                        <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Download Excel" params="[ 'withAssessments': true ]" /></li>
-                        <li><sks:formats controller="report" action="exportCustomers" formats="['excel']" msg="Excel (no assessments)" /></li>
+                        <li><sks:formats controller="report" action="exportCustomers" formats="['csv']" msg="Download Excel" params="[ 'withAssessments': true ]" /></li>
+                        <li><sks:formats controller="report" action="exportCustomers" formats="['csv']" msg="Excel (no assessments)" /></li>
 
                         <li><hr /></li>
                         <li><g:link controller="home" action="change_password">Change Password</g:link></li>
