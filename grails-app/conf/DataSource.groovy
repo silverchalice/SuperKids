@@ -15,7 +15,7 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://173.255.205.141:3306/sksdb"
+            url = "jdbc:mysql://localhost:3306/sksdb"
         }
     }
     test {
@@ -31,7 +31,7 @@ environments {
 			username = "sks"
 			password = "sks5551212"
 			dbCreate = "update"			
-            url = "jdbc:mysql://173.255.205.141:3306/sksdb"
+            url = "jdbc:mysql://localhost:3306/sksdb"
 			dialect=org.hibernate.dialect.MySQLInnoDBDialect
 			properties {
 				validationQuery="select 1"
