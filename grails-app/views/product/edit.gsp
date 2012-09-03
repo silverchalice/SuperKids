@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
+        <ckeditor:resources/>
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
     <body>
@@ -39,34 +40,34 @@
 
                     <p>
                         <label for="nutrition">Nutrition Information:</label>
-                        <fckeditor:editor
+                        <ckeditor:editor
                             name="nutrition"
                             width="100%"
                             height="400">
                             ${productInstance?.nutrition}
-                        </fckeditor:editor>
+                        </ckeditor:editor>
                     </p><br />
 
                     <p>
                         <label for="details">Details:</label>
 
-                            <fckeditor:editor
+                            <ckeditor:editor
                                 name="details"
                                 width="100%"
                                 height="400">
                                 ${productInstance?.details}
-                            </fckeditor:editor>
+                            </ckeditor:editor>
                     </p><br/>
 
                     <p>
                         <label for="description">Description:</label>
 
-                        <fckeditor:editor
+                        <ckeditor:editor
                             name="description"
                             width="100%"
                             height="400">
                             ${productInstance?.description}
-                        </fckeditor:editor>
+                        </ckeditor:editor>
                     </p>
                     <p><br />
                         <label for="statesAvailable">States Available:</label><br />
