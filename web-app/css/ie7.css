@@ -1,0 +1,48 @@
+#overview {
+	padding-bottom:15px;
+}
+#account-bar {
+	background-color:#0E60A1;
+}
+#grain-logos p {
+	width:100%;
+}
+#intro-container {
+	height:297px;
+}
+#home #overview h3 {
+    font-size: 22px;
+}
+#home #grains .col-01 {
+}
+#home #grains h4 {
+	font-size:24px;	
+    /* border-bottom: 1px solid #ccc; */
+}
+#home #grains h4 span {
+	font-size:13px;	
+}
+#logos {
+	height:194px;
+}
+#logos h5 {
+	margin-top:33px;
+}
+#main a.btn {
+	letter-spacing:-0.04em;
+}
+p#cta a.note {
+	margin-top:-55px;
+}
+#checkout #main .btn {
+	margin-top:-30px;
+}
+#checkout #main .btn.top {
+    margin-top: -100px;
+}
+#checkout hr, #feedback hr {
+    margin-top: 0;
+}
+h1, h2, h3, h4 {
+	font-weight:normal;
+}

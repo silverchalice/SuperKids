@@ -20,7 +20,7 @@ class HomeController {
             } else if (UserRole.findByUserAndRole(user, adminRole)){
                  redirect controller:"customer", action:"list"
             } else {
-                render(view:"landing")
+                render(view:"home")
             }
         } else {
             render view:'home'

@@ -1,0 +1,31 @@
+#order-container p, #order-container a {
+	letter-spacing:-0.04em;
+}
+.order-info a.arrow {
+	margin-left:10px;
+}
+#order-container .order-info p.remove {
+	margin-left:-3px;
+}
+
+div.remove, div.expand, div.complete-review {
+	background-color:#eee;
+}
+
+#logos img {
+    margin: 0 10px 25px 0;
+}
+
+#main ol, #main ul {
+    margin-left: 25px;
+}
+#main .order-item ol {
+	margin-left:0;
+}
+ol#order-process li.three a {
+    width: 249px;
+	margin-left:5px;
+}
+ol#order-process li.two a {
+    width: 290px;
+}

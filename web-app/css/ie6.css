@@ -1,0 +1,126 @@
+#logo h2 {
+	background-image:url('../img/bg_tagline_ie6.png');
+}
+#logo img {
+}
+#logo p {
+	margin-left:13px;
+}
+#account-bar {
+	margin-right:55px;
+}
+#account-bar.logged-out {
+	margin-left:500px;
+}
+
+#grain-logos p {
+	margin-left:0;
+}
+#account-bar a.order {
+	background:url('../img/icon_order_ie6.png') no-repeat left center;
+	padding-left:23px !important;
+}
+ol#order-process li a span {
+    line-height: 50px !important;
+}
+ul#nav li a {
+	float:left;
+}
+#intro-container {
+	background-position:center bottom;
+}
+#intro p#cta .note {
+    display: inline;
+	float:none;
+	padding-left:15px;
+}
+#main ul li.youtube {
+	background-image:url(../img/icon_youtube_ie6.png);
+}
+#home #cta {
+	height:40px !important;
+	padding-top:12px !important;
+	letter-spacing:-0.04em;
+}
+#intro p#cta {
+    bottom: -20px;
+    float: none;
+    position: relative;
+}
+#home #cta a.btn {
+	margin-bottom:-12px;
+}
+#main a.btn {
+	background:#f4a330 url(../img/bg_btn_ie6.png) repeat-x center top;
+	background-color:#F5A82F;
+	border:2px solid #000;
+}
+#main a.btn span {
+	background:none;
+}
+#home #grains .col-01 {
+	width:44%;
+	margin-right:2%;
+}
+
+#home #overview p {
+    border-bottom: 1px solid #ccc;
+}
+#sidebar ul#side-nav {
+	background:#e0e5ec url(../img/bg_side_nav_ie6.png) repeat-x center top;
+}
+
+#footer li a:hover {
+	background-color:#000;
+}
+#main a.btn, #main a.btn.arrow {
+	padding:4px 18px;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+}
+#main a.btn span {
+	padding:0 !important;
+	height:24px;
+	line-height:24px;
+	display:inline;
+}
+#main table td {
+	padding-right:15px;
+}
+#feedback hr {
+	margin-bottom:0;
+}
+
+div.remove, div.expand, div.complete-review {
+	background-color:#eee;
+	padding-right:20px;
+}
+div.remove, div.expand {
+	border-left:1px solid #A1A1A1;
+}
+div.complete-review {
+	margin-left:-20px;
+	padding-right:40px;
+	border-top:1px solid #A1A1A1;
+}
+#main .complete-review a.btn.complete, #main .complete-review a.btn.complete:hover {
+	background-color:#1EBE50;
+	background-image:none;
+	color:#fff;
+}
+.order-item.expanded {
+    height: 100%;
+}
+#feedback ol li.last {
+	padding-right:5px;
+}
+
+#order-container p.made-with-ultra {
+    background: #000 url(../img/logo_ultragrain_overlay_ie6.png) no-repeat center center !important;    
+	margin: -66px 0 0;
+}
+#order-container p.made-with-susta {
+    background: #000 url(../img/logo_sustagrain_overlay_ie6.png) no-repeat center center !important;   
+	margin: -66px 0 0;
+}
