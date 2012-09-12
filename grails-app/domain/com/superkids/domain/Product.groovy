@@ -19,6 +19,9 @@ class Product implements IShoppable {
 	Boolean bake = false
 	Boolean frozen = false
 
+    Boolean sustagrain
+    Boolean ultragrain
+
 	Product parent
 
     Integer sortOrder
@@ -66,5 +69,15 @@ class Product implements IShoppable {
             def si = new ShoppingItem().save()
             shoppingItem = si
         }
+
+    static List topLevelProducts() {
+        Product.withCriteria() {
+            eq('liveProduct', true)
+            isNull('parent')
+            order("sortOrder", "asc")
+        }
+
+    }
+
 
 }

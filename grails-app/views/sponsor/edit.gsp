@@ -58,6 +58,15 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="details"><g:message code="sponsor.details.label" default="Details" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'details', 'errors')}">
+                                    <g:textArea name="details" value="${sponsorInstance?.details}" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="address"><g:message code="address.label" default="Address" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'address', 'errors')}">

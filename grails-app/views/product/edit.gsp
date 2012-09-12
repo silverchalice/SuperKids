@@ -130,6 +130,12 @@
 					<p>
 						<label for="liveProduct">Live:</label> <g:checkBox name="liveProduct" value="${productInstance?.liveProduct}" />
 					</p>
+                    <p>
+                        <label for="ultragrain">Uses Ultragrain:</label> <g:checkBox name="ultragrain" value="${productInstance?.ultragrain}" />
+                    </p>
+                    <p>
+                        <label for="sustagrain">Uses Sustagrain:</label> <g:checkBox name="sustagrain" value="${productInstance?.sustagrain}" />
+                    </p>
                      <p>
                         <label for="servings"># of Servings:</label>
                         <g:textField name="servings" value="${productInstance?.servings}" />

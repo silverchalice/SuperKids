@@ -6,7 +6,8 @@ class Sponsor {
 	String address
 	String phone
 	String website
-        String description
+    String description
+    String details
 
 	String salesContact
 	String sampleContact
@@ -28,7 +29,8 @@ class Sponsor {
 		salesContact nullable: true
 		sampleContact nullable: true
 
-                description nullable:true, maxSize: 500000
+        description nullable:true, maxSize: 500000
+        details nullable:true, maxSize: 500000
 
 		products nullable:true
     }
@@ -36,6 +38,7 @@ class Sponsor {
     static mapping = {
         logo sqlType:"longblob"
         description sqlType:"longtext"
+        details sqlType:"longtext"
     }
 
 	String toString() {

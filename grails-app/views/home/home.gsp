@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Superkids Sampling</title>
 	<meta name="layout" content="public" />
 
 </head>
@@ -44,7 +43,7 @@
               of free
               product samples</p>
             <ul>
-              <li><a href="#" title="#">Product Name </a></li>
+              <li><a href="${createLink(controller: 'product', action: 'show', id: 14)}" title="Domino’s Pizza® Smart Slice">Domino’s Pizza® Smart Slice</a></li>
               <li><a href="#" title="#">Product Name</a></li>
               <li><a href="#" title="#">Product Name</a></li>
             </ul>
