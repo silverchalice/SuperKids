@@ -6,13 +6,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
-		<g:javascript library="jquery" plugin="jquery"/>
 		<jqui:resources/>
         <title><g:message code="default.list.label" args="[entityName]" /></title>
 
 		<script type="text/javascript" src="${resource(dir:'js', file:'sks.js')}">
 		</script>
 
+		<g:javascript library="jquery"/>
     </head>
     <body>
         <div class="nav">

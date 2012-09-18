@@ -6,10 +6,18 @@
         <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
         <g:layoutHead />
         <export:resource />
-		<g:javascript library="jquery" plugin="jquery"/>
+		<g:javascript library="jquery"/>
 		<jqui:resources/>
 
 		<script type="text/javascript" src="${resource(dir:'js',file:'sks.js')}">
+		</script>
+		<script>
+		    $(document).ready(function() {
+			  $(downloadLink).dialog({autoOpen:false});
+			});
+			showLinkDialog(){
+				$(downloadLink).dialog('open');
+			} 
 		</script>
     </head>
     <body>
@@ -43,15 +51,15 @@
                         <li><h1>Caller Module</h1></li>
                         <li><g:link controller="caller" action="list">Manage Callers</g:link></li>
                         <li><g:link controller="call" action="list">View Calls</g:link></li>
-						 <li><hr /></li>
+						<li><hr /></li>
                         <li><h1>Report Downloads</h1></li>
 						<li><sks:formats controller="report" action="exportCalls" formats="['csv']" msg="Download CSV Call Log" /></li>
 						<li><sks:formats controller="report" action="exportDNRCustomers" formats="['csv']" msg="CSV (DNR Mailing)" /></li>
 						<li><sks:formats controller="report" action="exportPotentialParticipants" formats="['excel']" msg="Potential Participants" /></li>
                         <li><hr /></li>
                         <li><h1>Master Report</h1></li>
-                        <li><sks:formats controller="report" action="exportCustomers" formats="['csv']" msg="Download Excel" params="[ 'withAssessments': true ]" /></li>
-                        <li><sks:formats controller="report" action="exportCustomers" formats="['csv']" msg="Excel (no assessments)" /></li>
+                        <li><span class='menuButton'><a href="/SuperKids/report/exportCustomers?withAssessments=true" onclick="jQuery.ajax({type:'post', data:{'withAssessments': 'true','format': 'excel','extension': 'xls'}, url:'/SuperKids/report/exportCustomers',success:function(data,textStatus){jQuery('#downloadLink').html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){}});return false;" class="excel">Download Excel</a></span></li>
+                        <li><span class='menuButton'><a href="/SuperKids/report/exportCustomers" onclick="jQuery.ajax({type:'post', data:{'format': 'excel', 'extension': 'xls'}, url:'/SuperKids/report/exportCustomers',success:function(data,textStatus){jQuery('#downloadLink').html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){}});return false;" class="excel">Excel (no assessments)</a></span></li>
 
                         <li><hr /></li>
                         <li><g:link controller="home" action="change_password">Change Password</g:link></li>
@@ -61,7 +69,8 @@
                 </div>
                 <div class="panelBtm"></div>
             </div>
-        </div>
+        </div>  
+        <div id="downloadLink"></div>
         <g:layoutBody />
     </body>
 </html>

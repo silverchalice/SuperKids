@@ -374,13 +374,17 @@ class ReportController {
 		def df = new java.text.SimpleDateFormat('MM-dd-yyyy')
         String exDate = df.format(now)
 
+/*
         response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
         response.setHeader("Content-disposition", "attachment; filename=SK_Customers-${exDate}.xls")
-
-        exportService.export(params.format, response.outputStream, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
+*/      
+        def fileName = "SK_Customers-${exDate}.xls"  
+        def fileRoot = servletContext.getRealPath("/")
+        def fos = new FileOutputStream("${fileRoot}/tmp/${fileName}")
+        exportService.export('excel', fos, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
 		println ("After export - ${new Date().time - startTime}")
+		render view:'downloadDialog', model:[fileName:fileName, desc:'Customer Data']
     }
-
 
 	def exportCalls = {
 		println "Exporing Calls..."
