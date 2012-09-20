@@ -128,6 +128,23 @@ class MiscTagLib {
         }
     }
 
+    def itemsInCart = { attrs ->
+        if(springSecurityService.loggedIn){
+            def customer = Customer.get(springSecurityService.principal?.id)
+
+            if (customer.customerOrder.products?.size() > 0) {
+                out << "(${customer.customerOrder.products?.size()} ${customer.customerOrder.products?.size() > 1 ? 'items' : 'item'})"
+            } else if (customer.hasPlacedCurrentOrder) {
+                out << "(Completed)"
+            } else {
+                out << "HET HETY"
+            }
+
+        } else {
+            out << "HEY"
+        }
+    }
+
     def orderCheckbox = { attrs ->
         def customerInstance = Customer.get(attrs.id)
         out << "<img src='/SuperKids/images/"

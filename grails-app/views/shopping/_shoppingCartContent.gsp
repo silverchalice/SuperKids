@@ -1,43 +1,33 @@
+<g:if test="${session.checkedOutItems}">
+    <g:each in="${session.checkedOutItems}" var="item">
+        <div class="order-item"><img
+                src="${createLink(controller: 'product', action: 'displayImage', id: com.superkids.domain.Product.findByShoppingItem(it['item']).id)}"
+                alt=""/>
 
-	<br/><br/>
-      <g:if test="${session.checkedOutItems}">
-          <br>
-          <h2>Checked out items</h2><br />
+            <h2>${com.superkids.domain.Product.findByShoppingItem(item['item'])}?.name</h2>
 
-                   <table style="border:0; border-style:none; border-color:white">
-                    <tbody>
-                	<g:each in="${session.checkedOutItems}" var="item">
-                        <tr>
-                        
-                            <td>${com.superkids.domain.Product.findByShoppingItem(item['item'])}</td>
+            <p>Made by ${com.superkids.domain.Product.findByShoppingItem(item['item'])}?.sponsor?.name with Ultragrain</p>
 
-                        </tr>
-                       </g:each>
-                    </tbody>
-                </table><br />
-        </g:if>
-        <g:else>
-                   <table style="border:0; border-style:none; border-color:white">
-                   
-                    <tbody>
-						<sks:eachInProducts>
-							<tr>
-								<td style="width:110px; padding-left:18px"><img src="${createLink(controller:'product', action:'displayImage', id:com.superkids.domain.Product.findByShoppingItem(it['item']).id)}" alt="" /> </td>
+            <div class="complete"><span>Order Completed</span>
+            </div>
+        </div>
+    </g:each>
 
-								<td valign="center" style="float:left;width: 260px;padding-top:30px; font-size:12px">${com.superkids.domain.Product.findByShoppingItem(it['item'])}</td>
+</g:if>
+<g:else>
+    <sks:eachInProducts>
+        <div class="order-item"><img
+                src="${createLink(controller: 'product', action: 'displayImage', id: com.superkids.domain.Product.findByShoppingItem(it['item']).id)}"
+                alt=""/>
 
-								<td style="float:right;width: 100px;padding-top:30px;"><g:remoteLink controller="product" action="remove"
-									params="${[id:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).id, class:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).class, version:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).version]}"
-									update="shoppingCartContent">
-									REMOVE
-									</g:remoteLink>
-								</td>
-							</tr>
-						</sks:eachInProducts>
-						<tr><td></td><td></td></tr>
-                    </tbody>
-                </table>
-                   
+            <h2>${com.superkids.domain.Product.findByShoppingItem(item['item'])}?.name</h2>
 
-					
-        </g:else>
+            <p>Made by ${com.superkids.domain.Product.findByShoppingItem(item['item'])}?.sponsor?.name with Ultragrain</p>
+
+            <div class="remove"><g:remoteLink controller="product" action="remove"
+                                              params="${[id: (com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).id, class: (com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).class, version: (com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).version]}"
+                                              update="shoppingCartContent">Remove from order</g:remoteLink></div>
+        </div>
+    </sks:eachInProducts>
+
+</g:else>

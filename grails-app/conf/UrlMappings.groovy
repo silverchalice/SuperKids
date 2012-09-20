@@ -193,7 +193,7 @@ class UrlMappings {
                     action = "public_whole_grain_benefits"
                 }
                 "/cart/" {
-                    controller = "testShoppingCart"
+                    controller = "shoppingCart"
                     action = "show"
                 }
                 "/assess/$id" {

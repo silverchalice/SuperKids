@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="checkout" />
+        <meta name="layout" content="cart" />
 
         <title>SuperKids | Checkout</title>
 		
@@ -38,46 +38,7 @@
 
 		</script>
 
-		<style type="text/css">
-			td.name {
-				text-align:right;
-				width:140px;
-				line-height:20px;
-			}
 
-			label {width:auto}
-
-			td {
-				padding:.5px;
-			}
-
-			div.errors {
-				background: #fff3f3;
-				border: 1px solid red;
-				color: #cc0000;
-				margin: 10px 0 5px 0;
-				padding: 5px 0 5px 0;
-			}
-
-			div.errors ul {
-				list-style: none;
-				padding: 0;
-			}
-
-			div.errors li {
-				background: url(../images/skin/exclamation.png) 8px 0% no-repeat;
-				line-height: 16px;
-				padding-left: 30px;
-			}
-
-			td.errors select {
-				border: 1px solid red;
-			}
-
-			td.errors input {
-				border: 1px solid red;
-			}
-		</style>		
     </head>
     <body>
 
