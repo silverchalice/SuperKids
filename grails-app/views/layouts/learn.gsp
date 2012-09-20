@@ -1,129 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html>
-    <head>
-        <title><g:layoutTitle default="Grails" /></title>
-
-        <link rel="stylesheet" href="${resource(dir:'css',file:'public.css')}" />
-		<link rel="stylesheet" href="${resource(dir:'css',file:'flexcrollstyles.css')}" />
-
-		<link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
-        <g:set var="link" value="${pageProperty(name: 'meta.link')}"/>
-        <g:layoutHead />
-        <g:javascript library="application" />
-        <g:javascript library="jquery" plugin="jquery"/>
-		<jqui:resources />
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-18800741-2']);
-            _gaq.push(['_trackPageview']);
-
-           (function() {
-               var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-           })();
-        </script>
-    </head>
-    <body>
-		<script type="text/javascript" src="${resource(dir:'js', file:'flexcroll.js')}"></script>
-
-  		<div id="body">
-
-			<div id="secondaryContent">
-				<g:link action="index"><img id="logo" src="${resource(dir:'images',file:'logo.png')}" /></g:link>
-
-				<div id="LearnSubNav">
-						<h3 style="margin-left:62px; margin-top:1px; font-size:12px">Learn Menu</h3>
-						<ul>
-							<li id="${link=='what_is' ? 'current' : ''}"><g:link controller="home" action="what_is">What Is SuperKids?</g:link></li>
-
-							<li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain">About Ultragrain</g:link></li>
-
-							<li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain">About Sustagrain</g:link></li>
-
-							<li id="${link=='products' ? 'current' : ''}"><g:link controller="product" action="list">SuperKids Products</g:link></li>
-
-							<li id="${link=='chef_jeff' ? 'current' : ''}"><g:link controller="home" action="chef_jeff">Chef Jeff at SNA</g:link></li>
-
-							<li id="${link=='what_are_whole_grains' ? 'current' : ''}"><g:link controller="home" action="what_are_whole_grains">What Are Whole Grains?</g:link></li>
-
-							<li id="${link=='whole_grain_list' ? 'current' : ''}"><g:link controller="home" action="whole_grain_list">List of Whole Grains</g:link></li>
-
-							<li id="${link=='whole_grain_benefits' ? 'current' : ''}"><g:link controller="home" action="whole_grain_benefits">Benefits of Whole Grains</g:link></li>
-
-							<li id="${link=='healthy_hunger_free' ? 'current' : ''}"><g:link controller="home" action="healthy_hunger_free">Healthy Hunger-Free Kids Act</g:link></li>
-
-							<li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate">MyPlate</g:link></li>
-
-							<li id="${link=='whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="whole_grain_studies">Whole Grains & Human Health</g:link></li>
-
-							<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity">Meeting the Challenge</g:link></li>
-
-							<li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips">Whole Grains Council Tips</g:link></li>
-
-						</ul>
-				</div>
-
-				<div class="clear"></div>
-		<div id="factoidsContainer">
-			<strong>SuperKids Facts</strong>
-			<div id="factoids">
-			</div>
-		</div>
-
-        <sks:factoidList />
-
-			</div>
-			<sec:ifLoggedIn>
-				<div id="HeaderBar">
-					<sec:ifLoggedIn>
-						<div align="right">Welcome <sec:loggedInUserInfo field="username"/> - <g:link controller="home" action="edit_profile">Edit Profile</g:link></div>
-					</sec:ifLoggedIn>
-				</div>
-			</sec:ifLoggedIn>
-				<div id="nav">
-				  <g:link controller="home" class="current" action="learn">LEARN</g:link>
-				  <g:link controller="home" action="order">ORDER</g:link>
-				  <g:link controller="home" action="assess">ASSESS</g:link>
-				  <g:link controller="home" action="promote">PROMOTE</g:link>
-				  <span id="login"><g:link controller="logout">LOG OUT</g:link></span>
-				</div>
-				<div id="content">
-					<div id="contentInsetUpper">
-						<img src="${resource(dir:'images/layout', file:'SDA-InnerUpLeft.gif')}" style="float:left" />
-						<img src="${resource(dir:'images/layout', file:'SDA-innerUpRight.gif')}" style="float:right" />
-					</div>
-					<div id="contentInset" class="flexcroll">
-						<g:layoutBody />
-					</div>
-					
-					<div id="contentInsetLower">
-						<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmLt.gif')}" style="float:left" />
-						<img src="${resource(dir:'images/layout', file:'SDA-InnerBtmRight.gif')}" style="float:right" />
-					</div>
-
-
-					<div id="contentFooter">
-						<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-						<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
-					</div>
-				</div>
-
-				<div id="footer">
-				  <ul>
-					<li><a href="${createLink(controller:'home', action:'index')}">Home</a> | </li>
-					<li><a href="${createLink(controller:'home', action:'about')}">About SuperKids</a> | </li>
-					<li><a href="${createLink(controller:'home', action:'ultragrain_general')}">Ultragrain<span style="font: normal 8px;"><sup>&reg;</sup></span></a> | </li>
-					<li><a href="${createLink(controller:'home', action:'sustagrain_general')}">Sustagrain<span style="font: normal 8px;"><sup>&reg;</sup></span></a> | </li>
-					<li><a href="${createLink(controller:'home', action:'about_manufacturers')}">About The Manufacturers</a> | </li>
-					<li><a href="${createLink(controller:'home', action:'where_to_find')}">Where to Find</a> | </li>
-					<li><a href="${createLink(controller:'contactRequest', action:'create')}">Contact Us</a></li><br/>
-					<li><a href="http://www.conagrafoods.com/utilities/legal.jsp">Legal Policy</a> | </li>
-					<li><a href="http://www.conagrafoods.com/utilities/privacy.jsp">Privacy Policy</a> | </li>
-					<li>&copy; ConAgra Foods, Inc. All rights reserved.</li>
-				  </ul>
-
-				</div>
-		  </div>
-    </body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title><g:layoutTitle default="Welcome to the SuperKids Sampling Program! | From ConAgra Foods"/> </title>
+    <g:render template="/includes/head_data" />
+    <g:layoutHead />
+    <g:javascript library="application" />
+    <g:javascript library="jquery" plugin="jquery"/>
+</head>
+<body id="resources">
+<div id="header-container">
+  <div id="header">
+    <div id="logo">
+      <div id="account-bar" class="logged-out">
+        <g:render template="/includes/account_bar"/>
+      </div>
+      <a href="#" title="Return to the homepage"><img src="${resource(dir:'images',file:'img_superkids_logo.jpg')}" alt="SuperKids Logo" /></a>
+      <h2>Build SuperKids <span>with Healthier Whole Grain Foods</span></h2>
+    </div>
+    <g:render template="/includes/nav"/>
+  </div>
+</div>
+<div id="main-container">
+  <div id="main">
+    <div id="sidebar">
+      <ul id="side-nav">
+        <h3>All Resources</h3>
+		<li id="${link=='what_is' ? 'current' : ''}"><g:link controller="home" action="what_is"><span>What Is SuperKids?</span></g:link></li>
+		<li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain"><span>About Ultragrain</span></g:link></li>
+		<li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain"><span>About Sustagrain</span></g:link></li>
+		<li id="${link=='products' ? 'current' : ''}"><g:link controller="product" action="list"><span>SuperKids Products</span></g:link></li>
+		<li id="${link=='chef_jeff' ? 'current' : ''}"><g:link controller="home" action="chef_jeff"><span>Chef Jeff at SNA</span></g:link></li>
+		<li id="${link=='what_are_whole_grains' ? 'current' : ''}"><g:link controller="home" action="what_are_whole_grains"><span>What Are Whole Grains?</span></g:link></li>
+		<li id="${link=='whole_grain_list' ? 'current' : ''}"><g:link controller="home" action="whole_grain_list"><span>List of Whole Grains</span></g:link></li>
+		<li id="${link=='whole_grain_benefits' ? 'current' : ''}"><g:link controller="home" action="whole_grain_benefits"><span>Benefits of Whole Grains</span></g:link></li>
+		<li id="${link=='healthy_hunger_free' ? 'current' : ''}"><g:link controller="home" action="healthy_hunger_free"><span>Healthy Hunger-Free Kids Act</span></g:link></li>
+		<li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate"><span>MyPlate</span></g:link></li>
+		<li id="${link=='whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="whole_grain_studies"><span>Whole Grains & Human Health</span></g:link></li>
+		<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity"><span>Meeting the Challenge</span></g:link></li>
+		<li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips"><span>Whole Grains Council Tips</span></g:link></li>
+      </ul>
+      <div class="ad">
+        <h3>Win Prizes <span>for Your School District</span></h3>
+        <p><img src="${resource(dir:'images',file:'img_bills.jpg')}" title="Money" class="left" />If you’ve already received your free samples, you could win a $200 gift card for your school district just for sharing your opinion.</p>
+        <p><a href="feedback.php" title="" class="btn"><span>Tell us what you think</span></a>
+      </div>
+      <div class="ad">
+        <h3>Whole Grain Nutrition, White Flour Appeal</h3>
+        <p><img src="${resource(dir:'images',file:'logo_ultragrain_small.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole wheat flour without sacrificing the appealing taste, texture and appearance of white flour. <a href="#">Learn more »</a></p>
+      </div>
+    </div>
+    <g:layoutBody/>
+  </div>
+</div>
+<div id="footer-container">
+  <div id="logos">
+      <g:render template="/includes/logos" />
+  </div>
+  <div id="footer">
+      <g:render template="/includes/footer" />
+  </div>
+</div>
+</body>
 </html>

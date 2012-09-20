@@ -11,9 +11,10 @@
 		</g:if>
 
 
-		<div id="contentInsetInner">${content}
-			<img src="${resource(dir:'images', file:'LearnKid.jpg')}" style="position:absolute; top:6px; left:475px; z-index:0" />
+	<div id="content">
+			${content}
+	</div>		
 
-		</div>
+		
     </body>
 </html>

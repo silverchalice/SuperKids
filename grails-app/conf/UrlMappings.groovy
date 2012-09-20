@@ -60,33 +60,21 @@ class UrlMappings {
                     controller = "home"
                     action = "broker_ecard"
                 }
-                "/learn.$suffix" {
+                "/learn/" {
                     controller = "home"
                     action = "learn"
-                    constraints {
-                        suffix(matches: 'cfm')
-                    }
                 }
-                "/order.$suffix" {
+                "/order" {
                     controller = "home"
                     action = "order"
-                    constraints {
-                        suffix(matches: 'cfm')
-                    }
                 }
-                "/assess.$suffix" {
+                "/assess" {
                     controller = "home"
                     action = "assess"
-                    constraints {
-                        suffix(matches: 'cfm')
-                    }
                 }
-                "/promote.$suffix" {
+                "/promote" {
                     controller = "home"
                     action = "promote"
-                    constraints {
-                        suffix(matches: 'cfm')
-                    }
                 }
                 "/assessment-drawing-rules" {
                     controller = "home"
