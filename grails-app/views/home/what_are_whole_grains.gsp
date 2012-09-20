@@ -10,11 +10,6 @@
     </head>
     <body>
 
-        <div id="contentInsetInner">
-           <g:if test="${flash.message}">
-               <div class="message">${flash.message}</div>
-           </g:if>
          ${content}
-        </div>
     </body>
 </html>

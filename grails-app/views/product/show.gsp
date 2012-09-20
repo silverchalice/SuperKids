@@ -31,7 +31,7 @@
 
                      </g:if>
                 <g:else>
-                    <p class="remove"><a href="#" title="Remove this sample from your free order">Remove from your order</a></p>
+                    <p class="remove"><a href="${createLink(controller: 'product', action: 'remove', id: productInstance.id)}" title="Remove this sample from your free order">Remove from your order</a></p>
                     <a class="btn arrow" href="${createLink(controller: 'shopping', action: 'index')}" title="Place your free order" class="btn arrow"><span>Checkout</span></a>
                 </g:else>
             </div>
