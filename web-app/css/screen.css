@@ -557,7 +557,7 @@ ul#nav .amp {
 .order-item.expanded {
 	height:auto;
 }
-div.remove, div.expand, div.complete-review {
+div.remove, div.expand, div.complete-review, div.complete {
 	float:right;
 	background-color:#f6f6f6;
 	height:120px;
@@ -579,6 +579,16 @@ div.remove a, div.expand a {
 	text-shadow:0 1px 1px #ccc;
 	background:url(../images/btn_delete.png) no-repeat left center;
 }
+
+div.complete span, div.expand a {
+    font-size:18px;
+    font-family:'SourceSansProSemiBold';
+    padding:15px 0 15px 50px;
+    color:#000;
+    text-shadow:0 1px 1px #ccc;
+    background:url(../images/btn_complete.png) no-repeat left center;
+}
+
 div.expand a {
 	background-image:url(../images/btn_expand.png);
 }

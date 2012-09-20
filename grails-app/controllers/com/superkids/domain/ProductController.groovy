@@ -224,7 +224,7 @@ class ProductController {
                 def customer = Customer.get(springSecurityService.principal.id)
                 println "customer " + customer?.fsdName + " added " + product + " to cart"
 		shoppingCartService.addToShoppingCart(product, 1)
-		redirect controller:'testShoppingCart', action:'show'
+		redirect controller:'shoppingCart', action:'show'
 		return
 	}
 
