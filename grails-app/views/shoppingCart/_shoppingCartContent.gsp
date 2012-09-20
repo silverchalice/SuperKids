@@ -1,63 +1,33 @@
-                   <table>
-                    <thead>
-                        <tr>
+<g:if test="${session.checkedOutItems}">
+    <g:each in="${session.checkedOutItems}" var="item">
+        <div class="order-item"><img
+                src="${createLink(controller: 'product', action: 'displayImage', id: com.superkids.domain.Product.findByShoppingItem(it['item']).id)}"
+                alt=""/>
 
-                            <g:sortableColumn property="item" title="Product" />
+            <h2>${com.superkids.domain.Product.findByShoppingItem(item['item'])}?.name</h2>
 
-                            <g:sortableColumn property="qty" title="Quantity" />
+            <p>Made by ${com.superkids.domain.Product.findByShoppingItem(item['item'])}?.sponsor?.name with Ultragrain</p>
 
-                            <th> </th>
+            <div class="complete"><span>Order Completed</span>
+            </div>
+        </div>
+    </g:each>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <sks:eachInProducts>
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-
-                            <td>${com.superkids.domain.Product.findByShoppingItem(it['item'])}</td>
-
-                            <td>${it['qty']}</td>
-
-                            <td><img src="${createLink(controller:'product', action:'displayHoverImage', id:product.id)}" style="height:50px; width:65px;" /><g:remoteLink controller="product" action="remove"
-				params="${[id:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).id, class:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).class, version:(com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).version, cartPage:true]}"
-				update="shoppingCartContent"
-				onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
-				Remove
-         			</g:remoteLink></td>
-                        </tr>
-                    </sks:eachInProducts>
-                    </tbody>
-                </table>
-
-      <g:if test="${checkedOutItems}">
-	<tr>
-		<td><h2>Checked out items</h2></td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-	</tr>
-	<g:each in="${checkedOutItems.sort{it.id}}" var="item">
-		<tr>
-			<td>
-				${com.metasieve.shoppingcart.Shoppable.findByShoppingItem(item['item']) ?: com.metasieve.shoppingcart.ShoppingCartInterfaceTestProduct.findByShoppingItem(item['item'])}
-			</td>
-			<td>
-				${item['qty']}
-			</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-	</g:each>
 </g:if>
+<g:else>
+    <sks:eachInProducts>
+        <div class="order-item"><img
+                src="${createLink(controller: 'product', action: 'displayImage', id: com.superkids.domain.Product.findByShoppingItem(it['item']).id)}"
+                alt=""/>
 
+            <h2>${com.superkids.domain.Product.findByShoppingItem(item['item'])}?.name</h2>
 
+            <p>Made by ${com.superkids.domain.Product.findByShoppingItem(item['item'])}?.sponsor?.name with Ultragrain</p>
 
+            <div class="remove"><g:remoteLink controller="product" action="remove"
+                                              params="${[id: (com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).id, class: (com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).class, version: (com.metasieve.shoppingcart.Shoppable.findByShoppingItem(it['item']) ?: com.superkids.domain.Product.findByShoppingItem(it['item'])).version]}"
+                                              update="shoppingCartContent">Remove from order</g:remoteLink></div>
+        </div>
+    </sks:eachInProducts>
 
-
-
-
-
-
-
+</g:else>

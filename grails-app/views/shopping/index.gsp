@@ -1,59 +1,43 @@
-
-
-<%@ page import="com.superkids.domain.Customer" %>
 <%@ page import="com.superkids.domain.Product" %>
-<%@ page import="com.metasieve.shoppingcart.Shoppable" %>
+
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="customer" />
-        <g:javascript library="prototype"/>
-        <g:javascript library="scriptaculous" />
-        <title>You landed on: The Landing Page.</title>
-    </head>
-    <body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="layout" content="cart" />
+</head>
+<body>
 
-        <div style="width:600px">
-           <g:if test="${flash.message}">
-               <div class="message">${flash.message}</div>
-           </g:if>
-         <h1>This is the new shopping/index page.</h1>
-         <p><strong>This page is currently undergoing maintenance.</strong> We apologize for its sheer overwhelming awesomeness.</p>
-         <table>
-                    <thead>
-                        <tr>
-                        
-                   	        <th>Product</th>
-                        
-                   	        <th>Qty</th>
+<div id="content-container">
+    <ol id="order-process">
+        <sks:hasNotPlacedCurrentOrder>
+            <li class="one active"><a href="#"><span class="gradient">1</span> Review Your Order</a></li>
+            <li class="two complete"><a href="#"><span>2</span> Provide Shipping Address</a></li>
+            <li class="three complete"><a href="#"><span>3</span> Place Your Free Order</a></li>
+        </sks:hasNotPlacedCurrentOrder>
+        <sks:hasPlacedCurrentOrder>
+            <li class="one active"><a href="#"><span class="gradient">1</span> Review Your Order</a></li>
+            <li class="two"><a href="#"><span>2</span> Provide Shipping Address</a></li>
+            <li class="three"><a href="#"><span>3</span> Place Your Free Order</a></li>
+        </sks:hasPlacedCurrentOrder>
 
-                   	        <th>&nbsp;</th>
+    </ol>
+<div id="content">
+    <h1>Your Order</h1>
 
-                   	        <th>&nbsp;</th>
+    <sks:hasNotPlacedCurrentOrder>
+        <g:render template="/shopping/shoppingCartContent"/>
 
-                   	        <th>&nbsp;</th>
-                   	    
-                        </tr>
-                    </thead>
-                    <tbody id="shoppingCartContent">
-						<g:render template="shoppingCartContent"/>
-					</tbody>
-				</table>
-				<br />
-				<g:remoteLink action="checkOut"
-					update="shoppingCartContent"
-					onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
-					Check out
-				</g:remoteLink>
-			</div>
-			<h1>Products</h1>
-			<div class="list">
+    </sks:hasNotPlacedCurrentOrder>
+    <sks:hasPlacedCurrentOrder>
+        <sks:orderList />
+    </sks:hasPlacedCurrentOrder>
 
-         <p><g:remoteLink controller="product" action="add"
-				params="${[id:1, class:com.superkids.domain.Product.class, version:1]}"
-				update="shoppingCartContent"
-				onComplete="Effect.Pulsate('shoppingCartContent', {pulses: 1, duration: 1.0});">
-				Healthy Hot Dog</g:remoteLink></p>
-        </div>
-    </body>
+</div>
+    <hr />
+    <a href="${createLink(controller: 'home', action: 'order')}">&laquo; Back</a><a href="${createLink(controller: 'product', action: 'check_out')}" title="Move to the next step" class="btn arrow"><span>Proceed with order</span></a>
+
+</div>
+
+
+</body>
 </html>

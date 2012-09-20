@@ -1041,13 +1041,30 @@ a[href$=".pdf"] {
 	background:url('../images/icon_pdf.png') no-repeat right center;
 	padding:3px 22px 3px 0;
 }
+
+.pdf {
+    background:url('../images/icon_pdf.png') no-repeat right center;
+    padding:3px 22px 3px 0;
+}
+
 a[href$=".doc"], a[href$=".docx"] {
 	background:url('../images/icon_word.png') no-repeat right center;
 	padding:3px 22px 3px 0;
 }
+
+.doc {
+    background:url('../images/icon_word.png') no-repeat right center;
+    padding:3px 22px 3px 0;
+}
+
 a[href$=".png"], a[href$=".jpg"], a[href$=".tif"], a[href$=".gif"] {
 	background:url('../images/icon_image.png') no-repeat right center;
 	padding:3px 22px 3px 0;
+}
+
+.img {
+    background:url('../images/icon_image.png') no-repeat right center;
+    padding:3px 22px 3px 0;
 }
 
 /*	=4e: Forms

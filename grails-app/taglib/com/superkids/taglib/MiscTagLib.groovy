@@ -564,7 +564,7 @@ Modified: get menuButton text from new 'msg' attr
 	}
 
 	def eachInProducts = { attrs, body ->
-		def items = shoppingCartService.getItems().sort{it.id}
+		def items = shoppingCartService.getItems()?.sort{it?.id}
 		if(items){	
 			items?.sort { a, b -> a?.id <=> b?.id }?.each { item ->
 				def itemInfo = ['item':item,

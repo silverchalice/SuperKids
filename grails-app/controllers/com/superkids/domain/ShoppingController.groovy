@@ -5,7 +5,7 @@ class ShoppingController {
     def springSecurityService
     def shoppingCartService
 
-    def index = { 
+    def index = {
         
     }
 
