@@ -9,7 +9,7 @@
     <jqui:resources/>
 
 
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         jQuery.noConflict();
 
 
@@ -33,7 +33,7 @@
         });
 
 
-    </script>
+    </script>      -->
 
 </head>
 
@@ -286,39 +286,28 @@
 
         </td>
     </tr>
+    <tr>
+        <td colspan="2">
+            <h3>Please let us know if you would any of these manufacturers to contact you immediately.</h3>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <g:each in="${sponsors}" var="sponsor">
+                <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}"
+                                                          checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
+            </g:each>
+        </td>
+    </tr>
+    <tr>
 
+        <td valign="top"
+            colspan="2"><label>Please list any special requests for the manufacturers you checked:</label> <g:textField
+                name="otherComments" value="${customerInstance?.otherComments}" style="float:right"/></td>
+
+    </tr>
 </table>
 
-
-
-
-<div style="background: white; padding: 10px">
-    <table>
-        <tr>
-            <td colspan="2">
-                <h3>Please let us know if you would any of these manufacturers to contact you immediately.</h3>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <g:each in="${sponsors}" var="sponsor">
-                    <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}"
-                                                              checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
-                </g:each>
-            </td>
-        </tr>
-        <tr>
-
-            <td valign="top"
-                colspan="2"><label>Please list any special requests for the manufacturers you checked:</label> <g:textField
-                    name="otherComments" value="${customerInstance?.otherComments}" style="float:right"/></td>
-
-        </tr>
-
-    </table>
-</div>
-
-<a id="helpPopUp">Help</a>
 
 
 <g:actionSubmit class="save" action="update"
@@ -330,7 +319,7 @@
 </div>
 
 </g:form>
-
+<!--
 <div id="help">
     <h2>Purpose</h2>
 
@@ -360,7 +349,7 @@
     <p>Select the option that comes closest to the total number of eating facilities in your entire school district.
     </p>
     <a id="closeHelpPopUp">Close</a>
-</div>
+</div>-->
 
 
 
@@ -475,12 +464,5 @@
             </table>
         </g:form>
     </td></tr></table>
-</div>
-
-
-
-
-
-</div>
 </body>
 </html>

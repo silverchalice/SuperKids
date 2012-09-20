@@ -777,7 +777,7 @@ class HomeController {
                    customerInstance.save(failOnError:true)
                    flash.message = "Your password has been updated."
                    println "updated password for customer " + customerInstance + " (c_password)"
-                   redirect action:"index"
+                   redirect controller: 'home', action: 'order'
                } else {
                    flash.message = "New passwords do not match."
                    println "new passwords for customer " + customerInstance + " did not match (c_password)"
