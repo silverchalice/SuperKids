@@ -5,6 +5,7 @@
         <title>${productInstance.name} - SuperKids Sampling Program | From ConAgra Foods</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="products" />
+        <meta name="active" content="${productInstance?.id}" />
         <g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
         <g:javascript library="jquery" plugin="jquery"/>
 
@@ -35,7 +36,7 @@
                     <a class="btn arrow" href="${createLink(controller: 'shopping', action: 'index')}" title="Place your free order" class="btn arrow"><span>Checkout</span></a>
                 </g:else>
             </div>
-            <p><g:link action="downloadSummary" id="${productInstance.id}">Download Summary</g:link> <span class="sep">|</span> <a href="/SuperKids/uploads/${productInstance?.backgroundImage}">View Product Ad</a></p>
+            <p><g:link class="pdf" action="downloadSummary" id="${productInstance.id}">Download Summary</g:link> <span class="sep">|</span> <a href="/SuperKids/uploads/${productInstance?.backgroundImage}">View Product Ad</a></p>
         </div>
         <div id="order-intro">
             ${productInstance?.description}
