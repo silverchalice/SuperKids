@@ -7,15 +7,15 @@
 </head>
 <body>
 
-<div id="content-container">
+<div id="content-container" style="width: 960px">
     <ol id="order-process">
         <sks:hasNotPlacedCurrentOrder>
             <li class="one active"><a href="#"><span class="gradient">1</span> Review Your Order</a></li>
-            <li class="two complete"><a href="#"><span>2</span> Provide Shipping Address</a></li>
+            <li class="two complete"><a href="${createLink(controller: 'product', action: 'check_out')}"><span>2</span> Provide Shipping Address</a></li>
             <li class="three complete"><a href="#"><span>3</span> Place Your Free Order</a></li>
         </sks:hasNotPlacedCurrentOrder>
         <sks:hasPlacedCurrentOrder>
-            <li class="one active"><a href="#"><span class="gradient">1</span> Review Your Order</a></li>
+            <li class="one"><a href="#"><span class="gradient">1</span> Review Your Order</a></li>
             <li class="two"><a href="#"><span>2</span> Provide Shipping Address</a></li>
             <li class="three"><a href="#"><span>3</span> Place Your Free Order</a></li>
         </sks:hasPlacedCurrentOrder>

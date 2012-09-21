@@ -6,8 +6,6 @@
     <title><g:layoutTitle default="Review Your Order - SuperKids Sampling Program | From ConAgra Foods"/> </title>
     <g:render template="/includes/head_data" />
     <g:layoutHead />
-    <g:javascript library="application" />
-    <g:javascript library="jquery" plugin="jquery"/>
     <g:set var="products" value="${Product.findAllByLiveProduct(true)}" />
 
     <script type="text/javascript">

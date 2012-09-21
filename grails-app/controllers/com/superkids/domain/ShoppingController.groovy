@@ -44,17 +44,9 @@ class ShoppingController {
                }
 
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
-                   def cartItems = shoppingCartService.getItems()
-                   def products = []
-                   cartItems?.each { item ->
-                       def prod = Product.findByShoppingItem(item)
-                       if(prod){
-                           def product = new Expando(toString: {-> prod.name}, id:prod.id, quantity:prod.servings)
-                           products << product
-                       }
-                   }
+
                    flash.message = "Your customer details have been updated."
-                   render view:"confirm", model: [customerInstance:customerInstance, shippingDates:ShippingDate.findAllByShipDate('January 23, 2012'), products:products]
+                   redirect action: "confirm_order", params: [id:customerInstance?.id]
                } else {
                    render(view: "check_out", model: [customerInstance: customerInstance, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
                }
@@ -67,6 +59,17 @@ class ShoppingController {
            redirect(controller:"home", action: "index")
        }
     }
+
+    def confirm_order = {
+
+        def customerInstance = User.get(params.id)
+        if (customerInstance) {
+            def products = shoppingCartService.getItems()
+            [customerInstance:customerInstance, shippingDates:ShippingDate.list(), products:products]
+        }
+
+    }
+
 
     def place_order = {
         def shippingDate = ShippingDate.get(params.shippingDate)
