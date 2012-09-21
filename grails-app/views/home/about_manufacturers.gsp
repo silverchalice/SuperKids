@@ -13,12 +13,6 @@
         <title>SuperKids | About The Manufacturers</title>
     </head>
     <body>
-
-		<div id="contentInsetInner">
-
              ${content}
-
-		</div>
-
     </body>
 </html>
