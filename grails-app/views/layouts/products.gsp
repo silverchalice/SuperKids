@@ -27,31 +27,21 @@
     <div id="sidebar">
       <ul id="side-nav">
         <h3>Full Product List</h3>
-
         <g:each in="${Product.topLevelProducts()}" var="product">
 
-            <li><a href="${createLink(controller: 'product', action: 'show', id: product.id)}" title="${product.name}">${product.name}<br />
-              <span>${product.sponsor.name}</span></a></li>
+            <sks:productMenuItem id="${product?.id}" active="${productInstance?.id ?: ''}" />
 
         </g:each>
-
-       <!-- <li class="active in-cart"><a href="#" title="Product name">Smart Slice Pizza<br />
-          <span>Domino's Pizza</span></a></li>
-
-        <li class="in-cart"><a href="#" title="Product name">A Really, Really Longish Product Name<br />
-          <span>Manufacturer Name</span></a></li>
-        <li><a href="#" title="Product name">Product Name<br />
-          <span>Really, Really Long Manufacturer Name</span></a></li>           -->
 
       </ul>
       <div class="ad">
         <h3>Win Prizes <span>for Your School District</span></h3>
         <p><img src="${resource(dir:'images',file:'img_bills.jpg')}" title="Money" class="left" />If you’ve already received your free samples, you could win a $200 gift card for your school district just for sharing your opinion.</p>
-        <p><a href="feedback.php" title="" class="btn"><span>Tell us what you think</span></a>
+        <p><a href="${createLink(controller: 'home', action: 'assess')}" title="" class="btn"><span>Tell us what you think</span></a>
       </div>
       <div class="ad">
         <h3>Whole Grain Nutrition, White Flour Appeal</h3>
-        <p><img src="${resource(dir:'images',file:'logo_ultragrain_small.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole wheat flour without sacrificing the appealing taste, texture and appearance of white flour. <a href="#">Learn more »</a></p>
+        <p><img src="${resource(dir:'images',file:'logo_ultragrain_small.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole wheat flour without sacrificing the appealing taste, texture and appearance of white flour. <a href="${createLink(controller: 'home', action: 'ultragrain_general')}">Learn more »</a></p>
       </div>
     </div>
     <div id="content">

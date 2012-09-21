@@ -622,7 +622,7 @@ h1 {
 	line-height:36px;
 	margin:35px 0 20px;
 	padding-bottom:5px;
-	border-bottom:1px solid #222;
+	/*border-bottom:1px solid #222;*/
 }
 h2 {
 	font-size:24px;

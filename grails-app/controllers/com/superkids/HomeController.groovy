@@ -394,20 +394,23 @@ class HomeController {
        }
 
        def order = {
-           def content
+           def content = null
            def pt = PageText.findByName("order")
            if(pt){
                content = pt.content
            }
 
            def products = []
-
-           def customer = Customer.get(springSecurityService.principal.id)
-           Product.list().each {product ->
-               if((product.liveProduct) && (product.statesAvailable.find{ customer?.deliveryAddress?.state }) && (!product.parent)) {
-                   products << product
+           def customer = null
+           if(springSecurityService.isLoggedIn()) {
+               customer = Customer.get(springSecurityService.principal.id)
+               Product.list().each {product ->
+                   if((product.liveProduct) && (product.statesAvailable.find{ customer?.deliveryAddress?.state }) && (!product.parent)) {
+                       products << product
+                   }
                }
            }
+
            [content:content, products: products]
        }
 
