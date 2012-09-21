@@ -56,10 +56,6 @@ class UrlMappings {
             controller = "home"
             action = "learn"
         }
-        "/order" {
-            controller = "home"
-            action = "order"
-        }
         "/assess" {
             controller = "home"
             action = "assess"
@@ -87,18 +83,6 @@ class UrlMappings {
         "/additional-promotional-ideas" {
             controller = "home"
             action = "additional_promotional_ideas"
-        }
-        "/sustagrain-general/" {
-            controller = "home"
-            action = "sustagrain_general"
-        }
-        "/about-manufacturers" {
-            controller = "home"
-            action = "about_manufacturers"
-        }
-        "/where-to-find" {
-            controller = "home"
-            action = "where_to_find"
         }
         "/testimonials/" {
             controller = "home"
@@ -171,10 +155,6 @@ class UrlMappings {
         "/passwd_reset" {
             controller = "home"
             action = "passwd_reset"
-        }
-        "/contact"{
-            controller = "contactRequest"
-            action = "create"
         }
         "/contact_requests"{
             controller = "contactRequest"

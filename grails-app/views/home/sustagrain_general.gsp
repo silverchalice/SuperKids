@@ -10,7 +10,7 @@
         <meta name="layout" content="learn" />
     </sec:ifLoggedIn>
     <sec:ifNotLoggedIn>
-        <meta name="layout" content="public" />
+        <meta name="layout" content="learn" />
     </sec:ifNotLoggedIn>
     <meta name="link" content="sustagrain" />
     <script type="text/javascript">
