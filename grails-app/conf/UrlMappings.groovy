@@ -24,14 +24,6 @@ class UrlMappings {
             controller = "login"
             action = "auth"
         }
-        "/register/" {
-            controller = "home"
-            action = "register"
-        }
-        "/edit_profile/" {
-            controller = "home"
-            action = "edit_profile"
-        }
         "/broker/" {
             controller = "home"
             action = "broker"
@@ -96,10 +88,6 @@ class UrlMappings {
             controller = "home"
             action = "additional_promotional_ideas"
         }
-        "/what-is/" {
-            controller = "home"
-            action = "what_is"
-        }
         "/about/" {
             controller = "home"
             action = "about"
@@ -120,41 +108,9 @@ class UrlMappings {
             controller = "home"
             action = "where_to_find"
         }
-        "/superkids-products/" {
-            controller = "product"
-            action = "list"
-        }
         "/testimonials/" {
             controller = "home"
             action = "testimonials"
-        }
-        "/whole-grain-list/" {
-            controller = "home"
-            action = "whole_grain_list"
-        }
-        "/whole-grain-benefits/" {
-            controller = "home"
-            action = "whole_grain_benefits"
-        }
-        "/whole-grain-studies/" {
-            controller = "home"
-            action = "whole_grain_studies"
-        }
-        "/childhood-obesity" {
-            controller = "home"
-            action = "childhood_obesity"
-        }
-        "/council-tips/" {
-            controller = "home"
-            action = "council_tips"
-        }
-        "/sustagrain/" {
-            controller = "home"
-            action = "sustagrain"
-        }
-        "/ultragrain/" {
-            controller = "home"
-            action = "ultragrain"
         }
         "/public/" {
             controller = "home"
