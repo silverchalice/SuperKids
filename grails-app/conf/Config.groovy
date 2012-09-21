@@ -190,7 +190,7 @@ grails.plugins.springsecurity.interceptUrlMap = [
    '/what-is':                                           ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/ultragrain':                                        ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/sustagrain':                                        ['IS_AUTHENTICATED_ANONYMOUSLY'],
-   '/superkids-products':                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
+   '/product/list':                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/testimonials':                                      ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/about':                                             ['IS_AUTHENTICATED_ANONYMOUSLY'],
    '/ultragrain-general':                                ['IS_AUTHENTICATED_ANONYMOUSLY'],
