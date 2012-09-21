@@ -576,4 +576,29 @@ Modified: get menuButton text from new 'msg' attr
 		}
 	}
 
+    def productMenuItem = { attrs ->
+
+        def product = Product.get(attrs.id)
+
+        if (product) {
+
+            def inCart = ""
+            def active = ""
+
+            def shoppingCart = shoppingCartService.getShoppingCart()
+            if (Quantity.findByShoppingCartAndShoppingItem(shoppingCart, product.shoppingItem)) inCart = "in-cart"
+            if (attrs.id == attrs.active) active = "active"
+
+            out << """<li class='${active} ${inCart}'>
+                    <a href=${createLink(controller: 'product', action: 'show', id: product.id)} title="${product.name}">
+                        ${product.name}<br />
+                        <span>${product.sponsor.name}</span>
+                    </a>
+                </li>
+            """
+        }
+
+    }
+
+
 }

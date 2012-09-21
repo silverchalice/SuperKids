@@ -9,12 +9,6 @@
         <title>SuperKids | My Plate</title>
     </head>
     <body>
-
-        <div style="width:450px">
-           <g:if test="${flash.message}">
-               <div class="message">${flash.message}</div>
-           </g:if>
-         <div id="contentInsetInner">${content}</div>
-        </div>
+         ${content}
     </body>
 </html>

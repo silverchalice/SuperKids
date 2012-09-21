@@ -19,13 +19,6 @@
         window.open(htmLoc,"mainwindow","top="+wintop+",left="+winleft+",width="+width+",height="+height+",buttons=no,scrollbars=no,location=no,menubar=no,resizable=no,status=no,directories=no,toolbar=no");//YesorNo
     }
 </script>
-      <g:if test="${flash.message}">
-        <div class="message">${flash.message}</div>
-      </g:if>
-    <div id="contentInsetInner">
 		${content}
-    </div>
-
-
   </body>
 </html>
