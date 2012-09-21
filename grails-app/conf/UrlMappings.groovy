@@ -88,14 +88,6 @@ class UrlMappings {
             controller = "home"
             action = "additional_promotional_ideas"
         }
-        "/about/" {
-            controller = "home"
-            action = "about"
-        }
-        "/ultragrain-general/" {
-            controller = "home"
-            action = "ultragrain_general"
-        }
         "/sustagrain-general/" {
             controller = "home"
             action = "sustagrain_general"
