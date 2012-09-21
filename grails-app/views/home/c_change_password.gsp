@@ -6,12 +6,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="customer" />
         <title>SuperKids | Welcome</title>
+
+
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#submitLoginButton").click(function () {
+                    $("#c_password").submit();
+                });
+            })
+        </script>
+
     </head>
     <body>
 
-		<div id="contentInsetInner">
-            <h1>Welcome</h1>          <br/>
-            <g:form action="c_password" method="post" >
+		<div id="auth" style="width:720px; margin: 0 auto; height: 400px">
+            <h1>Welcome! Please create your new password</h1>
+            <g:form name="c_password" action="c_password" method="post" >
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
 
@@ -20,28 +32,26 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="password" style="font-weight:bold;">New password</label>
+                                    <label for="password" style="font-size: 20px">New password</label>
                                 </td>
                                 <td valign="top">
-                                    <g:passwordField name="password" value="" />
+                                    <g:passwordField name="password" value="" style="font-size: 20px" />
                                 </td>
                             </tr>
 
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="confirmpassword" style="font-weight:bold;">Confirm new password</label>
+                                    <label for="confirmpassword" style="font-size: 20px">Confirm new password</label>
                                 </td>
                                 <td valign="top">
-                                    <g:passwordField name="confirmpassword" value="" />
+                                    <g:passwordField name="confirmpassword" value="" style="font-size: 20px" />
                                 </td>
                             </tr>
 
                             <tr>
                                 <td>
-                                    <div class="buttons">
-                                        <br />
-                                        <span class="button"><g:submitButton name="create" class="save" value="Submit" /></span>
-                                    </div>
+                                    <br />
+                                    <a id="submitLoginButton" href="#" class="btn arrow"><span>Save New Password</span></a>
                                 </td>
                             </tr>
                         </tbody>

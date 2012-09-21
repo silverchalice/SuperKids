@@ -135,10 +135,6 @@ class HomeController {
        }
 
        def edit_profile = {
-            def broker = null
-            if(params.brokerId){
-                broker = Broker.get(params.brokerId)
-            }
             def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
 			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
 			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
@@ -153,7 +149,7 @@ class HomeController {
                def user = Customer.get(springSecurityService.principal.id)
                def userRole = Role.findByAuthority("ROLE_USER")
                if (UserRole.findByUserAndRole(user, userRole)){
-                   return [customerInstance: user, states:states, broker:broker, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
+                   return [customerInstance: user, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
                } else {
                    redirect(action: "index")
                }
@@ -777,7 +773,7 @@ class HomeController {
                    customerInstance.save(failOnError:true)
                    flash.message = "Your password has been updated."
                    println "updated password for customer " + customerInstance + " (c_password)"
-                   redirect action:"index"
+                   redirect controller: 'home', action: 'order'
                } else {
                    flash.message = "New passwords do not match."
                    println "new passwords for customer " + customerInstance + " did not match (c_password)"

@@ -9,7 +9,7 @@
     <meta name="layout" content="learn" />
             <meta name="link" content="ultragrain" />
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <script> 
+    <script type="text/javascript">
         var window1;
         var window2;
         function popUp(htmLoc,width,height,theWindow) {
@@ -20,10 +20,7 @@
 </script> 
 </head>
   <body>
-      <g:if test="${flash.message}">
-        <div class="message">${flash.message}</div>
-      </g:if>
-  		<div id="contentInsetInner">${content}</div>
+  ${content}
 
   </body>
 </html>

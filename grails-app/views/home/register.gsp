@@ -1,258 +1,380 @@
-
-
 <%@ page import="com.superkids.domain.Sponsor; com.superkids.domain.Customer" %>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="public" />
-        <title>SuperKids | Register</title>
-    </head>
-    <body>
-    <script> 
-        function help(){
-            mywindow = window.open('profile_help','_blank','menubar=0,resizeable=0,scrollbars=1,width=500,height=500');
-            mywindow.moveTo(300,300);
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <meta name="layout" content="public"/>
+    <title>SuperKids | Register</title>
+
+    <style type="text/css">
+
+    div.loginInfo {
+        width: 960px;
+    }
+
+    .loginInfo table.loginInfo {
+        width: 450px;
+        float: left;
+    }
+
+    .loginInfo table.loginInfo tr td {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .loginInfo table.loginInfo tr td input, .loginInfo table tr td select {
+        font-size: 20px;
+    }
+
+    table.profileForm {
+        width: 550px;
+    }
+
+    table.profileForm tr td {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    table.profileForm tr td input, table.profileForm tr td select {
+        font-size: 16px;
+        padding: 0;
+    }
+
+    table.bakeryProfile {
+        width: 500px;
+    }
+
+    table.bakeryProfile tr td {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+
+    table.bakeryProfile tr td input, table.bakeryProfile tr td select {
+        font-size: 16px;
+        padding: 0;
+    }
+
+    table.manufacturerForm {
+        background: white;
+        margin-left: 15px;
+        width: 480px;
+        border: 1px solid #d3d3d3;
+    }
+
+    table.manufacturerForm td {
+        padding: 8px 15px;
+    }
+
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#submitButton").click(function () {
+                $("#profileForm").submit();
+            });
+        });
+
+        function help() {
+            mywindow = window.open('profile_help', '_blank', 'menubar=0,resizeable=0,scrollbars=1,width=550,height=600');
+            mywindow.moveTo(300, 300);
         }
-    </script> 
-        <div id="contentInsetInner">
-            <h1>Registration</h1><br />
+    </script>
 
-            <div style="width: 610px; height: 1000px">
-            <g:if test="${flash.message}">
-                    <div class="message">${flash.message}</div><br />
-                    </g:if>
-                <div style="float:left;width:300px;">
-
-            <g:hasErrors bean="${customerInstance}">
-            <div class="errors">
-                <g:renderErrors bean="${customerInstance}" as="list" />
-            </div>
-            </g:hasErrors>
-                    <g:form method="post" action="save" name="profileForm"> 
-                        <table width="300" border="0" cellspacing="3" cellpadding="0"> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">Your Name</td>
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="fsdName" value="${customerInstance?.fsdName}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">Your Title</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="fsdTitle" value="${customerInstance?.fsdTitle}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">School District Name</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="district" value="${customerInstance?.district}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">School District Address</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="address.street" value="${customerInstance?.address?.street}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">&nbsp;</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="address.street2" value="${customerInstance?.address?.street2}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">City</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="address.city" value="${customerInstance?.address?.city}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">State</td> 
-                                <td style="text-align:left; padding: 0 4px"> 
-                                    <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" />
-                                </td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">Zip</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="address.zip" value="${customerInstance?.address?.zip}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">Telephone</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="phone" value="${customerInstance?.phone}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">Fax</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="fax" value="${customerInstance?.fax}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">Email</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="email" value="${customerInstance?.email}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">Sample Delivery Address</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.street" value="${customerInstance?.deliveryAddress?.street}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">&nbsp;</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.street2" value="${customerInstance?.deliveryAddress?.street2}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">City</td> 
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" size="20" maxlength="50"></td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">State</td>
-                                <td style="text-align:left; padding: 0 4px"> 
-                                    <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" />
-                                </td> 
-                            </tr> 
-                            <tr> 			
-                                <td style="text-align:right; padding: 0 4px">Zip</td>
-                                <td style="text-align:left; padding: 0 4px"><input type="text" name="deliveryAddress.zip" value="${customerInstance?.deliveryAddress?.zip}" size="20" maxlength="50"></td> 
-                            </tr> 
-                        </table>
-                        <br/>
-                    <span style="color: rgb(153, 51, 0);">
-                            <h2 style="font-size:15px;">Optional Broker/Distributor Information</h2>
-                    </span>
-                        <br/>
-                        <p>One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <br /><br />
-                        </p>
-                        <p>
-                            Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br /><br />
-                        </p>
-                    <g:hiddenField name="seq" value="9998" />
-                    <table cellpadding="3" cellspacing="0" style="border:none; width:300px">
-                        <tr>
-                            <td><strong>Broker/Distributor Name: </strong></td>
-                            <td><input type="text" name="brokerName" size="20" maxlength="50" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Email: </strong></td>
-                            <td><input type="text" name="brokerEmail" size="20" maxlength="50" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Telephone: </strong></td>
-                            <td><input type="text" name="brokerPhone" size="20" maxlength="50" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Fax: </strong></td>
-                            <td><input type="text" name="brokerFax" size="20" maxlength="50" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Address: </strong></td>
-                            <td><input type="text" name="brokerStreet" size="20" maxlength="255" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><strong></strong></td>
-                            <td><input type="text" name="brokerStreet2" size="20" maxlength="255" value=""></td>
-                        </tr>
-                        <tr>
-                            <td><strong>City: </strong></td>
-                            <td><input type="text" name="brokerCity" size="20" maxlength="50" value=""></td>
-                        </tr>
-                        <tr>
-                            <td>State</td>
-                            <td style="text-align:left">
-                                  <g:select name="brokerState" from="${states}" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Zip: </strong></td>
-                            <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td>
-                        </tr>
-                    </table>
-                    <div style="clear:both;" align="center">
-                        <a href="javascript:help();"><strong>Help</strong></a>
-                        <input type="hidden" name="Register" value="1">
-                        <input type="submit" name="save" value="Save">
-                    </div>
-                    </div>
-                    <div style="float:left;width:310px;">
-                        <table cellspacing="3" cellpadding="0">
-                            <tr> 
-                                <td colspan="2"> 
-                                    <div style="font-weight:bold;font-size:12px;">					
-                                        <span style="font-size:14px; line-height:15px">Please Correct or Change Any Incorrect or Incomplete Information.<BR><BR></span>
-                                        Samples are limited and subject to availabilty.<BR><br /> 
-                                        Please tell us about your school district foodservice program
-                                    </div> 
-                                </td> 
-                            </tr> 
-                            <tr style="padding-bottom:10px;"> 
-                                <td colspan="2" style="padding:0 0 0 0; line-height:13px;"><input type="checkbox" name="hasBakery" value="1" >Make our own bread products from scratch in our bakery (proof and bake)</td>
-                            </tr> 
-
-                            <tr>
-                                <td colspan="2" style="padding:0 0 0 0; line-height:13px;">How much flour does your district use on a monthly basis in pounds? <input type="text" name="monthlyFlourUsage" value="" size="25" maxlength="1000" style="float:right"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" style="padding:0 0 0 0; line-height:13px;">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
-                                                            contact them about the program, please list them here.<input type="text" name="localBakeries" value="" size="25" maxlength="1000" style="float:right"></td>
-                            </tr>
-                            <tr>
-
-                                <td colspan="2" style="padding:0 0 0 0; line-height:13px;"> Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:<input type="text" name="usedUltragrainSustagrainProducts" value="" size="25" maxlength="1000" style="float:right"></td>
-                            </tr>
+</head>
 
 
+<body>
 
-                            <tr> 
-                                <td colspan="2"> 
-                                    Number of students in your school district
-                                    <select name="studentsInDistrict"> 
-                                        <option value="500" >Less than 500
-                                        <option value="1000" >500 - 1,000
-                                        <option value="2000" >1,000 - 2,000
-                                        <option value="5000" >3,000 - 5,000
-                                        <option value="10000" >5,000 - 10,000
-                                        <option value="20000" >10,000 - 20,000
-                                        <option value="50000" >20,000 - 50,000
-                                        <option value="50000+" >Over 50,000
-                                    </select> 
-                                </td> 
-                             </tr> 
-                             <tr> 
-                                 <td colspan="2"> 
-                                     Approximate number of cafeterias, food courts or other eating facilities(District Total)
-                                     <select name="facilities"> 
-                                         <option value="3" >Less Than 3
-                                         <option value="5" >3-5
-                                         <option value="10" >6-10
-                                         <option value="10+" >More Than 10
-                                     </select> 
-                                 </td> 
-                             </tr> 
-                             <tr> 
-                                 <td colspan="2"> 
-                                     Number of students served daily(in your total school district - not just your individual school). Please confirm/enter these numbers.
-                                 </td> 
-                             </tr> 
-                              <tr> 
-                                  <td><input type="text" name="breakfastsServed" size="4" maxlength="6" value="${customerInstance?.breakfastsServed}" ></td> 
-                                  <td style="line-height:20px;">Breakfast</td>
-                              </tr> 
-                              <tr> 
-                                  <td><input type="text" name="lunchesServed" size="4" maxlength="6" value="${customerInstance?.lunchesServed}"></td> 
-                                  <td style="line-height:20px;">Lunch</td>
-                              </tr> 
-                              <tr> 
-                                  <td><input type="text" name="snacksServed" size="4" maxlength="6" value="${customerInstance?.snacksServed}"></td> 
-                                  <td style="line-height:20px;">Snacks</td>
-                              </tr>
-                            <tr>
-                                <td colspan="2">
-                                Please let us know if you would any of these manufacturers to contact you immediately.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <g:each in="${sponsors}" var="sponsor">
-                                        <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}" checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
-                                    </g:each>
-                                </td>
-                            </tr>
+<div style="width: 960px; margin: 0 auto">
 
-                            <tr>
-                                <td colspan="2"  style="padding:0 0 0 0; line-height:13px;">Please list any special requests for the manufacturers you checked: <input type="text" name="otherComments" value="" size="25" maxlength="1000" style="float:right"></td>
-                            </tr>
-                          </table> 
-                      </div> 
+<h1>Sign up for SuperKids</h1>
 
+<g:form method="post" action="save" name="profileForm">
 
-                      </g:form>
-                      <span style="clear: both;">&nbsp;</span>
-                      <span style="clear: both;">&nbsp;</span>
-                      <span style="clear: both;">&nbsp;</span>
-                </div>
-           </div>
-    </body>
+<div class="loginInfo">
+<table class="loginInfo">
+    <tr>
+        <td></td>
+        <td>
+            <h3>School Contact Information</h3>
+        </td>
+    </tr>
+    <tr>
+        <td style="text-align:right">Your Name</td>
+        <td><input type="text" name="fsdName" value="${customerInstance?.fsdName}" size="25"
+                   maxlength="50"></td>
+    </tr>
+<tr>
+    <td style="text-align:right">Your Title <span class="req">*</span></td>
+    <td style="text-align:left"><input type="text" name="fsdTitle" value="${customerInstance?.fsdTitle}" size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">School District Name <span class="req">*</span></td>
+    <td style="text-align:left"><input type="text" name="district" value="${customerInstance?.district}" size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">School District Address</td>
+    <td style="text-align:left"><input type="text" name="address.street" value="${customerInstance?.address?.street}"
+                                       size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">&nbsp;</td>
+    <td style="text-align:left"><input type="text" name="address.street2" value="${customerInstance?.address?.street2}"
+                                       size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">City</td>
+    <td style="text-align:left"><input type="text" name="address.city" value="${customerInstance?.address?.city}"
+                                       size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">State</td>
+    <td style="text-align:left">
+        <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}"/>
+    </td>
+</tr>
+<tr>
+    <td style="text-align:right">Zip</td>
+    <td style="text-align:left"><input type="text" name="address.zip" value="${customerInstance?.address?.zip}"
+                                       size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">Telephone</td>
+    <td style="text-align:left"><input type="text" name="phone" value="${customerInstance?.phone}" size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">Fax</td>
+    <td style="text-align:left"><input type="text" name="fax" value="${customerInstance?.fax}" size="25" maxlength="50">
+    </td>
+</tr>
+<tr>
+    <td style="text-align:right">Email <span class="req">*</span></td>
+    <td style="text-align:left"><input type="text" name="email" value="${customerInstance?.email}" size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">Delivery Address <span class="req">*</span></td>
+    <td style="text-align:left"><input type="text" name="deliveryAddress.street"
+                                       value="${customerInstance?.deliveryAddress?.street}"
+                                       size="25" maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">&nbsp;</td>
+    <td style="text-align:left"><input type="text" name="deliveryAddress.street2"
+                                       value="${customerInstance?.deliveryAddress?.street2}"
+                                       size="25" maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">City <span class="req">*</span></td>
+    <td style="text-align:left"><input type="text" name="deliveryAddress.city"
+                                       value="${customerInstance?.deliveryAddress?.city}" size="25"
+                                       maxlength="50"></td>
+</tr>
+<tr>
+    <td style="text-align:right">State <span class="req">*</span></td>
+    <td style="text-align:left">
+        <g:select name="deliveryAddress.state" from="${states}"
+                  value="${customerInstance?.deliveryAddress?.state}"/>
+    </td>
+</tr>
+<tr>
+    <td style="text-align:right">Zip <span class="req">*</span></td>
+    <td style="text-align:left"><input type="text" name="deliveryAddress.zip"
+                                       value="${customerInstance?.deliveryAddress?.zip}" size="25"
+                                       maxlength="50"></td>
+</tr>
+    <tr><td></td>
+        <td style="font-size: 16px">
+            <span class="req">*</span> Indicates Required Field
+
+        </td>
+
+    </tr>
+</table>
+
+<div style="float:right; width:500px;">
+    <g:if test="${flash.message}">
+        <div class="message" style="color: #8b0000;">${flash.message}</div>
+    </g:if>
+
+    <table class="profileForm">
+        <tr>
+            <td colspan="2" style="padding-top: 35px">
+                <h3 style="display: inline; ">School District Profile</h3>  (<a
+                    href="javascript:help();">Why do we ask for this information?</a>)
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                Number of students in your school district
+                <select name="studentsInDistrict">
+                    <option value="500">Less than 500
+                    <option value="1000">500 - 1,000
+                    <option value="2000">1,000 - 2,000
+                    <option value="5000">3,000 - 5,000
+                    <option value="10000">5,000 - 10,000
+                    <option value="20000">10,000 - 20,000
+                    <option value="50000">20,000 - 50,000
+                    <option value="50000+">Over 50,000
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                Approximately how many cafeterias, food courts and other eating facilities are in your district’s schools in total
+                <select name="facilities">
+                    <option value="3">Less Than 3
+                    <option value="5">3-5
+                    <option value="10">6-10
+                    <option value="10+">More Than 10
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
+            </td>
+            <td><input type="text" name="breakfastsServed" size="4" maxlength="6"
+                       value="${customerInstance?.breakfastsServed}"></td>
+        </tr>
+        <tr>
+            <td>
+                Approximately how many students are served <strong>lunch</strong> daily? <span class="req">*</span>
+            </td>
+            <td><input type="text" name="lunchesServed" size="4" maxlength="6"
+                       value="${customerInstance?.lunchesServed}"></td>
+        </tr>
+        <tr>
+            <td>
+                Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
+            </td>
+            <td><input type="text" name="snacksServed" size="4" maxlength="6"
+                       value="${customerInstance?.snacksServed}"></td>
+        </tr>
+    </table>
+
+    <table class="bakeryProfile">
+        <tr>
+            <td colspan="2">
+                <h3>Tell us about your school district’s bakery operation</h3>
+            </td>
+        </tr>
+        <tr>
+            <td>We make our own bread products from scratch in our bakery (proof and bake)</td>
+            <td>
+                <input type="checkbox" name="hasBakery" value="1">
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">If yes, how much flour does your district use on a monthly basis in pounds?<br/>
+                <input type="text" name="monthlyFlourUsage" value="" size="25" maxlength="1000"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
+            contact them about the program, please list them here:<br/>
+                <input type="text" name="localBakeries" value="" size="60" maxlength="1000"></td>
+        </tr>
+        <tr>
+
+            <td colspan="2">Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:
+                <br/>
+                <input type="text" name="usedUltragrainSustagrainProducts" value="" size="60" maxlength="1000"></td>
+        </tr>
+    </table>
+
+    <table class="manufacturerForm">
+        <tr>
+            <td colspan="2">
+                <strong>Please let us know if you would like any of these manufacturers to contact you immediately.</strong>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <g:each in="${sponsors}" var="sponsor">
+                    <span style="display: block; width: 220px; float: left"><g:checkBox name="sponsor.${sponsor.id}"
+                                                                                        checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
+                </g:each>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">Please list any special requests for the manufacturers you checked: <br/>
+                <input type="text" name="otherComments" value="" size="75" maxlength="1000"></td>
+        </tr>
+    </table>
+
+</div>
+
+<div style="clear: both; width: 400px; margin: 0 auto; padding: 50px 10px 100px 200px">
+    <input type="hidden" name="Register" value="1">
+    <a  id="submitButton" class="btn arrow"><span>Save Your Information & Continue</span></a>
+</div>
+
+<!--<div style="clear: both" class="brokerInfo">
+     <h2>Optional Broker/Distributor Information</h2>
+    <p>One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <br/><br/>
+    </p>
+    <p>
+        Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br/><br/>
+    </p>
+<g:hiddenField name="seq" value="9998"/>
+<table cellpadding="3" cellspacing="0" style="border:none; width:300px">
+<tr>
+<td><strong>Broker/Distributor Name:</strong></td>
+<td><input type="text" name="brokerName" size="25" maxlength="50" value=""></td>
+</tr>
+<tr>
+<td><strong>Email:</strong></td>
+<td><input type="text" name="brokerEmail" size="25" maxlength="50" value=""></td>
+</tr>
+<tr>
+<td><strong>Telephone:</strong></td>
+<td><input type="text" name="brokerPhone" size="25" maxlength="50" value=""></td>
+</tr>
+<tr>
+<td><strong>Fax:</strong></td>
+<td><input type="text" name="brokerFax" size="25" maxlength="50" value=""></td>
+</tr>
+<tr>
+<td><strong>Address:</strong></td>
+<td><input type="text" name="brokerStreet" size="25" maxlength="255" value=""></td>
+</tr>
+<tr>
+<td><strong></strong></td>
+<td><input type="text" name="brokerStreet2" size="25" maxlength="255" value=""></td>
+</tr>
+<tr>
+<td><strong>City:</strong></td>
+<td><input type="text" name="brokerCity" size="25" maxlength="50" value=""></td>
+</tr>
+<tr>
+<td>State</td>
+<td style="text-align:left">
+<g:select name="brokerState" from="${states}"/>
+</td>
+      </tr>
+      <tr>
+          <td><strong>Zip:</strong></td>
+          <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td>
+      </tr>
+  </table>
+
+</div>  -->
+
+</g:form>
+
+</div>
+</div>
+
+</body>
 </html>

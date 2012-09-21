@@ -10,7 +10,7 @@
 
     </head>
     <body>
-    <h1>Domino's Pizza Smart Slice</h1>
+    <h1>${productInstance?.name}</h1>
         <div id="order-container"><img src="${createLink(controller: 'product', action: 'displayImage', id: productInstance.id)}" alt="${productInstance.name}" class="${productInstance.ultragrain ? 'ultragrain ' : ''} ${productInstance.sustagrain ? ' sustagrain ' : ''}" />
 	    <g:if test="${productInstance.ultragrain}">
             <a href="${createLink(controller: 'home', action: 'ultragrain_general')}" title="Learn more about this grain"><p class="made-with-ultra">Made with Ultragrain</p>
@@ -20,10 +20,20 @@
         </g:if>
 	    </a>
             <div class="order-info">
-              <p class="remove"><a href="#" title="Remove this sample from your free order">Remove from your order</a></p>
-              <a href="checkout.php" title="Place your free order" class="btn arrow"><span>Checkout</span></a>
-              <!--<a href="#" title="Add this product to your order" class="btn"><span>Add to your free order</span></a>
-              <p>To order samples, you must be a foodservice director & you must <a href="#" title="Log in to order free samples">log in</a>.</p>-->
+
+                <g:if test="${!inCart && !customer?.hasPlacedCurrentOrder}">
+                    <sec:ifLoggedIn>
+                        <a href="${createLink(controller: 'product', action: 'add', id: productInstance?.id)}" title="Add this product to your order" class="btn"><span>Add to your free order</span></a>
+                    </sec:ifLoggedIn>
+                    <sec:ifNotLoggedIn>
+                        <p>To order samples, you must be a foodservice director & you must <a href="${createLink(controller: 'login', action: 'auth')}" title="Log in to order free samples">log in</a>.</p>
+                    </sec:ifNotLoggedIn>
+
+                     </g:if>
+                <g:else>
+                    <p class="remove"><a href="${createLink(controller: 'product', action: 'remove', id: productInstance.id)}" title="Remove this sample from your free order">Remove from your order</a></p>
+                    <a class="btn arrow" href="${createLink(controller: 'shopping', action: 'index')}" title="Place your free order" class="btn arrow"><span>Checkout</span></a>
+                </g:else>
             </div>
             <p><g:link action="downloadSummary" id="${productInstance.id}">Download Summary</g:link> <span class="sep">|</span> <a href="/SuperKids/uploads/${productInstance?.backgroundImage}">View Product Ad</a></p>
         </div>
@@ -41,12 +51,12 @@
         <h2>Manufacturer Information</h2>
         ${productInstance.sponsor.details}
 
-        <h2>Recipes from the Manufacturer</h2>
+        <!--<h2>Recipes from the Manufacturer</h2>
         <p>Download recipes</p>
         <ul>
           <li><a href="xyz.pdf" title="Download this recipe in PDF format">Recipe Name</a> [PDF]</li>
           <li><a href="xyz.jpg" title="Download this recipe in .jpg format">Recipe Name</a> [JPG/GIF/PNG/TIF]</li>
           <li><a href="xyz.doc" title="Download this recipe in .doc format">Recipe Name</a> [DOC/DOCX]</li>
-        </ul>
+        </ul>                                                             -->
     </body>
 </html>

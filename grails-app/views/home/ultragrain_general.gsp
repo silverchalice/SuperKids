@@ -2,19 +2,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <sec:ifLoggedIn>
             <meta name="layout" content="learn" />
-        </sec:ifLoggedIn>
-        <sec:ifNotLoggedIn>
-            <meta name="layout" content="public" />
-        </sec:ifNotLoggedIn>
 
         <meta name="link" content="about" />
         <title>SuperKids | About Ultragrain</title>
     </head>
     <body>
-		<div id="contentInsetInner">
-			<div style="width:620px;">
+
 				<h1>About Ultragrain<sup>&reg;</sup></h1><br/> <br/>
 
 				<div style="float: left; width: 600px">
@@ -33,9 +27,7 @@
                     <p><strong><img width="32" height="32" border="0" align="absmiddle" alt="Download PDF" src="/SuperKids/images/pdficon.gif" /> <strong>Ultragrain® Rotini Pasta Salad Recipe: (PDF) <a taget="_blank" href="/SuperKids/pdf/UltragrainRotiniPastaSaladRecipe.pdf">Download</a></strong></strong></p>
 				</div>
 				
-				<div class="clear">&nbsp;</div>
-			
-			</div>
-		</div>
+
+
 	</body>
 </html>

@@ -19,10 +19,12 @@ class SecurityFilters {
                             flash.message = "Please enter a new password."
                             log.info flash.message
                             redirect controller:"home", action:"c_change_password"
+                            return false
                         } else if(loggedInUser.usingResetPassword) {
                             flash.message = "Please enter a new password."
                             log.info flash.message
                             redirect controller:"home", action:"c_change_password"
+                            return false
                         }
                     }
                 }

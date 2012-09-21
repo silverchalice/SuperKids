@@ -45,7 +45,7 @@
 				border: 1px solid red;
 			}
 		</style>
-        <div id="contentInsetInner">
+        <div>
             <h1>Contact Us</h1>
             <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>

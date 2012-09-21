@@ -15,9 +15,9 @@
             });
         })
 
-                (function () {
-                    document.forms['loginForm'].elements['j_username'].focus();
-                })();
+        (function () {
+            document.forms['loginForm'].elements['j_username'].focus();
+        })();
     </script>
 
 </head>

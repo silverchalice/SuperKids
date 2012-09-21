@@ -4,22 +4,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <sec:ifLoggedIn>
-        <meta name="layout" content="customer" />
-    </sec:ifLoggedIn>
-    <sec:ifNotLoggedIn>
-        <meta name="layout" content="public" />
-    </sec:ifNotLoggedIn>
+        <meta name="layout" content="learn" />
+
         <title>SuperKids | Where To Find</title>
     </head>
     <body>
-
-		<div id="contentInsetInner">
-			<div style="width:620px;">
 				<table>
         <tr>
-	<td valign="top" style="width:400px;">
-        <div class="headline3" style="width:400px;">
+	<td valign="top">
+        <div class="headline3">
         	<h1>In Foodservice</h1><br />
         	<strong><span style="color: rgb(153, 51, 0);">Several manufacturers are delivering great-tasting, better-for-you whole grain products for use in foodservice. Scroll down to see the entire list.</span></strong></p>
         </div>
@@ -157,22 +150,10 @@
             <li>Thaw and Service Ultragrain&reg; Croissants - Petit Straight and Medium Curved</li>
         </ul>
     </td>
-    
-    <td style="width:185px;" valign="top">
-    	<table>
-        <tr>
-        	<td><img width="175" height="171" align="right" src="/SuperKids/images/UltraGrainlogo.jpg" alt="" /></td>
-        </tr>
-        <tr>
-        	<td><img width="175" height="67" align="right" src="/SuperKids/images/SustagrainLogo.gif" alt="" /></td>
-       </tr>
-       </table>
-    </td>
+
 </tr>
 </table>	
-				</div>
 
-		</div>
 
     </body>
 </html>

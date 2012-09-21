@@ -62,7 +62,7 @@ class ProductController {
             inCart = true
         }
         def customer
-        if(!User.get(springSecurityService.principal.id).isAdmin()){
+        if(springSecurityService.isLoggedIn() && !User.get(springSecurityService.principal.id).isAdmin()){
             customer = Customer.get(springSecurityService.principal.id)
         }
         if (!productInstance) {
@@ -224,17 +224,14 @@ class ProductController {
                 def customer = Customer.get(springSecurityService.principal.id)
                 println "customer " + customer?.fsdName + " added " + product + " to cart"
 		shoppingCartService.addToShoppingCart(product, 1)
-		redirect controller:'shoppingCart', action:'show'
+		redirect controller:'shopping', action:'index'
 		return
 	}
 
 	def remove = {
-                def controller
-                def action
-                if(params.controller){ controller = params.controller }
-                if(params.action){ action = params.action }
+
 		def product = Product.get(params.id)
-                def customer = Customer.get(springSecurityService.principal.id)
+        def customer = Customer.get(springSecurityService.principal.id)
                 println "customer " + customer?.fsdName + " removed " + product + " from cart"
 		def qty = 1
 		def previousShoppingCart = null
@@ -264,22 +261,18 @@ class ProductController {
 		}
 
 		shoppingCart.save()
-		if(params.cartPage){
-			render template:"/shopping/initial", model:[productInstance:product]
-		} else if (params.confirm){
-			def cartItems = shoppingCartService.getItems()
-			def products = []
-			cartItems?.each { item ->
-				def prod = Product.findByShoppingItem(item)
-				if(prod){
-					def p = new Expando(toString: {-> prod.name}, id:prod.id, quantity:prod.servings)
-					products << p
-				}
-			}
-                        render template:"/shopping/shoppingCartContent", model:[productInstance:product]
-		} else {
-			render template:"/shopping/shoppingCartContent", model:[productInstance:product]
-		}
+
+        def cartItems = shoppingCartService.getItems()
+        def products = []
+        cartItems?.each { item ->
+            def prod = Product.findByShoppingItem(item)
+            if(prod){
+                def p = new Expando(toString: {-> prod.name}, id:prod.id, quantity:prod.servings)
+                products << p
+            }
+        }
+
+        redirect(controller: 'shopping', action: 'index')
 	}
 
 	def check_out = {

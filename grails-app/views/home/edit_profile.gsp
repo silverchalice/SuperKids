@@ -6,10 +6,8 @@
     <title>SuperKids | Edit Profile</title>
 
     <g:javascript library="jquery" plugin="jquery"/>
-    <jqui:resources/>
 
-
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         jQuery.noConflict();
 
 
@@ -33,7 +31,7 @@
         });
 
 
-    </script>
+    </script>      -->
 
 </head>
 
@@ -286,201 +284,39 @@
 
         </td>
     </tr>
+    <tr>
+        <td colspan="2">
+            <h3>Please let us know if you would any of these manufacturers to contact you immediately.</h3>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <g:each in="${sponsors}" var="sponsor">
+                <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}"
+                                                          checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
+            </g:each>
+        </td>
+    </tr>
+    <tr>
 
+        <td valign="top"
+            colspan="2"><label>Please list any special requests for the manufacturers you checked:</label> <g:textField
+                name="otherComments" value="${customerInstance?.otherComments}" style="float:right"/></td>
+
+    </tr>
 </table>
 
 
 
-
-<div style="background: white; padding: 10px">
-    <table>
-        <tr>
-            <td colspan="2">
-                <h3>Please let us know if you would any of these manufacturers to contact you immediately.</h3>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <g:each in="${sponsors}" var="sponsor">
-                    <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}"
-                                                              checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
-                </g:each>
-            </td>
-        </tr>
-        <tr>
-
-            <td valign="top"
-                colspan="2"><label>Please list any special requests for the manufacturers you checked:</label> <g:textField
-                    name="otherComments" value="${customerInstance?.otherComments}" style="float:right"/></td>
-
-        </tr>
-
-    </table>
-</div>
-
-<a id="helpPopUp">Help</a>
-
-
 <g:actionSubmit class="save" action="update"
                 value="${message(code: 'default.button.update.label', default: 'Save Changes')}"/>
+</g:form>
 
 <div style="float:left; text-align:left;padding-left:20px;">
     You must click 'Save Changes' to continue.  If possible, please update or
     provide the optional broker/distributor information below before doing so.
 </div>
 
-</g:form>
 
-<div id="help">
-    <h2>Purpose</h2>
-
-    <p>
-        Your School District Profile is used to determine the types of products that you can order.
-        For example, flour products are only available to school districts that proof and bake, and some products
-        are not available in all regions and states.
-    </p>
-
-    <h2>Required Fields</h2>
-
-    <p>
-        Fields in red are required so that we have the right address to send your samples to, and so that
-        we can send you an email telling you when your sample order has shipped.
-    </p>
-
-    <h2>Number of Students</h2>
-
-    <p>
-        Select the option that comes closest to the total number of students served in your entire school
-        district - not just the number of students in your immediate school or location.
-
-    </p>
-
-    <h2>Approximate Number of Cafeterias, <br/>Food Courts, etc.</h2>
-
-    <p>Select the option that comes closest to the total number of eating facilities in your entire school district.
-    </p>
-    <a id="closeHelpPopUp">Close</a>
-</div>
-
-
-
-<table style="border:0">
-    <tr><td colspan="2">
-        <span style="color: rgb(153, 51, 0);">
-            <span style="font-size: 16px;">
-
-                <h3 style="color:#993300">Optional Broker/Distributor Information</h3>
-            </span>
-        </span>
-
-        <div style="font-size: 10px;">
-            One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to
-            foodservice distributors and brokers.
-            <BR/><BR/>
-            Although it is not mandatory that you provide broker or distributor information below, it will help ensure that
-            the right people know about your interest in these products and improve the  likelihood that you will receive more
-            whole grain foods in the future.  Please provide the following if available.
-            <br/><br/>
-        </div>
-
-    </td>
-    </tr>
-    <tr>
-        <td valign="top">
-            <strong>Current Broker/Distributors:</strong><br/><br/>
-
-            <table style="width:250px; border:1px #eee solid">
-                <thead>
-                <th><strong>Name</strong></th>
-                <th><strong>Email</strong></th>
-                <th></th>
-                </thead>
-                <tbody>
-                <g:each in="${customerInstance.brokers}" var="broker">
-                    <tr>
-                        <td>
-                            ${broker?.name}
-                        </td>
-                        <td>
-                            ${broker?.email}
-                        </td>
-                        <td>
-                            <g:link controller="product" action="brokerEditFromEdit" id="${broker?.id}"
-                                    params="[rController: 'home', rAction: 'edit_profile']">Edit</g:link> | <g:link
-                                    controller="product" action="brokerDeleteFromEdit" id="${broker?.id}"
-                                    params="[rController: 'home', rAction: 'edit_profile']">Delete</g:link>
-                        </td>
-                    </tr>
-                </g:each>
-                </tbody>
-            </table>
-        </td><td valign="top">
-
-        <g:form controller="${broker ? 'product' : 'home'}" action="${broker ? 'updateBroker' : 'addBroker'}"
-                method="post">
-            <div style="width:300px; float:left;">
-                      <table style="border:0; width:300px">
-                          <tr>
-                              <td><strong>Broker/Distributor Name: </strong></td>
-                              <td><input type="text" name="name" size="20" maxlength="50" value="${broker?.name}"></td>
-                          </tr>
-            <tr>
-                <td><strong>Email:</strong></td>
-                <td><input type="text" name="email" size="20" maxlength="50" value="${broker?.email}"></td>
-            </tr>
-            <tr>
-                <td><strong>Telephone:</strong></td>
-                <td><input type="text" name="phone" size="20" maxlength="50" value="${broker?.phone}"></td>
-            </tr>
-            <tr>
-                <td><strong>Fax:</strong></td>
-                <td><input type="text" name="fax" size="20" maxlength="50" value="${broker?.fax}"></td>
-            </tr>
-            <tr>
-                <td><strong>Address:</strong></td>
-                <td><input type="text" name="street" size="20" maxlength="255" value="${broker?.street}"></td>
-            </tr>
-            <tr>
-                <td><strong></strong></td>
-                <td><input type="text" name="street2" size="20" maxlength="255" value="${broker?.street2}"></td>
-            </tr>
-            <tr>
-                <td><strong>City:</strong></td>
-                <td><input type="text" name="city" size="20" maxlength="50" value="${broker?.city}"></td>
-            </tr>
-            <tr>
-                <td>State</td>
-                <td align="left">
-                    <g:select name="state" from="${states}" value="${broker?.state}"/>
-                </td>
-            </tr>
-            <tr>
-                <td><strong>Zip:</strong></td>
-                <td><input type="text" name="zip" size="10" maxlength="20" value="${broker?.zip}"></td>
-            </tr>
-            <tr>
-                <td><g:hiddenField name="id" value="${broker?.id}"/>
-                    <g:hiddenField name="rController" value="home"/>
-                    <g:hiddenField name="rAction" value="edit_profile"/></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="buttons">
-                        <br/>
-                        <span class="button"><g:submitButton name="create" class="save" value="Add"/></span>
-                    </div>
-                </td>
-            </tr>
-
-            </table>
-        </g:form>
-    </td></tr></table>
-</div>
-
-
-
-
-
-</div>
 </body>
 </html>

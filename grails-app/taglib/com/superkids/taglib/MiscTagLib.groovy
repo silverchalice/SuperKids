@@ -128,20 +128,19 @@ class MiscTagLib {
         }
     }
 
-    def itemsInCart = { attrs ->
+    def itemsInCart = {
         if(springSecurityService.loggedIn){
             def customer = Customer.get(springSecurityService.principal?.id)
 
-            if (customer.customerOrder.products?.size() > 0) {
-                out << "(${customer.customerOrder.products?.size()} ${customer.customerOrder.products?.size() > 1 ? 'items' : 'item'})"
+            if (shoppingCartService.getItems()?.size() > 0) {
+                out << "(${shoppingCartService.getItems()?.size()} ${shoppingCartService.getItems().size() > 1 ? 'items' : 'item'})"
             } else if (customer.hasPlacedCurrentOrder) {
                 out << "(Completed)"
             } else {
-                out << "HET HETY"
+                out << ""
             }
-
         } else {
-            out << "HEY"
+            out << ""
         }
     }
 
@@ -564,7 +563,7 @@ Modified: get menuButton text from new 'msg' attr
 	}
 
 	def eachInProducts = { attrs, body ->
-		def items = shoppingCartService.getItems().sort{it.id}
+		def items = shoppingCartService.getItems()?.sort{it?.id}
 		if(items){	
 			items?.sort { a, b -> a?.id <=> b?.id }?.each { item ->
 				def itemInfo = ['item':item,
