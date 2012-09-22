@@ -34,10 +34,10 @@
 
         <form action='${postUrl}' method='post' id='loginForm' class='cssform'>
             <div style="text-align: right; padding-right: 100px">
-                <label style="font-size: 24px" for='username'>Username</label><input style="font-size: 24px" type='text'
+                <label style="font-size: 24px" for='username'>Username</label> <input style="font-size: 24px" type='text'
                                                                                      class='text_' name='j_username'
                                                                                      id='username'/><br/><br/>
-                <label style="font-size: 24px" for='password'>Password</label><input style="font-size: 24px"
+                <label style="font-size: 24px" for='password'>Password</label> <input style="font-size: 24px"
                                                                                      type='password' class='text_'
                                                                                      name='j_password'
                                                                                      id='password'/> <br/> <br/>

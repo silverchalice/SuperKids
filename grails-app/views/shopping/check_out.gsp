@@ -282,23 +282,23 @@
         <tr>
             <td>We make our own bread products from scratch in our bakery<br/> (proof and bake)</td>
             <td>
-                <input type="checkbox" name="hasBakery" value="1">
+                <input type="checkbox" name="hasBakery" value="${customerInstance?.hasBakery}" checked="${customerInstance?.hasBakery ? 'checked' : ''}">
             </td>
         </tr>
 
         <tr>
             <td colspan="2">If yes, how much flour does your district use on a monthly basis in pounds?<br/>
-                <input type="text" name="monthlyFlourUsage" value="" size="25" maxlength="1000"></td>
+                <input type="text" name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}" size="25" maxlength="1000"></td>
         </tr>
         <tr>
             <td colspan="2">Do you work with a local bakery to supply your fresh bakery products?<br/> If you’d like us to
             contact them about the program, please list them here:<br/>
-                <input type="text" name="localBakeries" value="" size="35" maxlength="1000"></td>
+                <input type="text" name="localBakeries" value="${customerInstance?.localBakeries}" size="35" maxlength="1000"></td>
         </tr>
         <tr>
 
             <td colspan="2">Do you currently use Ultragrain® or Sustagrain® products in your district?<br/> If so, please list:
-                <input type="text" name="usedUltragrainSustagrainProducts" value="" size="35" maxlength="1000"></td>
+                <input type="text" name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" size="35" maxlength="1000"></td>
         </tr>
     </table>
 
@@ -311,7 +311,7 @@
                                                                                 checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
         </g:each>
         <p style="display: block; clear: both; padding-top: 10px">Please list any special requests for the manufacturers you checked: <br/>
-            <input type="text" name="otherComments" value="" size="60" maxlength="1000"></p>
+            <input type="text" name="otherComments" value="${customerInstance?.otherComments}" size="60" maxlength="1000"></p>
     </div>
 
 

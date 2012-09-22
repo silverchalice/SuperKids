@@ -22,8 +22,8 @@
               the
               SuperKids program</p>
             <ul>
-              <li class="youtube"><a href="#" title="#">Visit our YouTube page</a></li>
-              <li><a href="#" title="${createLink(controller: 'home', action: 'what_is')}">What is SuperKids </a></li>
+              <li class="youtube"><a href="http://www.youtube.com/user/ConAgraMills" target="_blank" title="ConAgra Mills YouTube Channel">Visit our YouTube page</a></li>
+              <li><a href="#" title="${createLink(controller: 'home', action: 'what_is')}">What is SuperKids? </a></li>
               <li><a href="#" title="${createLink(controller:'contactRequest', action:'create')}">Contact us </a></li>
             </ul>
           </div>
@@ -34,7 +34,7 @@
             <ul>
               <li><a href="${createLink(controller: 'home', action: 'ultragrain_general')}" title="#">What is Ultragrain&reg; </a></li>
               <li><a href="${createLink(controller: 'home', action: 'sustagrain_general')}" title="#">What is Sustagrain&reg; </a></li>
-              <li><a href="#" title="#">Another link </a></li>
+              <li><a href="${createLink(controller: 'home', action: 'whole_grain_benefits')}" title="#">Whole Grain Benefits</a></li>
             </ul>
           </div>
           <div class="col-03"> <a href="#"><img src="${resource(dir:'images',file:'img_pasta.jpg')}" alt="A pasta salad" /></a>
@@ -44,17 +44,17 @@
               product samples</p>
             <ul>
               <li><a href="${createLink(controller: 'product', action: 'show', id: 14)}" title="Domino’s Pizza® Smart Slice">Domino’s Pizza® Smart Slice</a></li>
-              <li><a href="#" title="#">Product Name</a></li>
-              <li><a href="#" title="#">Product Name</a></li>
+              <li><a href="${createLink(controller: 'product', action: 'show', id: 18)}" title="AZTECA ULTRAGRAIN® TORTILLAS">Azteca Ultragrain® Tortillas</a></li>
+              <li><a href="${createLink(controller: 'product', action: 'show', id: 46)}" title="Mountain Farm™ 24 oz White Pullman">Mountain Farm™ 24 oz White Pullman</a></li>
             </ul>
           </div>
           <div class="col-04"> <a href="#"><img src="${resource(dir:'images',file:'img_lunch_ladies.jpg')}" alt="Two school foodservice workers serving lunch" /></a>
             <h4>Resources</h4>
             <p>Access a range of information about our product samples</p>
             <ul>
-              <li><a href="#" title="#">Link text </a></li>
-              <li><a href="#" title="#">Link text </a></li>
-              <li><a href="#" title="#">Link text </a></li>
+              <li><a href="${createLink(controller:'home', action: 'healthy_hunger_free')}" title="Healthy-Hunger-Free Kids Act">Healthy-Hunger-Free Kids Act</a></li>
+              <li><a href="${createLink(controller:'home', action: 'my_plate')}" title="My Plate">MyPlate </a></li>
+              <li><a href="${createLink(controller:'home', action: 'testimonials')}" title="Testimonials">Testimonials</a></li>
             </ul>
           </div>
         </div>

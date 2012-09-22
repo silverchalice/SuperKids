@@ -16,9 +16,6 @@
       </div>
       <a href="#" title="Return to the homepage"><img src="${resource(dir:'images',file:'img_superkids_logo.jpg')}" alt="SuperKids Logo" /></a>
       <h2>Build SuperKids <span>with Healthier Whole Grain Foods</span></h2>
-      <div id="grain-logos"><a href="#" title="Learn more about Ultragrain"><img src="${resource(dir:'images',file:'logo_ultragrain_small_ie6.png')}" alt="Ultragrain logo" class="first" /></a><a href="#" title="Learn more about Sustagrain"><img src="${resource(dir:'images',file:'logo_sustagrain_small_ie6.png')}" alt="Sustagrain logo" /></a>
-        <p>Featuring Ultragrain&reg; <span class="amp">&amp;</span> Sustagrain&reg;</p>
-      </div>
     </div>
       <g:render template="/includes/nav"/>
 
