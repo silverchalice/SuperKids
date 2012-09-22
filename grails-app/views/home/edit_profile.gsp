@@ -56,7 +56,7 @@
 <body>
 
 <g:if test="${flash.message}">
-    <div class="message">${flash.message}</div><br/>
+    <div class="message">${flash.message}</div>
 </g:if>
 <g:hasErrors bean="${customerInstance}">
     <div class="errors">
@@ -67,13 +67,8 @@
 <g:form action="update" method="post" name="updateForm">
 <g:hiddenField name="id" value="${customerInstance?.id}"/>
 <g:hiddenField name="version" value="${customerInstance?.version}"/>
-
+<h1>Your Account Profile</h1>
 <table style="float: left; width:480px">
-    <tr>
-        <td valign="top" colspan="2">
-            <h1>Your Account Profile</h1>
-        </td>
-    </tr>
     <tr>
         <td valign="top">
             <label for="fsdName"><g:message code="customer.fsdName.label" default="Your Name"/></label>
@@ -227,7 +222,7 @@
 <table style="float:right; width:480px">
     <tr>
         <td colspan="2">
-            <h3 style="margin-top: 40px">Please tell us about your school district foodservice program:</h3>
+            <h3 style="margin-top: 0; padding-top: 0">Please tell us about your school district foodservice program:</h3>
 
         </td>
 
@@ -306,21 +301,12 @@
         </td>
     </tr>
 </table>
-<div class="manufacturerForm">
-    <p><strong>Please let us know if you would like any of these manufacturers to contact you immediately.</strong>  </p>
 
-    <g:each in="${sponsors}" var="sponsor">
-        <span style="display: block; font-size: 14px; width: 220px; float: left"><g:checkBox name="sponsor.${sponsor.id}"
-                                                                                             checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
-    </g:each>
-    <p style="display: block; clear: both; padding-top: 10px">Please list any special requests for the manufacturers you checked: <br/>
-        <input type="text" name="otherComments" value="${customerInstance?.otherComments}" size="60" maxlength="1000"></p>
-</div>
 <div style="float:left; text-align:left;padding-top:20px;">
     You must click 'Save Changes' to continue.  If possible, please update or
     provide the optional broker/distributor information below before doing so.
 
-    <a href="#" id="submitButton" title="Save Changes" style="margin-left: 500px" class="submitButton btn arrow"><span>Save Changes</span></a>
+    <a href="#" id="submitButton" title="Save Changes" style="margin-left: 400px" class="submitButton btn arrow"><span>Save Your Changes</span></a>
 </div>
 </g:form>
 

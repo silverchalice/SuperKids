@@ -1319,3 +1319,12 @@ hr {
     font: bold;
     padding-bottom: 5px
 }
+
+
+div.message {
+    background: #f3f8fc;
+    border: 1px solid #b2d1ff;
+    color: #006dba;
+    margin: 10px 0 0 0;
+    padding: 5px 5px 0 30px
+}

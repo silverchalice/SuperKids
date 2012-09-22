@@ -72,7 +72,7 @@
                            <p>Made by ${com.superkids.domain.Product.findByShoppingItem(it['item'])?.sponsor?.name} </p>
 
                            <div class="remove">
-                               <g:link controller="product" action="remove" id="${com.superkids.domain.Product.findByShoppingItem(it['item'])?.id}">Remove from order</g:link>
+                               &nbsp;
 
                            </div>
                        </sks:eachInProducts>

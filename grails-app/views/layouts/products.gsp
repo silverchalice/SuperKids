@@ -34,7 +34,7 @@
         </g:each>
 
       </ul>
-      <div class="ad">
+      <!--<div class="ad">
         <h3>Win Prizes <span>for Your School District</span></h3>
         <p><img src="${resource(dir:'images',file:'img_bills.jpg')}" title="Money" class="left" />If you’ve already received your free samples, you could win a $200 gift card for your school district just for sharing your opinion.</p>
         <p><a href="${createLink(controller: 'home', action: 'assess')}" title="" class="btn"><span>Tell us what you think</span></a>
@@ -42,7 +42,7 @@
       <div class="ad">
         <h3>Whole Grain Nutrition, White Flour Appeal</h3>
         <p><img src="${resource(dir:'images',file:'logo_ultragrain_small.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole wheat flour without sacrificing the appealing taste, texture and appearance of white flour. <a href="${createLink(controller: 'home', action: 'ultragrain_general')}">Learn more »</a></p>
-      </div>
+      </div>  -->
     </div>
     <div id="content">
         <g:layoutBody />

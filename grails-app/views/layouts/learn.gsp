@@ -39,11 +39,11 @@
 		<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity"><span>Meeting the Challenge</span></g:link></li>
 		<li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips"><span>Whole Grains Council Tips</span></g:link></li>
       </ul>
-      <div class="ad">
+      <!--<div class="ad">
         <h3>Win Prizes <span>for Your School District</span></h3>
         <p><img src="${resource(dir:'images',file:'img_bills.jpg')}" title="Money" class="left" />If you’ve already received your free samples, you could win a $200 gift card for your school district just for sharing your opinion.</p>
         <p><a href="feedback.php" title="" class="btn"><span>Tell us what you think</span></a>
-      </div>
+      </div> -->
       <div class="ad">
         <h3>Whole Grain Nutrition, White Flour Appeal</h3>
         <p><img src="${resource(dir:'images',file:'logo_ultragrain_small.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole wheat flour without sacrificing the appealing taste, texture and appearance of white flour. <a href="#">Learn more »</a></p>

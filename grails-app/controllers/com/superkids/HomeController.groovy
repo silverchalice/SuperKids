@@ -190,7 +190,7 @@ class HomeController {
                    if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
                    flash.message = "Your customer profile has been updated"
                     log.info flash.message
-                       redirect(action: "index")
+                       redirect(action: "edit_profile")
                    } else {
                        render(view: "edit_profile", model: [customerInstance: customerInstance])
                    }
