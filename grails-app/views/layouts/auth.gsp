@@ -4,8 +4,6 @@
     <title><g:layoutTitle default="Welcome to the SuperKids Sampling Program! | From ConAgra Foods"/> </title>
     <g:render template="/includes/head_data" />
     <g:layoutHead />
-    <g:javascript library="application" />
-    <g:javascript library="jquery" plugin="jquery"/>
 </head>
 <body id="home">
 <div id="header-container">
