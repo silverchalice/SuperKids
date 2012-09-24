@@ -18,12 +18,12 @@ class DataService {
             println "Loading row $i..."
 			i++
 
-            def customer = Customer.get(cell(0))
-            if(!customer) {
-                customer = new Customer()
-            } else {
-                println "updating row..."
-            }
+            def customer = new Customer()
+            //if(!customer) {
+            //    customer = new Customer()
+            //} else {
+            //    println "updating row..."
+            //}
 
 			customer.with {
 
