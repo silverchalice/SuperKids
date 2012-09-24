@@ -72,7 +72,7 @@ class ProductController {
                 customer = Customer.get(springSecurityService.principal.id)
             }
 
-			def mfgContent = PageText.findByName("product_${productInstance.id}").content
+			def mfgContent = PageText.findByName("product_${productInstance.id}")?.content
 
             [productInstance: productInstance, inCart:inCart, customer:customer, mfgContent: mfgContent ]
         }
