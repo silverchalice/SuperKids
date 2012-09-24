@@ -31,7 +31,7 @@ environments {
 			username = "sks"
 			password = "sks5551212"
 			dbCreate = "update"			
-            url = "jdbc:mysql://localhost:3306/sksdb"
+            url = "jdbc:mysql://127.0.0.1:3306/sksdb"
 
         }
     }
