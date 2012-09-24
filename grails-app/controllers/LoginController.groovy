@@ -97,37 +97,10 @@ class LoginController {
 	 */
 	def authfail = {
 		println "entering login:authfail"
-		println params
-		def current_action = session.current_view
-		def username = session[UsernamePasswordAuthenticationFilter.SPRING_SECURITY_LAST_USERNAME_KEY]
-		String msg = ''
-		def exception = session[AbstractAuthenticationProcessingFilter.SPRING_SECURITY_LAST_EXCEPTION_KEY]
-		if (exception) {
-			if (exception instanceof AccountExpiredException) {
-				msg = SpringSecurityUtils.securityConfig.errors.login.expired
-			}
-			else if (exception instanceof CredentialsExpiredException) {
-				msg = SpringSecurityUtils.securityConfig.errors.login.passwordExpired
-			}
-			else if (exception instanceof DisabledException) {
-				msg = SpringSecurityUtils.securityConfig.errors.login.disabled
-			}
-			else if (exception instanceof LockedException) {
-				msg = SpringSecurityUtils.securityConfig.errors.login.locked
-			}
-			else {
-				msg = SpringSecurityUtils.securityConfig.errors.login.fail
-			}
-		}
-                println "User login attempt failed; message: " + msg
 
-		if (springSecurityService.isAjax(request)) {
-			render([error: msg] as JSON)
-		}
-		else {
-			flash.message = msg
-			redirect action:'auth', params: params
-		}
+        println "User login attempt failed "
+        flash.message = "Sorry, we don't recognize that username and password"
+        render view:'auth'
 	}
 
 	/**

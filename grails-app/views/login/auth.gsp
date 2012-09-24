@@ -25,12 +25,14 @@
 <body>
 <div id="auth" style="width:720px; margin: 0 auto; height: 400px">
     <div style="width: 550px; float: left">
-        <h2>Please Enter your Username and Password</h2>
 
-        <p>Your Username should be the email address you used to register - if you have not yet set your password, you should use the default password you received by email when you registered.</p>
+
+        <h2>Please Enter your Username and Password</h2>
         <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
+            <div class="message">${flash.message}</div>   <br/>
         </g:if>
+        <p>Your Username should be the email address you used to register - if you have not yet set your password, you should use the default password you received by email when you registered.</p>
+
 
         <form action='${postUrl}' method='post' id='loginForm' class='cssform'>
             <div style="text-align: right; padding-right: 100px">
