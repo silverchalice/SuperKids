@@ -29,7 +29,7 @@
 
         <p>Your Username should be the email address you used to register - if you have not yet set your password, you should use the default password you received by email when you registered.</p>
         <g:if test="${flash.message}">
-            <div class="login_message">${flash.message}</div>
+            <div class="message">${flash.message}</div>
         </g:if>
 
         <form action='${postUrl}' method='post' id='loginForm' class='cssform'>

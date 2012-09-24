@@ -53,23 +53,24 @@ class ProductController {
 
     def show = {
         def productInstance = Product.get(params.id)
-        def shoppingCart = shoppingCartService.getShoppingCart()
-        def qty = 1
-        def inCart = false
 
-        def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, productInstance.shoppingItem)
-        if (quantity) {
-            inCart = true
-        }
-        def customer
-        if(springSecurityService.isLoggedIn() && !User.get(springSecurityService.principal.id).isAdmin()){
-            customer = Customer.get(springSecurityService.principal.id)
-        }
         if (!productInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
             redirect(action: "admin")
         }
         else {
+            def shoppingCart = shoppingCartService.getShoppingCart()
+            def qty = 1
+            def inCart = false
+
+            def quantity = Quantity.findByShoppingCartAndShoppingItem(shoppingCart, productInstance.shoppingItem)
+            if (quantity) {
+                inCart = true
+            }
+            def customer
+            if(springSecurityService.isLoggedIn() && !User.get(springSecurityService.principal.id).isAdmin()){
+                customer = Customer.get(springSecurityService.principal.id)
+            }
 
 			def mfgContent = PageText.findByName("product_${productInstance.id}").content
 

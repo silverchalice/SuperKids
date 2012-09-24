@@ -48,9 +48,8 @@ class LoginController {
 			return
 		}
 
-		String view = 'auth'
 		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-		render view: view, model: [postUrl: postUrl, rememberMeParameter: config.rememberMe.parameter]
+		 [postUrl: postUrl, rememberMeParameter: config.rememberMe.parameter]
 	}
 
 	def demo = {
@@ -127,7 +126,7 @@ class LoginController {
 		}
 		else {
 			flash.message = msg
-			redirect action: current_action, params: params
+			redirect action:'auth', params: params
 		}
 	}
 
