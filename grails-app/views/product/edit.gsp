@@ -32,7 +32,11 @@
                     <p>
                         <label for="name">Product Name:</label>
                         <g:textField name="name" value="${productInstance?.name}" />
-                    </p><br />     
+                    </p><br />
+                    <p>
+                        <label for="name">Displayed Title:</label>
+                        <g:textField name="name" value="${productInstance?.title}" />
+                    </p><br />
                     <p>
                         <label for="name">Sort Order:</label>
                         <g:textField name="sortOrder" value="${productInstance?.sortOrder}" />

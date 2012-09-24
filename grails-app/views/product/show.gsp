@@ -10,7 +10,7 @@
 
     </head>
     <body>
-    <h1>${productInstance?.name}</h1>
+    <h1>${productInstance?.title}</h1>
         <div id="order-container"><img src="${createLink(controller: 'product', action: 'displayImage', id: productInstance.id)}" alt="${productInstance.name}" class="${productInstance.ultragrain ? 'ultragrain ' : ''} ${productInstance.sustagrain ? ' sustagrain ' : ''}" />
 	    <g:if test="${productInstance.ultragrain}">
             <a href="${createLink(controller: 'home', action: 'ultragrain_general')}" title="Learn more about this grain"><p class="made-with-ultra">Made with Ultragrain</p>

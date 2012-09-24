@@ -6,6 +6,7 @@ import com.metasieve.shoppingcart.ShoppingItem
 class Product implements IShoppable {
 
 	String name
+	String title
 	String description
 	String details
 	String nutrition
@@ -37,6 +38,7 @@ class Product implements IShoppable {
 
 	static constraints = {
 	name()
+	title nullable: true
 	description(maxSize:500000)
 	details(maxSize:500000)
 	nutrition(maxSize:500000)
