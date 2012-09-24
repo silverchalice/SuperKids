@@ -132,15 +132,15 @@ class MiscTagLib {
         if(springSecurityService.loggedIn){
             def customer = Customer.get(springSecurityService.principal?.id)
 
-            if (shoppingCartService.getItems()?.size() > 0) {
-                out << "(${shoppingCartService.getItems()?.size()} ${shoppingCartService.getItems().size() > 1 ? 'items' : 'item'})"
-            } else if (customer?.hasPlacedCurrentOrder) {
-                out << "(Completed)"
-            } else {
-                out << ""
+            if(customer) {
+                if (shoppingCartService.getItems()?.size() > 0) {
+                    out << "(${shoppingCartService.getItems()?.size()} ${shoppingCartService.getItems().size() > 1 ? 'items' : 'item'})"
+                } else if (customer?.hasPlacedCurrentOrder) {
+                    out << "(Completed)"
+                } else {
+                    out << ""
+                }
             }
-        } else {
-            out << ""
         }
     }
 
