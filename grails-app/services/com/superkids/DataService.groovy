@@ -15,24 +15,15 @@ class DataService {
 		def i = 0
 		def is = file.inputStream
 		new ExcelBuilder(is).eachLine([labels:true]) {
+            println "Loading row $i..."
 			i++
-			println "    ${i}: ${cell(7)}"
-                        println " "
-                        def bar = []
-                        for(o in 0..50) {
-                            println "it is ${o}"
 
-                                bar << "${o}: ${cell(o)}, "
-
-                        }
-                        println "    Here is the full line: ${bar}"
-                        println " "
-                        println " "
-
-            def customer = null
-            if(Customer.get(cell(0))) {
-                customer = Customer.get(cell(0))
-            } else customer = new Customer()
+            def customer = Customer.get(cell(0))
+            if(!customer) {
+                customer = new Customer()
+            } else {
+                println "updating row..."
+            }
 
 			customer.with {
 
@@ -51,8 +42,8 @@ class DataService {
                 phone = cell(13)
                 fax = cell(14) ?: " "
                 if(!cell(15) || Customer.findByUsername(cell(15))){
-                    customer.username = "no-email@no-email${i}.com"
-                    customer.email = "no-email@no-email${i}.com"
+                    customer.username = "no-email@no-email0${i}.com"
+                    customer.email = "no-email@no-email0${i}.com"
                 } else {
                     customer.username = cell(15)
                     customer.email = cell(15)
