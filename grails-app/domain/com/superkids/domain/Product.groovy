@@ -49,9 +49,11 @@ class Product implements IShoppable {
 	servings(nullable:true)
     sortOrder nullable: true
 	sponsor(nullable:true)
-	assessments(nullable:true)
-        parent nullable:true
-        shoppingItem nullable:true
+    assessments(nullable:true)
+    parent nullable:true
+    shoppingItem nullable:true
+    ultragrain nullable: true
+    sustagrain nullable: true
 	}
 
 	static mapping = {
