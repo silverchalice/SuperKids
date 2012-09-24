@@ -121,7 +121,7 @@
 					    </tr>
 
                         <tr class="prop">
-                            <td valign="top" class="name">Source</td>
+                            <td valign="top" class="name">Classification</td>
 
                             <td valign="top" class="value">${customerInstance?.source}</td>
 
@@ -319,6 +319,40 @@
                             
                         </tr>
 
+
+                        <tr class="prop">
+                            <td valign="top" class="name">Member of a Co-op</td>
+
+                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance?.id}" name="coOpMember" property="coOpMember"/> </td>
+                        </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name">Co-op Name</td>
+
+                            <td valign="top" class="value">${customerInstance.coOpName}</td>
+                        </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name">Send Samples to Co-op</td>
+
+                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance?.id}" name="coOpSamples" property="coOpSamples"/></td>
+                        </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name">Co-op Sample Delivery Address</td>
+
+                            <td valign="top" class="value">${customerInstance.coOpAddress}</td>
+                        </tr>
+
+
+                        <tr class="prop">
+                            <td valign="top" class="name">Contract Managed</td>
+
+                            <td valign="top" class="value"><sks:propertyCheckbox id="${customerInstance?.id}" name="contractManaged" property="contractManaged"/></td>
+                        </tr>
+                        <tr class="prop">
+                            <td valign="top" class="name">Contractor</td>
+
+                            <td valign="top" class="value">${customerInstance.contractManager}</td>
+                        </tr>
+
                         <tr class="prop">
                             <td valign="top" class="name"><strong>Student Information</strong></td>
                         </tr>
@@ -365,13 +399,6 @@
                             
                         </tr>
 
-
-                        <tr class="prop">
-                            <td valign="top" class="name">Entry Name</td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: customerInstance, field: "fsdName")}</td>
-                            
-                        </tr>
                     
                     </tbody>
                 </table>

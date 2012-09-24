@@ -5,6 +5,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="main" />
+        <ckeditor:resources/>
         <g:set var="entityName" value="${message(code: 'sponsor.label', default: 'Sponsor')}" />
         <title><g:message code="default.edit.label" args="[entityName]" /></title>
     </head>
@@ -60,9 +61,14 @@
                                 <td valign="top" class="name">
                                     <label for="details"><g:message code="sponsor.details.label" default="Details" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'details', 'errors')}">
-                                    <g:textArea name="details" value="${sponsorInstance?.details}" />
-                                </td>
+                               <td>
+                                   <ckeditor:editor
+                                           name="details"
+                                           width="100%"
+                                           height="400">
+                                       ${sponsorInstance?.details}
+                                   </ckeditor:editor>
+                               </td>
                             </tr>
 
                             <tr class="prop">

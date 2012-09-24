@@ -48,23 +48,37 @@ class Customer extends User {
 	Boolean pastParticipant
 	Date inCall = null
 
-//	Misc. Stats
+//	Misc. Questions
 
-	String studentsInDistrict
-	String facilities
-	String breakfastsServed
-	String lunchesServed
-	String snacksServed
+    String studentsInDistrict //Order Form Question #1
+    String breakfastsServed //Order Form Question #2
+    String lunchesServed //Order Form Question #3
+    String snacksServed //Order Form Question #4
+    String facilities //Order Form Question #5
 
-	String programFeedback
+    boolean hasBakery //Order Form Question #6
+    String monthlyFlourUsage
+    String localBakeries
+
+    String usedUltragrainSustagrainProducts //Order Form Question #7
+    String callerBrokers //Order Form Question #8  -- primary foodservice distributors
+
+    Boolean coOpMember //Order Form Question #9
+    Boolean coOpSamples
+    String coOpName
+    String coOpAddress
+
+    Boolean contractManaged //Order Form Question #10
+    String contractManager
+
+    String otherComments //Order Form Question #11  -- manufacturerComments
+
+
+    //Assessment Questions
+    String programFeedback
 	String reformulations
 	String otherProducts
 
-	boolean hasBakery
-	
-	String monthlyFlourUsage
-	String localBakeries
-	String usedUltragrainSustagrainProducts
 
 	boolean topCustomer = false
 
@@ -73,7 +87,6 @@ class Customer extends User {
     Boolean invalidEmail
     Boolean duplicate
     Boolean deleted = false
-	String otherComments
 
 	Call lastCall
 
@@ -85,8 +98,6 @@ class Customer extends User {
 	List assessments
 	List brokers
 
-    String callerBrokers // brokers collected from callers
- 
 	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker, contactManufacturers: Sponsor ]
 
     static constraints = {
@@ -134,6 +145,14 @@ class Customer extends User {
 		breakfastsServed nullable: true 
 		lunchesServed nullable: true
 		snacksServed nullable: true
+
+        coOpMember nullable:true
+        coOpSamples nullable:true
+        coOpName nullable:true
+        coOpAddress nullable:true
+
+        contractManaged  nullable:true
+        contractManager  nullable:true
 
 		newCustomer nullable:true
 

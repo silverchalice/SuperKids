@@ -29,61 +29,72 @@ class DataService {
                         println " "
                         println " "
 
-               def customer = new Customer()
+            def customer = null
+            if(Customer.get(cell(0))) {
+                customer = Customer.get(cell(0))
+            } else customer = new Customer()
+
 			customer.with {
-				district = cell(7) ?: null
-				address = new Address(street: cell(8) ?: " ", street2: cell(9) ?: " ", city: cell(10) ?: " ", state: cell(11) ?: " ", zip: cell(12) ?: " ")
-				deliveryAddress = new Address(street: cell(16) ?: " ", street2: cell(17) ?: " ", city: cell(18) ?: " ", state: cell(19) ?: " ", zip: cell(20) ?: " ")
+
+                seq= cell(1)
+                topCustomer = (cell(2) == 'YES')
+                source = cell(4)
+                fsdName = cell(5) ?: " "
+                fsdTitle = cell(6)
+                district = cell(7) ?: null
+				address = new Address(
+                        street: cell(8) ?: " ",
+                        street2: cell(9) ?: " ",
+                        city: cell(10) ?: " ",
+                        state: cell(11) ?: " ",
+                        zip: cell(12) ?: " ")
+                phone = cell(13)
+                fax = cell(14) ?: " "
+                if(!cell(15) || Customer.findByUsername(cell(15))){
+                    customer.username = "no-email@no-email${i}.com"
+                    customer.email = "no-email@no-email${i}.com"
+                } else {
+                    customer.username = cell(15)
+                    customer.email = cell(15)
+                }
+
+                deliveryAddress = new Address(street: cell(16) ?: " ", street2: cell(17) ?: " ", city: cell(18) ?: " ", state: cell(19) ?: " ", zip: cell(20) ?: " ")
 
                 status = CustomerStatus.HAS_NOT_ORDERED
-				source = cell(0)
-				phone = cell(13)
-				fax = cell(14) ?: " "
-				fsdName = cell(5) ?: " "
-				fsdTitle = cell(6)
+
 				studentsInDistrict = cell(21) ?: 0
 				facilities = cell(22) ?: 0
 				breakfastsServed = cell(23) ?: 0
 				lunchesServed = cell(24) ?: 0
 				snacksServed = cell(25) ?: 0
 				hasBakery = (cell(26) == "YES")
-				//purchaseFrozenBread = (cell(27) == "Yes")
-				//purchaseFreshBread = (cell(30) == "Yes")                                                           
-				//purchasePreparedFood = (cell(28) == "Yes")
-				//purchaseFrozenFood = (cell(29) == "Yes")
-				otherComments = cell(31) ?: ""
-				topCustomer = (cell(3) == 'YES')
-				timezone = cell(50) ?: " "
-				pastParticipant = (cell(32) == 'YES')
-				seq = cell(2)
-				callerBrokers = cell(33) ?: ""
+				monthlyFlourUsage = cell(27)
+                localBakeries = cell(28)
+                usedUltragrainSustagrainProducts = cell(29)
+                pastParticipant = (cell(30) == 'YES')
+                callerBrokers = cell(31) ?: ""
+
+                if(cell(32) && !Broker.findByName(cell(32))) {
+                    println "creating broker record..."
+                    def broker = new Broker(name: cell(32),
+                            email: cell(33) ?: "",
+                            phone: cell(34) ?: " ",
+                            fax: cell(35) ?: " ",
+                            street: cell(36) ?: "",
+                            street2: cell(37) ?: " ",
+                            city: cell(48) ?: ",",
+                            state: cell(39) ?: " ",
+                            zip: cell(40) ?: " ")
+
+                    customer.addToBrokers(broker)
+                }
+
+				timezone = cell(41) ?: " "
+
+
 
 			}
-			def no = "0"
 			customer.password = springSecurityService.encodePassword("superkids")
-			if(!cell(15) || Customer.findByUsername(cell(15))){
-				customer.username = "no-email@no-email${i}.com"
-				customer.email = "no-email@no-email${i}.com"
-			} else {
-				customer.username = cell(15)
-				customer.email = cell(15)
-			}
-
-            if(cell(34)) {
-                println "creating broker record..."
-                def broker = new Broker(name: cell(34),
-                        email: cell(35) ?: "",
-                        phone: cell(36) ?: " ",
-                        fax: cell(37) ?: " ",
-                        street: cell(38) ?: "",
-                        street2: cell(39) ?: " ",
-                        city: cell(40) ?: ",",
-                        state: cell(41) ?: " ",
-                        zip: cell(42) ?: " ")
-
-                customer.addToBrokers(broker)
-            }
-
 			customer.enabled = true
 			customer.accountExpired = false
 			customer.accountLocked = false

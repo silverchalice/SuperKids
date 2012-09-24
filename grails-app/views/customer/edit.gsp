@@ -139,12 +139,20 @@
                             </tr>
 
                             <tr class="prop">
-                                <td valign="top" class="name">Source</td>
+                                <td valign="top" class="name">Classification</td>
 
                                <td>
                                    <g:textField name="source" value="${customerInstance?.source}" />
                                </td>
                             </tr>
+
+                        <tr class="prop">
+                            <td valign="top" class="name">Classification</td>
+
+                            <td>
+                                <g:textField name="classification" value="${customerInstance?.classification}" />
+                            </td>
+                        </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="topCustomer">Top 100</label>
@@ -488,7 +496,42 @@
                        </td>
                      </tr>
 
-							<tr class="prop">
+
+                     <tr class="prop">
+                         <td valign="top" class="name">Member of a Co-op</td>
+
+                         <td valign="top" class="value"><g:checkBox name="coOpMember" value="${customerInstance?.coOpMember}"/></td>
+                     </tr>
+                     <tr class="prop">
+                         <td valign="top" class="name">Co-op Name</td>
+
+                         <td valign="top" class="value"><g:textField class="texField" name="coOpName" value="${customerInstance.coOpName}" /></td>
+                     </tr>
+                     <tr class="prop">
+                         <td valign="top" class="name">Send Samples to Co-op</td>
+
+                         <td valign="top" class="value"><g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}"/></td>
+                     </tr>
+                     <tr class="prop">
+                         <td valign="top" class="name">Co-op Sample Delivery Address</td>
+
+                         <td valign="top" class="value"><g:textField class="texField" name="coOpAddress" value="${customerInstance.coOpAddress}" /></td>
+                     </tr>
+
+
+                     <tr class="prop">
+                         <td valign="top" class="name">Contract Managed</td>
+
+                         <td valign="top" class="value"><g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}"/></td>
+                     </tr>
+                     <tr class="prop">
+                         <td valign="top" class="name">Contractor</td>
+
+                         <td valign="top" class="value"><g:textField class="texField" name="contractManager" value="${customerInstance.contractManager}" /></td>
+                     </tr>
+
+
+                        <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="seq"><g:message code="customer.seq.label" default="Sequence Number (DO NOT CHANGE)" /></label>
                                 </td>

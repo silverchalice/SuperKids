@@ -22,7 +22,7 @@
   </div>
 </div>
 <div id="main-container">
-  <div id="main">
+  <div id="main" style="overflow: hidden"> <!-- FireFox Hack -->
    <g:layoutBody/>
   </div>
 </div>

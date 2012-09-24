@@ -164,7 +164,7 @@ class ProductController {
 
             if (!productInstance.hasErrors() && productInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'product.label', default: 'Product'), productInstance.id])}"
-                redirect(action: "admin")
+                redirect(action: "edit")
             }
             else {
                 render(view: "edit", model: [productInstance: productInstance])

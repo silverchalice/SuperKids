@@ -523,6 +523,10 @@ ul#nav .amp {
 	width:420px;
 	color:#111;
 }
+
+#order-intro h2 {
+    margin-top: 0
+}
 #feedback h1 + p {
 	font-size:18px;
 	line-height:22px;

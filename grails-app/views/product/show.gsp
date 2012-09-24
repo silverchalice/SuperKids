@@ -7,7 +7,6 @@
         <meta name="layout" content="products" />
         <meta name="active" content="${productInstance?.id}" />
         <g:set var="entityName" value="${message(code: 'product.label', default: 'Product')}" />
-        <g:javascript library="jquery" plugin="jquery"/>
 
     </head>
     <body>
@@ -28,7 +27,7 @@
                     <g:if test="${customer?.hasPlacedCurrentOrder}">
                         Your Order Has Been Placed
                     </g:if>
-                    <g:elseif test="${!inCart}">
+                    <g:elseif test="${inCart}">
                         <p class="remove"><a href="${createLink(controller: 'product', action: 'remove', id: productInstance.id)}" title="Remove this sample from your free order">Remove from your order</a></p>
                         <a class="btn arrow" href="${createLink(controller: 'shopping', action: 'index')}" title="Place your free order" class="btn arrow"><span>Checkout</span></a>
                     </g:elseif>

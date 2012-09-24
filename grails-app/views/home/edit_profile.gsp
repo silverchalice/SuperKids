@@ -9,8 +9,9 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#submitButton").click(function () {
+            $("#submitButton").click(function (e) {
                 $("#updateForm").submit();
+                e.preventDefault();
             });
         });
     </script>
@@ -68,7 +69,7 @@
 <g:hiddenField name="id" value="${customerInstance?.id}"/>
 <g:hiddenField name="version" value="${customerInstance?.version}"/>
 <h1>Your Account Profile</h1>
-<table style="float: left; width:480px">
+<table style="float: left; width:460px">
     <tr>
         <td valign="top">
             <label for="fsdName"><g:message code="customer.fsdName.label" default="Your Name"/></label>
@@ -222,90 +223,107 @@
 <table style="float:right; width:480px">
     <tr>
         <td colspan="2">
-            <h3 style="margin-top: 0; padding-top: 0">Please tell us about your school district foodservice program:</h3>
-
-        </td>
-
-    </tr>
-    <tr style="padding-bottom:10px;">
-        <td valign="top">
-            <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}"/>
-
-            <label for="hasBakery">Make our own bread products from
-                scratch in our bakery (proof & bake)</label>
-        </td>
-
-    </tr>
-    <tr>
-        <td valign="top" colspan="2">
-            <label for="monthlyFlourUsage">If yes, how much flour does your district use on a monthly basis in pounds?</label>
-            <g:textField name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}" style="float:right; width:240px"/>
-        </td>
-
-    </tr>
-
-
-
-    <tr>
-        <td valign="top" colspan="2">
-
-            <p>Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
-            contact them about the program, please list them here. <g:textField name="localBakeries" value="${customerInstance?.localBakeries}" style="float:right; width: 360px"/>  </p>
-        </td>
-
-    </tr>
-
-
-    <tr>
-        <td valign="top" colspan="2">
-
-            <p>Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:
-            <g:textField name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" style="float:right; width:360px"/></p>
-
-        </td>
-
-    </tr>
-    <tr>
-        <td colspan="2">
-            Number of students in your school district
-            <g:select name="studentsInDistrict"
-                      from="${['Less than  500', '500 - 1,000', '1,000 - 2,000', '3,000 - 5,000', '5,000 - 10,000', '10,000 - 20000', '20,000 - 50,000', 'Over 50,000']}"
-                      value="${customerInstance?.studentsInDistrict}"/>
+            1. Approximately how many students are in your district?
+            <select name="studentsInDistrict">
+                <option value="500">Less than 500
+                <option value="1000">500 - 1,000
+                <option value="2000">1,000 - 2,000
+                <option value="5000">3,000 - 5,000
+                <option value="10000">5,000 - 10,000
+                <option value="20000">10,000 - 20,000
+                <option value="50000">20,000 - 50,000
+                <option value="50000+">Over 50,000
+            </select>
         </td>
     </tr>
     <tr>
         <td colspan="2">
-            Approximate number of cafeterias, food courts or other eating facilities (District Total)
-            <g:select name="facilities" from="${['Less than 3', '3-5', '6-10', 'More than 10']}"
-                      value="${customerInstance?.facilities}"/>
+            2. Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
+            <input style="float:right" type="text" name="breakfastsServed" size="4" maxlength="6"
+                   value="${customerInstance?.breakfastsServed}"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            3. Approximately how many students are served <strong>lunch</strong> daily? <span class="req">*</span>
+            <input style="float:right"  type="text" name="lunchesServed" size="4" maxlength="6"
+                   value="${customerInstance?.lunchesServed}"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            4. Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
+            <input style="float:right"  type="text" name="snacksServed" size="4" maxlength="6"
+                   value="${customerInstance?.snacksServed}"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            5. Approximately how many cafeterias, food courts and other eating facilities are in your district’s schools in total?
+            <select name="facilities">
+                <option value="3">Less Than 3
+                <option value="5">3-5
+                <option value="10">6-10
+                <option value="10+">More Than 10
+            </select>
         </td>
     </tr>
     <tr>
         <td colspan="2">
-            Number of students served daily (in your total school district - not just your individual school). Please confirm/enter these numbers:
+            <h3>Tell us about your school district’s bakery operation</h3>
         </td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align: right;">
-
-            <g:textField name="breakfastsServed" value="${fieldValue(bean: customerInstance, field: 'breakfastsServed')}"
-                        style="width:80px"/><g:message code="customer.breakfastsServed.label"
-                                                     default=" Breakfasts"/> &nbsp;&nbsp;
-
-            <g:textField name="lunchesServed" value="${fieldValue(bean: customerInstance, field: 'lunchesServed')}"
-                                     style="width:80px"/> <g:message code="customer.lunchesServed.label" default=" Lunches"/>  &nbsp; &nbsp;
-
-            <g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}"
-                                     style="width:80px"/> <g:message code="customer.snacksServed.label" default=" Snacks"/> &nbsp;
-
+        <td colspan="2">6. We make our own bread products from scratch in our bakery: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
         </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">a) If yes, how much flour does your district use on a monthly basis in pounds?
+            <input type="text" name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}" size="25" maxlength="1000"></td>
+    </tr>
+    <tr>
+        <td colspan="2">b) Do you work with a local bakery to supply your fresh bakery products? <br/>
+            If you’d like us to contact them about the program, please list them here:<br/>
+            <input type="text" name="localBakeries" value="${customerInstance?.localBakeries}" size="55" maxlength="1000"></td>
+    </tr>
+    <tr>
+
+        <td colspan="2">7. Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:
+            <br/>
+            <input type="text" name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" size="55" maxlength="1000"></td>
+    </tr>
+    <tr>
+
+        <td colspan="2">8.	Who are your primary foodservice distributors?
+            <br/>
+            <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
+    </tr>
+    <tr>
+        <td colspan="2">9.	Are you a member of a co-op? (Please enter Co-op Name)<br/>
+            <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">a)	If yes, would you like us to send samples to the co-op? <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">b) Name and address for the co-op sample:
+            <br/>
+            <input type="text" name="coOpAddress" value="${customerInstance?.coOpAddress}" size="55" maxlength="1000"></td>
+    </tr>
+
+
+    <tr>
+        <td colspan="2">10.	Is your district’s foodservice cafeterias contract managed? <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">b) If yes, by who?
+            <br/>
+            <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
     </tr>
 </table>
 
-<div style="float:left; text-align:left;padding-top:20px;">
-    You must click 'Save Changes' to continue.  If possible, please update or
-    provide the optional broker/distributor information below before doing so.
-
+<div style="clear:both; text-align:left;padding-top:20px;">
     <a href="#" id="submitButton" title="Save Changes" style="margin-left: 400px" class="submitButton btn arrow"><span>Save Your Changes</span></a>
 </div>
 </g:form>

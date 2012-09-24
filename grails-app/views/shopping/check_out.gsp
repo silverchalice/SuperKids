@@ -11,21 +11,23 @@
 
     <style type="text/css">
 
+
     div.shippingInfo {
         width: 910px;
     }
 
-    .shippingInfo table.loginInfo {
+    #content .shippingInfo table.loginInfo {
         width: 370px;
         float: left;
     }
 
-    .shippingInfo table.loginInfo tr td {
+    #content .shippingInfo table.loginInfo tr td {
         font-size: 14px;
         padding: 10px 5px 10px 0;
+        text-align: left
     }
 
-    .shippingInfo table.loginInfo tr td input, .loginInfo table tr td select {
+    #content .shippingInfo table.loginInfo tr td input, .loginInfo table tr td select {
         font-size: 16px;
     }
 
@@ -33,23 +35,25 @@
         width: 400px;
     }
 
-    table.profileForm tr td {
+    #content table.profileForm tr td {
         font-size: 14px;
         padding: 10px 0 10px 0;
+        text-align: left
     }
 
-    table.profileForm tr td input, table.profileForm tr td select {
+    #content table.profileForm tr td input, table.profileForm tr td select {
         font-size: 14px;
         padding: 0;
     }
 
-    table.bakeryProfile {
+    #content table.bakeryProfile {
         width: 400px;
     }
 
-    table.bakeryProfile tr td {
+    #content table.bakeryProfile tr td {
         font-size: 14px;
         padding:10px 0 10px 0;
+        text-align: left
     }
 
     table.bakeryProfile tr td input, table.bakeryProfile tr td select {
@@ -59,7 +63,6 @@
 
     .manufacturerForm {
         background: white;
-        margin-left: 15px;
         width: 420px;
         border: 1px solid #d3d3d3;
         padding: 8px;
@@ -239,17 +242,7 @@
                 </select>
             </td>
         </tr>
-        <tr>
-            <td colspan="2">
-                Approximately how many cafeterias, food courts and other eating <br/> facilities are in your district’s schools in total
-                <select name="facilities">
-                    <option value="3">Less Than 3
-                    <option value="5">3-5
-                    <option value="10">6-10
-                    <option value="10+">More Than 10
-                </select>
-            </td>
-        </tr>
+
         <tr>
             <td>
                 Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
@@ -271,6 +264,17 @@
             <td><input type="text" name="snacksServed" size="4" maxlength="6"
                        value="${customerInstance?.snacksServed}"></td>
         </tr>
+        <tr>
+            <td colspan="2">
+                Approximately how many cafeterias, food courts and other eating <br/> facilities are in your district’s schools in total
+                <select name="facilities">
+                    <option value="3">Less Than 3
+                    <option value="5">3-5
+                    <option value="10">6-10
+                    <option value="10+">More Than 10
+                </select>
+            </td>
+        </tr>
     </table>
 
     <table class="bakeryProfile">
@@ -280,9 +284,7 @@
             </td>
         </tr>
         <tr>
-            <td>We make our own bread products from scratch in our bakery<br/> (proof and bake)</td>
-            <td>
-                <input type="checkbox" name="hasBakery" value="${customerInstance?.hasBakery}" checked="${customerInstance?.hasBakery ? 'checked' : ''}">
+            <td colspan="2">We make our own bread products from scratch in our bakery: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
             </td>
         </tr>
 
@@ -299,6 +301,37 @@
 
             <td colspan="2">Do you currently use Ultragrain® or Sustagrain® products in your district?<br/> If so, please list:
                 <input type="text" name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" size="35" maxlength="1000"></td>
+        </tr>
+        <tr>
+
+            <td colspan="2">Who are your primary foodservice distributors?
+                <br/>
+                <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Are you a member of a co-op? (Please enter Co-op Name)<br/>
+                <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">If yes, would you like us to send samples to the co-op? <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">Name and address for the co-op sample:
+                <br/>
+                <input type="text" name="coOpAddress" value="${customerInstance?.coOpAddress}" size="55" maxlength="1000"></td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">Is your district’s foodservice cafeterias contract managed? <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">If yes, by who?
+                <br/>
+                <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
         </tr>
     </table>
 

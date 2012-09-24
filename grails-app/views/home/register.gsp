@@ -32,12 +32,12 @@
     }
 
     table.profileForm tr td {
-        font-size: 16px;
+        font-size: 15px;
         padding: 10px 15px;
     }
 
     table.profileForm tr td input, table.profileForm tr td select {
-        font-size: 16px;
+        font-size: 15px;
         padding: 0;
     }
 
@@ -46,12 +46,12 @@
     }
 
     table.bakeryProfile tr td {
-        font-size: 16px;
+        font-size: 15px;
         padding: 8px 15px;
     }
 
     table.bakeryProfile tr td input, table.bakeryProfile tr td select {
-        font-size: 16px;
+        font-size: 15px;
         padding: 0;
     }
 
@@ -111,12 +111,12 @@
                                        maxlength="50"></td>
 </tr>
 <tr>
-    <td style="text-align:right">School District Name <span class="req">*</span></td>
+    <td style="text-align:right">District Name <span class="req">*</span></td>
     <td style="text-align:left"><input type="text" name="district" value="${customerInstance?.district}" size="25"
                                        maxlength="50"></td>
 </tr>
 <tr>
-    <td style="text-align:right">School District Address</td>
+    <td style="text-align:right">District Address</td>
     <td style="text-align:left"><input type="text" name="address.street" value="${customerInstance?.address?.street}"
                                        size="25"
                                        maxlength="50"></td>
@@ -200,7 +200,7 @@
     </tr>
 </table>
 
-<div style="float:right; width:500px;">
+<div style="float:right; width:480px;">
     <g:if test="${flash.message}">
         <div class="message" style="color: #8b0000;">${flash.message}</div>
     </g:if>
@@ -215,7 +215,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                Number of students in your school district
+                1. Approximately how many students are in your district?
                 <select name="studentsInDistrict">
                     <option value="500">Less than 500
                     <option value="1000">500 - 1,000
@@ -230,7 +230,25 @@
         </tr>
         <tr>
             <td colspan="2">
-                Approximately how many cafeterias, food courts and other eating facilities are in your district’s schools in total
+                2. Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
+            <input style="float:right" type="text" name="breakfastsServed" size="4" maxlength="6"
+                       value="${customerInstance?.breakfastsServed}"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                3. Approximately how many students are served <strong>lunch</strong> daily? <span class="req">*</span>
+            <input style="float:right"  type="text" name="lunchesServed" size="4" maxlength="6"
+                       value="${customerInstance?.lunchesServed}"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                4. Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
+            <input style="float:right"  type="text" name="snacksServed" size="4" maxlength="6"
+                       value="${customerInstance?.snacksServed}"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                5. Approximately how many cafeterias, food courts and other eating facilities are in your district’s schools in total?
                 <select name="facilities">
                     <option value="3">Less Than 3
                     <option value="5">3-5
@@ -239,27 +257,7 @@
                 </select>
             </td>
         </tr>
-        <tr>
-            <td>
-                Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
-            </td>
-            <td><input type="text" name="breakfastsServed" size="4" maxlength="6"
-                       value="${customerInstance?.breakfastsServed}"></td>
-        </tr>
-        <tr>
-            <td>
-                Approximately how many students are served <strong>lunch</strong> daily? <span class="req">*</span>
-            </td>
-            <td><input type="text" name="lunchesServed" size="4" maxlength="6"
-                       value="${customerInstance?.lunchesServed}"></td>
-        </tr>
-        <tr>
-            <td>
-                Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
-            </td>
-            <td><input type="text" name="snacksServed" size="4" maxlength="6"
-                       value="${customerInstance?.snacksServed}"></td>
-        </tr>
+
     </table>
 
     <table class="bakeryProfile">
@@ -269,33 +267,62 @@
             </td>
         </tr>
         <tr>
-            <td>We make our own bread products from scratch in our bakery (proof and bake)</td>
-            <td>
-                <input type="checkbox" name="hasBakery" value="1">
+            <td colspan="2">6. We make our own bread products from scratch in our bakery: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
             </td>
         </tr>
 
         <tr>
-            <td colspan="2">If yes, how much flour does your district use on a monthly basis in pounds?<br/>
+            <td colspan="2">a) If yes, how much flour does your district use on a monthly basis in pounds?
                 <input type="text" name="monthlyFlourUsage" value="" size="25" maxlength="1000"></td>
         </tr>
         <tr>
-            <td colspan="2">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
-            contact them about the program, please list them here:<br/>
-                <input type="text" name="localBakeries" value="" size="60" maxlength="1000"></td>
+            <td colspan="2">b) Do you work with a local bakery to supply your fresh bakery products? <br/>
+                If you’d like us to contact them about the program, please list them here:<br/>
+                <input type="text" name="localBakeries" value="" size="55" maxlength="1000"></td>
         </tr>
         <tr>
 
-            <td colspan="2">Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:
+            <td colspan="2">7. Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:
                 <br/>
-                <input type="text" name="usedUltragrainSustagrainProducts" value="" size="60" maxlength="1000"></td>
+                <input type="text" name="usedUltragrainSustagrainProducts" value="" size="55" maxlength="1000"></td>
+        </tr>
+        <tr>
+
+            <td colspan="2">8.	Who are your primary foodservice distributors?
+                <br/>
+                <input type="text" name="callerBrokers" value="" size="55" maxlength="1000"></td>
+        </tr>
+        <tr>
+            <td colspan="2">9.	Are you a member of a co-op? (Please enter Co-op Name)<br/>
+                <input type="text" name="coOpName" value="" size="55" maxlength="1000">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">a)	If yes, would you like us to send samples to the co-op?  <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">b) Name and address for the co-op sample:
+                <br/>
+                <input type="text" name="coOpAddress" value="" size="55" maxlength="1000"></td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">10.	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">b) If yes, by who?
+                <br/>
+                <input type="text" name="contractManager" value="" size="55" maxlength="1000"></td>
         </tr>
     </table>
 
     <table class="manufacturerForm">
         <tr>
             <td colspan="2">
-                <strong>Please let us know if you would like any of these manufacturers to contact you immediately.</strong>
+                <strong>11. Please let us know if you would like any of these manufacturers to contact you immediately.</strong>
             </td>
         </tr>
         <tr>

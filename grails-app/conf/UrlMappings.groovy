@@ -132,30 +132,30 @@ class UrlMappings {
             controller = "assessment"
             action = "start"
         }
-        "/change_password/$id" {
-            controller = "home"
-            action = "change_password"
-        }
-        "/c_forgot_password" {
-            controller = "home"
-            action = "c_forgot_password"
-        }
-        "/c_passwd_reset" {
-            controller = "home"
-            action = "c_passwd_reset"
-        }
-        "/c_reset_success" {
-            controller = "home"
-            action = "c_reset_success"
-        }
-        "/forgot_password" {
-            controller = "home"
-            action = "forgot_password"
-        }
-        "/passwd_reset" {
-            controller = "home"
-            action = "passwd_reset"
-        }
+        //"/change_password/$id" {
+        //    controller = "home"
+        //    action = "change_password"
+        //}
+        //"/c_forgot_password" {
+        //    controller = "home"
+        //    action = "c_forgot_password"
+        //}
+        //"/c_passwd_reset" {
+        //    controller = "home"
+        //    action = "c_passwd_reset"
+        //}
+        //"/c_reset_success" {
+        //    controller = "home"
+        //    action = "c_reset_success"
+        //}
+        //"/forgot_password" {
+        //    controller = "home"
+        //    action = "forgot_password"
+        //}
+        //"/passwd_reset" {
+        //    controller = "home"
+        //    action = "passwd_reset"
+        //}
         "/contact_requests"{
             controller = "contactRequest"
             action = "list"
