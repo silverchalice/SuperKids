@@ -591,7 +591,7 @@ Modified: get menuButton text from new 'msg' attr
 
             out << """<li class='${active} ${inCart}'>
                     <a href=${createLink(controller: 'product', action: 'show', id: product.id)} title="${product.title}">
-                        ${product.name}<br />
+                        ${product.title}<br />
                         <span>${product.sponsor.name}</span>
                     </a>
                 </li>
