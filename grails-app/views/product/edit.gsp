@@ -35,7 +35,7 @@
                     </p><br />
                     <p>
                         <label for="name">Displayed Title:</label>
-                        <g:textField name="name" value="${productInstance?.title}" />
+                        <g:textField name="title" value="${productInstance?.title}" />
                     </p><br />
                     <p>
                         <label for="name">Sort Order:</label>
