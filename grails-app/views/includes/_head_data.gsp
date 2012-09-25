@@ -32,4 +32,4 @@
 <!--[if lt IE 7]>
  <link href="css/ie6.css" rel="stylesheet" type="text/css" media="screen"   />
  <![endif]-->
-<link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+<link rel="shortcut icon" type="image/ico" href="${resource(dir: 'images', file: 'favicon.ico')}" />
