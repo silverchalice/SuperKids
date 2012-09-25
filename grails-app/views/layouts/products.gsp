@@ -49,7 +49,7 @@
     </div>
   </div>
 </div>
-</div>
+
 <div id="footer-container">
   <div id="logos">
       <g:render template="/includes/logos" />

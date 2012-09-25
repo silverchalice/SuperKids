@@ -7,28 +7,181 @@
         <meta name="layout" content="assess_landing" />
         <meta name="currentProductId" content="${product?.id}" />
         <g:set var="entityName" value="${message(code: 'assessment.label', default: 'Assessment')}" />
-        <title>SuperKids | Online Assessment 1/4</title>
-			<style type="text/css">
-			#contentInsetUpper {
-				width:601px;
-				left:309px;
+        <title>SuperKids | Online Assessment</title>
 
-			}
-
-			#contentInsetInner {
-				width:581px;
-				position:relative;
-				left:40px;
-			}
-
-			#contentInsetLower {
-				width:601px;
-				left:309px;
-			}
-		</style>
-		<g:javascript library="jquery" plugin="jquery" />
     </head>
     <body>
+
+    <div id="content-container">
+        <div id="content">
+            <img src="img/img_money_books.jpg" class="left money-books" alt="Four stacked books with hundred dollar bills used as bookmarks" />
+            <h1>Your School Could Win Free Money!</h1>
+            <p>Just tell us what you thought about this year’s SuperKids lineup and you’ll be automatically entered to win <strong>up to $200</strong> for your school district.</p>
+            <p>Remember, your feedback is invaluable. It not only lets us know how to improve our SuperKids program, it helps manufacturers better understand your needs. For prizes and official rules, <a href="#">click here</a>.</p>
+            <hr />
+
+            <g:each in="${products}" var="product">
+
+                <div class="order-item expanded"> <img src="img/img_pizza.jpg" />
+                    <h2>${product?.title}</h2>
+                    <p>${product?.sponsor?.name}</p>
+                    <div class="expand"><a href="#">Review this product</a> </div>
+                    <form>
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td class="first">
+                                    <label for="thoughts">What thoughts do you have about this product?</label>
+                                    <textarea name="thoughts"></textarea>
+                                </td>
+                                <td><label for="taste">On a scale of 1-5 how would you rate this product’s taste?</label>
+                                    <ol>
+                                        <li class="first"><label for="1">1</label> <input type="radio" name="taste" value="1" /></li>
+                                        <li><label for="2">2</label> <input type="radio" name="taste" value="2" /></li>
+                                        <li><label for="3">3</label> <input type="radio" name="taste" value="3" /></li>
+                                        <li><label for="4">4</label> <input type="radio" name="taste" value="4" /></li>
+                                        <li class="last"><label for="5">5</label> <input type="radio" name="taste" value="5" /></li>
+                                    </ol>
+                                    <label for="taste">On a scale of 1-5 how would you rate this product’s nutrition?</label>
+                                    <ol>
+                                        <li class="first"><label for="1">1</label> <input type="radio" name="taste" value="1" /></li>
+                                        <li><label for="2">2</label> <input type="radio" name="taste" value="2" /></li>
+                                        <li><label for="3">3</label> <input type="radio" name="taste" value="3" /></li>
+                                        <li><label for="4">4</label> <input type="radio" name="taste" value="4" /></li>
+                                        <li class="last"><label for="5">5</label> <input type="radio" name="taste" value="5" /></li>
+                                    </ol>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div class="complete-review"><a href="#" class="clear">Clear this review</a> <a href="#" class="btn complete"><span>Complete this product review</span></a></div>
+                </div>
+
+            </g:each>
+
+
+
+
+            <div class="order-item collapsed"> <img src="img/img_holder.jpg" />
+                <h2>Product Name</h2>
+                <p>Made by Company Name with Grain</p>
+                <div class="expand"><a href="#">Review this product</a> </div>
+                <form>
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="first">
+                                <label for="thoughts">What thoughts do you have about this product?</label>
+                                <textarea name="thoughts"></textarea>
+                            </td>
+                            <td><label for="taste">On a scale of 1-5 how would you rate this product’s taste?</label>
+                                <ol>
+                                    <li class="first"><label for="1">1</label> <input type="radio" name="taste" value="1" /></li>
+                                    <li><label for="2">2</label> <input type="radio" name="taste" value="2" /></li>
+                                    <li><label for="3">3</label> <input type="radio" name="taste" value="3" /></li>
+                                    <li><label for="4">4</label> <input type="radio" name="taste" value="4" /></li>
+                                    <li class="last"><label for="5">5</label> <input type="radio" name="taste" value="5" /></li>
+                                </ol>
+                                <label for="taste">On a scale of 1-5 how would you rate this product’s nutrition?</label>
+                                <ol>
+                                    <li class="first"><label for="1">1</label> <input type="radio" name="taste" value="1" /></li>
+                                    <li><label for="2">2</label> <input type="radio" name="taste" value="2" /></li>
+                                    <li><label for="3">3</label> <input type="radio" name="taste" value="3" /></li>
+                                    <li><label for="4">4</label> <input type="radio" name="taste" value="4" /></li>
+                                    <li class="last"><label for="5">5</label> <input type="radio" name="taste" value="5" /></li>
+                                </ol>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <div class="complete-review"><a href="#" class="clear">Clear this review</a> <a href="#" class="btn complete"><span>Complete this product review</span></a></div>
+            </div>
+            <div class="order-item collapsed"> <img src="img/img_holder.jpg" />
+                <h2>Product Name</h2>
+                <p>Made by Company Name with Grain</p>
+                <div class="expand"><a href="#">Review this product</a> </div>
+                <form>
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="first">
+                                <label for="thoughts">What thoughts do you have about this product?</label>
+                                <textarea name="thoughts"></textarea>
+                            </td>
+                            <td><label for="taste">On a scale of 1-5 how would you rate this product’s taste?</label>
+                                <ol>
+                                    <li class="first"><label for="1">1</label> <input type="radio" name="taste" value="1" /></li>
+                                    <li><label for="2">2</label> <input type="radio" name="taste" value="2" /></li>
+                                    <li><label for="3">3</label> <input type="radio" name="taste" value="3" /></li>
+                                    <li><label for="4">4</label> <input type="radio" name="taste" value="4" /></li>
+                                    <li class="last"><label for="5">5</label> <input type="radio" name="taste" value="5" /></li>
+                                </ol>
+                                <label for="taste">On a scale of 1-5 how would you rate this product’s nutrition?</label>
+                                <ol>
+                                    <li class="first"><label for="1">1</label> <input type="radio" name="taste" value="1" /></li>
+                                    <li><label for="2">2</label> <input type="radio" name="taste" value="2" /></li>
+                                    <li><label for="3">3</label> <input type="radio" name="taste" value="3" /></li>
+                                    <li><label for="4">4</label> <input type="radio" name="taste" value="4" /></li>
+                                    <li class="last"><label for="5">5</label> <input type="radio" name="taste" value="5" /></li>
+                                </ol>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <div class="complete-review"><a href="#" class="clear">Clear this review</a> <a href="#" class="btn complete"><span>Complete this product review</span></a></div>
+            </div>
+            <div class="order-item collapsed"> <img src="img/img_holder.jpg" />
+                <h2>Product Name</h2>
+                <p>Made by Company Name with Grain</p>
+                <div class="expand"><a href="#">Review this product</a> </div>
+                <form>
+                    <table cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td class="first">
+                                <label for="thoughts">What thoughts do you have about this product?</label>
+                                <textarea name="thoughts"></textarea>
+                            </td>
+                            <td><label for="taste">On a scale of 1-5 how would you rate this product’s taste?</label>
+                                <ol>
+                                    <li class="first"><label for="1">1</label> <input type="radio" name="taste" value="1" /></li>
+                                    <li><label for="2">2</label> <input type="radio" name="taste" value="2" /></li>
+                                    <li><label for="3">3</label> <input type="radio" name="taste" value="3" /></li>
+                                    <li><label for="4">4</label> <input type="radio" name="taste" value="4" /></li>
+                                    <li class="last"><label for="5">5</label> <input type="radio" name="taste" value="5" /></li>
+                                </ol>
+                                <label for="taste">On a scale of 1-5 how would you rate this product’s nutrition?</label>
+                                <ol>
+                                    <li class="first"><label for="1">1</label> <input type="radio" name="taste" value="1" /></li>
+                                    <li><label for="2">2</label> <input type="radio" name="taste" value="2" /></li>
+                                    <li><label for="3">3</label> <input type="radio" name="taste" value="3" /></li>
+                                    <li><label for="4">4</label> <input type="radio" name="taste" value="4" /></li>
+                                    <li class="last"><label for="5">5</label> <input type="radio" name="taste" value="5" /></li>
+                                </ol>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <div class="complete-review"><a href="#" class="clear">Clear this review</a> <a href="#" class="btn complete"><span>Complete this product review</span></a></div>
+            </div>
+            <hr />
+            <a href="#" title="Move to the next step" class="btn arrow"><span>Submit your reviews</span></a> </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div id="contentInsetInner">
             <h1>${product?.name}</h1>
             <g:if test="${flash.message}">

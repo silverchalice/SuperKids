@@ -136,34 +136,41 @@ class AssessmentController {
     }
 
     def start = {
-        def products = []
-        def customer = Customer.get(springSecurityService.principal.id)
-        if(customer.customerOrder){
-            def product = Product.get(params.id)
-            println "customer " + customer?.fsdName + "is assessing " + product
-            if(customer.customerOrder.products*.product.collect{it.id}.contains(product.id)){
-                def assessmentInstance = new Assessment(product:product)
-                customer.customerOrder.products.findAll{ it.received }.each{
-                    def p = Product.get(it.product.id)
-                    if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
-                        products << p
+
+        if(springSecurityService.isLoggedIn()){
+            def products = []
+            def customer = Customer.get(springSecurityService.principal.id)
+            if(customer?.customerOrder){
+                def product = Product.get(params.id)
+                println "customer " + customer?.fsdName + "is assessing " + product
+                if(customer.customerOrder.products*.product.collect{it.id}.contains(product.id)){
+                    def assessmentInstance = new Assessment(product:product)
+                    customer.customerOrder.products.findAll{ it.received }.each{
+                        def p = Product.get(it.product.id)
+                        if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
+                            products << p
+                        }
                     }
-                }
-                if(products){
-                    println "the assessmentInstance is " + assessmentInstance + ", and the id is " + params.id
-                    return [id:params.id, products:products.sort{ it.id }, customerId:customer.id, product: product]       
+                    if(products){
+                        println "the assessmentInstance is " + assessmentInstance + ", and the id is " + params.id
+                        return [id:params.id, products:products.sort{ it.id }, customerId:customer.id, product: product]
+                    } else {
+                        flash.message = "You have assessed all of the products that you ordered."
+                        redirect controller:"home", action:"assess"
+                    }
                 } else {
-                    flash.message = "You have assessed all of the products that you ordered."
+                    flash.message = "You didn't order ${product.name}."
                     redirect controller:"home", action:"assess"
                 }
             } else {
-                flash.message = "You didn't order ${product.name}."
+                flash.message = "Did you order anything yet?"
                 redirect controller:"home", action:"assess"
             }
         } else {
-            flash.message = "Did you order anything yet?"
-            redirect controller:"home", action:"assess"
+            redirect(uri: "/")
         }
+
+
     }
 
     def lc = {

@@ -100,7 +100,8 @@ class LoginController {
 
         println "User login attempt failed "
         flash.message = "Sorry, we don't recognize that username and password"
-        render view:'auth'
+        String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+        render view:'auth',  model: [postUrl: postUrl]
 	}
 
 	/**
