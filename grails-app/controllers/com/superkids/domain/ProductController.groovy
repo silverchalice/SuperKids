@@ -52,7 +52,7 @@ class ProductController {
     }
 
     def show = {
-        def productInstance = Product.get(params.id)
+        def productInstance = Product.get(params.id.toLong())
 
         if (!productInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
