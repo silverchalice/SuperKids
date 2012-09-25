@@ -485,6 +485,11 @@ ul#nav .amp {
 	width:auto;
 	width:720px;
 }
+
+#content img {
+    padding: 5px;
+}
+
 #checkout #content, #feedback #content {
 	width:900px;
 	margin:0 auto;
