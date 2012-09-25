@@ -43,9 +43,9 @@
               of free
               product samples</p>
             <ul>
+                <li><a href="${createLink(controller: 'product', action: 'show', id: 45)}" title="Ultragrain Flour®: Healthy Choice® All-Purpose Flour Blend T-2">Ultragrain Flour®: Healthy Choice® All-Purpose Flour Blend T-2</a></li>
               <li><a href="${createLink(controller: 'product', action: 'show', id: 14)}" title="Domino’s Pizza® Smart Slice">Domino’s Pizza® Smart Slice</a></li>
               <li><a href="${createLink(controller: 'product', action: 'show', id: 18)}" title="AZTECA ULTRAGRAIN® TORTILLAS">Azteca Ultragrain® Tortillas</a></li>
-              <li><a href="${createLink(controller: 'product', action: 'show', id: 46)}" title="Mountain Farm™ 24 oz White Pullman">Mountain Farm™ 24 oz White Pullman</a></li>
             </ul>
           </div>
           <div class="col-04"> <a href="#"><img src="${resource(dir:'images',file:'img_lunch_ladies.jpg')}" alt="Two school foodservice workers serving lunch" /></a>
