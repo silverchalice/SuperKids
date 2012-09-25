@@ -11,7 +11,7 @@
           <div id="intro"> <img src="${resource(dir:'images',file:'img_home_kids.jpg')}" alt="A fun group of middle school kids" />
             <h1>Healthier Meals Start Here.</h1>
             <p><strong>What is the SuperKids Whole Grain Sampling Program?</strong> SuperKids is a unique sampling program designed to introduce whole grain and higher-fiber options for school foodservice breakfast, lunch and snacks. In fact, SuperKids provides K–12 School foodservice directors with a free and convenient way to try <a href="#" title="View all our products">multiple products</a> made with the whole grain goodness of <a href="#" title="Learn more about Ultragrain">Ultragrain</a>&reg; and <a href="#" title="Learn more about Sustagrain">Sustagrain</a>&reg;—all from a variety of trusted food companies.</p>
-            <p id="cta">Directors, ready to start ordering? <a href="${createLink(controller: 'home', action: 'order')}" class="btn arrow" title="Browse our free products"><span>Browse our free samples</span></a> <a href="#" title="Learn about our order restrictions" class="note">Who can order?</a></p>
+            <p id="cta">Directors, ready to start ordering? <a href="${createLink(controller: 'home', action: 'order')}" class="btn arrow" title="Browse our free products"><span>Browse our free samples</span></a> <!--<a href="#" title="Learn about our order restrictions" class="note">Who can order?</a>--></p>
           </div>
         </div>
         <div id="overview">

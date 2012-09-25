@@ -696,6 +696,26 @@ class HomeController {
            [content:content]
        }
 
+
+
+        def usda_standards = {
+            def content
+            def pt = PageText.findByName("usda_standards")
+            if(pt){
+                content = pt.content
+            }
+            [content:content]
+        }
+
+        def alliance = {
+            def content
+            def pt = PageText.findByName("alliance")
+            if(pt){
+                content = pt.content
+            }
+            [content:content]
+        }
+
        def change_password = {
            def adminInstance
            if(params.id){ 
