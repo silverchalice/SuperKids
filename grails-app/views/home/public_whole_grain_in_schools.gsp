@@ -9,6 +9,6 @@
         <title>SuperKids | Incorporating Whole Grains Into School Menus</title>
     </head>
     <body>
-${content}
+<div id="content"> ${content}</div>
     </body>
 </html>

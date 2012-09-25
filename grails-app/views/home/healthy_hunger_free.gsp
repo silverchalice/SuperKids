@@ -9,6 +9,6 @@
         <title>SuperKids | Healthy Hunger Free Kids Act</title>
     </head>
     <body>
-        ${content}
+        <div id="content"> ${content}</div>
     </body>
 </html>

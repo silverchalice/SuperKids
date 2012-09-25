@@ -9,6 +9,6 @@
         <title>SuperKids | How You Can Participate</title>
     </head>
     <body>
-${content}
+<div id="content"> ${content}</div>
     </body>
 </html>

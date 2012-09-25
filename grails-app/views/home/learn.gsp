@@ -12,7 +12,7 @@
 
 
 	<div id="content">
-			${content}
+		 ${content}
 	</div>		
 
 		

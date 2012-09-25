@@ -9,6 +9,6 @@
         <title>SuperKids | Assessment Drawing Rules</title>
     </head>
     <body>
-${content}
+<div id="content"> ${content}</div>
     </body>
 </html>

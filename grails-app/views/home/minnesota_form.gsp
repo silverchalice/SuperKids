@@ -6,6 +6,6 @@
         <title>SuperKids | University of Minnesota Module</title>
     </head>
     <body>
-${content}
+<div id="content"> ${content}</div>
     </body>
 </html>

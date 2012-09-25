@@ -8,7 +8,7 @@
         <title>SuperKids | Welcome to SuperKids</title>
     </head>
     <body>
-            ${content}
+            <div id="content"> ${content}</div>
 
     </body>
 </html>

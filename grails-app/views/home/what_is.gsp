@@ -9,6 +9,6 @@
         <title>SuperKids | What Is SuperKids?</title>
     </head>
     <body>
-        ${content}
+        <div id="content"> ${content}</div>
     </body>
 </html>

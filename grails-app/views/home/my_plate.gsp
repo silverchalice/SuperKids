@@ -9,6 +9,6 @@
         <title>SuperKids | My Plate</title>
     </head>
     <body>
-         ${content}
+         <div id="content"> ${content}</div>
     </body>
 </html>

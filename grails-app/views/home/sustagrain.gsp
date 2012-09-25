@@ -19,6 +19,6 @@
         window.open(htmLoc,"mainwindow","top="+wintop+",left="+winleft+",width="+width+",height="+height+",buttons=no,scrollbars=no,location=no,menubar=no,resizable=no,status=no,directories=no,toolbar=no");//YesorNo
     }
 </script>
-		${content}
+		<div id="content"> ${content}</div>
   </body>
 </html>

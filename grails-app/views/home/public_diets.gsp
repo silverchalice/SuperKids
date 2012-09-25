@@ -10,6 +10,6 @@
     </head>
     <body>
 
-      ${content}
+      <div id="content"> ${content}</div>
     </body>
 </html>

@@ -14,7 +14,7 @@
                <div class="message">${flash.message}</div>
            </g:if>
          <div id="content">
-			${content}
+			 ${content}
 		 </div>
 
     </body>
