@@ -9,6 +9,6 @@
     </head>
     <body>
 
-           <div id="content"> ${content}</div>
+            ${content}
     </body>
 </html>
