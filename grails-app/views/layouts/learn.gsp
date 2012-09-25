@@ -4,8 +4,6 @@
     <title><g:layoutTitle default="Welcome to the SuperKids Sampling Program! | From ConAgra Foods"/> </title>
     <g:render template="/includes/head_data" />
     <g:layoutHead />
-    <g:javascript library="application" />
-    <g:javascript library="jquery" plugin="jquery"/>
 </head>
 <body id="resources">
 <div id="header-container">
@@ -28,7 +26,7 @@
 		<li id="${link=='what_is' ? 'current' : ''}"><g:link controller="home" action="what_is"><span>What Is SuperKids?</span></g:link></li>
 		<li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain"><span>About Ultragrain</span></g:link></li>
 		<li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain"><span>About Sustagrain</span></g:link></li>
-		<li id="${link=='products' ? 'current' : ''}"><g:link controller="home" action="order"><span>SuperKids Products</span></g:link></li>
+		<li id="${link=='products' ? 'current' : ''}"><g:link controller="home" action="superkids_products"><span>SuperKids Products</span></g:link></li>
 		<li id="${link=='chef_jeff' ? 'current' : ''}"><g:link controller="home" action="chef_jeff"><span>Chef Jeff at SNA</span></g:link></li>
 		<li id="${link=='what_are_whole_grains' ? 'current' : ''}"><g:link controller="home" action="what_are_whole_grains"><span>What Are Whole Grains?</span></g:link></li>
 		<li id="${link=='whole_grain_list' ? 'current' : ''}"><g:link controller="home" action="whole_grain_list"><span>List of Whole Grains</span></g:link></li>

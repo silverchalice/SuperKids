@@ -27,9 +27,10 @@ class HomeController {
         }
     }
 
-    def superkids_products_gen = {
+    def superkids_products = {
 
-        [productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+
+        [products: Product.findAllByLiveProductAndParentIsNull(true, [sort:"sortOrder"])]
 
     }
 
