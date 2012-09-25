@@ -23,14 +23,8 @@
 		</style>
     </head>
     <body>
-
-
-	
-		<div id="contentInsetInner">
-
-			<div style="width: 620px;">
 				
-				<p><span style="font-size: small"><strong><span style="font-size: x-large"><span style="color: #993300">eCards </span></span></strong></span></p>
+				<h1>eCards</h1>
 				 <g:if test="${flash.message}">
 				   <div class="message">${flash.message}</div>
 			   </g:if>
@@ -117,11 +111,7 @@
 			</div>
 			</g:form>
 
-
-			</div>
-
-
-		</div>
+\
 
 		<script type="text/javascript">
 			function toggleform(id){

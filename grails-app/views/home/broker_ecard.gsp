@@ -25,11 +25,6 @@
     </head>
     <body>
 
-
-	
-		<div id="contentInsetInner">
-
-			<div style="width: 620px;">
 				
                         <h1>Send an eCard</h1><br />
 
@@ -112,11 +107,6 @@
 			</div>
 			</g:form>
 
-
-			</div>
-
-
-		</div>
 
 		<script type="text/javascript">
 			function toggleform(id){

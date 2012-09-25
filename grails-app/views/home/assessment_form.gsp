@@ -7,12 +7,7 @@
     </head>
     <body>
 
-        <div style="width:450px">
+       ${content}
 
-        	<div id="contentInsetInner">
-		   <g:if test="${flash.message}">
-               <div class="message">${flash.message}</div>
-           </g:if>${content}</div>
-        </div>
     </body>
 </html>

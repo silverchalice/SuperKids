@@ -9,10 +9,6 @@
         <title>SuperKids | How You Can Participate</title>
     </head>
     <body>
-
-		<g:if test="${flash.message}">
-		<div class="message">${flash.message}</div>
-		</g:if>
-                <div id="contentInsetInner">${content}</div>
+${content}
     </body>
 </html>

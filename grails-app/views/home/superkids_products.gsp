@@ -8,8 +8,7 @@
     </head>
     <body>
 
-		<div id="contentInsetInner">
           ${content}
-		</div>
+
     </body>
 </html>

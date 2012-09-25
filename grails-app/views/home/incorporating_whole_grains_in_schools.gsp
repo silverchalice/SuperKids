@@ -9,9 +9,6 @@
         <title>SuperKids | Incorporating Whole Grains Into School Menus</title>
     </head>
     <body>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <div id="contentInsetInner">${content}</div>
+            ${content}
     </body>
 </html>

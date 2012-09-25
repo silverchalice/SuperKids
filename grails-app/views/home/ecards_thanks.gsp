@@ -10,16 +10,13 @@
     </head>
     <body>
 
-        <div style="width:450px">
-           <div id="contentInsetInner">
-               <h1>Send an Ecard</h1><br />
+
+               <h1>Send an Ecard</h1>
                <g:if test="${flash.message}">
                     <div class="message">${flash.message}</div>
                     <br />
                </g:if>
                <p><strong>Thank you for helping us to promote whole grain nutrition.</strong></p>
-           </div>
 
-        </div>
     </body>
 </html>

@@ -9,11 +9,8 @@
         <title>SuperKids | Other Products With Ultragrain</title>
     </head>
     <body>          
-         <div id="contentInsetInner" style="overflow:auto">
-			 <g:if test="${flash.message}">
-               <div class="message">${flash.message}</div>
-           </g:if>
-			 ${content}</div>
+
+			 ${content}
 
     </body>
 </html>
