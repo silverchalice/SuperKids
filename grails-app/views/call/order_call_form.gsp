@@ -80,17 +80,17 @@
 						if(productsChecked == 'false') {
 							alert('You have not selected any products');
 							return false
-						}						
+						}
 
 						if(qualifiedSelected == 'false') {
 							return confirm('You have selected products to order, but have not chosen a Call Result of Qualified - no order will be saved. Do you wish to continue?');
-						}						
+						}
 
 						if(shippingDateSelected == 'false') {
 							alert('You have not selected a Shipping Date');
 							return false;
 						}
-											
+
 
                         $('#loader').toggle();
                         clicked = 'true'
@@ -175,13 +175,13 @@
 
 			<g:if test="${start && queue}">
 				<g:hiddenField name="queue" value="${queue}" />
-                <g:actionSubmit id="startSubmit" controller="call" class="callerButton" style="position:absolute; left:1080px; top:63px" action="next_order_call" value="Start Calling" />
+                <g:actionSubmit id="startSubmit" controller="call" class="callerButton" style="position:absolute; left:1080px; top:60px" action="next_order_call" value="Start Calling" />
                 <span style="position:absolute; left:0; top:96px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
                 <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
 			</g:if>
 
 			<g:if test="${queue && !start}">
-				 <g:actionSubmit id="submit" style="position:absolute; width:100px; left:1000px; top:63px;" class="callerButton" action="save_order_call" value="Next Call" />
+				 <g:actionSubmit id="submit" style="position:absolute; width:100px; left:1000px; top:60px;" class="callerButton" action="save_order_call" value="Next Call" />
 				 <g:hiddenField name="queue" value="${queue}" />
                  <img id="loader" style="position:absolute; left:1105px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
             </g:if>
@@ -219,7 +219,7 @@
                      </tr>
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="source"><g:message code="customer.source.label" default="Source" /></label>
+                            <label for="source">Class.</label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'source', 'errors')}">
                             ${customerInstance?.source}
@@ -473,7 +473,7 @@
 									</td>
 								</tr>
 
-								
+
                                <tr class="prop">
                                    <td valign="top">
                                        <label for="hasBakery">We make our own bread products from<br/>
@@ -525,8 +525,92 @@
 
                                  </tr>
 
+                           <tr>
+                               <td valign="top">
 
-                               <tr>
+                                   <label for="coOpMember"> Are you a member of a co-op?</label>
+                               </td>
+                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'coOpMember', 'errors')}">
+
+                                   <g:checkBox name="coOpMember" value="${customerInstance?.coOpMember}" />
+
+                               </td>
+
+                           </tr>
+
+                           <tr>
+                               <td valign="top">
+
+                                   <label for="coOpName"> Please enter Co-op Name</label>
+                               </td>
+                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'coOpName', 'errors')}">
+
+                                   <g:textField name="coOpName" value="${customerInstance?.coOpName}" />
+
+                               </td>
+
+                           </tr>
+
+                           <tr>
+                               <td valign="top">
+
+                                   <label for="coOpSamples"> If yes, would you like us to send samples to the co-op?</label>
+                               </td>
+                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'coOpSamples', 'errors')}">
+
+                                   <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
+
+                               </td>
+
+                           </tr>
+
+
+                           <tr>
+                               <td valign="top">
+
+                                   <label for="coOpAddress"> Name and address for the co-op sample</label>
+                               </td>
+                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'coOpAddress', 'errors')}">
+
+                                   <g:textField name="coOpAddress" value="${customerInstance?.coOpAddress}" />
+
+                               </td>
+
+                           </tr>
+
+
+                           <tr>
+                               <td valign="top">
+
+                                   <label for="contractManaged"> Is your district’s foodservice cafeterias contract managed?</label>
+                               </td>
+                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'contractManaged', 'errors')}">
+
+                                   <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+                               </td>
+
+                           </tr>
+
+
+
+
+                           <tr>
+                               <td valign="top">
+
+                                   <label for="contractManager">If yes, by who?</label>
+                               </td>
+                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'contractManager', 'errors')}">
+
+                                   <g:textField name="contractManager" value="${customerInstance?.contractManager}" />
+
+                               </td>
+
+                           </tr>
+
+
+
+
+                           <tr>
                                    <td colspan="2">
                                        <label>Please let us know if you would any of these manufacturers to contact you immediately. </label>
                                    </td>
@@ -547,14 +631,14 @@
                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'otherComments', 'errors')}">
                                        <g:textField name="otherComments" value="${fieldValue(bean: customerInstance, field: 'otherComments')}" />
                                    </td>
-                              </tr>                    
+                              </tr>
                               <tr class="prop">
                                    <td valign="top" class="value" colspan="2">
                                        <label for="callerBrokers"><g:message code="customer.callerBrokers.label" default="Primary FS Distributors" /></label>
 
                                        <g:textField name="callerBrokers" style="width:300px" value="${fieldValue(bean: customerInstance, field: 'callerBrokers')}" />
                                    </td>
-                              </tr>  
+                              </tr>
                               <tr class="prop">
                                   <td>
                                       <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Did NOT get mailing/email" /></label>
@@ -614,7 +698,7 @@
 					  </tbody>
 					</table>
 
-					<table style="margin-top:10px">
+					<table style="margin-top:10px; width:280px">
 						<tbody>
 							<tr class="prop">
 								<td>
@@ -625,7 +709,7 @@
 								<td>
 									<g:select name="shippingDate"
 									  id="shippingDate"
-									  from="${ShippingDate.findAllByShipDate('January 23, 2012')}"
+									  from="${ShippingDate.list()}"
 									  style="width:220px;"
 									  noSelection="${['null':'Select a Shipping Date...']}" />
 								</td>

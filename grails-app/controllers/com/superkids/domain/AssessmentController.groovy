@@ -382,6 +382,11 @@ class AssessmentController {
        [products:products.sort{ it.id }]
     }
 
+
+    def assess_process_step2 = {
+
+    }
+
     def broker_contact = {
         def customerInstance = Customer.get(springSecurityService.principal.id)
         [customerInstance:customerInstance]

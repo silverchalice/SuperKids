@@ -25,7 +25,14 @@ class CallController {
 
 
     def index = {
-        [ caller: springSecurityService.principal ]
+
+        if(springSecurityService.isLoggedIn()) {
+
+           def caller = Caller.get(springSecurityService.principal.id)
+           [caller: caller]
+        }
+
+
     }
 
     def list = {
@@ -410,7 +417,7 @@ class CallController {
 
 	def start_order_call = {
 
-		render view:'order_call_form', model: [ products: Product.findAllByParentIsNull().sort{it.sortOrder}, timezones: timezones, queue: params?.queue, start:'start', sponsors: Sponsor.findAllByInactive(false).sort {it.name} ]
+		render view:'order_call_form', model: [ products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, timezones: timezones, queue: params?.queue, start:'start', sponsors: Sponsor.findAllByInactive(false).sort {it.name} ]
 	}
 
 
@@ -535,7 +542,7 @@ class CallController {
 			}
 			if(saveResult){
 				println "$caller is calling $customer?.fsdName"
-				render view:'order_call_form', model: [customerInstance: customer,  products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
+				render view:'order_call_form', model: [customerInstance: customer,  products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
 			}
 			else{
 				customer.errors.allErrors.each { println it }

@@ -33,6 +33,7 @@ class ShoppingController {
            }
            if(checkParams(params)){
                customerInstance.properties = params
+               if(customerInstance.coOpName) customerInstance.coOpMember = true
 
                Sponsor.list().each { sponsor ->
                     println "checking for sponsor $sponsor"

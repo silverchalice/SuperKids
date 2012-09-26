@@ -38,7 +38,7 @@
     </script>
 
     <g:set var="entityName" value="${message(code: 'assessment.label', default: 'Assessment')}" />
-    <title>SuperKids | Online Assessment</title>
+    <title>SuperKids | Online Assessment - Step 1</title>
 
 </head>
 <body>

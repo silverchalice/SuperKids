@@ -88,6 +88,8 @@ class HomeController {
          Customer customerInstance = new Customer()
          customerInstance.properties = params
 
+         if(customerInstance.coOpName) customerInstance.coOpMember = true
+
            Sponsor.list().each { sponsor ->
                 println "checking for sponsor $sponsor"
                 if(params["sponsor.${sponsor.id}"]) {
