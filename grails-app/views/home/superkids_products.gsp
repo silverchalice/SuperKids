@@ -8,25 +8,30 @@
 
 
         <style type="text/css">
-        .productListItem {
-            margin-bottom: 50px;
-        }
+            .productListItem {
+                margin-bottom: 50px;
+            }
 
-        .productListItem h2 {
-            font-size: 20px
-        }
+            .productListItem h2 {
+                font-size: 20px
+            }
 
-        .productListItem img.ad {
-            float:right;
-            width:275px;
-            margin: 0 5px;
-            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+            .productListItem img.ad {
+                float:right;
+                width:275px;
+                margin: 0 5px;
+                box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 
-        }
+            }
 
             .productListItem a {
                 background: none;
                 padding: 0;
+            }
+
+            .productListItem a.pdf {
+                background:url('../images/icon_pdf.png') no-repeat right center;
+                padding:3px 22px 3px 0;
             }
         </style>
     </head>
