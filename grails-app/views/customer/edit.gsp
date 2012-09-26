@@ -145,14 +145,6 @@
                                    <g:textField name="source" value="${customerInstance?.source}" />
                                </td>
                             </tr>
-
-                        <tr class="prop">
-                            <td valign="top" class="name">Classification</td>
-
-                            <td>
-                                <g:textField name="classification" value="${customerInstance?.classification}" />
-                            </td>
-                        </tr>
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="topCustomer">Top 100</label>
