@@ -522,7 +522,7 @@ ul#nav .amp {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b77b5', endColorstr='#1a549e',GradientType=0 ); /* IE6-9 */
 }
 #order-intro {
-	font-size:18px;
+	font-size:16px;
 	line-height:22px;
 	float:left;
 	width:420px;
@@ -530,6 +530,7 @@ ul#nav .amp {
 }
 
 #order-intro h2 {
+    font-size: 20px;
     margin-top: 0
 }
 #feedback h1 + p {
@@ -1350,4 +1351,16 @@ div.message {
 sup {
     vertical-align: super;
     font-size: smaller;
+}
+
+h1 sup {
+    font-size: 15px;
+}
+
+h2 sup {
+    font-size: 10px;
+}
+
+h3 sup {
+    font-size: 8px;
 }

@@ -215,7 +215,7 @@ class ProductController {
 	def downloadSummary = {
 		def productInstance = Product.get(params.id)
 		response.contentType = "${productInstance.summaryType}"
-		response.setHeader("Content-disposition", "${params.contentDisposition}; filename=${productInstance.summaryName}")
+		response.setHeader("Content-disposition", "${params.contentDisposition}; filename=${productInstance.summaryName.replaceAll(' ', '_')}")
 		response.contentLength = productInstance.summary.size()
 		response.outputStream.write(productInstance.summary)
 	}
