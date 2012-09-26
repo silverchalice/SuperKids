@@ -49,7 +49,7 @@
 
                       <a href="/SuperKids/uploads/${productInstance?.backgroundImage}" target="_blank"><img class="ad" src="/SuperKids/uploads/${productInstance?.backgroundImage}" /></a>
                       ${productInstance.description}
-                      <p><g:link class="pdf" action="downloadSummary" id="${productInstance.id}">Download Summary</g:link></p>
+                      <p><g:link class="pdf" controller="product" action="downloadSummary" id="${productInstance.id}">Download Summary</g:link></p>
 
                   </div>
                   <div class="clear" style="clear: both">&nbsp;</div>
