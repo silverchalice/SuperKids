@@ -12,13 +12,22 @@
             margin-bottom: 50px;
         }
 
+        .productListItem h2 {
+            font-size: 20px
+        }
 
         .productListItem img.ad {
             float:right;
             width:275px;
             margin: 0 5px;
             box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+
         }
+
+            .productListItem a {
+                background: none;
+                padding: 0;
+            }
         </style>
     </head>
     <body>
@@ -35,10 +44,10 @@
 
                       <a href="/SuperKids/uploads/${productInstance?.backgroundImage}" target="_blank"><img class="ad" src="/SuperKids/uploads/${productInstance?.backgroundImage}" /></a>
                       ${productInstance.description}
-
+                      <p><g:link class="pdf" action="downloadSummary" id="${productInstance.id}">Download Summary</g:link></p>
 
                   </div>
-                  <div class="clear" style="clear: both"><g:link class="pdf" action="downloadSummary" id="${productInstance.id}">Download Summary</g:link></div>
+                  <div class="clear" style="clear: both">&nbsp;</div>
               </g:each>
 
           </div>
