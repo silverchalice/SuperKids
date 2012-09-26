@@ -30,14 +30,13 @@
 		<li id="${link=='chef_jeff' ? 'current' : ''}"><g:link controller="home" action="chef_jeff"><span>Chef Jeff at SNA</span></g:link></li>
 		<li id="${link=='what_are_whole_grains' ? 'current' : ''}"><g:link controller="home" action="what_are_whole_grains"><span>What Are Whole Grains?</span></g:link></li>
 		<li id="${link=='whole_grain_list' ? 'current' : ''}"><g:link controller="home" action="whole_grain_list"><span>List of Whole Grains</span></g:link></li>
+        <li id="${link=='usda_standards' ? 'current' : ''}"><g:link controller="home" action="usda_standards"><span>New USDA School Nutrition Standards </span></g:link></li>
 		<li id="${link=='whole_grain_benefits' ? 'current' : ''}"><g:link controller="home" action="whole_grain_benefits"><span>Benefits of Whole Grains</span></g:link></li>
-		<li id="${link=='healthy_hunger_free' ? 'current' : ''}"><g:link controller="home" action="healthy_hunger_free"><span>Healthy Hunger-Free Kids Act</span></g:link></li>
 		<li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate"><span>MyPlate</span></g:link></li>
 		<li id="${link=='whole_grain_studies' ? 'current' : ''}"><g:link controller="home" action="whole_grain_studies"><span>Whole Grains & Human Health</span></g:link></li>
 		<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity"><span>Meeting the Challenge</span></g:link></li>
 		<li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips"><span>Whole Grains Council Tips</span></g:link></li>
-		<li id="${link=='usda_standards' ? 'current' : ''}"><g:link controller="home" action="usda_standards"><span>New USDA School Nutrition Standards </span></g:link></li>
-		<li id="${link=='aliance' ? 'current' : ''}"><g:link controller="home" action="alliance"><span>NConAgra Mills and the Alliance for a Healthier Generation</span></g:link></li>
+		<li id="${link=='aliance' ? 'current' : ''}"><g:link controller="home" action="alliance"><span>ConAgra Mills & the Alliance for a Healthier Generation</span></g:link></li>
       </ul>
       <div class="ad">
         <h3>Win Prizes <span>for Your School District</span></h3>

@@ -855,6 +855,12 @@ p {
 	margin-left:-16px;
 	padding-left:22px;
 }
+
+a.youtube {
+    padding-left: 22px;
+    background:url(../images/icon_youtube.png) no-repeat left 4px;
+}
+
 ol#order-process {
 	margin:31px 0 20px;
 	height:50px;
