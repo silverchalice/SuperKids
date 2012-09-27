@@ -25,6 +25,7 @@
             <div class="remove">
                 <g:link controller="product" action="remove" id="${com.superkids.domain.Product.findByShoppingItem(it['item'])?.id}">Remove from order</g:link>
 
+            </div>
         </div>
     </sks:eachInProducts>
 

@@ -238,14 +238,12 @@
         <tr>
             <td colspan="2">
                 <strong>2.</strong>	Approximately how many students participate in your foodservice program?
-            <input style="float:right" type="text" name="breakfastsServed" size="4" maxlength="6"
-                       value="${customerInstance?.studentsParticipate}"></td>
+            <input style="float:right" type="text" name="breakfastsServed" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
         </tr>
         <tr>
             <td colspan="2">
                 <strong>3.</strong>	Approximately what percent of those students are free or reduced?
-            <input style="float:right"  type="text" name="lunchesServed" size="4" maxlength="6"
-                       value="${customerInstance?.freeStudents}"></td>
+            <input style="float:right"  type="text" name="lunchesServed" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
         </tr>
         <tr>
             <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
@@ -317,11 +315,11 @@
         </tr>
         <tr>
             <td colspan="2">b)	What have been your biggest challenges? <br/>
-                <input type="text" name="wholeGrainChallenge" value="${customerInstance?.wholeGrainChallenge}" size="55" maxlength="1000"></td></td>
+                <input type="text" name="wholeGrainChallenge" value="${customerInstance?.wholeGrainChallenge}" size="55" maxlength="1000"></td>
         </tr>
         <tr>
             <td colspan="2">c)	What would you like to see food companies provide in terms of whole grain-rich? <br/>
-                <input type="text" name="wantedProducts" value="${customerInstance?.wantedProducts}" size="55" maxlength="1000"></td></td>
+                <input type="text" name="wantedProducts" value="${customerInstance?.wantedProducts}" size="55" maxlength="1000"></td>
         </tr>
 
     </table>
