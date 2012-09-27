@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="public" />
+        <meta name="layout" content="about" />
 
         <title>SuperKids | About The Manufacturers</title>
 
@@ -26,7 +26,7 @@
 
             #overview .sponsorListItem {
                 float:none;
-                width:960px;
+                width:720px;
                 clear: both;
                 margin: 30px 0;
                 min-height: 180px;

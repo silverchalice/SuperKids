@@ -6,7 +6,7 @@
     <title>SuperKids | Sustagrain</title>
     <g:javascript library="jquery" plugin="jquery" />
     <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
-    <meta name="layout" content="learn" />
+    <meta name="layout" content="grain" />
     <meta name="link" content="sustagrain" />
   </head>
   <body>

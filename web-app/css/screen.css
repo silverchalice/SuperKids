@@ -298,7 +298,7 @@ ul#nav .amp {
 	height:53px;
 	margin-bottom:-3px; /* to offset the extra 3px for the bg image */
 }
-#grains ul#nav li:nth-child(2) {
+#grain ul#nav li:nth-child(2) {
 	background:url(../images/bg_nav_active.jpg) no-repeat center 40px;
 	height:53px;
 	margin-bottom:-3px; /* to offset the extra 3px for the bg image */
