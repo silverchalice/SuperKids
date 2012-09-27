@@ -90,14 +90,14 @@ class HomeController {
 
          if(customerInstance.coOpName) customerInstance.coOpMember = true
 
-           Sponsor.list().each { sponsor ->
+           /* Sponsor.list().each { sponsor ->
                 println "checking for sponsor $sponsor"
                 if(params["sponsor.${sponsor.id}"]) {
                     customerInstance.addToContactManufacturers(sponsor)
                 } else if(customerInstance.contactManufacturers?.contains(sponsor)) {
                    customerInstance.removeFromContactManufacturers(sponsor)
                 }
-           }
+           } */
 
 
          println "saved new customer: " + customerInstance
@@ -129,6 +129,7 @@ class HomeController {
                render(view:"register", model:[customerInstance:customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
            }
            } else {
+               flash.message = "There were errors with your information."
                render(view:"register", model:[customerInstance:customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
            }
        }
@@ -938,7 +939,7 @@ http://www.superkidssampling.com/
        }
 
        def checkParams(params){
-           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || !params.breakfastsServed || !params.lunchesServed || !params.snacksServed || Customer.findByEmail(params.email) && !springSecurityService.isLoggedIn()){
+           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || Customer.findByEmail(params.email) && !springSecurityService.isLoggedIn()){
                if(!params.fsdName){
                    if(flash.message){
                        flash.message += "Please enter your name <br />"
@@ -979,27 +980,6 @@ http://www.superkidssampling.com/
                        flash.message += "Please enter the address of your school district <br />"
                    } else {
                        flash.message = "Please enter the address of your school district <br />"
-                   }
-               }
-               if(!params.breakfastsServed){
-                   if(flash.message){
-                       flash.message += "Please enter the number of students that you serve breakfast to <br />"
-                   } else {
-                       flash.message = "Please enter the number of students that you serve breakfast to <br />"
-                   }
-               }
-               if(!params.lunchesServed){
-                   if(flash.message){
-                       flash.message += "Please enter the number of students that you serve lunch to <br />"
-                   } else {
-                       flash.message = "Please enter the number of students that you serve lunch to <br />"
-                   }
-               }
-               if(!params.snacksServed){
-                   if(flash.message){
-                       flash.message += "Please enter the number of students that you serve a snack to <br />"
-                   } else {
-                       flash.message = "Please enter the number of students that you serve a snack to <br />"
                    }
                }
                if(Customer.findByEmail(params.email) && !springSecurityService.isLoggedIn()){

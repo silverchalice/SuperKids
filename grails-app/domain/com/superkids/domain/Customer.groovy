@@ -51,25 +51,34 @@ class Customer extends User {
 //	Misc. Questions
 
     String studentsInDistrict //Order Form Question #1
-    String breakfastsServed //Order Form Question #2
-    String lunchesServed //Order Form Question #3
-    String snacksServed //Order Form Question #4
-    String facilities //Order Form Question #5
-
-    boolean hasBakery //Order Form Question #6
-    String monthlyFlourUsage
-    String localBakeries
-
-    String usedUltragrainSustagrainProducts //Order Form Question #7
-    String callerBrokers //Order Form Question #8  -- primary foodservice distributors
-
-    Boolean coOpMember //Order Form Question #9
+    String studentsParticipate //Order Form Question #2
+    String freeStudents //Order Form Question #3
+    Boolean contractManaged //Order Form Question #4
+    String contractManager
+    Boolean coOpMember //Order Form Question #5
     Boolean coOpSamples
     String coOpName
     String coOpAddress
+    String callerBrokers //Order Form Question #6  -- primary foodservice distributors
+    String startLooking  //Order Form Question #7
+    String startBidding //Order Form Question #8
+    boolean hasBakery //Order Form Question #6
+    Boolean useWholeWheatFlour
+    Boolean useUltragrainFlour
+    String localBakeries
+    Boolean readyFor2013
+    Boolean readyFor2014
+    String wholeGrainChallenge
+    String wantedProducts
 
-    Boolean contractManaged //Order Form Question #10
-    String contractManager
+    String breakfastsServed
+    String lunchesServed
+    String snacksServed
+    String facilities
+
+    String monthlyFlourUsage
+
+    String usedUltragrainSustagrainProducts //Order Form Question #7
 
     String otherComments //Order Form Question #11  -- manufacturerComments
 
@@ -138,10 +147,24 @@ class Customer extends User {
 		otherComments nullable:true
 		lastCall nullable:true
 
-        contactManufacturers nullable:true
+        contactManufacturers nullable:true, maxSize: 12000
 
 		studentsInDistrict nullable: true
-		facilities nullable: true
+        studentsParticipate nullable:  true
+        freeStudents nullable: true
+
+        startBidding nullable: true
+        startLooking nullable:  true
+
+        useWholeWheatFlour nullable: true
+        useUltragrainFlour nullable: true
+
+        readyFor2013 nullable: true
+        readyFor2014 nullable: true
+        wholeGrainChallenge nullable: true, maxSize: 12000
+        wantedProducts nullable: true, maxSize: 12000
+
+        facilities nullable: true
 		breakfastsServed nullable: true 
 		lunchesServed nullable: true
 		snacksServed nullable: true

@@ -15,7 +15,7 @@ class LoginController {
 	 * Dependency injection for the authenticationTrustResolver.
 	 */
 	def authenticationTrustResolver
-
+    def config = SpringSecurityUtils.securityConfig
 	/**
 	 * Dependency injection for the springSecurityService.
 	 */
@@ -41,7 +41,7 @@ class LoginController {
 	def auth = {
 		println "entering login:auth"
 		session.current_view = "auth"
-		def config = SpringSecurityUtils.securityConfig
+
 
 		if (springSecurityService.isLoggedIn()) {
 			redirect uri: config.successHandler.defaultTargetUrl

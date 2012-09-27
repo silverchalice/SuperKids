@@ -10,7 +10,7 @@
     <style type="text/css">
 
     div.loginInfo {
-        width: 960px;
+        width: 1000px;
     }
 
     .loginInfo table.loginInfo {
@@ -19,21 +19,21 @@
     }
 
     .loginInfo table.loginInfo tr td {
-        font-size: 20px;
+        font-size: 17px;
         padding: 10px;
     }
 
     .loginInfo table.loginInfo tr td input, .loginInfo table tr td select {
-        font-size: 20px;
+        font-size: 17px;
     }
 
     table.profileForm {
-        width: 550px;
+        width: 600px;
     }
 
     table.profileForm tr td {
         font-size: 15px;
-        padding: 10px 15px;
+        padding: 4px 15px;
     }
 
     table.profileForm tr td input, table.profileForm tr td select {
@@ -86,10 +86,17 @@
 
 <body>
 
-<div style="width: 960px; margin: 0 auto">
+<div style="width: 1000px; margin: 0 auto">
 
 <h1>Sign up for SuperKids</h1>
-
+<g:if test="${flash.message}">
+    <div class="message">${flash.message}</div>
+</g:if>
+<g:hasErrors bean="${customerInstance}">
+    <div class="errors">
+        <g:renderErrors bean="${customerInstance}" as="list"/>
+    </div>
+</g:hasErrors>
 <g:form method="post" action="save" name="profileForm">
 
 <div class="loginInfo">
@@ -200,7 +207,7 @@
     </tr>
 </table>
 
-<div style="float:right; width:480px;">
+<div style="float:right; width:500px;">
     <g:if test="${flash.message}">
         <div class="message" style="color: #8b0000;">${flash.message}</div>
     </g:if>
@@ -215,7 +222,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                1. Approximately how many students are in your district?
+                <strong>1.<strong> Approximately how many students are in your district?
                 <select name="studentsInDistrict">
                     <option value="500">Less than 500
                     <option value="1000">500 - 1,000
@@ -230,71 +237,29 @@
         </tr>
         <tr>
             <td colspan="2">
-                2. Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
+                <strong>2.</strong>	Approximately how many students participate in your foodservice program?
             <input style="float:right" type="text" name="breakfastsServed" size="4" maxlength="6"
-                       value="${customerInstance?.breakfastsServed}"></td>
+                       value="${customerInstance?.studentsParticipate}"></td>
         </tr>
         <tr>
             <td colspan="2">
-                3. Approximately how many students are served <strong>lunch</strong> daily? <span class="req">*</span>
+                <strong>3.</strong>	Approximately what percent of those students are free or reduced?
             <input style="float:right"  type="text" name="lunchesServed" size="4" maxlength="6"
-                       value="${customerInstance?.lunchesServed}"></td>
+                       value="${customerInstance?.freeStudents}"></td>
         </tr>
         <tr>
-            <td colspan="2">
-                4. Approximately how many students are served <strong>breakfast</strong> daily? <span class="req">*</span>
-            <input style="float:right"  type="text" name="snacksServed" size="4" maxlength="6"
-                       value="${customerInstance?.snacksServed}"></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                5. Approximately how many cafeterias, food courts and other eating facilities are in your district’s schools in total?
-                <select name="facilities">
-                    <option value="3">Less Than 3
-                    <option value="5">3-5
-                    <option value="10">6-10
-                    <option value="10+">More Than 10
-                </select>
-            </td>
-        </tr>
-
-    </table>
-
-    <table class="bakeryProfile">
-        <tr>
-            <td colspan="2">
-                <h3>Tell us about your school district’s bakery operation</h3>
+            <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
             </td>
         </tr>
         <tr>
-            <td colspan="2">6. We make our own bread products from scratch in our bakery: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2">a) If yes, how much flour does your district use on a monthly basis in pounds?
-                <input type="text" name="monthlyFlourUsage" value="" size="25" maxlength="1000"></td>
-        </tr>
-        <tr>
-            <td colspan="2">b) Do you work with a local bakery to supply your fresh bakery products? <br/>
-                If you’d like us to contact them about the program, please list them here:<br/>
-                <input type="text" name="localBakeries" value="" size="55" maxlength="1000"></td>
-        </tr>
-        <tr>
-
-            <td colspan="2">7. Do you currently use Ultragrain® or Sustagrain® products in your district? If so, please list:
+            <td colspan="2">b) If yes, by who?
                 <br/>
-                <input type="text" name="usedUltragrainSustagrainProducts" value="" size="55" maxlength="1000"></td>
+                <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
         </tr>
-        <tr>
 
-            <td colspan="2">8.	Who are your primary foodservice distributors?
-                <br/>
-                <input type="text" name="callerBrokers" value="" size="55" maxlength="1000"></td>
-        </tr>
         <tr>
-            <td colspan="2">9.	Are you a member of a co-op? (Please enter Co-op Name)<br/>
-                <input type="text" name="coOpName" value="" size="55" maxlength="1000">
+            <td colspan="2"><strong>5.</strong>	Are you a member of a co-op? (Please enter Co-op Name)<br/>
+                <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
             </td>
         </tr>
         <tr>
@@ -304,22 +269,64 @@
         <tr>
             <td colspan="2">b) Name and address for the co-op sample:
                 <br/>
-                <input type="text" name="coOpAddress" value="" size="55" maxlength="1000"></td>
+                <input type="text" name="coOpAddress" value="${customerInstance?.coOpAddress}" size="55" maxlength="1000"></td>
+        </tr>
+        <tr>
+
+            <td colspan="2"><strong>6.</strong>	Who are your primary foodservice distributors?
+                <br/>
+                <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
+        </tr>
+        <tr>
+
+            <td colspan="2"><strong>7.</strong>	When do you start look at new items for your menu?
+                <br/>
+                <input type="text" name="startLooking" value="${customerInstance?.startLooking}" size="55" maxlength="1000"></td>
+        </tr>
+
+        <tr>
+
+            <td colspan="2"><strong>8.</strong>	When do you issue your bid?
+                <br/>
+                <input type="text" name="startBidding" value="${customerInstance?.startBidding}" size="55" maxlength="1000"></td>
         </tr>
 
 
         <tr>
-            <td colspan="2">10.	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+            <td colspan="2"><strong>9.</strong> Do you bake from scratch in your district? <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
+               </td>
+        </tr>
+        <tr>
+
+            <td colspan="2">b)	If no, do you work with a local bakery to supply your fresh bakery products? If you’d like us to contact them about the program, please list them here:
+                <br/>
+                <input type="text" name="localBakeries" value="${customerInstance?.localBakeries}" size="55" maxlength="1000"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>10.</strong> About Whole Grain Rich:
             </td>
         </tr>
         <tr>
-            <td colspan="2">b) If yes, by who?
-                <br/>
-                <input type="text" name="contractManager" value="" size="55" maxlength="1000"></td>
+            <td colspan="2">a) Are you ready for the 2013 Guidelines?  <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2013 Guidelines? <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
+            </td>
         </tr>
+        <tr>
+            <td colspan="2">b)	What have been your biggest challenges? <br/>
+                <input type="text" name="wholeGrainChallenge" value="${customerInstance?.wholeGrainChallenge}" size="55" maxlength="1000"></td></td>
+        </tr>
+        <tr>
+            <td colspan="2">c)	What would you like to see food companies provide in terms of whole grain-rich? <br/>
+                <input type="text" name="wantedProducts" value="${customerInstance?.wantedProducts}" size="55" maxlength="1000"></td></td>
+        </tr>
+
     </table>
 
-    <table class="manufacturerForm">
+    <!--<table class="manufacturerForm">
         <tr>
             <td colspan="2">
                 <strong>11. Please let us know if you would like any of these manufacturers to contact you immediately.</strong>
@@ -338,11 +345,11 @@
             <td colspan="2">Please list any special requests for the manufacturers you checked: <br/>
                 <input type="text" name="otherComments" value="" size="75" maxlength="1000"></td>
         </tr>
-    </table>
+    </table>  -->
 
 </div>
 
-<div style="clear: both; width: 400px; margin: 0 auto; padding: 50px 10px 100px 200px">
+<div style="clear: both; width: 400px; margin: 0 auto; padding: 20px 10px 50px 200px">
     <input type="hidden" name="Register" value="1">
     <a  id="submitButton" class="btn arrow"><span>Save Your Information & Continue</span></a>
 </div>
