@@ -140,6 +140,10 @@ class ReportController {
 				m.deliveryAddress.state = states[customer.address?.state] ?: customer?.address?.state
 				m.deliveryAddress.zip = customer.deliveryAddress?.zip
 				m.studentsInDistrict = customer.studentsInDistrict
+
+				m.studentsParticipate = customer.studentsParticipate
+				m.freeStudents = customer.freeStudents
+
 				m.facilities = customer.facilities
 				m.breakfastsServed = customer.breakfastsServed
 				m.lunchesServed = customer.lunchesServed
@@ -147,16 +151,21 @@ class ReportController {
 				m.hasBakery = customer.hasBakery ? "YES" : "NO"
                 m.monthlyFlourUsage = customer.monthlyFlourUsage
                 m.localBakeries = customer.localBakeries
-                m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
 
+                m.startLooking = customer.startLooking
+                m.startBidding = customer.startBidding
+                m.readyFor2013 = customer.readyFor2013
+                m.readyFor2014 = customer.readyFor2014
+                m.wholeGrainChallenge = customer.wholeGrainChallenge
+                m.wantedProducts = customer.wantedProducts
+
+                m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
                 m.coOpMember = customer.coOpName ? "YES" : "NO"
                 m.coOpSamples = customer.coOpSamples ? "YES" : "NO"
                 m.coOpName = customer.coOpName
                 m.coOpAddress = customer.coOpAddress
-
                 m.contractManaged = customer.contractManaged ? "YES" : "NO"
                 m.contractManager = customer.contractManager
-
 				m.otherComments = customer.otherComments
 				m.seq = customer.seq
 				m.topCustomer = customer.topCustomer ? "YES" : "NO"
@@ -268,6 +277,8 @@ class ReportController {
                 "deliveryAddress.state",
                 "deliveryAddress.zip",
                 "studentsInDistrict",
+                "studentsParticipate",
+                "freeStudents",
                 "facilities",
                 "breakfastsServed",
                 "lunchesServed",
@@ -275,8 +286,14 @@ class ReportController {
                 "hasBakery",
                 "monthlyFlourUsage",
                 "localBakeries",
-                "usedUltragrainSustagrainProducts",
+                "startLooking",
+                "startBidding",
+                "readyFor2013",
+                "readyFor2014",
+                "wholeGrainChallenge",
+                "wantedProducts",
 
+                "usedUltragrainSustagrainProducts",
                 "coOpMember",
                 "coOpSamples",
                 "coOpName",
@@ -337,6 +354,8 @@ class ReportController {
                 "deliveryAddress.state": "Delivery State",
                 "deliveryAddress.zip": "Delivery Zip",
                 "studentsInDistrict": "Students in District",
+                "studentsParticipate": "Participating Students",
+                "freeStudents": "Free/Discount Students",
                 "facilities": "Facilities",
                 "breakfastsServed": "Breakfasts Served",
                 "lunchesServed": "Lunches Served",
@@ -344,6 +363,14 @@ class ReportController {
                 "hasBakery": "Make our own bread products",
                 "monthlyFlourUsage": "Monthly flour usage",
                 "localBakeries": "Local bakeries to contact",
+
+                "startLooking": "Start Looking",
+                "startBidding": "Start Bidding",
+                "readyFor2013": "Ready for 2013",
+                "readyFor2014": "Ready for 2014",
+                "wholeGrainChallenge": "Challenges",
+                "wantedProducts": "Wanted Products",
+
                 "usedUltragrainSustagrainProducts": "Ultragrain/Sustagrain products in use",
 
                 "coOpMember":"Member of a Co-op",

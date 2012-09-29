@@ -76,14 +76,6 @@ class UrlMappings {
             controller = "home"
             action = "ecards"
         }
-        "/promotion-tools-and-resources" {
-            controller = "home"
-            action = "promotion_tools_and_resources"
-        }
-        "/additional-promotional-ideas" {
-            controller = "home"
-            action = "additional_promotional_ideas"
-        }
         "/testimonials/" {
             controller = "home"
             action = "testimonials"
