@@ -97,7 +97,7 @@ class ShoppingController {
     }
 
        def checkParams(params){
-           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || !params.breakfastsServed || !params.lunchesServed || !params.snacksServed){
+           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street){
                if(!params.fsdName){
                    if(flash.message){
                        flash.message += "Please enter your name <br />"

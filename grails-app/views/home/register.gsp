@@ -208,10 +208,6 @@
 </table>
 
 <div style="float:right; width:500px;">
-    <g:if test="${flash.message}">
-        <div class="message" style="color: #8b0000;">${flash.message}</div>
-    </g:if>
-
     <table class="profileForm">
         <tr>
             <td colspan="2" style="padding-top: 35px">

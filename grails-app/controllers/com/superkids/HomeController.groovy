@@ -90,17 +90,6 @@ class HomeController {
 
          if(customerInstance.coOpName) customerInstance.coOpMember = true
 
-           /* Sponsor.list().each { sponsor ->
-                println "checking for sponsor $sponsor"
-                if(params["sponsor.${sponsor.id}"]) {
-                    customerInstance.addToContactManufacturers(sponsor)
-                } else if(customerInstance.contactManufacturers?.contains(sponsor)) {
-                   customerInstance.removeFromContactManufacturers(sponsor)
-                }
-           } */
-
-
-         println "saved new customer: " + customerInstance
          if(checkParams(params)){
            customerInstance.password = springSecurityService.encodePassword("superkids")
            customerInstance.enabled = true
@@ -110,27 +99,25 @@ class HomeController {
            def userRole = Role.findByAuthority("ROLE_USER")
            if(!customerInstance.hasErrors() && customerInstance.save()){
                UserRole.create customerInstance, userRole, true
-               if(params.brokerName){
-                   def broker = new Broker(name:params.brokerName, phone:params.brokerPhone, fax:params.brokerFax, email:params.brokerEmail, street:params.brokerStreet, street2:params.brokerStreet2, city:params.brokerCity, state:params.brokerState, zip:params.brokerZip, customer:customerInstance)
-                   println broker.name
-                   customerInstance.addToBrokers(broker)
-                   customerInstance.save()
-               }
                flash.message = "Your account was created."
                log.info flash.message
                redirect(action:"register_n")
            } else {
                flash.message = "There were errors with your information."
-               println "errors saving customer " + customerInstance + ":"
+               println "1. errors saving customer " + customerInstance + ":"
                customerInstance.errors.allErrors.each {
                    println it
                    println " "
                }
-               render(view:"register", model:[customerInstance:customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
-           }
+               render(view:"register", model:[customerInstance:customerInstance, states:states])
+             }
            } else {
-               flash.message = "There were errors with your information."
-               render(view:"register", model:[customerInstance:customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}])
+               println "2. errors saving customer " + customerInstance + ":"
+               customerInstance.errors.allErrors.each {
+                   println it
+                   println " "
+               }
+               render(view:"register", model:[customerInstance:customerInstance, states:states])
            }
        }
 
@@ -939,7 +926,8 @@ http://www.superkidssampling.com/
        }
 
        def checkParams(params){
-           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || Customer.findByEmail(params.email) && !springSecurityService.isLoggedIn()){
+           println params
+           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || Customer.findByEmail(params.email)){
                if(!params.fsdName){
                    if(flash.message){
                        flash.message += "Please enter your name <br />"
@@ -982,7 +970,7 @@ http://www.superkidssampling.com/
                        flash.message = "Please enter the address of your school district <br />"
                    }
                }
-               if(Customer.findByEmail(params.email) && !springSecurityService.isLoggedIn()){
+               if(Customer.findByEmail(params.email)){
                    if(flash.message){
                        flash.message += "The email address you have entered is already assigned to an account <br />"
                    } else {
