@@ -414,6 +414,16 @@
                                 </td>
                             </tr>
 
+                        <tr class="prop">
+                            <td colspan="2">Approximately how many students participate<br/> in your foodservice program?
+                                <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
+                        </tr>
+                        <tr class="prop">
+                            <td colspan="2">
+                                <strong>3.</strong>	Approximately what percent of those students<br/> are free or reduced?
+                                <input  type="text" name="freeStudents" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
+                        </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="facilities"><g:message code="customer.facilities.label" default="Facilities" /></label>
@@ -469,6 +479,31 @@
                            </td>
                          </tr>
 
+                        <tr>
+
+                            <td colspan="2">When do you start look at new items for your menu?
+                                <br/>
+                                <input type="text" name="startLooking" value="${customerInstance?.startLooking}" size="55" maxlength="1000"></td>
+                        </tr>
+
+                        <tr>
+
+                            <td colspan="2">When do you issue your bid?
+                                <br/>
+                                <input type="text" name="startBidding" value="${customerInstance?.startBidding}" size="55" maxlength="1000"></td>
+                        </tr>
+
+
+                        <tr>
+                            <td colspan="2">Do you bake from scratch in your district? <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
+                            </td>
+                        </tr>
+
                      <tr class="prop">
                            <td valign="top" class="name">
                                <label for="localBakeries">Do you work with a local bakery to supply your fresh bakery products? If you’d like us to
@@ -478,9 +513,6 @@
                                <g:textField class="textField" name="localBakeries" value="${customerInstance?.localBakeries}" />
                            </td>
                          </tr>
-
-
-
 
 
 
