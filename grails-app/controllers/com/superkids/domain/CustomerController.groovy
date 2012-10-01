@@ -159,7 +159,7 @@ class CustomerController {
 					println it
 					println it.parent
 				}
-                return [customerInstance: customerInstance, products: products, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, broker:broker, statusList:statusList,
+                return [customerInstance: customerInstance, products: products, states: states, broker:broker, statusList:statusList,
 				rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
                 customerInstance.customerOrder.products.each { productOrder ->
@@ -170,7 +170,7 @@ class CustomerController {
 					}
 
                 }
-                return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, broker:broker, statusList:statusList,
+                return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, broker:broker, statusList:statusList,
 						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
           }
     }
