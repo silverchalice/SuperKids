@@ -47,9 +47,10 @@
 						   <tr>
 							   <td class="name">Delivery Address: </td>
 							   <td class="value">
-								   ${customerInstance?.address?.street}<br />
+								   ${customerInstance?.deliveryAddress?.street}<br />
 
-								   ${customerInstance?.address?.street2}
+								   ${customerInstance?.deliveryAddress?.street2}<br/>
+                                   ${customerInstance?.deliveryAddress?.city} ${customerInstance?.deliveryAddress?.state}, ${customerInstance?.deliveryAddress?.zip}
 							   </td>
 						   </tr>
 						   <tr>
@@ -74,6 +75,7 @@
                            <div class="remove">
                                &nbsp;
 
+                           </div>
                            </div>
                        </sks:eachInProducts>
 
