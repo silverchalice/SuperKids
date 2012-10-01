@@ -35,15 +35,6 @@ class ShoppingController {
                customerInstance.properties = params
                if(customerInstance.coOpName) customerInstance.coOpMember = true
 
-               Sponsor.list().each { sponsor ->
-                    println "checking for sponsor $sponsor"
-                    if(params["sponsor.${sponsor.id}"]) {
-                        customerInstance.addToContactManufacturers(sponsor)
-                    } else if(customerInstance.contactManufacturers && customerInstance.contactManufacturers?.contains(sponsor)) {
-                       customerInstance.removeFromContactManufacturers(sponsor)
-                    }
-               }
-
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {
 
                    flash.message = "Your customer details have been updated."

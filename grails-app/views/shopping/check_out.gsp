@@ -332,19 +332,6 @@
 
     </table>
 
-
-    <div class="manufacturerForm">
-        <p><strong>Please let us know if you would like any of these manufacturers to contact you immediately.</strong>  </p>
-
-        <g:each in="${sponsors}" var="sponsor">
-            <span style="display: block; font-size: 14px; width: 200px; float: left"><g:checkBox name="sponsor.${sponsor.id}"
-                                                                                checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
-        </g:each>
-        <p style="display: block; clear: both; padding-top: 10px">Please list any special requests for the manufacturers you checked: <br/>
-            <input type="text" name="otherComments" value="${customerInstance?.otherComments}" size="60" maxlength="1000"/></p>
-    </div>
-
-
 </div>
 
 <div style="clear: both; width: 890px; margin: 0 auto; padding-top: 10px">

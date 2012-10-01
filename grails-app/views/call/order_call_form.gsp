@@ -608,22 +608,6 @@
                            </tr>
 
 
-
-
-                           <tr>
-                                   <td colspan="2">
-                                       <label>Please let us know if you would any of these manufacturers to contact you immediately. </label>
-                                   </td>
-                               </tr>
-                               <tr>
-                                   <td colspan="2">
-                                       <g:each in="${sponsors}" var="sponsor">
-                                           <span style="display: block;"><g:checkBox name="sponsor.${sponsor.id}" checked="${customerInstance?.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
-                                       </g:each>
-                                   </td>
-                               </tr>
-
-
                               <tr class="prop">
                                    <td valign="top">
                                        <label for="otherComments"><g:message code="customer.otherComments.label" default="Please list any special requests for the manufacturers you checked:" /></label>
