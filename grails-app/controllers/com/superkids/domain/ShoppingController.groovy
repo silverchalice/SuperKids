@@ -149,27 +149,6 @@ class ShoppingController {
                        flash.message = "Please enter the address of your school district <br />"
                    }
                }
-               if(!params.breakfastsServed){
-                   if(flash.message){
-                       flash.message += "Please enter the number of students that you serve breakfast to <br />"
-                   } else {
-                       flash.message = "Please enter the number of students that you serve breakfast to <br />"
-                   }
-               }
-               if(!params.lunchesServed){
-                   if(flash.message){
-                       flash.message += "Please enter the number of students that you serve lunch to <br />"
-                   } else {
-                       flash.message = "Please enter the number of students that you serve lunch to <br />"
-                   }
-               }
-               if(!params.snacksServed){
-                   if(flash.message){
-                       flash.message += "Please enter the number of students that you serve a snack to <br />"
-                   } else {
-                       flash.message = "Please enter the number of students that you serve a snack to <br />"
-                   }
-               }
                return false
            } else {
                return true

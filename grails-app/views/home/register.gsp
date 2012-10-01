@@ -238,12 +238,12 @@
         <tr>
             <td colspan="2">
                 <strong>2.</strong>	Approximately how many students participate in your foodservice program?
-            <input style="float:right" type="text" name="breakfastsServed" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
+            <input style="float:right" type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
         </tr>
         <tr>
             <td colspan="2">
                 <strong>3.</strong>	Approximately what percent of those students are free or reduced?
-            <input style="float:right"  type="text" name="lunchesServed" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
+            <input style="float:right"  type="text" name="freeStudents" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
         </tr>
         <tr>
             <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
@@ -261,7 +261,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">a)	If yes, would you like us to send samples to the co-op?  <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
+            <td colspan="2">a)	If yes, would you like us to send samples to the co-op? Yes: Yes: <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
             </td>
         </tr>
         <tr>
@@ -291,12 +291,12 @@
 
 
         <tr>
-            <td colspan="2"><strong>9.</strong> Do you bake from scratch in your district? <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+            <td colspan="2"><strong>9.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
             </td>
         </tr>
 
         <tr>
-            <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
+            <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  Yes: <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
                </td>
         </tr>
         <tr>
@@ -310,7 +310,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">a) Are you ready for the 2013 Guidelines?  <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2013 Guidelines? <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
+            <td colspan="2">a) Are you ready for the 2013 Guidelines?  Yes: <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2013 Guidelines? Yes: <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
             </td>
         </tr>
         <tr>

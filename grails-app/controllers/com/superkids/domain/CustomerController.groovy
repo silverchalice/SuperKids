@@ -153,7 +153,7 @@ class CustomerController {
             Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'HAS NOT ORDERED', 'HAS_ORDERED':'HAS ORDERED']
             def products = []
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
-                products = Product.findAllWhere(parent: null)
+                products = Product.findAllByParentIsNullAndLiveProduct(true)
 
 				products.each {
 					println it

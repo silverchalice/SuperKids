@@ -479,14 +479,9 @@
                            </td>
                          </tr>
 
-                     <tr class="prop">
-                       <td valign="top" class="name">
-                           <label for="usedUltragrainSustagrainProducts">Do you currently use Ultragrain or Sustagrain products in your district? If so, please list: </label>
-                       </td>
-                       <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'usedUltragrainSustagrainProducts', 'errors')}">
-                           <g:textField class="texField" name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" />
-                       </td>
-                     </tr>
+
+
+
 
 
                      <tr class="prop">

@@ -245,12 +245,12 @@
         <tr>
             <td colspan="2">
                 <strong>2.</strong>	Approximately how many students participate<br/> in your foodservice program?
-                <input type="text" name="breakfastsServed" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
+                <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
         </tr>
         <tr>
             <td colspan="2">
                 <strong>3.</strong>	Approximately what percent of those students<br/> are free or reduced?
-                <input  type="text" name="lunchesServed" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
+                <input  type="text" name="freeStudents" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
         </tr>
         <tr>
             <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
@@ -349,7 +349,7 @@
 
 <div style="clear: both; width: 890px; margin: 0 auto; padding-top: 10px">
     <hr />
-    <a href="${createLink(controller: 'shopping', action: 'index')}">&laquo; Back</a><a href="#" title="Move to the next step" class="submitButton btn arrow"><span>Proceed with order</span></a>
+    <a href="${createLink(controller: 'shopping', action: 'index')}">&laquo; Back to Samples</a><a href="#" title="Move to the next step" class="submitButton btn arrow"><span>Proceed with order</span></a>
 </div>
 </div>
 </g:form>

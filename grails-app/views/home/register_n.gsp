@@ -7,7 +7,6 @@
     <body>
         <div style="width: 640px; margin: 0 auto; text-align: center">
             <h1 style="margin-left: auto">Thank You For Registering</h1>
-            <h2>You'll be clear to order in just a second.</h2><br />
             <p>The next screen will ask for your user name and a password.  Enter the following:</p>
             <div style="padding-left:120px; text-align: left">
                 <p>User Name -- Enter the <strong>email address</strong> you used on the Registration page</p>
@@ -15,7 +14,7 @@
             </div>
             <p>Please note that 'superkids' is your temporary password.  After you enter it, you will be asked to change it for security purposes.</p>
 
-            <p>Now, click the blue login button in the upper right corne to login to your new account.  Thank you again for your interest in SuperKids.</p>
+            <p>Now, <strong>click the blue login button in the upper right corner to login</strong> to your new account.  Thank you again for your interest in SuperKids.</p>
             <h3>For Assistance, Please Contact</h3>
 
             <address>
