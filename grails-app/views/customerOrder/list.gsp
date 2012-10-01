@@ -45,7 +45,7 @@
                     <g:each in="${customerOrderInstanceList}" status="i" var="customerOrderInstance">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td>${Customer.findByOrder(customerOrderInstance)}</td>
+                            <td>${Customer.findByCustomerOrder(customerOrderInstance)}</td>
 
 							<td style="width:50px;">${customerOrderInstance?.products?.size()}</td>
 
