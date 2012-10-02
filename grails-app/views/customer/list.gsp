@@ -67,7 +67,7 @@
 
                             <td style="width:32px;">${customerInstance?.source}</td>
 
-                            <td><g:link action="show" id="${customerInstance.id}">
+                            <td><g:link action="edit" id="${customerInstance.id}">
 								<g:if test="${customerInstance.deleted}">
 									<span class="deleted">
 									    ${fieldValue(bean: customerInstance, field: "district")}
@@ -120,10 +120,9 @@
                         	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>
 
-                            <td width="110px">
+                            <td>
 
                             <g:link controller="customer" class="button" action="edit" id="${customerInstance.id}" params='[sort:"${sort}", offset:"${offset}", rController:"customer", rAction:"list"]'>Edit</g:link>
-                            <g:link controller="customer" class="button" action="show" id="${customerInstance.id}" params='[sort:"${sort}", offset:"${offset}", rController:"customer", rAction:"list"]' >View</g:link>
                             </td>
 
                         </tr>

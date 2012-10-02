@@ -1,10 +1,10 @@
 <%@ page import="com.superkids.domain.ShippingDate" %>
-<table cellpadding="5" cellspacing="0" style="width:420px; border: 1px solid #cccccc;">
+<table cellpadding="5" cellspacing="0" style="width:720px; border: 1px solid #cccccc;">
 		<tr>
 			<td colspan="3" align="left" class="adminheadline">Ordered Items &nbsp;
 			 <g:link controller="customerOrder" action="show" id="${customerInstance?.customerOrder?.id}">(View Order)</g:link></td>
 			<td colspan="3" align="left" class="">
-                <g:if test="${customerInstance?.hasCompletedCurrentAssessment == false}">
+                <g:if test="${!customerInstance?.hasCompletedCurrentAssessment}">
                     <a href="javascript:showCompleteAssessForm()">Complete Assessment</a>
                 </g:if>
                 <g:else>

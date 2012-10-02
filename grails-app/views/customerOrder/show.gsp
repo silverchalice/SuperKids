@@ -51,7 +51,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="customerOrder.customer.label" default="Customer" /></td>
 
-                            <td valign="top" class="value"><g:link controller="customer" action="show" id="${customerOrderInstance?.customer?.id}">${customerOrderInstance?.customer?.district}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="customer" action="edit" id="${customerOrderInstance?.customer?.id}">${customerOrderInstance?.customer?.district}</g:link></td>
 
                         </tr>
                         <tr class="prop">

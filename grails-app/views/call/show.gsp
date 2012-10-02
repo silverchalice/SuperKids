@@ -32,7 +32,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="call.customer.label" default="Customer" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="customer" action="show" id="${callInstance?.customer?.id}"> ${callInstance?.customer?.id} - ${callInstance?.customer?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="customer" action="edit" id="${callInstance?.customer?.id}"> ${callInstance?.customer?.id} - ${callInstance?.customer?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
 						<tr class="prop">
