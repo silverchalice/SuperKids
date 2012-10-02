@@ -1,5 +1,5 @@
 <%@ page import="com.superkids.domain.ShippingDate" %>
-			<table cellpadding="5" cellspacing="0" style="width:720px">
+			<table cellpadding="5" cellspacing="0" style="width:750px">
 				<tr>
 					<td colspan="2" align="left" class="adminheadline">Manual Order</td>
 				</tr>
