@@ -336,7 +336,7 @@
         <g:textField name="fax" value="${customerInstance?.fax}"/>
     </td>
 </tr>
-<tr class="prop">
+<!--<tr class="prop">
     <td class="name"></td>
     <td class="value">
         <h3>Chief Dietitian</h3>
@@ -399,7 +399,7 @@
     <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'ndTitle', 'errors')}">
         <g:textField class="textField" name="ndTitle" value="${customerInstance?.ndTitle}"/>
     </td>
-</tr>
+</tr>-->
 
 </tbody>
 </table>
@@ -590,7 +590,7 @@
 
 </div>
 </g:form>
-
+<br/>
 <g:if test="${customerInstance.status != CustomerStatus.HAS_NOT_ORDERED}">
     <g:render template="ordered_items" model="[customerInstance: customerInstance, products: products]"/>
 </g:if>

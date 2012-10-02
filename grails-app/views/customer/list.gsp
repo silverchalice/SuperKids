@@ -19,7 +19,7 @@
             <span class="menuButton"><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></span>
             <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
         </div>
-        <div class="body">
+        <div class="body" style="width: auto;">
             <div style="margin:20px 0 0 0; padding:15px;">
                 <g:form method="post" action="findSchoolDistrict">
                     <strong>School District:</strong> <input  style="width:300px" type="text" name="query" />
@@ -43,7 +43,6 @@
 
                             <g:sortableColumn property="fsdName" title="Name" />
 
-                            <g:sortableColumn property="dateCreated" title="Entry Date" />
 
                             <g:sortableColumn property="hasPlacedCurrentOrder" title="Ordered" />
 
@@ -88,8 +87,6 @@
 									${fieldValue(bean: customerInstance, field: "fsdName")}
 								</g:else>
 								</td>
-
-                            <td style="width:80px"><g:formatDate format="MM/dd/yyyy" date="${customerInstance.dateCreated}" /></td>
 
                             <td style="width:50px">
                           	    <sks:orderCheckbox name="placedOrder" id="${customerInstance.id}" />

@@ -196,15 +196,6 @@ class CustomerController {
             }
             customerInstance.properties = params
 
-            Sponsor.list().each { sponsor ->
-                 println "checking for sponsor $sponsor"
-                 if(params["sponsor.${sponsor.id}"]) {
-                     customerInstance.addToContactManufacturers(sponsor)
-                 } else if(customerInstance.contactManufacturers && customerInstance.contactManufacturers.contains(sponsor)) {
-                    customerInstance.removeFromContactManufacturers(sponsor)
-                 }
-            }
-
             if(params.status != "currentStatus"){
                 customerInstance.status = CustomerStatus."${params.status}"
             }
@@ -213,6 +204,7 @@ class CustomerController {
                 user.username = params.email
                 if(!user.save(flush:true)) {
 					flash.message = "invalid data!"
+                    user.errors.allErrors.each { println it }
 					redirect action:'edit', id:customerInstance?.id
 					return
 				}
@@ -221,6 +213,7 @@ class CustomerController {
                 flash.message = "Updated profile for customer ${customerInstance.district}"
                 redirect(controller: rController, action: rAction, params:[sort:params?.sort, offset:params?.offset, query:params?.query])
             } else {
+                customerInstance.errors.allErrors.each { println it }
                 flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
                 redirect(action: "list")
             }
