@@ -73,8 +73,9 @@
             <h1 style="display:inline"><g:message code="default.edit.label" args="[entityName]" /></h1>  <h1 style="display:inline; margin-left:35%">Order Details</h1>
 			<br/>
 
-            <div style="float:left;">
             <g:form method="post">
+            <div style="float:left;">
+
                 <g:hiddenField name="id" value="${customerInstance?.id}" />
                 <g:hiddenField name="version" value="${customerInstance?.version}" />
                 <g:hiddenField name="offset" value="${offset}" />
@@ -405,7 +406,7 @@
 
                 </div>
 
-            </g:form>
+
             </div>
             <div style="float:left; margin-left:10px; width:420px;">
             <h1>Additional Information</h1>
@@ -576,7 +577,7 @@
                         <label for="seq"><g:message code="customer.seq.label" default="Sequence Number (DO NOT CHANGE)" /></label>
                     </td>
                     <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'seq', 'errors')}">
-                        <g:textField name="seq" value="${fieldValue(bean: customerInstance, field: 'seq')}" />
+                        <g:textField name="seq" value="${customerInstance.seq}" />
                     </td>
                 </tr>
                 <tr>
@@ -590,7 +591,7 @@
 
 
 			</div>
-
+            </g:form>
 
             <g:if test="${customerInstance.status != CustomerStatus.HAS_NOT_ORDERED}">
                 <g:render template="ordered_items" model="[customerInstance: customerInstance, products: products]" />
