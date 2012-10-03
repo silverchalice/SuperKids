@@ -430,199 +430,99 @@
 				</table>
 					  <table style="margin: 10px 10px 10px 0;width:500px; ">
 						   <tbody>
-							  <tr class="prop">
-									<td valign="top">
-										<label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="# of Students In District" /></label>
-									</td>
-									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'studentsInDistrict', 'errors')}">
-										<g:textField name="studentsInDistrict" value="${fieldValue(bean: customerInstance, field: 'studentsInDistrict')}" />
-									</td>
-								</tr>
-                                <tr class="prop">
-                                    <td valign="top">
-                                        <label for="breakfastsServed"><g:message code="customer.breakfastsServed.label" default="# of Breakfasts Served" /></label>
-                                    </td>
-                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'breakfastsServed', 'errors')}">
-                                        <g:textField name="breakfastsServed" value="${fieldValue(bean: customerInstance, field: 'breakfastsServed')}" />
-                                    </td>
-                                </tr>
-
-                                <tr class="prop">
-                                    <td valign="top">
-                                        <label for="lunchesServed"><g:message code="customer.lunchesServed.label" default="# of Lunches Served" /></label>
-                                    </td>
-                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'lunchesServed', 'errors')}">
-                                        <g:textField name="lunchesServed" value="${fieldValue(bean: customerInstance, field: 'lunchesServed')}" />
-                                    </td>
-                                </tr>
-
-                                <tr class="prop">
-                                    <td valign="top">
-                                        <label for="snacksServed"><g:message code="customer.snacksServed.label" default="# of Snacks Served" /></label>
-                                    </td>
-                                    <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'snacksServed', 'errors')}">
-                                        <g:textField name="snacksServed" value="${fieldValue(bean: customerInstance, field: 'snacksServed')}" />
-                                    </td>
-                                </tr>
-								<tr class="prop">
-									<td valign="top">
-										<label for="facilities"><g:message code="customer.facilities.label" default="# of Facilities" /></label>
-									</td>
-									<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'facilities', 'errors')}">
-										<g:textField name="facilities" value="${fieldValue(bean: customerInstance, field: 'facilities')}" />
-									</td>
-								</tr>
-
-
-                               <tr class="prop">
-                                   <td valign="top">
-                                       <label for="hasBakery">We make our own bread products from<br/>
-                                           scratch in our bakery (proof & bake)</label>
-                                   </td>
-                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'hasBakery', 'errors')}">
-                                       <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
-                                   </td>
-                               </tr>
-
-                               <tr>
-                                  <td valign="top">
-
-                                         <label for="monthlyFlourUsage">How much flour usage on a monthly basis (lbs)?</label>
-                                  </td>
-                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'monthlyFlourUsage', 'errors')}">
-                                         <g:textField name="monthlyFlourUsage" value="${customerInstance?.monthlyFlourUsage}"/>
-
-                                   </td>
-
-                                 </tr>
-
-
-
-                                <tr>
-                                 <td valign="top">
-
-
-                                        <label for="localBakeries"> Do you work with a local bakery to supply your fresh bakery products? Please list them here.</label>
-                                 </td>
-                                  <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'localBakeries', 'errors')}">
-
-                                     <g:textField name="localBakeries" value="${customerInstance?.localBakeries}"/>
-                                    </td>
-
-                                </tr>
-
-
-                                 <tr>
-                                  <td valign="top">
-
-                                         <label for="usedUltragrainSustagrainProducts"> Do you currently use Ultragrain® or Sustagrain® products in your district?</label>
-                                  </td>
-                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'usedUltragrainSustagrainProducts', 'errors')}">
-
-                                      <g:textField name="usedUltragrainSustagrainProducts" value="${customerInstance?.usedUltragrainSustagrainProducts}" />
-
-                                  </td>
-
-                                 </tr>
-
                            <tr>
-                               <td valign="top">
-
-                                   <label for="coOpMember"> Are you a member of a co-op?</label>
+                               <td colspan="2">
+                                   <strong>1.</strong>How many students are in your district?
+                                   <input type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}"></td>
+                           </td>
+                           </tr>
+                           <tr>
+                               <td colspan="2">
+                                   <strong>2.</strong>How many students participate in your foodservice program?
+                                   <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
+                           </tr>
+                           <tr>
+                               <td colspan="2">
+                                   <strong>3.</strong>What percent of those students are free or reduced?
+                                   <input type="text" name="freeStudents" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
+                           </tr>
+                           <tr>
+                               <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
                                </td>
-                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'coOpMember', 'errors')}">
-
-                                   <g:checkBox name="coOpMember" value="${customerInstance?.coOpMember}" />
-
-                               </td>
-
+                           </tr>
+                           <tr>
+                               <td colspan="2">b) If yes, by who?
+                                   <br/>
+                                   <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
                            </tr>
 
                            <tr>
-                               <td valign="top">
-
-                                   <label for="coOpName"> Please enter Co-op Name</label>
+                               <td colspan="2"><strong>5.</strong>	Are you a member of a co-op? (Please enter Co-op Name)<br/>
+                                   <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
                                </td>
-                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'coOpName', 'errors')}">
-
-                                   <g:textField name="coOpName" value="${customerInstance?.coOpName}" />
-
+                           </tr>
+                           <tr>
+                               <td colspan="2">a)	If yes, would you like us to send samples to the co-op? Yes: <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
                                </td>
+                           </tr>
+                           <tr>
+                               <td colspan="2">b) Name and address for the co-op sample:
+                                   <br/>
+                                   <input type="text" name="coOpAddress" value="${customerInstance?.coOpAddress}" size="55" maxlength="1000"></td>
+                           </tr>
+                           <tr>
 
+                               <td colspan="2"><strong>6.</strong>	Who are your primary foodservice distributors?
+                                   <br/>
+                                   <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
+                           </tr>
+                           <tr>
+
+                               <td colspan="2"><strong>7.</strong>	When do you start look at new items for your menu?
+                                   <br/>
+                                   <input type="text" name="startLooking" value="${customerInstance?.startLooking}" size="55" maxlength="1000"></td>
                            </tr>
 
                            <tr>
-                               <td valign="top">
 
-                                   <label for="coOpSamples"> If yes, would you like us to send samples to the co-op?</label>
-                               </td>
-                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'coOpSamples', 'errors')}">
-
-                                   <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
-
-                               </td>
-
+                               <td colspan="2"><strong>8.</strong>	When do you issue your bid?
+                                   <br/>
+                                   <input type="text" name="startBidding" value="${customerInstance?.startBidding}" size="55" maxlength="1000"></td>
                            </tr>
 
 
                            <tr>
-                               <td valign="top">
-
-                                   <label for="coOpAddress"> Name and address for the co-op sample</label>
+                               <td colspan="2"><strong>9.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
                                </td>
-                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'coOpAddress', 'errors')}">
-
-                                   <g:textField name="coOpAddress" value="${customerInstance?.coOpAddress}" />
-
-                               </td>
-
                            </tr>
-
 
                            <tr>
-                               <td valign="top">
-
-                                   <label for="contractManaged"> Is your district’s foodservice cafeterias contract managed?</label>
+                               <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  Yes: <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
                                </td>
-                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'contractManaged', 'errors')}">
-
-                                   <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
-                               </td>
-
                            </tr>
-
-
-
-
                            <tr>
-                               <td valign="top">
 
-                                   <label for="contractManager">If yes, by who?</label>
-                               </td>
-                               <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'contractManager', 'errors')}">
-
-                                   <g:textField name="contractManager" value="${customerInstance?.contractManager}" />
-
-                               </td>
-
+                               <td colspan="2">b)	If no, do you work with a local bakery to supply your fresh bakery products?<br/>
+                                   If you’d like us to contact them about the program, please list them here:
+                                   <br/>
+                                   <input type="text" name="localBakeries" value="${customerInstance?.localBakeries}" size="55" maxlength="1000"></td>
                            </tr>
-
-
-                              <tr class="prop">
-                                   <td valign="top">
-                                       <label for="otherComments"><g:message code="customer.otherComments.label" default="Please list any special requests for the manufacturers you checked:" /></label>
-                                   </td>
-                                   <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'otherComments', 'errors')}">
-                                       <g:textField name="otherComments" value="${fieldValue(bean: customerInstance, field: 'otherComments')}" />
-                                   </td>
-                              </tr>
-                              <tr class="prop">
-                                   <td valign="top" class="value" colspan="2">
-                                       <label for="callerBrokers"><g:message code="customer.callerBrokers.label" default="Primary FS Distributors" /></label>
-
-                                       <g:textField name="callerBrokers" style="width:300px" value="${fieldValue(bean: customerInstance, field: 'callerBrokers')}" />
-                                   </td>
-                              </tr>
+                           <tr>
+                               <td colspan="2"><strong>10.</strong> About Whole Grain Rich:
+                               </td>
+                           </tr>
+                           <tr>
+                               <td colspan="2">a) Are you ready for the 2013 Guidelines?  Yes: <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2013 Guidelines? Yes: <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
+                               </td>
+                           </tr>
+                           <tr>
+                               <td colspan="2">b)	What have been your biggest challenges? <br/>
+                                   <input type="text" name="wholeGrainChallenge" value="${customerInstance?.wholeGrainChallenge}" size="55" maxlength="1000"></td>
+                           </tr>
+                           <tr>
+                               <td colspan="2">c)	What would you like to see food companies provide in terms of whole grain-rich? <br/>
+                                   <input type="text" name="wantedProducts" value="${customerInstance?.wantedProducts}" size="55" maxlength="1000"></td>
+                           </tr>
                               <tr class="prop">
                                   <td>
                                       <label for="didNotReceiveMailing"><g:message code="customer.didNotReceiveMailing.label" default="Did NOT get mailing/email" /></label>
