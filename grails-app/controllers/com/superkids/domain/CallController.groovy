@@ -178,7 +178,7 @@ class CallController {
 						println "oops... $caller had problems saving order for customer " + customer?.fsdName
 						order.errors.allErrors.each { println it }
 						flash.message = "Invalid Order - please check input"
-						render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call,  queue: params?.queue, currentTimezone: currentTimezone]
+						render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call,  queue: params?.queue, currentTimezone: currentTimezone]
 					}
 				} else {
 					call.result = CallResult.valueOf(params.result)
@@ -271,18 +271,18 @@ class CallController {
 					println "This is a non-queue call"
 					if(params?.search) {
 						println "$caller made this call from a search results page - storing the query before rendering"
-						model = [customerInstance: customer, search: 'true', single:'true', query: params?.query, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, checkedProducts: checkedProducts]
+						model = [customerInstance: customer, search: 'true', single:'true', query: params?.query, currentTimezone: currentTimezone, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, checkedProducts: checkedProducts]
 					} else if(params?.cb) {
 						println "This call was made from the Callback list - redirecting back to CB List"
-						model = [customerInstance: customer, single:'true', cb: params?.cb, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, checkedProducts: checkedProducts]
+						model = [customerInstance: customer, single:'true', cb: params?.cb, currentTimezone: currentTimezone, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, checkedProducts: checkedProducts]
 					} else if(params?.ocl) {
 						println "This call was made from the Order Call list - redirecting back to OC List"
-						model = [customerInstance: customer, single:'true', olc: params?.ocl, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, checkedProducts: checkedProducts]
+						model = [customerInstance: customer, single:'true', olc: params?.ocl, currentTimezone: currentTimezone, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, checkedProducts: checkedProducts]
 					} else {
-						model = [customerInstance: customer, single: 'true', currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, checkedProducts: checkedProducts]
+						model = [customerInstance: customer, single: 'true', currentTimezone: currentTimezone, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, checkedProducts: checkedProducts]
 					}
 				} else {
-					model = [customerInstance: customer, queue:params?.queue, currentTimezone: currentTimezone, products: Product.findAllByParentIsNull().sort{it.sortOrder}, checkedProducts: checkedProducts]
+					model = [customerInstance: customer, queue:params?.queue, currentTimezone: currentTimezone, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, checkedProducts: checkedProducts]
 				}
 				render view:'order_call_form', model: model
 			}
@@ -568,7 +568,7 @@ class CallController {
 				customer.inCall = new Date()
 				if(customer.save(flush:true)) {
 				println "$caller is calling $customer?.fsdName"
-				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone]
+				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone]
 			} else {
 				customer.errors.allErrors.each { println it }
 				flash.message = "Oops! An error occured"
@@ -610,12 +610,12 @@ class CallController {
 
 		if(customer) {
 			customer.inCall = new Date()
-			render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call, order: order, queue: 'true', timezone: params?.timezone ]
+			render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, queue: 'true', timezone: params?.timezone ]
 		} else {
 			customer = Customer.findByStatusAndInCall(CustomerStatus.HAS_NOT_ORDERED, null)
 			customer.inCall = new Date()
 			customer.save(flush:true)
-			render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call, order: order, queue: 'true' ]
+			render view:'order_call_form', model: [ customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, queue: 'true' ]
 		}
 	}
 
@@ -637,10 +637,10 @@ class CallController {
 
 			def model = [:]
 
-			if(params?.search) 	model = [ customerInstance: customer, products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call, order: order, single: true, search: true, query: params?.query]
-			else if(params?.cb) model = [ customerInstance: customer, products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call, order: order, single: true, cb: params?.cb]
-			else if(params?.ocl) model = [ customerInstance: customer, products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call, order: order, single: true, ocl: params?.ocl]
-			else model = [ customerInstance: customer, products: Product.findAllByParentIsNull().sort{it.sortOrder}, call: call, order: order, single: true]
+			if(params?.search) 	model = [ customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, single: true, search: true, query: params?.query]
+			else if(params?.cb) model = [ customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, single: true, cb: params?.cb]
+			else if(params?.ocl) model = [ customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, single: true, ocl: params?.ocl]
+			else model = [ customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, single: true]
 
 			render view:'order_call_form', model:  model
 
