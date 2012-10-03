@@ -9,6 +9,10 @@ class HomeController {
     def springSecurityService
     def mailService
 
+    static def states =['AL','AK','AZ','AR',' CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME',
+            'MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA',
+            'RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
+
     def index = {
         if(springSecurityService.isLoggedIn()){
             println springSecurityService.principal?.username
@@ -57,17 +61,6 @@ class HomeController {
             customerInstance.address = new Address()
             customerInstance.deliveryAddress = new Address()
 
-            def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-
             customerInstance.properties = params
 
             return [customerInstance: customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
@@ -75,16 +68,7 @@ class HomeController {
 
        def save = {
          params.username = params.email
-         def states=['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+
          Customer customerInstance = new Customer()
          customerInstance.properties = params
 
@@ -126,16 +110,7 @@ class HomeController {
        }
 
        def edit_profile = {
-            def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']   
+
            if(springSecurityService.isLoggedIn()){
                def user = Customer.get(springSecurityService.principal.id)
                def userRole = Role.findByAuthority("ROLE_USER")
@@ -150,16 +125,7 @@ class HomeController {
        }
 
        def update = {
-         def states=['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+
            def customerInstance = Customer.get(params.id)
            if (customerInstance) {
                if (params.version) {

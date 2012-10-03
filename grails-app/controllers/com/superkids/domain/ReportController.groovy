@@ -128,7 +128,7 @@ class ReportController {
 				m.address.street = customer.address?.street
 				m.address.street2 = customer.address?.street2
 				m.address.city = customer.address?.city
-				m.address.state = states[customer.address?.state] ?: customer?.address?.state
+				m.address.state = customer?.address?.state
 				m.address.zip = customer.address?.zip
 				m.phone = customer.phone
 				m.fax = customer.fax
@@ -137,7 +137,7 @@ class ReportController {
 				m.deliveryAddress.street = customer.deliveryAddress?.street
 				m.deliveryAddress.street2 = customer.deliveryAddress?.street2
 				m.deliveryAddress.city = customer.deliveryAddress?.city
-				m.deliveryAddress.state = states[customer.address?.state] ?: customer?.address?.state
+				m.deliveryAddress.state = customer?.address?.state
 				m.deliveryAddress.zip = customer.deliveryAddress?.zip
 				m.studentsInDistrict = customer.studentsInDistrict
 

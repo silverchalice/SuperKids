@@ -6,17 +6,9 @@ class CustomerController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    static def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-            'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-            'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-            'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-            'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-            'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-            'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-            'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-            'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-            'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-
+    static def states = ['AL','AK','AZ','AR',' CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME',
+            'MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA',
+            'RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
 
     def index = {
         redirect(action: "list", params: params)
@@ -132,7 +124,7 @@ class CustomerController {
                 return [customerInstance: customerInstance, products: products, states: states, broker:broker, statusList:statusList,
 				rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
-                customerInstance.customerOrder.products.each { productOrder ->
+                customerInstance?.customerOrder?.products?.each { productOrder ->
 					if(productOrder?.received && productOrder?.product){
 						if(!Product.findByParent(productOrder.product))
                         products << productOrder
