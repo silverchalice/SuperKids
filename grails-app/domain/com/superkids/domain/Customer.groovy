@@ -120,6 +120,9 @@ class Customer extends User {
 		fax nullable: true 
 		inCall nullable:true
 
+        didNotReceiveMailing nullable:true
+        seq nullable: true
+
         source nullable:true
 
 		fsdName nullable: false
