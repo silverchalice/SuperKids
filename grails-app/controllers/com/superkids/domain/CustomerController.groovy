@@ -6,6 +6,18 @@ class CustomerController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    static def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+            'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
+            'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
+            'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+            'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
+            'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
+            'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
+            'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
+            'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
+            'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+
+
     def index = {
         redirect(action: "list", params: params)
     }
@@ -21,17 +33,6 @@ class CustomerController {
 
     def create = {
 
-		def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-
         def customerInstance = new Customer()
 		customerInstance.address = new Address()
 		customerInstance.deliveryAddress = new Address()
@@ -41,19 +42,6 @@ class CustomerController {
     }
 
 	def save = {
-
-		def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-
-
         println "saving a new customer through admin site"
         params.each { key, val ->
           println "$key = $val"
@@ -122,16 +110,7 @@ class CustomerController {
          if(params.brokerId){
              broker = Broker.get(params.brokerId)
          }
-         def states=['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+
         def customerInstance = Customer.get(params.id)
         if (!customerInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
