@@ -52,7 +52,7 @@ class CustomerController {
 			UserRole.create customerInstance, userRole, true
 			println "we just saved a new customer. (pause for deafening applause.) username: " + customerInstance.username + "; email: " + customerInstance.email + "; password: " + params.password
 			flash.message = "Customer account created."
-            redirect(action: "show", id: customerInstance.id)
+            redirect(action: "edit", id: customerInstance.id)
 		} else {
             println "customer save action: save failed"
 			flash.message = "There were errors in saving the customer's information."
@@ -192,7 +192,7 @@ class CustomerController {
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
-                redirect(action: "show", id: params.id)
+                redirect(action: "edit", id: params.id)
             }
         }
         else {
