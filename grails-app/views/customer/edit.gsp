@@ -468,7 +468,7 @@
 </div>
 </g:form>
 <div style="clear: both">&nbsp;</div>
-<g:if test="${customerInstance.status != CustomerStatus.HAS_NOT_ORDERED}">
+<g:if test="${customerInstance.customerOrder}">
     <g:render template="ordered_items" model="[customerInstance: customerInstance, products: products]"/>
 </g:if>
 <g:else>

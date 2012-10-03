@@ -114,7 +114,7 @@ class CustomerController {
             def readableCurrentStatus = current.replaceAll("_", " ")
             Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'HAS NOT ORDERED', 'HAS_ORDERED':'HAS ORDERED']
             def products = []
-            if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
+            if(!customerInstance.customerOrder) {
                 products = Product.findAllByParentIsNullAndLiveProduct(true)
 
 				products.each {
@@ -127,7 +127,7 @@ class CustomerController {
                 customerInstance?.customerOrder?.products?.each { productOrder ->
 					if(productOrder?.received && productOrder?.product){
 						if(!Product.findByParent(productOrder.product))
-                        products << productOrder
+                            products << productOrder
                     }
 					}
 
