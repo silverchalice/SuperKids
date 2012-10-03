@@ -218,7 +218,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <strong>1.<strong> Approximately how many students are in your district?
+                <strong>1.</strong> Approximately how many students are in your district?
                 <select name="studentsInDistrict">
                     <option value="500">Less than 500
                     <option value="1000">500 - 1,000
@@ -257,7 +257,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">a)	If yes, would you like us to send samples to the co-op? Yes: Yes: <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
+            <td colspan="2">a)	If yes, would you like us to send samples to the co-op? Yes: <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
             </td>
         </tr>
         <tr>

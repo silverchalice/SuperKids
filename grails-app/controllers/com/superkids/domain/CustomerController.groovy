@@ -36,9 +36,8 @@ class CustomerController {
 		customerInstance.address = new Address()
 		customerInstance.deliveryAddress = new Address()
 
-
         customerInstance.properties = params
-        return [ customerInstance: customerInstance, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name} ]
+        return [ customerInstance: customerInstance, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, statusList: ['HAS_NOT_ORDERED':'HAS NOT ORDERED', 'HAS_ORDERED':'HAS ORDERED']]
     }
 
 	def save = {
@@ -67,14 +66,6 @@ class CustomerController {
 		customerInstance.accountExpired = false
 		customerInstance.accountLocked = false
 		customerInstance.passwordExpired = false
-
-        Sponsor.list().each { sponsor ->
-            println "checking for sponsor $sponsor"
-            if(params["sponsor.${sponsor.id}"]) {
-                customerInstance.addToContactManufacturers(sponsor)
-            } 
-       }
-
 
 		def userRole = Role.findByAuthority("ROLE_USER")
 		if(customerInstance.save()){

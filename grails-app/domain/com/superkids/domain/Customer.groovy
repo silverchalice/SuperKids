@@ -39,7 +39,7 @@ class Customer extends User {
 	String cdEmail
 	String cdTitle
 
-	Boolean didNotReceiveMailing = true
+	Boolean didNotReceiveMailing
 	Boolean newCustomer
 	Boolean fall
 	Boolean spring
