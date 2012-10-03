@@ -143,7 +143,7 @@
 <tr>
     <td style="text-align:right">State</td>
     <td style="text-align:left">
-        <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" noSelection="Select a State"/>
+        <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" noSelection="['':'Select a State']"/>
     </td>
 </tr>
 <tr>
@@ -189,7 +189,7 @@
     <td style="text-align:right">State <span class="req">*</span></td>
     <td style="text-align:left">
         <g:select name="deliveryAddress.state" from="${states}"
-                  value="${customerInstance?.deliveryAddress?.state}" noSelection="Select a State"/>
+                  value="${customerInstance?.deliveryAddress?.state}" noSelection="['':'Select a State']"/>
     </td>
 </tr>
 <tr>
