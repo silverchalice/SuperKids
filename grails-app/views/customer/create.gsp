@@ -238,7 +238,7 @@
         <label><g:message code="customer.address.state.label" default="State"/></label>
     </td>
     <td valign="top">
-        <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}"/>
+        <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" noSelection="Select a State"/>
     </td>
 </tr>
 
@@ -281,7 +281,7 @@
         <label><g:message code="customer.deliveryAddress.state.label" default="Del State"/></label>
     </td>
     <td valign="top">
-        <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}"/>
+        <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" noSelection="Select a State"/>
     </td>
 </tr>
 <tr class="prop">

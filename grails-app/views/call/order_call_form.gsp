@@ -267,7 +267,7 @@
 							</td>
                             <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
 
-								<<g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}"  style="width:35px;  margin-right:10px;"/>
+								<<g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}"  style="width:35px;  margin-right:10px;" noSelection="Select a State"/>
 								<label for="address.zip"><g:message code="address.zip.label" default="Zip" /></label>
 								<g:textField class="textField" name="address.zip" value="${fieldValue(bean: customerInstance?.address, field: 'zip')}" style="width:60px" />
                           </td>
@@ -421,7 +421,7 @@
 							<td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'city', 'errors')}">
 								<g:textField class="textField" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" style="width:150px; margin-right:10px;" />
 								<label for="deliveryAddress.state"><g:message code="deliveryAddress.state.label" default="State" /></label>
-                                <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" style="width:35px;  margin-right:10px;"/>
+                                <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" style="width:35px;  margin-right:10px;" noSelection="Select a State"/>
 								<label for="deliveryAddress.zip"><g:message code="deliveryAddress.zip.label" default="Zip" /></label>
 								<g:textField class="textField" name="deliveryAddress.zip" value="${fieldValue(bean: customerInstance?.deliveryAddress, field: 'zip')}" style="width:50px" />
 

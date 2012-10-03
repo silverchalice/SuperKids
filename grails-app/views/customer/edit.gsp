@@ -134,7 +134,7 @@
     </td>
     <td valign="top">
         <g:select name="status" from="${statusList}" optionKey="key" optionValue="value"
-                  value="${customerInstance?.status}"/>
+                  value="${customerInstance?.status}" noSelection="Select a State"/>
     </td>
 </tr>
 
@@ -262,7 +262,7 @@
         <label><g:message code="customer.address.state.label" default="State"/></label>
     </td>
     <td valign="top">
-        <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}"/>
+        <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" noSelection="Select a State"/>
     </td>
 </tr>
 
