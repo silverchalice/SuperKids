@@ -126,7 +126,6 @@
     <td valign="top">
         <g:select name="status" from="${statusList}" optionKey="key" optionValue="value"
                   value="${customerInstance?.status}"/>
-    </td>
 </tr>
 
 <tr class="prop">

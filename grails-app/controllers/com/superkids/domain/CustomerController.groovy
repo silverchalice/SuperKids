@@ -158,7 +158,7 @@ class CustomerController {
             }
             customerInstance.properties = params
 
-            if(params.status != "currentStatus"){
+            if(params.status){
                 customerInstance.status = CustomerStatus."${params.status}"
             }
             if(params.email){
