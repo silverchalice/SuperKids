@@ -32,7 +32,7 @@
 				<g:form name="submitOrderForm" action="place_order" method="post" >
 					<g:hiddenField name="id" value="${customerInstance?.id}" />
 					<g:hiddenField name="version" value="${customerInstance?.version}" />
-                    <h1>Confirm & Place Your Order</h1>
+                    <h1 style="text-align: center">Confirm & Place Your Order</h1>
                     <strong>If this sample order is correct, click the "Place Your Order" button at the bottom of the screen to complete order. If you do not confirm your order by pressing this button, the order will not be placed.</strong>
 					   <h2>Your Shipping Information</h2>
 					   <p>Please confirm the information shown. To  go back and change your contact information, click <g:link controller="product" action="check_out">here</g:link>.</p>

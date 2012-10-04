@@ -22,7 +22,7 @@
 
     </ol>
 <div id="content">
-    <h1>Your Order</h1>
+    <h1 style="text-align: center">Review Your Order</h1>
 
     <sks:hasNotPlacedCurrentOrder>
         <g:render template="/shopping/shoppingCartContent"/>

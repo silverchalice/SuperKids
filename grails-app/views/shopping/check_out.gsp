@@ -103,6 +103,7 @@
 <g:form name="shippingInfoForm" controller="shopping" action="confirm" method="post">
 <g:hiddenField name="id" value="${customerInstance?.id}"/>
 <g:hiddenField name="version" value="${customerInstance?.version}"/>
+<h1 style="text-align: center">Provide Shipping Address</h1>
 <div class="shippingInfo">
 <table class="loginInfo">
     <tr>
