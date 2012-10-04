@@ -219,22 +219,14 @@
         <tr>
             <td colspan="2">
                 <strong>1.</strong> Approximately how many students are in your district?
-                <select name="studentsInDistrict">
-                    <option value="500">Less than 500
-                    <option value="1000">500 - 1,000
-                    <option value="2000">1,000 - 2,000
-                    <option value="5000">3,000 - 5,000
-                    <option value="10000">5,000 - 10,000
-                    <option value="20000">10,000 - 20,000
-                    <option value="50000">20,000 - 50,000
-                    <option value="50000+">Over 50,000
-                </select>
+                <input style="float:right" type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}">
             </td>
         </tr>
         <tr>
             <td colspan="2">
                 <strong>2.</strong>	Approximately how many students participate in your foodservice program?
-            <input style="float:right" type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
+                <input style="float:right" type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}">
+            </td>
         </tr>
         <tr>
             <td colspan="2">

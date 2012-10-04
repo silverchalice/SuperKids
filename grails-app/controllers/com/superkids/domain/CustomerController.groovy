@@ -41,7 +41,7 @@ class CustomerController {
 
 		def customerInstance = new Customer(params)
 		customerInstance.username = params.email
-		customerInstance.password = springSecurityService.encodePassword(params.password)
+		customerInstance.password = springSecurityService.encodePassword('superkids')
 		customerInstance.enabled = true
 		customerInstance.accountExpired = false
 		customerInstance.accountLocked = false
