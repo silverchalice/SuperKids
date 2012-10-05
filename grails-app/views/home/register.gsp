@@ -230,8 +230,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <strong>3.</strong>	Approximately what percent of those students are free or reduced?
-            <input style="float:right"  type="text" name="freeStudents" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
+                <strong>3.</strong>	Do you look for foods that meet the Alliance for a Healthier Generation guidelines?
+                <g:checkBox name="lookForAlliance" value="${customerInstance?.lookForAlliance}" /></td>
         </tr>
         <tr>
             <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
@@ -298,7 +298,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">a) Are you ready for the 2013 Guidelines?  Yes: <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2013 Guidelines? Yes: <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
+            <td colspan="2">a) Does your current menu meet the 2013 Guidelines?  Yes: <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2014 Guidelines? Yes: <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
             </td>
         </tr>
         <tr>

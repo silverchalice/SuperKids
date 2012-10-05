@@ -142,7 +142,7 @@ class ReportController {
 				m.studentsInDistrict = customer.studentsInDistrict
 
 				m.studentsParticipate = customer.studentsParticipate
-				m.freeStudents = customer.freeStudents
+				m.lookForAlliance = customer.lookForAlliance ? "YES" : "NO"
 
 				m.facilities = customer.facilities
 				m.breakfastsServed = customer.breakfastsServed
@@ -278,7 +278,7 @@ class ReportController {
                 "deliveryAddress.zip",
                 "studentsInDistrict",
                 "studentsParticipate",
-                "freeStudents",
+                "lookForAlliance",
                 "facilities",
                 "breakfastsServed",
                 "lunchesServed",
@@ -355,7 +355,7 @@ class ReportController {
                 "deliveryAddress.zip": "Delivery Zip",
                 "studentsInDistrict": "Students in District",
                 "studentsParticipate": "Participating Students",
-                "freeStudents": "Free/Discount Students",
+                "lookForAlliance": "Look for foods that meet Alliance Guidelines",
                 "facilities": "Facilities",
                 "breakfastsServed": "Breakfasts Served",
                 "lunchesServed": "Lunches Served",

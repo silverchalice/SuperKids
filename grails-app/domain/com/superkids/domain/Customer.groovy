@@ -53,6 +53,7 @@ class Customer extends User {
     String studentsInDistrict //Order Form Question #1
     String studentsParticipate //Order Form Question #2
     String freeStudents //Order Form Question #3
+    Boolean lookForAlliance
     Boolean contractManaged //Order Form Question #4
     String contractManager
     Boolean coOpMember //Order Form Question #5
@@ -158,7 +159,7 @@ class Customer extends User {
 
         startBidding nullable: true
         startLooking nullable:  true
-
+        lookForAlliance nullable: true
         useWholeWheatFlour nullable: true
         useUltragrainFlour nullable: true
 
