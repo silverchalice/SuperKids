@@ -6,6 +6,10 @@ class ProductController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    static def states = ['AL','AK','AZ','AR',' CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME',
+            'MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA',
+            'RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
+
     def shoppingCartService
     def springSecurityService
 
@@ -25,16 +29,6 @@ class ProductController {
     }
 
     def create = {
-        def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-                      'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-                      'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-                      'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-                      'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-                      'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-                      'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-                      'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-                      'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-                      'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
         def productInstance = new Product()
         productInstance.properties = params
         return [productInstance: productInstance, states:states]
@@ -108,16 +102,6 @@ class ProductController {
     }
 
     def edit = {
-        def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-                      'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-                      'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-                      'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-                      'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-                      'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-                      'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-                      'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-                      'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-                      'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
         def productInstance = Product.get(params.id)
         if (!productInstance) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'product.label', default: 'Product'), params.id])}"
@@ -281,16 +265,6 @@ class ProductController {
                 if(params.brokerId){
                     broker = Broker.get(params.brokerId)
                 }
-		def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-		  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-		  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-		  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-		  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-		  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-		  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-		  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-		  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-		  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
 		def customerInstance = Customer.get(springSecurityService.principal.id)
 		render view:"/shopping/check_out", model:[customerInstance:customerInstance, states:states, broker:broker, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
 	}
@@ -340,16 +314,7 @@ class ProductController {
         def action = params.rAction
         def rId = params.rId
         def brokerId = params.id
-        def states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-			  'Colorado', 'Connecticut', 'Delaware', 'District of Columbia',
-			  'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana',
-			  'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
-			  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri',
-			  'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey',
-			  'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio',
-			  'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-			  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-			  'Virgin Islands', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+
         redirect controller:controller, action:action, id:rId, params:[brokerId:brokerId]
     }
 
