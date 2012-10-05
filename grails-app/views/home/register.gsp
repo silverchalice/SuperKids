@@ -108,7 +108,7 @@
         </td>
     </tr>
     <tr>
-        <td style="text-align:right">Your Name</td>
+        <td style="text-align:right">Your Name <span class="req">*</span></td>
         <td><input type="text" name="fsdName" value="${customerInstance?.fsdName}" size="25"
                    maxlength="50"></td>
     </tr>
@@ -123,7 +123,7 @@
                                        maxlength="50"></td>
 </tr>
 <tr>
-    <td style="text-align:right">District Address</td>
+    <td style="text-align:right">District Address <span class="req">*</span></td>
     <td style="text-align:left"><input type="text" name="address.street" value="${customerInstance?.address?.street}"
                                        size="25"
                                        maxlength="50"></td>
@@ -135,19 +135,19 @@
                                        maxlength="50"></td>
 </tr>
 <tr>
-    <td style="text-align:right">City</td>
+    <td style="text-align:right">City <span class="req">*</span></td>
     <td style="text-align:left"><input type="text" name="address.city" value="${customerInstance?.address?.city}"
                                        size="25"
                                        maxlength="50"></td>
 </tr>
 <tr>
-    <td style="text-align:right">State</td>
+    <td style="text-align:right">State <span class="req">*</span></td>
     <td style="text-align:left">
         <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" noSelection="['':'Select a State']"/>
     </td>
 </tr>
 <tr>
-    <td style="text-align:right">Zip</td>
+    <td style="text-align:right">Zip <span class="req">*</span></td>
     <td style="text-align:left"><input type="text" name="address.zip" value="${customerInstance?.address?.zip}"
                                        size="25"
                                        maxlength="50"></td>
