@@ -45,7 +45,7 @@
               product samples</p>
             <ul>
                 <li><a href="${createLink(controller: 'home', action: 'order')}" title="Sampling Overview">Sampling Overview </a></li>
-              <li><a href="${createLink(controller: 'home', action: 'superkids_products')}" title="Complete Sample List">Complete Sample List</a></li>
+              <li><a href="/home/order#completeList" title="Complete Sample List">Complete Sample List</a></li>
               <li><a href="${createLink(controller: 'login', action: 'auth')}" title="Sampling Login">Sampling Login</a></li>
             </ul>
           </div>
