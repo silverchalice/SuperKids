@@ -442,8 +442,8 @@
                            </tr>
                            <tr>
                                <td colspan="2">
-                                   <strong>3.</strong>What percent of those students are free or reduced?
-                                   <input type="text" name="freeStudents" size="4" maxlength="6" value="${customerInstance?.freeStudents}"></td>
+                                   <strong>3.</strong>	Do you look for foods that meet the Alliance for a Healthier Generation guidelines?
+                                   <g:checkBox name="lookForAlliance" value="${customerInstance?.lookForAlliance}" /></td>
                            </tr>
                            <tr>
                                <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
