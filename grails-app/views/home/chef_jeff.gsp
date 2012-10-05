@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="learn" />
         <meta name="link" content="chef_jeff" />
-        <title>SuperKids | Chef Jeff at the 2012 SNA Conference</title>
+        <title>SuperKids | Chef Jeff and Denver Public Schools at SNA</title>
     </head>
     <body>
 <div id="content"> ${content}</div>
