@@ -31,7 +31,7 @@
         <g:if test="${flash.message}">
             <div class="message">${flash.message}</div>   <br/>
         </g:if>
-        <p>Your Username is the email address you used to register - if you have not yet set your password, you should use the default password you received by email when you registered.</p>
+        <p>Your username is the email address you used to register - if you have not yet set your password, you should use the default password you received by email when you registered.</p>
 
 
         <form action='${postUrl}' method='post' id='loginForm' class='cssform'>
@@ -53,7 +53,7 @@
     </div>
 
     <div id="register" style="width: 140px; float: right; padding: 25px 0">
-        <strong>If you are a <strong>Foodservice Director</strong> who has not received a user name and password, click Register.
+        <strong>If you are a <strong>Foodservice Director</strong> who has not received a username and password, click Register.
         </strong>
         <a href="${createLink(controller: 'home', action: 'register')}" class="btn arrow"><span>Register</span></a>
     </div>

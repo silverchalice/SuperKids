@@ -590,7 +590,7 @@ Modified: get menuButton text from new 'msg' attr
             if (attrs.id == attrs.active) active = "active"
 
             out << """<li class='${active} ${inCart}'>
-                    <a href=${createLink(controller: 'product', action: 'show', id: product.id)} title="${product.title}">
+                    <a href='${createLink(controller: 'product', action: 'show', id: product.id)}' title='${product.name}'>
                         ${product.title ?: product.name}<br />
                         <span>${product.sponsor.name}</span>
                     </a>
