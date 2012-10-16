@@ -914,7 +914,7 @@ class CallController {
 				broker2 = new Broker(params['broker2'])
 			else if(params.broker2.name)
 				broker2.properties = params['broker2']
-			
+
 			customer.addToBrokers(broker1)
 			customer.addToBrokers(broker2)
 
@@ -930,7 +930,6 @@ class CallController {
 						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 						call.callbackDate = df.parse(params.callbackDateString);
 						call.callbackTime = params.callbackTime
-					} else {
 					}
 				} else if (call.result == CallResult.QUALIFIED || call.result == CallResult.INCOMPLETE) {
 					println "The CallResult for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving assessments"
