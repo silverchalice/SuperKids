@@ -23,20 +23,20 @@
         <div id="sidebar">
             <ul id="side-nav">
                 <h3>Assess Menu</h3>
-                <li><g:link controller="assessment" action="assess_process"><span>Begin Online Assessment</span></g:link></li>
+                <li><g:link controller="assessment" action="start"><span>Begin Online Assessment</span></g:link></li>
                 <li><g:link controller="home" action="assessment_drawing_rules"><span>Drawing Rules</span></g:link></li>
                 <li><g:link controller="home" action="assessment_tools"><span>Other Assessment Tools</span></g:link></li>
 
             </ul>
-            <div class="ad">
+            <!--<div class="ad">
                 <h3>Win Prizes <span>for Your School District</span></h3>
                 <p><img src="${resource(dir:'images',file:'img_bills.jpg')}" title="Money" class="left" />If you’ve already received your free samples, you could win a $100 gift card for your school district just for sharing your opinion.</p>
                 <p><a href="${createLink(controller: 'home', action: 'assess')}" title="" class="btn"><span>Begin Online Assessment</span></a>
-            </div>
-            <!--<div class="ad">
+            </div> -->
+            <div class="ad">
         <h3>Whole Grain Nutrition, White Flour Appeal</h3>
         <p><img src="${resource(dir:'images',file:'logo_ultragrain_small.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of white flour. <a href="#">Learn more »</a></p>
-      </div>-->
+      </div>
         </div>
         <g:layoutBody/>
     </div>

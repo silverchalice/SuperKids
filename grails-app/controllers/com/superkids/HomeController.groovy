@@ -20,10 +20,13 @@ class HomeController {
             def adminRole = Role.findByAuthority("ROLE_ADMIN")
             def callerRole = Role.findByAuthority("ROLE_CALLER")
             if(UserRole.findByUserAndRole(user, callerRole)){
+                println "Redirecting to call:index..."
                 redirect controller:"call", action:"index"
             } else if (UserRole.findByUserAndRole(user, adminRole)){
+                 println "Redirecting to customer:list..."
                  redirect controller:"customer", action:"list"
             } else {
+                println "Redirecting to home:home..."
                 render(view:"home")
             }
         } else {

@@ -54,7 +54,7 @@
         <g:form action="saveAssessments" name="saveAssessments">
             <g:each in="${products}" var="product">
 
-                <div id="form_${product.id}" class="order-item expanded"> <img src="${createLink(controller: 'product', action: 'displayImage', id: product.id)}" alt="${product.name}" />
+                <div id="form_${product.id}" class="order-item collapsed"> <img src="${createLink(controller: 'product', action: 'displayImage', id: product.id)}" alt="${product.name}" />
                     <h2>${product?.name}</h2>
                     <p>Made by ${product?.sponsor?.name}</p>
                     <div class="expand"><a id="${product?.id}" href="#">Assess this product</a> </div>

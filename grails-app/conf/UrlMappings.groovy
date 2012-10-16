@@ -56,10 +56,7 @@ class UrlMappings {
             controller = "home"
             action = "learn"
         }
-        "/assess" {
-            controller = "home"
-            action = "assess"
-        }
+
         "/promote" {
             controller = "home"
             action = "promote"
@@ -120,10 +117,7 @@ class UrlMappings {
         //    controller = "shopping"
         //    action = "index"
         //}
-        "/assess/$id" {
-            controller = "assessment"
-            action = "start"
-        }
+
         //"/change_password/$id" {
         //    controller = "home"
         //    action = "change_password"

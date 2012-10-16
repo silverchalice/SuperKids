@@ -7,6 +7,7 @@ class AssessmentController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
     def index = {
+        println "entering assessment:index..."
         redirect(action: "list", params: params)
     }
 
@@ -33,6 +34,7 @@ class AssessmentController {
     }
 
     def save = {
+        println "entering assessment:save..."
         def assessmentInstance = new Assessment(params)
         if (assessmentInstance.save(flush: true)) {
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'assessment.label', default: 'Assessment'), assessmentInstance.id])}"
@@ -89,7 +91,7 @@ class AssessmentController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (assessmentInstance.version > version) {
-                    
+
                     assessmentInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'assessment.label', default: 'Assessment')] as Object[], "Another user has updated this Assessment while you were editing")
                     render(view: "edit", model: [assessmentInstance: assessmentInstance])
                     return
@@ -136,256 +138,95 @@ class AssessmentController {
     }
 
     def start = {
-
+        println "entering assessment:start..."
         if(springSecurityService.isLoggedIn()){
+
             def products = []
             def customer = Customer.get(springSecurityService.principal.id)
-            if(customer?.customerOrder){
-                def product = Product.get(params.id)
-                println "customer " + customer?.fsdName + "is assessing " + product
-                if(customer.customerOrder.products*.product.collect{it.id}.contains(product.id)){
-                    def assessmentInstance = new Assessment(product:product)
-                    customer.customerOrder.products.findAll{ it.received }.each{
-                        def p = Product.get(it.product.id)
-                        if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
+
+            if (!customer.hasCompletedCurrentAssessment) {
+                if(customer?.customerOrder){
+                    customer.customerOrder?.products?.each{
+                        def p = Product.get(it?.product?.id)
+                        if(!Assessment.findByCustomerAndProduct(customer, p) && it.received && !Product.findByParent(p)){
                             products << p
                         }
                     }
-                    if(products){
-                        println "the assessmentInstance is " + assessmentInstance + ", and the id is " + params.id
-                        return [id:params.id, products:products.sort{ it.id }, customerId:customer.id, product: product]
-                    } else {
-                        flash.message = "You have assessed all of the products that you ordered."
-                        redirect controller:"home", action:"assess"
-                    }
-                } else {
-                    flash.message = "You didn't order ${product.name}."
+                    [products:products?.sort{ it.id }]
+                }  else {
+                    flash.message = "No order found"
                     redirect controller:"home", action:"assess"
                 }
             } else {
-                flash.message = "Did you order anything yet?"
+                flash.message = "Your assessments have already been received - thank you for your feedback!"
                 redirect controller:"home", action:"assess"
             }
+
         } else {
             redirect(uri: "/")
         }
-
-
     }
 
-    def lc = {
-		 println "AssessmentController:lc"
-         def customer = Customer.get(params.customerId)
-         def product = Product.get(params.productId?.toInteger())
-         def products = []
-         if(customer.customerOrder){
-             customer.customerOrder.products.findAll{ it.received }.each{
-                 def p = Product.get(it.product.id)
-                 if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
-                     products << p
-                 }
-             }
-         }
-         def assessmentInstance = new Assessment(likeRating:params.likeRating, product:product, type:OrderType.WEB)
-         customer.assessments.findAll {(!it.completed) }.each{
-             if(it.id != assessmentInstance.id){
-                 try {
-					 println "deleting an assessment"
-                     it.delete(flush: true)
-                 }
-                 catch (org.springframework.dao.DataIntegrityViolationException e) {
-                     log.error e
-                 }
-             }
-         }
-         assessmentInstance.properties = params
-         customer.addToAssessments(assessmentInstance)
-         customer.save(failOnError:true)
-        
-         if(product.id == 23 && params.pasta == "true") {
-             println "This is pasta, and we must go to favorites"
-             render(view: "favorite", model:[id:params.id, products:products.sort{ it.id }, customerId:customer.id, product: product, assessmentInstance: assessmentInstance,])
-         } else {
-             return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]    
-         }
-    }
+    def saveAssessments = {
+        println "entering assessment:saveAssessments..."
 
-    def favorite = {
-        println "saving favorites"
-
-        
         def customer = Customer.get(springSecurityService.principal.id)
-         def products = []
-         def assessmentInstance = Assessment.get(params.id)
-         Assessment.findAllByCustomerAndCompleted(customer, false).each{
-             if(it.id != assessmentInstance?.id){
-                 try {
-                     println "deleting assessment"
-                     it.delete(flush: true)
-                 }
-                 catch (org.springframework.dao.DataIntegrityViolationException e) {
-                     log.error e
-                 }
-             }
-         }
 
-         if(customer.customerOrder){
-             customer.customerOrder.products.findAll{ it.received }.each{
-                 def p = Product.get(it.product.id)
-                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
-                     products << p
-                 }
-             }
-         }
-        
-        String favorites = ""
-        params['favorites'].each { k, v ->
-            println v
-            favorites = favorites + v + ", "
+        Product.list().each { product ->
 
+            if (params.assessment."${product.id}") {
+
+                if(params.assessment."${product.id}".didNotReceive) {
+                    println "did not receive"
+                    def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
+                    po.received = false
+                    po.save()
+                } else if(params.assessment."${product.id}".didNotSample) {
+                    println "did not sample"
+                    def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
+                    po.sampled = false
+                    po.save()
+                } else {
+
+                    println customer.fsdName + " is saving an assessment of " + product
+                    println params?.assessment?."${product.id}"?.likeRating
+                    println params?.assessment?."${product.id}"?.likeComment
+                    println params?.assessment?."${product.id}"?.changeComment
+
+                    def assessment = new Assessment(
+                            likeRating: params?.assessment?."${product.id}"?.likeRating,
+                            likeComment: params?.assessment?."${product.id}"?.likeComment,
+                            changeComment: params?.assessment?."${product.id}"?.changeComment,
+                            favorite: params?.assessment?."${product.id}"?.favorite ?: null,
+                            product: product,
+                            type: OrderType.WEB,
+                            completed: true
+                    )
+
+                    if(customer.addToAssessments(assessment)) {
+                        println "added assessment"
+                    } else {
+                        println "surprise! something went wrong"
+                    }
+                }
+            }
         }
-        assessmentInstance.favorite = favorites
-        customer.save(failOnError:true)
 
-        render(view: "lc", model:[assessmentInstance: assessmentInstance, products:products.sort{ it.id }])
-    }
+        customer.status = CustomerStatus.QUALIFIED
+        customer.hasCompletedCurrentAssessment = true
+        customer.save(flush: true)
 
-    def cc = {
-
-		println "AssessmentController:cc"
-		def customer = Customer.get(springSecurityService.principal.id)
-         def products = []
-         def assessmentInstance = Assessment.get(params.id)
-        
-         if (assessmentInstance) {
-             Assessment.findAllByCustomerAndCompleted(customer, false).each{
-                 if(it.id != assessmentInstance?.id){
-                     try {
-    					 println "deleting assessment"
-                         it.delete(flush: true)
-                     }
-                     catch (org.springframework.dao.DataIntegrityViolationException e) {
-                         log.error e
-                     }
-                 }
-             }
-
-             if(customer.customerOrder){
-                 customer.customerOrder.products.findAll{ it.received }.each{
-                     def p = Product.get(it.product.id)
-                     if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
-                         products << p
-                     }
-                 }
-             }
-            assessmentInstance.likeComment = params.likeComment
-            customer.save(failOnError:true)
-            return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
-         } else {
-             flash.message = "Sorry, an error occurred. Please try again."
-             redirect action: ""
-         }
+        redirect action: 'survey'
 
     }
 
-    def ir = {
-		println "AsssessmentController:ir"
-         def products = []
-		 def customer = Customer.get(springSecurityService.principal.id)
-         def assessmentInstance = Assessment.get(params.id)
-         Assessment.findAllByCustomerAndCompleted(customer, false).each{
-             if(it.id != assessmentInstance?.id){
-                 try {
-					 println "deleting an asssessment"
-                     it.delete(flush: true)
-                 }
-                 catch (org.springframework.dao.DataIntegrityViolationException e) {
-                     log.error e
-                 }
-             }
-         }
 
-         if(customer.customerOrder){
-             customer.customerOrder.products.findAll{ it.received == true }.each{
-                 def p = Product.get(it.product.id)
-                 if(p.id == assessmentInstance.product.id || !Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
-                     products << p
-                 }
-             }
-          }
-          assessmentInstance.changeComment = params.changeComment
-          customer.save(failOnError:true)
-          return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
-     }
+    def survey = {
 
-    def complete = {
-		println "AssessmentController:complete"
-         def products = []
-		def customer = Customer.get(springSecurityService.principal.id)
-         def assessmentInstance = Assessment.get(params.id)
-         Assessment.findAllByCustomerAndCompleted(customer, false).each{
-             if(it.id != assessmentInstance.id){
-                 try {
-					 println "deleting an asssessment"
-                     it.delete(flush: true)
-                 }
-                 catch (org.springframework.dao.DataIntegrityViolationException e) {
-                     log.error e
-                 }
-             }
-         }
 
-         if(customer.customerOrder){
-             customer.customerOrder.products.findAll{ it.received == true }.each{
-                 def p = Product.get(it.product.id)
-                 if(!Assessment.findByCustomerAndProduct(customer, p) && !Product.findByParent(p)){
-                     products << p
-                 }
-             }
-         }
-         assessmentInstance.iRating = params.iRating?.toInteger()
-         assessmentInstance.completed = true
-         customer.save(failOnError:true)
-         if(products.size() > 0){
-             return [assessmentInstance: assessmentInstance, products:products.sort{ it.id }]
-         } else {
-
-             redirect controller:"assessment", action:"broker_contact"
-         }
-    }
-
-    def assess_process = {
-		println "AssessmentController:assess_process"
-		def customer = Customer.get(springSecurityService.principal.id)
-        Assessment.findAllByCustomerAndCompleted(customer, false).each{
-             try {
-				 println "deleting an asssessment"
-                 it.delete(flush: true)
-             }
-             catch (org.springframework.dao.DataIntegrityViolationException e) {
-                 log.error e
-             }
-         }
-       def products = []
-       if(springSecurityService.isLoggedIn()){
-           def user = User.get(springSecurityService.principal.id)
-           def userRole = Role.findByAuthority("ROLE_USER")
-           if(user && UserRole.findByUserAndRole(user, userRole) && user.customerOrder){
-               user.customerOrder.products.each{
-                   def p = Product.get(it?.product?.id)
-                   if(!Assessment.findByCustomerAndProduct(user, p) && it.received == true && !Product.findByParent(p)){
-                       products << p
-                   }
-               }
-           }
-       }
-       [products:products.sort{ it.id }]
     }
 
 
-    def assess_process_step2 = {
-
-    }
 
     def broker_contact = {
         def customerInstance = Customer.get(springSecurityService.principal.id)

@@ -276,7 +276,7 @@
         </tr>
         <tr>
 
-            <td colspan="2"><strong>7.</strong>	When do you start look at new items for your menu?
+            <td colspan="2"><strong>7.</strong>	When do you start to look at new items for your menu?
                 <br/>
                 <input type="text" name="startLooking" value="${customerInstance?.startLooking}" size="55" maxlength="1000"></td>
         </tr>

@@ -39,17 +39,21 @@ class LoginController {
 	 * Show the login page.
 	 */
 	def auth = {
-		println "entering login:auth"
+		println "entering login:auth..."
 		session.current_view = "auth"
 
 
 		if (springSecurityService.isLoggedIn()) {
-			redirect uri: config.successHandler.defaultTargetUrl
-			return
-		}
+            println "Redirecting to home:index..."
+			redirect controller: 'home', action: 'index'
+		} else {
 
-		String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
-		 [postUrl: postUrl, rememberMeParameter: config.rememberMe.parameter]
+            String postUrl = "${request.contextPath}${config.apf.filterProcessesUrl}"
+            println "Not logged in... redirecting to $postUrl"
+            [postUrl: postUrl, rememberMeParameter: config.rememberMe.parameter]
+        }
+
+
 	}
 
 	def demo = {

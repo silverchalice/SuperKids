@@ -477,7 +477,7 @@
                            </tr>
                            <tr>
 
-                               <td colspan="2"><strong>7.</strong>	When do you start look at new items for your menu?
+                               <td colspan="2"><strong>7.</strong>	When do you start to look at new items for your menu?
                                    <br/>
                                    <input type="text" name="startLooking" value="${customerInstance?.startLooking}" size="55" maxlength="1000"></td>
                            </tr>
@@ -496,7 +496,7 @@
                            </tr>
 
                            <tr>
-                               <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  Yes: <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
+                               <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  Yes: <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? Yes: <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
                                </td>
                            </tr>
                            <tr>
@@ -511,7 +511,7 @@
                                </td>
                            </tr>
                            <tr>
-                               <td colspan="2">a) Are you ready for the 2013 Guidelines?  Yes: <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2013 Guidelines? Yes: <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
+                               <td colspan="2">a) Are you ready for the 2013 Guidelines?  Yes: <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2014 Guidelines? Yes: <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
                                </td>
                            </tr>
                            <tr>

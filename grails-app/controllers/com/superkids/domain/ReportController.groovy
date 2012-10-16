@@ -96,7 +96,7 @@ class ReportController {
 
         def thatWhichIsContainedInOurExportation = []
 
-        def prods = Product.list(sort:'sortOrder')
+        def prods = Product.findAllByLiveProduct(true).list(sort:'sortOrder')
 		println ("After Product.list - ${new Date().time - startTime}")
 		Customer.list(sort: "seq").each {customer ->
 			if(!customer.deleted) {
