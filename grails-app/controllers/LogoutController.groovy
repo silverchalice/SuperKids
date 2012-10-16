@@ -27,10 +27,10 @@ class LogoutController {
                     assessment.delete()
                 }
 
-                def order = user.order
+                def order = user.customerOrder
 
                 if(order) {
-                    user.order = null
+                    user.customerOrder = null
                     order.delete()
                 }
 
