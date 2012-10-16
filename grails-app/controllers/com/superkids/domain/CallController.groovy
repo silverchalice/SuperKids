@@ -643,7 +643,7 @@ class CallController {
 
 		}
 		else {
-			redirect action:list
+			redirect action:'list'
 		}
 	}
 
