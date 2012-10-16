@@ -113,9 +113,9 @@ class CallController {
 
 				if(call.result == CallResult.CALLBACK) {
 					println "CallResult of Callback"
-					if(params.callbackDate) {
+					if(params.callbackDateString) {
 						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-						call.callbackDate = df.parse(params.callbackDate);
+						call.callbackDate = df.parse(params.callbackDateString);
 						call.callbackTime = params.callbackTime
 					} else {
                     	println " "
@@ -178,19 +178,23 @@ class CallController {
 				}
 
 				println "3"
+
 				customer.addToCalls(call)
+                caller.addToCalls(call)
+
+                if(!call.save()) {
+                    call.errors.allErrors.each {println it}
+                }
+
 				println "4"
 				if(!customer.save(flush:true)) {
 					customer.errors.allErrors.each {println it}
 				}
 
-				println "5"
-				if(!call.save()) {
-					customer.errors.allErrors.each {println it}
-				}
+                if(!caller.save(flush:true)) {
+                    caller.errors.allErrors.each {println it}
+                }
 
-				caller.addToCalls(call)
-				caller.save(flush:true)
 
 				customer.inCall = null
 				customer.lastCall = call
@@ -922,9 +926,9 @@ class CallController {
 
                 if(call.result == CallResult.CALLBACK ) {
                     println "$caller has a Callback..."
-					if(params.callbackDate) {
+					if(params.callbackDateString) {
 						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-						call.callbackDate = df.parse(params.callbackDate);
+						call.callbackDate = df.parse(params.callbackDateString);
 						call.callbackTime = params.callbackTime
 					} else {
 					}

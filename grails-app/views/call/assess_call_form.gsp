@@ -68,7 +68,7 @@
             });
 
 
-			$("#callbackDate").datepicker({dateFormat: 'mm/dd/yy'});
+			$("#callbackDateString").datepicker({dateFormat: 'mm/dd/yy'});
 
 			//When page loads...
 			$(".tab_content").hide(); //Hide all content
@@ -330,8 +330,8 @@
 								</td>
 								<td valign="top">
 									<g:textField style="width:150px;" name="phone" value="${customerInstance?.phone}" />
-									<label for="callbackDate" style="padding: 0 10px 0 3px;"><g:message code="callback.date" default="Callback Date" /></label>
-									<input type="text" style="width:90px" id="callbackDate" name="callbackDate" />
+									<label for="callbackDateString" style="padding: 0 10px 0 3px;"><g:message code="callback.date" default="Callback Date" /></label>
+									<input type="text" style="width:90px" id="callbackDateString" name="callbackDateString" />
 								</td>
 
 							</tr>
