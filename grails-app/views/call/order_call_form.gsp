@@ -268,7 +268,7 @@
                             <td valign="top" class="value ${hasErrors(bean: customerInstance?.address, field: 'state', 'errors')}">
                                <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" noSelection="['':'Select a State']"/>
 								<label for="address.zip"><g:message code="address.zip.label" default="Zip" /></label>
-								<g:textField class="textField" name="address.zip" value="${fieldValue(bean: customerInstance?.address, field: 'zip')}" style="width:60px" />
+								<g:textField class="textField" name="address.zip" value="${fieldValue(bean: customerInstance?.address, field: 'zip')}" style="width:80px" />
                           </td>
 						</tr>
 					 </tbody>
@@ -418,11 +418,11 @@
 								<label for="deliveryAddress.city"><g:message code="address.city.label" default="Del. City" /></label>
 							</td>
 							<td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'city', 'errors')}">
-								<g:textField class="textField" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" style="width:150px; margin-right:10px;" />
+								<g:textField class="textField" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" style="width:120px; margin-right:10px;" />
 								<label for="deliveryAddress.state"><g:message code="deliveryAddress.state.label" default="State" /></label>
-                                <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" noSelection="['':'Select a State']"/>
+                                <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" noSelection="['':'Select...']"/>
 								<label for="deliveryAddress.zip"><g:message code="deliveryAddress.zip.label" default="Zip" /></label>
-								<g:textField class="textField" name="deliveryAddress.zip" value="${fieldValue(bean: customerInstance?.deliveryAddress, field: 'zip')}" style="width:50px" />
+								<g:textField class="textField" name="deliveryAddress.zip" value="${fieldValue(bean: customerInstance?.deliveryAddress, field: 'zip')}" style="width:75px" />
 
 						</tr>
 					</tbody>
@@ -432,13 +432,13 @@
                            <tr>
                                <td colspan="2">
                                    <strong>1.</strong>How many students are in your district?
-                                   <input type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}"></td>
-                           </td>
+                                   <input type="text" name="studentsInDistrict" size="15" maxlength="6" value="${customerInstance?.studentsInDistrict}"></td>
+
                            </tr>
                            <tr>
                                <td colspan="2">
                                    <strong>2.</strong>How many students participate in your foodservice program?
-                                   <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
+                                   <input type="text" name="studentsParticipate" size="10" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
                            </tr>
                            <tr>
                                <td colspan="2">
