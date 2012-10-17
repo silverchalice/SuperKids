@@ -12,7 +12,7 @@ class LogoutController {
         def index = {
 
             println "entering login:index"
-            def user = Customer.get(springSecurityService.principal.id)
+            def user = Customer.get(springSecurityService.principal?.id)
 
             if(user && user.email == 'demo') {
                 println "found demo user..."
