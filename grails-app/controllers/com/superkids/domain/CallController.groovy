@@ -479,7 +479,6 @@ class CallController {
 
                         le('dateCreated', seventyTwoHoursAgo)
 
-
 					}
 			}
 
@@ -532,9 +531,7 @@ class CallController {
 				} else {
 					println "$caller is using the prev calls queue"
 						lastCall {
-							not {
-								between('dateCreated', now - 2, now)
-							}
+                            le('dateCreated', seventyTwoHoursAgo)
 							ne('result', CallResult.REFUSED)
 						}
 				}
