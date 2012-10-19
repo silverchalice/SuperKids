@@ -450,10 +450,8 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
 		def now = new Date()
-        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
-        def fortyEightHoursAgo = new Date(new Date().time - 172800000)
         def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
-        def oneHourAgo = new Date(new Date().time - 3600000)
+
 
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
@@ -478,26 +476,12 @@ class CallController {
 						ne('result', CallResult.REFUSED)
 						ne('result', CallResult.QUALIFIED)
 						ne('result', CallResult.NOT_QUALIFIED)
-						or {
-							and {
-								not { between('dateCreated', twentyFourHoursAgo, now) }
-								or {
-									eq('result', CallResult.BUSY)
-									eq('result', CallResult.NO_ANSWER)
-								}
-							}
-                            and {
-                                not { between('dateCreated', seventyTwoHoursAgo, now) }
-                                eq('result', CallResult.VOICEMAIL)
-                            }
-							and {
-								not { between('dateCreated', seventyTwoHoursAgo, now) }
-							}
-						}
+
+                        le('dateCreated', seventyTwoHoursAgo)
+
 
 					}
 			}
-
 
 			or{
 				eq('duplicate', false)
