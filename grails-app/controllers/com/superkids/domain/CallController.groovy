@@ -199,6 +199,7 @@ class CallController {
 				customer.inCall = null
 				customer.lastCall = call
 				if(!customer.save(flush:true)) {
+                    println "Unable to save call for $customer"
 					customer.errors.allErrors.each {println it}
 				}
 				println "The customer's last call result is now $customer.lastCall.result"
@@ -209,20 +210,29 @@ class CallController {
 						println "$caller made this call from a search results page - redirecting back to results"
 						def query = params?.query
 						customer.inCall = null
-						customer.save()
+                        if(!customer.save(flush:true)) {
+                            println "Unable to save call for $customer"
+                            customer.errors.allErrors.each {println it}
+                        }
 						flash.message = "Call saved"
 						redirect action:'findCustomer', params: [query:query]
 						return
 					} else if(params?.cb) {
 						println "This call was made from the Callback list - redirecting back to CB List"
 						customer.inCall = null
-						customer.save()
+                        if(!customer.save(flush:true)) {
+                            println "Unable to save call for $customer"
+                            customer.errors.allErrors.each {println it}
+                        }
 						flash.message = "Call saved"
 						redirect action:'call_back_list'
 						return
 					} else if(params?.ocl) {
 						customer.inCall = null
-						customer.save()
+                        if(!customer.save(flush:true)) {
+                            println "Unable to save call for $customer"
+                            customer.errors.allErrors.each {println it}
+                        }
 						println "This call was made from the Order Call list - redirecting back to OC List"
 						flash.message = "Call saved"
 						redirect action:'order_list'
@@ -549,6 +559,7 @@ class CallController {
 				println "$caller is calling $customer?.fsdName"
 				render view:'order_call_form', model: [customerInstance: customer, products: Product.findAllByLiveProductAndParentIsNull(true).sort{it.sortOrder}, call: call, order: order, queue: params?.queue, currentTimezone: currentTimezone, states: states]
 			} else {
+                println "Unable to retrieve $customer"
 				customer.errors.allErrors.each { println it }
 				flash.message = "Oops! An error occured"
 				redirect action:next_order_call, params: [id: params?.id]
