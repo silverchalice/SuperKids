@@ -4,6 +4,7 @@ import com.superkids.domain.Customer
 import com.superkids.domain.IncompleteOrder
 import com.superkids.domain.Product
 import com.superkids.domain.ProductOrder
+import com.superkids.domain.Address
 
 class DataController {
 
@@ -14,6 +15,23 @@ class DataController {
 	def customerUpload = {
 	
 	}
+
+    def cleanupZips = {
+
+        Address.list().each {
+
+            if(it.zip.size() > 2) {
+                if(it.zip[-2..-1] == '.0') {
+                    it.zip = it.zip[0..-3]
+                    it.save(flush:true)
+                    println it.zip
+                }
+            }
+
+        }
+
+        redirect(uri: '/')
+    }
 
 
 	def updateIncompleteOrders = {
