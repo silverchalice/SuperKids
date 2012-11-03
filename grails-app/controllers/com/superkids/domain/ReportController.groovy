@@ -170,7 +170,7 @@ class ReportController {
                 //m.brokerZip = customer.brokers[0]?.zip ?: ""
 
 
-				m.notes = customer.notes
+				m.notes = customer.opNotes
 				m.contact = contactTime
 
 				def order = customer.customerOrder

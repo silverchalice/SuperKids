@@ -35,6 +35,12 @@
                                 <td valign="top" class="value ${hasErrors(bean: shippingDateInstance, field: 'shipDate', 'errors')}">
                                     <g:textField name="shipDate" value="${shippingDateInstance?.shipDate}"  />
                                 </td>
+                                <td valign="top" class="name">
+                                    <label for="active"><g:message code="shippingDate.active.label" default="Active" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: shippingDateInstance, field: 'active', 'errors')}">
+                                    <g:checkBox name="active" value="${shippingDateInstance?.active}"  />
+                                </td>
                             </tr>
                         
                         </tbody>

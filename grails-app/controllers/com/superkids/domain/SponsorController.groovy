@@ -109,6 +109,8 @@ class SponsorController {
         response.contentType = "image/jpeg"
         response.contentLength = sponsorInstance.logo.size()
         response.outputStream.write(sponsorInstance.logo)
+
+        sponsorInstance.discard()
     }
 
 }

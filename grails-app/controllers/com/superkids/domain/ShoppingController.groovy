@@ -52,7 +52,7 @@ class ShoppingController {
         def customerInstance = User.get(params.id)
         if (customerInstance) {
             def products = shoppingCartService.getItems()
-            [customerInstance:customerInstance, shippingDates:ShippingDate.list(), products:products]
+            [customerInstance:customerInstance, shippingDates: ShippingDate.findAllByActive(true), products:products]
         }
 
     }
