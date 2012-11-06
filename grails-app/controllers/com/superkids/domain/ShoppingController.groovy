@@ -12,7 +12,7 @@ class ShoppingController {
     def index = {
         if(springSecurityService.isLoggedIn()) {
             def customer = Customer.get(springSecurityService.principal.id)
-            if (customer.hasCompletedCurrentAssessment) {
+            if (customer.hasPlacedCurrentOrder) {
                 redirect(controller: 'assessment', action: 'start')
                 return
             } else {
