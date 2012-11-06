@@ -24,7 +24,7 @@
             });
 
             $(".submitButton").click(function () {
-                $("#saveAssessments").submit();
+                $("#saveSurvey").submit();
             });
 
 
@@ -55,67 +55,85 @@
         <p>Once you've filled out these questions, click the "Submit Your Feedback" buttom at the bottom of the page. That's it - you'll be automatically entered in this year's drawing!</p>
         <hr />
 
+        <g:form name="saveSurvey" action="saveSurvey">
+            <div class="order-item expanded"> &nbsp;
+                <h2>Contact Times</h2>
+                <p>Your broker or distributor may be contacting you regarding your feedback. What is the best time of year and day to reach you?
+                <div class="expand">&nbsp;</div>
 
-                <div id="form_" class="order-item expanded"> &nbsp;
-                    <h2>First Survey Question</h2>
-                    <p>More text goes here</p>
-                    <div class="expand">&nbsp;</div>
-
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="first">
-                                  <g:textArea name="question" cols="75" rows="25" />
-                            </td>
-
-                        </tr>
-                    </table>
-
-                    <h2>Second Survey Question</h2>
-                    <p>More text goes here</p>
-                    <div class="expand">&nbsp;</div>
-
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="first">
-                                <g:textArea name="question" cols="75" rows="25" />
-                            </td>
-
-                        </tr>
-                    </table>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="first">
 
 
-                    <h2>Third Survey Question</h2>
-                    <p>More text goes here</p>
-                    <div class="expand">&nbsp;</div>
+                            <fieldset style="padding: 25px">
 
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="first">
-                                <g:textArea name="question" cols="75" rows="25" />
-                            </td>
+                                <label for="fall" style="float:left; padding-left: 25px;"> Fall: </label>
+                                <g:checkBox name="fall" value="${customerInstance?.fall}" style="float:left; padding-right: 10px" />
 
-                        </tr>
-                    </table>
+                                <label for="spring" style="float:left; padding-left: 25px;"> Spring: </label>
+                                <g:checkBox name="spring" value="${customerInstance?.spring}" style="float:left; padding-right: 10px" />
 
 
-                    <h2>Fourth Survey Question</h2>
-                    <p>More text goes here</p>
-                    <div class="expand">&nbsp;</div>
-
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="first">
-                                <g:textArea name="question" cols="75" rows="25" />
-                            </td>
-
-                        </tr>
-                    </table>
+                                <label for="am" style="float:left; padding-left: 25px;"> AM: </label>
+                                <g:checkBox name="am" value="${customerInstance?.am}" style="float:left; padding-right: 10px" />
 
 
+                                <label for="pm" style="float:left; padding-left: 25px;"> PM: </label>
+                                <g:checkBox name="pm" value="${customerInstance?.pm}" style="float:left;" />
+                            </fieldset>
 
-                    <div class="complete-review">&nbsp;</div>
-                </div>
 
+                        </td>
+
+                    </tr>
+                </table>
+
+                <h2>Program Feedback</h2>
+                <p>Please give us your feedback about the SuperKids Whole Grain Sampling Program</p>
+                <div class="expand">&nbsp;</div>
+
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="first">
+                            <g:textArea name="programFeedback" cols="75" rows="25" value="${customerInstance?.programFeedback}" />
+                        </td>
+
+                    </tr>
+                </table>
+
+
+                <h2>Reformulations</h2>
+                <p>Tell us about your interest in reformulations</p>
+                <div class="expand">&nbsp;</div>
+
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="first">
+                            <g:textArea name="reformulations" cols="75" rows="25" value="${customerInstance?.reformulations}"/>
+                        </td>
+
+                    </tr>
+                </table>
+
+
+                <h2>Other Products</h2>
+                <p>Tell us about interest in other products</p>
+                <div class="expand">&nbsp;</div>
+
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="first">
+                            <g:textArea name="otherProducts" cols="75" rows="25" value="${customerInstance?.otherProducts}" />
+                        </td>
+
+                    </tr>
+                </table>
+
+                <div class="complete-review">&nbsp;</div>
+            </div>
+
+         </g:form>
 
         <hr />
         <a href="#" id="submitForm" title="Move to the next step" class="btn arrow submitButton"><span>Submit Your Feedback</span></a> </div>

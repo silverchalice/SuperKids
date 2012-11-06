@@ -27,17 +27,24 @@
                 $("#saveAssessments").submit();
             });
 
-
-            function closeOrderItem(id) {
-                var form = "#form_" + id;
-                $(form).removeClass('expanded', 400).addClass('collapsed', 400);
-            }
-
-            function openOrderItem(id) {
-                var form = "#form_" + id;
-                $(form).removeClass('collapsed', 10).addClass('expanded', 400);
-            }
         });
+
+        function closeOrderItem(id) {
+            var form = "#form_" + id;
+            jQuery(form).removeClass('expanded', 400).addClass('collapsed', 400);
+        }
+
+        function openOrderItem(id) {
+            var form = "#form_" + id;
+            jQuery(form).removeClass('collapsed', 10).addClass('expanded', 400);
+        }
+
+        function disableItemForm(id) {
+            var form = "#form_" + id;
+            jQuery(form).removeClass('expanded', 400).addClass('collapsed', 400);
+
+
+        }
 
     </script>
 
@@ -47,77 +54,80 @@
 </head>
 <body>
 
-<div id="content-container">
-    <div id="content">
-        <img src="${resource(dir: 'images', file:'img_money_books.jpg')}" class="left money-books" alt="Four stacked books with hundred dollar bills used as bookmarks" />
-        <h1>Your School Could Win Free Money!</h1>
-        <p>Just tell us what you thought about this year’s SuperKids lineup and you’ll be automatically entered to win <strong>up to $200</strong> for your school district.</p>
-        <p>Remember, your feedback is invaluable. It not only lets us know how to improve our SuperKids program, it helps manufacturers better understand your needs. For prizes and official rules, <a href="#">click here</a>.</p>
-        <hr />
+    <div id="content-container">
+        <div id="content">
+            <img src="${resource(dir: 'images', file:'img_money_books.jpg')}" class="left money-books" alt="Four stacked books with hundred dollar bills used as bookmarks" />
+            <h1>Your School Could Win Free Money!</h1>
+            <p>Just tell us what you thought about this year’s SuperKids lineup and you’ll be automatically entered to win <strong>up to $200</strong> for your school district.</p>
+            <p>Remember, your feedback is invaluable. It not only lets us know how to improve our SuperKids program, it helps manufacturers better understand your needs. For prizes and official rules, <a href="#">click here</a>.</p>
+            <hr />
 
-        <g:form action="saveAssessments" name="saveAssessments">
-            <g:each in="${products}" var="product" status="i">
-                <div id="form_${product.id}" class="order-item ${i == 0 ? 'expanded' : 'collapsed'}"> <img src="${createLink(controller: 'product', action: 'displayImage', id: product.id)}" alt="${product.name}" />
-                    <h2>${product?.name}</h2>
-                    <p>Made by ${product?.sponsor?.name}</p>
-                    <div class="expand"><a id="${product?.id}" href="#">Assess this product</a> </div>
+            <g:form action="saveAssessments" name="saveAssessments">
+                <g:each in="${products}" var="product" status="i">
+                    <div id="form_${product.id}" class="order-item ${i == 0 ? 'expanded' : 'collapsed'}"> <img src="${createLink(controller: 'product', action: 'displayImage', id: product.id)}" alt="${product.name}" />
+                        <h2>${product?.name}</h2>
+                        <p>Made by ${product?.sponsor?.name}</p>
+                       <div class="expand"><a id="${product?.id}" href="#">Assess this product</a> </div>
 
-                    <table cellpadding="0" cellspacing="0">
-                        <tr>
-                            <td class="first">
-                                <label for="assessment.${product.id}.likeComment">What things did you like most (list as many as necessary)?</label>
-                                <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/>
-                                <label for="assessment.${product.id}.changeComment">What things would you change (list as many as necessary)?</label>
-                                <textarea name="assessment.${product.id}.changeComment"></textarea>
-                            </td>
-                            <td><label for="assessment.${product.id}.likeRating">On a scale of 1-5,  please rate your interest in adding this item to your school menu:</label>
-                                <ol style="margin-bottom: 5px">
-                                    <li class="first"><label for="1">1</label> <input type="radio" name="assessment.${product.id}.likeRating" value="1" /></li>
-                                    <li><label for="2">2</label> <input type="radio" name="assessment.${product.id}.likeRating" value="2" /></li>
-                                    <li><label for="3">3</label> <input type="radio" name="assessment.${product.id}.likeRating" value="3" /></li>
-                                    <li><label for="4">4</label> <input type="radio" name="assessment.${product.id}.likeRating" value="4" /></li>
-                                    <li class="last"><label for="5">5</label> <input type="radio" name="assessment.${product.id}.likeRating" value="5" /></li>
-                                </ol>
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td colspan="2">
+                                <p>Did Not Receive Sample <g:checkBox name="assessment.${product.id}.didNotReceive" onclick="disableItemForm(${product.id});"/> Did Not Try Sample <g:checkBox name="assessment.${product.id}.didNotSample" onclick="disableItemForm(${product.id});"/></p>
+                            </td></tr>
+                            <tr>
 
-                                <g:if test="${product.id == 23}">
-                                    <label>Please check which varieties of the pasta you like:</label>
+                                <td class="first">
+                                    <label for="assessment.${product.id}.likeComment">What things did you like most (list as many as necessary)?</label>
+                                    <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/>
+                                    <label for="assessment.${product.id}.changeComment">What things would you change (list as many as necessary)?</label>
+                                    <textarea name="assessment.${product.id}.changeComment"></textarea>
+                                </td>
+                                <td><label for="assessment.${product.id}.likeRating">On a scale of 1-5,  please rate your interest in adding this item to your school menu:</label>
+                                    <ol style="margin-bottom: 5px">
+                                        <li class="first"><label for="1">1</label> <input type="radio" name="assessment.${product.id}.likeRating" value="1" /></li>
+                                        <li><label for="2">2</label> <input type="radio" name="assessment.${product.id}.likeRating" value="2" /></li>
+                                        <li><label for="3">3</label> <input type="radio" name="assessment.${product.id}.likeRating" value="3" /></li>
+                                        <li><label for="4">4</label> <input type="radio" name="assessment.${product.id}.likeRating" value="4" /></li>
+                                        <li class="last"><label for="5">5</label> <input type="radio" name="assessment.${product.id}.likeRating" value="5" /></li>
+                                    </ol>
 
-                                    <div style="float:left">
-                                        <label><input type="checkbox" name="favorites.1" value="Penne" >Penne</label>
-                                        <label><input type="checkbox" name="favorites.2" value="Spaghetti" >Spaghetti</label>
-                                        <label><input type="checkbox" name="favorites.3" value="Macaroni" >Macaroni</label>
-                                        <label><input type="checkbox" name="favorites.4" value="Rotini" >Rotini</label>
-                                    </div>
+                                    <g:if test="${product.id == 23}">
+                                        <label>Please check which varieties of the pasta you like:</label>
 
-
-                                    <div style="float:right">
-                                        <label><input type="checkbox" name="favorites.5" value="Lasagna" >Lasagna</label>
-                                        <label><input type="checkbox" name="favorites.6" value="Lasagna" >Lasagna</label>
-                                        <label><input type="checkbox" name="favorites.7" value="9-Grain orzo" >Egg noodles</label>
-                                    </div>
+                                        <div style="float:left">
+                                            <label><input type="checkbox" name="favorites.1" value="Penne" >Penne</label>
+                                            <label><input type="checkbox" name="favorites.2" value="Spaghetti" >Spaghetti</label>
+                                            <label><input type="checkbox" name="favorites.3" value="Macaroni" >Macaroni</label>
+                                            <label><input type="checkbox" name="favorites.4" value="Rotini" >Rotini</label>
+                                        </div>
 
 
-                                </g:if>
+                                        <div style="float:right">
+                                            <label><input type="checkbox" name="favorites.5" value="Lasagna" >Lasagna</label>
+                                            <label><input type="checkbox" name="favorites.6" value="Lasagna" >Lasagna</label>
+                                            <label><input type="checkbox" name="favorites.7" value="9-Grain orzo" >Egg noodles</label>
+                                        </div>
 
 
-                            </td>
-                        </tr>
-                    </table>
-
-                    <div class="complete-review"><a id="${product.id}" href="#" class="btn complete"><span>Close this assessment</span></a></div>
-                </div>
-
-            </g:each>
-        </g:form>
+                                    </g:if>
 
 
+                                </td>
+                            </tr>
+                        </table>
 
-        <hr />
-        <a href="#" id="submitForm" title="Move to the next step" class="btn arrow submitButton"><span>Submit Your Assessments</span></a> </div>
-</div>
+                        <div class="complete-review"><a id="${product.id}" href="#" class="btn complete"><span>Close this assessment</span></a></div>
+                    </div>
+
+                </g:each>
+            </g:form>
 
 
 
+            <hr />
+            <a href="#" id="submitForm" title="Move to the next step" class="btn arrow submitButton"><span>Submit Your Assessments</span></a>
+        </div>
+    </div>
 
 </body>
 </html>

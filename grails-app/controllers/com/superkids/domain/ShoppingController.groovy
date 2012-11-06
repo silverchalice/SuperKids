@@ -10,6 +10,18 @@ class ShoppingController {
             'RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
 
     def index = {
+        if(springSecurityService.isLoggedIn()) {
+            def customer = Customer.get(springSecurityService.principal.id)
+            if (customer.hasCompletedCurrentAssessment) {
+                redirect(controller: 'assessment', action: 'start')
+                return
+            } else {
+                render view: 'index'
+            }
+
+        }  else {
+            redirect(controller: 'login')
+        }
         
     }
 

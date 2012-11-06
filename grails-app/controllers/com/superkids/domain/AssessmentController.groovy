@@ -216,16 +216,35 @@ class AssessmentController {
         customer.hasCompletedCurrentAssessment = true
         customer.save(flush: true)
 
-        redirect action: 'survey'
+        redirect action: 'survey', id: customer.id
 
     }
 
 
     def survey = {
-
-
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+        [customerInstance:customerInstance]
     }
 
+
+    def saveSurvey = {
+        def customerInstance = Customer.get(springSecurityService.principal.id)
+
+        customerInstance.properties = params
+        if(customerInstance.save(flush: true)) {
+
+            customerInstance.hasCompletedCurrentAssessment = true
+            customerInstance.status = CustomerStatus.QUALIFIED
+            customerInstance.save(flush:true)
+
+            redirect(action: 'rewards')
+            return
+
+        } else {
+            flash.message = "Sorry, we were unable to save your information"
+            render view: 'survey', params: params
+        }
+    }
 
 
     def broker_contact = {

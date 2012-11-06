@@ -136,7 +136,7 @@ class MiscTagLib {
                 if (shoppingCartService.getItems()?.size() > 0) {
                     out << "(${shoppingCartService.getItems()?.size()} ${shoppingCartService.getItems().size() > 1 ? 'items' : 'item'})"
                 } else if (customer?.hasPlacedCurrentOrder) {
-                    out << "(Completed)"
+                    out << "(Completed - Assess Your Samples Now!)"
                 } else {
                     out << ""
                 }
