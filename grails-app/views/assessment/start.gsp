@@ -58,7 +58,7 @@
         <div id="content">
             <img src="${resource(dir: 'images', file:'img_money_books.jpg')}" class="left money-books" alt="Four stacked books with hundred dollar bills used as bookmarks" />
             <h1>Your School Could Win Free Money!</h1>
-            <p>Just tell us what you thought about this year’s SuperKids lineup and you’ll be automatically entered to win <strong>up to $200</strong> for your school district.</p>
+            <p>Just tell us what you thought about this year’s SuperKids lineup and you’ll be automatically entered to win <strong>up to $2,000</strong> for your school district.</p>
             <p>Remember, your feedback is invaluable. It not only lets us know how to improve our SuperKids program, it helps manufacturers better understand your needs. For prizes and official rules, <a href="#">click here</a>.</p>
             <hr />
 
@@ -82,7 +82,7 @@
                                     <label for="assessment.${product.id}.changeComment">What things would you change (list as many as necessary)?</label>
                                     <textarea name="assessment.${product.id}.changeComment"></textarea>
                                 </td>
-                                <td><label for="assessment.${product.id}.likeRating">On a scale of 1-5,  please rate your interest in adding this item to your school menu:</label>
+                                <td><label for="assessment.${product.id}.likeRating">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</label>
                                     <ol style="margin-bottom: 5px">
                                         <li class="first"><label for="1">1</label> <input type="radio" name="assessment.${product.id}.likeRating" value="1" /></li>
                                         <li><label for="2">2</label> <input type="radio" name="assessment.${product.id}.likeRating" value="2" /></li>
