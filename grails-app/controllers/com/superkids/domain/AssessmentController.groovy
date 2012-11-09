@@ -193,11 +193,21 @@ class AssessmentController {
                     println params?.assessment?."${product.id}"?.likeComment
                     println params?.assessment?."${product.id}"?.changeComment
 
+
+                    def favorites = ""
+                    if (product.id == 23) {
+                        params.favorites.each { k, v ->
+                            favorites += "$v, "
+                        }
+                    }
+
+
+
                     def assessment = new Assessment(
                             likeRating: params?.assessment?."${product.id}"?.likeRating,
                             likeComment: params?.assessment?."${product.id}"?.likeComment,
                             changeComment: params?.assessment?."${product.id}"?.changeComment,
-                            favorite: params?.assessment?."${product.id}"?.favorite ?: null,
+                            favorite: favorites,
                             product: product,
                             type: OrderType.WEB,
                             completed: true

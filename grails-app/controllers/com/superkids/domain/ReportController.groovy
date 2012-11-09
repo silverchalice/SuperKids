@@ -197,22 +197,19 @@ class ReportController {
 								m."${prod.name}_Q1" = "Did Not Receive"
 								m."${prod.name}_Q2" = "Did Not Receive"
 								m."${prod.name}_Q3" = "Did Not Receive"
-								m."${prod.name}_Q4" = "Did Not Receive"
 							}
 
 							if (!orderedProduct?.sampled) {
 								m."${prod.name}_Q1" = "Did Not Sample"
 								m."${prod.name}_Q2" = "Did Not Sample"
 								m."${prod.name}_Q3" = "Did Not Sample"
-								m."${prod.name}_Q4" = "Did Not Sample"
 							}
 
 							if (assessment) {
 
 								m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
-								m."${prod.name}_Q2" = assessment ? assessment.iRating : ''
-								m."${prod.name}_Q3" = assessment ? assessment.likeComment : ''
-								m."${prod.name}_Q4" = assessment ? assessment.changeComment : ''								
+								m."${prod.name}_Q2" = assessment ? assessment.likeComment : ''
+								m."${prod.name}_Q3" = assessment ? assessment.changeComment : ''
 								m.type = assessment.type
 								if(prod?.id == 23) {
 									m."${prod.name}_Q5" = assessment.favorite
@@ -420,18 +417,16 @@ class ReportController {
 					assessFields << "${prod.name}_Q1"
 					assessFields << "${prod.name}_Q2"
 					assessFields << "${prod.name}_Q3"
-					assessFields << "${prod.name}_Q4"
 
 
-					assessLabels."${prod.name}_Q1" = "${prod.name}_Like_Rating"
-					assessLabels."${prod.name}_Q2" = "${prod.name}_Interest_Rating"
-					assessLabels."${prod.name}_Q3" = "${prod.name}_Like_Comment"
-					assessLabels."${prod.name}_Q4" = "${prod.name}_Change_Comment"
+					assessLabels."${prod.name}_Q1" = "Interest in ${prod.name}"
+					assessLabels."${prod.name}_Q2" = "${prod.name} Like Comments"
+					assessLabels."${prod.name}_Q3" = "${prod.name} Change Comment"
 
 
 					if(prod.id == 23) {
 						assessFields << "${prod.name}_Q5"
-						assessLabels."${prod.name}_Q5" = "${prod.name}_Favorite_Pasta"
+						assessLabels."${prod.name}_Q5" = "${prod.name} Favorite Pasta"
 					}
 
 
