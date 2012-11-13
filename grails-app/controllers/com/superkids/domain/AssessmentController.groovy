@@ -213,9 +213,10 @@ class AssessmentController {
                             completed: true
                     )
 
-                    if(customer.addToAssessments(assessment)) {
+                    if(customer.addToAssessments(assessment) && customer.save(flush:true)) {
                         println "added assessment"
                     } else {
+                        assessment.errors.allErrors.each { println it }
                         println "surprise! something went wrong"
                     }
                 }

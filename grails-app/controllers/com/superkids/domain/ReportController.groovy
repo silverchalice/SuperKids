@@ -136,6 +136,7 @@ class ReportController {
 				m.lunchesServed = customer.lunchesServed
 				m.snacksServed = customer.snacksServed
 				m.hasBakery = customer.hasBakery ? "YES" : "NO"
+
                 m.monthlyFlourUsage = customer.monthlyFlourUsage
                 m.localBakeries = customer.localBakeries
 
@@ -147,6 +148,8 @@ class ReportController {
                 m.wantedProducts = customer.wantedProducts
 
                 m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
+                m.useUltragrainFlour = customer.useUltragrainFlour ? "YES" : "NO"
+                m.useWholeWheatFlour = customer.useWholeWheatFlour ? "YES" : "NO"
                 m.coOpMember = customer.coOpName ? "YES" : "NO"
                 m.coOpSamples = customer.coOpSamples ? "YES" : "NO"
                 m.coOpName = customer.coOpName
@@ -158,17 +161,6 @@ class ReportController {
 				m.topCustomer = customer.topCustomer ? "YES" : "NO"
 				m.pastParticipant = customer.pastParticipant ? "YES" : "NO"
 				m.callerBrokers = customer.callerBrokers
-
-                //m.brokerName = customer.brokers[0]?.name ?: ""
-                //m.brokerEmail = customer.brokers[0]?.email ?: ""
-                //m.brokerPhone = customer.brokers[0]?.phone ?: ""
-                //m.brokerFax = customer.brokers[0]?.fax ?: ""
-                //m.brokerStreet = customer.brokers[0]?.street ?: ""
-                //m.brokerStreet2 = customer.brokers[0]?.street2 ?: ""
-                //m.brokerCity = customer.brokers[0]?.city ?: ""
-                //m.brokerState = states[customer.brokers[0]?.state] ?: ""
-                //m.brokerZip = customer.brokers[0]?.zip ?: ""
-
 
 				m.notes = customer.opNotes
 				m.contact = contactTime
@@ -188,28 +180,25 @@ class ReportController {
 				if (withAssessments == 'true') {
 
 					for (prod in prods) {
+
 						def assessment = customer?.assessments?.find { it?.product?.id == prod.id }
 
-						def orderedProduct = customer?.customerOrder?.products?.find {it?.product?.id == prod.id}
+						def orderedProduct = customer?.customerOrder?.products?.find { it?.product?.id == prod.id }
+
 						if (orderedProduct) {
 
 							if (!orderedProduct?.received) {
 								m."${prod.name}_Q1" = "Did Not Receive"
 								m."${prod.name}_Q2" = "Did Not Receive"
 								m."${prod.name}_Q3" = "Did Not Receive"
-							}
-
-							if (!orderedProduct?.sampled) {
+							} else if (!orderedProduct?.sampled) {
 								m."${prod.name}_Q1" = "Did Not Sample"
 								m."${prod.name}_Q2" = "Did Not Sample"
 								m."${prod.name}_Q3" = "Did Not Sample"
-							}
-
-							if (assessment) {
-
-								m."${prod.name}_Q1" = assessment ? assessment.likeRating : ''
-								m."${prod.name}_Q2" = assessment ? assessment.likeComment : ''
-								m."${prod.name}_Q3" = assessment ? assessment.changeComment : ''
+							} else {
+								m."${prod.name}_Q1" = assessment.likeRating
+								m."${prod.name}_Q2" = assessment.likeComment
+								m."${prod.name}_Q3" = assessment.changeComment
 								m.type = assessment.type
 								if(prod?.id == 23) {
 									m."${prod.name}_Q5" = assessment.favorite
@@ -224,8 +213,6 @@ class ReportController {
 					m.programFeedback = customer.programFeedback
 					m.reformulations = customer.reformulations
 					m.otherProducts = customer.otherProducts
-
-
 
 				}
 
@@ -278,6 +265,8 @@ class ReportController {
                 "wantedProducts",
 
                 "usedUltragrainSustagrainProducts",
+                "useUltragrainFlour",
+                "useWholeWheatFlour",
                 "coOpMember",
                 "coOpSamples",
                 "coOpName",
@@ -356,7 +345,8 @@ class ReportController {
                 "wantedProducts": "Wanted Products",
 
                 "usedUltragrainSustagrainProducts": "Ultragrain/Sustagrain products in use",
-
+                "useUltragrainFlour": "Use Ultragrain Flour",
+                "useWholeWheatFlour": "Use Commodity Flour",
                 "coOpMember":"Member of a Co-op",
                 "coOpSamples": "Send Samples to Co-op",
                 "coOpName": "Co-op Name",
