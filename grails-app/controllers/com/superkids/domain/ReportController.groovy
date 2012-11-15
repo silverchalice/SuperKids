@@ -98,7 +98,7 @@ class ReportController {
 
         def prods = Product.findAllByLiveProduct(true, [sort:'sortOrder'])
 		println ("After Product.list - ${new Date().time - startTime}")
-		Customer.findAllByEmail('test@silver-chalice.com', [sort: "seq"]).each {customer ->
+		Customer.list(sort: "seq").each {customer ->
 			if(!customer.deleted) {
 				def productIds = customer.customerOrder?.products?.collect {customer.id}
 				def contactTime = "${customer.fall ? 'Fall, ' : ''}${customer.spring ? 'Spring, ' : ''}${customer.am ? 'AM, ' : ''}${customer.pm ? 'PM' : ''}"
