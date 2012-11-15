@@ -32,6 +32,7 @@ environments {
 			password = "sks5551212"
 			dbCreate = "update"			
             url = "jdbc:mysql://173.255.205.141:3306/sksdb"
+            autoReconnect=true
 
         }
     }
