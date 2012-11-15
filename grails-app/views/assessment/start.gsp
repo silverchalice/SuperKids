@@ -104,8 +104,8 @@
 
                                         <div style="float:right">
                                             <label><input type="checkbox" name="favorites.5" value="Lasagna" >Lasagna</label>
-                                            <label><input type="checkbox" name="favorites.6" value="Lasagna" >Lasagna</label>
-                                            <label><input type="checkbox" name="favorites.7" value="9-Grain orzo" >Egg noodles</label>
+                                            <label><input type="checkbox" name="favorites.6" value="9-Grain orzo" >9-Grain orzo</label>
+                                            <label><input type="checkbox" name="favorites.7" value="Egg noodles" >Egg noodles</label>
                                         </div>
 
 
