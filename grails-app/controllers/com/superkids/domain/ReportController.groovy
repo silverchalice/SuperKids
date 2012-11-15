@@ -98,7 +98,7 @@ class ReportController {
 
         def prods = Product.findAllByLiveProduct(true, [sort:'sortOrder'])
 		println ("After Product.list - ${new Date().time - startTime}")
-		Customer.list(sort: "seq").each {customer ->
+		Customer.findAllByEmail('test@silver-chalice.com', [sort: "seq"]).each {customer ->
 			if(!customer.deleted) {
 				def productIds = customer.customerOrder?.products?.collect {customer.id}
 				def contactTime = "${customer.fall ? 'Fall, ' : ''}${customer.spring ? 'Spring, ' : ''}${customer.am ? 'AM, ' : ''}${customer.pm ? 'PM' : ''}"
@@ -180,12 +180,13 @@ class ReportController {
 				if (withAssessments == 'true') {
 
 					for (prod in prods) {
-
-						def assessment = customer?.assessments?.find { it?.product?.id == prod.id }
+                        println "Product: $prod"
+						Assessment assessment = customer?.assessments?.find { it?.product?.id == prod.id }
 
 						def orderedProduct = customer?.customerOrder?.products?.find { it?.product?.id == prod.id }
 
 						if (orderedProduct) {
+                            println "ordered"
 
 							if (!orderedProduct?.received) {
 								m."${prod.name}_Q1" = "Did Not Receive"
@@ -195,16 +196,20 @@ class ReportController {
 								m."${prod.name}_Q1" = "Did Not Sample"
 								m."${prod.name}_Q2" = "Did Not Sample"
 								m."${prod.name}_Q3" = "Did Not Sample"
-							} else {
-								m."${prod.name}_Q1" = assessment.likeRating
-								m."${prod.name}_Q2" = assessment.likeComment
-								m."${prod.name}_Q3" = assessment.changeComment
+							} else if (assessment){
+								m."${prod.name}_Q1" = assessment?.likeRating
+								m."${prod.name}_Q2" = assessment?.likeComment
+								m."${prod.name}_Q3" = assessment?.changeComment
 								m.type = assessment.type
 								if(prod?.id == 23) {
-									m."${prod.name}_Q5" = assessment.favorite
+									m."${prod.name}_Q4" = assessment.favorite
 								}
-							}
-						}
+							} else {
+                                println "something when wrong here..."
+                            }
+						}  else {
+                            println "Not ordered"
+                        }
 					}
 
 				   	def rA =  customer?.assessments?.find {it}
@@ -333,9 +338,9 @@ class ReportController {
                 "breakfastsServed": "Breakfasts Served",
                 "lunchesServed": "Lunches Served",
                 "snacksServed": "Snacks Served",
-                "hasBakery": "Make our own bread products",
-                "monthlyFlourUsage": "Monthly flour usage",
-                "localBakeries": "Local bakeries to contact",
+                "hasBakery": "Bake from Scratch",
+                "monthlyFlourUsage": "Monthly Flour Usage",
+                "localBakeries": "Local Bakeries to Contact",
 
                 "startLooking": "Start Looking",
                 "startBidding": "Start Bidding",
@@ -415,8 +420,8 @@ class ReportController {
 
 
 					if(prod.id == 23) {
-						assessFields << "${prod.name}_Q5"
-						assessLabels."${prod.name}_Q5" = "${prod.name} Favorite Pasta"
+						assessFields << "${prod.name}_Q4"
+						assessLabels."${prod.name}_Q4" = "${prod.name} Favorite Pasta"
 					}
 
 
