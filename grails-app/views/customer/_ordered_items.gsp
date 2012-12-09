@@ -74,27 +74,22 @@
         <h3>Did not receive product?</h3>
         <g:checkBox name="didNotReceive"/>
 		<br/>
-		<h3>Assessment Question 1 of 4</h3>
-		On a scale of 1 to 5 where 1 is 'not liked' and 5 is 'well liked', how did you like this product?:<br/>
+		<h3>Assessment Question 1 of 3</h3>
+        On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:<br/>
 		<g:radioGroup name="likeRating" values="['1', '2', '3', '4','5']" labels="['1', '2', '3', '4','5']" value="3" >
 			<g:message code="${it.label}" />${it.radio}
 		</g:radioGroup>
 		<br/>
 		<br/>
-		<h3>Assessment Question 2 of 4</h3>
-		What two things did you like most about this product? <br/>
+		<h3>Assessment Question 2 of 3</h3>
+        What things did you like most (list as many as necessary)? <br/>
 		<g:textArea rows="" cols="" name="likeComment" style="width:465px" />
 		<br/>
-		<h3>Assessment Question 3 of 4</h3>
-		What one thing would you recommend be changed about this sampled product? <br/>
+		<h3>Assessment Question 3 of 3</h3>
+        What things would you change (list as many as necessary)?<br/>
 		<g:textArea rows="" cols="" name="changeComment"  style="width:465px" />
 		<br/>
-		<h3>Assessment Question 4 of 4</h3>
-		Please rate your interest in purchasing this product (where 1 is "low interest" and 5 is "high interest):<br/>
-		<g:radioGroup name="iRating" values="['1', '2', '3', '4','5']" labels="['1', '2', '3', '4','5']" value="3" >
-			<g:message code="${it.label}" />${it.radio}
-		</g:radioGroup>
-		<br/>
+
 		<br/>
 		<h3>OPTIONAL (Only for Ultragrain Pasta)</h3> 
 		Favorite Pasta<br/>

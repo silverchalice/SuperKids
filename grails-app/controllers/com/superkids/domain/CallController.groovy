@@ -945,13 +945,11 @@ class CallController {
 
 								println "$caller is saving customer " + customer.fsdName + "'s assessment of " + product
 								println params?.assessment?."${product.name}".likeRating
-								println params?.assessment?."${product.name}".interestRating
 								println params?.assessment?."${product.name}".likeComment
 								println params?.assessment?."${product.name}".changeComment
 
 								def assessment = new Assessment(
 										likeRating: params?.assessment?."${product.name}".likeRating,
-										iRating: params?.assessment?."${product.name}".interestRating,
 										likeComment: params?.assessment?."${product.name}".likeComment,
 										changeComment: params?.assessment?."${product.name}".changeComment,
 										favorite: params?.assessment?."${product.name}".favorite ?: null,
@@ -960,7 +958,7 @@ class CallController {
 										completed: true
 								)
 
-                                if(assessment?.likeRating && assessment?.iRating && assessment?.likeComment && assessment?.changeComment) {
+                                if(assessment?.likeRating && assessment?.likeComment && assessment?.changeComment) {
 									println "assessment was completed"
                                     assessment.completed = true
                                 }
