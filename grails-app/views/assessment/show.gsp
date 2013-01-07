@@ -42,7 +42,12 @@
 					   <td valign="top" class="value">${assessmentInstance?.product?.name}</td>
 
 				   </tr>
+               <tr class="prop">
+                   <td valign="top" class="name">Origin</td>
 
+                   <td valign="top" class="value">${assessmentInstance?.type}</td>
+
+               </tr>
 			   </tbody>
 			</table>
 
