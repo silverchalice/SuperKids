@@ -3,7 +3,7 @@
       <td colspan="2"><label>${product?.name}</label></td>
     </tr>
 	<tr class="prop">
-		<td class="name" valign="top"><label for="assessment.${product?.name}.likeRating"> <g:message code="assessment.likeRating" default="Like Rating" /></label> </td>
+		<td class="name" valign="top"><label for="assessment.${product?.name}.likeRating"> <g:message code="assessment.likeRating" default="Product Interest" /></label> </td>
 		<td class="value" valign="top">
 			<g:select name="assessment.${product?.name}.likeRating" from="${1..5}" value="${likeRating}" tabindex="1"
           noSelection="['':'']" style="width:100px;"/>
