@@ -682,6 +682,12 @@ class CallController {
 		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
 			eq 'hasCompletedCurrentAssessment', false
+
+            //TODO: Remove this to enable calling all customers
+            customerOrder {
+                eq 'shippingDate', ShippingDate.findByShipDate('November, 2012')
+            }
+
 			or {
 				eq 'status', CustomerStatus.HAS_ORDERED
 				eq 'hasPlacedCurrentOrder', true
