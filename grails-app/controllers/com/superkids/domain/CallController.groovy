@@ -685,7 +685,7 @@ class CallController {
 
             //TODO: Remove this to enable calling all customers
             customerOrder {
-                eq 'shippingDate', ShippingDate.findByShipDate('November, 2012')
+                eq 'shippingDate', ShippingDate.get(4)
             }
 
 			or {
