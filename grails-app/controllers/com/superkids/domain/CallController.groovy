@@ -442,26 +442,17 @@ class CallController {
 		def call = new Call()
 
         def currentTimezone
-        if(params?.timezone){
-			println params?.timezone
+        if(params?.timezone)
             currentTimezone = params?.timezone
-		}
-        else if(params?.currentTimezone) {
-			println params?.timezone
+        else
 			currentTimezone = params?.currentTimezone
-		} else {
-			println "we have no timezone!"
-			flash.message = "Please choose a timezone!"
-			redirect action:'start_order_call'
-			return
-		}
+
 
 		def c = Customer.createCriteria()
 		def c2 = Customer.createCriteria()
 
 		def now = new Date()
         def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
-
 
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
@@ -664,19 +655,22 @@ class CallController {
         }
         def order = new CustomerOrder()
         def call = new Call()
-        
+
+
         def currentTimezone
         if(params?.timezone)
             currentTimezone = params?.timezone
         else
             currentTimezone = params?.currentTimezone
 
+
+        println "timezone: $currentTimezone"
+
 		def c = Customer.createCriteria()
 		def c2 = Customer.createCriteria()
 
-		def now = new Date()
-        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
-        def oneHourAgo = new Date(new Date().time - 3600000)
+         def now = new Date()
+         def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
 
 		//assess calls are all customers with a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
@@ -698,28 +692,21 @@ class CallController {
 				eq 'deleted', false
 				isNull('deleted')
 			}
-			or {
-				lastCall {
-					ne('result', CallResult.REFUSED)
-					ne('result', CallResult.QUALIFIED)
-					ne('result', CallResult.NOT_QUALIFIED)
-					or {
-						and {
-							not { between('dateCreated', oneHourAgo, now) }
-							or {
-								eq('result', CallResult.BUSY)
-								eq('result', CallResult.NO_ANSWER)
-							}
-						}
-						and {
-							not { between('dateCreated', twentyFourHoursAgo, now) }
-						}
-					}
-				}
 
-				isNull('lastCall')
-			}
+            if(params?.queue == "new") {
+                println "$caller is using the new calls queue"
+                isNull "lastCall"
+            } else {
+                println "$caller is using the prev calls queue"
+                lastCall {
+                    ne('result', CallResult.REFUSED)
+                    ne('result', CallResult.QUALIFIED)
+                    ne('result', CallResult.NOT_QUALIFIED)
 
+                    le('dateCreated', seventyTwoHoursAgo)
+
+                }
+            }
 
 			or{
 				eq('duplicate', false)
@@ -750,6 +737,8 @@ class CallController {
 			}
 
 		} else {
+
+
 			customer = c2.list(max: 1, sort: 'seq') {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_ORDERED
@@ -893,7 +882,7 @@ class CallController {
 			}
 			else {
 				println "In-queue call... redirecting..."
-				redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue: 'true', states: states]
+				redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue:params?.queue, states: states]
 				return
 				}
 			}
