@@ -678,9 +678,9 @@ class CallController {
 			eq 'hasCompletedCurrentAssessment', false
 
             //TODO: Remove this to enable calling all customers
-            customerOrder {
-                eq 'shippingDate', ShippingDate.get(4)
-            }
+            //customerOrder {
+            //    eq 'shippingDate', ShippingDate.get(4)
+            //}
 
 			or {
 				eq 'status', CustomerStatus.HAS_ORDERED
