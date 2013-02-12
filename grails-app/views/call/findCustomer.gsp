@@ -8,11 +8,19 @@
         <title><g:message code="default.list.label" args="[entityName]" /></title>
     </head>
     <body>
+    <div style="margin:0px 0px; border:0; padding:15px 375px;">
+        <g:form method="post" controller="call" action="findCustomer">
+            Customer: <input type="text" name="query" />
+            <input type="submit" value="Go" id="search" />
+            <input type="hidden" name="id" value="${customerInstance?.id}">
+        </g:form>
+    </div>
         <div class="nav" style="padding:0; height:30px; line-height:30px;">
     	<g:render template="caller_nav"/>
 		<strong style="margin-left:200px;">Welcome Back <sec:loggedInUserInfo field="username"/></strong>
 		<span class="callerButton"><g:link controller="logout">Logout</g:link></span>
         </div>
+
         <div class="body" style="width:90%">
             <h1>Search Results</h1>
             <g:if test="${flash.message}">
