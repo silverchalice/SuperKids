@@ -180,13 +180,11 @@ class ReportController {
 				if (withAssessments == 'true') {
 
 					for (prod in prods) {
-                        println "Product: $prod"
 						Assessment assessment = customer?.assessments?.find { it?.product?.id == prod.id }
 
 						def orderedProduct = customer?.customerOrder?.products?.find { it?.product?.id == prod.id }
 
 						if (orderedProduct) {
-                            println "ordered"
 
 							if (!orderedProduct?.received) {
 								m."${prod.name}_Q1" = "Did Not Receive"
@@ -207,9 +205,7 @@ class ReportController {
 							} else {
                                 println "something when wrong here..."
                             }
-						}  else {
-                            println "Not ordered"
-                        }
+						}
 					}
 
 				   	def rA =  customer?.assessments?.find {it}
@@ -450,10 +446,10 @@ class ReportController {
         response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
         response.setHeader("Content-disposition", "attachment; filename=SK_Customers-${exDate}.xls")
 */      
-        def fileName = "SK_Customers-${exDate}.xls"  
+        def fileName = "SK_Customers-${exDate}.csv"
         def fileRoot = servletContext.getRealPath("/")
         def fos = new FileOutputStream("${fileRoot}/tmp/${fileName}")
-        exportService.export('excel', fos, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
+        exportService.export('csv', fos, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
 		println ("After export - ${new Date().time - startTime}")
 		render view:'downloadDialog', model:[fileName:fileName, desc:'Customer Data']
     }
