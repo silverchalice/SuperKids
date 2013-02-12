@@ -28,13 +28,13 @@
         </script>
     </head>
     <body>
-        <div style="margin:0px 0px; border:0; padding:15px 375px;">
+%{--        <div style="margin:0px 0px; border:0; padding:15px 375px;">
             <g:form method="post" controller="call" action="findCustomer">
                 Customer: <input type="text" name="query" />
                 <input type="submit" value="Go" id="search" />
 				<input type="hidden" name="id" value="${customerInstance?.id}">
             </g:form>
-        </div>
+        </div>--}%
         <g:layoutBody />
     </body>
 </html>
