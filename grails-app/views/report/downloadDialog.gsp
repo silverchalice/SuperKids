@@ -7,7 +7,7 @@
 <body>
 	<div class="body">
 		<h3>Click link to download the export file.</h3>
-		<a href="${resource(dir: 'tmp', file: fileName)}" type="application/vnd.ms-excel">
+		<a href="${resource(dir: 'tmp', file: fileName)}" type="application/csv">
 			Download ${desc}.
 		</a>
 		<br/>
