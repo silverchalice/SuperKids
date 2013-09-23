@@ -289,7 +289,7 @@
         </tr>
 
         <tr>
-            <td colspan="2"><strong>9.</strong> Do you buy USDA commodity flour? Yes: <g:checkBox name="buyCommodityFlour" value="${customerInstance?.buyCommodityFlour" />
+            <td colspan="2"><strong>9.</strong> Do you buy USDA commodity flour? Yes: <g:checkBox name="buyCommodityFlour" value="${customerInstance?.buyCommodityFlour}" />
             </td>
         </tr>
 
