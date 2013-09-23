@@ -146,9 +146,11 @@ class ReportController {
                 m.readyFor2014 = customer.readyFor2014
                 m.wholeGrainChallenge = customer.wholeGrainChallenge
                 m.wantedProducts = customer.wantedProducts
+                m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
 
                 m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
                 m.useUltragrainFlour = customer.useUltragrainFlour ? "YES" : "NO"
+                m.buyCommodityFlour = customer.buyCommodityFlour ? "YES" : "NO"
                 m.useWholeWheatFlour = customer.useWholeWheatFlour ? "YES" : "NO"
                 m.coOpMember = customer.coOpName ? "YES" : "NO"
                 m.coOpSamples = customer.coOpSamples ? "YES" : "NO"
@@ -264,9 +266,11 @@ class ReportController {
                 "readyFor2014",
                 "wholeGrainChallenge",
                 "wantedProducts",
+                "biggestFoodserviceConcern",
 
                 "usedUltragrainSustagrainProducts",
                 "useUltragrainFlour",
+                "buyCommodityFlour",
                 "useWholeWheatFlour",
                 "coOpMember",
                 "coOpSamples",
@@ -344,9 +348,11 @@ class ReportController {
                 "readyFor2014": "Ready for 2014",
                 "wholeGrainChallenge": "Challenges",
                 "wantedProducts": "Wanted Products",
+                "biggestFoodserviceConcern": "Biggest Foodservice Concern",
 
                 "usedUltragrainSustagrainProducts": "Ultragrain/Sustagrain products in use",
                 "useUltragrainFlour": "Use Ultragrain Flour",
+                "buyCommodityFlour": "Buy Commodity Flour",
                 "useWholeWheatFlour": "Use Commodity Flour",
                 "coOpMember":"Member of a Co-op",
                 "coOpSamples": "Send Samples to Co-op",
