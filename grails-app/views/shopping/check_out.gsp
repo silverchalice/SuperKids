@@ -288,9 +288,13 @@
                 <input type="text" name="startBidding" value="${customerInstance?.startBidding}" size="55" maxlength="1000"></td>
         </tr>
 
+        <tr>
+            <td colspan="2"><strong>9.</strong> Do you buy USDA commodity flour? Yes: <g:checkBox name="buyCommodityFlour" value="${customerInstance?.buyCommodityFlour" />
+            </td>
+        </tr>
 
         <tr>
-            <td colspan="2"><strong>9.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+            <td colspan="2"><strong>10.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
             </td>
         </tr>
 
@@ -306,7 +310,7 @@
                 <input type="text" name="localBakeries" value="${customerInstance?.localBakeries}" size="55" maxlength="1000"></td>
         </tr>
         <tr>
-            <td colspan="2"><strong>10.</strong> About Whole Grain Rich:
+            <td colspan="2"><strong>11.</strong> About Whole Grain Rich:
             </td>
         </tr>
         <tr>
@@ -320,6 +324,11 @@
         <tr>
             <td colspan="2">c)	What would you like to see food companies provide in terms of whole grain-rich? <br/>
                 <input type="text" name="wantedProducts" value="${customerInstance?.wantedProducts}" size="55" maxlength="1000"/></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><strong>12.</strong> What's your biggest concern regarding foodservice needs this year? <input type="text" name="biggestFoodserviceConcern" value="${customerInstance?.biggestFoodserviceConcern}" size="55" maxlength="1000"/></td>
+            </td>
         </tr>
 
     </table>
