@@ -18,69 +18,87 @@ class DataService {
             println "Loading row $i..."
 			i++
 
+            def yo
+            50000000.each { no -> yo = cell(no) ? yo + "; ${cell(no)}" : yo }
+            println yo
+
             def customer = new Customer()
             //if(!customer) {
             //    customer = new Customer()
             //} else {
             //    println "updating row..."
             //}
+            println "email " + cell(14)
 
 			customer.with {
 
                 seq= cell(1)
                 topCustomer = (cell(2) == 'YES')
-                source = cell(4)
-                fsdName = cell(5) ?: " "
-                fsdTitle = cell(6)
-                district = cell(7) ?: null
+                source = cell(3)
+                fsdName = cell(4) ?: " "
+                fsdTitle = cell(5)
+                district = cell(6) ?: "[none given]"
 				address = new Address(
-                        street: cell(8) ?: " ",
-                        street2: cell(9) ?: " ",
-                        city: cell(10) ?: " ",
-                        state: cell(11) ?: " ",
-                        zip: cell(12) ?: " ")
-                phone = cell(13)
-                fax = cell(14) ?: " "
-                if(!cell(15) || Customer.findByUsername(cell(15))){
+                        street: cell(7) ?: " ",
+                        street2: cell(8) ?: " ",
+                        city: cell(9) ?: " ",
+                        state: cell(10) ?: " ",
+                        zip: cell(11) ?: " ")
+                phone = cell(12)
+                fax = cell(13) ?: " "
+                if(!cell(14) || Customer.findByUsername(cell(14))){
                     customer.username = "no-email@no-email0${i}.com"
                     customer.email = "no-email@no-email0${i}.com"
                 } else {
-                    customer.username = cell(15)
-                    customer.email = cell(15)
+                    customer.username = cell(14)
+                    customer.email = cell(14)
                 }
 
-                deliveryAddress = new Address(street: cell(16) ?: " ", street2: cell(17) ?: " ", city: cell(18) ?: " ", state: cell(19) ?: " ", zip: cell(20) ?: " ")
+                deliveryAddress = new Address(street: cell(15) ?: " ", street2: cell(16) ?: " ", city: cell(17) ?: " ", state: cell(18) ?: " ", zip: cell(19) ?: " ")
 
                 status = CustomerStatus.HAS_NOT_ORDERED
 
-				studentsInDistrict = cell(21) ?: 0
-				facilities = cell(22) ?: 0
-				breakfastsServed = cell(23) ?: 0
-				lunchesServed = cell(24) ?: 0
-				snacksServed = cell(25) ?: 0
-				hasBakery = (cell(26) == "YES")
-				monthlyFlourUsage = cell(27)
-                localBakeries = cell(28)
-                usedUltragrainSustagrainProducts = cell(29)
-                pastParticipant = (cell(30) == 'YES')
-                callerBrokers = cell(31) ?: ""
+				studentsInDistrict = cell(20) ?: 0
+				studentsParticipate = cell(21) ?: 0
+				lookForAlliance = (cell(22) == "YES")
+				hasBakery = (cell(23) == "YES")
+                localBakeries = cell(24) ?: ""
+                startLooking = cell(25) ?: ""
+                startBidding = cell(26) ?: ""
+				readyFor2013 = (cell(27) == "TRUE")
+				readyFor2014 = (cell(28) == "TRUE")
+                wholeGrainChallenge = cell(29) ?: ""
+                wantedProducts = ""
+                useUltragrainFlour = (cell(31) == 'YES')
+                useWholeWheatFlour = (cell(32) == 'YES')
+                coOpMember = (cell(33) == 'YES')
+                coOpSamples = (cell(34) == 'YES')
+                coOpName = cell(35) ?: ""
+                coOpAddress = cell(36) ?: ""
+                contractManaged = (cell(37) == 'YES')
+                contractManager = cell(38) ?: ""
+                pastParticipant = (cell(40) == 'YES')
+                callerBrokers = cell(41) ?: ""
+                otherComments = cell(42) ?: ""
 
-                if(cell(32) && !Broker.findByName(cell(32))) {
+                //We don't seem to be using these cells for this
+                //any more (2013-2014)
+                /* if(cell(31) && !Broker.findByName(cell(31))) {
                     println "creating broker record..."
-                    def broker = new Broker(name: cell(32),
-                            email: cell(33) ?: "",
-                            phone: cell(34) ?: " ",
-                            fax: cell(35) ?: " ",
-                            street: cell(36) ?: "",
-                            street2: cell(37) ?: " ",
-                            city: cell(48) ?: ",",
-                            state: cell(39) ?: " ",
-                            zip: cell(40) ?: " ")
+                    def broker = new Broker(name: cell(31),
+                            email: cell(32) ?: "",
+                            phone: cell(33) ?: " ",
+                            fax: cell(34) ?: " ",
+                            street: cell(35) ?: "",
+                            street2: cell(36) ?: " ",
+                            city: cell(47) ?: ",",
+                            state: cell(38) ?: " ",
+                            zip: cell(39) ?: " ")
 
                     customer.addToBrokers(broker)
                 }
 
-				timezone = cell(41) ?: " "
+				timezone = cell(40) ?: " " */
 
 
 
