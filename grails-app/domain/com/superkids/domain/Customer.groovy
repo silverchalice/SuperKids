@@ -66,11 +66,13 @@ class Customer extends User {
     boolean hasBakery //Order Form Question #6
     Boolean useWholeWheatFlour
     Boolean useUltragrainFlour
+    Boolean buyCommodityFlour
     String localBakeries
     Boolean readyFor2013
     Boolean readyFor2014
     String wholeGrainChallenge
     String wantedProducts
+    String biggestFoodserviceConcern
 
     String breakfastsServed
     String lunchesServed
@@ -162,11 +164,13 @@ class Customer extends User {
         lookForAlliance nullable: true
         useWholeWheatFlour nullable: true
         useUltragrainFlour nullable: true
+        buyCommodityFlour nullable: true
 
         readyFor2013 nullable: true
         readyFor2014 nullable: true
         wholeGrainChallenge nullable: true, maxSize: 12000
         wantedProducts nullable: true, maxSize: 12000
+        biggestFoodserviceConcern nullable: true, maxSize: 12000
 
         facilities nullable: true
 		breakfastsServed nullable: true 
@@ -220,8 +224,8 @@ class Customer extends User {
 
 	static mapping = {
 		opNotes sqlType:"longtext"
-
-
+        wantedProducts sqlType:"longtext"
+        biggestFoodserviceConcern sqlType:"longtext"
 	}
 
 	String toString() {
