@@ -50,6 +50,15 @@ class HomeController {
            [content:content]
 	}
 
+	def milling_ultragrain = {
+           def content
+           def pt = PageText.findByName("milling_ultragrain")
+           if(pt){
+               content = pt.content
+           }
+           [content:content]
+	}
+
 	def sustagrain = {
            def content
            def pt = PageText.findByName("sustagrain")
@@ -371,7 +380,7 @@ class HomeController {
                }
            }
 
-           [content:content, products: products]
+           [content:content, products: products.sort { it?.sponsor?.name } ]
        }
 
        def assess = {
@@ -583,9 +592,9 @@ class HomeController {
            [content:content]
        }
 
-       def chef_jeff = {
+       def denver_schools = {
            def content
-           def pt = PageText.findByName("chef_jeff")
+           def pt = PageText.findByName("denver_schools")
            if(pt){
                content = pt.content
            }
