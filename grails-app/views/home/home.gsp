@@ -66,7 +66,7 @@
             <ul>
               <li><a href="${createLink(controller:'home', action: 'usda_standards')}" title="New USDA Standards">New USDA Standards</a></li>
               <li><a href="${createLink(controller:'home', action: 'alliance')}" title="Alliance for a Healthier Generation">Alliance for a Healthier Generation </a></li>
-              <li><a href="${createLink(controller:'home', action: 'chef_jeff')}" title="Chef Jeff, Denver Public Schools and Ultragrain at SNA">Chef Jeff, Denver Public Schools and Ultragrain at SNA</a></li>
+              <li><a href="${createLink(controller:'home', action: 'denver_schools')}" title="Denver Public Schools at SNA">Denver Public Schools at SNA</a></li>
             </ul>
           </div>
         </div>
