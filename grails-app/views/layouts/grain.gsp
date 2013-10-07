@@ -24,6 +24,7 @@
             <ul id="side-nav">
                 <h3>About Ultragrain & Sustagrain</h3>
                 <li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain"><span>About Ultragrain</span></g:link></li>
+                <li id="${link=='milling_ultragrain' ? 'current' : ''}"><g:link controller="home" action="milling_ultragrain"><span>Milling Ultragrain</span></g:link></li>
                 <li id="${link=='sustagrain' ? 'current' : ''}"><g:link controller="home" action="sustagrain"><span>About Sustagrain</span></g:link></li>
                 <li id="${link=='what_are_whole_grains' ? 'current' : ''}"><g:link controller="home" action="what_are_whole_grains"><span>What Are Whole Grains?</span></g:link></li>
                 <li id="${link=='whole_grain_list' ? 'current' : ''}"><g:link controller="home" action="whole_grain_list"><span>List of Whole Grains</span></g:link></li>
