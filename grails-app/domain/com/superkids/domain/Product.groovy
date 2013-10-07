@@ -79,7 +79,7 @@ class Product implements IShoppable {
             eq('liveProduct', true)
             isNull('parent')
             order("sortOrder", "asc")
-        }
+        }.sort { it?.sponsor?.name }
 
     }
 
