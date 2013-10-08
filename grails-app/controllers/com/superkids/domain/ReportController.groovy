@@ -4,6 +4,7 @@ import org.codehaus.groovy.grails.commons.ConfigurationHolder
 
 class ReportController {
 
+    def servletContext
     def exportService
 
     def index = { }
@@ -456,12 +457,17 @@ class ReportController {
         response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
         response.setHeader("Content-disposition", "attachment; filename=SK_Customers-${exDate}.xls")
 */      
-        def fileName = "SK_Customers-${exDate}.csv"
-        def fileRoot = servletContext.getRealPath("/")
-        def fos = new FileOutputStream("${fileRoot}/tmp/${fileName}")
-        exportService.export('csv', fos, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
+	def fileName = "SK_Customers-${exDate}.csv"
+/*	def fileRoot = servletContext.getResourceAsStream(request.getContextPath())
+	def fos = new FileOutputStream("${request.contextPath}/tmp/${fileName}")
 		println ("After export - ${new Date().time - startTime}")
 		render view:'downloadDialog', model:[fileName:fileName, desc:'Customer Data']
+*/
+
+	response.setHeader "Content-disposition", "attachment; filename=${fileName}"
+	response.contentType = 'text/csv'
+	exportService.export('csv', response.outputStream, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
+	response.outputStream.flush()
     }
 
 	def exportCalls = {
