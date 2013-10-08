@@ -151,7 +151,7 @@ class ReportController {
                 m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
 
                 m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
-                m.doNotReceiveAdditionalInformation = customer.doNotReceiveAdditionalInformation
+                m.doNotReceiveAdditionalInformation = customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
                 m.useUltragrainFlour = customer.useUltragrainFlour ? "YES" : "NO"
                 m.buyCommodityFlour = customer.buyCommodityFlour ? "YES" : "NO"
                 m.useWholeWheatFlour = customer.useWholeWheatFlour ? "YES" : "NO"
