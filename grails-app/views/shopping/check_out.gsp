@@ -327,7 +327,18 @@
         </tr>
 
         <tr>
-            <td colspan="2"><strong>12.</strong> What's your biggest concern regarding foodservice needs this year? <input type="text" name="biggestFoodserviceConcern" value="${customerInstance?.biggestFoodserviceConcern}" size="55" maxlength="1000"/></td>
+            <td colspan="2"><strong>12.</strong> What's your biggest concern regarding foodservice needs this year?
+              <br /><input type="text" name="biggestFoodserviceConcern" value="${customerInstance?.biggestFoodserviceConcern}" size="55" maxlength="1000"/></td>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><strong>13.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
+              <br />may send you information about related events, webinars, products
+              <br /> and services which we believe will be of interest to you.<br />
+              <br />Check this box if you DO NOT wish to receive additional information
+              <br />from ConAgra Foods and its affiliates. 
+              <g:checkBox name="doNotReceiveAdditionalInformation" value="${customerInstance?.doNotReceiveAdditionalInformation}" /></td>
             </td>
         </tr>
 

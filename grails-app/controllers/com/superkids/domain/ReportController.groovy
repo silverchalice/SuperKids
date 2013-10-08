@@ -147,8 +147,10 @@ class ReportController {
                 m.wholeGrainChallenge = customer.wholeGrainChallenge
                 m.wantedProducts = customer.wantedProducts
                 m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
+                m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
 
                 m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
+                m.doNotReceiveAdditionalInformation = customer.doNotReceiveAdditionalInformation
                 m.useUltragrainFlour = customer.useUltragrainFlour ? "YES" : "NO"
                 m.buyCommodityFlour = customer.buyCommodityFlour ? "YES" : "NO"
                 m.useWholeWheatFlour = customer.useWholeWheatFlour ? "YES" : "NO"
@@ -269,6 +271,7 @@ class ReportController {
                 "biggestFoodserviceConcern",
 
                 "usedUltragrainSustagrainProducts",
+                "doNotReceiveAdditionalInformation",
                 "useUltragrainFlour",
                 "buyCommodityFlour",
                 "useWholeWheatFlour",
@@ -363,6 +366,7 @@ class ReportController {
 
                 "pastParticipant": "Previous Participant",
                 "callerBrokers":"Who are your primary foodservice distributors",
+                "doNotReceiveAdditionalInformation": "Opted out of additional information",
                 //"brokerName":"Distributor Name",
                 //"brokerEmail":"Distributor Email",
                 //"brokerPhone":"Distributor Phone",

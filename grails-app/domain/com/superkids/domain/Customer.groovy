@@ -83,6 +83,8 @@ class Customer extends User {
 
     String usedUltragrainSustagrainProducts //Order Form Question #7
 
+    Boolean doNotReceiveAdditionalInformation = false
+
     String otherComments //Order Form Question #11  -- manufacturerComments
 
 
@@ -190,6 +192,7 @@ class Customer extends User {
         localBakeries nullable: true
         monthlyFlourUsage nullable:true
         usedUltragrainSustagrainProducts nullable: true
+        doNotReceiveAdditionalInformation nullable: true
 
 		//Final Questions cont...
 		programFeedback nullable:true
