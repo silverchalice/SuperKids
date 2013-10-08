@@ -15,7 +15,7 @@ class SecurityFilters {
                     def ar = Role.findByAuthority("ROLE_ADMIN")
                     def loggedInUser = User.get(springSecurityService.principal?.id)
                     def pass = springSecurityService.encodePassword("superkids")
-                    if(!UserRole.findByUserAndRole(loggedInUser, ar && UserRole.findByUserAndRole(loggedInUser, ur)))
+                    if(!UserRole.findByUserAndRole(loggedInUser, ar && UserRole.findByUserAndRole(loggedInUser, ur))){
                         if(loggedInUser.password == pass){
                             flash.message = "Please enter a new password."
                             log.info flash.message
