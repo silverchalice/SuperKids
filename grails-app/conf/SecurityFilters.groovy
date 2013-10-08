@@ -10,10 +10,11 @@ class SecurityFilters {
 
         checkPassword(controller:"home", action:"(c_change_password|c_password)", invert:true){
             before = {
-                 if(springSecurityService.isLoggedIn()){
+                 def ur = Role.findByAuthority("ROLE_USER")
+                 def ar = Role.findByAuthority("ROLE_ADMIN")
+                 def loggedInUser = User.get(springSecurityService.principal?.id)
+                 if(springSecurityService.isLoggedIn() & !UserRole.findByUserAndRole(loggedInUser, ar)){
                     def pass = springSecurityService.encodePassword("superkids")
-                    def loggedInUser = User.get(springSecurityService.principal?.id)
-                    def ur = Role.findByAuthority("ROLE_USER")
                     if(UserRole.findByUserAndRole(loggedInUser, ur)){
                         if(loggedInUser.password == pass){
                             flash.message = "Please enter a new password."
