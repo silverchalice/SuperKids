@@ -96,7 +96,7 @@ class Customer extends User {
 
 	boolean topCustomer = false
 
-	boolean usingResetPassword = false
+	Boolean usingResetPassword = false
 
     Boolean invalidEmail
     Boolean duplicate
