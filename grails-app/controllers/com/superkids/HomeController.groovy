@@ -37,7 +37,7 @@ class HomeController {
     def superkids_products = {
 
 
-        [products: Product.findAllByLiveProductAndParentIsNull(true, [sort:"sortOrder"])]
+        [products: Product.findAllByLiveProductAndParentIsNull(true).sort { it?.sponsor?.name }]
 
     }
 
