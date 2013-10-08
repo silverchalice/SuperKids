@@ -8,6 +8,7 @@ class Admin extends User {
     Date lastUpdated
     Date lastLogin
     String email
+	  boolean usingResetPassword = false
 
     static constraints = {
         lastLogin nullable:true
