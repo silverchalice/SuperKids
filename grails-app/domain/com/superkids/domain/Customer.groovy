@@ -67,6 +67,11 @@ class Customer extends User {
     Boolean useWholeWheatFlour
     Boolean useUltragrainFlour
     Boolean buyCommodityFlour
+    Boolean addedPastItemsToMenu
+    String pastItemsAddedToMenu
+    Boolean participateInRewardsPrograms
+    String programsParticipatedIn
+    String programInfluence
     String localBakeries
     Boolean readyFor2013
     Boolean readyFor2014
