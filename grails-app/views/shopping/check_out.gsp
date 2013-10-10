@@ -246,7 +246,7 @@
         </tr>
 
         <tr>
-            <td colspan="2">b) If yes, by who?
+            <td colspan="2">a) If yes, by who?
                 <br/>
                 <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
         </tr>
