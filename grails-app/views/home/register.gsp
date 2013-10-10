@@ -242,12 +242,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                <strong>3.</strong>	Do you look for foods that meet the Alliance for a Healthier Generation guidelines?
-                <g:checkBox name="lookForAlliance" value="${customerInstance?.lookForAlliance}" /></td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+            <td colspan="2"><strong>3.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
             </td>
         </tr>
         <tr>
@@ -255,9 +250,8 @@
                 <br/>
                 <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
         </tr>
-
         <tr>
-            <td colspan="2"><strong>5.</strong>	Are you a member of a co-op? (Please enter Co-op Name)<br/>
+            <td colspan="2"><strong>4.</strong>	Are you a member of a co-op? (Please enter Co-op Name)<br/>
                 <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
             </td>
         </tr>
@@ -266,61 +260,77 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">b) Name and address for the co-op sample:
+            <td colspan="2">b) Contact name, address and email for the co-op sample:
                 <br/>
                 <input type="text" name="coOpAddress" value="${customerInstance?.coOpAddress}" size="55" maxlength="1000"></td>
         </tr>
         <tr>
 
-            <td colspan="2"><strong>6.</strong>	Who are your primary foodservice distributors?
+            <td colspan="2"><strong>5.</strong>	Who are your primary foodservice distributors?
                 <br/>
                 <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
         </tr>
-        <tr>
-
-            <td colspan="2"><strong>7.</strong>	When do you start to look at new items for your menu?
-                <br/>
-                <input type="text" name="startLooking" value="${customerInstance?.startLooking}" size="55" maxlength="1000"></td>
-        </tr>
 
         <tr>
-
-            <td colspan="2"><strong>8.</strong>	When do you issue your bid?
-                <br/>
-                <input type="text" name="startBidding" value="${customerInstance?.startBidding}" size="55" maxlength="1000"></td>
-        </tr>
-
-
-        <tr>
-            <td colspan="2"><strong>9.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+            <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
             </td>
         </tr>
 
         <tr>
-            <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  Yes: <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
-               </td>
+            <td colspan="2"><strong>7.</strong> Do you buy USDA commodity flour? Yes: <g:checkBox name="buyCommodityFlour" value="${customerInstance?.buyCommodityFlour}" />
+            </td>
         </tr>
+
+        <tr>
+            <td colspan="2"><strong>8.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu? Yes: <g:checkBox name="addedPastItemsToMenu" value="${customerInstance?.addedPastItemsToMenu}" />
+            </td>
+        </tr>
+
         <tr>
 
-            <td colspan="2">b)	If no, do you work with a local bakery to supply your fresh bakery products? If you’d like us to contact them about the program, please list them here:
+            <td colspan="2"><strong>6.</strong>	If yes, do you recall any specifically?
                 <br/>
-                <input type="text" name="localBakeries" value="${customerInstance?.localBakeries}" size="55" maxlength="1000"></td>
+                <input type="text" name="pastItemsAddedToMenu" value="${customerInstance?.pastItemsAddedToMenu}" size="55" /></td>
         </tr>
+
         <tr>
-            <td colspan="2"><strong>10.</strong> About Whole Grain Rich:
+            <td colspan="2"><strong>9.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods? Yes: <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
             </td>
         </tr>
+
         <tr>
-            <td colspan="2">a) Does your current menu meet the 2013 Guidelines?  Yes: <g:checkBox name="readyFor2013" value="${customerInstance?.readyFor2013}" /> 2014 Guidelines? Yes: <g:checkBox name="readyFor2014" value="${customerInstance?.readyFor2014}" />
+            <td colspan="2"><strong>10.</strong> Do you participate in any rewards programs? Yes: <g:checkBox name="participateInRewardsPrograms" value="${customerInstance?.participateInRewardsPrograms}" />
             </td>
         </tr>
+
         <tr>
-            <td colspan="2">b)	What have been your biggest challenges? <br/>
-                <input type="text" name="wholeGrainChallenge" value="${customerInstance?.wholeGrainChallenge}" size="55" maxlength="1000"></td>
+
+            <td colspan="2">a) Which do you use?
+                <br/>
+                <input type="text" name="programsParticipatedIn" value="${customerInstance?.programsParticipatedIn}" size="55" /></td>
         </tr>
+
         <tr>
-            <td colspan="2">c)	What would you like to see food companies provide in terms of whole grain-rich? <br/>
-                <input type="text" name="wantedProducts" value="${customerInstance?.wantedProducts}" size="55" maxlength="1000"></td>
+
+            <td colspan="2">b)	How much do they influence you?
+                <br/>
+                <input type="text" name="programInfluence" value="${customerInstance?.programInfluence}" size="55" /></td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><strong>11.</strong> What's your biggest concern regarding foodservice needs this year?
+              <br /><input type="text" name="biggestFoodserviceConcern" value="${customerInstance?.biggestFoodserviceConcern}" size="55" maxlength="1000"/></td>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2"><strong>13.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
+              <br />may send you information about related events, webinars, products
+              <br /> and services which we believe will be of interest to you.<br />
+              <br />Check this box if you DO NOT wish to receive additional information
+              <br />from ConAgra Foods and its affiliates. 
+              <g:checkBox name="doNotReceiveAdditionalInformation" value="${customerInstance?.doNotReceiveAdditionalInformation}" /></td>
+            </td>
         </tr>
 
     </table>
