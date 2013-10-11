@@ -148,12 +148,16 @@ class ReportController {
                 m.wholeGrainChallenge = customer.wholeGrainChallenge
                 m.wantedProducts = customer.wantedProducts
                 m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
-                m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
 
                 m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
                 m.doNotReceiveAdditionalInformation = customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
                 m.useUltragrainFlour = customer.useUltragrainFlour ? "YES" : "NO"
+                m.participateInRewardsPrograms = customer.participateInRewardsPrograms ? "YES" : "NO"
+                m.programsParticipatedIn = customer.programsParticipatedIn
+                m.programInfluence = customer.programInfluence
                 m.buyCommodityFlour = customer.buyCommodityFlour ? "YES" : "NO"
+                m.addedPastItemsToMenu = customer.addedPastItemsToMenu ? "YES" : "NO"
+                m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
                 m.useWholeWheatFlour = customer.useWholeWheatFlour ? "YES" : "NO"
                 m.coOpMember = customer.coOpName ? "YES" : "NO"
                 m.coOpSamples = customer.coOpSamples ? "YES" : "NO"
@@ -274,7 +278,12 @@ class ReportController {
                 "usedUltragrainSustagrainProducts",
                 "doNotReceiveAdditionalInformation",
                 "useUltragrainFlour",
+                "participateInRewardsPrograms",
+                "programsParticipatedIn",
+                "programInfluence",
                 "buyCommodityFlour",
+                "addedPastItemsToMenu",
+                "pastItemsAddedToMenu",
                 "useWholeWheatFlour",
                 "coOpMember",
                 "coOpSamples",
@@ -355,8 +364,13 @@ class ReportController {
                 "biggestFoodserviceConcern": "Biggest Foodservice Concern",
 
                 "usedUltragrainSustagrainProducts": "Ultragrain/Sustagrain products in use",
-                "useUltragrainFlour": "Use Ultragrain Flour",
+                "useUltragrainFlour": "Look for 'Ultragrain' when trying new foods",
+                "participateInRewardsPrograms": "Participate in rewards programs",
+                "programsParticipatedIn": "Rewards programs participated in",
+                "programInfluence": "Influence of rewards programs",
                 "buyCommodityFlour": "Buy Commodity Flour",
+                "addedPastItemsToMenu": "Added previous items to menu",
+                "pastItemsAddedToMenu": "Past items added to menu",
                 "useWholeWheatFlour": "Use Commodity Flour",
                 "coOpMember":"Member of a Co-op",
                 "coOpSamples": "Send Samples to Co-op",
