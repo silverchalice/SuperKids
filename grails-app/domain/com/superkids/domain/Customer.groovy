@@ -173,6 +173,12 @@ class Customer extends User {
         useUltragrainFlour nullable: true
         buyCommodityFlour nullable: true
 
+        addedPastItemsToMenu nullable: true
+        pastItemsAddedToMenu nullable: true
+        participateInRewardsPrograms nullable: true
+        programsParticipatedIn nullable: true
+        programInfluence nullable: true
+
         readyFor2013 nullable: true
         readyFor2014 nullable: true
         wholeGrainChallenge nullable: true, maxSize: 12000
