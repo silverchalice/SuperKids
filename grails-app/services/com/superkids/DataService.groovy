@@ -80,7 +80,7 @@ class DataService {
                 pastParticipant = (cell(40) == 'YES')
                 callerBrokers = cell(41) ?: ""
                 otherComments = cell(42) ?: ""
-
+				timezone = cell(43) ?: " "
                 //We don't seem to be using these cells for this
                 //any more (2013-2014)
                 /* if(cell(31) && !Broker.findByName(cell(31))) {
@@ -98,7 +98,7 @@ class DataService {
                     customer.addToBrokers(broker)
                 }
 
-				timezone = cell(40) ?: " " */
+				 */
 
 
 
