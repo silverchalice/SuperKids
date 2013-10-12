@@ -65,7 +65,7 @@
         ${productInstance?.details}
 
         <h2>Manufacturer Information</h2>
-        ${productInstance.sponsor.details}
+        ${mfgContent ?: productInstance.sponsor.details}
 
         <!--<h2>Recipes from the Manufacturer</h2>
         <p>Download recipes</p>
