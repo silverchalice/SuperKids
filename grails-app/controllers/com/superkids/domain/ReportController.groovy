@@ -138,18 +138,8 @@ class ReportController {
 				m.snacksServed = customer.snacksServed
 				m.hasBakery = customer.hasBakery ? "YES" : "NO"
 
-                m.monthlyFlourUsage = customer.monthlyFlourUsage
-                m.localBakeries = customer.localBakeries
-
-                m.startLooking = customer.startLooking
-                m.startBidding = customer.startBidding
-                m.readyFor2013 = customer.readyFor2013
-                m.readyFor2014 = customer.readyFor2014
-                m.wholeGrainChallenge = customer.wholeGrainChallenge
-                m.wantedProducts = customer.wantedProducts
                 m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
 
-                m.usedUltragrainSustagrainProducts = customer.usedUltragrainSustagrainProducts
                 m.doNotReceiveAdditionalInformation = customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
                 m.useUltragrainFlour = customer.useUltragrainFlour ? "YES" : "NO"
                 m.participateInRewardsPrograms = customer.participateInRewardsPrograms ? "YES" : "NO"
@@ -158,7 +148,6 @@ class ReportController {
                 m.buyCommodityFlour = customer.buyCommodityFlour ? "YES" : "NO"
                 m.addedPastItemsToMenu = customer.addedPastItemsToMenu ? "YES" : "NO"
                 m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
-                m.useWholeWheatFlour = customer.useWholeWheatFlour ? "YES" : "NO"
                 m.coOpMember = customer.coOpName ? "YES" : "NO"
                 m.coOpSamples = customer.coOpSamples ? "YES" : "NO"
                 m.coOpName = customer.coOpName
@@ -181,10 +170,6 @@ class ReportController {
 
 				m.order = new Expando()
 				m.order.shippingDate = customer.customerOrder?.shippingDate
-
-                Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
-                    m."${sponsor.name}" = customer.contactManufacturers?.contains(sponsor) ? "YES" : "NO"
-                }
 
 				if (withAssessments == 'true') {
 
@@ -265,17 +250,8 @@ class ReportController {
                 "lunchesServed",
                 "snacksServed",
                 "hasBakery",
-                "monthlyFlourUsage",
-                "localBakeries",
-                "startLooking",
-                "startBidding",
-                "readyFor2013",
-                "readyFor2014",
-                "wholeGrainChallenge",
-                "wantedProducts",
                 "biggestFoodserviceConcern",
 
-                "usedUltragrainSustagrainProducts",
                 "doNotReceiveAdditionalInformation",
                 "useUltragrainFlour",
                 "participateInRewardsPrograms",
@@ -284,7 +260,6 @@ class ReportController {
                 "buyCommodityFlour",
                 "addedPastItemsToMenu",
                 "pastItemsAddedToMenu",
-                "useWholeWheatFlour",
                 "coOpMember",
                 "coOpSamples",
                 "coOpName",
@@ -312,10 +287,6 @@ class ReportController {
 				fields << foo
 			}
 		}
-
-        Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
-            fields << sponsor.name
-        }
 
 
 		println ("After prods.each - ${new Date().time - startTime}")
@@ -352,18 +323,9 @@ class ReportController {
                 "lunchesServed": "Lunches Served",
                 "snacksServed": "Snacks Served",
                 "hasBakery": "Bake from Scratch",
-                "monthlyFlourUsage": "Monthly Flour Usage",
-                "localBakeries": "Local Bakeries to Contact",
 
-                "startLooking": "Start Looking",
-                "startBidding": "Start Bidding",
-                "readyFor2013": "Ready for 2013",
-                "readyFor2014": "Ready for 2014",
-                "wholeGrainChallenge": "Challenges",
-                "wantedProducts": "Wanted Products",
                 "biggestFoodserviceConcern": "Biggest Foodservice Concern",
 
-                "usedUltragrainSustagrainProducts": "Ultragrain/Sustagrain products in use",
                 "useUltragrainFlour": "Look for 'Ultragrain' when trying new foods",
                 "participateInRewardsPrograms": "Participate in rewards programs",
                 "programsParticipatedIn": "Rewards programs participated in",
@@ -371,7 +333,6 @@ class ReportController {
                 "buyCommodityFlour": "Buy Commodity Flour",
                 "addedPastItemsToMenu": "Added previous items to menu",
                 "pastItemsAddedToMenu": "Past items added to menu",
-                "useWholeWheatFlour": "Use Commodity Flour",
                 "coOpMember":"Member of a Co-op",
                 "coOpSamples": "Send Samples to Co-op",
                 "coOpName": "Co-op Name",
@@ -399,10 +360,6 @@ class ReportController {
 				labels."${prod.name}" = prod.name
 			}
 		}
-
-        Sponsor.findAllByInactive(false).sort {it.name}.each { sponsor ->
-            labels."${sponsor.name}" = sponsor.name
-        }
 
 		println ("After prods.each 2 - ${new Date().time - startTime}")
 
