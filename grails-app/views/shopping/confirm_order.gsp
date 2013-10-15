@@ -90,7 +90,7 @@
 
 						<h2>Rewards for Assessments</h2>
 					
-	<p>When you receive your samples and try them out, be sure to come back to SuperKidsSampling.com before March 4, 2013 -- you can earn special rewards for completing your assessments by this deadline. </p>
+	<p>When you receive your samples and try them out, be sure to come back to SuperKidsSampling.com before March 3, 2014 -- you can earn special rewards for completing your assessments by this deadline. </p>
 						<strong>If this sample order is correct, click the "Place Your Order" button to complete order. If you do not confirm your order by pressing this button, the order will not be placed.</strong>
                     <div style="clear: both; width: 890px; margin: 0 auto;">
                         <hr />
