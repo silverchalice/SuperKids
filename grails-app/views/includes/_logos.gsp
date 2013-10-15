@@ -1,7 +1,7 @@
 <h5>We&#8217;re Proud to Feature These Great Brands <span>&#8212; All made with Ultragrain&reg; or Sustagrain&reg;</span></h5>
 <a href="http://www.aztecafoods.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_azteca.png')}" alt="Azteca logo" /></a>
 <a href="http://www.bvfoods.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_buena_vista.png')}" alt="Buena Vista logo" /></a>
-<a href="http://www.conagramills.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_conagra_mills.png')}" alt="ConAgra Mills logo" /></a>
+<a href="http://www.conagramills.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'conagra-foods.png')}" alt="ConAgra Mills logo" /></a>
 <a href="http://www.dickandjanebakingco.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_dick_janes.png')}" alt="Dick & Janes logo" /></a>
 <a href="http://www.dominos.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_dominos.jpg')}" alt="Domino's Pizza logo" /></a>
 <a href="http://www.europeanbakers.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'flowers_logo.jpg')}" alt="Flowers logo" /></a>
