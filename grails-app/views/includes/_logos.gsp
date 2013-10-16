@@ -9,7 +9,7 @@
 <a href="http://www.integratedfoodservice.com" target="_blank"><img style="height:30px" src="${resource(dir:'images',file:'logo_integrated.png')}" alt="Integrated Food Services logo" /></a>
 <a href="http://www.jmswank.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'JM-Swank-logo-C-1.png')}" alt="JM Swank logo" /></a>
 <a href="http://www.campbellfoodservice.com/pepperidgefarm" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_pepperidge_farm.png')}" alt="Pepperidge Farm logo" /></a>
-<a href="http://http://corndogs.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'State-FairCMYKLogo-high-res1.png')}" alt="State Fair logo" /></a>
+<a href="http://corndogs.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'State-FairCMYKLogo-high-res1.png')}" alt="State Fair logo" /></a>
 <a href="http://saraleefoodservice.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'sara-lee-hillshire.png')}" alt="Sara Lee logo" /></a>
 <a href="http://www.buncompany.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'tbc_logo.png')}" alt="Tennessee Bun logo" /></a>
 <a href="http://www.tyson.com/" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'TysonLogo.png')}" alt="Tyson logo" /></a>
