@@ -62,12 +62,12 @@
                         <table cellpadding="0" cellspacing="0">
                             <tr>
                                 <td class="first">
-                                    <label for="likeComments">What two things did you like most about this product?</label>
+                                    <label for="likeComments">What things did you like most (list as many as necessary)?</label>
                                     <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/>
-                                    <label for="likeComments">What would you recommend be changed about this product?</label>
+                                    <label for="likeComments">What things would you change (list as many as necessary)?</label>
                                     <textarea name="assessment.${product.id}.changeComment"></textarea>
                                 </td>
-                                <td><label for="taste">On a scale of 1-5, how did you like this product?</label>
+                                <td><label for="taste">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu.</label>
                                     <ol>
                                         <li class="first"><label for="1">1</label> <input type="radio" name="assessment.${product.id}.likeRating" value="1" /></li>
                                         <li><label for="2">2</label> <input type="radio" name="assessment.${product.id}.likeRating" value="2" /></li>

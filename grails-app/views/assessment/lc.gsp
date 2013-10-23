@@ -50,7 +50,7 @@
                 <div id="assessmentQuestionInner"><br />
 				  <p style="position:absolute; top:1px; left:345px; font-size:14px">Assessment Question 2 of 4</p>
                   <p style="font-size:14px;">
-                    <label>What two things did you like most about this product?</label><br/><br/><br/>
+                    <label>What things did you like most (list as many as necessary)?</label><br/><br/><br/>
                     <textarea name="likeComment" rows="10" cols="50" style="margin-left:19px;"></textarea>
                   </p>
                 </div>
