@@ -176,7 +176,7 @@
 			<g:if test="${start && queue}">
 				<g:hiddenField name="queue" value="${queue}" />
                 <g:actionSubmit id="startSubmit" controller="call" class="callerButton" style="position:absolute; left:1080px; top:0px" action="next_order_call" value="Start Calling" />
-                <span style="position:absolute; left:0; top:0px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
+                <span style="position:absolute; left:0; top:36px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
                 <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
 			</g:if>
 
