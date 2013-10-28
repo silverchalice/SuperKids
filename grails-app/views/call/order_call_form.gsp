@@ -175,13 +175,13 @@
 
 			<g:if test="${start && queue}">
 				<g:hiddenField name="queue" value="${queue}" />
-                <g:actionSubmit id="startSubmit" controller="call" class="callerButton" style="position:absolute; left:1080px; top:60px" action="next_order_call" value="Start Calling" />
-                <span style="position:absolute; left:0; top:96px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
+                <g:actionSubmit id="startSubmit" controller="call" class="callerButton" style="position:absolute; left:1080px; top:0px" action="next_order_call" value="Start Calling" />
+                <span style="position:absolute; left:0; top:0px"><g:select id="timezone" name="timezone" from="${timezones}" /></span>
                 <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
 			</g:if>
 
 			<g:if test="${queue && !start}">
-				 <g:actionSubmit id="submit" style="position:absolute; width:100px; left:1000px; top:60px;" class="callerButton" action="save_order_call" value="Next Call" />
+				 <g:actionSubmit id="submit" style="position:absolute; width:100px; left:1000px; top:0px;" class="callerButton" action="save_order_call" value="Next Call" />
 				 <g:hiddenField name="queue" value="${queue}" />
                  <img id="loader" style="position:absolute; left:1105px; padding-top:3px; height:25px; display:none;" src="${resource(dir:'images', file:'ajax-loader.gif')}"  alt="" />
             </g:if>
