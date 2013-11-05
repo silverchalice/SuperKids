@@ -91,6 +91,7 @@
                                         <li class="last"><label for="5">5</label> <input type="radio" name="assessment.${product.id}.likeRating" value="5" /></li>
                                     </ol>
 
+<!-- removing this for 2013
                                     <g:if test="${product.id == 23}">
                                         <label>Please check which varieties of the pasta you like:</label>
 
@@ -110,6 +111,7 @@
 
 
                                     </g:if>
+-->
 
 
                                 </td>

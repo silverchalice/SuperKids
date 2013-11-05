@@ -195,11 +195,14 @@ class AssessmentController {
 
 
                     def favorites = ""
+/*
+// removing for 2013
                     if (product.id == 23) {
                         params.favorites.each { k, v ->
                             favorites += "$v, "
                         }
                     }
+*/
 
 
 
