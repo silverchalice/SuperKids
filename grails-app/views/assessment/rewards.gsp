@@ -14,7 +14,7 @@
              <h1>Rewards For Completing Your Assessment</h1>
 
                 <p>
-                Thank You!Your assessment has been received, qualifying you for the sweepstakes prize drawing.
+                Thank You! Your assessment has been received, qualifying you for the sweepstakes prize drawing.
               </p>
 
                 <ol style="list-style-type:decimal">
