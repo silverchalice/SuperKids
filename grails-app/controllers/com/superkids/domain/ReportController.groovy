@@ -205,9 +205,8 @@ class ReportController {
 				   	def rA =  customer?.assessments?.find {it}
 
 					m.assessmentOrigin = rA?.type
+					m.expectationsNotMetFeedback = customer.expectationsNotMetFeedback ?: ""
 					m.programFeedback = customer.programFeedback
-					m.reformulations = customer.reformulations
-					m.otherProducts = customer.otherProducts
 
 				}
 
@@ -374,14 +373,12 @@ class ReportController {
 
 
 			assessLabels.programFeedback = "General Feedback"
-			assessLabels.reformulations = "Reformulations"
-			assessLabels.otherProducts = "Other Products"
+			assessLabels.expectationsNotMetFeedback = "Whole Grain-Rich Foods On Menu Not Meeting Expectations"
 			assessLabels.assessmentOrigin = "Assessment Origin"
 
 
 			assessFields << "programFeedback"
-			assessFields << "reformulations"
-			assessFields << "otherProducts"
+			assessFields << "expectationsNotMetFeedback"
 			assessFields << "assessmentOrigin"
 
 
