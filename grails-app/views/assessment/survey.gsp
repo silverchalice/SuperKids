@@ -57,40 +57,24 @@
 
         <g:form name="saveSurvey" action="saveSurvey">
             <div class="order-item expanded"> &nbsp;
-                <h2>Contact Times</h2>
-                <p>Your broker or distributor may be contacting you regarding your feedback. What is the best time of year and day to reach you?
+                <h2>Additional Comments & Suggestions</h2>
+                <p>Are there any whole grain-rich foods on your menu that aren't meeting your or your students&#8217 expectations, and if so, why not?</p>
+<p>&nbsp;</p>
+<br /> <br />
                 <div class="expand">&nbsp;</div>
 
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="first">
-
-
-                            <fieldset style="padding: 25px">
-
-                                <label for="fall" style="float:left; padding-left: 25px;"> Fall: </label>
-                                <g:checkBox name="fall" value="${customerInstance?.fall}" style="float:left; padding-right: 10px" />
-
-                                <label for="spring" style="float:left; padding-left: 25px;"> Spring: </label>
-                                <g:checkBox name="spring" value="${customerInstance?.spring}" style="float:left; padding-right: 10px" />
-
-
-                                <label for="am" style="float:left; padding-left: 25px;"> AM: </label>
-                                <g:checkBox name="am" value="${customerInstance?.am}" style="float:left; padding-right: 10px" />
-
-
-                                <label for="pm" style="float:left; padding-left: 25px;"> PM: </label>
-                                <g:checkBox name="pm" value="${customerInstance?.pm}" style="float:left;" />
-                            </fieldset>
-
-
+                            <g:textArea name="expectationsNotMetFeedback" cols="75" rows="25" value="${customerInstance?.expectationsNotMetFeedback}" />
                         </td>
 
                     </tr>
                 </table>
 
+                <p>&nbsp;</p>
                 <h2>Program Feedback</h2>
-                <p>Please give us your feedback about the SuperKids Whole Grain Sampling Program</p>
+                <p>Please give us feedback on the SuperKids program in general.</p>
                 <div class="expand">&nbsp;</div>
 
                 <table cellpadding="0" cellspacing="0">
@@ -102,29 +86,21 @@
                     </tr>
                 </table>
 
+                <p>&nbsp;</p>
+                <p>Did you add any of the items you sampled to your menu?</p>
+                <div class="expand">&nbsp;</div>
+                                <label for="addedPastItemsToMenu" style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
+                                <g:checkBox name="addedPastItemsToMenu" value="${customerInstance?.addedPastItemsToMenu}" style="float:left; padding-right: 10px" />
 
-                <h2>Reformulations</h2>
-                <p>Tell us about your interest in reformulations</p>
+                <p>&nbsp;</p>
+                <p>If so, which items?</p>
+                <p>&nbsp;</p>
                 <div class="expand">&nbsp;</div>
 
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="first">
-                            <g:textArea name="reformulations" cols="75" rows="25" value="${customerInstance?.reformulations}"/>
-                        </td>
-
-                    </tr>
-                </table>
-
-
-                <h2>Other Products</h2>
-                <p>Tell us about interest in other products</p>
-                <div class="expand">&nbsp;</div>
-
-                <table cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td class="first">
-                            <g:textArea name="otherProducts" cols="75" rows="25" value="${customerInstance?.otherProducts}" />
+                            <g:textArea name="pastItemsAddedToMenu" cols="75" rows="25" value="${customerInstance?.pastItemsAddedToMenu}" />
                         </td>
 
                     </tr>
