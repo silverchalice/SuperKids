@@ -236,7 +236,10 @@ class AssessmentController {
 
 
     def survey = {
-        def customerInstance = Customer.get(springSecurityService.principal.id)
+        def customerInstance = null
+        if(springSecurityService.isLoggedIn()){
+            customerInstance = Customer.get(springSecurityService.principal.id)
+        }
         [customerInstance:customerInstance]
     }
 
