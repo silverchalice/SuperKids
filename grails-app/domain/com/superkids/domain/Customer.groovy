@@ -95,6 +95,10 @@ class Customer extends User {
 
     //Assessment Questions
     String programFeedback
+    String expectationsNotMetFeedback
+    String expectationsNotMetManufacturer
+    String expectationsNotMetProductName
+    String expectationsNotMetReason
 	String reformulations
 	String otherProducts
 
@@ -207,6 +211,10 @@ class Customer extends User {
 
 		//Final Questions cont...
 		programFeedback nullable:true
+    expectationsNotMetFeedback nullable:true, maxSize: 120000
+    expectationsNotMetManufacturer nullable:true
+    expectationsNotMetProductName nullable:true
+    expectationsNotMetReason nullable:true
 		reformulations nullable:true
 		otherProducts nullable: true
 
