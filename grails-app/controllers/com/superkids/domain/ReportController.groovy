@@ -102,7 +102,6 @@ class ReportController {
 		Customer.list(sort: "seq").each {customer ->
 			if(!customer.deleted) {
 				def productIds = customer.customerOrder?.products?.collect {customer.id}
-				def contactTime = "${customer.fall ? 'Fall, ' : ''}${customer.spring ? 'Spring, ' : ''}${customer.am ? 'AM, ' : ''}${customer.pm ? 'PM' : ''}"
 
 
 				def m = [:]
@@ -161,7 +160,6 @@ class ReportController {
 				m.callerBrokers = customer.callerBrokers
 
 				m.notes = customer.opNotes
-				m.contact = contactTime
 
 				def order = customer.customerOrder
 				prods.each {prod ->
@@ -278,8 +276,7 @@ class ReportController {
                 //"brokerCity",
                 //"brokerState",
                 //"brokerZip",
-                "notes" ,
-                "contact"]
+                "notes"]
 		for (prod in prods) {
 			def foo = prod.name
 			if (!prod.parent) {
@@ -351,8 +348,7 @@ class ReportController {
                 //"brokerCity":"Distributor City",
                 //"brokerState":"Distributor State",
                 //"brokerZip":"Distributor Zip",
-                "notes":"Operator Comments",
-                "contact": "Contact Times"]
+                "notes":"Operator Comments"]
 
 		for (prod in prods) {
 			if (!prod.parent) {
