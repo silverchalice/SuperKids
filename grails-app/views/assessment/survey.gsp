@@ -89,8 +89,10 @@
                 <p>&nbsp;</p>
                 <p>Did you add any of the items you sampled to your menu?</p>
                 <div class="expand">&nbsp;</div>
-                                <label for="addedPastItemsToMenu" style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
-                                <g:checkBox name="addedPastItemsToMenu" value="${customerInstance?.addedPastItemsToMenu}" style="float:left; padding-right: 10px" />
+                                <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
+                                <g:radio name="addedPastItemsToMenu" value="true" style="float:left; padding-right: 10px" />
+                                <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
+                                <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true" />
 
                 <p>&nbsp;</p>
                 <p>If so, which items?</p>
