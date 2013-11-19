@@ -192,7 +192,7 @@
 				<g:hiddenField name="single" value="${single}" />
 				<g:hiddenField name="cb" value="${cb}" />
 				<g:hiddenField name="ocl" value="${ocl}" />
-				<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
+				<g:actionSubmit style="position:absolute; left:1080px; top:0; width:100px" class="callerButton" id="submit" action="save_order_call" value="Finish" />
 			</g:if>
 
 
