@@ -139,7 +139,7 @@
                           <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company
                         </td>
                         <td class="td>
-                          <g:checkBox name="pastCompanies" value="Kellogg&#8217;s" /> Kellog&#8217;s
+                          <g:checkBox name="pastCompanies" value="Kellogg's" /> Kellog&#8217;s
                         </td>
                     </tr>
                     <tr>
