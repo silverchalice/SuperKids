@@ -123,7 +123,7 @@
                           <g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products
                         </td>
                         <td class="td>
-                          <g:checkBox name="pastCompanies" value="Jane&#8217;s Dough Foods" /> Jane&#8217;s Dough Foods
+                          <g:checkBox name="pastCompanies" value="Jane's Dough Foods" /> Jane&#8217;s Dough Foods
                         </td>
                     </tr>
                     <tr>
@@ -144,7 +144,7 @@
                     </tr>
                     <tr>
                         <td>
-                          <g:checkBox name="pastCompanies" value="Domino&#8217;s Pizza" /> Domino&#8217;s Pizza
+                          <g:checkBox name="pastCompanies" value="Domino's Pizza" /> Domino&#8217;s Pizza
                         </td>
                         <td class="td>
                           <g:checkBox name="pastCompanies" value="Pepperidge Farm" /> Pepperidge Farm
