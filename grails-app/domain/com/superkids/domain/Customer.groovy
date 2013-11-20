@@ -99,8 +99,11 @@ class Customer extends User {
     String expectationsNotMetManufacturer
     String expectationsNotMetProductName
     String expectationsNotMetReason
-	String reformulations
-	String otherProducts
+	  String reformulations
+  	String otherProducts
+    String addedSampleProducts
+    String sampleProductsAdded
+    String pastCompanies
 
 
 	boolean topCustomer = false
@@ -217,6 +220,9 @@ class Customer extends User {
     expectationsNotMetReason nullable:true
 		reformulations nullable:true
 		otherProducts nullable: true
+    addedSampleProducts nullable: true
+    sampleProductsAdded nullable: true
+    pastCompanies nullable: true
 
 
 		// Broker Call Times
