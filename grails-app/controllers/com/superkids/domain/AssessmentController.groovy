@@ -251,6 +251,7 @@ class AssessmentController {
         def customerInstance = Customer.get(springSecurityService.principal.id)
 
         customerInstance.properties = params
+        customerInstance.pastCompanies = customerInstance.pastCompanies.split(",").join(", ")
         if(customerInstance.save(flush: true)) {
 
             customerInstance.hasCompletedCurrentAssessment = true
