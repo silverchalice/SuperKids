@@ -92,7 +92,7 @@
                                 <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
                                 <g:radio name="addedPastItemsToMenu" value="true" style="float:left; padding-right: 10px" />
                                 <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
-                                <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"dded
+                                <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"
  />
 
                 <p>&nbsp;</p>
