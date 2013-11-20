@@ -172,41 +172,43 @@ class ReportController {
 				if (withAssessments == 'true') {
 
 					for (prod in prods) {
-						Assessment assessment = customer?.assessments?.find { it?.product?.id == prod?.id }
-
-						def orderedProduct = customer?.customerOrder?.products?.find { it?.product?.id == prod.id }
-
-						if (orderedProduct) {
-
-							if (!orderedProduct?.received) {
-								m."${prod.name}_Q1" = "Did Not Receive"
-								m."${prod.name}_Q2" = "Did Not Receive"
-								m."${prod.name}_Q3" = "Did Not Receive"
-							} else if (!orderedProduct?.sampled) {
-								m."${prod.name}_Q1" = "Did Not Sample"
-								m."${prod.name}_Q2" = "Did Not Sample"
-								m."${prod.name}_Q3" = "Did Not Sample"
-							} else if (assessment){
-								m."${prod.name}_Q1" = assessment?.likeRating
-								m."${prod.name}_Q2" = assessment?.likeComment
-								m."${prod.name}_Q3" = assessment?.changeComment
-								m.type = assessment.type
-								if(prod?.id == 23) {
-									m."${prod.name}_Q4" = assessment.favorite
-								}
-							} else {
-                                println "something when wrong here..."
-                            }
-						}
-					}
-
-				   	def rA =  customer?.assessments?.find {it}
-
-					m.assessmentOrigin = rA?.type
-					m.expectationsNotMetFeedback = customer.expectationsNotMetFeedback ?: ""
-					m.programFeedback = customer.programFeedback
-
-				}
+            if(it.id != 38 && it.id != 39){
+  						Assessment assessment = customer?.assessments?.find { it?.product?.id == prod?.id }
+  
+  						def orderedProduct = customer?.customerOrder?.products?.find { it?.product?.id == prod.id }
+  
+  						if (orderedProduct) {
+  
+  							if (!orderedProduct?.received) {
+  								m."${prod.name}_Q1" = "Did Not Receive"
+  								m."${prod.name}_Q2" = "Did Not Receive"
+  								m."${prod.name}_Q3" = "Did Not Receive"
+  							} else if (!orderedProduct?.sampled) {
+  								m."${prod.name}_Q1" = "Did Not Sample"
+  								m."${prod.name}_Q2" = "Did Not Sample"
+  								m."${prod.name}_Q3" = "Did Not Sample"
+  							} else if (assessment){
+  								m."${prod.name}_Q1" = assessment?.likeRating
+  								m."${prod.name}_Q2" = assessment?.likeComment
+  								m."${prod.name}_Q3" = assessment?.changeComment
+  								m.type = assessment.type
+  								if(prod?.id == 23) {
+  									m."${prod.name}_Q4" = assessment.favorite
+  								}
+  							} else {
+                                  println "something when wrong here..."
+                              }
+  					  	}
+              }
+  					}
+  
+  				  def rA =  customer?.assessments?.find {it}
+  
+  					m.assessmentOrigin = rA?.type
+  					m.expectationsNotMetFeedback = customer.expectationsNotMetFeedback ?: ""
+  					m.programFeedback = customer.programFeedback
+  
+  				}
 
                 println "$m.id: $m.district $m.fsdName"
 
