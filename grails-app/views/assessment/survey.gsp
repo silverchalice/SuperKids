@@ -102,7 +102,7 @@
 
                 <table cellpadding="0" cellspacing="0">
                     <tr>
-                        <td style="padding-left:-100px;">
+                        <td>
                           <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
                         </td>
                         <td class="td>
@@ -110,7 +110,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:-100px;">
+                        <td>
                           <g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products
                         </td>
                         <td class="td>
@@ -118,7 +118,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:-100px;">
+                        <td>
                           <g:checkBox name="pastCompanies" value="ConAgra Mills" /> ConAgra Mills
                         </td>
                         <td class="td>
@@ -126,7 +126,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:-100px;">
+                        <td>
                           <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company
                         </td>
                         <td class="td>
@@ -134,7 +134,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:-100px;">
+                        <td>
                           <g:checkBox name="pastCompanies" value="Domino&#8217;s Pizza" /> Domino&#8217;s Pizza
                         </td>
                         <td class="td>
@@ -150,7 +150,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding-left:-100px;">
+                        <td>
                           <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" /> Flowers Bakeries Foodservice
                         </td>
                     </tr>
