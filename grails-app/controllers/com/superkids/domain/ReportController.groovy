@@ -172,7 +172,7 @@ class ReportController {
 				if (withAssessments == 'true') {
 
 					for (prod in prods) {
-            if(it.id != 38 && it.id != 39){
+            if(prod.id != 38 && prod.id != 39){
   						Assessment assessment = customer?.assessments?.find { it?.product?.id == prod?.id }
   
   						def orderedProduct = customer?.customerOrder?.products?.find { it?.product?.id == prod.id }
