@@ -103,23 +103,23 @@
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="first">
-                          <g:checkBox name="pastCompanies" value="Azteca" />
+                          <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
                         </td>
                         <td class="second">
-                          <g:checkBox name="pastCompanies" value="Integrated Food Service" />
+                          <g:checkBox name="pastCompanies" value="Integrated Food Service" /> Integrated Food Service
                         </td>
                     </tr>
                     <tr>
                         <td class="first">
-                          <g:checkBox name="pastCompanies" value="Buena Vista Food Products" />
+                          <g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products
                         </td>
                         <td class="second">
-                          <g:checkBox name="pastCompanies" value="Jane&#8217;s Dough Foods" />
+                          <g:checkBox name="pastCompanies" value="Jane&#8217;s Dough Foods" /> Jane&#8217;s Dough Foods
                         </td>
                     </tr>
                     <tr>
                         <td class="first">
-                          <g:checkBox name="pastCompanies" value="ConAgra Mills" />
+                          <g:checkBox name="pastCompanies" value="ConAgra Mills" /> ConAgra Mills
                         </td>
                         <td class="second">
                           <g:checkBox name="pastCompanies" value="JM Swank" />
@@ -127,31 +127,31 @@
                     </tr>
                     <tr>
                         <td class="first">
-                          <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" />
+                          <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company
                         </td>
                         <td class="second">
-                          <g:checkBox name="pastCompanies" value="Kellogg&#8217;s" />
+                          <g:checkBox name="pastCompanies" value="Kellogg&#8217;s" /> Kellog&#8217;s
                         </td>
                     </tr>
                     <tr>
                         <td class="first">
-                          <g:checkBox name="pastCompanies" value="Domino&#8217;s Pizza" />
+                          <g:checkBox name="pastCompanies" value="Domino&#8217;s Pizza" /> Domino&#8217;s Pizza
                         </td>
                         <td class="second">
-                          <g:checkBox name="pastCompanies" value="Pepperidge Farm" />
+                          <g:checkBox name="pastCompanies" value="Pepperidge Farm" /> Pepperidge Farm
                         </td>
                     </tr>
                     <tr>
                         <td class="first">
-                          <g:checkBox name="pastCompanies" value="EONI" />
+                          <g:checkBox name="pastCompanies" value="EONI" /> EONI
                         </td>
                         <td class="second">
-                          <g:checkBox name="pastCompanies" value="Sara Lee Foodservice" />
+                          <g:checkBox name="pastCompanies" value="Sara Lee Foodservice" /> Sara Lee FoodService
                         </td>
                     </tr>
                     <tr>
                         <td class="first">
-                          <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" />
+                          <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" /> Flowers Bakeries Foodservice
                         </td>
                     </tr>
                 </table>
