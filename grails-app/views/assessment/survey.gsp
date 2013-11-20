@@ -87,24 +87,72 @@
                 </table>
 
                 <p>&nbsp;</p>
-                <p>Did you add any of the items you sampled to your menu?</p>
+                <p>If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?</p>
                 <div class="expand">&nbsp;</div>
                                 <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
                                 <g:radio name="addedPastItemsToMenu" value="true" style="float:left; padding-right: 10px" />
                                 <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
-                                <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true" />
+                                <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"dded
+ />
 
                 <p>&nbsp;</p>
-                <p>If so, which items?</p>
+                <p>Did you order any of the foods featured from these food companies?</p>
                 <p>&nbsp;</p>
                 <div class="expand">&nbsp;</div>
 
                 <table cellpadding="0" cellspacing="0">
                     <tr>
                         <td class="first">
-                            <g:textArea name="pastItemsAddedToMenu" cols="75" rows="25" value="${customerInstance?.pastItemsAddedToMenu}" />
+                          <g:checkBox name="pastCompanies" value="Azteca" />
                         </td>
-
+                        <td class="second">
+                          <g:checkBox name="pastCompanies" value="Integrated Food Service" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first">
+                          <g:checkBox name="pastCompanies" value="Buena Vista Food Products" />
+                        </td>
+                        <td class="second">
+                          <g:checkBox name="pastCompanies" value="Jane&#8217;s Dough Foods" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first">
+                          <g:checkBox name="pastCompanies" value="ConAgra Mills" />
+                        </td>
+                        <td class="second">
+                          <g:checkBox name="pastCompanies" value="JM Swank" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first">
+                          <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" />
+                        </td>
+                        <td class="second">
+                          <g:checkBox name="pastCompanies" value="Kellogg&#8217;s" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first">
+                          <g:checkBox name="pastCompanies" value="Domino&#8217;s Pizza" />
+                        </td>
+                        <td class="second">
+                          <g:checkBox name="pastCompanies" value="Pepperidge Farm" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first">
+                          <g:checkBox name="pastCompanies" value="EONI" />
+                        </td>
+                        <td class="second">
+                          <g:checkBox name="pastCompanies" value="Sara Lee Foodservice" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first">
+                          <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" />
+                        </td>
                     </tr>
                 </table>
 
