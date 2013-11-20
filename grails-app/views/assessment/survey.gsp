@@ -37,6 +37,15 @@
                 var form = "#form_" + id;
                 $(form).removeClass('collapsed', 10).addClass('expanded', 400);
             }
+
+            var checkboxes = document.getElementsByTagName('input');
+
+            for (var i=0; i<checkboxes.length; i++)  {
+              if (checkboxes[i].type == 'checkbox')   {
+                checkboxes[i].checked = false;
+              }
+            }
+
         });
 
     </script>
