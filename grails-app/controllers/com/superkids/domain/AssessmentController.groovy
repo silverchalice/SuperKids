@@ -245,6 +245,9 @@ class AssessmentController {
 
 
     def saveSurvey = {
+        println "\n\n\nin saveSurvey. The params are: "
+        println params
+        println "\n\n\n"
         def customerInstance = Customer.get(springSecurityService.principal.id)
 
         customerInstance.properties = params
