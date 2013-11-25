@@ -98,6 +98,7 @@ class ReportController {
         def thatWhichIsContainedInOurExportation = []
 
           def prods = Product.findAllByParentIsNotNullAndLiveProduct(true, [sort:'sortOrder'])
+          prods.each { println it }
 
       println ("After Product.list - ${new Date().time - startTime}")
       Customer.list(sort: "seq").each {customer ->
