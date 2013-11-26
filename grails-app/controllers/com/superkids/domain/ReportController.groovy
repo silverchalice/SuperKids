@@ -100,7 +100,7 @@ class ReportController {
           def sub = Product.findAllByLiveProduct(true, [sort:'sortOrder'])
           def prods = []
           sub.each {
-            if(!Product.findByParent(it)){
+            if(Product.findAllByParent(it) == null){
               prods << it
             }
           }
@@ -109,8 +109,7 @@ class ReportController {
       println ("After Product.list - ${new Date().time - startTime}")
       Customer.list(sort: "seq").each {customer ->
         if(!customer.deleted) {
-          def productIds = customer.customerOrder?.products?.collect {customer.id}
-
+          def productIds = customer.customerOrder?.products?.collect { product.id }
 
           def m = [:]
             m.id = customer.id
