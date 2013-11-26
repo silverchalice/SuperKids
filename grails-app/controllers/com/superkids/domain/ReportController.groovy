@@ -97,7 +97,12 @@ class ReportController {
 
         def thatWhichIsContainedInOurExportation = []
 
-          def prods = Product.findAllByParentIsNotNullAndLiveProduct(true, [sort:'sortOrder'])
+          def prods = Product.findAllByLiveProduct(true, [sort:'sortOrder'])
+          prods.each {
+            if(Product.findByParent(it)){
+              prods.remove(it)
+            }
+          }
           prods.each { println it }
 
       println ("After Product.list - ${new Date().time - startTime}")
