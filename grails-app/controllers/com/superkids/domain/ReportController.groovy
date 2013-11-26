@@ -100,13 +100,13 @@ class ReportController {
           def sub = Product.findAllByLiveProduct(true, [sort:'sortOrder'])
           def prods = []
           sub.each {
-            if(Product.findByParent(it)){
+            if(!Product.findByParent(it)){
               prods << it
             }
           }
           prods.each { println it }
 
-      //println ("After Product.list - ${new Date().time - startTime}")
+      println ("After Product.list - ${new Date().time - startTime}")
       Customer.list(sort: "seq").each {customer ->
         if(!customer.deleted) {
           def productIds = customer.customerOrder?.products?.collect {customer.id}
@@ -201,8 +201,8 @@ class ReportController {
                         m."${prod.name}_Q3" = assessment?.changeComment
                         m.type = assessment.type
                     } else {
-                      //println "something when wrong here..."
-                        //println "(the prod.id was ${prod?.id})"
+                      println "something when wrong here..."
+                        println "(the prod.id was ${prod?.id})"
                     }
                   }
                 }
@@ -217,7 +217,7 @@ class ReportController {
 
             }
 
-          //println "$m.id: $m.district $m.fsdName"
+          println "$m.id: $m.district $m.fsdName"
 
 
             thatWhichIsContainedInOurExportation << m
@@ -225,7 +225,7 @@ class ReportController {
 
       }
 
-    //println ("After Customer.list - ${new Date().time - startTime}")
+    println ("After Customer.list - ${new Date().time - startTime}")
 
       List fields = ["id",
            "seq",
@@ -294,7 +294,7 @@ class ReportController {
              }
 
 
-    //println ("After prods.each - ${new Date().time - startTime}")
+    println ("After prods.each - ${new Date().time - startTime}")
 
 
       fields << "order.shippingDate"
