@@ -75,7 +75,7 @@
         <g:checkBox name="didNotReceive"/>
 		<br/>
 		<h3>Assessment Question 1 of 3</h3>
-        On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:<br/>
+        On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu.<br/>
 		<g:radioGroup name="likeRating" values="['1', '2', '3', '4','5']" labels="['1', '2', '3', '4','5']" value="3" >
 			<g:message code="${it.label}" />${it.radio}
 		</g:radioGroup>
@@ -90,10 +90,6 @@
 		<g:textArea rows="" cols="" name="changeComment"  style="width:465px" />
 		<br/>
 
-		<br/>
-		<h3>OPTIONAL (Only for Ultragrain Pasta)</h3> 
-		Favorite Pasta<br/>
-		<g:textArea rows="" cols="" name="favorite"  style="height:16px; width:465px" />			
 		<br/>
 		<br/>
 		<g:submitButton name="submitAssessment" id="submitAssessment" value="Continue" /> 

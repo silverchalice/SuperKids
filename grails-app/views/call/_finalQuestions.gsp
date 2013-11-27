@@ -2,16 +2,16 @@
 	<table style="margin-top:10px">
 		<tr>
 			<td>
-				<label style="font:12px" for="otherProducts" >What other whole grain products would you like to see developed?</label>
+				<label style="font:12px" for="expectationsNotMetFeedback" >Are there any whole grain-rich foods on your menu that aren't meeting your or your students&#8217 expectations, and if so, why not?</label>
 				<br/><br/>
-				<g:textArea name="otherProducts" style="width:390px; height:110px"/>
+				<g:textArea name="expectationsNotMetFeedback" style="width:390px; height:110px"/>
 			</td>
 		</tr>
 	</table>
 	<table style="margin-top:10px">
 		<tr>
 			<td>
-				<label style="font:12px" for="programFeedback" >What positive or negative comments do you have about the SuperKids program in general?</label>
+				<label style="font:12px" for="programFeedback" >Please give us feedback on the SuperKids program in general.</label>
 				<br/><br/>
 				<g:textArea name="programFeedback" style="width:390px; height:110px"/>
 			</td>
@@ -19,64 +19,81 @@
 	</table>
 	<table style="margin-top:10px">
 		<tr>
-			<td colspan="2">
-				<label style="font-size:12px">Are there other products that you are currently using that you would like to see reformulated with Sustagrain and/or Ultragrain? Please be specific:</label>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.1" >Other S&U MFG #1:</label>
-			</td>
-			<td>
-				<g:textField name="reformulations.1" style="width:250px;"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.2" >Other S&U Product #1:</label>
-			</td>
-			<td>
-				<g:textField name="reformulations.2" style="width:250px;"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.4" >Other S&U MFG #2:</label>
-			</td>
-			<td>
-				<g:textField name="reformulations.4" style="width:250px;"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.3" >Other S&U Product #2:</label>
-			</td>
-			<td>
-				<g:textField name="reformulations.3" style="width:250px;"/>
-			</td>
-		</tr>
-
-		<tr>
-			<td>
-				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.5" >Other S&U Product #3</label>
-			</td>
-			<td>
-				<g:textField name="reformulations.5" style="width:250px;"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<label style="font:11px/12px verdana,arial,helvetica,sans-serif;" for="reformulations.6" >Other S&U MFG #3</label>
-			</td>
-			<td>
-				<g:textField name="reformulations.6" style="width:250px;"/>
-			</td>
+    <td colspan="2">
+      <label style="font-size:12px">If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?</label>
+      <br/><br/>
+      <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
+      <g:radio name="addedPastItemsToMenu" value="true" style="float:left; padding-right: 10px" />
+      <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
+      <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true" />
+    </td>
 		</tr>
 
 	</table>
 </div>
 <div style="float:left; margin-top:10px; margin-left:20px">
-	<table style="width: 450px;">
+	<table style="margin-top:10px">
+		<tr>
+    <td colspan="2">
+      <label style="font-size:12px">If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?</label>
+    </td>
+		</tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Integrated Food Service" /> Integrated Food Service
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Jane's Dough Foods" /> Jane&#8217;s Dough Foods
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="ConAgra Mills" /> ConAgra Mills
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="JM Swank" /> JM Swank
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Kellogg's" /> Kellog&#8217;s
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Domino's Pizza" /> Domino&#8217;s Pizza
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Pepperidge Farm" /> Pepperidge Farm
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="EONI" /> EONI
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Sara Lee Foodservice" /> Sara Lee FoodService
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" /> Flowers Bakeries Foodservice
+    </td>
+    </tr>
+
+	</table>
+	<!--<table style="width: 450px;">
 		<tr>
 			<td><strong>Broker/Distributor #1 Name: </strong></td>
 			<td><input type="text" name="broker.name" size="20" maxlength="50" value="${broker?.name}"></td>
@@ -167,6 +184,5 @@
 			<td>PM:</td>
 			<td><g:checkBox name="pm" value="${customerInstance?.pm}" /> </td>
 		</tr>
-	</table>
-	
+	</table>-->
 </div>
