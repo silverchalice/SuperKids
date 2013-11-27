@@ -151,9 +151,11 @@
 
 							<g:select name="parentProd"
 							  id="parentProd"
-							  from="${Product.list()}"
+							  from="${Product.findAllByParentIsNull()}"
 							  style="width:220px;"
 							  value="${productInstance.parent}"
+                optionKey="id"
+                optionValue="name"
 							  noSelection="${['null':'Select a Parent Product...']}" />
 					</p>
 					<br />

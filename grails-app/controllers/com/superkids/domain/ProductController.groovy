@@ -144,7 +144,7 @@ class ProductController {
             }
 
 			if(params.parentProd) {
-				def parent = Product.findByName(params.parentProd)
+				def parent = Product.get(params.parentProd)
 				productInstance.parent = parent
 			}
 
