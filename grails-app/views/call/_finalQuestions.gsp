@@ -1,3 +1,17 @@
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+            var checkboxes = document.getElementsByTagName('input');
+
+            for (var i=0; i<checkboxes.length; i++)  {
+              if (checkboxes[i].type == 'checkbox')   {
+                checkboxes[i].checked = false;
+              }
+            }
+
+        });
+    </script>
+
 <div style="width:420px;float:left">
 	<table style="margin-top:10px">
 		<tr>
