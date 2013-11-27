@@ -143,9 +143,15 @@ class ProductController {
                 productInstance.properties = params
             }
 
-			if(params.parentProd && params.parentProd != 'null') {
-				def parent = Product.get(params.parentProd)
-				productInstance.parent = parent
+      // If we have a parent id, set this products's parent. Otherwise,
+      // make sure we get rid of any old parent.
+			if(params.parentProd) {
+        if(params.parentProd != 'null' && params.parentProd?.isLong()){
+  				def parent = Product.get(params.parentProd)
+  				productInstance.parent = parent
+        } else {
+          productInstance.parent = null
+        }
 			}
 
             if (!productInstance.hasErrors() && productInstance.save(flush: true)) {
