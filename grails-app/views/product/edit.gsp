@@ -153,7 +153,7 @@
 							  id="parentProd"
 							  from="${Product.findAllByParentIsNull()}"
 							  style="width:220px;"
-							  value="${productInstance.parent.id}"
+							  value="${productInstance?.parent?.id}"
                 optionKey="id"
                 optionValue="name"
 							  noSelection="${['null':'Select a Parent Product...']}" />
