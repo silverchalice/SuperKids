@@ -143,7 +143,7 @@ class ProductController {
                 productInstance.properties = params
             }
 
-			if(params.parentProd) {
+			if(params.parentProd && params.parentProd != 'null') {
 				def parent = Product.get(params.parentProd)
 				productInstance.parent = parent
 			}
