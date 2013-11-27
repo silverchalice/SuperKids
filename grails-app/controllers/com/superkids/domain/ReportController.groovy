@@ -181,9 +181,9 @@ class ReportController {
                   m."${prod.name}_Q2" = assessment?.likeComment
                   m."${prod.name}_Q3" = assessment?.changeComment
                   m.type = assessment.type
-                  if(prod?.id == 23) {
+                  /*if(prod?.id == 23) {
                     m."${prod.name}_Q4" = assessment.favorite
-                  }
+                  }*/
                 } else {
                   println "something when wrong here..."
                   println "(the prod.id was ${prod?.id})"
@@ -375,10 +375,10 @@ class ReportController {
           assessLabels."${prod.name}_Q2" = "${prod.name} Like Comments"
           assessLabels."${prod.name}_Q3" = "${prod.name} Change Comment"
 
-          if(prod.id == 23) {
+          /*if(prod.id == 23) {
             assessFields << "${prod.name}_Q4"
             assessLabels."${prod.name}_Q4" = "${prod.name} Favorite Pasta"
-          }
+          }*/
         }
       }
 
