@@ -120,7 +120,8 @@ class ProductController {
     }
 
     def update = {
-		println "Entering ProductController:update..."
+	  	println "Entering ProductController:update..."
+      println params
         def productInstance = Product.get(params.id)
         if (productInstance) {
             if (params.version) {
