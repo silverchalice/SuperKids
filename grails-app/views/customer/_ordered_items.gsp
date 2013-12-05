@@ -116,10 +116,12 @@
 		<g:textArea cols="" rows="" name="programFeedback" style="width:465px" />
 		<br/>
     If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?<br/>
-    <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
-    <g:radio name="addedPastItemsToMenu" value="true" style="float:left; padding-right: 10px" />
-    <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
-    <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"
+    <g:radioGroup name="addedPastItemsToMenu"
+                  labels="['Yes','No']"
+                  values="['true', 'false']"
+                  value="false">
+      <p>${it.label} ${it.radio}</p>
+     </g:radioGroup>
     <br/>
     <p>Did you order any of the foods featured from these food companies?</p>
     <p>&nbsp;</p>
