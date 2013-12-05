@@ -115,73 +115,88 @@
 		Please give us feedback on the SuperKids program in general.<br/>
 		<g:textArea cols="" rows="" name="programFeedback" style="width:465px" />
 		<br/>
+    <br />
     If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?<br/>
-    <g:radioGroup name="addedPastItemsToMenu"
+    <p>
+      <g:radioGroup name="addedPastItemsToMenu"
                   labels="['Yes','No']"
                   values="['true', 'false']"
                   value="false">
-      <p>${it.label} ${it.radio}</p>
-     </g:radioGroup>
+        <span style="${it.label == 'true' ? 'margin-right: 300px;' : ''}">${it.label} ${it.radio}</span>
+       </g:radioGroup>
+     </p>
     <br/>
-    <p>Did you order any of the foods featured from these food companies?</p>
-    <p>&nbsp;</p>
+    <p>Did you order any of the foods featured from these food companies?</p><br />
     <div class="expand">&nbsp;</div>
 
     <table cellpadding="0" cellspacing="0">
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Integrated Food Service" /> Integrated Food Service
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Jane's Dough Foods" /> Jane&#8217;s Dough Foods
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="ConAgra Mills" /> ConAgra Mills
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="JM Swank" /> JM Swank
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Kellogg's" /> Kellog&#8217;s
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Domino's Pizza" /> Domino&#8217;s Pizza
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Pepperidge Farm" /> Pepperidge Farm
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="EONI" /> EONI
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Sara Lee Foodservice" /> Sara Lee FoodService
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" /> Flowers Bakeries Foodservice
-    </td>
-    </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Integrated Food Service" /> Integrated Food Service
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Jane's Dough Foods" /> Jane&#8217;s Dough Foods
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="ConAgra Mills" /> ConAgra Mills
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="JM Swank" /> JM Swank
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Kellogg's" /> Kellog&#8217;s
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Domino's Pizza" /> Domino&#8217;s Pizza
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Pepperidge Farm" /> Pepperidge Farm
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="EONI" /> EONI
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Sara Lee Foodservice" /> Sara Lee FoodService
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" /> Flowers Bakeries Foodservice
+        </td>
+      </tr>
     </table>
+    <br />
     <h3>Rewards</h3>
           Thank You!Your assessment has been received, qualifying you for the sweepstakes prize drawing.
           <ol style="list-style-type:decimal; color:#000000; font-weight:normal">
