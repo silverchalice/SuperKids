@@ -106,28 +106,81 @@
 		</g:radioGroup>
 		<br/>
 		<br/>
+		<h3>Additional Comments & Suggestions</h3>
+		Are there any whole grain-rich foods on your menu that aren't meeting your or your students&#8217 expectations, and if so, why not?<br/>
+		<g:textArea cols="" rows="" name="expectationsNotMetFeedback" style="width:465px" />
+		<br/>
+		<br/>
 		<h3>Program Feedback</h3>
-		We welcome your feedback. Please enter any positive or negative comments about the SuperKids program in general.<br/>
+		Please give us feedback on the SuperKids program in general.<br/>
 		<g:textArea cols="" rows="" name="programFeedback" style="width:465px" />
 		<br/>
-		<br/>
-		<h3>Reformulations</h3>
-		What other whole grain products are you interested in?<br/>
-		<g:textArea cols="" rows="" name="reformulations" style="width:465px" />
-		<br/>
-		<h3>Other Products</h3>
-		What one thing would you recommend be changed about this sampled product? <br/>
-		<g:textArea cols="" rows="" name="otherProducts"  style="width:465px" />
-		<br/>
-		<h3>Contact Time</h3>
-		<ul>
-			<li><g:checkBox name="fall" value="${customerInstance?.fall}" /> <b>Fall</b></li>
-			<li><g:checkBox name="spring" value="${customerInstance?.spring}" /> <b>Spring</b></li>
-			<li><g:checkBox name="am" value="${customerInstance?.am}" /> <b>AM</b></li>
-			<li><g:checkBox name="pm" value="${customerInstance?.pm}" /> <b>PM</b></li>
-		</ul>
-		<br/>
-		<h3>Rewards</h3>
+    If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?<br/>
+    <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
+    <g:radio name="addedPastItemsToMenu" value="true" style="float:left; padding-right: 10px" />
+    <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
+    <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"
+    <br/>
+    <p>Did you order any of the foods featured from these food companies?</p>
+    <p>&nbsp;</p>
+    <div class="expand">&nbsp;</div>
+
+    <table cellpadding="0" cellspacing="0">
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Integrated Food Service" /> Integrated Food Service
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Jane's Dough Foods" /> Jane&#8217;s Dough Foods
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="ConAgra Mills" /> ConAgra Mills
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="JM Swank" /> JM Swank
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Kellogg's" /> Kellog&#8217;s
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Domino's Pizza" /> Domino&#8217;s Pizza
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Pepperidge Farm" /> Pepperidge Farm
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="EONI" /> EONI
+    </td>
+    <td class="td>
+    <g:checkBox name="pastCompanies" value="Sara Lee Foodservice" /> Sara Lee FoodService
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" /> Flowers Bakeries Foodservice
+    </td>
+    </tr>
+    </table>
+    <h3>Rewards</h3>
           Thank You!Your assessment has been received, qualifying you for the sweepstakes prize drawing.
           <ol style="list-style-type:decimal; color:#000000; font-weight:normal">
           <li><span style="color:#800000">FIVE (5) First Place Prizes</span>--&#36;200 Gift Card from your choice of Wal-Mart, Target, Learning Zone Xpress, or the OrganWise Guys</li>
