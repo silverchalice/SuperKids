@@ -100,12 +100,6 @@
 
 <div id="completeAssessmentForm">
 	<g:form action="completeAssessment" id="${customerInstance?.id}">
-		<h3>Assessment Origin</h3>
-		<g:radioGroup name="orderType" values="['PHONE','WEB','EMAIL', 'FAX', 'MAIL']" labels="['Phone','Web','Email', 'Fax', 'Mail']" value="5" >
-			<g:message code="${it.label}" />: ${it.radio}
-		</g:radioGroup>
-		<br/>
-		<br/>
 		<h3>Additional Comments & Suggestions</h3>
 		Are there any whole grain-rich foods on your menu that aren't meeting your or your students&#8217 expectations, and if so, why not?<br/>
 		<g:textArea cols="" rows="" name="expectationsNotMetFeedback" style="width:465px" />
@@ -126,10 +120,10 @@
        </g:radioGroup>
      </p>
     <br/>
-    <p>Did you order any of the foods featured from these food companies?</p><br />
+    <p>Did you order any of the foods featured from these food companies?</p>
     <div class="expand">&nbsp;</div>
 
-    <table cellpadding="0" cellspacing="0">
+    <table cellpadding="0" cellspacing="0" width="90%">
       <tr>
         <td>
           <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
