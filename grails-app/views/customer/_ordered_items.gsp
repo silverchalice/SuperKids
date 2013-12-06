@@ -123,7 +123,7 @@
     <p>Did you order any of the foods featured from these food companies?</p>
     <div class="expand">&nbsp;</div>
 
-    <table cellpadding="0" cellspacing="0" width="90%">
+    <table cellpadding="0" cellspacing="0" style="width: 90%;">
       <tr>
         <td>
           <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
