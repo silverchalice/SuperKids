@@ -477,6 +477,7 @@ class CallController {
 						ne('result', CallResult.REFUSED)
 						ne('result', CallResult.QUALIFIED)
 						ne('result', CallResult.NOT_QUALIFIED)
+						ne('result', CallResult.CALLBACK)
 
                         le('dateCreated', seventyTwoHoursAgo)
 
@@ -702,6 +703,7 @@ class CallController {
                     ne('result', CallResult.REFUSED)
                     ne('result', CallResult.QUALIFIED)
                     ne('result', CallResult.NOT_QUALIFIED)
+                    ne('result', CallResult.CALLBACK)
 
                     le('dateCreated', seventyTwoHoursAgo)
 
