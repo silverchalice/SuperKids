@@ -13,11 +13,14 @@ class ClearInCallCustomersJob {
 		def hourOldDate = new Date(new Date().time - 2700000)
 		def customers = Customer.findAllByInCallLessThan(hourOldDate)
 
-		println "There are $customers.size customers in this list to be cleared..."
 		customers.each { customer ->
 			customer.inCall = null
-			customer.save()
-			println "$customer.district cleared"
+			if(!customer.save(flush:true)) {
+                println "Couldn't clear ${customer.district}"
+                customer.errors.allErrors.each {println it }
+            } else {
+                println "${customer.district} cleared"
+            }
 		}
 	}
 
