@@ -893,20 +893,26 @@ class CallController {
 			println "$caller is saving assess call for customer " + customer.fsdName
 			customer.properties = params
 
-			def broker1 = Broker.findByName(params.broker?.name)
-			if(!broker1)
-				broker1 = new Broker(params['broker'])
-			else if(params.broker?.name)
-				broker1.properties = params['broker']
+      if(params.broker?.name){
+  			def broker1 = Broker.findByName(params.broker?.name)
+  			if(!broker1)
+  				broker1 = new Broker(params['broker'])
+  			else if(params.broker?.name)
+  				broker1.properties = params['broker']
 
- 			def broker2 = Broker.findByName(params.broker2?.name)
-			if(!broker2)
-				broker2 = new Broker(params['broker2'])
-			else if(params.broker2?.name)
-				broker2.properties = params['broker2']
+			  customer.addToBrokers(broker1)
+      }
 
-			customer.addToBrokers(broker1)
-			customer.addToBrokers(broker2)
+      if(params.broker2?.name){
+   			def broker2 = Broker.findByName(params.broker2?.name)
+  			if(!broker2)
+  				broker2 = new Broker(params['broker2'])
+  			else if(params.broker2?.name)
+  				broker2.properties = params['broker2']
+
+  			customer.addToBrokers(broker2)
+      }
+
 
 			if(customer.save(flush:true)){
 				def call = new Call(params)
