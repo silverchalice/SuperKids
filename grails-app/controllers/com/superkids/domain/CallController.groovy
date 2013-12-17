@@ -1074,6 +1074,7 @@ class CallController {
         customer.errors.allErrors.each { println it }
         flash.message = "An error occurred while we were trying to save this customer record."
   			redirect action:'index'
+      }
 		}
 
 		else {
