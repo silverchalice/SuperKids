@@ -185,10 +185,8 @@ class ReportController {
                     m."${prod.name}_Q4" = assessment.favorite
                   }*/
                 } else {
-                  if(customer.id == 89986){
                   println "something when wrong here..."
                   println "(the prod.id was ${prod?.id})"
-                  }
                 }
               }
             }
@@ -203,9 +201,7 @@ class ReportController {
   
         }
 
-        if(customer.id == 89986){
         println "$m.id: $m.district $m.fsdName"
-        }
 
 
         thatWhichIsContainedInOurExportation << m
