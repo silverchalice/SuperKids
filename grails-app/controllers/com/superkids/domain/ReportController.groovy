@@ -203,7 +203,7 @@ class ReportController {
   
         }
 
-        if(customer.id == 89986)
+        if(customer.id == 89986){
         println "$m.id: $m.district $m.fsdName"
         }
 
