@@ -3,25 +3,25 @@
       <td colspan="2"><label>${product?.name}</label></td>
     </tr>
 	<tr class="prop">
-		<td class="name" valign="top"><label for="assessment.${product?.name}.likeRating"> <g:message code="assessment.likeRating" default="Product Interest" /></label> </td>
+		<td class="name" valign="top"><label for="assessment.${product?.id}.likeRating"> <g:message code="assessment.likeRating" default="Product Interest" /></label> </td>
 		<td class="value" valign="top">
-			<g:select name="assessment.${product?.name}.likeRating" from="${1..5}" value="${likeRating}" tabindex="1"
+			<g:select name="assessment.${product?.id}.likeRating" from="${1..5}" value="${likeRating}" tabindex="1"
           noSelection="['':'']" style="width:100px;"/>
-			<label style="margin-left:40px;">Did Not Receive</label><g:checkBox style="float:right; margin-top:8px" name="assessment.${product?.name}.didNotReceive" value="${false}"/>
-            <br/><label style="margin-left:150px;">Did Not Sample</label><g:checkBox style="float:right; margin-top:8px" name="assessment.${product?.name}.didNotSample" value="${false}"/></td>
+			<label style="margin-left:40px;">Did Not Receive</label><g:checkBox style="float:right; margin-top:8px" name="assessment.${product?.id}.didNotReceive" value="${false}"/>
+            <br/><label style="margin-left:150px;">Did Not Sample</label><g:checkBox style="float:right; margin-top:8px" name="assessment.${product?.id}.didNotSample" value="${false}"/></td>
 	</tr>
 	<tr class="prop">
-		<td class="name" valign="top"><label for="assessment.${product?.name}.likeComment"><g:message code="assessment.likeComment" default="Like Comments" /></label></td>
-		<td class="value" valign="top"><g:textArea rows="" tabindex="3" cols="" name="assessment.${product?.name}.likeComment" style="padding:2px; 5px; height:70px; width:270px;"/></td>
+		<td class="name" valign="top"><label for="assessment.${product?.id}.likeComment"><g:message code="assessment.likeComment" default="Like Comments" /></label></td>
+		<td class="value" valign="top"><g:textArea rows="" tabindex="3" cols="" name="assessment.${product?.id}.likeComment" style="padding:2px; 5px; height:70px; width:270px;"/></td>
 	</tr>
 	<tr class="prop">
-		<td class="name" valign="top"><label for="assessment.${product?.name}.changeComment"><g:message code="assessment.changeComment" default="Change Comments" /></label></td>
-		<td class="value" valign="top"><g:textArea rows="" tabindex="4" cols="" name="assessment.${product?.name}.changeComment" style="padding:2px; 5px; height:70px; width:270px;"/></td>
+		<td class="name" valign="top"><label for="assessment.${product?.id}.changeComment"><g:message code="assessment.changeComment" default="Change Comments" /></label></td>
+		<td class="value" valign="top"><g:textArea rows="" tabindex="4" cols="" name="assessment.${product?.id}.changeComment" style="padding:2px; 5px; height:70px; width:270px;"/></td>
 	</tr>
 	<g:if test="${product?.id == 23}">
 		<tr class="prop">
-			<td class="name" valign="top"><label for="assessment.${product?.name}.favorite"><g:message code="assessment.favorite" default="Favorite Pasta" /></label></td>
-			<td class="value" valign="top"><g:textArea rows="1" tabindex="4" cols="" name="assessment.${product?.name}.favorite" style="padding:2px; height:16px; width:270px;"/></td>
+			<td class="name" valign="top"><label for="assessment.${product?.id}.favorite"><g:message code="assessment.favorite" default="Favorite Pasta" /></label></td>
+			<td class="value" valign="top"><g:textArea rows="1" tabindex="4" cols="" name="assessment.${product?.id}.favorite" style="padding:2px; height:16px; width:270px;"/></td>
 		</tr>	
 	</g:if>
 </table>

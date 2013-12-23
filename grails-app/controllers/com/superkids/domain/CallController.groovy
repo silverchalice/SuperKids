@@ -932,9 +932,9 @@ class CallController {
 
 					Product.list(sort:'sortOrder').each { product ->
 
-						if(params.assessment."${product.name}") {
+						if(params.assessment."${product.id}") {
 
-							if(params.assessment."${product.name}".didNotReceive) {
+							if(params.assessment."${product.id}".didNotReceive) {
 								println "did not receive"
 								def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
 								po.received = false
@@ -944,7 +944,7 @@ class CallController {
                     println it
                   }
                 }
-							} else if(params.assessment."${product.name}".didNotSample) {
+							} else if(params.assessment."${product.id}".didNotSample) {
 								println "did not sample"
 								def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
 								po.sampled = false
@@ -952,15 +952,15 @@ class CallController {
 							} else {
 
 								println "$caller is saving customer " + customer.fsdName + "'s assessment of " + product
-								println params?.assessment?."${product.name}".likeRating
-								println params?.assessment?."${product.name}".likeComment
-								println params?.assessment?."${product.name}".changeComment
+								println params?.assessment?."${product.id}".likeRating
+								println params?.assessment?."${product.id}".likeComment
+								println params?.assessment?."${product.id}".changeComment
 
 								def assessment = new Assessment(
-										likeRating: params?.assessment?."${product.name}".likeRating,
-										likeComment: params?.assessment?."${product.name}".likeComment,
-										changeComment: params?.assessment?."${product.name}".changeComment,
-										favorite: params?.assessment?."${product.name}".favorite ?: null,
+										likeRating: params?.assessment?."${product.id}".likeRating,
+										likeComment: params?.assessment?."${product.id}".likeComment,
+										changeComment: params?.assessment?."${product.id}".changeComment,
+										favorite: params?.assessment?."${product.id}".favorite ?: null,
 										product: product,
                                         type: OrderType.PHONE,
 										completed: true
