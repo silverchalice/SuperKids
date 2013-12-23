@@ -938,7 +938,12 @@ class CallController {
 								println "did not receive"
 								def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
 								po.received = false
-								po.save()
+								if(!po.save()){
+                  println "wow. There were errors with saving this productOrder:"
+                  po.errors.allErrors.each {
+                    println it
+                  }
+                }
 							} else if(params.assessment."${product.name}".didNotSample) {
 								println "did not sample"
 								def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
