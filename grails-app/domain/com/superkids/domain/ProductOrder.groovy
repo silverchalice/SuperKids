@@ -15,4 +15,8 @@ class ProductOrder {
 
     String toString() { "productOrder " + id + " with product " + product  + " and received " + received }
 
+    def afterInsert() {
+      println "Yo here we saved a $product with received $received and sampled $sampled"
+    }
+
 }
