@@ -19,4 +19,8 @@ class ProductOrder {
       println "Yo here we saved a $product with received $received and sampled $sampled"
     }
 
+    def afterUpdate() {
+      println "Yo here we updated a $product with received $received and sampled $sampled"
+    }
+
 }
