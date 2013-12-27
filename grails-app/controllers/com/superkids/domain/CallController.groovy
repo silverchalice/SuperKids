@@ -977,14 +977,15 @@ class CallController {
 									println "surprise! something went wrong"
 								}
 
-								customer.save()
+                if(!customer.save()){
+                  println "\n\n\n\n\n\ncouldn't save customer\n\n\n\n\n\n"
 
 
 
 
 								if(call.result == CallResult.QUALIFIED) {
 									customer.status = CustomerStatus.QUALIFIED
-                                	customer.hasCompletedCurrentAssessment = true
+                 	customer.hasCompletedCurrentAssessment = true
 								}
 
 								if (!customer.save()) {
@@ -1051,20 +1052,26 @@ class CallController {
 						println "$caller made this call from a search results page - redirecting back to results"
 						def query = params?.query
 						customer.inCall = null
-						customer.save()
-						flash.message = "Call saved"
+            if(!customer.save()){
+              println "\n\n\n\n\n\nabout to redirect but we couldn't save the customer\n\n\n\n\n"
+						}
+            flash.message = "Call saved"
 						redirect action:'findCustomer', params: [query:query]
 						return
 					} else if(params?.cb) {
 						println "This call was made from the Callback list - redirecting back to CB List"
 						customer.inCall = null
-						customer.save()
+            if(!customer.save()){
+              println "\n\n\n\n\n\nabout to redirect (call back) but we couldn't save the customer\n\n\n\n\n"
+						}
 						flash.message = "Call saved"
 						redirect action:'call_back_list'
 						return
 					} else if(params?.acl) {
 						customer.inCall = null
-						customer.save()
+            if(!customer.save()){
+              println "\n\n\n\n\n\nabout to redirect (acl) but we couldn't save the customer\n\n\n\n\n"
+						}
 						println "This call was made from the Assess Call list - redirecting back to AC List"
 						flash.message = "Call saved"
 						redirect action:'assess_list'
