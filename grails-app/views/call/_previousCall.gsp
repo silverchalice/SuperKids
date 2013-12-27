@@ -68,7 +68,7 @@
 									Caller:
 								</td>
 								<td valign="top" class="value">
-									${customerInstance?.calls?.getAt(-2).caller.username}
+									${customerInstance?.calls?.getAt(-2)?.caller?.username}
 								</td>
 							</tr>
 
@@ -87,7 +87,7 @@
 									Result
 								</td>
 								<td valign="top" class="value">
-									${customerInstance?.calls?.getAt(-2).result}
+									${customerInstance?.calls?.getAt(-2)?.result}
 								</td>
 							</tr>
 							</g:if>
