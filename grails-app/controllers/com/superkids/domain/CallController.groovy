@@ -841,15 +841,15 @@ class CallController {
 	}
 
 
-	def save_assess_call = {
+    def save_assess_call = {
 
-		def caller = Caller.get(springSecurityService.principal.id)
-		def customer = Customer.get(params.id)
+        def caller = Caller.get(springSecurityService.principal.id)
+        def customer = Customer.get(params.id)
 
-		println "$caller is in save_assess_call for CallController, customer $customer"
-		params.each { key, val ->
-			println "$key = $val"
-		}
+        println "$caller is in save_assess_call for CallController, customer $customer"
+        params.each { key, val ->
+            println "$key = $val"
+        }
 
         def currentTimezone
         if(params?.timezone)
@@ -858,250 +858,249 @@ class CallController {
             currentTimezone = params?.currentTimezone
 
 
-		if((!params.result) || (params.result == null ) || (params.result == 'null')) {
-			println "$caller with $customer got a CallResult of Null"
-			customer.inCall = null
+        if((!params.result) || (params.result == null ) || (params.result == 'null')) {
+            println "$caller with $customer got a CallResult of Null"
+            customer.inCall = null
 
-			if(params.single)  {
-				if(params?.search == 'true') {
-					println "This call was made from a search results page - redirecting back to results"
-					def query = params?.query
-					redirect action:'findCustomer', params: [query:query]
-					return
-				} else if(params?.cb) {
-					println "This call was made from the Callback list - redirecting back to CB List"
-					redirect action:'call_back_list'
-					return
-				} else if(params?.acl) {
-					println "This call was made from the Assess Call list - redirecting back to AC List"
-					redirect action:'assess_list'
-					return
-				} else {
-					println  "This call was made without a return param - returning home"
-					redirect action: 'index', caller: springSecurityService.principal
-					return
-				}
-			}
-			else {
-				println "In-queue call... redirecting..."
-				redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue:params?.queue, states: states]
-				return
-				}
-			}
+            if(params.single)  {
+                if(params?.search == 'true') {
+                    println "This call was made from a search results page - redirecting back to results"
+                    def query = params?.query
+                    redirect action:'findCustomer', params: [query:query]
+                    return
+                } else if(params?.cb) {
+                    println "This call was made from the Callback list - redirecting back to CB List"
+                    redirect action:'call_back_list'
+                    return
+                } else if(params?.acl) {
+                    println "This call was made from the Assess Call list - redirecting back to AC List"
+                    redirect action:'assess_list'
+                    return
+                } else {
+                    println  "This call was made without a return param - returning home"
+                    redirect action: 'index', caller: springSecurityService.principal
+                    return
+                }
+            }
+            else {
+                println "In-queue call... redirecting..."
+                redirect action: 'next_assess_call', id: customer.id,  params: [currentTimezone: currentTimezone, queue:params?.queue, states: states]
+                return
+            }
+        }
 
-		if(customer) {
-			println "$caller is saving assess call for customer " + customer.fsdName
-			customer.properties = params
+        if(customer) {
+            println "$caller is saving assess call for customer " + customer.fsdName
+            customer.properties = params
 
-      if(params.broker?.name){
-  			def broker1 = Broker.findByName(params.broker?.name)
-  			if(!broker1)
-  				broker1 = new Broker(params['broker'])
-  			else if(params.broker?.name)
-  				broker1.properties = params['broker']
+            if(params.broker?.name){
+                def broker1 = Broker.findByName(params.broker?.name)
+                if(!broker1)
+                    broker1 = new Broker(params['broker'])
+                else if(params.broker?.name)
+                    broker1.properties = params['broker']
 
-			  customer.addToBrokers(broker1)
-      }
+                customer.addToBrokers(broker1)
+            }
 
-      if(params.broker2?.name){
-   			def broker2 = Broker.findByName(params.broker2?.name)
-  			if(!broker2)
-  				broker2 = new Broker(params['broker2'])
-  			else if(params.broker2?.name)
-  				broker2.properties = params['broker2']
+            if(params.broker2?.name){
+                def broker2 = Broker.findByName(params.broker2?.name)
+                if(!broker2)
+                    broker2 = new Broker(params['broker2'])
+                else if(params.broker2?.name)
+                    broker2.properties = params['broker2']
 
-  			customer.addToBrokers(broker2)
-      }
+                customer.addToBrokers(broker2)
+            }
 
 
-			if(customer.save(flush:true)){
-				def call = new Call(params)
-                                call.caller = caller
-				call.customer = customer
-				call.result = CallResult.valueOf(params.result)
+            if(customer.save(flush:true)){
+                def call = new Call(params)
+                call.caller = caller
+                call.customer = customer
+                call.result = CallResult.valueOf(params.result)
 
                 if(call.result == CallResult.CALLBACK ) {
                     println "$caller has a Callback..."
-					if(params.callbackDateString) {
-						DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-						call.callbackDate = df.parse(params.callbackDateString);
-						call.callbackTime = params.callbackTime
-					}
-				} else if (call.result == CallResult.QUALIFIED || call.result == CallResult.INCOMPLETE) {
-					println "The CallResult for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving assessments"
+                    if(params.callbackDateString) {
+                        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                        call.callbackDate = df.parse(params.callbackDateString);
+                        call.callbackTime = params.callbackTime
+                    }
+                } else if (call.result == CallResult.QUALIFIED || call.result == CallResult.INCOMPLETE) {
+                    println "The CallResult for " + caller + "'s call with customer " + customer + " was QUALIFIED - saving assessments"
 
-					Product.list(sort:'sortOrder').each { product ->
+                    Product.list(sort:'sortOrder').each { product ->
 
-						if(params.assessment."${product.id}") {
+                        if(params.assessment."${product.id}") {
 
-							if(params.assessment."${product.id}".didNotReceive) {
-								println "did not receive"
-								def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
-								po.received = false
-								if(!po.save()){
-                  println "wow. There were errors with saving this productOrder:"
-                  po.errors.allErrors.each {
-                    println it
-                  }
-                }
-							} else if(params.assessment."${product.id}".didNotSample) {
-								println "did not sample"
-								def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
-								po.sampled = false
-								po.save()
-							} else {
+                            if(params.assessment."${product.id}".didNotReceive) {
+                                println "did not receive"
+                                def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
+                                po.received = false
+                                if(!po.save()){
+                                    println "wow. There were errors with saving this productOrder:"
+                                    po.errors.allErrors.each {
+                                        println it
+                                    }
+                                }
+                            } else if(params.assessment."${product.id}".didNotSample) {
+                                println "did not sample"
+                                def po = ProductOrder.findByOrderAndProduct(customer.customerOrder, product)
+                                po.sampled = false
+                                po.save()
+                            } else {
 
-								println "$caller is saving customer " + customer.fsdName + "'s assessment of " + product
-								println params?.assessment?."${product.id}".likeRating
-								println params?.assessment?."${product.id}".likeComment
-								println params?.assessment?."${product.id}".changeComment
+                                println "$caller is saving customer " + customer.fsdName + "'s assessment of " + product
+                                println params?.assessment?."${product.id}".likeRating
+                                println params?.assessment?."${product.id}".likeComment
+                                println params?.assessment?."${product.id}".changeComment
 
-								def assessment = new Assessment(
-										likeRating: params?.assessment?."${product.id}".likeRating,
-										likeComment: params?.assessment?."${product.id}".likeComment,
-										changeComment: params?.assessment?."${product.id}".changeComment,
-										favorite: params?.assessment?."${product.id}".favorite ?: null,
-										product: product,
+                                def assessment = new Assessment(
+                                        likeRating: params?.assessment?."${product.id}".likeRating,
+                                        likeComment: params?.assessment?."${product.id}".likeComment,
+                                        changeComment: params?.assessment?."${product.id}".changeComment,
+                                        favorite: params?.assessment?."${product.id}".favorite ?: null,
+                                        product: product,
                                         type: OrderType.PHONE,
-										completed: true
-								)
+                                        completed: true
+                                )
 
                                 if(assessment?.likeRating && assessment?.likeComment && assessment?.changeComment) {
-									println "assessment was completed"
+                                    println "assessment was completed"
                                     assessment.completed = true
                                 }
 
-								if(customer.addToAssessments(assessment)) {
-									println "added assessment"
-								} else {
-									println "surprise! something went wrong"
-								}
+                                if(customer.addToAssessments(assessment)) {
+                                    println "added assessment"
+                                } else {
+                                    println "surprise! something went wrong"
+                                }
 
-                if(!customer.save()){
-                  println "\n\n\n\n\n\ncouldn't save customer\n\n\n\n\n\n"
+                                if(!customer.save()){
+                                    println "\n\n\n\n\n\ncouldn't save customer\n\n\n\n\n\n"
+                                }
+
+                            }
+                        }
+                    }
+
+                    println "Now we save final questions"
+                    customer.otherProducts = params?.otherProducts
+                    params.reformulations?.each { key, value ->
+                        println "adding a reformulation..."
+                        println value
+                        if(value && customer.reformulations) {
+                            customer.reformulations += value
+                            customer.reformulations += "<br/> "
+                        } else {
+                            customer.reformulations = value
+                            customer.reformulations += "<br/> "
+                        }
+                    }
+                    println customer.reformulations
+
+
+
+
+                } else {
+                    call.result = CallResult.valueOf(params.result)
                 }
 
 
+                if(call.result == CallResult.DUPLICATE) {
+                    println "$caller had a CallResult of Duplicate"
+                    customer?.duplicate = true
+                }
+
+                println "3"
+                customer.addToCalls(call)
+                if(!customer.save(flush:true)) {
+                    customer.errors.allErrors.each { println it }
+                }
+                println "4"
+
+                caller.addToCalls(call)
+                if(!caller.save(flush:true)) {
+                    caller.errors.allErrors.each { println it }
+                }
 
 
-								if(call.result == CallResult.QUALIFIED) {
-									customer.status = CustomerStatus.QUALIFIED
-                 	customer.hasCompletedCurrentAssessment = true
-								}
+                if(call.result == CallResult.QUALIFIED) {
+                    customer.status = CustomerStatus.QUALIFIED
+                    customer.hasCompletedCurrentAssessment = true
+                }
 
-								if (!customer.save()) {
-									println "$caller had errors saving customer " + customer.fsdName + "'s assessment of " + product
-									customer.errors.allErrors.each{println it}
-                                    flash.message = "Error saving the Assessment"
-                                    redirect action:index
-									return
-								}
-							}
-						}
-					}
+                if (!customer.save()) {
+                    println "$caller had errors saving customer " + customer.fsdName + "'s assessment of " + product
+                    customer.errors.allErrors.each{println it}
+                    flash.message = "Error saving the Assessment"
+                    redirect action:index
+                    return
+                }
 
-					println "Now we save final questions"
-					customer.otherProducts = params?.otherProducts
-					params.reformulations?.each { key, value ->
-						println "adding a reformulation..."
-						println value
-						if(value && customer.reformulations) {
-							customer.reformulations += value
-							customer.reformulations += "<br/> "
-						} else {
-							customer.reformulations = value
-							customer.reformulations += "<br/> "
-						}
-					}
-					println customer.reformulations
+                customer.inCall = null
+                customer.lastCall = call
 
+                if(!customer.save(flush:true)) {
+                    customer.errors.allErrors.each { println it }
+                }
 
+                if(params?.single) {
+                    println "This is a non-queued call"
+                    if(params?.search) {
+                        println "$caller made this call from a search results page - redirecting back to results"
+                        def query = params?.query
+                        customer.inCall = null
+                        if(!customer.save()){
+                            println "\n\n\n\n\n\nabout to redirect but we couldn't save the customer\n\n\n\n\n"
+                        }
+                        flash.message = "Call saved"
+                        redirect action:'findCustomer', params: [query:query]
+                        return
+                    } else if(params?.cb) {
+                        println "This call was made from the Callback list - redirecting back to CB List"
+                        customer.inCall = null
+                        if(!customer.save()){
+                            println "\n\n\n\n\n\nabout to redirect (call back) but we couldn't save the customer\n\n\n\n\n"
+                        }
+                        flash.message = "Call saved"
+                        redirect action:'call_back_list'
+                        return
+                    } else if(params?.acl) {
+                        customer.inCall = null
+                        if(!customer.save()){
+                            println "\n\n\n\n\n\nabout to redirect (acl) but we couldn't save the customer\n\n\n\n\n"
+                        }
+                        println "This call was made from the Assess Call list - redirecting back to AC List"
+                        flash.message = "Call saved"
+                        redirect action:'assess_list'
 
+                        return
+                    }else {
+                        println "no return param - heading home"
+                        flash.message = "Call saved"
+                        redirect action: 'index', caller: springSecurityService.principal
+                    }
+                }
+                else {
+                    redirect action: 'next_assess_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: params?.queue, states: states]
+                    return
+                }
 
-				} else {
-					call.result = CallResult.valueOf(params.result)
-				}
+            } else {
+                customer.errors.allErrors.each { println it }
+                flash.message = "An error occurred while we were trying to save this customer record."
+                redirect action:'index'
+            }
+        }
 
+        else {
+            flash.message = "no customer"
+            redirect action:'index'
+        }
 
-				if(call.result == CallResult.DUPLICATE) {
-					println "$caller had a CallResult of Duplicate"
-					customer?.duplicate = true
-				}
-
-				println "3"
-				customer.addToCalls(call)
-				if(!customer.save(flush:true)) {
-					customer.errors.allErrors.each { println it }
-				}
-				println "4"
-
-				caller.addToCalls(call)
-				if(!caller.save(flush:true)) {
-					caller.errors.allErrors.each { println it }
-				}
-
-				customer.inCall = null
-				customer.lastCall = call
-
-				if(!customer.save(flush:true)) {
-					customer.errors.allErrors.each { println it }
-				}
-
-				if(params?.single) {
-					println "This is a non-queued call"
-					if(params?.search) {
-						println "$caller made this call from a search results page - redirecting back to results"
-						def query = params?.query
-						customer.inCall = null
-            if(!customer.save()){
-              println "\n\n\n\n\n\nabout to redirect but we couldn't save the customer\n\n\n\n\n"
-						}
-            flash.message = "Call saved"
-						redirect action:'findCustomer', params: [query:query]
-						return
-					} else if(params?.cb) {
-						println "This call was made from the Callback list - redirecting back to CB List"
-						customer.inCall = null
-            if(!customer.save()){
-              println "\n\n\n\n\n\nabout to redirect (call back) but we couldn't save the customer\n\n\n\n\n"
-						}
-						flash.message = "Call saved"
-						redirect action:'call_back_list'
-						return
-					} else if(params?.acl) {
-						customer.inCall = null
-            if(!customer.save()){
-              println "\n\n\n\n\n\nabout to redirect (acl) but we couldn't save the customer\n\n\n\n\n"
-						}
-						println "This call was made from the Assess Call list - redirecting back to AC List"
-						flash.message = "Call saved"
-						redirect action:'assess_list'
-
-						return
-					}else {
-						println "no return param - heading home"
-						flash.message = "Call saved"
-						redirect action: 'index', caller: springSecurityService.principal
-					}
-				}
-				else {
-					redirect action: 'next_assess_call', id: customer.id, params: [currentTimezone: currentTimezone, queue: params?.queue, states: states]
-					return
-				}
-
-			} else {
-        customer.errors.allErrors.each { println it }
-        flash.message = "An error occurred while we were trying to save this customer record."
-  			redirect action:'index'
-      }
-		}
-
-		else {
-			flash.message = "no customer"
-			redirect action:'index'
-		}
-
-	}
+    }
 
     def assess_list = {
 		def max = params.max ?: 35
