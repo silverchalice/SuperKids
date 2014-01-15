@@ -518,7 +518,7 @@ class ReportController {
     eq 'duplicate', false
     eq 'invalidEmail', false
     eq 'deleted', false
-    eq 'hasPlacedCurrentOrder', true
+    eq 'hasPlacedCurrentOrder', false
     eq 'hasCompletedCurrentAssessment', false
     lastCall {
       not { eq('result', CallResult.REFUSED) }
@@ -528,6 +528,7 @@ class ReportController {
   }.each {customer ->
     def m = [:]
     m.id = customer.id
+    m.top = customer.topCustomer
     m.district = customer?.district
     m.fsdName = customer?.fsdName
     m.email = customer?.email
@@ -538,9 +539,9 @@ class ReportController {
 
   }
 
-    List fields = ["id", "district", "fsdName", "email", "address"]
+    List fields = ["id", "top", "district", "fsdName", "email", "address"]
 
-    Map labels = ["id": "Id", "district": "School District", "fsdName": "FSD", "email": "Email", "address": "Address"]
+    Map labels = ["id": "Id", "top": "Top 100", "district": "School District", "fsdName": "FSD", "email": "Email", "address": "Address"]
 
     Map formatters = [:]
     Map parameters = [:]
