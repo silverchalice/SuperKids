@@ -310,14 +310,6 @@
 									<g:textField class="textField" name="address.zip" value="${fieldValue(bean: customerInstance?.address, field: 'zip')}" style="width:50px" />
                               </td>
 							</tr>
-							<tr class="prop">
-								<td valign="top" class="name">
-									<label for="studentsInDistrict"><g:message code="customer.studentsInDistrict.label" default="Students" /></label>
-								</td>
-								<td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'studentsInDistrict', 'errors')}">
-									<g:textField name="studentsInDistrict" value="${fieldValue(bean: customerInstance, field: 'studentsInDistrict')}" />
-								</td>
-							</tr>
 						</tbody>
 					</table>
 				</div>
