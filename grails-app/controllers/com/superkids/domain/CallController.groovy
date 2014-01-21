@@ -674,14 +674,14 @@ class CallController {
          def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
 
 		//assess calls are all customers with a current order AND who are not being called atm
-		def customer = c.list(sort: 'seq') {
+		Customer customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
 			eq 'hasCompletedCurrentAssessment', false
 
             //TODO: Remove this to enable calling all customers
-            //customerOrder {
-            //    eq 'shippingDate', ShippingDate.get(4)
-            //}
+            customerOrder {
+                eq 'shippingDate', ShippingDate.get(4)
+            }
 
 			or {
 				eq 'status', CustomerStatus.HAS_ORDERED
