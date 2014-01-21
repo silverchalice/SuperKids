@@ -654,7 +654,6 @@ class CallController {
               currentSeq = 1
               currentId =  1
         }
-        def order = new CustomerOrder()
         def call = new Call()
 
 
@@ -701,7 +700,6 @@ class CallController {
                 println "$caller is using the prev calls queue"
                 lastCall {
                     ne('result', CallResult.REFUSED)
-                    ne('result', CallResult.QUALIFIED)
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
