@@ -3,6 +3,7 @@ package com.superkids.domain
 class CustomerController {
 
 	def springSecurityService
+    def userService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
@@ -29,26 +30,28 @@ class CustomerController {
 		customerInstance.address = new Address()
 		customerInstance.deliveryAddress = new Address()
 
-        customerInstance.properties = params
+        customerInstance.properties = userService.bindParams(params)
         return [ customerInstance: customerInstance, states: states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}, statusList: ['HAS_NOT_ORDERED':'HAS NOT ORDERED', 'HAS_ORDERED':'HAS ORDERED']]
     }
 
 	def save = {
         println "saving a new customer through admin site"
-        params.each { key, val ->
-          println "$key = $val"
+        println params
+
+		def customerInstance = new Customer()
+
+        customerInstance.properties = userService.bindParams(params)
+		customerInstance.with {
+            username = params.email
+            password = springSecurityService.encodePassword('superkids')
+            enabled = true
+            accountExpired = false
+            accountLocked = false
+            passwordExpired = false
         }
 
-		def customerInstance = new Customer(params)
-		customerInstance.username = params.email
-		customerInstance.password = springSecurityService.encodePassword('superkids')
-		customerInstance.enabled = true
-		customerInstance.accountExpired = false
-		customerInstance.accountLocked = false
-		customerInstance.passwordExpired = false
-
-		def userRole = Role.findByAuthority("ROLE_USER")
-		if(customerInstance.save()){
+		if(customerInstance.save(flush: true)){
+            def userRole = Role.findByAuthority("ROLE_USER")
 			UserRole.create customerInstance, userRole, true
 			println "we just saved a new customer. (pause for deafening applause.) username: " + customerInstance.username + "; email: " + customerInstance.email + "; password: " + params.password
 			flash.message = "Customer account created."
@@ -156,7 +159,7 @@ class CustomerController {
                     return
                 }
             }
-            customerInstance.properties = params
+            customerInstance.properties = userService.bindParams(params)
 
             if(params.status){
                 customerInstance.status = CustomerStatus."${params.status}"

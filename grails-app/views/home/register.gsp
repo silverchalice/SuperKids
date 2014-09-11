@@ -22,6 +22,10 @@
 
     <style type="text/css">
 
+        select {
+            float:right;
+        }
+
     div.loginInfo {
         width: 1000px;
     }
@@ -242,7 +246,10 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2"><strong>3.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+            <td colspan="2"><strong>3.</strong>	Is your district’s foodservice cafeterias contract managed?
+
+            <g:select name="contractManaged" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
+
             </td>
         </tr>
         <tr>
@@ -256,7 +263,8 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">a)	If yes, would you like us to send samples to the co-op? Yes: <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
+            <td colspan="2">a)	If yes, would you like us to send samples to the co-op?
+            <g:select name="coOpSamples" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.coOpSamples}"/>
             </td>
         </tr>
         <tr>
@@ -272,17 +280,20 @@
         </tr>
 
         <tr>
-            <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+            <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district?
+                <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2"><strong>7.</strong> Do you buy USDA commodity flour? Yes: <g:checkBox name="buyCommodityFlour" value="${customerInstance?.buyCommodityFlour}" />
+            <td colspan="2"><strong>7.</strong> Do you buy USDA commodity flour?
+                <g:select name="buyCommodityFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2"><strong>8.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu? Yes: <g:checkBox name="addedPastItemsToMenu" value="${customerInstance?.addedPastItemsToMenu}" />
+            <td colspan="2"><strong>8.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu?
+                <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
             </td>
         </tr>
 
@@ -294,12 +305,14 @@
         </tr>
 
         <tr>
-            <td colspan="2"><strong>9.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods? Yes: <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
+            <td colspan="2"><strong>9.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
+                <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2"><strong>10.</strong> Do you participate in any rewards programs? Yes: <g:checkBox name="participateInRewardsPrograms" value="${customerInstance?.participateInRewardsPrograms}" />
+            <td colspan="2"><strong>10.</strong> Do you participate in any rewards programs?
+                <g:select name="participateInRewardsPrograms" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
             </td>
         </tr>
 

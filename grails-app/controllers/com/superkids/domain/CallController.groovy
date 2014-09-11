@@ -9,6 +9,7 @@ class CallController {
 	
 	def springSecurityService
 	def callService
+    def userService
 
 	static def states=['AL','AK','AZ','AR',' CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME',
             'MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA',
@@ -94,7 +95,7 @@ class CallController {
 
 			//customer.inCall = null
 			println "$caller is saving order call for customer " + customer.fsdName
-			customer.properties = params
+			customer.properties = userService.bindParams(params)
 
 			def user = User.get(params.id)
 			user.username = params.email
@@ -884,7 +885,7 @@ class CallController {
 
         if(customer) {
             println "$caller is saving assess call for customer " + customer.fsdName
-            customer.properties = params
+            customer.properties = userService.bindParams(params)
 
             if(params.broker?.name){
                 def broker1 = Broker.findByName(params.broker?.name)

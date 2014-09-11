@@ -62,6 +62,17 @@
             <p>Remember, your feedback is invaluable. It not only lets us know how to improve our SuperKids program, it helps manufacturers better understand your needs. For prizes and official rules, <a href="/uploads/AssessmentFormRules.pdf">click here</a>.</p>
             <hr />
 
+            <div class="order-item expanded alert">
+
+                <h3>Please Note!</h3>
+                <p>In order to submit your asssessments, you must click the <strong>"Submit Your Assessments"</strong> button at the bottom of the page: </p>
+
+                <div>
+
+                </div>
+
+            </div>
+
             <g:form action="saveAssessments" name="saveAssessments">
                 <g:each in="${products}" var="product" status="i">
                     <div id="form_${product.id}" class="order-item ${i == 0 ? 'expanded' : 'collapsed'}"> <img src="${createLink(controller: 'product', action: 'displayImage', id: product.id)}" alt="${product.name}" />

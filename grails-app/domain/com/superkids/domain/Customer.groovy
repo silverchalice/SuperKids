@@ -55,21 +55,29 @@ class Customer extends User {
     String freeStudents //Order Form Question #3
     Boolean lookForAlliance
     Boolean contractManaged //Order Form Question #4
+    Boolean contractManagedNA //Order Form Question #4
     String contractManager
     Boolean coOpMember //Order Form Question #5
+    Boolean coOpMemberNA //Order Form Question #5
     Boolean coOpSamples
+    Boolean coOpSamplesNA
     String coOpName
     String coOpAddress
     String callerBrokers //Order Form Question #6  -- primary foodservice distributors
     String startLooking  //Order Form Question #7
     String startBidding //Order Form Question #8
-    boolean hasBakery //Order Form Question #6
+    Boolean hasBakery //Order Form Question #6
+    Boolean hasBakeryNA //Order Form Question #6
     Boolean useWholeWheatFlour
     Boolean useUltragrainFlour
+    Boolean useUltragrainFlourNA
     Boolean buyCommodityFlour
+    Boolean buyCommodityFlourNA
     Boolean addedPastItemsToMenu
+    Boolean addedPastItemsToMenuNA
     String pastItemsAddedToMenu
     Boolean participateInRewardsPrograms
+    Boolean participateInRewardsProgramsNA
     String programsParticipatedIn
     String programInfluence
     String localBakeries
@@ -167,6 +175,9 @@ class Customer extends User {
 		otherComments nullable:true
 		lastCall nullable:true
 
+        hasBakery nullable: true
+        hasBakeryNA nullable: true
+
         contactManufacturers nullable:true, maxSize: 12000
 
 		studentsInDistrict nullable: true
@@ -178,11 +189,15 @@ class Customer extends User {
         lookForAlliance nullable: true
         useWholeWheatFlour nullable: true
         useUltragrainFlour nullable: true
+        useUltragrainFlourNA nullable: true
         buyCommodityFlour nullable: true
+        buyCommodityFlourNA nullable: true
 
         addedPastItemsToMenu nullable: true
+        addedPastItemsToMenuNA nullable: true
         pastItemsAddedToMenu nullable: true
         participateInRewardsPrograms nullable: true
+        participateInRewardsProgramsNA nullable: true
         programsParticipatedIn nullable: true
         programInfluence nullable: true
 
@@ -198,11 +213,14 @@ class Customer extends User {
 		snacksServed nullable: true
 
         coOpMember nullable:true
+        coOpMemberNA nullable:true
         coOpSamples nullable:true
+        coOpSamplesNA nullable:true
         coOpName nullable:true
         coOpAddress nullable:true
 
         contractManaged  nullable:true
+        contractManagedNA  nullable:true
         contractManager  nullable:true
 
 		newCustomer nullable:true
@@ -210,19 +228,20 @@ class Customer extends User {
         localBakeries nullable: true
         monthlyFlourUsage nullable:true
         usedUltragrainSustagrainProducts nullable: true
+        usedUltragrainSustagrainProducts nullable: true
         doNotReceiveAdditionalInformation nullable: true
 
 		//Final Questions cont...
 		programFeedback nullable:true
-    expectationsNotMetFeedback nullable:true, maxSize: 120000
-    expectationsNotMetManufacturer nullable:true
-    expectationsNotMetProductName nullable:true
-    expectationsNotMetReason nullable:true
+        expectationsNotMetFeedback nullable:true, maxSize: 120000
+        expectationsNotMetManufacturer nullable:true
+        expectationsNotMetProductName nullable:true
+        expectationsNotMetReason nullable:true
 		reformulations nullable:true
 		otherProducts nullable: true
-    addedSampleProducts nullable: true
-    sampleProductsAdded nullable: true
-    pastCompanies nullable: true
+        addedSampleProducts nullable: true
+        sampleProductsAdded nullable: true
+        pastCompanies nullable: true
 
 
 		// Broker Call Times

@@ -4,6 +4,7 @@ class ShoppingController {
 
     def springSecurityService
     def shoppingCartService
+    def userService
 
     static def states = ['AL','AK','AZ','AR',' CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME',
             'MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA',
@@ -39,7 +40,7 @@ class ShoppingController {
                }
            }
            if(checkParams(params)){
-               customerInstance.properties = params
+               customerInstance.properties = userService.bindParams(params)
                if(customerInstance.coOpName) customerInstance.coOpMember = true
 
                if (!customerInstance.hasErrors() && customerInstance.save(flush: true)) {

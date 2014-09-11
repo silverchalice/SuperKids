@@ -250,7 +250,7 @@ class AssessmentController {
         println "\n\n\n"
         def customerInstance = Customer.get(springSecurityService.principal.id)
 
-        customerInstance.properties = params
+        customerInstance.properties = userService.bindParams(params)
         customerInstance.pastCompanies = customerInstance.pastCompanies?.split(",")?.join(", ")
         if(customerInstance.save(flush: true)) {
 
@@ -275,28 +275,28 @@ class AssessmentController {
 
     def feedback = {
         def customerInstance = Customer.get(springSecurityService.principal.id)
-        customerInstance.properties = params
+        customerInstance.properties = userService.bindParams(params)
         customerInstance.save(failOnError:true)
         [customerInstance:customerInstance]
     }
 
     def reformulations = {
         def customerInstance = Customer.get(springSecurityService.principal.id)
-        customerInstance.properties = params
+        customerInstance.properties = userService.bindParams(params)
         customerInstance.save(failOnError:true)
         [customerInstance:customerInstance]
     }
 
     def other_products = {
         def customerInstance = Customer.get(springSecurityService.principal.id)
-        customerInstance.properties = params
+        customerInstance.properties = userService.bindParams(params)
         customerInstance.save(failOnError:true)
         [customerInstance:customerInstance]
     }
 
     def rewards = {
         def customerInstance = Customer.get(springSecurityService.principal.id)
-        customerInstance.properties = params
+        customerInstance.properties = userService.bindParams(params)
 		customerInstance.hasCompletedCurrentAssessment = true
 		customerInstance.status = CustomerStatus.QUALIFIED
         customerInstance.save(failOnError:true)

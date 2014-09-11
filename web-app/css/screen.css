@@ -974,7 +974,7 @@ img.money-books {
 
 /*	=4d: Links
 ----------------------------------------------- */
-#main a.btn {
+#main a.btn, input.btn  {
 	height:40px;
 	line-height:40px;
 	background:url('../images/btn_sprite.png') no-repeat right -79px;
@@ -998,18 +998,18 @@ img.money-books {
 #main .ad a.btn {
 	margin:10px 0 0;
 }
-#main a.btn span {
+#main a.btn span, input.btn span  {
 	display:inline-block;
 	height:40px;
 	line-height:42px;
 	padding:0 0 0 20px;
 	background:url('../images/btn_sprite.png') no-repeat left 3px;
 }
-#main a.btn.arrow {
+#main a.btn.arrow, input.btn.arrow {
 	padding-right:39px;
 	background-position: right -38px;
 }
-#main a.btn:hover {
+#main a.btn:hover, input.btn:hover  {
 	color:#333;
 	text-shadow:0 1px 0 rgba(254,231,63,0.9), 0 0 8px rgba(254,231,63,1);
 	/* animations */
@@ -1020,7 +1020,7 @@ img.money-books {
 	-moz-transition-duration: 0.1s;
 	-moz-transition-timing-function: ease-out;
 }
-#main a.btn.complete {
+#main a.btn.complete, input.btn.complete  {
 	background:url('../images/btn_sprite.png') no-repeat right -177px;
 	height:45px;
 	padding-right:30px;

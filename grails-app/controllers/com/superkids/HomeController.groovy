@@ -8,6 +8,7 @@ class HomeController {
 
     def springSecurityService
     def mailService
+    def userService
 
     static def states =['AL','AK','AZ','AR',' CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME',
             'MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA',
@@ -73,25 +74,32 @@ class HomeController {
             customerInstance.address = new Address()
             customerInstance.deliveryAddress = new Address()
 
-            customerInstance.properties = params
+            customerInstance.properties = userService.bindParams(params)
 
             return [customerInstance: customerInstance, states:states, sponsors: Sponsor.findAllByInactive(false).sort {it.name}]
        }
 
        def save = {
+              println params.contractManaged
+
          params.username = params.email
 
-         Customer customerInstance = new Customer()
-         customerInstance.properties = params
+           Customer customerInstance = new Customer()
 
-         if(customerInstance.coOpName) customerInstance.coOpMember = true
 
-         if(checkParams(params)){
-           customerInstance.password = springSecurityService.encodePassword("superkids")
-           customerInstance.enabled = true
-           customerInstance.accountExpired = false
-           customerInstance.accountLocked = false
-           customerInstance.passwordExpired = false
+           if(checkParams(params)){
+
+           customerInstance.properties = userService.bindParams(params)
+
+           if(customerInstance.coOpName) customerInstance.coOpMember = true
+
+           customerInstance.with {
+               password = springSecurityService.encodePassword("superkids")
+               enabled = true
+               accountExpired = false
+               accountLocked = false
+               passwordExpired = false
+           }
            def userRole = Role.findByAuthority("ROLE_USER")
            if(!customerInstance.hasErrors() && customerInstance.save()){
                UserRole.create customerInstance, userRole, true
@@ -149,7 +157,7 @@ class HomeController {
                    }
                }
                if(checkParams(params)){
-                   customerInstance.properties = params
+                   customerInstance.properties = userService.bindParams(params)
                    if(params.email){
                        def u = User.get(params.id)
                        u.username = params.email
@@ -848,16 +856,16 @@ class HomeController {
                    to customerInstance?.email
                    subject "[SuperKids] Your password has been reset"
                    body """
-Your password has been reset to the following:
+                    Your password has been reset to the following:
 
-${passwd}
+                    ${passwd}
 
-Log in to your SuperKids account with this password. You will be required to change your password once you have logged in.
+                    Log in to your SuperKids account with this password. You will be required to change your password once you have logged in.
 
---
-SuperKids Whole Grain Sampling Program
-http://www.superkidssampling.com/
-"""
+                    --
+                    SuperKids Whole Grain Sampling Program
+                    http://www.superkidssampling.com/
+                    """
                }
                redirect action:"c_reset_success"
            } else {
@@ -884,16 +892,16 @@ http://www.superkidssampling.com/
                    subject "[SuperKids] Your password has been reset"
                    body """${adminInstance.firstName},
 
-Your password for the account "${adminInstance.username}" has been reset to the following:
+                    Your password for the account "${adminInstance.username}" has been reset to the following:
 
-${passwd}
+                    ${passwd}
 
-You can log in to your SuperKids administrator account with this password. Please change your password once you have logged in.
+                    You can log in to your SuperKids administrator account with this password. Please change your password once you have logged in.
 
---
-SuperKids Whole Grain Sampling Program
-http://www.superkidssampling.com/
-"""
+                    --
+                    SuperKids Whole Grain Sampling Program
+                    http://www.superkidssampling.com/
+                    """
                }
                flash.message = "A new password has been created and emailed to ${adminInstance.email}."
                redirect controller:"login", action:"admin_login"

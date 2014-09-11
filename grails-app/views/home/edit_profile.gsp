@@ -239,7 +239,8 @@
             <g:checkBox name="lookForAlliance" value="${customerInstance?.lookForAlliance}" /></td>
     </tr>
     <tr>
-        <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+        <td colspan="2"><strong>4.</strong>	Is your district’s foodservice cafeterias contract managed?
+            <g:select name="contractManaged" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
         </td>
     </tr>
     <tr>
@@ -254,7 +255,8 @@
         </td>
     </tr>
     <tr>
-        <td colspan="2">a)	If yes, would you like us to send samples to the co-op? Yes: <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
+        <td colspan="2">a)	If yes, would you like us to send samples to the co-op?
+        <g:select name="coOpSamples" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.coOpSamples}"/>
         </td>
     </tr>
     <tr>
@@ -284,12 +286,14 @@
 
 
     <tr>
-        <td colspan="2"><strong>9.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+        <td colspan="2"><strong>9.</strong> Do you bake from scratch in your district?
+        <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
         </td>
     </tr>
 
     <tr>
-        <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?  Yes: <g:checkBox name="useWholeWheatFlour" value="${customerInstance?.useWholeWheatFlour}" /> <br/> Ultragrain/ Healthy Choice T-2 with Ultragrain? <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
+        <td colspan="2">a) If yes, do you use commodity flour? &nbsp; Whole Wheat Flour?
+        <g:select name="buyCommodityFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
         </td>
     </tr>
     <tr>
