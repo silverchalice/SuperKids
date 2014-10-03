@@ -33,7 +33,7 @@ class DataService {
 			customer.with {
 
                 seq= cell(1)
-                topCustomer = (cell(2) == 'YES')
+                topCustomer = (cell(2) == 'TOP 100')
                 source = cell(3)
                 fsdName = cell(4) ?: " "
                 fsdTitle = cell(5)
