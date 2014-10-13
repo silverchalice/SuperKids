@@ -119,12 +119,7 @@ class ReportController {
         m.studentsInDistrict = customer.studentsInDistrict
     
         m.studentsParticipate = customer.studentsParticipate
-        m.lookForAlliance = customer.lookForAlliance ? "YES" : "NO"
-    
-        m.facilities = customer.facilities
-        m.breakfastsServed = customer.breakfastsServed
-        m.lunchesServed = customer.lunchesServed
-        m.snacksServed = customer.snacksServed
+
         m.hasBakery = customer.hasBakery ? "YES" : "NO"
 
         m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
@@ -231,43 +226,28 @@ class ReportController {
         "deliveryAddress.city",
         "deliveryAddress.state",
         "deliveryAddress.zip",
+
         "studentsInDistrict",
         "studentsParticipate",
-        "lookForAlliance",
-        "facilities",
-        "breakfastsServed",
-        "lunchesServed",
-        "snacksServed",
-        "hasBakery",
-        "biggestFoodserviceConcern",
-
-        "doNotReceiveAdditionalInformation",
-        "useUltragrainFlour",
-        "participateInRewardsPrograms",
-        "programsParticipatedIn",
-        "programInfluence",
-        "buyCommodityFlour",
-        "addedPastItemsToMenu",
-        "pastItemsAddedToMenu",
-        "coOpMember",
-        "coOpSamples",
-        "coOpName",
-        "coOpAddress",
         "contractManaged",
         "contractManager",
-
-        "otherComments",
-        "pastParticipant",
+        "coOpMember",
+        "coOpName",
+        "coOpAddress",
         "callerBrokers",
-        //"brokerName",
-        //"brokerEmail",
-        //"brokerPhone",
-        //"brokerFax",
-        //"brokerStreet",
-        //"brokerStreet2",
-        //"brokerCity",
-        //"brokerState",
-        //"brokerZip",
+        "hasBakery",
+        "useUltragrainFlour",
+        "useUltragrainWhiteFlour",
+        "buyCommodityFlour",
+        "likesBagHandles",
+        "preferredBagSize",
+        "addedPastItemsToMenu",
+        "pastItemsAddedToMenu",
+        "participateInRewardsPrograms",
+        "participateInCoolSchoolCafe",
+        "programsParticipatedIn",
+        "pastParticipant",
+        "doNotReceiveAdditionalInformation",
         "notes"]
     for (prod in prods) {
       def foo = prod.name
@@ -301,43 +281,28 @@ class ReportController {
         "deliveryAddress.city": "Delivery City",
         "deliveryAddress.state": "Delivery State",
         "deliveryAddress.zip": "Delivery Zip",
+
         "studentsInDistrict": "Students in District",
         "studentsParticipate": "Participating Students",
-        "lookForAlliance": "Look for foods that meet Alliance Guidelines",
-        "facilities": "Facilities",
-        "breakfastsServed": "Breakfasts Served",
-        "lunchesServed": "Lunches Served",
-        "snacksServed": "Snacks Served",
-        "hasBakery": "Bake from Scratch",
-
-        "biggestFoodserviceConcern": "Biggest Foodservice Concern",
-
-        "useUltragrainFlour": "Look for 'Ultragrain' when trying new foods",
-        "participateInRewardsPrograms": "Participate in rewards programs",
-        "programsParticipatedIn": "Rewards programs participated in",
-        "programInfluence": "Influence of rewards programs",
-        "buyCommodityFlour": "Buy Commodity Flour",
-        "addedPastItemsToMenu": "Added previous items to menu",
-        "pastItemsAddedToMenu": "Past items added to menu",
-        "coOpMember":"Member of a Co-op",
-        "coOpSamples": "Send Samples to Co-op",
-        "coOpName": "Co-op Name",
-        "coOpAddress": "Co-op Address",
         "contractManaged": "Contract Managed",
         "contractManager": "Contractor",
-
+        "coOpMember":"Member of a Co-op",
+        "coOpName": "Co-op Name",
+        "coOpAddress": "Co-op Address",
+        "callerBrokers":"Primary foodservice distributors",
+        "hasBakery": "Bake from Scratch",
+        "useUltragrainFlour": "Look for 'Ultragrain' when trying new foods",
+        "useUltragrainWhiteFlour": "Look for 'Ultragrain' when trying new foods",
+        "buyCommodityFlour": "Buy Commodity Flour",
+        "likesBagHandles": "Prefer bag handles",
+        "preferredBagSize": "Preferred bag size",
+        "addedPastItemsToMenu": "Added previous items to menu",
+        "pastItemsAddedToMenu": "Past items added to menu",
+        "participateInRewardsPrograms": "Participate in rewards programs",
+        "participateInCoolSchoolCafe": "Participate in Cool School Cafe",
+        "programsParticipatedIn": "Rewards programs participated in",
         "pastParticipant": "Previous Participant",
-        "callerBrokers":"Who are your primary foodservice distributors",
         "doNotReceiveAdditionalInformation": "Opted out of additional information",
-        //"brokerName":"Distributor Name",
-        //"brokerEmail":"Distributor Email",
-        //"brokerPhone":"Distributor Phone",
-        //"brokerFax":"Distributor Fax",
-        //"brokerStreet":"Distributor Street",
-        //"brokerStreet2":"Distributor Street 2",
-        //"brokerCity":"Distributor City",
-        //"brokerState":"Distributor State",
-        //"brokerZip":"Distributor Zip",
         "notes":"Operator Comments"]
 
     for (prod in prods) {
@@ -398,16 +363,8 @@ class ReportController {
     def df = new java.text.SimpleDateFormat('MM-dd-yyyy')
     String exDate = df.format(now)
 
-/*
-    response.contentType = ConfigurationHolder.config.grails.mime.types[params.format]
-    response.setHeader("Content-disposition", "attachment; filename=SK_Customers-${exDate}.xls")
-*/    
     def fileName = "SK_Customers-${exDate}.csv"
-/*  def fileRoot = servletContext.getResourceAsStream(request.getContextPath())
-  def fos = new FileOutputStream("${request.contextPath}/tmp/${fileName}")
-  println ("After export - ${new Date().time - startTime}")
-  render view:'downloadDialog', model:[fileName:fileName, desc:'Customer Data']
-*/
+
 
     response.setHeader "Content-disposition", "attachment; filename=${fileName}"
     response.contentType = 'text/csv'
