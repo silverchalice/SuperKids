@@ -7,36 +7,34 @@ class UserService {
     def bindParams(params) {
 
         if(params.contractManaged == "NA") {
-            params.contractManagedNA = true
-            params.contractManaged = false
+            params.contractManaged = null
         }
         if(params.coOpMember == 'NA') {
-            params.coOpMemberNA = true
-            params.coOpMember = false
-        }
-        if(params.coOpSamples == 'NA') {
-            params.coOpSamplesNA = true
-            params.coOpSamples = false
+            params.coOpMember = null
         }
         if(params.hasBakery == 'NA') {
-            params.hasBakeryNA = true
-            params.hasBakery = false
+            params.hasBakery = null
         }
         if(params.useUltragrainFlour == 'NA') {
-            params.useUltragrainFlourNA = true
-            params.useUltragrainFlour = false
+            params.useUltragrainFlour = null
+        }
+        if(params.useUltragrainWhiteFlour == 'NA') {
+            params.useUltragrainWhiteFlour = null
         }
         if(params.buyCommodityFlour == 'NA') {
-            params.buyCommodityFlourNA = true
-            params.buyCommodityFlour = false
+            params.buyCommodityFlour = null
+        }
+        if(params.likesBagHandles == 'NA') {
+            params.likesBagHandles = null
         }
         if(params.addedPastItemsToMenu == 'NA') {
-            params.addedPastItemsToMenuNA = true
-            params.addedPastItemsToMenu = false
+            params.addedPastItemsToMenu = null
         }
         if(params.participateInRewardsPrograms == 'NA') {
-            params.participateInRewardsProgramsNA = true
-            params.participateInRewardsPrograms = false
+            params.participateInRewardsPrograms = null
+        }
+        if(params.participateInCoolSchoolCafe == 'NA') {
+            params.participateInCoolSchoolCafe = null
         }
 
         println params

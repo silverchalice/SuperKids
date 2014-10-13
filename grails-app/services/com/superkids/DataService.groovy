@@ -8,9 +8,6 @@ class DataService {
 
     def springSecurityService
 
-
-
-
     def importCustomers(file) {
 		def i = 0
 		def is = file.inputStream
@@ -23,11 +20,6 @@ class DataService {
             println yo
 
             def customer = new Customer()
-            //if(!customer) {
-            //    customer = new Customer()
-            //} else {
-            //    println "updating row..."
-            //}
             println "email " + cell(14)
 
 			customer.with {
@@ -81,26 +73,6 @@ class DataService {
                 callerBrokers = cell(41) ?: ""
                 otherComments = cell(42) ?: ""
 				timezone = cell(43) ?: " "
-                //We don't seem to be using these cells for this
-                //any more (2013-2014)
-                /* if(cell(31) && !Broker.findByName(cell(31))) {
-                    println "creating broker record..."
-                    def broker = new Broker(name: cell(31),
-                            email: cell(32) ?: "",
-                            phone: cell(33) ?: " ",
-                            fax: cell(34) ?: " ",
-                            street: cell(35) ?: "",
-                            street2: cell(36) ?: " ",
-                            city: cell(47) ?: ",",
-                            state: cell(38) ?: " ",
-                            zip: cell(39) ?: " ")
-
-                    customer.addToBrokers(broker)
-                }
-
-				 */
-
-
 
 			}
 			customer.password = springSecurityService.encodePassword("superkids")

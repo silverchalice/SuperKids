@@ -50,56 +50,29 @@ class Customer extends User {
 
 //	Misc. Questions
 
-    String studentsInDistrict //Order Form Question #1
-    String studentsParticipate //Order Form Question #2
-    String freeStudents //Order Form Question #3
-    Boolean lookForAlliance
-    Boolean contractManaged //Order Form Question #4
-    Boolean contractManagedNA //Order Form Question #4
-    String contractManager
-    Boolean coOpMember //Order Form Question #5
-    Boolean coOpMemberNA //Order Form Question #5
-    Boolean coOpSamples
-    Boolean coOpSamplesNA
-    String coOpName
-    String coOpAddress
-    String callerBrokers //Order Form Question #6  -- primary foodservice distributors
-    String startLooking  //Order Form Question #7
-    String startBidding //Order Form Question #8
-    Boolean hasBakery //Order Form Question #6
-    Boolean hasBakeryNA //Order Form Question #6
-    Boolean useWholeWheatFlour
-    Boolean useUltragrainFlour
-    Boolean useUltragrainFlourNA
-    Boolean buyCommodityFlour
-    Boolean buyCommodityFlourNA
-    Boolean addedPastItemsToMenu
-    Boolean addedPastItemsToMenuNA
-    String pastItemsAddedToMenu
-    Boolean participateInRewardsPrograms
-    Boolean participateInRewardsProgramsNA
-    String programsParticipatedIn
-    String programInfluence
-    String localBakeries
-    Boolean readyFor2013
-    Boolean readyFor2014
-    String wholeGrainChallenge
-    String wantedProducts
-    String biggestFoodserviceConcern
+    String studentsInDistrict                   //Order Form Question #1
+    String studentsParticipate                  //Order Form Question #2
+    Boolean contractManaged                     //Order Form Question #3
+    String contractManager                      //Order Form Question #3a
+    Boolean coOpMember = null                   //Order Form Question #4
+    String coOpName                             //Order Form Question #4a
+    String coOpAddress                          //Order Form Question #4b
+    String callerBrokers                        //Order Form Question #5  -- primary foodservice distributors
+    Boolean hasBakery = null                    //Order Form Question #6
+    Boolean useUltragrainFlour = null           //Order Form Question #6a
+    Boolean useUltragrainWhiteFlour = null      //Order Form Question #6b
+    Boolean buyCommodityFlour = null            //Order Form Question #6c
+    Boolean likesBagHandles = null              //Order Form Question #6d
+    String preferredBagSize                     //Order Form Question #6e
+    Boolean addedPastItemsToMenu = null         //Order Form Question #7
+    String pastItemsAddedToMenu                 //Order Form Question #7a
+    Boolean participateInRewardsPrograms = null //Order Form Question #9
+    Boolean participateInCoolSchoolCafe = null  //Order Form Question #9a
+    String programsParticipatedIn               //Order Form Question #9b
 
-    String breakfastsServed
-    String lunchesServed
-    String snacksServed
-    String facilities
+    Boolean doNotReceiveAdditionalInformation = null
 
-    String monthlyFlourUsage
-
-    String usedUltragrainSustagrainProducts //Order Form Question #7
-
-    Boolean doNotReceiveAdditionalInformation = false
-
-    String otherComments //Order Form Question #11  -- manufacturerComments
-
+    String otherComments
 
     //Assessment Questions
     String programFeedback
@@ -132,7 +105,32 @@ class Customer extends User {
 	List assessments
 	List brokers
 
-	static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker, contactManufacturers: Sponsor ]
+
+
+
+    //NOT USED - 10/13/14
+    String freeStudents //Order Form Question #3
+    Boolean lookForAlliance
+    Boolean coOpSamples
+    String startLooking  //Order Form Question #7
+    String startBidding //Order Form Question #8
+    Boolean useWholeWheatFlour
+    String programInfluence
+    String localBakeries
+    Boolean readyFor2013
+    Boolean readyFor2014
+    String wholeGrainChallenge
+    String wantedProducts
+    String biggestFoodserviceConcern
+    String breakfastsServed
+    String lunchesServed
+    String snacksServed
+    String facilities
+    String monthlyFlourUsage
+    String usedUltragrainSustagrainProducts //Order Form Question #7
+
+
+    static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker, contactManufacturers: Sponsor ]
 
     static constraints = {
 
@@ -142,7 +140,7 @@ class Customer extends User {
 		email nullable:false, blank:false //, email:true
 		website(nullable: true)
 		phone(nullable:true, blank:true)
-		fax nullable: true 
+		fax nullable: true
 		inCall nullable:true
 
         didNotReceiveMailing nullable:true
@@ -176,7 +174,7 @@ class Customer extends User {
 		lastCall nullable:true
 
         hasBakery nullable: true
-        hasBakeryNA nullable: true
+        useUltragrainWhiteFlour nullable: true
 
         contactManufacturers nullable:true, maxSize: 12000
 
@@ -189,15 +187,14 @@ class Customer extends User {
         lookForAlliance nullable: true
         useWholeWheatFlour nullable: true
         useUltragrainFlour nullable: true
-        useUltragrainFlourNA nullable: true
         buyCommodityFlour nullable: true
-        buyCommodityFlourNA nullable: true
+        likesBagHandles nullable: true
+        preferredBagSize nullable: true
 
         addedPastItemsToMenu nullable: true
-        addedPastItemsToMenuNA nullable: true
         pastItemsAddedToMenu nullable: true
         participateInRewardsPrograms nullable: true
-        participateInRewardsProgramsNA nullable: true
+        participateInCoolSchoolCafe nullable: true
         programsParticipatedIn nullable: true
         programInfluence nullable: true
 
@@ -208,19 +205,16 @@ class Customer extends User {
         biggestFoodserviceConcern nullable: true, maxSize: 12000
 
         facilities nullable: true
-		breakfastsServed nullable: true 
+		breakfastsServed nullable: true
 		lunchesServed nullable: true
 		snacksServed nullable: true
 
         coOpMember nullable:true
-        coOpMemberNA nullable:true
         coOpSamples nullable:true
-        coOpSamplesNA nullable:true
         coOpName nullable:true
         coOpAddress nullable:true
 
         contractManaged  nullable:true
-        contractManagedNA  nullable:true
         contractManager  nullable:true
 
 		newCustomer nullable:true
