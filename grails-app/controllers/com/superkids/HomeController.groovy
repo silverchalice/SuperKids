@@ -80,7 +80,6 @@ class HomeController {
        }
 
        def save = {
-              println params.contractManaged
 
          params.username = params.email
 

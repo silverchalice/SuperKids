@@ -66,6 +66,7 @@ class Customer extends User {
     String preferredBagSize                     //Order Form Question #6e
     Boolean addedPastItemsToMenu = null         //Order Form Question #7
     String pastItemsAddedToMenu                 //Order Form Question #7a
+    Boolean lookForUltragrain = null            //Order Form Question #8
     Boolean participateInRewardsPrograms = null //Order Form Question #9
     Boolean participateInCoolSchoolCafe = null  //Order Form Question #9a
     String programsParticipatedIn               //Order Form Question #9b
@@ -197,6 +198,7 @@ class Customer extends User {
         participateInCoolSchoolCafe nullable: true
         programsParticipatedIn nullable: true
         programInfluence nullable: true
+        lookForUltragrain nullable: true
 
         readyFor2013 nullable: true
         readyFor2014 nullable: true
