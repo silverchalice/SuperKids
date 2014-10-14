@@ -81,7 +81,7 @@ class Customer extends User {
     String expectationsNotMetManufacturer
     String expectationsNotMetProductName
     String expectationsNotMetReason
-	  String reformulations
+	String reformulations
   	String otherProducts
     String addedSampleProducts
     String sampleProductsAdded

@@ -116,34 +116,41 @@ class ReportController {
         m.deliveryAddress.city = customer.deliveryAddress?.city
         m.deliveryAddress.state = customer?.address?.state
         m.deliveryAddress.zip = customer.deliveryAddress?.zip
+
         m.studentsInDistrict = customer.studentsInDistrict
-    
         m.studentsParticipate = customer.studentsParticipate
-
-        m.hasBakery = customer.hasBakery ? "YES" : "NO"
-
-        m.biggestFoodserviceConcern = customer.biggestFoodserviceConcern
-
-        m.doNotReceiveAdditionalInformation = customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
-        m.useUltragrainFlour = customer.useUltragrainFlour ? "YES" : "NO"
-        m.participateInRewardsPrograms = customer.participateInRewardsPrograms ? "YES" : "NO"
-        m.programsParticipatedIn = customer.programsParticipatedIn
-        m.programInfluence = customer.programInfluence
-        m.buyCommodityFlour = customer.buyCommodityFlour ? "YES" : "NO"
-        m.addedPastItemsToMenu = customer.addedPastItemsToMenu ? "YES" : "NO"
-        m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
-        m.coOpMember = customer.coOpName ? "YES" : "NO"
-        m.coOpSamples = customer.coOpSamples ? "YES" : "NO"
+        m.contractManaged = (customer.contractManaged == null) ?
+                "N/A" : customer.contractManaged ? "YES" : "NO"
+        m.contractManager = customer.contractManager
+        m.coOpMember = (customer.coOpMember == null) ?
+                "N/A" : customer.coOpName ? "YES" : "NO"
         m.coOpName = customer.coOpName
         m.coOpAddress = customer.coOpAddress
-        m.contractManaged = customer.contractManaged ? "YES" : "NO"
-        m.contractManager = customer.contractManager
-        m.otherComments = customer.otherComments
+        m.callerBrokers = customer.callerBrokers
+        m.hasBakery = (customer.hasBakery == null) ?
+                "N/A" : customer.hasBakery ? "YES" : "NO"
+        m.useUltragrainFlour = (customer.useUltragrainFlour == null) ?
+                "N/A" : customer.useUltragrainFlour ? "YES" : "NO"
+        m.useUltragrainWhiteFlour = (customer.useUltragrainWhiteFlour == null) ?
+                "N/A" : customer.useUltragrainWhiteFlour ? "YES" : "NO"
+        m.buyCommodityFlour = (customer.buyCommodityFlour == null) ?
+                "N/A" : customer.buyCommodityFlour ? "YES" : "NO"
+        m.likesBagHandles = (customer.likesBagHandles == null) ?
+                "N/A" : customer.likesBagHandles ? "YES" : "NO"
+        m.preferredBagSize = customer.preferredBagSize
+        m.addedPastItemsToMenu = (customer.addedPastItemsToMenu == null) ?
+                "N/A" : customer.addedPastItemsToMenu ? "YES" : "NO"
+        m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
+        m.participateInCoolSchoolCafe = (customer.participateInCoolSchoolCafe == null) ?
+                "N/A" : customer.participateInCoolSchoolCafe ? "YES" : "NO"
+        m.programsParticipatedIn = customer.programsParticipatedIn
+        m.pastParticipant = (customer.pastParticipant == null) ?
+                "N/A" : customer.pastParticipant ? "YES" : "NO"
+        m.doNotReceiveAdditionalInformation = (customer.doNotReceiveAdditionalInformation == null) ?
+                "N/A" : customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
+
         m.seq = customer.seq
         m.topCustomer = customer.topCustomer ? "YES" : "NO"
-        m.pastParticipant = customer.pastParticipant ? "YES" : "NO"
-        m.callerBrokers = customer.callerBrokers
-    
         m.notes = customer.opNotes
 
         def order = customer.customerOrder
