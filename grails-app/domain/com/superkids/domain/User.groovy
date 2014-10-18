@@ -22,13 +22,9 @@ class User {
 		UserRole.findAllByUser(this).collect { it.role } as Set
 	}
 
-        def isAdmin(){
-            def adminRole = Role.findByAuthority("ROLE_ADMIN")
-            if(getAuthorities().contains(adminRole)){
-                return true
-            } else {
-                return false
-            }
-        }
+  def isAdmin(){
+    def adminRole = Role.findByAuthority("ROLE_ADMIN")
+    return getAuthorities().contains(adminRole)
+  }
 
 }
