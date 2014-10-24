@@ -1,5 +1,5 @@
 <sec:ifNotLoggedIn>
-      <span><g:link controller="login" action="auth">Log In</g:link></span>
+      <span><g:link controller="login" action="auth" style="float: right; padding: 0">Log In</g:link></span>
   </sec:ifNotLoggedIn>
   <sec:ifLoggedIn>
 

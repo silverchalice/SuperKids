@@ -12,37 +12,32 @@
 <div id="header-container">
   <div id="header">
     <div id="logo">
-      <div id="account-bar">
+  <div id="account-bar">
           <g:render template="/includes/account_bar"/>
            </div>
-      <a href="${createLink(controller: 'home', action: 'index')}" title="Return to the homepage"><img src="${resource(dir:'images',file:'img_superkids_logo.jpg')}" alt="SuperKids Logo" /></a>
+      <a href="${createLink(controller: 'home', action: 'index')}" title="Return to the homepage"><img src="${resource(dir:'images',file:'logo_superkids.png')}" alt="SuperKids Logo" /></a>
       <h2>Build SuperKids <span>with Healthier Whole Grain Foods</span></h2>
-      <p>All made with Ultragrain&reg; and Sustagrain&reg;</p>
+        <div id="grain-logos">
+            <a href="#" title="Learn more about Ultragrain">
+                <img src="${resource(dir:'images',file:'ultragrain_logo_small_2.0.png')}" alt="Ultragrain logo" class="first" />
+            </a>
+            <a href="#" title="Learn more about Sustagrain">
+                <img src="${resource(dir:'images',file:'sustagrain_logo_small_2.0.png')}" alt="Sustagrain logo" />
+            </a>
+        </div>
     </div>
     <g:render template="/includes/nav"/>
   </div>
 </div>
 <div id="main-container">
-  <div id="main">
-    <div id="sidebar">
-      <ul id="side-nav">
-        <h3>Full Product List</h3>
-        <g:each in="${Product.topLevelProducts()}" var="product">
-
-            <sks:productMenuItem id="${product?.id}" active="${productInstance?.id ?: ''}" />
-
-        </g:each>
-
-      </ul>
-      <!--<div class="ad">
-        <h3>Win Prizes <span>for Your School District</span></h3>
-        <p><img src="${resource(dir:'images',file:'img_bills.jpg')}" title="Money" class="left" />If you’ve already received your free samples, you could win a $200 gift card for your school district just for sharing your opinion.</p>
-        <p><a href="${createLink(controller: 'home', action: 'assess')}" title="" class="btn"><span>Tell us what you think</span></a>
-      </div>
-      <div class="ad">
-        <h3>Whole Grain Nutrition, White Flour Appeal</h3>
-        <p><img src="${resource(dir:'images',file:'logo_ultragrain_small.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of white flour. <a href="${createLink(controller: 'home', action: 'ultragrain_general')}">Learn more »</a></p>
-      </div>  -->
+    <div id="main">
+        <div id="sidebar">
+            <ul id="side-nav">
+                <h3>Full Product List</h3>
+                <g:each in="${Product.topLevelProducts()}" var="product">
+                    <sks:productMenuItem id="${product?.id}" active="${productInstance?.id ?: ''}" />
+                </g:each>
+            </ul>
     </div>
     <div id="content">
         <g:layoutBody />

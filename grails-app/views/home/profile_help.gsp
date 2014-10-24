@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Registration: Help | SuperKids</title>
-        <link rel="stylesheet" href="${resource(dir:'css',file:'screen.css')}" />
+        <link rel="stylesheet" href="${resource(dir:'css',file:'screen_2.0.css')}" />
     </head>
     <body>
     <div id="help">
