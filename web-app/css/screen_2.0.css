@@ -1398,3 +1398,11 @@ hr {
     float:right;
     margin:5px 0 0 10px;
 }
+
+sup {
+    position: relative;
+    font-size: 40%;
+    line-height: 0;
+    vertical-align: baseline;
+    top: -1.2em;
+}
