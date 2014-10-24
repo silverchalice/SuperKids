@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="learn" />
         <meta name="link" content="chef_jeff" />
-        <title>SuperKids | Denver Public Schools at SNA</title>
+        <title>SuperKids | Recipes</title>
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-18800741-2']);

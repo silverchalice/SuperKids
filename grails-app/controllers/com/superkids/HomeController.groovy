@@ -599,7 +599,7 @@ class HomeController {
            [content:content]
        }
 
-       def denver_schools = {
+       def recipes = {
            def content
            def pt = PageText.findByName("denver_schools")
            if(pt){
