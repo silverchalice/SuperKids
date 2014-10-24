@@ -37,6 +37,7 @@
 		<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity"><span>Meeting the Challenge</span></g:link></li>
 		<li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips"><span>Whole Grains Council Tips</span></g:link></li>
 		<li id="${link=='association' ? 'current' : ''}"><g:link controller="home" action="association"><span>Home Baking Association</span></g:link></li>
+		<li id="${link=='coolschool' ? 'current' : ''}"><g:link controller="home" action="coolschool"><span>Cool School Caf&#233;</span></g:link></li>
          <li id="${link=='promotion_tools_and_resources' ? 'current' : ''}"><g:link controller="home" action="promotion_tools_and_resources"><span>Promotional Tools & Resources</span></g:link></li>
         <li id="${link=='additional_promotional_ideas' ? 'current' : ''}"><g:link controller="home" action="additional_promotional_ideas"><span>Additional Promotional Ideas</span></g:link></li>
 
