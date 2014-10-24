@@ -692,6 +692,15 @@ class HomeController {
             [content:content]
         }
 
+        def coolschool = {
+            def content
+            def pt = PageText.findByName("coolschool")
+            if(pt){
+                content = pt.content
+            }
+            [content:content]
+        }
+
        def change_password = {
            def adminInstance
            if(params.id){ 
