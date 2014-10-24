@@ -65,7 +65,7 @@
             <p>Access a range of information about our product samples</p>
             <ul>
               <li><a href="${createLink(controller:'home', action: 'usda_standards')}" title="New USDA Standards">New USDA Standards</a></li>
-              <li><a href="${createLink(controller:'home', action: 'alliance')}" title="Alliance for a Healthier Generation">Alliance for a Healthier Generation </a></li>
+              <li><a href="${createLink(controller:'home', action: 'association')}" title="Home Baking Association">Home Baking Association </a></li>
               <li><a href="${createLink(controller:'home', action: 'denver_schools')}" title="Denver Public Schools at SNA">Denver Public Schools at SNA</a></li>
             </ul>
           </div>

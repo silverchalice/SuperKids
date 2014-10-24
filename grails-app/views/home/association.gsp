@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="layout" content="learn" />
-    <meta name="link" content="alliance" />
-    <title>SuperKids | ConAgra Mills and the Alliance for a Healthier Generation
+    <meta name="link" content="association" />
+    <title>SuperKids | ConAgra Mills and the Home Baking Association
     </title>
     <script type="text/javascript">
         var _gaq = _gaq || [];

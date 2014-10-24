@@ -683,7 +683,7 @@ class HomeController {
             [content:content]
         }
 
-        def alliance = {
+        def association = {
             def content
             def pt = PageText.findByName("alliance")
             if(pt){
