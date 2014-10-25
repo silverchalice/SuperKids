@@ -9,7 +9,7 @@
         <title>SuperKids | About The Manufacturers</title>
 
         <style type="text/css">
-            #overview .sponsorListItem img.ad {
+            #content .sponsorListItem img.ad {
                 box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
                 float: right;
                 margin: 0 0 10px 10px;
@@ -19,12 +19,12 @@
                 border: none;
             }
 
-            #overview a {
+            #content a {
                 background: none;
                 padding: 0;
             }
 
-            #overview .sponsorListItem {
+            #content .sponsorListItem {
                 float:none;
                 width:720px;
                 clear: both;
@@ -32,7 +32,7 @@
                 min-height: 180px;
             }
 
-            #overview .sponsorListItem img.sponsorLogo {
+            #content .sponsorListItem img.sponsorLogo {
                 float: left;
                 height: auto;
                 width: auto;

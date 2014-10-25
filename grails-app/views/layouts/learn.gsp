@@ -48,7 +48,7 @@
       </div>   -->
       <div class="ad">
         <h3>Whole Grain Nutrition, White Flour Appeal</h3>
-        <p><img src="${resource(dir:'images',file:'logo_ultragrain_small.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of white flour. <a href="${createLink(controller: 'home', action: 'ultragrain')}">Learn more »</a></p>
+        <p><img src="${resource(dir:'images',file:'ultragrain_logo_small_2.0.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of white flour. <a href="${createLink(controller: 'home', action: 'ultragrain')}">Learn more »</a></p>
       </div>
     </div>
     <g:layoutBody/>
