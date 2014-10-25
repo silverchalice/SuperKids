@@ -599,7 +599,7 @@ class HomeController {
            [content:content]
        }
 
-       def denver_schools = {
+       def recipes = {
            def content
            def pt = PageText.findByName("denver_schools")
            if(pt){
@@ -683,9 +683,18 @@ class HomeController {
             [content:content]
         }
 
-        def alliance = {
+        def association = {
             def content
             def pt = PageText.findByName("alliance")
+            if(pt){
+                content = pt.content
+            }
+            [content:content]
+        }
+
+        def coolschool = {
+            def content
+            def pt = PageText.findByName("coolschool")
             if(pt){
                 content = pt.content
             }
