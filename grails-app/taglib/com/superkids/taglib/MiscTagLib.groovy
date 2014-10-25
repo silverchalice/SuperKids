@@ -199,7 +199,7 @@ class MiscTagLib {
 
             assessments.each { a ->
 
-              def prod = a.product
+              def prod = a?.product
               if(Product.findByParent(prod)) {
                 assessments = assessments - a
               }
@@ -207,7 +207,7 @@ class MiscTagLib {
 
 			out << assessments.size()
             out << " / "
-            out << customer.customerOrder.products.size()
+            out << customer?.customerOrder?.products?.size()
 
 		}
 	}

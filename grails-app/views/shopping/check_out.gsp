@@ -334,7 +334,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">(a Cool School Cafe?
+            <td  colspan="2">(a Cool School Cafe?
             <g:select name="participateInCoolSchoolCafe" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
             </td>
         </tr>
@@ -346,7 +346,7 @@
         </tr>
 
         <tr>
-            <td colspan="2"><strong>13.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
+            <td colspan="2"><strong>10.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
               <br />may send you information about related events, webinars, products
               <br /> and services which we believe will be of interest to you.<br />
               <br />Check this box if you DO NOT wish to receive additional information

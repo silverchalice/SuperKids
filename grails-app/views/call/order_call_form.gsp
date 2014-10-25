@@ -430,39 +430,51 @@
 					  <table style="margin: 10px 10px 10px 0;width:500px; ">
 						   <tbody>
                            <tr>
-                               <td colspan="2">
-                                   <strong>1.</strong>Approximately how many students are in your district?
-                                   <input type="text" name="studentsInDistrict" size="15" maxlength="6" value="${customerInstance?.studentsInDistrict}"></td>
+                               <td colspan="2" style="padding-top: 35px">
+                                   <h3 style="display: inline; ">School District Profile</h3>  (<a
+                                       href="javascript:help();">Why do we ask for this information?</a>)
 
-                           </tr>
-                           <tr>
-                               <td colspan="2">
-                                   <strong>2.</strong>Approximately how many students participate in your foodservice program?
-                                   <input type="text" name="studentsParticipate" size="10" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="2">
-                                   <strong>3.</strong>	Is your foodservice program contract managed?
-                                   <g:select name="contractManaged" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
                                </td>
                            </tr>
+                           <tr>
+                               <td colspan="2">
+                                   <strong>1.</strong> Approximately how many students are in your district?
+                                   <input style="float:right" type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}">
+                               </td>
+                           </tr>
+                           <tr>
+                               <td colspan="2">
+                                   <strong>2.</strong>	Approximately how many students participate<br/> in your foodservice program?
+                                   <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
+                           </tr>
+
+                           <tr>
+                               <td colspan="2"><strong>3.</strong>	Is your district’s foodservice cafeterias contract managed?
+
+                               <g:select name="contractManaged" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
+
+                               </td>
+                           </tr>
+
                            <tr>
                                <td colspan="2">a) If yes, by who?
                                    <br/>
                                    <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
                            </tr>
                            <tr>
-                               <td colspan="2"><strong>4.</strong>	Are you a member of a co-op? (Please enter Co-op Name) <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
-                               </td>
-                           </tr>
+                               <td colspan="2"><strong>4.</strong>	Are you a member of a co-op?<br/>
 
-                           <tr>
-                               <td colspan="2">a)	If yes, would you like us to send samples to the co-op?
-                                <g:select name="coOpSamples" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.coOpSamples}"/>
+                                   <g:select name="coOpMember" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
+
                                </td>
                            </tr>
                            <tr>
-                               <td colspan="2">b) Name and address for the co-op sample:
+                               <td colspan="2">a) If yes, Co-op name <br/>
+                                   <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
+                               </td>
+                           </tr>
+                           <tr>
+                               <td colspan="2">b) Contact name, address and email:
                                    <br/>
                                    <input type="text" name="coOpAddress" value="${customerInstance?.coOpAddress}" size="55" maxlength="1000"></td>
                            </tr>
@@ -472,53 +484,76 @@
                                    <br/>
                                    <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
                            </tr>
+
                            <tr>
                                <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district?
                                <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
                                </td>
                            </tr>
+
                            <tr>
-                               <td colspan="2"><strong>7.</strong> Do you buy USDA commodity flour?
+                               <td colspan="2">(a	Do you use Ultragrain 100% whole wheat flour?
+                               <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+                               </td>
+                           </tr>
+
+                           <tr>
+                               <td colspan="2">(b	Ultragrain T-2 (55% Ultragrain/45% white flour?)
+                               <g:select name="useUltragrainWhiteFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+                               </td>
+                           </tr>
+
+                           <tr>
+                               <td colspan="2">(c	Do you buy USDA commodity flour?
                                <g:select name="buyCommodityFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
                                </td>
                            </tr>
 
                            <tr>
-                               <td colspan="2"><strong>8.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu?
-                                <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
+                               <td colspan="2">(d	If you use bagged flour, would your staff like handles on the bags?
+                               <g:select name="likesBagHandles" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
                                </td>
                            </tr>
                            <tr>
-                               <td colspan="2">a) If yes, do you recall any specifically?
+                               <td colspan="2">(e	What is your preferred bag size? 25 lb? 50 lb? Other?
                                    <br/>
-                                   <input type="text" name="pastItemsAddedToMenu" value="${customerInstance?.pastItemsAddedToMenu}" size="55" maxlength="1000"></td>
+                                   <input type="text" name="preferredBagSize" value="${customerInstance?.preferredBagSize}" size="55" maxlength="1000"></td>
                            </tr>
                            <tr>
-                               <td colspan="2"><strong>9.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
-                                <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
+                               <td colspan="2"><strong>7.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu?
+                               <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
                                </td>
                            </tr>
                            <tr>
-                               <td colspan="2"><strong>10.</strong> Do you participate in any rewards programs?
-                                   <g:select name="participateInRewardsPrograms" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
+                               <td colspan="2">a) If yes, which items?
+                                   <br/>
+                                   <input type="text" name="pastItemsAddedToMenu" value="${customerInstance?.pastItemsAddedToMenu}" size="55" /></td>
+                           </tr>
+
+                           <tr>
+                               <td colspan="2"><strong>8.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
+                               <g:select name="lookForUltragrain" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
+                               </td>
+                           </tr>
+
+                           <tr>
+                               <td colspan="2"><strong>9.</strong> Do you participate in any rewards programs?
+                               <g:select name="participateInRewardsPrograms" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
                                </td>
                            </tr>
                            <tr>
-                               <td colspan="2">a) Which do you use?
+                               <td colspan="2">(a Cool School Cafe?
+                               <g:select name="participateInCoolSchoolCafe" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
+                               </td>
+                           </tr>
+                           <tr>
+
+                               <td colspan="2">(b Others (please list)?
                                    <br/>
-                                   <input type="text" name="programsParticipatedIn" value="${customerInstance?.programsParticipatedIn}" size="55" maxlength="1000"></td>
+                                   <input type="text" name="programsParticipatedIn" value="${customerInstance?.programsParticipatedIn}" size="55" /></td>
                            </tr>
                            <tr>
-                               <td colspan="2">b) How much do they influence you?
-                                   <br/>
-                                   <input type="text" name="programInfluence" value="${customerInstance?.programInfluence}" size="55" maxlength="1000"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="2"><strong>11.</strong> What&#8217;s your biggest concern regarding foodservice needs this year? <br/>
-                                   <input type="text" name="biggestFoodserviceConcern" value="${customerInstance?.biggestFoodserviceConcern}" size="55" maxlength="1000"></td>
-                           </tr>
-                           <tr>
-                               <td colspan="2"><strong>12.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
+                               <td colspan="2"><strong>10.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
               <br />may send you information about related events, webinars, products
               <br /> and services which we believe will be of interest to you.<br />
               <br />Check this box if you DO NOT wish to receive additional information
