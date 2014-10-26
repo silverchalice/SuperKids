@@ -135,7 +135,7 @@ class Customer extends User {
 
     static constraints = {
 
-		district nullable:false, blank:false, type: text
+		district nullable:false, blank:false
 		address nullable:true, blank:true
 		deliveryAddress nullable: false
 		email nullable:false, blank:false //, email:true
@@ -267,6 +267,7 @@ class Customer extends User {
 
 	static mapping = {
 		opNotes sqlType:"longtext"
+		district sqlType:"longtext"
         wantedProducts sqlType:"longtext"
         biggestFoodserviceConcern sqlType:"longtext"
 	}
