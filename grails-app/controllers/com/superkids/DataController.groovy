@@ -33,7 +33,6 @@ class DataController {
         redirect(uri: '/')
     }
 
-
 	def updateIncompleteOrders = {
 		println "in updateIncompleteOrders for DataController"
 	    def file = request.getFile('cust_data')
@@ -70,7 +69,6 @@ class DataController {
 
 	   }
 	}
-
 
 	def repairIncompleteOrders = {
 

@@ -23,7 +23,7 @@ class DataService {
             println "email " + cell(14)
 
 			customer.with {
-
+//(0)
                 seq= cell(1)
                 topCustomer = (cell(2) == 'TOP 100')
                 source = cell(3)
@@ -53,26 +53,15 @@ class DataService {
 				studentsInDistrict = cell(20) ?: 0
 				studentsParticipate = cell(21) ?: 0
 				lookForAlliance = (cell(22) == "YES")
-				hasBakery = (cell(23) == "YES")
-                localBakeries = cell(24) ?: ""
-                startLooking = cell(25) ?: ""
-                startBidding = cell(26) ?: ""
-				readyFor2013 = (cell(27) == "TRUE")
-				readyFor2014 = (cell(28) == "TRUE")
-                wholeGrainChallenge = cell(29) ?: ""
-                wantedProducts = ""
-                useUltragrainFlour = (cell(31) == 'YES')
-                useWholeWheatFlour = (cell(32) == 'YES')
-                coOpMember = (cell(33) == 'YES')
-                coOpSamples = (cell(34) == 'YES')
-                coOpName = cell(35) ?: ""
-                coOpAddress = cell(36) ?: ""
-                contractManaged = (cell(37) == 'YES')
-                contractManager = cell(38) ?: ""
-                pastParticipant = (cell(40) == 'YES')
-                callerBrokers = cell(41) ?: ""
-                otherComments = cell(42) ?: ""
-				timezone = cell(43) ?: " "
+				hasBakery = (cell(23) == "YES") ? true : null
+                coOpMember = (cell(24) == 'YES') ? true : null
+
+                contractManaged = (cell(25) == 'YES') ? true : null
+                contractManager = cell(26) ?: ""
+                otherComments = cell(27) ?: ""
+                pastParticipant = (cell(28) == 'YES') ? true : null
+                callerBrokers = cell(29) ?: ""
+				//timezone = cell(30) ?: " "
 
 			}
 			customer.password = springSecurityService.encodePassword("superkids")
