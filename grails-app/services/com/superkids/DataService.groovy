@@ -24,7 +24,7 @@ class DataService {
 
 			customer.with {
 //(0)
-                seq= cell(1)
+                seq= Integer.parseInt(cell(1))
                 topCustomer = (cell(2) == 'TOP 100')
                 source = cell(3)
                 fsdName = cell(4) ?: " "
