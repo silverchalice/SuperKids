@@ -135,7 +135,7 @@ class Customer extends User {
 
     static constraints = {
 
-		district nullable:false, blank:false
+		district nullable:false, blank:false, type: text
 		address nullable:true, blank:true
 		deliveryAddress nullable: false
 		email nullable:false, blank:false //, email:true
