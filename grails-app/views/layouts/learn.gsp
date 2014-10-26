@@ -31,7 +31,7 @@
     <div id="sidebar">
       <ul id="side-nav">
         <h3>All Resources</h3>
-		<li id="${link=='recipes' ? 'current' : ''}"><g:link controller="home" action="recipes"><span>Recipes</span></g:link></li>
+		<li id="${link=='recipes' ? 'current' : ''}"><g:link controller="home" action="recipes"><span>Ultragrain & Sustagrain Recipes</span></g:link></li>
         <li id="${link=='usda_standards' ? 'current' : ''}"><g:link controller="home" action="usda_standards"><span>New USDA Nutrition Standards </span></g:link></li>
 		<li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate"><span>MyPlate</span></g:link></li>
 		<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity"><span>Meeting the Challenge</span></g:link></li>
