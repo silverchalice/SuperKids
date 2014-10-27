@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-    <meta name="layout" content="public"/>
+    <meta name="layout" content="auth"/>
 
     <script type="text/javascript">
         var _gaq = _gaq || [];
@@ -101,9 +101,11 @@
 </head>
 
 
-<body>
+<body id="public">
 
-<div style="width: 1000px; margin: 0 auto">
+<div  id="main" style="margin:-35px auto 50px; padding-top:50px; background:none">
+
+<div>
 
 <h1>Sign up for SuperKids</h1>
 <g:if test="${flash.message}">
@@ -215,13 +217,13 @@
                                        value="${customerInstance?.deliveryAddress?.zip}" size="25"
                                        maxlength="50"></td>
 </tr>
-    <tr><td></td>
-        <td style="font-size: 16px">
-            <span class="req">*</span> Indicates Required Field
+<tr><td></td>
+    <td style="font-size: 16px">
+        <span class="req">*</span> Indicates Required Field
 
-        </td>
+    </td>
 
-    </tr>
+</tr>
 </table>
 
 <div style="float:right; width:500px;">
@@ -283,13 +285,13 @@
 
         <tr>
             <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district?
-                <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
+            <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
             </td>
         </tr>
 
         <tr>
             <td colspan="2">(a	Do you use Ultragrain 100% whole wheat flour?
-                <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+            <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
             </td>
         </tr>
 
@@ -317,7 +319,7 @@
         </tr>
         <tr>
             <td colspan="2"><strong>7.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu?
-                <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
+            <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
             </td>
         </tr>
         <tr>
@@ -328,13 +330,13 @@
 
         <tr>
             <td colspan="2"><strong>8.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
-                <g:select name="lookForUltragrain" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
+            <g:select name="lookForUltragrain" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
             </td>
         </tr>
 
         <tr>
             <td colspan="2"><strong>9.</strong> Do you participate in any rewards programs?
-                <g:select name="participateInRewardsPrograms" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
+            <g:select name="participateInRewardsPrograms" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
             </td>
         </tr>
         <tr>
@@ -351,11 +353,11 @@
 
         <tr>
             <td colspan="2"><strong>12.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
-              <br />may send you information about related events, webinars, products
-              <br /> and services which we believe will be of interest to you.<br />
-              <br />Check this box if you DO NOT wish to receive additional information
-              <br />from ConAgra Foods and its affiliates. 
-              <g:checkBox name="doNotReceiveAdditionalInformation" value="${customerInstance?.doNotReceiveAdditionalInformation}" /></td>
+                <br />may send you information about related events, webinars, products
+                <br /> and services which we believe will be of interest to you.<br />
+                <br />Check this box if you DO NOT wish to receive additional information
+                <br />from ConAgra Foods and its affiliates.
+                <g:checkBox name="doNotReceiveAdditionalInformation" value="${customerInstance?.doNotReceiveAdditionalInformation}" /></td>
              
         </tr>
 
@@ -371,9 +373,9 @@
         <tr>
             <td colspan="2">
                 <g:each in="${sponsors}" var="sponsor">
-                    <span style="display: block; width: 220px; float: left"><g:checkBox name="sponsor.${sponsor.id}"
-                                                                                        checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
-                </g:each>
+        <span style="display: block; width: 220px; float: left"><g:checkBox name="sponsor.${sponsor.id}"
+                                                                            checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
+    </g:each>
             </td>
         </tr>
 
@@ -442,6 +444,10 @@
 </div>  -->
 
 </g:form>
+
+</div>
+
+
 
 </div>
 </div>

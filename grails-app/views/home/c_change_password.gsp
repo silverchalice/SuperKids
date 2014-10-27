@@ -18,6 +18,12 @@
             })
         </script>
 
+        <style type="text/css">
+            #main-container {
+                background: none;
+            }
+        </style>
+
     </head>
     <body>
 

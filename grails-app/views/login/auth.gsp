@@ -23,8 +23,11 @@
 </head>
 
 <body>
-<div id="auth" style="width:720px; margin: 0 auto; height: 400px">
-    <div style="width: 550px; float: left">
+
+
+<div>
+
+    <div style="float:left; width: 600px; height: 400px">
 
 
         <h2>Please Enter your Username and Password</h2>
@@ -35,14 +38,14 @@
 
 
         <form action='${postUrl}' method='post' id='loginForm' class='cssform'>
-            <div style="text-align: right; padding-right: 100px">
+            <div>
                 <label style="font-size: 24px" for='username'>Username</label> <input style="font-size: 24px" type='text'
-                                                                                     class='text_' name='j_username'
-                                                                                     id='username'/><br/><br/>
+                                                                                      class='text_' name='j_username'
+                                                                                      id='username'/><br/><br/>
                 <label style="font-size: 24px" for='password'>Password</label> <input style="font-size: 24px"
-                                                                                     type='password' class='text_'
-                                                                                     name='j_password'
-                                                                                     id='password'/> <br/> <br/>
+                                                                                      type='password' class='text_'
+                                                                                      name='j_password'
+                                                                                      id='password'/> <br/> <br/>
                 <a id="submitLoginButton" href="#" class="btn arrow"><span>Login</span></a>
                 <a href="${createLink(controller: 'home', action: 'c_forgot_password')}">(Forgot your Password?)</a>
 
@@ -52,30 +55,15 @@
 
     </div>
 
-    <div id="register" style="width: 140px; float: right; padding: 25px 0">
+    <div id="register" style="width: 240px; float: right; padding: 25px 0; margin-right: 100px">
         <strong>If you are a <strong>Foodservice Director</strong> who has not received a username and password, click Register.
         </strong>
         <a href="${createLink(controller: 'home', action: 'register')}" class="btn arrow"><span>Register</span></a>
     </div>
 
-    <!--
-        <strong>If you are not a foodservice director, let us know who you are:</strong>
-        <br/>
-        <br/>
-        <div style="padding-left:20px;">
-            <g:form controller="home" action="enter_site" method="post">
-        <label><input type="radio" name="job" value="B" >Foodservice Broker or Distributor?</label><br/>
-  <label><input type="radio" name="job" value="C" >Parent?</label><br/>
-  <label><input type="radio" name="job" value="D" >School Official?</label><br/>
-  <label><input type="radio" name="job" value="D" >Influencer?</label><br/>
-  <label><input type="radio" name="job" value="E" >Other?</label><br/>
-  <input type="hidden" name="position" value="1" />
-  <input type="image" value="Enter" style="padding-left:40px; padding-top:10px" name="Enter" src="${request.contextPath}/images/EnterButton-Blue.png" class="fancyButton" />
-
-    </g:form>-->
-
     <div class="clear" style="padding: 100px">&nbsp;</div>
 </div>
+
 
 </body>
 </html>

@@ -5,7 +5,7 @@
     <g:render template="/includes/head_data" />
     <g:layoutHead />
 </head>
-<body id="home">
+<body>
 <div id="header-container">
   <div id="header">
     <div id="logo">
@@ -15,8 +15,7 @@
       <a href="#" title="Return to the homepage"><img src="${resource(dir:'images',file:'logo_superkids.png')}" alt="SuperKids Logo" /></a>
       <h2>SuperKids <span>The whole grain sampling program featuring</span></h2>
 
-      <div id="grain-logos"><a href="#" title="Learn more about Ultragrain"><img src="${resource(dir:'images',file:'logo_ultragrain_small_ie6.png')}" alt="Ultragrain logo" class="first" /></a><a href="#" title="Learn more about Sustagrain"><img src="${resource(dir:'images',file:'logo_sustagrain_small_ie6.png')}" alt="Sustagrain logo" /></a>
-        <p>Featuring Ultragrain&reg; <span class="amp">&amp;</span> Sustagrain&reg;</p>
+      <div id="grain-logos"><a href="#" title="Learn more about Ultragrain"><img src="${resource(dir:'images',file:'ultragrain_logo_small_2.0.png')}" alt="Ultragrain logo" class="first" /></a><a href="#" title="Learn more about Sustagrain"><img src="${resource(dir:'images',file:'sustagrain_logo_small_2.0.png')}" alt="Sustagrain logo" /></a>
       </div>
     </div>
       <g:render template="/includes/nav"/>
@@ -24,17 +23,15 @@
   </div>
 </div>
 <div id="main-container">
-  <div id="main">
    <g:layoutBody/>
-  </div>
 </div>
 <div id="footer-container">
-  <div id="logos">
-      &nbsp;
-  </div>
-  <div id="footer">
-      <g:render template="/includes/footer" />
-  </div>
+    <div id="logos">
+        <g:render template="/includes/logos" />
+    </div>
+    <div id="footer">
+        <g:render template="/includes/footer" />
+    </div>
 </div>
 </body>
 </html>

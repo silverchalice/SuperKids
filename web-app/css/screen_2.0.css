@@ -1034,7 +1034,7 @@ img.money-books {
 
 /*	=4d: Links
 ----------------------------------------------- */
-#main a.btn {
+ a.btn {
     height:40px;
     line-height:40px;
     background:url('../images/btn_sprite.png') no-repeat right -79px;
@@ -1055,21 +1055,21 @@ img.money-books {
     -moz-transition-duration: 0.5s;
     -moz-transition-timing-function: ease-out;
 }
-#main .ad a.btn {
+.ad a.btn {
     margin:10px 0 0;
 }
-#main a.btn span {
+ a.btn span {
     display:inline-block;
     height:40px;
     line-height:42px;
     padding:0 0 0 20px;
     background:url('../images/btn_sprite.png') no-repeat left 3px;
 }
-#main a.btn.arrow {
+a.btn.arrow {
     padding-right:39px;
     background-position: right -38px;
 }
-#main a.btn:hover {
+a.btn:hover {
     color:#333;
     text-shadow:0 1px 0 rgba(254,231,63,0.9), 0 0 8px rgba(254,231,63,1);
     /* animations */
@@ -1080,25 +1080,25 @@ img.money-books {
     -moz-transition-duration: 0.1s;
     -moz-transition-timing-function: ease-out;
 }
-#main a.btn.complete {
+a.btn.complete {
     background:url('../images/btn_sprite.png') no-repeat right -177px;
     height:45px;
     padding-right:30px;
     color:#000;
     text-shadow:0 1px 0 rgba(255,255,255,.3);
 }
-#feedback #main a.btn.complete {
+#feedback a.btn.complete {
     font-size:16px;
 }
-#main a.btn.complete span {
+a.btn.complete span {
     background:url('../images/btn_sprite.png') no-repeat left -128px;
     height:45px;
     padding-left:45px;
 }
-#main .order-info a.btn {
+ .order-info a.btn {
     font-size:18px;
 }
-#main .order-info a.btn.arrow {
+ .order-info a.btn.arrow {
     margin:0 0 0 12px; /* for the checkout button */
 }
 #checkout #main .btn, #feedback #main .btn {

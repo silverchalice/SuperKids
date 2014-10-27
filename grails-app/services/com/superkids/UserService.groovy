@@ -36,6 +36,9 @@ class UserService {
         if(params.participateInCoolSchoolCafe == 'NA') {
             params.participateInCoolSchoolCafe = null
         }
+        if(params.lookForUltragrain == 'NA') {
+            params.lookForUltragrain = null
+        }
 
         println params
 
