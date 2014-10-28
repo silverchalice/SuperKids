@@ -13,8 +13,8 @@
 <div class="set-02">
     <a href="http://www.europeanbakers.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_flowers_foods.png')}" alt="Flowers logo" /></a>
     <a href="http://www.saraleefoodservice.com/K-12" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_jimmy_dean.png')}" alt="Jimmy Dean logo" /></a>
+    <a href="http://saraleefoodservice.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_sara_lee.png')}" alt="Sara Lee logo" /></a>
     <a href="http://www.jjsnack.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_jj.png')}" alt="J& J Snaks logo" /></a>
     <a href="http://www.campbellfoodservice.com/pepperidgefarm" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_pepperidge_farm.png')}" alt="Pepperidge Farm logo" /></a>
-    <a href="http://saraleefoodservice.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_sara_lee.png')}" alt="Sara Lee logo" /></a>
     <a href="http://www.buncompany.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'tbc_logo.png')}" alt="Tennessee Bun logo" /></a>
 </div>
