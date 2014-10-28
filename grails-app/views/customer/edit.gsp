@@ -354,95 +354,117 @@
         <tr>
             <td colspan="2">
                 <strong>1.</strong> Approximately how many students are in your district?
-                    <input type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}"></td>
+                <input style="float:right" type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}">
             </td>
         </tr>
         <tr>
             <td colspan="2">
                 <strong>2.</strong>	Approximately how many students participate in your foodservice program?
-                <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
-        </tr>
-
-        <tr>
-            <td colspan="2"><strong>3.</strong>	Is your foodservice program contract managed?  <g:checkBox name="contractManaged" value="${customerInstance?.contractManaged}" />
+                <input style="float:right" type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}">
             </td>
         </tr>
+        <tr>
+            <td colspan="2"><strong>3.</strong>	Is your district’s foodservice cafeterias contract managed?
 
+            <g:select name="contractManaged" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
+
+            </td>
+        </tr>
         <tr>
             <td colspan="2">a) If yes, by who?
                 <br/>
                 <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
         </tr>
-
         <tr>
-            <td colspan="2"><strong>4.</strong>	Are you a member of a co-op? (Please enter Co-op Name)<br/>
+            <td colspan="2"><strong>4.</strong>	Are you a member of a co-op?<br/>
+
+                <g:select name="coOpMember" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">a) If yes, Co-op name <br/>
                 <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
             </td>
         </tr>
         <tr>
-            <td colspan="2">a)	If yes, would you like us to send samples to the co-op? Yes: <g:checkBox name="coOpSamples" value="${customerInstance?.coOpSamples}" />
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">b) Contact name, address and e-mail for the co-op sample:
+            <td colspan="2">b) Contact name, address and email:
                 <br/>
                 <input type="text" name="coOpAddress" value="${customerInstance?.coOpAddress}" size="55" maxlength="1000"></td>
         </tr>
-
         <tr>
+
             <td colspan="2"><strong>5.</strong>	Who are your primary foodservice distributors?
                 <br/>
                 <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
         </tr>
-        <tr>
 
         <tr>
-            <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district? Yes: <g:checkBox name="hasBakery" value="${customerInstance?.hasBakery}" />
+            <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district?
+            <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2"><strong>7.</strong> Do you buy USDA commodity flour? Yes: <g:checkBox name="buyCommodityFlour" value="${customerInstance?.buyCommodityFlour}" />
+            <td colspan="2">(a	Do you use Ultragrain 100% whole wheat flour?
+            <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2"><strong>8.</strong>	If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu?  <g:checkBox name="addedPastItemsToMenu" value="${customerInstance?.addedPastItemsToMenu}" />
+            <td colspan="2">(b	Ultragrain T-2 (55% Ultragrain/45% white flour?)
+            <g:select name="useUltragrainWhiteFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2">a) If yes, do you recall any specifically?
+            <td colspan="2">(c	Do you buy USDA commodity flour?
+            <g:select name="buyCommodityFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">(d	If you use bagged flour, would your staff like handles on the bags?
+            <g:select name="likesBagHandles" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">(e	What is your preferred bag size? 25 lb? 50 lb? Other?
                 <br/>
-                <input type="text" name="pastItemsAddedToMenu" value="${customerInstance?.pastItemsAddedToMenu}" size="55" maxlength="1000"></td>
+                <input type="text" name="preferredBagSize" value="${customerInstance?.preferredBagSize}" size="55" maxlength="1000"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>7.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu?
+            <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">a) If yes, which items?
+                <br/>
+                <input type="text" name="pastItemsAddedToMenu" value="${customerInstance?.pastItemsAddedToMenu}" size="55" /></td>
         </tr>
 
         <tr>
-            <td colspan="2"><strong>9.</strong>	Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods? Yes:
-  <g:checkBox name="useUltragrainFlour" value="${customerInstance?.useUltragrainFlour}" />
+            <td colspan="2"><strong>8.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
+            <g:select name="lookForUltragrain" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2"><strong>10.</strong>	Do you participate in any rewards programs? Yes: <g:checkBox name="participateInRewardsPrograms" value="${customerInstance?.participateInRewardsPrograms}" />
+            <td colspan="2"><strong>9.</strong> Do you participate in any rewards programs?
+            <g:select name="participateInRewardsPrograms" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
             </td>
         </tr>
-
         <tr>
-            <td colspan="2">a) Which do you use?
-                <br/>
-                <input type="text" name="programsParticipatedIn" value="${customerInstance?.programsParticipatedIn}" size="55" maxlength="1000"></td>
+            <td colspan="2">(a Cool School Cafe?
+            <g:select name="participateInCoolSchoolCafe" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
+            </td>
         </tr>
-
         <tr>
-            <td colspan="2">b) How much do they influence you?
-                <br/>
-                <input type="text" name="programInfluence" value="${customerInstance?.programInfluence}" size="55" maxlength="1000"></td>
-        </tr>
 
-            <td colspan="2"><strong>11.</strong>	What's your biggest concern regarding foodservice needs this year?
+            <td colspan="2">(b Others (please list)?
                 <br/>
-                <input type="text" name="biggestFoodserviceConcern" value="${customerInstance?.biggestFoodserviceConcern}" size="55" maxlength="1000"></td>
+                <input type="text" name="programsParticipatedIn" value="${customerInstance?.programsParticipatedIn}" size="55" /></td>
         </tr>
 
         <tr>
