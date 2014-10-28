@@ -101,6 +101,7 @@ class ReportController {
         m.fsdName = customer.fsdName
         m.fsdTitle = customer.fsdTitle
         m.district = customer.district
+        m.recipientAgency = customer.recipientAgency
         m.address = new Expando()
         m.address.street = customer.address?.street
         m.address.street2 = customer.address?.street2
@@ -220,6 +221,7 @@ class ReportController {
         "fsdName",
         "fsdTitle",
         "district",
+        "recipientAgency",
         "address.street",
         "address.street2",
         "address.city",
@@ -275,6 +277,7 @@ class ReportController {
         "fsdName": "FSD Name",
         "fsdTitle": "FSD Title",
         "district": "School District",
+        "recipientAgency": "Recipient Agency #",
         "address.street": "Address",
         "address.street2": "Address 2",
         "address.city": "City",
