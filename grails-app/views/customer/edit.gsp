@@ -480,6 +480,15 @@
 
         <tr class="prop">
             <td valign="top" class="name">
+                <label for="seq"><g:message code="customer.recipientAgency.label"
+                                            default="Recipeient Agency #"/></label>
+            </td>
+            <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'recipientAgency', 'errors')}">
+                <g:textField name="recipientAgency" value="${customerInstance.recipientAgency}"/>
+            </td>
+        </tr>
+        <tr class="prop">
+            <td valign="top" class="name">
                 <label for="seq"><g:message code="customer.seq.label"
                                             default="Sequence Number (DO NOT CHANGE)"/></label>
             </td>

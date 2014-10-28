@@ -6,6 +6,8 @@ class Customer extends User {
 	Address address
 	Address deliveryAddress
 
+    String recipientAgency
+
     String timezone
     Integer seq
 
@@ -146,6 +148,7 @@ class Customer extends User {
 
         didNotReceiveMailing nullable:true
         seq nullable: true
+        recipientAgency nullable: true, maxSize: 512
 
         source nullable:true
 
