@@ -51,7 +51,6 @@ class ReportController {
         }
 
         c.seq = customer.seq
-        c.top = customer.topCustomer
         c.fsdName = customer.fsdName
         c.fsdTitle = customer.fsdTitle
         c.district = customer.district
@@ -64,9 +63,9 @@ class ReportController {
       }
     }
 
-    List fields = ["seq", "top", "fsdName", "fsdTitle", "district", "bakes", "missingProducts", "caller", "callTime"]
+    List fields = ["seq", "fsdName", "fsdTitle", "district", "bakes", "missingProducts", "caller", "callTime"]
 
-    Map labels = ["seq": "seq", "top": "Top Customer", "name": "Name", "title": "Title", "district": "District", "bakes": "Has Bakery", "missingProducts": "Missing Products", "caller":"Caller", "callTime" : "Date Called/Ordered"]
+    Map labels = ["seq": "seq", "name": "Name", "title": "Title", "district": "District", "bakes": "Has Bakery", "missingProducts": "Missing Products", "caller":"Caller", "callTime" : "Date Called/Ordered"]
 
     Map formatters = [:]
     Map parameters = [:]
@@ -151,7 +150,7 @@ class ReportController {
                 "N/A" : customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
 
         m.seq = customer.seq
-        m.topCustomer = customer.topCustomer ? "YES" : "NO"
+        m.customerRanking = customer.ranking
         m.notes = customer.opNotes
 
         def order = customer.customerOrder
@@ -215,7 +214,7 @@ class ReportController {
 
     List fields = ["id",
         "seq",
-        "topCustomer",
+        "customerRanking",
         "lastUpdated",
         "source",
         "fsdName",
@@ -271,7 +270,7 @@ class ReportController {
 
     Map labels = ["id": "Id",
         "seq": "New Seq",
-        "topCustomer": "Top 100",
+        "customerRanking": "Customer Rank",
         "lastUpdated": "Last Updated",
         "source": "Classification",
         "fsdName": "FSD Name",

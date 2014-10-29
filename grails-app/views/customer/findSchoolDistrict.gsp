@@ -49,7 +49,6 @@
 
 							<g:sortableColumn property="duplicate" title="Dup." />
 
-                            <g:sortableColumn property="topCustomer" title="Top 100" />
 
                             <th>Action</th>
 
@@ -93,10 +92,6 @@
 								<g:else>
 									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[query:"${query}",duplicate:"true", rController:"customer", rAction:"findSchoolDistrict"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
 								</g:else>
-                            </td>
-
-                            <td width="50px">
-                        	    <sks:propertyCheckbox id="${customerInstance.id}" name="topCustomer" property="topCustomer" />
                             </td>
 
                             <td width="110px">

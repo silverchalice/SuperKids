@@ -25,7 +25,7 @@ class DataService {
 			customer.with {
 //(0)
                 seq= cell(1)
-                topCustomer = (cell(2) == 'TOP 100')
+                customerRanking = rankingString(cell(2))
                 source = cell(3)
                 fsdName = cell(4) ?: " "
                 fsdTitle = cell(5)
@@ -238,6 +238,30 @@ class DataService {
 		}
 	}
 
+
+    def rankingString(string) {
+
+        switch (string) {
+            case "TOP 100":
+                return 1
+            case "50,000 +":
+                return 2
+            case "40000 - 49999":
+                return 3
+            case "30,000 - 39,999":
+                return 4
+            case "20000 - 29999":
+                return 5
+            case "10000 - 19999":
+                return 6
+            case "NO":
+                return 8
+            default:
+                return null
+        }
+
+
+    }
 
 
 }

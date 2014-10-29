@@ -452,11 +452,10 @@ class CallController {
 		def c = Customer.createCriteria()
 		def c2 = Customer.createCriteria()
 
-		def now = new Date()
         def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
 
 		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(sort: 'seq') {
+		def customer = c.list(sort: 'customerRanking') {
             eq 'timezone', currentTimezone
 			or {
 				eq 'status', CustomerStatus.HAS_NOT_ORDERED

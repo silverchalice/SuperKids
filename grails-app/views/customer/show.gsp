@@ -71,14 +71,6 @@
                         </tr>
 						<tr class="prop">
 							<td valign="top" class="name">
-							  <label for="topCustomer">Top 100</label>
-							</td>
-							<td valign="top">
-								<sks:propertyCheckbox id="${customerInstance?.id}" name="topCustomer" property="topCustomer" />
-							</td>
-						</tr>
-						<tr class="prop">
-							<td valign="top" class="name">
 							  <label for="newCustomer">New Customer</label>
 							</td>
 							<td valign="top">

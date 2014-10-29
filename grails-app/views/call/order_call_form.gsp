@@ -235,6 +235,14 @@
                     </tr>
                     <tr class="prop">
                         <td valign="top" class="name">
+                            <label for="customerRanking">Customer Ranking</label>
+                        </td>
+                        <td valign="top">
+                            ${customerInstance?.ranking}
+                        </td>
+                    </tr>
+                    <tr class="prop">
+                        <td valign="top" class="name">
                             <label for="district"><g:message code="customer.district.label" default="District" /></label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'district', 'errors')}">

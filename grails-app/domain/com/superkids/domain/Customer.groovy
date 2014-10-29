@@ -89,6 +89,7 @@ class Customer extends User {
     String sampleProductsAdded
     String pastCompanies
 
+    Integer customerRanking
 
 	boolean topCustomer = false
 
@@ -145,7 +146,7 @@ class Customer extends User {
 		phone(nullable:true, blank:true)
 		fax nullable: true
 		inCall nullable:true
-
+        customerRanking nullable: true
         didNotReceiveMailing nullable:true
         seq nullable: true
         recipientAgency nullable: true, maxSize: 512
@@ -274,6 +275,34 @@ class Customer extends User {
         wantedProducts sqlType:"longtext"
         biggestFoodserviceConcern sqlType:"longtext"
 	}
+
+
+    String getRanking() {
+
+        if(customerRanking) {
+            switch (customerRanking) {
+                case 1:
+                    return "Top 100"
+                case 2:
+                    return "50,000+"
+                case 3:
+                    return "40,000 - 49,999"
+                case 4:
+                    return "30,000 - 39,999"
+                case 5:
+                    return "20,000 - 29,999"
+                case 6:
+                    return "10,000 - 19,999"
+                case 8:
+                    return "NO"
+                default:
+                    return "NA"
+            }
+
+        } else {
+            return "NA"
+        }
+    }
 
 	String toString() {
 		district

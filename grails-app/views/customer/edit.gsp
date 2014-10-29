@@ -154,10 +154,10 @@
 </tr>
 <tr class="prop">
     <td valign="top" class="name">
-        <label for="topCustomer">Top 100</label>
+        <label for="customerRanking">Customer Ranking</label>
     </td>
     <td valign="top">
-        <g:checkBox name="topCustomer" value="${customerInstance?.topCustomer}"/>
+        <g:textField name="customerRanking" value="${customerInstance?.customerRanking}"/>
     </td>
 </tr>
 <tr class="prop">
