@@ -60,6 +60,7 @@ class Customer extends User {
     String coOpName                             //Order Form Question #4a
     String coOpAddress                          //Order Form Question #4b
     String callerBrokers                        //Order Form Question #5  -- primary foodservice distributors
+    String secondaryDistributors
     Boolean hasBakery = null                    //Order Form Question #6
     Boolean useUltragrainFlour = null           //Order Form Question #6a
     Boolean useUltragrainWhiteFlour = null      //Order Form Question #6b
@@ -150,7 +151,7 @@ class Customer extends User {
         didNotReceiveMailing nullable:true
         seq nullable: true
         recipientAgency nullable: true, maxSize: 512
-
+        secondaryDistributors nullable: true, maxSize: 1024
         source nullable:true
 
 		fsdName nullable: false

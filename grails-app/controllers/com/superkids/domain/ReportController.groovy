@@ -118,7 +118,6 @@ class ReportController {
         m.deliveryAddress.zip = customer.deliveryAddress?.zip
 
         m.studentsInDistrict = customer.studentsInDistrict
-        m.studentsParticipate = customer.studentsParticipate
         m.contractManaged = (customer.contractManaged == null) ?
                 "N/A" : customer.contractManaged ? "YES" : "NO"
         m.contractManager = customer.contractManager
@@ -127,6 +126,7 @@ class ReportController {
         m.coOpName = customer.coOpName
         m.coOpAddress = customer.coOpAddress
         m.callerBrokers = customer.callerBrokers
+        m.secondaryDistributors = customer.secondaryDistributors
         m.hasBakery = (customer.hasBakery == null) ?
                 "N/A" : customer.hasBakery ? "YES" : "NO"
         m.useUltragrainFlour = (customer.useUltragrainFlour == null) ?
@@ -243,6 +243,7 @@ class ReportController {
         "coOpName",
         "coOpAddress",
         "callerBrokers",
+        "secondaryDistributors",
         "hasBakery",
         "useUltragrainFlour",
         "useUltragrainWhiteFlour",
@@ -251,7 +252,6 @@ class ReportController {
         "preferredBagSize",
         "addedPastItemsToMenu",
         "pastItemsAddedToMenu",
-        "participateInRewardsPrograms",
         "participateInCoolSchoolCafe",
         "programsParticipatedIn",
         "pastParticipant",
@@ -299,6 +299,7 @@ class ReportController {
         "coOpName": "Co-op Name",
         "coOpAddress": "Co-op Address",
         "callerBrokers":"Primary foodservice distributors",
+        "secondaryDistributors":"Secondary foodservice distributors",
         "hasBakery": "Bake from Scratch",
         "useUltragrainFlour": "Look for 'Ultragrain' when trying new foods",
         "useUltragrainWhiteFlour": "Look for 'Ultragrain' when trying new foods",
@@ -307,7 +308,6 @@ class ReportController {
         "preferredBagSize": "Preferred bag size",
         "addedPastItemsToMenu": "Added previous items to menu",
         "pastItemsAddedToMenu": "Past items added to menu",
-        "participateInRewardsPrograms": "Participate in rewards programs",
         "participateInCoolSchoolCafe": "Participate in Cool School Cafe",
         "programsParticipatedIn": "Rewards programs participated in",
         "pastParticipant": "Previous Participant",
