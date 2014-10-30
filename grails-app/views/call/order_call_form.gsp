@@ -230,7 +230,7 @@
                             <label for="recipientAgency">Recipient Agency #.</label>
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'recipientAgency', 'errors')}">
-                            ${customerInstance?.recipientAgency}
+                            <g:textField name="recipientAgency" value="${customerInstance?.recipientAgency}" />
                         </td>
                     </tr>
                     <tr class="prop">
