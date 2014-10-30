@@ -343,11 +343,18 @@
                         </td>
                         <td valign="top" class="value ${hasErrors(bean: customerInstance?.deliveryAddress, field: 'city', 'errors')}">
                             <g:textField class="textField" name="deliveryAddress.city" value="${customerInstance?.deliveryAddress?.city}" style="width:120px; margin-right:10px;" />
+                            </td>
+                        </tr>
+                    <tr class="prop">
+                        <td valign="top">
                             <label for="deliveryAddress.state"><g:message code="deliveryAddress.state.label" default="State" /></label>
+                        </td>
+                        <td>
                             <g:select name="deliveryAddress.state" from="${states}" value="${customerInstance?.deliveryAddress?.state}" noSelection="['':'Select...']"/>
                             <label for="deliveryAddress.zip"><g:message code="deliveryAddress.zip.label" default="Zip" /></label>
                             <g:textField class="textField" name="deliveryAddress.zip" value="${fieldValue(bean: customerInstance?.deliveryAddress, field: 'zip')}" style="width:75px" />
 
+                        </td>
                     </tr>
 
 					 </tbody>
@@ -443,7 +450,7 @@
 					  <table style="margin: 10px 10px 10px 0;width:500px; ">
 						   <tbody>
                            <tr>
-                               <td colspan="2" style="padding-top: 35px">
+                               <td colspan="2">
                                    <h3 style="display: inline; ">School District Profile</h3>  (<a
                                        href="javascript:help();">Why do we ask for this information?</a>)
 
