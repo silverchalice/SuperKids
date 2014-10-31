@@ -1,4 +1,5 @@
 <g:link class="callerButton" style="margin-left:65px" action="index"><g:message code="default.home.label"/></g:link>
 <!-- <span class="menuButton" style="margin-left:250px"><g:link class="list" style="color:#48802C; font-size:12px;" action="order_list"><g:message code="default.caller.start.label" default="Order Call List"/></g:link></span> -->
-<span class="menuButton"><g:link class="list" style="color:red; font-size:12px; margin-left:300px" action="call_back_list"><g:message code="default.caller.start.label" default="Call Back List"/></g:link></span>
+<span class="menuButton"><g:link class="list" style="color:darkblue; font-size:12px; margin-left:200px" action="start_order_call" params="[queue:'top100']">Call Top 100</g:link></span>
+<span class="menuButton"><g:link class="list" style="color:#8b0000; font-size:12px;" action="call_back_list"><g:message code="default.caller.start.label" default="Call Back List"/></g:link></span>
 <!-- <span class="menuButton" style="margin-left:40px;"><g:link class="list" action="assess_list"><g:message code="default.caller.start.label" default="Assessment Call List"/></g:link></span>  -->
