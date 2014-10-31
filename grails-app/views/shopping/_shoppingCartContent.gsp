@@ -1,6 +1,7 @@
 <g:if test="${session.checkedOutItems}">
     <g:each in="${session.checkedOutItems}" var="item">
-        <div class="order-item"><img
+        <div class="order-item">
+            <img
                 src="${createLink(controller: 'product', action: 'displayImage', id: com.superkids.domain.Product.findByShoppingItem(it['item']).id)}"
                 alt=""/>
 
