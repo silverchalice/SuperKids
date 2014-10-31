@@ -208,7 +208,14 @@ class ProductController {
 		response.contentType = "${productInstance.summaryType}"
 		response.setHeader("Content-disposition", "${params.contentDisposition}; filename=${productInstance?.summaryName?.replaceAll(' ', '_')}")
 		response.contentLength = productInstance.summary.size()
-		response.outputStream.write(productInstance.summary)
+
+        try {
+            response.outputStream.write(productInstance.summary)
+        } catch (ex) {
+            println "Exception (possible duplicate download): ${ex} - ${ex.message}"
+        }
+
+        return
 	}
 
 	def add = {
