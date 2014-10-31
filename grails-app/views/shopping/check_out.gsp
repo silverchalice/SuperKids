@@ -281,7 +281,12 @@
                 <br/>
                 <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
         </tr>
+        <tr>
 
+            <td colspan="2"><strong>5b.</strong>	Who are your secondary foodservice distributors?
+                <br/>
+                <input type="text" name="secondaryDistributors" value="${customerInstance?.secondaryDistributors}" size="55" maxlength="1000"></td>
+        </tr>
         <tr>
             <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district?
             <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>

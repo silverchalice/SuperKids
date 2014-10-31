@@ -751,7 +751,6 @@ p {
 #main .order-item h2 {
     border-bottom:1px solid #ccc;
     padding-bottom:5px;
-    float:left;
     clear:none;
     width:730px;
     margin:10px 0 10px 20px;
@@ -1025,8 +1024,10 @@ ol#order-process li a:hover span {
 }
 .order-item img {
     float:left;
-    height:80px;
+    max-width: 100px;
     margin-bottom:20px; /* in case the product name goes onto two lines */
+    margin-bottom: 30px;
+    padding-right:10px;
 }
 img.money-books {
     margin:0 15px 0 -6px;

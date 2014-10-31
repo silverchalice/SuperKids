@@ -471,8 +471,13 @@ class CallController {
 			if(params?.queue == "new") {
 				println "$caller is using the new calls queue"
 				isNull "lastCall"
-			} else {
+                ne('customerRanking', 1)
+			} else if(params?.queue == "top100") {
+                eq('customerRanking', 1)
+
+            } else {
 				println "$caller is using the prev calls queue"
+                ne('customerRanking', 1)
 					lastCall {
 						ne('result', CallResult.REFUSED)
 						ne('result', CallResult.QUALIFIED)

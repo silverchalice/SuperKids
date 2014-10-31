@@ -118,6 +118,7 @@ class ReportController {
         m.deliveryAddress.zip = customer.deliveryAddress?.zip
 
         m.studentsInDistrict = customer.studentsInDistrict
+        m.studentsParticipate = customer.studentsParticipate
         m.contractManaged = (customer.contractManaged == null) ?
                 "N/A" : customer.contractManaged ? "YES" : "NO"
         m.contractManager = customer.contractManager
@@ -148,7 +149,8 @@ class ReportController {
                 "N/A" : customer.pastParticipant ? "YES" : "NO"
         m.doNotReceiveAdditionalInformation = (customer.doNotReceiveAdditionalInformation == null) ?
                 "N/A" : customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
-
+        m.didNotReceiveMailing = (customer.didNotReceiveMailing == null) ?
+                "N/A" : customer.didNotReceiveMailing ? "YES" : "NO"
         m.seq = customer.seq
         m.customerRanking = customer.ranking
         m.notes = customer.opNotes
@@ -256,6 +258,7 @@ class ReportController {
         "programsParticipatedIn",
         "pastParticipant",
         "doNotReceiveAdditionalInformation",
+        "didNotReceiveMailing",
         "notes"]
     for (prod in prods) {
       def foo = prod.name
@@ -301,8 +304,8 @@ class ReportController {
         "callerBrokers":"Primary foodservice distributors",
         "secondaryDistributors":"Secondary foodservice distributors",
         "hasBakery": "Bake from Scratch",
-        "useUltragrainFlour": "Look for 'Ultragrain' when trying new foods",
-        "useUltragrainWhiteFlour": "Look for 'Ultragrain' when trying new foods",
+        "useUltragrainFlour": "Look for 'Ultragrain 100%' when trying new foods",
+        "useUltragrainWhiteFlour": "Look for 'Ultragrain T-2' when trying new foods",
         "buyCommodityFlour": "Buy Commodity Flour",
         "likesBagHandles": "Prefer bag handles",
         "preferredBagSize": "Preferred bag size",
@@ -312,6 +315,7 @@ class ReportController {
         "programsParticipatedIn": "Rewards programs participated in",
         "pastParticipant": "Previous Participant",
         "doNotReceiveAdditionalInformation": "Opted out of additional information",
+        "didNotReceiveMailing": "Did not receive mailing",
         "notes":"Operator Comments"]
 
     for (prod in prods) {

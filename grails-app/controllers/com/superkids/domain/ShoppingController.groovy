@@ -101,7 +101,12 @@ class ShoppingController {
     }
 
     def thanks = {
-
+        def content
+        def pt = PageText.findByName("thanks")
+        if(pt){
+            content = pt.content
+        }
+        [content:content]
     }
 
        def checkParams(params){
