@@ -61,7 +61,7 @@ class DataService {
                 otherComments = cell(27) ?: ""
                 pastParticipant = (cell(28) == 'YES') ? true : null
                 callerBrokers = cell(29) ?: ""
-				//timezone = cell(30) ?: " "
+				timezone = cell(30) ?: " "
 
 			}
 			customer.password = springSecurityService.encodePassword("superkids")
