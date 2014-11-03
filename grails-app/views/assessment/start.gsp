@@ -58,7 +58,7 @@
         <div id="content">
             <img src="${resource(dir: 'images', file:'img_money_books.jpg')}" class="left money-books" alt="Four stacked books with hundred dollar bills used as bookmarks" />
             <h1>Your School Could Win Free Money!</h1>
-            <p>Just tell us what you thought about this year’s SuperKids lineup and you’ll be automatically entered to win <strong>up to $2,000</strong> for your school district.</p>
+            <p>Just tell us what you thought about this year’s SuperKids lineup and you’ll be automatically entered to win <strong>up to $1,500</strong> for your school district.</p>
             <p>Remember, your feedback is invaluable. It not only lets us know how to improve our SuperKids program, it helps manufacturers better understand your needs. For prizes and official rules, <a href="/uploads/AssessmentFormRules.pdf">click here</a>.</p>
             <hr />
 
