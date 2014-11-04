@@ -62,14 +62,19 @@ class AssessmentController {
 		def customer = Customer.get(params.id)
 		def assessments = Assessment.findAllByCustomerAndCompleted(customer, true)
 		def dnrProducts = []
-		customer.customerOrder.products.each{
-			if(!it.received){ dnrProducts << it }
-		}
-		assessments.each { println "Assessment for product it.product"}
 
-		println "$customer has $assessments.size() assessments"
+        if(customer) {
+            customer?.customerOrder?.products?.each{
+                if(!it.received){ dnrProducts << it }
+            }
+            assessments.each { println "Assessment for product it.product"}
 
-		[ customer: customer, assessments: assessments, dnrProducts: dnrProducts ]
+            println "$customer has $assessments.size() assessments"
+
+            [ customer: customer, assessments: assessments, dnrProducts: dnrProducts ]
+        }
+
+
 	}
 
 
