@@ -471,23 +471,27 @@ class CallController {
 			if(params?.queue == "new") {
 				println "$caller is using the new calls queue"
 				isNull "lastCall"
-                ne('customerRanking', 1)
+                not {
+                    eq('customerRanking', 1)
+                }
 			} else if(params?.queue == "top100") {
                 println "$caller is using the top100 calls queue"
                 eq('customerRanking', 1)
 
             } else {
 				println "$caller is using the prev calls queue"
-                ne('customerRanking', 1)
-					lastCall {
-						ne('result', CallResult.REFUSED)
-						ne('result', CallResult.QUALIFIED)
-						ne('result', CallResult.NOT_QUALIFIED)
-						ne('result', CallResult.CALLBACK)
+                not {
+                    eq('customerRanking', 1)
+                }
+                lastCall {
+                    ne('result', CallResult.REFUSED)
+                    ne('result', CallResult.QUALIFIED)
+                    ne('result', CallResult.NOT_QUALIFIED)
+                    ne('result', CallResult.CALLBACK)
 
-                        le('dateCreated', seventyTwoHoursAgo)
+                    le('dateCreated', seventyTwoHoursAgo)
 
-					}
+                }
 			}
 
 			or{
@@ -535,7 +539,9 @@ class CallController {
 				eq 'deleted', false
 				if(params?.queue == "new") {
 					println "$caller is using the new calls queue"
-                    ne('customerRanking', 1)
+                    not {
+                        eq('customerRanking', 1)
+                    }
 					isNull "lastCall"
 				} else if(params?.queue == "top100") {
                     println "$caller is using the top100 calls queue"
@@ -543,7 +549,9 @@ class CallController {
 
                 } else {
 					println "$caller is using the prev calls queue"
-                    ne('customerRanking', 1)
+                    not {
+                        eq('customerRanking', 1)
+                    }
                     lastCall {
                         le('dateCreated', seventyTwoHoursAgo)
                         ne('result', CallResult.REFUSED)
