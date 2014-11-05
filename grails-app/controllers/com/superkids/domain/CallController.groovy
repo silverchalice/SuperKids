@@ -453,6 +453,7 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
         def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
+        def twentyFourHoursAgo = new Date(new Date().time - 86,400,000)
 
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
@@ -478,7 +479,7 @@ class CallController {
                 println "$caller is using the top100 calls queue"
                 eq('customerRanking', 1)
                 lastCall {
-                    le('dateCreated', seventyTwoHoursAgo)
+                    le('dateCreated', twentyFourHoursAgo)
                     ne('result', CallResult.REFUSED)
                 }
 
@@ -551,7 +552,7 @@ class CallController {
                     println "$caller is using the top100 calls queue"
                     eq('customerRanking', 1)
                     lastCall {
-                        le('dateCreated', seventyTwoHoursAgo)
+                        le('dateCreated', twentyFourHoursAgo)
                         ne('result', CallResult.REFUSED)
                     }
                 } else {
