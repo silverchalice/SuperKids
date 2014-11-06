@@ -453,7 +453,7 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
         def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
-        def twentyFourHoursAgo = new Date(new Date().time - 86,400,000)
+        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
 
 		//order calls are all customers with out a current order AND who are not being called atm
 		def customer = c.list(sort: 'seq') {
