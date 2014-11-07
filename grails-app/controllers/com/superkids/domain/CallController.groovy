@@ -453,9 +453,10 @@ class CallController {
 		def c2 = Customer.createCriteria()
 
         def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
+        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
 
 		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(sort: 'customerRanking') {
+		def customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
 			or {
 				eq 'status', CustomerStatus.HAS_NOT_ORDERED
@@ -471,22 +472,31 @@ class CallController {
 			if(params?.queue == "new") {
 				println "$caller is using the new calls queue"
 				isNull "lastCall"
-                ne('customerRanking', 1)
+                not {
+                    eq('customerRanking', 1)
+                }
 			} else if(params?.queue == "top100") {
+                println "$caller is using the top100 calls queue"
                 eq('customerRanking', 1)
+                lastCall {
+                    le('dateCreated', twentyFourHoursAgo)
+                    ne('result', CallResult.REFUSED)
+                }
 
             } else {
 				println "$caller is using the prev calls queue"
-                ne('customerRanking', 1)
-					lastCall {
-						ne('result', CallResult.REFUSED)
-						ne('result', CallResult.QUALIFIED)
-						ne('result', CallResult.NOT_QUALIFIED)
-						ne('result', CallResult.CALLBACK)
+                not {
+                    eq('customerRanking', 1)
+                }
+                lastCall {
+                    ne('result', CallResult.REFUSED)
+                    ne('result', CallResult.QUALIFIED)
+                    ne('result', CallResult.NOT_QUALIFIED)
+                    ne('result', CallResult.CALLBACK)
 
-                        le('dateCreated', seventyTwoHoursAgo)
+                    le('dateCreated', seventyTwoHoursAgo)
 
-					}
+                }
 			}
 
 			or{
@@ -534,13 +544,26 @@ class CallController {
 				eq 'deleted', false
 				if(params?.queue == "new") {
 					println "$caller is using the new calls queue"
+                    not {
+                        eq('customerRanking', 1)
+                    }
 					isNull "lastCall"
-				} else {
+				} else if(params?.queue == "top100") {
+                    println "$caller is using the top100 calls queue"
+                    eq('customerRanking', 1)
+                    lastCall {
+                        le('dateCreated', twentyFourHoursAgo)
+                        ne('result', CallResult.REFUSED)
+                    }
+                } else {
 					println "$caller is using the prev calls queue"
-						lastCall {
-                            le('dateCreated', seventyTwoHoursAgo)
-							ne('result', CallResult.REFUSED)
-						}
+                    not {
+                        eq('customerRanking', 1)
+                    }
+                    lastCall {
+                        le('dateCreated', seventyTwoHoursAgo)
+                        ne('result', CallResult.REFUSED)
+                    }
 				}
 				or{
 					eq('duplicate', false)
