@@ -4,6 +4,7 @@ package com.superkids.domain
 class ShippingDate {
     String shipDate
     Boolean active
+    Date lastUpdated
 
     static constraints = {
         shipDate nullable:false
