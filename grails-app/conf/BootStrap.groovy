@@ -305,6 +305,13 @@ class BootStrap {
         //def f5 = new Factoid(content:"Eating more whole grains reduces the risk of inflammatory disease.").save()
 
 
+		def shipDates = ShippingDate.list()
+		shipDates.each {
+
+			it.lastUpdated = new Date()
+			it.save(flush: true)
+		}
+
 	}
 
 
