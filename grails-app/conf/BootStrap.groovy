@@ -303,15 +303,6 @@ class BootStrap {
         //def f3 = new Factoid(content:"9 out of 10 school districts nationwide ask students to test new menu items.").save()
         //def f4 = new Factoid(content:"According to the US Census Bureau, there are 54,000,000 K-12 school students in the United States.").save()
         //def f5 = new Factoid(content:"Eating more whole grains reduces the risk of inflammatory disease.").save()
-
-
-		def shipDates = ShippingDate.list()
-		shipDates.each {
-
-			it.lastUpdated = new Date()
-			it.save(flush: true)
-		}
-
 	}
 
 
