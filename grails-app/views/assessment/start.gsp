@@ -83,14 +83,16 @@
                         <table cellpadding="0" cellspacing="0">
                             <tr>
                                 <td colspan="2">
+                                <p>&nbsp;</p>
                                 <p>Did Not Receive Sample <g:checkBox name="assessment.${product.id}.didNotReceive" onclick="disableItemForm(${product.id});"/> Did Not Try Sample <g:checkBox name="assessment.${product.id}.didNotSample" onclick="disableItemForm(${product.id});"/></p>
                             </td></tr>
                             <tr>
 
                                 <td class="first">
-                                    <label for="assessment.${product.id}.likeComment">What things did you like most (list as many as necessary)?</label>
-                                    <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/>
-                                    <label for="assessment.${product.id}.changeComment">What things would you change (list as many as necessary)?</label>
+                                    <p>&nbsp;</p>
+                                    <p>What things did you like most (list as many as necessary)?</p>
+                                    <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/><p>&nbsp;</p>
+                                    <p>What things would you change (list as many as necessary)?</p>
                                     <textarea name="assessment.${product.id}.changeComment"></textarea>
                                 </td>
                                 <td><label for="assessment.${product.id}.likeRating">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</label>
