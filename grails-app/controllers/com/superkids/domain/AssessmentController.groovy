@@ -3,6 +3,7 @@ package com.superkids.domain
 class AssessmentController {
 
     def springSecurityService
+    def userService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
