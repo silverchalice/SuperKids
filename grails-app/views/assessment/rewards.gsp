@@ -17,12 +17,13 @@
                 Thank You! Your assessment has been received, qualifying you for the sweepstakes prize drawing.
               </p>
 
-                <ol style="list-style-type:decimal">
-                <li>ONE (1) Grand Prize--$2,000 Donation to winning FSD’s school foodservice program</li>
-                <li>TEN (10) First Place Prizes--$100 Gift Card from your choice of Wal-Mart, Target, Learning ZoneXpress, or The OrganWise Guys</li>
+                <ol style="width:700px; list-style-type:decimal">
+                    <li>One (1) Prize--$1,500 Donation to your School Foodservice Program</li>
+                    <li>One (1) Prize -- $1,000 Donation to your School Foodservice Program</li>
+                    <li>One (1) Prize -- $500 Donation to your School Foodservice Program</li>
                 </ol>
                 <p>Please note that you are responsible for ensuring that any rewards provided to you within this program are authorized by your school district.
-                Click sweepstakes rules for more information. <g:link controller="home" action="assessment_drawing_rules">Sweepstakes Rules</g:link>    </p>
+                Click &#8220;Sweepstakes Rules&#8221; for more information. <g:link controller="home" action="assessment_drawing_rules">Sweepstakes Rules</g:link>    </p>
 
             <div style="clear: both; width: 890px; margin: 0 auto; padding-top: 20px">
                 <hr />
