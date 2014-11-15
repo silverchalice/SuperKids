@@ -80,7 +80,7 @@ class CustomerController {
 			println customerCalls
 
             if(customerInstance.status == CustomerStatus.HAS_NOT_ORDERED) {
-                products = Product.list()
+                products = Product.findAllByLiveProduct(true)
                 return [customerInstance: customerInstance, products: products.findAll{!it.parent}, customerCalls: customerCalls,
 						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
