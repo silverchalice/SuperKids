@@ -1,5 +1,5 @@
 <%@ page import="com.superkids.domain.ShippingDate" %>
-<table cellpadding="5" cellspacing="0" style="width:810px; border: 1px solid #cccccc;">
+<table cellpadding="5" cellspacing="0" style="width:420px; border: 1px solid #cccccc;">
 		<tr>
 			<td colspan="3" align="left" class="adminheadline">Ordered Items &nbsp;
 			 <g:link controller="customerOrder" action="show" id="${customerInstance?.customerOrder?.id}">(View Order)</g:link></td>
