@@ -175,13 +175,13 @@
     <br />
     <h3>Rewards</h3>
           Thank You!Your assessment has been received, qualifying you for the sweepstakes prize drawing.
-          <br />
+          <br /> 
           <ol style="list-style-type:decimal; color:#000000; font-weight:normal">
               <li><span style="color:#800000">One (1) Prize</span>--$1,500 Donation to your School Foodservice Program</li>
               <li><span style="color:#800000">One (1) Prize</span>--$1,000 Donation to your School Foodservice Program</li>
               <li><span style="color:#800000">One (1) Prize</span>--$500 Donation to your School Foodservice Program</li>
           </ol>
-          <br />
+          <br /> 
           <p style="color:#000000; font-weight:normal">Please note that you are responsible for ensuring that any rewards provided to you within this program are authorized by your school district.
           Click sweepstakes rules for more information. <g:link controller="home" action="assessment_drawing_rules">Sweepstakes Rules</g:link>    </p>
 
