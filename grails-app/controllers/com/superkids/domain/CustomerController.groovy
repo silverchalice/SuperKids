@@ -135,7 +135,7 @@ class CustomerController {
 					}
 
                 }
-                return [customerInstance: customerInstance, products: products.sort{it.product?.sortOrder}, states: states, broker:broker, statusList:statusList,
+                return [customerInstance: customerInstance, products: products.sort{it.product?.id}, states: states, broker:broker, statusList:statusList,
 						rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
           }
     }
