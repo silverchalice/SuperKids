@@ -30,33 +30,15 @@
 						<sks:adminAssessLink id="${productOrder.id}" show="${show}"/>
 					</p></td>
 					<td style="width:75px;">  <p style="margin-top:4px">
-						<g:if test="${show}">
-							<g:checkBox value="${productOrder.product.name}.didNotReceive"
-								checked='unchecked'
-								disabled='true'
-								name="${productOrder.product.name}.didNotReceive"
-								onclick="${remoteFunction(action:'toggleDidNotReceive', id:productOrder.id, params:'\'didNotReceive=\' + this.checked')}"/>
-						</g:if>
-						<g:else>
-                            <sks:ifNotAssessed customerId="${customerInstance?.id}" productId="${productOrder?.product?.id}">
-							    <sks:dnrCheckbox pOrderId="${productOrder?.id}" />
-                            </sks:ifNotAssessed>
-				    	</g:else>
+            <sks:ifNotAssessed customerId="${customerInstance?.id}" productOrderId="${productOrder?.id}">
+					    <sks:dnrCheckbox pOrderId="${productOrder?.id}" />
+            </sks:ifNotAssessed>
 					</td>
-                    <td style="width:75px;">  <p style="margin-top:4px">
-                    <g:if test="${show}">
-                        <g:checkBox value="${productOrder.product.name}.didNotSample"
-                            checked='unchecked'
-                            disabled='true'
-                            name="${productOrder.product.name}.didNotSample"
-                            onclick="${remoteFunction(action:'toggleDidNotSample', id:productOrder.id, params:'\'didNotSample=\' + this.checked')}"/>
-                    </g:if>
-                    <g:else>
-                        <sks:ifNotAssessed customerId="${customerInstance?.id}" productId="${productOrder?.product?.id}">
-                            <sks:dnsCheckbox pOrderId="${productOrder?.id}" />
-                        </sks:ifNotAssessed>
-                    </g:else>
-                </td>
+          <td style="width:75px;">  <p style="margin-top:4px">
+            <sks:ifNotAssessed customerId="${customerInstance?.id}" productOrderId="${productOrder?.id}">
+              <sks:dnsCheckbox pOrderId="${productOrder?.id}" />
+            </sks:ifNotAssessed>
+          </td>
 				</tr>
 			</g:each>
 	</g:form>
