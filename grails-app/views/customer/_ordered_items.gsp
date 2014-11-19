@@ -49,7 +49,7 @@
 	<g:form action="adminAssessProduct">
 		<g:hiddenField name="productOrderId" id="productOrderId" />
 		<h3>Assessment Origin</h3>
-		<g:radioGroup name="orderType" values="['PHONE','WEB','EMAIL', 'FAX', 'MAIL']" labels="['Phone','Web','Email', 'Fax', 'Mail']" value="5" >
+		<g:radioGroup name="orderType" values="['PHONE','WEB','EMAIL', 'FAX', 'MAIL']" labels="['Phone','Web','Email', 'Fax', 'Mail']" value="PHONE" >
 			<g:message code="${it.label}" />: ${it.radio}
 		</g:radioGroup>
 		<br/>
