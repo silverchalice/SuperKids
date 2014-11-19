@@ -214,8 +214,8 @@ class MiscTagLib {
 
         def ifNotAssessed = { attrs, body ->
             def customer = Customer.get(attrs.customerId)
-            def product = Product.get(attrs.productId)
-            if(customer.assessments.find{it?.product?.id == product.id}){
+            def productOrder = ProductOrder.get(attrs.productOrderId)
+            if(customer.assessments.find{it?.product?.id == productOrder.product.id} || !productOrder.received || !productOrder.sampled){
                 out << ""
             } else {
                 out << body()
