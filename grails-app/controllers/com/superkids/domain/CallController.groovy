@@ -953,7 +953,7 @@ class CallController {
 
                     Product.list(sort:'sortOrder').each { product ->
 
-                        if(params.assessment."${product.id}") {
+                        if(params.assessment?."${product.id}") {
 
                             if(params.assessment."${product.id}".didNotReceive) {
                                 println "did not receive"
