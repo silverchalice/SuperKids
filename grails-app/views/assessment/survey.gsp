@@ -60,7 +60,7 @@
     <div id="content">
         <img src="${resource(dir: 'images', file:'img_money_books.jpg')}" class="left money-books" alt="Four stacked books with hundred dollar bills used as bookmarks" />
         <h1>Thanks for your assessments!</h1>
-        <p>Just one more step - to qualify for the prize drawing, we'd ask you to simply fill out the four questions below about this year's SuperKids program. We want to make this program work better for you!</p>
+        <p>Just one more step - to qualify for the prize drawing, we'd ask you to simply fill out the three questions below about this year's SuperKids program. We want to make this program work better for you!</p>
         <p>Once you've filled out these questions, click the "Submit Your Feedback" buttom at the bottom of the page. That's it - you'll be automatically entered in this year's drawing!</p>
         <hr />
 
