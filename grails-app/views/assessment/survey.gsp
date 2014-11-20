@@ -105,26 +105,6 @@
                                 <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"
  />
 
-                <p>&nbsp;</p><br />
-                <p style="margin-top: 20px;">Did you order any of the foods featured from these food companies?</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <p>&nbsp;</p>
-                <div class="expand">&nbsp;</div>
-
-                          <p><g:checkBox name="pastCompanies" value="Azteca" /> Azteca</p>
-                          <p><g:checkBox name="pastCompanies" value="Integrated Food Service" /> Integrated Food Service</p>
-                          <p><g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products</p>
-                          <p><g:checkBox name="pastCompanies" value="Jane's Dough Foods" /> Jane&#8217;s Dough Foods</p>
-                          <p><g:checkBox name="pastCompanies" value="ConAgra Mills" /> ConAgra Mills</p>
-                          <p><g:checkBox name="pastCompanies" value="JM Swank" /> JM Swank</p>
-                          <p><g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company</p>
-                          <p><g:checkBox name="pastCompanies" value="Kellogg's" /> Kellog&#8217;s</p>
-                          <p><g:checkBox name="pastCompanies" value="Domino's Pizza" /> Domino&#8217;s Pizza</p>
-                          <p><g:checkBox name="pastCompanies" value="Pepperidge Farm" /> Pepperidge Farm</p>
-                          <p><g:checkBox name="pastCompanies" value="EONI" /> EONI</p>
-                          <p><g:checkBox name="pastCompanies" value="Sara Lee Foodservice" /> Sara Lee FoodService</p>
-                          <p><g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" /> Flowers Bakeries Foodservice</p>
 
                 <div class="complete-review">&nbsp;</div>
             </div>
