@@ -45,68 +45,6 @@
 
 	</table>
 </div>
-<div style="float:left; margin-top:10px; margin-left:20px">
-	<table style="margin-top:10px">
-		<tr>
-    <td colspan="2">
-      <label style="font-size:12px">If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?</label>
-    </td>
-		</tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Azteca" /> Azteca
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Integrated Food Service" /> Integrated Food Service
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Buena Vista Food Products" /> Buena Vista Food Products
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Jane's Dough Foods" /> Jane&#8217;s Dough Foods
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="ConAgra Mills" /> ConAgra Mills
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="JM Swank" /> JM Swank
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Dick & Jane Baking Company" /> Dick & Jane Baking Company
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Kellogg's" /> Kellog&#8217;s
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Domino's Pizza" /> Domino&#8217;s Pizza
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Pepperidge Farm" /> Pepperidge Farm
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="EONI" /> EONI
-    </td>
-    <td class="td>
-    <g:checkBox name="pastCompanies" value="Sara Lee Foodservice" /> Sara Lee FoodService
-    </td>
-    </tr>
-    <tr>
-    <td>
-    <g:checkBox name="pastCompanies" value="Flowers Bakeries Foodservice" /> Flowers Bakeries Foodservice
-    </td>
-    </tr>
-
-	</table>
 	<!--<table style="width: 450px;">
 		<tr>
 			<td><strong>Broker/Distributor #1 Name: </strong></td>
@@ -199,4 +137,3 @@
 			<td><g:checkBox name="pm" value="${customerInstance?.pm}" /> </td>
 		</tr>
 	</table>-->
-</div>
