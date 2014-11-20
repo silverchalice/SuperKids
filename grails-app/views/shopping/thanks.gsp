@@ -22,6 +22,7 @@
         <div style="clear: both; width: 890px; margin: 0 auto; padding-top: 20px">
             <hr />
             <a href="${createLink(controller: 'home', action: 'index')}" title="Home page" class="btn arrow"><span>Return to the Home Page</span></a>
+            <br />
         </div>
         </div>
     </body>

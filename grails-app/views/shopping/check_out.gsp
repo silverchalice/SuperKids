@@ -266,7 +266,7 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">a) If yes, Co-op name <br/>
+            <td colspan="2">a) If yes, Co-op name: <br/>
                 <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
             </td>
         </tr>
@@ -322,7 +322,7 @@
                 <input type="text" name="preferredBagSize" value="${customerInstance?.preferredBagSize}" size="55" maxlength="1000"></td>
         </tr>
         <tr>
-            <td colspan="2"><strong>7.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu?
+            <td colspan="2"><strong>7.</strong> If you've participated in SuperKids in the past, did you add any of the items <br />you sampled to your menu?
             <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
             </td>
         </tr>
