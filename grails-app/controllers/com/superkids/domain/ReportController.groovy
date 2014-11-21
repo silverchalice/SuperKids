@@ -200,7 +200,6 @@ class ReportController {
   
           m.assessmentOrigin = rA?.type
           m.expectationsNotMetFeedback = customer.expectationsNotMetFeedback ?: ""
-          m.pastCompanies = customer.pastCompanies ?: ""
           m.programFeedback = customer.programFeedback
   
         }
@@ -335,12 +334,10 @@ class ReportController {
 
       assessLabels.programFeedback = "General Feedback"
       assessLabels.expectationsNotMetFeedback = "Whole Grain-Rich Foods On Menu Not Meeting Expectations"
-      assessLabels.pastCompanies = "Companies Food Ordered From"
       assessLabels.assessmentOrigin = "Assessment Origin"
 
       assessFields << "programFeedback"
       assessFields << "expectationsNotMetFeedback"
-      assessFields << "pastCompanies"
       assessFields << "assessmentOrigin"
 
       for (prod in prods) {
