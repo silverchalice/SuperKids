@@ -82,52 +82,61 @@
 
                         <table cellpadding="0" cellspacing="0">
                             <tr>
-                                <td colspan="2">
+                                <td style="text-align: left;">
                                 <p>&nbsp;</p>
-                                <p>Did Not Receive Sample <g:checkBox name="assessment.${product.id}.didNotReceive" onclick="disableItemForm(${product.id});"/> Did Not Try Sample <g:checkBox name="assessment.${product.id}.didNotSample" onclick="disableItemForm(${product.id});"/></p>
-                            </td></tr>
+                                <p>Did Not Receive Sample <g:checkBox name="assessment.${product.id}.didNotReceive" onclick="disableItemForm(${product.id});"/> &nbsp; &nbsp; Did Not Try Sample <g:checkBox name="assessment.${product.id}.didNotSample" onclick="disableItemForm(${product.id});"/></p>
+                              </td>
+                            </tr>
                             <tr>
 
-                                <td class="first">
+                                <td style="text-align:left;" class="first">
                                     <p>&nbsp;</p>
                                     <p>What things did you like most (list as many as necessary)?</p>
                                     <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/><p>&nbsp;</p>
                                     <p>What things would you change (list as many as necessary)?</p>
                                     <textarea name="assessment.${product.id}.changeComment"></textarea>
                                 </td>
-                                <td><label for="assessment.${product.id}.likeRating">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</label>
-                                    <ol style="margin-bottom: 5px">
-                                        <li class="first"><label for="1">1</label> <input type="radio" name="assessment.${product.id}.likeRating" value="1" /></li>
-                                        <li><label for="2">2</label> <input type="radio" name="assessment.${product.id}.likeRating" value="2" /></li>
-                                        <li><label for="3">3</label> <input type="radio" name="assessment.${product.id}.likeRating" value="3" /></li>
-                                        <li><label for="4">4</label> <input type="radio" name="assessment.${product.id}.likeRating" value="4" /></li>
-                                        <li class="last"><label for="5">5</label> <input type="radio" name="assessment.${product.id}.likeRating" value="5" /></li>
-                                    </ol>
+                                <td>                                </td>
+                            </tr>
+                            <tr>
 
-<!-- removing this for 2013
-                                    <g:if test="${product.id == 23}">
-                                        <label>Please check which varieties of the pasta you like:</label>
+                                <td class="first">
+                                  <br />
+                                  <label for="assessment.${product.id}.likeRating">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</label>
+                                                                      <ol style="margin-bottom: 5px; margin-left: 5px;">
+                                                                          <li class="first"><label for="1">1</label> <input type="radio" name="assessment.${product.id}.likeRating" value="1" /></li>
+                                                                          <li><label for="2">2</label> <input type="radio" name="assessment.${product.id}.likeRating" value="2" /></li>
+                                                                          <li><label for="3">3</label> <input type="radio" name="assessment.${product.id}.likeRating" value="3" /></li>
+                                                                          <li><label for="4">4</label> <input type="radio" name="assessment.${product.id}.likeRating" value="4" /></li>
+                                                                          <li class="last"><label for="5">5</label> <input type="radio" name="assessment.${product.id}.likeRating" value="5" /></li>
+                                                                      </ol>
 
-                                        <div style="float:left">
-                                            <label><input type="checkbox" name="favorites.1" value="Penne" >Penne</label>
-                                            <label><input type="checkbox" name="favorites.2" value="Spaghetti" >Spaghetti</label>
-                                            <label><input type="checkbox" name="favorites.3" value="Macaroni" >Macaroni</label>
-                                            <label><input type="checkbox" name="favorites.4" value="Rotini" >Rotini</label>
-                                        </div>
+                                  <!-- removing this for 2013
+                                                                      <g:if test="${product.id == 23}">
+                                                                          <label>Please check which varieties of the pasta you like:</label>
+
+                                                                          <div style="float:left">
+                                                                              <label><input type="checkbox" name="favorites.1" value="Penne" >Penne</label>
+                                                                              <label><input type="checkbox" name="favorites.2" value="Spaghetti" >Spaghetti</label>
+                                                                              <label><input type="checkbox" name="favorites.3" value="Macaroni" >Macaroni</label>
+                                                                              <label><input type="checkbox" name="favorites.4" value="Rotini" >Rotini</label>
+                                                                          </div>
 
 
-                                        <div style="float:right">
-                                            <label><input type="checkbox" name="favorites.5" value="Lasagna" >Lasagna</label>
-                                            <label><input type="checkbox" name="favorites.6" value="9-Grain orzo" >9-Grain orzo</label>
-                                            <label><input type="checkbox" name="favorites.7" value="Egg noodles" >Egg noodles</label>
-                                        </div>
+                                                                          <div style="float:right">
+                                                                              <label><input type="checkbox" name="favorites.5" value="Lasagna" >Lasagna</label>
+                                                                              <label><input type="checkbox" name="favorites.6" value="9-Grain orzo" >9-Grain orzo</label>
+                                                                              <label><input type="checkbox" name="favorites.7" value="Egg noodles" >Egg noodles</label>
+                                                                          </div>
 
 
-                                    </g:if>
--->
+                                                                      </g:if>
+                                  -->
+
 
 
                                 </td>
+                                <td>                                </td>
                             </tr>
                         </table>
 
