@@ -18,10 +18,4 @@
 		<td class="name" valign="top"><label for="assessment.${product?.id}.changeComment"><g:message code="assessment.changeComment" default="Change Comments" /></label></td>
 		<td class="value" valign="top"><g:textArea rows="" tabindex="4" cols="" name="assessment.${product?.id}.changeComment" style="padding:2px; 5px; height:70px; width:270px;"/></td>
 	</tr>
-	<g:if test="${product?.id == 23}">
-		<tr class="prop">
-			<td class="name" valign="top"><label for="assessment.${product?.id}.favorite"><g:message code="assessment.favorite" default="Favorite Pasta" /></label></td>
-			<td class="value" valign="top"><g:textArea rows="1" tabindex="4" cols="" name="assessment.${product?.id}.favorite" style="padding:2px; height:16px; width:270px;"/></td>
-		</tr>	
-	</g:if>
 </table>
