@@ -89,17 +89,6 @@
                             </tr>
                             <tr>
 
-                                <td style="text-align:left;" class="first">
-                                    <p>&nbsp;</p>
-                                    <p>What things did you like most (list as many as necessary)?</p>
-                                    <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/><p>&nbsp;</p>
-                                    <p>What things would you change (list as many as necessary)?</p>
-                                    <textarea name="assessment.${product.id}.changeComment"></textarea>
-                                </td>
-                                <td>                                </td>
-                            </tr>
-                            <tr>
-
                                 <td class="first">
                                   <br />
                                   <label for="assessment.${product.id}.likeRating">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</label>
@@ -135,6 +124,17 @@
 
 
 
+                                </td>
+                                <td>                                </td>
+                            </tr>
+                            <tr>
+
+                                <td style="text-align:left;" class="first">
+                                    <p>&nbsp;</p>
+                                    <p>What things did you like most (list as many as necessary)?</p>
+                                    <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/><p>&nbsp;</p>
+                                    <p>What things would you change (list as many as necessary)?</p>
+                                    <textarea name="assessment.${product.id}.changeComment"></textarea>
                                 </td>
                                 <td>                                </td>
                             </tr>
