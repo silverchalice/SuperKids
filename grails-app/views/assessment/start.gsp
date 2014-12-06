@@ -51,6 +51,9 @@
     <g:set var="entityName" value="${message(code: 'assessment.label', default: 'Assessment')}" />
     <title>SuperKids | Online Assessment - Step 1</title>
 
+<style type="text/css">
+  p.assess { padding-top: 10px; }
+</style>
 </head>
 <body>
 
@@ -79,20 +82,13 @@
                         <h2>${product?.name}</h2>
                         <p>Made by ${product?.sponsor?.name}</p>
                        <div class="expand"><a id="${product?.id}" href="#">Assess this product</a> </div>
+                       <hr >
 
-                        <table cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td style="text-align: left;">
-                                <p>&nbsp;</p>
                                 <p>Did Not Receive Sample <g:checkBox name="assessment.${product.id}.didNotReceive" onclick="disableItemForm(${product.id});"/> &nbsp; &nbsp; Did Not Try Sample <g:checkBox name="assessment.${product.id}.didNotSample" onclick="disableItemForm(${product.id});"/></p>
-                              </td>
-                            </tr>
-                            <tr>
 
-                                <td class="first">
-                                  <br />
-                                  <label for="assessment.${product.id}.likeRating">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</label>
-                                                                      <ol style="margin-bottom: 5px; margin-left: 5px;">
+                                  <p>&nbsp;</p>
+                                  <p class="assess" style="margin-right: 20px;">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</p>
+                                                                      <ol style="display: inline; margin-bottom: 5px; margin-left: 5px;">
                                                                           <li class="first"><label for="1">1</label> <input type="radio" name="assessment.${product.id}.likeRating" value="1" /></li>
                                                                           <li><label for="2">2</label> <input type="radio" name="assessment.${product.id}.likeRating" value="2" /></li>
                                                                           <li><label for="3">3</label> <input type="radio" name="assessment.${product.id}.likeRating" value="3" /></li>
@@ -124,21 +120,11 @@
 
 
 
-                                </td>
-                                <td>                                </td>
-                            </tr>
-                            <tr>
-
-                                <td style="text-align:left;" class="first">
                                     <p>&nbsp;</p>
-                                    <p>What things did you like most (list as many as necessary)?</p>
-                                    <textarea name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/><p>&nbsp;</p>
-                                    <p>What things would you change (list as many as necessary)?</p>
-                                    <textarea name="assessment.${product.id}.changeComment"></textarea>
-                                </td>
-                                <td>                                </td>
-                            </tr>
-                        </table>
+                                    <p class="assess">What things did you like most (list as many as necessary)?</p>
+                                    <textarea style="margin-left: 20px;" name="assessment.${product.id}.likeComment"></textarea>  <br/><br/><br/><br/><br/>
+                                    <p class="assess">What things would you change (list as many as necessary)?</p>
+                                    <textarea style="margin-left: 20px;" name="assessment.${product.id}.changeComment"></textarea>
 
                         <div class="complete-review"><a id="${product.id}" href="#" class="btn complete"><span>Close this assessment</span></a></div>
                     </div>
