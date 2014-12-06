@@ -478,11 +478,13 @@ class CallController {
 			} else if(params?.queue == "top100") {
                 println "$caller is using the top100 calls queue"
                 eq('customerRanking', 1)
-                lastCall {
-                    le('dateCreated', twentyFourHoursAgo)
-                    ne('result', CallResult.REFUSED)
-                }
-
+				or {
+					isNull "lastCall"
+					lastCall {
+						le('dateCreated', twentyFourHoursAgo)
+						ne('result', CallResult.REFUSED)
+					}
+				}
             } else {
 				println "$caller is using the prev calls queue"
                 not {
@@ -551,10 +553,13 @@ class CallController {
 				} else if(params?.queue == "top100") {
                     println "$caller is using the top100 calls queue"
                     eq('customerRanking', 1)
-                    lastCall {
-                        le('dateCreated', twentyFourHoursAgo)
-                        ne('result', CallResult.REFUSED)
-                    }
+					or {
+						lastCall {
+							le('dateCreated', twentyFourHoursAgo)
+							ne('result', CallResult.REFUSED)
+						}
+						isNull "lastCall"
+					}
                 } else {
 					println "$caller is using the prev calls queue"
                     not {
