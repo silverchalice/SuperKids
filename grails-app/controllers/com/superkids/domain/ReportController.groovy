@@ -134,6 +134,8 @@ class ReportController {
                 "N/A" : customer.useUltragrainFlour ? "YES" : "NO"
         m.useUltragrainWhiteFlour = (customer.useUltragrainWhiteFlour == null) ?
                 "N/A" : customer.useUltragrainWhiteFlour ? "YES" : "NO"
+          m.lookForUltragrain = (customer.lookForUltragrain == null) ?
+                "N/A" : customer.lookForUltragrain ? "YES" : "NO"
         m.buyCommodityFlour = (customer.buyCommodityFlour == null) ?
                 "N/A" : customer.buyCommodityFlour ? "YES" : "NO"
         m.likesBagHandles = (customer.likesBagHandles == null) ?
@@ -142,7 +144,9 @@ class ReportController {
         m.addedPastItemsToMenu = (customer.addedPastItemsToMenu == null) ?
                 "N/A" : customer.addedPastItemsToMenu ? "YES" : "NO"
         m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
-        m.participateInCoolSchoolCafe = (customer.participateInCoolSchoolCafe == null) ?
+        m.participateInRewardsPrograms = (customer.participateInRewardsPrograms == null) ?
+                "N/A" : customer.participateInRewardsPrograms ? "YES" : "NO"
+          m.participateInCoolSchoolCafe = (customer.participateInCoolSchoolCafe == null) ?
                 "N/A" : customer.participateInCoolSchoolCafe ? "YES" : "NO"
         m.programsParticipatedIn = customer.programsParticipatedIn
         m.pastParticipant = (customer.pastParticipant == null) ?
@@ -248,11 +252,13 @@ class ReportController {
         "hasBakery",
         "useUltragrainFlour",
         "useUltragrainWhiteFlour",
+        "lookForUltragrain",
         "buyCommodityFlour",
         "likesBagHandles",
         "preferredBagSize",
         "addedPastItemsToMenu",
         "pastItemsAddedToMenu",
+        "participateInRewardsPrograms",
         "participateInCoolSchoolCafe",
         "programsParticipatedIn",
         "pastParticipant",
@@ -303,13 +309,15 @@ class ReportController {
         "callerBrokers":"Primary foodservice distributors",
         "secondaryDistributors":"Secondary foodservice distributors",
         "hasBakery": "Bake from Scratch",
-        "useUltragrainFlour": "Look for 'Ultragrain 100%' when trying new foods",
-        "useUltragrainWhiteFlour": "Look for 'Ultragrain T-2' when trying new foods",
+        "useUltragrainFlour": "Use Ultragrain 100% whole wheat flour",
+        "useUltragrainWhiteFlour": "Use Ultragrain T2% whole wheat flour",
+        "lookForUltragrain": "Look for 'Ultragrain' when trying new foods",
         "buyCommodityFlour": "Buy Commodity Flour",
         "likesBagHandles": "Prefer bag handles",
         "preferredBagSize": "Preferred bag size",
         "addedPastItemsToMenu": "Added previous items to menu",
         "pastItemsAddedToMenu": "Past items added to menu",
+        "participateInRewardsPrograms": "Participate in Rewards Programs",
         "participateInCoolSchoolCafe": "Participate in Cool School Cafe",
         "programsParticipatedIn": "Rewards programs participated in",
         "pastParticipant": "Previous Participant",
