@@ -550,12 +550,12 @@ ul#nav .amp {
 #checkout #content, #feedback #content {
     width:900px;
     margin:0 auto;
-    float:none;
+    float:left;
     overflow:hidden;
 }
 #feedback #content {
     width:1200px;
-    margin-top:-10px;
+    margin-top:-20px;
 }
 #order-container {
     float:left;
