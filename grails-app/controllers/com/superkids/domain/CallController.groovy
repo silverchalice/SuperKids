@@ -728,7 +728,10 @@ class CallController {
 
             if(params?.queue == "new") {
                 println "$caller is using the new calls queue"
-                isNull "lastCall"
+				or {
+					eq('result', CallResult.QUALIFIED)
+					isNull "lastCall"
+				}
             } else {
                 println "$caller is using the prev calls queue"
                 lastCall {
