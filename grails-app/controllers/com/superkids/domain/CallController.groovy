@@ -710,6 +710,7 @@ class CallController {
             eq 'timezone', currentTimezone
 			eq 'hasCompletedCurrentAssessment', false
 
+			//TODO: Remove to enable Feb orders
 			customerOrder {
 				eq 'shippingDate', ShippingDate.get(4)
 			}
@@ -775,7 +776,13 @@ class CallController {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_ORDERED
 
-			    isNull 'inCall'
+
+				//TODO: Remove to enable Feb orders
+				customerOrder {
+					eq 'shippingDate', ShippingDate.get(4)
+				}
+
+				isNull 'inCall'
 				eq 'deleted', false
 
 				or{
