@@ -227,7 +227,7 @@
                                     <label for="shipDate"><g:message code="customer.source.label" default="Shipping Date" /></label>
                                 </td>
                                 <td valign="top" class="value">
-                                    ${customerInstance?.customerOrder.shippingDate.shipDate}
+                                    ${customerInstance?.customerOrder?.shippingDate?.shipDate}
                                 </td>
                             </tr>
 
