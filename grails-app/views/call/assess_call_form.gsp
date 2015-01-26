@@ -224,6 +224,15 @@
 
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                    <label for="shipDate"><g:message code="customer.source.label" default="Shipping Date" /></label>
+                                </td>
+                                <td valign="top" class="value">
+                                    ${customerInstance?.customerOrder.shippingDate.shipDate}
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                     <label for="source"><g:message code="customer.source.label" default="Source" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'source', 'errors')}">
