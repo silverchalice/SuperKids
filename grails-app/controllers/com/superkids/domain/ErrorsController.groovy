@@ -5,7 +5,8 @@ class ErrorsController {
     def mailService
 
     def internal_server_error = {
-        println "oh nooooooooooooooooes!"
+        //println "oh nooooooooooooooooes!"
+	println "DUDE!"
         mailService.sendMail {
             to "ben@silver-chalice.com","zak@silver-chalice.com"
             from "superkidssampling@gmail.com"
