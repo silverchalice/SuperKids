@@ -741,7 +741,7 @@ class CallController {
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
-                    //le('dateCreated', fortyEightHoursAgo)
+                    le('dateCreated', fortyEightHoursAgo)
 
                 }
             }
