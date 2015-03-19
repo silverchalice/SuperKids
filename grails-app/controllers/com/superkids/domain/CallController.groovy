@@ -705,6 +705,7 @@ class CallController {
         def now = new Date()
         def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
         def fortyEightHoursAgo = new Date(new Date().time - 172800000)
+        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
 		//assess calls are all customers with a current order AND who are not being called atm
 		Customer customer = c.list(sort: 'seq') {
             eq 'timezone', currentTimezone
@@ -741,7 +742,7 @@ class CallController {
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
-                    le('dateCreated', seventyTwoHoursAgo)
+                    le('dateCreated', twentyFourHoursAgo)
 
                 }
             }
