@@ -4,64 +4,72 @@ import com.superkids.domain.*
 
 class DataService {
 
-    static transactional = true
+	static transactional = true
 
-    def springSecurityService
+	def springSecurityService
 
-    def importCustomers(file) {
+	def importCustomers(file) {
 		def i = 0
 		def is = file.inputStream
 		new ExcelBuilder(is).eachLine([labels:true]) {
-            println "Loading row $i..."
+			println "Loading row $i..."
 			i++
 
-            def yo
-            50000000.each { no -> yo = cell(no) ? yo + "; ${cell(no)}" : yo }
-            println yo
-
-            def customer = new Customer()
-            println "email " + cell(14)
+			def customer = new Customer()
+			println "email " + cell(14)
 
 			customer.with {
 //(0)
-                seq= cell(1)
-                customerRanking = rankingString(cell(2))
-                source = cell(3)
-                fsdName = cell(4) ?: " "
-                fsdTitle = cell(5)
-                district = cell(6) ?: "[none given]"
+				seq= cell(1)
+				customerRanking = rankingString(cell(2))
+				source = cell(3)
+				fsdName = cell(4) ?: " "
+				fsdTitle = cell(5)
+				district = cell(6) ?: "[none given]"
+				recipientAgency = cell(7) ?: ""
 				address = new Address(
-                        street: cell(7) ?: " ",
-                        street2: cell(8) ?: " ",
-                        city: cell(9) ?: " ",
-                        state: cell(10) ?: " ",
-                        zip: cell(11) ?: " ")
-                phone = cell(12)
-                fax = cell(13) ?: " "
-                if(!cell(14) || Customer.findByUsername(cell(14))){
-                    customer.username = "no-email@no-email0${i}.com"
-                    customer.email = "no-email@no-email0${i}.com"
-                } else {
-                    customer.username = cell(14)
-                    customer.email = cell(14)
-                }
+						street: cell(8) ?: " ",
+						street2: cell(9) ?: " ",
+						city: cell(10) ?: " ",
+						state: cell(11) ?: " ",
+						zip: cell(12) ?: " ")
+				phone = cell(13)
+				fax = cell(14) ?: " "
+				if(!cell(15) || Customer.findByUsername(cell(15))){
+					customer.username = "no-email@no-email0${i}.com"
+					customer.email = "no-email@no-email0${i}.com"
+				} else {
+					customer.username = cell(15)
+					customer.email = cell(15)
+				}
 
-                deliveryAddress = new Address(street: cell(15) ?: " ", street2: cell(16) ?: " ", city: cell(17) ?: " ", state: cell(18) ?: " ", zip: cell(19) ?: " ")
+				deliveryAddress = new Address(street: cell(16) ?: " ", street2: cell(17) ?: " ", city: cell(18) ?: " ", state: cell(19) ?: " ", zip: cell(20) ?: " ")
 
-                status = CustomerStatus.HAS_NOT_ORDERED
+				status = CustomerStatus.HAS_NOT_ORDERED
 
-				studentsInDistrict = cell(20) ?: 0
-				studentsParticipate = cell(21) ?: 0
-				lookForAlliance = (cell(22) == "YES")
-				hasBakery = (cell(23) == "YES") ? true : null
-                coOpMember = (cell(24) == 'YES') ? true : null
-
-                contractManaged = (cell(25) == 'YES') ? true : null
-                contractManager = cell(26) ?: ""
-                otherComments = cell(27) ?: ""
-                pastParticipant = (cell(28) == 'YES') ? true : null
-                callerBrokers = cell(29) ?: ""
-				//timezone = cell(30) ?: " "
+				studentsInDistrict = cell(21) ?: 0
+				studentsParticipate = cell(22) ?: 0
+				contractManaged = (cell(23) == 'YES') ? true : (cell(23) == 'NO') ? false : null
+				contractManager = cell(24) ?: ""
+				coOpMember = (cell(25) == 'YES') ? true : null
+				coOpName = cell(26)
+				coOpAddress = cell(27)
+				callerBrokers = cell(28)
+				secondaryDistributors = cell(29)
+				hasBakery = (cell(30) == "YES") ? true : null
+				useUltragrainFlour = (cell(31) == "YES") ? true : null
+				useUltragrainWhiteFlour = (cell(32) == "YES") ? true : null
+				lookForUltragrain = (cell(33) == "YES") ? true : null
+				buyCommodityFlour = (cell(34) == "YES") ? true : null
+				likesBagHandles = (cell(35) == "YES") ? true : null
+				preferredBagSize = (cell(36))
+				addedPastItemsToMenu = (cell(37)) ? true : null
+				participateInRewardsPrograms = (cell(38)) ? true : null
+				participateInCoolSchoolCafe = (cell(39)) ? true : null
+				programsParticipatedIn = (cell(40))
+				pastParticipant = (cell(41) == 'YES') ? true : null
+				doNotReceiveAdditionalInformation = (cell(41) == 'YES') ? true : null
+				timezone = cell(42) ?: " "
 
 			}
 			customer.password = springSecurityService.encodePassword("superkids")
@@ -80,12 +88,12 @@ class DataService {
 		}
 	}
 
-        def markEmailsInvalid(file) {
+	def markEmailsInvalid(file) {
 		def i = 0
 		def is = file.inputStream
 		new ExcelBuilder(is).eachLine([labels:true]) {
-		i++
-		println "    ${i}: ${School_District}"
+			i++
+			println "    ${i}: ${School_District}"
 			println " "
 			def customer = Customer.get(${Id})
 			if(customer){
@@ -115,7 +123,7 @@ class DataService {
 				println customer.didNotReceiveMailing
 			}
 		}
-	 }
+	}
 
 
 	def addFSDTitles(file) {
@@ -208,7 +216,7 @@ class DataService {
 							def iO = IncompleteOrder.findByCustomer(customer)
 							if(iO) {
 								iO.delete(flush: true)
-							   println "deleted IncompleteOrder"
+								println "deleted IncompleteOrder"
 							}
 
 
@@ -224,10 +232,10 @@ class DataService {
 		println "in removeOneNullProduct for DataService"
 		def nullPO = null
 		order.products.each {
-		   if(!it.product && !nullPO) {
-			   println it
-			   nullPO = it
-		   }
+			if(!it.product && !nullPO) {
+				println it
+				nullPO = it
+			}
 		}
 		if(nullPO) {
 			order.removeFromProducts(nullPO)
@@ -239,29 +247,29 @@ class DataService {
 	}
 
 
-    def rankingString(string) {
+	def rankingString(string) {
 
-        switch (string) {
-            case "TOP 100":
-                return 1
-            case "50,000 +":
-                return 2
-            case "40000 - 49999":
-                return 3
-            case "30,000 - 39,999":
-                return 4
-            case "20000 - 29999":
-                return 5
-            case "10000 - 19999":
-                return 6
-            case "NO":
-                return 8
-            default:
-                return null
-        }
+		switch (string) {
+			case "TOP 100":
+				return 1
+			case "50,000 +":
+				return 2
+			case "40000 - 49999":
+				return 3
+			case "30,000 - 39,999":
+				return 4
+			case "20000 - 29999":
+				return 5
+			case "10000 - 19999":
+				return 6
+			case "NO":
+				return 8
+			default:
+				return null
+		}
 
 
-    }
+	}
 
 
 }
