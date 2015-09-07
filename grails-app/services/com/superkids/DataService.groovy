@@ -20,7 +20,7 @@ class DataService {
 
 			customer.with {
 //(0)
-				seq= cell(1)
+				seq= new Integer("${cell(1)}")
 				customerRanking = rankingString(cell(2))
 				source = cell(3)
 				fsdName = cell(4) ?: " "
