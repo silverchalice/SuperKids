@@ -50,29 +50,25 @@ class Customer extends User {
 	Boolean pastParticipant
 	Date inCall = null
 
-//	Misc. Questions
+//	Order Form Questions
 
     String studentsInDistrict                   //Order Form Question #1
     String studentsParticipate                  //Order Form Question #2
-    Boolean contractManaged                     //Order Form Question #3
-    String contractManager                      //Order Form Question #3a
-    Boolean coOpMember = null                   //Order Form Question #4
-    String coOpName                             //Order Form Question #4a
-    String coOpAddress                          //Order Form Question #4b
-    String callerBrokers                        //Order Form Question #5  -- primary foodservice distributors
-    String secondaryDistributors
-    Boolean hasBakery = null                    //Order Form Question #6
-    Boolean useUltragrainFlour = null           //Order Form Question #6a
-    Boolean useUltragrainWhiteFlour = null      //Order Form Question #6b
-    Boolean buyCommodityFlour = null            //Order Form Question #6c
-    Boolean likesBagHandles = null              //Order Form Question #6d
-    String preferredBagSize                     //Order Form Question #6e
-    Boolean addedPastItemsToMenu = null         //Order Form Question #7
-    String pastItemsAddedToMenu                 //Order Form Question #7a
-    Boolean lookForUltragrain = null            //Order Form Question #8
-    Boolean participateInRewardsPrograms = null //Order Form Question #9
-    Boolean participateInCoolSchoolCafe = null  //Order Form Question #9a
-    String programsParticipatedIn               //Order Form Question #9b
+    String callerBrokers                        //Order Form Question #3  (primary foodservice distributors)
+    Boolean hasBakery = null                    //Order Form Question #4
+    Boolean useUltragrainFlour = null           //Order Form Question #4a
+    Boolean useUltragrainWhiteFlour = null      //Order Form Question #4b
+    String otherFlours                          //Order Form Question #4c
+    String otherFlourIssues                     //Order Form Question #4d
+    Boolean interestedInMixes = null            //Order Form Question #5
+    String mixTypes                             //Order Form Question #5a
+    String mixSizes                             //Order Form Question #5b
+    Boolean addedPastItemsToMenu = null         //Order Form Question #6
+    String pastItemsAddedToMenu                 //Order Form Question #6a
+    Boolean lookForUltragrain = null            //Order Form Question #7
+    String bidTimeForNewItems                   //Order Form Question #8
+    String participateWaivers                   //Order Form Question #9
+
 
     Boolean doNotReceiveAdditionalInformation = null
 
@@ -89,6 +85,7 @@ class Customer extends User {
     String addedSampleProducts
     String sampleProductsAdded
     String pastCompanies
+    Boolean buyCommodityFlour
 
     Integer customerRanking
 
@@ -133,6 +130,19 @@ class Customer extends User {
     String facilities
     String monthlyFlourUsage
     String usedUltragrainSustagrainProducts //Order Form Question #7
+    Boolean coOpMember = null                   //Order Form Question #4
+    String coOpName                             //Order Form Question #4a
+    String coOpAddress                          //Order Form Question #4b
+    String secondaryDistributors
+    Boolean likesBagHandles = null              //Order Form Question #6d
+    String preferredBagSize                     //Order Form Question #6e
+    Boolean participateInRewardsPrograms = null //Order Form Question #9
+    Boolean participateInCoolSchoolCafe = null  //Order Form Question #9a
+    String programsParticipatedIn               //Order Form Question #9b
+
+
+    Boolean contractManaged                     //Order Form Question #3
+    String contractManager                      //Order Form Question #3a
 
 
     static hasMany = [ calls : Call, assessments : Assessment, pastYears : Integer, brokers : Broker, contactManufacturers: Sponsor ]
@@ -153,6 +163,12 @@ class Customer extends User {
         recipientAgency nullable: true, maxSize: 512
         secondaryDistributors nullable: true, maxSize: 1024
         source nullable:true
+
+        interestedInMixes nullable:true
+        mixSizes nullable:true
+        mixTypes nullable:true
+        bidTimeForNewItems nullable:true
+        participateWaivers nullable:true
 
 		fsdName nullable: false
 		fsdTitle nullable: true
@@ -194,6 +210,8 @@ class Customer extends User {
         useWholeWheatFlour nullable: true
         useUltragrainFlour nullable: true
         buyCommodityFlour nullable: true
+        otherFlours nullable: true
+        otherFlourIssues nullable: true
         likesBagHandles nullable: true
         preferredBagSize nullable: true
 

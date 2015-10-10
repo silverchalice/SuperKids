@@ -240,6 +240,7 @@
 
             </td>
         </tr>
+        <!-- Order Form, 2015 -->
         <tr>
             <td colspan="2">
                 <strong>1.</strong> Approximately how many students are in your district?
@@ -252,117 +253,79 @@
                 <input style="float:right" type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}">
             </td>
         </tr>
-        <tr>
-            <td colspan="2"><strong>3.</strong>	Is your district’s foodservice cafeterias contract managed?
 
-            <g:select name="contractManaged" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
-
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">a) If yes, by who?
-                <br/>
-                <input type="text" name="contractManager" value="${customerInstance?.contractManager}" size="55" maxlength="1000"></td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong>4.</strong>	Are you a member of a co-op?<br/>
-
-                <g:select name="coOpMember" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.contractManaged}"/>
-
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">a) If yes, Co-op name <br/>
-                <input type="text" name="coOpName" value="${customerInstance?.coOpName}" size="55" maxlength="1000">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">b) Contact name, address and email:
-                <br/>
-                <input type="text" name="coOpAddress" value="${customerInstance?.coOpAddress}" size="55" maxlength="1000"></td>
-        </tr>
         <tr>
 
-            <td colspan="2"><strong>5.</strong>	Who are your primary foodservice distributors?
+            <td colspan="2"><strong>3.</strong>	Who is your primary distributor?
                 <br/>
                 <input type="text" name="callerBrokers" value="${customerInstance?.callerBrokers}" size="55" maxlength="1000"></td>
         </tr>
-        <tr>
 
-            <td colspan="2"><strong>5b.</strong>	Who are your secondary foodservice distributors?
-                <br/>
-                <input type="text" name="secondaryDistributors" value="${customerInstance?.secondaryDistributors}" size="55" maxlength="1000"></td>
-        </tr>
         <tr>
-            <td colspan="2"><strong>6.</strong> Do you bake from scratch in your district?
+            <td colspan="2"><strong>4.</strong> Do you bake from scratch in your district?
             <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
             </td>
         </tr>
 
         <tr>
             <td colspan="2">(a	Do you use Ultragrain 100% whole wheat flour?
-            <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+            <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
             </td>
         </tr>
 
         <tr>
             <td colspan="2">(b	Ultragrain T-2 (55% Ultragrain/45% white flour?)
-            <g:select name="useUltragrainWhiteFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+            <g:select name="useUltragrainWhiteFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainWhiteFlour}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2">(c	Do you buy USDA commodity flour?
-            <g:select name="buyCommodityFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
-            </td>
+            <td colspan="2">(c	If you don’t use Ultragrain or T-2, what flour do you use? (Commodity, other brand?)
+                <input type="text" name="otherFlours" value="${customerInstance?.otherFlours}" size="55" maxlength="1000"></td>
+        </tr>
+
+        <tr><td colspan="2">(d Do you experience any issues with the flours?
+            <input type="text" name="otherFlourIssues" value="${customerInstance?.otherFlourIssues}" size="55" maxlength="1000"></td>
         </tr>
 
         <tr>
-            <td colspan="2">(d	If you use bagged flour, would your staff like handles on the bags?
-            <g:select name="likesBagHandles" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+            <td colspan="2"><strong>5.</strong>Would you be interested in complete mixes made with Ultragrain?
+            <g:select name="interestedInMixes" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.interestedInMixes}"/>
             </td>
         </tr>
-        <tr>
-            <td colspan="2">(e	What is your preferred bag size? 25 lb? 50 lb? Other?
-                <br/>
-                <input type="text" name="preferredBagSize" value="${customerInstance?.preferredBagSize}" size="55" maxlength="1000"></td>
+
+        <tr><td colspan="2">(a What types of items would you like to make from a mix?
+            <input type="text" name="mixTypes" value="${customerInstance?.mixTypes}" size="55" maxlength="1000"></td>
+        </tr>
+        <tr><td colspan="2">(b What would be the ideal size? 10, 20, 25 lb? 50 lb? Other?
+            <input type="text" name="mixSizes" value="${customerInstance?.mixSizes}" size="55" maxlength="1000"></td>
         </tr>
         <tr>
-            <td colspan="2"><strong>7.</strong> If you've participated in SuperKids in the past, did you add any of the items you sampled to your menu?
+            <td colspan="2"><strong>6.</strong> If you've participated in SuperKids in the past, did you add any of the items <br />you sampled to your menu?
             <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
             </td>
         </tr>
         <tr>
-            <td colspan="2">a) If yes, which items?
-                <br/>
+            <td colspan="2">a) If yes, which items? <br/>
                 <input type="text" name="pastItemsAddedToMenu" value="${customerInstance?.pastItemsAddedToMenu}" size="55" /></td>
         </tr>
 
         <tr>
-            <td colspan="2"><strong>8.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
+            <td colspan="2"><strong>7.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
             <g:select name="lookForUltragrain" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
             </td>
         </tr>
 
-        <tr>
-            <td colspan="2"><strong>9.</strong> Do you participate in any rewards programs?
-            <g:select name="participateInRewardsPrograms" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
-            </td>
+        <tr><td colspan="2"><strong>8.</strong>When do you send out your bid/select new items for your menu?
+            <input type="text" name="bidTimeForNewItems" value="${customerInstance?.bidTimeForNewItems}" size="55" maxlength="1000"></td>
         </tr>
-        <tr>
-            <td colspan="2">(a Cool School Cafe?
-            <g:select name="participateInCoolSchoolCafe" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateInRewardsPrograms}"/>
-            </td>
+        <tr><td colspan="2"><strong>9.</strong>Do you participate in any waivers for whole grain-rich foods? If yes, for what items?
+            <input type="text" name="participateWaivers" value="${customerInstance?.participateWaivers}" size="55" maxlength="1000"></td>
         </tr>
-        <tr>
-
-            <td colspan="2">(b Others (please list)?
-                <br/>
-                <input type="text" name="programsParticipatedIn" value="${customerInstance?.programsParticipatedIn}" size="55" /></td>
-        </tr>
+        <!-- Order Form, 2015 -->
 
         <tr>
-            <td colspan="2"><strong>12.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
+            <td colspan="2"><strong>10.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
                 <br />may send you information about related events, webinars, products
                 <br /> and services which we believe will be of interest to you.<br />
                 <br />Check this box if you DO NOT wish to receive additional information
