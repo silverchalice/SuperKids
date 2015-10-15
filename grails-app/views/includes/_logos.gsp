@@ -1,4 +1,4 @@
-<h5>We&#8217;re proud to feature these great brands made with Ultragrain&reg; or Sustagrain&reg;</h5>
+<h5>We&#8217;re proud to feature these great brands made with Ultragrain&reg;</h5>
 
 <div class="set-01">
     <a href="http://www.ardentmills.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_ardent_mills.png')}" alt="Ardent Mills logo" /></a>

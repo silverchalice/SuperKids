@@ -21,7 +21,7 @@
     <div id="intro-container">
           <div id="intro">
               <h1>Healthier Meals Start Here.</h1>
-              <p>SuperKids is the free and convenient way to try foods and ingredients made with the whole grain goodness of Ultragrain® and Sustagrain® from a variety of trusted food companies.</p>
+              <p>SuperKids is the free and convenient way to try foods and ingredients made with the whole grain goodness of Ultragrain® from a variety of trusted food companies.</p>
               <p><a href="${createLink(controller: 'home', action: 'order')}" class="btn arrow" title="Browse our free products"><span>Browse our free samples</span></a></p> <!--<a href="#" title="Learn about our order restrictions" class="note">Who can order?</a>--></p>
           </div>
         </div>
@@ -46,11 +46,10 @@
               <div>
                   <a href="${createLink(controller: 'home', action: 'ultragrain')}"><img src="${resource(dir:'images',file:'img_wheat_2.0.jpg')}" alt="Wheat swaying in the wind" /></a>
                   <h4>Our Grains </h4>
-                  <p>Learn more about the benefits <br /> of Ultragrain&reg; and Sustagrain&reg;</p>
+                  <p>Learn more about the benefits <br /> of Ultragrain&reg;</p>
               </div>
             <ul>
               <li><a href="${createLink(controller: 'home', action: 'ultragrain')}" title="What is Ultragrain">What is Ultragrain&reg; </a></li>
-              <li><a href="${createLink(controller: 'home', action: 'sustagrain')}" title="What is Sustagrain">What is Sustagrain&reg; </a></li>
               <li class="youtube" ><a href="http://www.youtube.com/watch?v=hvmNhAeXFsI&feature=BFa&list=UUkYwno7wIczmffbtBtgR2-Q" target="_blank" title="Ultragrain & Kalcevic Farms">Ultragrain & Kalcevic Farms</a></li>
             </ul>
           </div>
@@ -81,14 +80,10 @@
         </div>
         <div id="grains-container">
           <div id="grains">
-              <h3>Meet our award-winning grains</h3>
-              <div class="col-01"><img src="${resource(dir:'images',file:'logo_ultragrain_home_2.0.png')}" alt="Ultragrain logo" />
+              <h3>Meet our award-winning grain</h3>
+              <div><img src="${resource(dir:'images',file:'logo_ultragrain_home_2.0.png')}" alt="Ultragrain logo" />
                   <h4>Ultragrain <span>Whole grain nutrition. White flour appeal.</span></h4>
                   <p>Made with specially selected white wheat and ground using all-natural patenting milling, Ultragrain<sup>®</sup> delivers 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of refined white flour. <a href="${createLink(controller: 'home', action: 'ultragrain_general')}" title="Learn more">Learn more »</a></p>
-            </div>
-            <div class="col-02"><img src="${resource(dir:'images',file:'logo_sustagrain_home_2.0.png')}" alt="Sustagrain logo" />
-                <h4>Sustagrain <span>The highest-fiber whole grain available.</span></h4>
-                <p>Sustagrain<sup>®</sup> is our unique ultra-high fiber whole grain. Made from a proprietary variety of barley—and available as ultra-fine flour or oat-like flakes—Sustagrain has a 3X the soluble and total dietary fiber of oats.  <a href="${createLink(controller: 'home', action: 'sustagrain_general')}" title="Learn more">Learn more »</a></p>
             </div>
           </div>
         </div>

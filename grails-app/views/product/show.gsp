@@ -23,13 +23,10 @@
     </head>
     <body>
     <h1>${productInstance?.title}</h1>
-        <div id="order-container"><img src="${createLink(controller: 'product', action: 'displayImage', id: productInstance.id)}" alt="${productInstance.name}" class="${productInstance.ultragrain ? 'ultragrain ' : ''} ${productInstance.sustagrain ? ' sustagrain ' : ''}" />
+        <div id="order-container"><img src="${createLink(controller: 'product', action: 'displayImage', id: productInstance.id)}" alt="${productInstance.name}" class="${productInstance.ultragrain ? 'ultragrain ' : ''}" />
 	    <g:if test="${productInstance.ultragrain}">
             <a href="${createLink(controller: 'home', action: 'ultragrain_general')}" title="Learn more about this grain"><p class="made-with-ultra">Made with Ultragrain</p>
 	    </g:if>
-        <g:if test="${productInstance.sustagrain}">
-               <a href="${createLink(controller: 'home', action: 'sustagrain_general')}" title="Learn more about this grain"><p class="made-with-susta">Made with Sustagrain</p>
-        </g:if>
 	    </a>
             <div class="order-info">
                 <sec:ifNotLoggedIn>
