@@ -291,7 +291,7 @@ a#timezone-button {
                     </tr>
                     <tr class="prop">
                         <td valign="top" class="name">
-                            <label for="recipientAgency">RA #.</label>
+                            <label for="recipientAgency">NCES #.</label>
                         </td>
                         <td valign="top"
                             class="value ${hasErrors(bean: customerInstance, field: 'recipientAgency', 'errors')}">

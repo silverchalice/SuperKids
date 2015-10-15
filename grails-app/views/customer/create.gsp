@@ -417,7 +417,7 @@
         <tr class="prop">
             <td valign="top" class="name">
                 <label for="seq"><g:message code="customer.recipientAgency.label"
-                                            default="Recipeient Agency #"/></label>
+                                            default="NCES #"/></label>
             </td>
             <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'recipientAgency', 'errors')}">
                 <g:textField name="recipientAgency" value="${customerInstance.recipientAgency}"/>

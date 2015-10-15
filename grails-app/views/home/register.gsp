@@ -142,7 +142,7 @@
                                        maxlength="50"></td>
 </tr>
 <tr>
-    <td style="text-align:right">Recipient Agency# <span class="req">*</span></td>
+    <td style="text-align:right">NCES # <span class="req">*</span></td>
     <td style="text-align:left"><input type="text" name="recipientAgency" value="${customerInstance?.recipientAgency}" size="25"
                                        maxlength="50"></td>
 </tr>
