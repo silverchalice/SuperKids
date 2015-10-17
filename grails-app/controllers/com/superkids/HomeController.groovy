@@ -536,6 +536,15 @@ class HomeController {
            [content:content]
        }
 
+    def ultragrain_studies = {
+        def content
+        def pt = PageText.findByName("ultragrain_studies")
+        if(pt){
+            content = pt.content
+        }
+        [content:content]
+    }
+
 	def what_are_whole_grains = {
            def content
            def pt = PageText.findByName("what_are_whole_grains")
@@ -648,6 +657,15 @@ class HomeController {
         def my_plate = {
             def content
             def pt = PageText.findByName("my_plate")
+            if(pt){
+                content = pt.content
+            }
+            [content:content]
+        }
+
+    def learning_zone = {
+            def content
+            def pt = PageText.findByName("learning_zone")
             if(pt){
                 content = pt.content
             }
