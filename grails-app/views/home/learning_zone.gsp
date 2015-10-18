@@ -4,8 +4,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="layout" content="grain" />
-    <meta name="link" content="what_are_whole_grains" />
+    <meta name="layout" content="learn" />
+    <meta name="link" content="lFixed learnedearning_zone" />
     <title>SuperKids | Learning ZoneXpress</title>
     <script type="text/javascript">
         var _gaq = _gaq || [];
