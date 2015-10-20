@@ -27,7 +27,7 @@
     <div id="main">
         <div id="sidebar">
             <ul id="side-nav">
-                <h3>About Ultragrain & Sustagrain</h3>
+                <h3>About Ultragrain</h3>
                 <li id="${link=='ultragrain' ? 'current' : ''}"><g:link controller="home" action="ultragrain"><span>About Ultragrain</span></g:link></li>
                 <li id="${link=='milling_ultragrain' ? 'current' : ''}"><g:link controller="home" action="milling_ultragrain"><span>Milling Ultragrain</span></g:link></li>
                 <li id="${link=='ultragrain_studies' ? 'current' : ''}"><g:link controller="home" action="ultragrain_studies"><span>Ultragrain Studies</span></g:link></li>
