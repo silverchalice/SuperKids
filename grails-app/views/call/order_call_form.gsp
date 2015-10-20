@@ -538,23 +538,23 @@ a#timezone-button {
                     </tr>
 
                     <tr>
-                        <td colspan="2">(a	Do you use Ultragrain 100% whole wheat flour?
+                        <td colspan="2">a)	Do you use Ultragrain 100% whole wheat flour?
                         <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="2">(b	Ultragrain T-2 (55% Ultragrain/45% white flour?)
+                        <td colspan="2">b)	Ultragrain T-2 (55% Ultragrain/45% white flour?)
                         <g:select name="useUltragrainWhiteFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainWhiteFlour}"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="2">(c	If you don’t use Ultragrain or T-2, what flour do you use? (Commodity, other brand?)
+                        <td colspan="2">c)	If you don’t use Ultragrain or T-2, what flour do you use? (Commodity, other brand?)
                             <input type="text" name="otherFlours" value="${customerInstance?.otherFlours}" size="55" maxlength="1000"></td>
                     </tr>
 
-                    <tr><td colspan="2">(d Do you experience any issues with the flours?
+                    <tr><td colspan="2">d) Do you experience any issues with the flours?
                         <input type="text" name="otherFlourIssues" value="${customerInstance?.otherFlourIssues}" size="55" maxlength="1000"></td>
                     </tr>
 
@@ -564,10 +564,10 @@ a#timezone-button {
                         </td>
                     </tr>
 
-                    <tr><td colspan="2">(a What types of items would you like to make from a mix?
+                    <tr><td colspan="2">a) What types of items would you like to make from a mix?
                         <input type="text" name="mixTypes" value="${customerInstance?.mixTypes}" size="55" maxlength="1000"></td>
                     </tr>
-                    <tr><td colspan="2">(b What would be the ideal size? 10, 20, 25 lb? 50 lb? Other?
+                    <tr><td colspan="2">b) What would be the ideal size? 10, 20, 25 lb? 50 lb? Other?
                         <input type="text" name="mixSizes" value="${customerInstance?.mixSizes}" size="55" maxlength="1000"></td>
                     </tr>
                     <tr>
