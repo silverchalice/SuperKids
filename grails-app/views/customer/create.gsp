@@ -323,14 +323,13 @@
         <tr>
             <td colspan="2">
                 <strong>1.</strong> Approximately how many students are in your district?
-                <input style="float:right" type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}">
+                <input type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}">
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <strong>2.</strong>	Approximately how many students participate in your foodservice program?
-                <input style="float:right" type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}">
-            </td>
+                <strong>2.</strong>	Approximately how many students participate<br/> in your foodservice program?
+                <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
         </tr>
 
         <tr>
@@ -363,7 +362,7 @@
                 <input type="text" name="otherFlours" value="${customerInstance?.otherFlours}" size="55" maxlength="1000"></td>
         </tr>
 
-        <tr><td colspan="2">d) Do you experience any issues with the flours?
+        <tr><td colspan="2">d) Do you experience any issues with the flours? <br/>
             <input type="text" name="otherFlourIssues" value="${customerInstance?.otherFlourIssues}" size="55" maxlength="1000"></td>
         </tr>
 
@@ -373,10 +372,10 @@
             </td>
         </tr>
 
-        <tr><td colspan="2">a) What types of items would you like to make from a mix?
+        <tr><td colspan="2">a) What types of items would you like to make from a mix?<br/>
             <input type="text" name="mixTypes" value="${customerInstance?.mixTypes}" size="55" maxlength="1000"></td>
         </tr>
-        <tr><td colspan="2">b) What would be the ideal size? 10, 20, 25 lb? 50 lb? Other?
+        <tr><td colspan="2">b) What would be the ideal size? 10, 20, 25 lb? 50 lb? Other?<br/>
             <input type="text" name="mixSizes" value="${customerInstance?.mixSizes}" size="55" maxlength="1000"></td>
         </tr>
         <tr>
