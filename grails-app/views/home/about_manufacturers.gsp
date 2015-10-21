@@ -24,10 +24,12 @@
 
 <body>
 
-${content}
-
 
 <div id="content">
+
+    ${content}
+
+
     <g:each in="${com.superkids.domain.Sponsor.findAllByInactive(false, [sort: 'name'])}" var="sponsor">
         <div class="sponsorListItem">
             ${sponsor.description}
