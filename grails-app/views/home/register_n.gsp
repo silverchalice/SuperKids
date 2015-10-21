@@ -14,7 +14,7 @@
             </div>
             <p>Please note that 'superkids' is your temporary password.  After you enter it, you will be asked to change it for security purposes.</p>
 
-            <p>Now, <strong>click the blue login button in the upper right corner to login</strong> to your new account.  Thank you again for your interest in SuperKids.</p>
+            <p>Now, <strong>click the Login link in the upper right corner to login</strong> to your new account.  Thank you again for your interest in SuperKids.</p>
             <h3>For Assistance, Please Contact</h3>
 
             <address>

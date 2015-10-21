@@ -88,9 +88,6 @@
 						<p>Please select when to ship your order:</p>
 						<g:select name="shippingDate" optionKey="id" optionValue="${formatDate(format:'MMMM, yyyy', date:shipDate)}" from="${shippingDates}" />
 
-						<h2>Rewards for Assessments</h2>
-					
-	<p>When you receive your samples and try them out, be sure to come back to SuperKidsSampling.com before March 18, 2015 to give us feedback on the samples you’ve tried.</p>
 						<h3>If this sample order is correct, click the "Place Your Order" button to complete order. If you do not confirm your order by pressing this button, the order will not be placed.</h3>
                     <div style="clear: both; width: 890px; margin: 0 auto;">
                         <hr />

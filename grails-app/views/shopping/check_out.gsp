@@ -332,7 +332,7 @@
 
 <div style="clear: both; width: 890px; margin: 0 auto; padding-top: 10px">
     <hr />
-    <a href="${createLink(controller: 'shopping', action: 'index')}">&laquo; Back to Samples</a><a href="#" title="Move to the next step" class="submitButton btn arrow"><span>Proceed with order</span></a>
+    <a href="${createLink(controller: 'shopping', action: 'index')}" style="font-size:larger;"ore >&laquo; Back to Samples</a><a href="#" title="Move to the next step" class="submitButton btn arrow"><span>Proceed with order</span></a>
 </div>
 </div>
 </g:form>

@@ -34,7 +34,7 @@
 
 </div>
     <hr />
-    <a href="${createLink(controller: 'home', action: 'order')}">&laquo; Back to Samples</a>
+    <a href="${createLink(controller: 'home', action: 'order')}" style="font-size:larger;">&laquo; Back to Samples</a>
     <sks:hasNotPlacedCurrentOrder>
         <a href="${createLink(controller: 'product', action: 'check_out')}" title="Move to the next step" class="btn arrow"><span>Finish Order</span></a>
     </sks:hasNotPlacedCurrentOrder>
