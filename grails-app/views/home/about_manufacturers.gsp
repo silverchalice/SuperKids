@@ -1,80 +1,40 @@
-
-
-<%@ page import="com.superkids.domain.Customer" %>
+<%@ page import="com.superkids.domain.Sponsor; com.superkids.domain.Customer" %>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="about" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="layout" content="about"/>
 
-        <title>SuperKids | About The Manufacturers</title>
+    <title>SuperKids | About The Manufacturers</title>
 
-        <style type="text/css">
-            #content .sponsorListItem img.ad {
-                box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
-                float: right;
-                margin: 0 0 10px 10px;
-                padding: 2px;
-                width: 200px;
-                height: auto;
-                border: none;
-            }
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-18800741-2']);
+        _gaq.push(['_trackPageview']);
 
-            #content a {
-                background: none;
-                padding: 0;
-            }
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
 
-            #content .sponsorListItem {
-                float:none;
-                width:720px;
-                clear: both;
-                margin: 30px 0;
-                min-height: 180px;
-            }
+<body>
 
-            #content .sponsorListItem img.sponsorLogo {
-                float: left;
-                height: auto;
-                width: auto;
-                max-height: 100px;
-                border: none;
-                padding: 0 10px 5px 0
-            }
-        </style>
-
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', 'UA-18800741-2']);
-            _gaq.push(['_trackPageview']);
-
-            (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-        </script>
-    </head>
-    <body>
-
-        ${content}
-                 <!--
-
-                     <div id="overview" style="border: none">
-                     <g:each in="${com.superkids.domain.Sponsor.findAllByInactive(false, [sort: 'name'])}" var="sponsor">
-                     <div class="sponsorListItem">
-                         <h2>${sponsor.name}</h2>
-                         <a href="${sponsor.website}"><img class="sponsorLogo" src="${createLink(controller: 'sponsor', action: 'displayImage', id: sponsor.id)}" alt="${sponsor.name} logo"></a>
-
-                         <g:each in="${sponsor.products.findAll{it.liveProduct && !it.parent}}" var="product">
-                             <a href="/SuperKids/uploads/${product?.backgroundImage}" target="_blank" style="background: none;"><img class="ad" src="/SuperKids/uploads/${product?.backgroundImage}" /></a>
-                         </g:each>
-
-                         ${sponsor.description}
-                     </div>
-                    <hr/>
-                 </g:each>       </div>
-                 -->
+${content}
 
 
-    </body>
+<div id="content">
+    <g:each in="${com.superkids.domain.Sponsor.findAllByInactive(false, [sort: 'name'])}" var="sponsor">
+        <div class="sponsorListItem">
+            ${sponsor.description}
+        </div>
+        <hr/>
+    </g:each>
+</div>
+
+</body>
 </html>

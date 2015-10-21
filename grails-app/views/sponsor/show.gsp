@@ -37,41 +37,13 @@
                     
                         <tr class="prop">
                             <td valign="top" class="name">
-                                <label for="address"><g:message code="sponsor.address.label" default="Address" /></label>
+                                <label for="description"><g:message code="sponsor.address.label" default="Description" /></label>
                             </td>
-                            <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'address', 'errors')}">
-                                ${sponsorInstance?.address}
+                            <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'description', 'errors')}">
+                                ${sponsorInstance?.description}
                             </td>
                         </tr>
 
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="sponsor.phone.label" default="Phone" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: sponsorInstance, field: "phone")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="sponsor.website.label" default="Website" /></td>
-                            
-                            <td valign="top" class="value">${sponsorInstance?.website}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="sponsor.salesContact.label" default="Sales Contact" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: sponsorInstance, field: "salesContact")}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name"><g:message code="sponsor.sampleContact.label" default="Sample Contact" /></td>
-                            
-                            <td valign="top" class="value">${fieldValue(bean: sponsorInstance, field: "sampleContact")}</td>
-                            
-                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="sponsor.products.label" default="Products" /></td>
