@@ -50,12 +50,7 @@
     <body>
 
           <div id="content">
-              <h1>All SuperKids Products</h1>
-              <h2>Would you like information about our new whole grain food products?</h2>
-              <p>Shown here is a full list of products available for school district sampling within the SuperKids Whole Grain Sampling Program.</p>
-          <p><strong>For product details, select 'Download PDF’ underneath the product pictures.</strong>
-              <p><a target="_blank" href="../pdf/bid-request-guide-2014.pdf" class="pdf">Bid Request Guide Downloadable PDF</a></p>
-
+           ${content}
 
               <g:each in="${products}" var="productInstance">
                   <div class="productListItem">

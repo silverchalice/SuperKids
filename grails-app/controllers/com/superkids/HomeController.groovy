@@ -37,8 +37,12 @@ class HomeController {
 
     def superkids_products = {
 
-
-        [products: Product.findAllByLiveProductAndParentIsNull(true).sort { it?.sponsor?.name }]
+        def content
+        def pt = PageText.findByName("superkids_products")
+        if(pt){
+            content = pt.content
+        }
+        [content: content, products: Product.findAllByLiveProductAndParentIsNull(true).sort { it?.sponsor?.name }]
 
     }
 
