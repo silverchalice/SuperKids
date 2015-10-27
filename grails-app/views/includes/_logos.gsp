@@ -5,7 +5,7 @@
     <a href="http://www.aztecafoods.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_azteca.png')}" alt="Azteca logo" /></a>
     <a href="http://www.bvfoods.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_buena_vista.png')}" alt="Buena Vista logo" /></a>
     <a href="http://www.conagrafoodservice.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_conagra_foods.png')}" alt="ConAgra Foodservice logo" /></a>
-    <a href="http://www.dominos.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_dominos.png')}" alt="Domino's Pizza logo" /></a>
+    <a href="http://www.dominos.com" target="_blank"><img style="height:60px" src="${resource(dir:'imag es',file:'logo_dominos.png')}" alt="Domino's Pizza logo" /></a>
 
 
 </div>
@@ -16,6 +16,6 @@
     <a href="http://www.kelloggs.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_kelloggs.png')}" alt="Kellogg's logo" /></a>
     <a href="http://www.mrstsfoodservice.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_mrs-t.png')}" alt="Mrs T's logo" /></a>
     <a href="http://www.sunnyfresh.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_sunny_fresh.png')}" alt="Sunny Fresh's logo" /></a>
-    <a href="#" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_ultragrain_pasta')}" alt="Ultragrain Pasta logo" /></a>
+    <a href="#" target="_blank"><img style="height:50px" src="${resource(dir:'images',file:'logo_ultragrain_pasta.png')}" alt="Ultragrain Pasta logo" /></a>
 
 </div>
