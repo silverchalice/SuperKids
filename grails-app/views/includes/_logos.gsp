@@ -5,7 +5,7 @@
     <a href="http://www.aztecafoods.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_azteca.png')}" alt="Azteca logo" /></a>
     <a href="http://www.bvfoods.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_buena_vista.png')}" alt="Buena Vista logo" /></a>
     <a href="http://www.conagrafoodservice.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_conagra_foods.png')}" alt="ConAgra Foodservice logo" /></a>
-    <a href="http://www.dominos.com" target="_blank"><img style="height:60px" src="${resource(dir:'imag es',file:'logo_dominos.png')}" alt="Domino's Pizza logo" /></a>
+    <a href="http://www.dominos.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_dominos.png')}" alt="Domino's Pizza logo" /></a>
 
 
 </div>
