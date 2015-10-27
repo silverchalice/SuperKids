@@ -16,5 +16,6 @@
     <a href="http://www.kelloggs.com" target="_blank"><img style="height:60px" src="${resource(dir:'images',file:'logo_kelloggs.png')}" alt="Kellogg's logo" /></a>
     <a href="http://www.mrstsfoodservice.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_mrs-t.png')}" alt="Mrs T's logo" /></a>
     <a href="http://www.sunnyfresh.com" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_sunny_fresh.png')}" alt="Sunny Fresh's logo" /></a>
+    <a href="#" target="_blank"><img style="height:40px" src="${resource(dir:'images',file:'logo_ultragrain_pasta')}" alt="Ultragrain Pasta logo" /></a>
 
 </div>
