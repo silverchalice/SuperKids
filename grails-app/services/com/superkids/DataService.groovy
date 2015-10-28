@@ -97,7 +97,7 @@ class DataService {
 			println "Loading row $i..."
 			i++
 
-			def customer = Customer.findByEmail(cell(14))
+			def customer = Customer.findByEmail(cell(15))
 
 			if(customer) {
 				println "Got customer $customer! Updating timezone... ${cell(46)}"
