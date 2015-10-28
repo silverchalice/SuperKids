@@ -152,6 +152,13 @@ class DataController {
 	    redirect(controller:'customer', action:'list')
 	}
 
+	def loadCustomerTimezones = {
+		def file = request.getFile('cust_data')
+		if (file && !file.isEmpty())
+			dataService.updateTimezones(file)
+		redirect(controller:'customer', action:'list')
+	}
+
 	def processDNRUpdate = {
 		println "in processDNRUpdate for DataController"
 	    def file = request.getFile('cust_data')
