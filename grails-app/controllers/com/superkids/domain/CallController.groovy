@@ -15,7 +15,7 @@ class CallController {
             'MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA',
             'RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
 
-    static def timezones=['Eastern', 'Mountain', 'Central', 'Pacific', 'Alaskan']
+    static def timezones=['Eastern', 'Mountain', 'Central', 'Pacific', 'Alaska', 'Hawaii']
 
 
     def index = {
