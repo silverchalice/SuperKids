@@ -112,6 +112,28 @@ class DataService {
 	}
 
 
+	def updateCustomerRanking(file) {
+		def i = 0
+		def is = file.inputStream
+		new ExcelBuilder(is).eachLine([labels:true]) {
+			println "Loading row $i..."
+			i++
+
+			def customer = Customer.findByEmail(cell(15))
+
+			if(customer) {
+				println "Got customer $customer! Updating customer ranking... ${cell(2)} (${rankingString(cell(2))})"
+				customer.customerRanking = rankingString(cell(2))
+
+				if(!customer.save(flush: true)) {
+					customer.errors.allErrors.each { println it }
+				}
+			}
+
+		}
+	}
+
+
 	def markEmailsInvalid(file) {
 		def i = 0
 		def is = file.inputStream
@@ -271,9 +293,9 @@ class DataService {
 	}
 
 
-	def rankingString(string) {
+	def rankingString(String string) {
 
-		switch (string) {
+		switch (string?.toUpperCase()) {
 			case "TOP 100":
 				return 1
 			case "50,000 +":

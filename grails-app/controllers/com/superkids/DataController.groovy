@@ -159,6 +159,13 @@ class DataController {
 		redirect(controller:'customer', action:'list')
 	}
 
+	def loadCustomerRanking = {
+		def file = request.getFile('cust_data')
+		if (file && !file.isEmpty())
+			dataService.updateCustomerRanking(file)
+		redirect(controller:'customer', action:'list')
+	}
+
 	def processDNRUpdate = {
 		println "in processDNRUpdate for DataController"
 	    def file = request.getFile('cust_data')

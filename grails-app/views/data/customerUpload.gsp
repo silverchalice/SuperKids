@@ -14,6 +14,11 @@
 	<input type="file" name="cust_data" /><br/>
 	<input type="submit" value="Upload File" />
 </g:form>
+<h1>Update Customer Ranking</h1>
+<g:form action="loadCustomerRanking" enctype="multipart/form-data" name="cust_data_form">
+	<input type="file" name="cust_data" /><br/>
+	<input type="submit" value="Upload File" />
+</g:form>
 <h1>Upload DNRMailing Data</h1>
     <g:form action="processDNRUpdate" enctype="multipart/form-data" name="cust_data_form">
 		<input type="file" name="cust_data" /><br/>
