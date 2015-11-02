@@ -481,7 +481,7 @@ class CallController {
 				or {
 					isNull "lastCall"
 					lastCall {
-						gt('dateCreated', twentyFourHoursAgo)
+						lt('dateCreated', twentyFourHoursAgo)
 						ne('result', CallResult.REFUSED)
 					}
 				}
@@ -496,7 +496,7 @@ class CallController {
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
-                    gt('dateCreated', seventyTwoHoursAgo)
+                    lt('dateCreated', seventyTwoHoursAgo)
 
                 }
 			}
@@ -555,7 +555,7 @@ class CallController {
                     eq('customerRanking', 1)
 					or {
 						lastCall {
-							gt('dateCreated', twentyFourHoursAgo)
+							le('dateCreated', twentyFourHoursAgo)
 							ne('result', CallResult.REFUSED)
 						}
 						isNull "lastCall"
@@ -566,7 +566,7 @@ class CallController {
                         eq('customerRanking', 1)
                     }
                     lastCall {
-                        gt('dateCreated', seventyTwoHoursAgo)
+                        le('dateCreated', seventyTwoHoursAgo)
                         ne('result', CallResult.REFUSED)
                     }
 				}
@@ -592,7 +592,7 @@ class CallController {
 
 			} else {
                 println "$caller reached the end of the customer list for timezone $currentTimezone"
-			at	flash.message = "No more Customers in the $currentTimezone Timezone!"
+				flash.message = "No more Customers in the $currentTimezone Timezone!"
 				redirect action:index
 			}
 		}
