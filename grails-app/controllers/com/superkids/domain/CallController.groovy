@@ -481,7 +481,7 @@ class CallController {
 				or {
 					isNull "lastCall"
 					lastCall {
-						lt('dateCreated', twentyFourHoursAgo)
+						//le('dateCreated', twentyFourHoursAgo)
 						ne('result', CallResult.REFUSED)
 					}
 				}
@@ -496,7 +496,7 @@ class CallController {
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
-                    lt('dateCreated', seventyTwoHoursAgo)
+                    le('dateCreated', seventyTwoHoursAgo)
 
                 }
 			}
