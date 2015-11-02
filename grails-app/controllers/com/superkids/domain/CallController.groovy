@@ -554,11 +554,12 @@ class CallController {
                     println "$caller is using the top100 calls queue"
                     eq('customerRanking', 1)
 					or {
+						isNull "lastCall"
 						lastCall {
-							le('dateCreated', twentyFourHoursAgo)
+							//le('dateCreated', twentyFourHoursAgo)
 							ne('result', CallResult.REFUSED)
 						}
-						isNull "lastCall"
+
 					}
                 } else {
 					println "$caller is using the prev calls queue"
