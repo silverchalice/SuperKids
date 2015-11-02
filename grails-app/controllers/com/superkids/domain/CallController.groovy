@@ -474,17 +474,17 @@ class CallController {
 				isNull "lastCall"
                 not {
                     eq('customerRanking', 1)
-                }Y
+                }
 			} else if(params?.queue == "top100") {
                 println "$caller is using the top100 calls queue"
                 eq('customerRanking', 1)
-//				or {
-//					isNull "lastCall"
-//					lastCall {
-//						le('dateCreated', twentyFourHoursAgo)
-//						ne('result', CallResult.REFUSED)
-//					}
-//				}
+				or {
+					isNull "lastCall"
+					lastCall {
+						gt('dateCreated', twentyFourHoursAgo)
+						ne('result', CallResult.REFUSED)
+					}
+				}
             } else {
 				println "$caller is using the prev calls queue"
                 not {
@@ -496,7 +496,7 @@ class CallController {
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
-                    le('dateCreated', seventyTwoHoursAgo)
+                    gt('dateCreated', seventyTwoHoursAgo)
 
                 }
 			}
@@ -555,7 +555,7 @@ class CallController {
                     eq('customerRanking', 1)
 					or {
 						lastCall {
-							le('dateCreated', twentyFourHoursAgo)
+							gt('dateCreated', twentyFourHoursAgo)
 							ne('result', CallResult.REFUSED)
 						}
 						isNull "lastCall"
@@ -566,7 +566,7 @@ class CallController {
                         eq('customerRanking', 1)
                     }
                     lastCall {
-                        le('dateCreated', seventyTwoHoursAgo)
+                        gt('dateCreated', seventyTwoHoursAgo)
                         ne('result', CallResult.REFUSED)
                     }
 				}
@@ -592,7 +592,7 @@ class CallController {
 
 			} else {
                 println "$caller reached the end of the customer list for timezone $currentTimezone"
-				flash.message = "No more Customers in the $currentTimezone Timezone!"
+			at	flash.message = "No more Customers in the $currentTimezone Timezone!"
 				redirect action:index
 			}
 		}
