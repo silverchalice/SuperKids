@@ -187,7 +187,7 @@ class ReportController {
                     def rA = customer?.assessments?.find { it }
 
                     m.assessmentOrigin = rA?.type
-                    m.expectationsNotMetFeedback = customer.expectationsNotMetFeedback ?: ""
+                    m.overallPerceptions = customer.overallPerceptions ?: ""
                     m.programFeedback = customer.programFeedback
 
                 }
@@ -318,11 +318,11 @@ class ReportController {
             def assessLabels = [:]
 
             assessLabels.programFeedback = "General Feedback"
-            assessLabels.expectationsNotMetFeedback = "Whole Grain-Rich Foods On Menu Not Meeting Expectations"
+            assessLabels.overallPerceptions = "Overall Perceptions"
             assessLabels.assessmentOrigin = "Assessment Origin"
 
             assessFields << "programFeedback"
-            assessFields << "expectationsNotMetFeedback"
+            assessFields << "overallPerceptions"
             assessFields << "assessmentOrigin"
 
             for (prod in prods) {

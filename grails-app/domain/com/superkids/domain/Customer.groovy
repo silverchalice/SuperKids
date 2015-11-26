@@ -76,10 +76,13 @@ class Customer extends User {
 
     //Assessment Questions
     String programFeedback
-    String expectationsNotMetFeedback
-    String expectationsNotMetManufacturer
-    String expectationsNotMetProductName
-    String expectationsNotMetReason
+    String overallPerceptions
+
+
+//    String expectationsNotMetFeedback
+//    String expectationsNotMetManufacturer
+//    String expectationsNotMetProductName
+//    String expectationsNotMetReason
 	String reformulations
   	String otherProducts
     String addedSampleProducts
@@ -252,15 +255,16 @@ class Customer extends User {
 
 		//Final Questions cont...
 		programFeedback nullable:true
-        expectationsNotMetFeedback nullable:true, maxSize: 120000
-        expectationsNotMetManufacturer nullable:true
-        expectationsNotMetProductName nullable:true
-        expectationsNotMetReason nullable:true
+//        expectationsNotMetFeedback nullable:true, maxSize: 120000
+//        expectationsNotMetManufacturer nullable:true
+//        expectationsNotMetProductName nullable:true
+//        expectationsNotMetReason nullable:true
 		reformulations nullable:true
 		otherProducts nullable: true
         addedSampleProducts nullable: true
         sampleProductsAdded nullable: true
         pastCompanies nullable: true
+        overallPerceptions nullable: true
 
 
 		// Broker Call Times

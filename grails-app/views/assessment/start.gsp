@@ -96,27 +96,6 @@
                                                                           <li class="last"><label for="5">5</label> <input type="radio" name="assessment.${product.id}.likeRating" value="5" /></li>
                                                                       </ol>
 
-                                  <!-- removing this for 2013
-                                                                      <g:if test="${product.id == 23}">
-                                                                          <label>Please check which varieties of the pasta you like:</label>
-
-                                                                          <div style="float:left">
-                                                                              <label><input type="checkbox" name="favorites.1" value="Penne" >Penne</label>
-                                                                              <label><input type="checkbox" name="favorites.2" value="Spaghetti" >Spaghetti</label>
-                                                                              <label><input type="checkbox" name="favorites.3" value="Macaroni" >Macaroni</label>
-                                                                              <label><input type="checkbox" name="favorites.4" value="Rotini" >Rotini</label>
-                                                                          </div>
-
-
-                                                                          <div style="float:right">
-                                                                              <label><input type="checkbox" name="favorites.5" value="Lasagna" >Lasagna</label>
-                                                                              <label><input type="checkbox" name="favorites.6" value="9-Grain orzo" >9-Grain orzo</label>
-                                                                              <label><input type="checkbox" name="favorites.7" value="Egg noodles" >Egg noodles</label>
-                                                                          </div>
-
-
-                                                                      </g:if>
-                                  -->
 
 
 

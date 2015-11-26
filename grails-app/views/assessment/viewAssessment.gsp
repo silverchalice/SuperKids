@@ -75,13 +75,15 @@
 				<g:each in="${dnrProducts}" var="productOrder">
 					<g:render template="view_dnr_product" model="[productOrder: productOrder]" />
 				</g:each>
-				<h2 style="margin: 10px 2px 5px 2">Final Questions</h2>
-				 <h3>Are there any whole grain-rich foods on your menu that aren&#8217;t meeting your or students&#8217; expectations, and if so, why not?</h3>
-				<p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customer?.expectationsNotMetFeedback} </p>  <br/>
+				<h2 style="margin: 10px 2px 5px 2px">Final Questions</h2>
 				<h3>Program Feedback</h3>
 				<p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${customer?.programFeedback}</p>  <br/>
 				<h3>If you've participated in the SuperKids Program in the past, did you add any of the items you've sampled to your menu?</h3>
 				<p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${g.formatBoolean(boolean: customer?.addedPastItemsToMenu, true: 'Yes', false: 'No')}</p>  <br/>
+
+                <h3>What is your overall perception of Ultragrain and foods made with Ultragrain?</h3>
+                <p style="margin:2px; padding:5px; border:1px solid gray; height:150px; background:#F7F7F7">${g.formatBoolean(boolean: customer?.overallPerceptions, true: 'Yes', false: 'No')}</p>  <br/>
+
 
 
 

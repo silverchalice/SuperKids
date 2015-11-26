@@ -17,10 +17,4 @@
 		<td width="60%">What things would you change (list as many as necessary)?</td>
 		<td>${assessment.changeComment}</td>
 	</tr>
-    <g:if test="${assessment.product.id == 23}">
-        <tr>
-       		<td width="60%">Favorite Pasta </td>
-       		<td>${assessment.favorite}</td>
-       	</tr>
-    </g:if>
 </table>

@@ -82,11 +82,6 @@
 
 <div id="completeAssessmentForm">
 	<g:form action="completeAssessment" id="${customerInstance?.id}">
-		<h3>Additional Comments & Suggestions</h3>
-		Are there any whole grain-rich foods on your menu that aren't meeting your or your students&#8217 expectations, and if so, why not?<br/>
-		<g:textArea cols="" rows="" name="expectationsNotMetFeedback" style="width:465px" />
-		<br/>
-		<br/>
 		<h3>Program Feedback</h3>
 		Please give us feedback on the SuperKids program in general.<br/>
 		<g:textArea cols="" rows="" name="programFeedback" style="width:465px" />
@@ -102,18 +97,10 @@
        </g:radioGroup>
      </p>
     <br />
-    <h3>Rewards</h3>
-          Thank You!Your assessment has been received, qualifying you for the sweepstakes prize drawing.
-          <br /> 
-          <ol style="list-style-type:decimal; color:#000000; font-weight:normal">
-              <li><span style="color:#800000">One (1) Prize</span>--$1,500 Donation to your School Foodservice Program</li>
-              <li><span style="color:#800000">One (1) Prize</span>--$1,000 Donation to your School Foodservice Program</li>
-              <li><span style="color:#800000">One (1) Prize</span>--$500 Donation to your School Foodservice Program</li>
-          </ol>
-          <br /> 
-          <p style="color:#000000; font-weight:normal">Please note that you are responsible for ensuring that any rewards provided to you within this program are authorized by your school district.
-          Click sweepstakes rules for more information. <g:link controller="home" action="assessment_drawing_rules">Sweepstakes Rules</g:link>    </p>
-
+		<h3>Perceptions</h3>
+		What is your overall perception of Ultragrain and foods made with Ultragrain? <br/>
+		<g:textArea cols="" rows="" name="overallPerceptions" style="width:465px" />
+		<br/>
 		<br/>
 		<g:submitButton name="completeAssessment" id="completeAssessment" value="Continue" />
 

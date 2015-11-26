@@ -66,24 +66,8 @@
 
         <g:form name="saveSurvey" action="saveSurvey">
             <div class="order-item expanded"> &nbsp;
-                <h2>Additional Comments & Suggestions</h2>
-                <p>Are there any whole grain-rich foods on your menu that aren't meeting your or your students&#8217 expectations, and if so, why not?</p>
-<p>&nbsp;</p>
-<br /> <br />
-                <div class="expand">&nbsp;</div>
-
-                <table cellpadding="0" cellspacing="0">
-                    <tr>
-                        <td class="first">
-                            <g:textArea name="expectationsNotMetFeedback" cols="75" rows="25" value="${customerInstance?.expectationsNotMetFeedback}" />
-                        </td>
-
-                    </tr>
-                </table>
-
-                <p>&nbsp;</p>
                 <h2>Program Feedback</h2>
-                <p>Please give us feedback on the SuperKids program in general.</p>
+                <p>Please give us feedback on the SuperKids program in general. </p>
                 <div class="expand">&nbsp;</div>
 
                 <table cellpadding="0" cellspacing="0">
@@ -102,8 +86,20 @@
                                 <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
                                 <g:radio name="addedPastItemsToMenu" value="true" style="float:left; padding-right: 10px" />
                                 <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
-                                <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"
- />
+                                <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"/>
+
+                <p>What is your overall perception of Ultragrain and foods made with Ultragrain?</p>
+                <div class="expand">&nbsp;</div>
+
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="first">
+                            <g:textArea name="overallPerceptions" cols="75" rows="25" value="${customerInstance?.overallPerceptions}" />
+                        </td>
+
+                    </tr>
+                </table>
+
 
 
                 <div class="complete-review">&nbsp;</div>
