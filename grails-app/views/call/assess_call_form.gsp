@@ -187,7 +187,7 @@
 				<g:hiddenField name="single" value="${single}" />
 				<g:hiddenField name="cb" value="${cb}" />
 				<g:hiddenField name="acl" value="${acl}" />
-				<g:actionSubmit style="position:absolute; left:1080px; top:63px; width:100px" class="callerButton" id="submit" action="save_assess_call" value="Finish" />
+				<g:actionSubmit style="position:relative; left:1080px; width:100px" class="callerButton" id="submit" action="save_assess_call" value="Finish" />
 			</g:if>
 			<g:if test="${start && queue}">
 				<g:hiddenField name="queue" value="${queue}" />
@@ -435,7 +435,7 @@
 				<div style="border:1px; width:940px"><sks:productAssessmentTabs id="${customerInstance?.id}" /></div>
 
 
-				<table style="margin: 20px 0 10px 0; width:280px; position:absolute; top:120px; left:965px;" class="callerRecord">
+				<table style="margin: 5px 0 10px 0; width:280px; position:relative; left: 20px" class="callerRecord">
 						<tbody>
 							<tr class="prop">
 								<td valign="top" class="name">

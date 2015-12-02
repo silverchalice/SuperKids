@@ -1,4 +1,4 @@
-<table style="width:440px; float:left; margin:10px 5px 0px 5px;">
+<table style="width:440px; height: 300px; float:left; margin:10px 5px 0px 5px;">
     <tr class="prop">
       <td colspan="2"><label>${product?.name}</label></td>
     </tr>
