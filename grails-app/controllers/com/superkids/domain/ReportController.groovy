@@ -189,6 +189,8 @@ class ReportController {
                     m.assessmentOrigin = rA?.type
                     m.overallPerceptions = customer.overallPerceptions ?: ""
                     m.programFeedback = customer.programFeedback
+                    m.addedPastItemsToMenuA = (customer.addedPastItemsToMenu == null) ? "N/A" : customer.addedPastItemsToMenu ? "YES" : "NO"
+
 
                 }
 
@@ -318,10 +320,12 @@ class ReportController {
             def assessLabels = [:]
 
             assessLabels.programFeedback = "General Feedback"
+            assessLabels.addedPastItemsToMenuA = "Added any of the items sampled to menu"
             assessLabels.overallPerceptions = "Overall Perceptions"
             assessLabels.assessmentOrigin = "Assessment Origin"
 
             assessFields << "programFeedback"
+            assessFields << "addedPastItemsToMenuA"
             assessFields << "overallPerceptions"
             assessFields << "assessmentOrigin"
 
