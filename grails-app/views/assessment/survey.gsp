@@ -61,7 +61,7 @@
         <img src="${resource(dir: 'images', file:'img_money_books.jpg')}" class="left money-books" alt="Four stacked books with hundred dollar bills used as bookmarks" />
         <h1>Thanks for your assessments!</h1>
         <p>Just one more step - to qualify for the prize drawing, we'd ask you to simply fill out the two questions below about this year's SuperKids program. We want to make this program work better for you!</p>
-        <p>Once you've filled out these questions, click the "Submit Your Feedback" buttom at the bottom of the page. That's it - you'll be automatically entered in this year's drawing!</p>
+        <p>Once you've filled out these questions, click the "Submit Your Feedback" buttom at the bottom of the page.</p>
         <hr />
 
         <g:form name="saveSurvey" action="saveSurvey">
@@ -86,7 +86,7 @@
                                 <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
                                 <g:radio name="addedPastItemsToMenuA" value="true" style="float:left; padding-right: 10px" />
                                 <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
-                                <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"/>
+                                <g:radio name="addedPastItemsToMenuA" value="false" style="float:left; padding-right: 10px" checked="true"/>
 
                 <p>What is your overall perception of Ultragrain and foods made with Ultragrain?</p>
                 <div class="expand">&nbsp;</div>
