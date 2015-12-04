@@ -189,7 +189,7 @@ class ReportController {
                     m.assessmentOrigin = rA?.type
                     m.overallPerceptions = customer.overallPerceptions ?: ""
                     m.programFeedback = customer.programFeedback
-                    m.addedPastItemsToMenuA = (customer.addedPastItemsToMenu == null) ? "N/A" : customer.addedPastItemsToMenu ? "YES" : "NO"
+                    m.addedPastItemsToMenuA = (customer.addedPastItemsToMenuA == null) ? "N/A" : customer.addedPastItemsToMenuA ? "YES" : "NO"
 
 
                 }

@@ -64,6 +64,7 @@ class Customer extends User {
     String mixTypes                             //Order Form Question #5a
     String mixSizes                             //Order Form Question #5b
     Boolean addedPastItemsToMenu = null         //Order Form Question #6
+    Boolean addedPastItemsToMenuA = null         //Order Form Question #6
     String pastItemsAddedToMenu                 //Order Form Question #6a
     Boolean lookForUltragrain = null            //Order Form Question #7
     String bidTimeForNewItems                   //Order Form Question #8
@@ -219,6 +220,7 @@ class Customer extends User {
         preferredBagSize nullable: true
 
         addedPastItemsToMenu nullable: true
+        addedPastItemsToMenuA nullable: true
         pastItemsAddedToMenu nullable: true
         participateInRewardsPrograms nullable: true
         participateInCoolSchoolCafe nullable: true

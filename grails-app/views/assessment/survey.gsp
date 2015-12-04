@@ -84,7 +84,7 @@
                 <p>If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?</p>
                 <div class="expand">&nbsp;</div>
                                 <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
-                                <g:radio name="addedPastItemsToMenu" value="true" style="float:left; padding-right: 10px" />
+                                <g:radio name="addedPastItemsToMenuA" value="true" style="float:left; padding-right: 10px" />
                                 <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
                                 <g:radio name="addedPastItemsToMenu" value="false" style="float:left; padding-right: 10px" checked="true"/>
 
