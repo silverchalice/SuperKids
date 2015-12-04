@@ -81,9 +81,9 @@
                         <p>Made by ${product?.sponsor?.name}</p>
                        <div class="expand"><a id="${product?.id}" href="#">Assess this product</a> </div>
                        <hr >
+                       <p>Did Not Receive Sample <g:checkBox name="assessment.${product.id}.didNotReceive" onclick="disableItemForm(${product.id});"/> &nbsp; &nbsp; Did Not Try Sample <g:checkBox name="assessment.${product.id}.didNotSample" onclick="disableItemForm(${product.id});"/></p>
 
-                                <p>Did Not Receive Sample <g:checkBox name="assessment.${product.id}.didNotReceive" onclick="disableItemForm(${product.id});"/> &nbsp; &nbsp; Did Not Try Sample <g:checkBox name="assessment.${product.id}.didNotSample" onclick="disableItemForm(${product.id});"/></p>
-
+                                  <p>&nbsp;</p>
                                   <p>&nbsp;</p>
                                   <p class="assess" style="margin-right: 20px;">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</p>
                                                                       <ol style="display: inline; margin-bottom: 5px; margin-left: 5px;">
