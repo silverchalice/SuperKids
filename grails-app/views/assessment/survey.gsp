@@ -81,11 +81,11 @@
 
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
-                <p>If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?</p>
-                <div class="expand">&nbsp;</div>
-                <g:select name="addedPastItemsToMenuA" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenuA}"/>
+                <p style="width:920px">If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?</p>
+                <p style="width:90px"> <g:select name="addedPastItemsToMenuA" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenuA}"/>
+                </p>
 
-                <p>What is your overall perception of Ultragrain and foods made with Ultragrain?</p>
+                <p style="clear:both; width: 750px; margin-top:20px">What is your overall perception of Ultragrain and foods made with Ultragrain?</p>
                 <div class="expand">&nbsp;</div>
 
                 <table cellpadding="0" cellspacing="0">

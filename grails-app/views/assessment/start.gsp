@@ -85,7 +85,7 @@
 
                                   <p>&nbsp;</p>
                                   <p>&nbsp;</p>
-                                  <p class="assess" style="margin-right: 20px;">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</p>
+                                  <p class="assess" style="clear:both; margin-right:20px">On a scale of 1-5 (1-very low; 5-very high), please rate your interest in adding this item to your school menu:</p>
                                                                       <ol style="display: inline; margin-bottom: 5px; margin-left: 5px;">
                                                                           <li class="first"><label for="1">1</label> <input type="radio" name="assessment.${product.id}.likeRating" value="1" /></li>
                                                                           <li><label for="2">2</label> <input type="radio" name="assessment.${product.id}.likeRating" value="2" /></li>
