@@ -1,7 +1,5 @@
 package com.superkids
 
-import org.codehaus.groovy.grails.web.servlet.mvc.GrailsParameterMap
-
 class UserService {
 
     def bindParams(params) {
@@ -20,6 +18,9 @@ class UserService {
         }
         if(params.addedPastItemsToMenu == 'NA') {
             params.addedPastItemsToMenu = null
+        }
+        if(params.addedPastItemsToMenuA == 'NA') {
+            params.addedPastItemsToMenuA = null
         }
         if(params.lookForUltragrain == 'NA') {
             params.lookForUltragrain = null
