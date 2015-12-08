@@ -464,7 +464,7 @@ class CustomerController {
         def customer = Customer.get(params?.id)
 
         if(customer) {
-			customer.properties = params
+			customer.properties = userService.bindParams(params)
             customer.programFeedback = params?.programFeedback
             customer.otherProducts = params?.otherProducts
             customer.reformulations = params?.reformulations
