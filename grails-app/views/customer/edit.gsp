@@ -139,9 +139,9 @@
     <td valign="top" class="name">
         <label for="status"><g:message code="customer.status.label" default="Status"/></label>
     </td>
-    <td valign="top">${customerInstance?.status}: s
+    <td valign="top">${customerInstance?.status}:
         <g:select name="status" from="${statusList}"
-                  value="${customerInstance?.status}" noSelection="['Select New Status']"/>
+                  value="${customerInstance?.status}" />
     </td>
 </tr>
 
