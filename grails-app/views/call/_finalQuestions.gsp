@@ -27,10 +27,7 @@
     <td colspan="2">
       <label style="font-size:12px">If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the item you&#8217;ve sampled to your menu?</label>
       <br/><br/>
-      <label style="float:left; padding-left: 25px;"> Yes:&nbsp; </label> 
-      <g:radio name="addedPastItemsToMenuA" value="true" style="float:left; padding-right: 10px" />
-      <label style="float:left; padding-left: 25px;"> No:&nbsp; </label> 
-      <g:radio name="addedPastItemsToMenuA" value="false" style="float:left; padding-right: 10px" checked="true" />
+		<g:select name="addedPastItemsToMenuA" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"/>
     </td>
 		</tr>
 

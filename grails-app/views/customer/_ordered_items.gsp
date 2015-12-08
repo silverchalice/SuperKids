@@ -89,9 +89,9 @@
     <br />
     If you&#8217;ve participated in the SuperKids Program in the past, did you add any of the items you&#8217;ve sampled to your menu?<br/>
     <p>
-      <g:radioGroup name="addedPastItemsToMenu"
-                  labels="['Yes','No']"
-                  values="['true', 'false']"
+      <g:radioGroup name="addedPastItemsToMenuA"
+                  labels="['NA', 'Yes','No']"
+                  values="['NA', 'true', 'false']"
                   value="false">
         <span style="${it.label == 'true' ? 'margin-right: 300px;' : ''}">${it.label} ${it.radio}</span>
        </g:radioGroup>
