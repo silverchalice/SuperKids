@@ -140,7 +140,7 @@
         <label for="status"><g:message code="customer.status.label" default="Status"/></label>
     </td>
     <td valign="top">
-        <g:select name="status" from="${statusList}" optionKey="key" optionValue="value"
+        <g:select name="status" from="${statusList}"
                   value="${customerInstance?.status}"/>
     </td>
 </tr>

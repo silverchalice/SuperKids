@@ -112,17 +112,14 @@ class CustomerController {
             redirect(action: "list")
         }
         else {
-            def currentStatus = CustomerStatus."${customerInstance.status}"
-            String current = customerInstance.status
-            def readableCurrentStatus = current.replaceAll("_", " ")
-            Map statusList = ["$currentStatus":readableCurrentStatus, 'HAS_NOT_ORDERED':'HAS NOT ORDERED', 'HAS_ORDERED':'HAS ORDERED']
+            def statusList = ['HAS_NOT_ORDERED', 'HAS_ORDERED', 'QUALIFIED']
             def products = []
             if(!customerInstance.customerOrder) {
                 products = Product.findAllByParentIsNullAndLiveProduct(true)
 
 				products.each {
 					println it
-					println it.parent
+					println it?.parent
 				}
                 return [customerInstance: customerInstance, products: products, states: states, broker:broker, statusList:statusList,
 				rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
@@ -477,7 +474,10 @@ class CustomerController {
               customer.status = CustomerStatus.QUALIFIED
               flash.message = "Assessment Completed!"
 
-           } else flash.message = "Invalid input - assessment not completed"
+           } else {
+               customer.errors.allErrors.each {println it}
+               flash.message = "Invalid input - assessment not completed"
+           }
 
            redirect action:edit, id:customer.id
         }
