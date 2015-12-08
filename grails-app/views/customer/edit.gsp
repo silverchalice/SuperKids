@@ -141,7 +141,7 @@
     </td>
     <td valign="top">${customerInstance?.status}: s
         <g:select name="status" from="${statusList}"
-                  value="${customerInstance?.status}" noSelection="Select New Status"/>
+                  value="${customerInstance?.status}" noSelection="['Select New Status']"/>
     </td>
 </tr>
 
