@@ -139,7 +139,7 @@
     <td valign="top" class="name">
         <label for="status"><g:message code="customer.status.label" default="Status"/></label>
     </td>
-    <td valign="top">${customerInstance?.status}:
+    <td valign="top">
         <g:select name="status" from="${statusList}"
                   value="${customerInstance?.status}" />
     </td>

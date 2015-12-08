@@ -112,7 +112,7 @@ class CustomerController {
             redirect(action: "list")
         }
         else {
-            def statusList = ['HAS_NOT_ORDERED', 'HAS_ORDERED', 'QUALIFIED']
+            def statusList = [CustomerStatus.HAS_NOT_ORDERED, CustomerStatus.HAS_ORDERED, CustomerStatus.QUALIFIED]
             def products = []
             if(!customerInstance.customerOrder) {
                 products = Product.findAllByParentIsNullAndLiveProduct(true)
