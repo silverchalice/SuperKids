@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat
 class CallController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	
+
 	def springSecurityService
 	def callService
     def userService
@@ -105,7 +105,7 @@ class CallController {
 
 				def call = new Call(params)
 				println "1"
-				
+
 				call.caller = caller
 				call.customer = customer
 				call.result = CallResult.valueOf(params.result)
@@ -258,9 +258,9 @@ class CallController {
 				}
 
 				def model = [:]
-                
+
                 def checkedProducts = []
-                
+
                 params.each { key, val ->
                     if (key.size() > 5 && key[0..5] == 'order_' && val == 'on'){
                         def productId = key[6..-1]
@@ -343,7 +343,7 @@ class CallController {
             if (params.version) {
                 def version = params.version.toLong()
                 if (callInstance.version > version) {
-                    
+
                     callInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'call.label', default: 'Call')] as Object[], "Another user has updated this Call while you were editing")
                     render(view: "edit", model: [callInstance: callInstance])
                     return
@@ -608,7 +608,7 @@ class CallController {
 
 		//make sure the last customer is no longer 'in call'
 		def currentCustomer = Customer.get(params.id)
-		if(currentCustomer) {	
+		if(currentCustomer) {
 			currentCustomer.inCall = null
 			currentCustomer.save(flush:true)
 		}
@@ -673,17 +673,17 @@ class CallController {
 		println "$caller is in next_assess_call for CallController"
         //make sure the last customer is no longer 'in call'
         def currentCustomer = Customer.get(params?.id)
-        
+
         Integer currentSeq
         Long currentId
-        
+
         if(currentCustomer) {
             currentCustomer.inCall = null
             currentCustomer.save(flush:true)
-        
+
             currentSeq = currentCustomer.seq
             currentId = currentCustomer.id
-        
+
         } else {
               currentSeq = 1
               currentId =  1
@@ -713,9 +713,9 @@ class CallController {
 			eq 'hasCompletedCurrentAssessment', false
 
 			//TODO: Remove to enable Feb orders
-			//customerOrder {
-			//	eq 'shippingDate', ShippingDate.get(4)
-			//}
+			customerOrder {
+				eq 'shippingDate', ShippingDate.get(4)
+			}
 
 			or {
 				eq 'status', CustomerStatus.HAS_ORDERED
@@ -762,7 +762,7 @@ class CallController {
             }
             maxResults(1)
 		}.getAt(0)
-		
+
 		if(customer) {
 			println "$caller got $customer from the assess queue"
 			customer.inCall = new Date()
@@ -773,7 +773,7 @@ class CallController {
 				customer.errors.allErrors.each { println it }
 				flash.message = "Oops! An error occured"
 				redirect action:index
-				return 
+				return
 			}
 
 		} else {
@@ -1163,7 +1163,7 @@ class CallController {
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
-		                              
+
     }
 
     def call_back_list = {
@@ -1270,5 +1270,5 @@ class CallController {
                 }
             }
         }
-	
+
 }
