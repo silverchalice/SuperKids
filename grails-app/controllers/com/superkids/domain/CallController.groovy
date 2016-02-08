@@ -1181,10 +1181,6 @@ class CallController {
 				isNotNull("callbackDate")
 			}
 
-			or {
-				eq 'status', CustomerStatus.HAS_NOT_ORDERED
-				eq 'hasPlacedCurrentOrder', false
-			}
 		}
 		customers.sort{a, b ->
           if (a.lastCall.callbackDate == b.lastCall.callbackDate){
