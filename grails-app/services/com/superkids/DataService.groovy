@@ -16,11 +16,11 @@ class DataService {
 			i++
 
 			def customer = new Customer()
-			println "email " + cell(14)
+			println "email " + cell(15)
 
 			customer.with {
 //(0)
-				seq= new Integer("${cell(1)}".tokenize('.')[0])
+				//seq= new Integer("${cell(1)}".tokenize('.')[0])
 				customerRanking = rankingString(cell(2))
 				source = cell(3)
 				fsdName = cell(4) ?: " "
