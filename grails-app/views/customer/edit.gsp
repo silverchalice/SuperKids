@@ -186,6 +186,14 @@
 </tr>
 <tr class="prop">
     <td valign="top" class="name">
+        <label for="doNotCall">Do NOT Call</label>
+    </td>
+    <td valign="top">
+        <g:checkBox name="doNotCall" value="${customerInstance?.doNotCall}"/>
+    </td>
+</tr>
+<tr class="prop">
+    <td valign="top" class="name">
         <label for="invalidEmail">Invalid Email</label>
     </td>
     <td valign="top">

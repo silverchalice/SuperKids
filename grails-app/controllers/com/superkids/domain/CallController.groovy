@@ -464,6 +464,7 @@ class CallController {
 			}
 
 			isNull 'inCall'
+			eq 'doNotCall', false
 			or {
 				eq 'deleted', false
 				isNull('deleted')
@@ -544,6 +545,7 @@ class CallController {
 			    eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			    isNull 'inCall'
 				eq 'deleted', false
+				eq 'doNotCall', false
 				if(params?.queue == "new") {
 					println "$caller is using the new calls queue"
                     not {
@@ -621,6 +623,7 @@ class CallController {
 		def customer = c.list(max: 1, sort: 'id', order:'desc') {
 			eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			isNull 'inCall'
+			eq 'doNotCall', false
 			lt 'id', currentCustomer.id
 		}.getAt(0)
 
@@ -721,7 +724,7 @@ class CallController {
 				eq 'status', CustomerStatus.HAS_ORDERED
 				eq 'hasPlacedCurrentOrder', true
 			}
-
+			eq 'doNotCall', false
 			isNull 'inCall'
 			or {
 				eq 'deleted', false
@@ -791,6 +794,7 @@ class CallController {
 
 				isNull 'inCall'
 				eq 'deleted', false
+				eq 'doNotCall', false
 
 				or{
 					eq('duplicate', false)
@@ -841,6 +845,7 @@ class CallController {
 		def customer = c.list(max: 1, sort: 'id', order:'desc') {
 			eq 'status', CustomerStatus.HAS_ORDERED
 			isNull 'inCall'
+			eq 'doNotCall', false
 			lt 'id', currentCustomer.id
 		}.getAt(0)
 
@@ -1243,7 +1248,7 @@ class CallController {
 
 				Customer.search(params?.query, [max:100]).results?.each {
 					def customer =	Customer.get(it.id)
-					if(customer && !customer?.deleted){
+					if(customer && (!customer?.deleted && !customer.doNotCall)){
 						customers << customer
 					}
 

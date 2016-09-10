@@ -49,26 +49,39 @@ class DataService {
 
 				studentsInDistrict = cell(21) ?: 0
 				studentsParticipate = cell(22) ?: 0
-				contractManaged = (cell(23) == 'YES') ? true : (cell(23) == 'NO') ? false : null
-				contractManager = cell(24) ?: ""
-				coOpMember = (cell(25) == 'YES') ? true : null
-				coOpName = cell(26)
-				coOpAddress = cell(27)
-				callerBrokers = cell(28)
-				secondaryDistributors = cell(29)
-				hasBakery = (cell(30) == "YES") ? true : null
-				useUltragrainFlour = (cell(31) == "YES") ? true : null
-				useUltragrainWhiteFlour = (cell(32) == "YES") ? true : null
-				lookForUltragrain = (cell(33) == "YES") ? true : null
-				buyCommodityFlour = (cell(34) == "YES") ? true : null
-				likesBagHandles = (cell(35) == "YES") ? true : null
-				preferredBagSize = (cell(36))
-				addedPastItemsToMenu = (cell(37)) ? true : null
-				participateInRewardsPrograms = (cell(38)) ? true : null
-				participateInCoolSchoolCafe = (cell(39)) ? true : null
-				programsParticipatedIn = (cell(40))
-				pastParticipant = (cell(41) == 'YES') ? true : null
-				doNotReceiveAdditionalInformation = (cell(41) == 'YES') ? true : null
+				//contractManaged = (cell(23) == 'YES') ? true : (cell(23) == 'NO') ? false : null
+				callerBrokers = cell(23)
+				hasBakery = (cell(24) == "YES") ? true : (cell(24) == 'NO') ? false : null
+				useUltragrainFlour = (cell(25) == "YES") ? true : (cell(25) == 'NO') ? false : null
+				useUltragrainWhiteFlour = (cell(26) == "YES") ? true : (cell(26) == 'NO') ? false : null
+				otherFlours = (cell(27) == "YES") ? true : null
+				otherFlourIssues = (cell(28) == "YES") ? true : null
+
+				addedPastItemsToMenu = (cell(29) == "YES") ? true : null
+				pastItemsAddedToMenu = (cell(30)) ?: ""
+
+				lookForUltragrain = (cell(31) == "YES") ? true : (cell(31) == 'NO') ? false : null
+				participateWaivers = cell(32) ?: ""
+				participateWaiversItems = cell(33) ?: ""
+				doNotCall = (cell(37) == "x")
+				timezone = cell(39) ?: " "
+
+//				coOpMember = (cell(25) == 'YES') ? true : null
+//				coOpName = cell(26)
+//				coOpAddress = cell(27)
+//				secondaryDistributors = cell(29)
+//				hasBakery = (cell(30) == "YES") ? true : null
+
+//				lookForUltragrain = (cell(33) == "YES") ? true : null
+//				buyCommodityFlour = (cell(34) == "YES") ? true : null
+//				likesBagHandles = (cell(35) == "YES") ? true : null
+//				preferredBagSize = (cell(36))
+//				addedPastItemsToMenu = (cell(37)) ? true : null
+//				participateInRewardsPrograms = (cell(38)) ? true : null
+//				participateInCoolSchoolCafe = (cell(39)) ? true : null
+//				programsParticipatedIn = (cell(40))
+//				pastParticipant = (cell(41) == 'YES') ? true : null
+//				doNotReceiveAdditionalInformation = (cell(41) == 'YES') ? true : null
 				timezone = cell(42) ?: " "
 
 			}
