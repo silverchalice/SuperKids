@@ -48,7 +48,10 @@ class Customer extends User {
 	Boolean am
 	Boolean pm
 	Boolean pastParticipant
-	Date inCall = null
+	Boolean doNotCall = false
+
+    Date inCall = null
+
 
 //	Order Form Questions
 
@@ -69,6 +72,7 @@ class Customer extends User {
     Boolean lookForUltragrain = null            //Order Form Question #7
     String bidTimeForNewItems                   //Order Form Question #8
     String participateWaivers                   //Order Form Question #9
+    String participateWaiversItems              //Order Form Question #10?
 
 
     Boolean doNotReceiveAdditionalInformation = null
@@ -268,6 +272,7 @@ class Customer extends User {
         pastCompanies nullable: true
         overallPerceptions nullable: true
 
+        participateWaiversItems nullable: true
 
 		// Broker Call Times
 		fall nullable:true
