@@ -367,19 +367,7 @@
         </tr>
 
         <tr>
-            <td colspan="2"><strong>5.</strong>Would you be interested in complete mixes made with Ultragrain?
-            <g:select name="interestedInMixes" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.interestedInMixes}"/>
-            </td>
-        </tr>
-
-        <tr><td colspan="2">a) What types of items would you like to make from a mix?<br/>
-            <input type="text" name="mixTypes" value="${customerInstance?.mixTypes}" size="55" maxlength="1000"></td>
-        </tr>
-        <tr><td colspan="2">b) What would be the ideal size? 10, 20, 25 lb? 50 lb? Other?<br/>
-            <input type="text" name="mixSizes" value="${customerInstance?.mixSizes}" size="55" maxlength="1000"></td>
-        </tr>
-        <tr>
-            <td colspan="2"><strong>6.</strong> If you've participated in SuperKids in the past, did you add any of the items <br />you sampled to your menu?
+            <td colspan="2"><strong>5.</strong> If you've participated in SuperKids in the past, did you add any of the items <br />you sampled to your menu?
             <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu}"/>
             </td>
         </tr>
@@ -389,15 +377,12 @@
         </tr>
 
         <tr>
-            <td colspan="2"><strong>7.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
+            <td colspan="2"><strong>6.</strong> Do you look for &#8220;Ultragrain&#8221; when trying new whole grain-rich foods?
             <g:select name="lookForUltragrain" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
             </td>
         </tr>
 
-        <tr><td colspan="2"><strong>8.</strong>When do you send out your bid/select new items for your menu?
-            <input type="text" name="bidTimeForNewItems" value="${customerInstance?.bidTimeForNewItems}" size="55" maxlength="1000"></td>
-        </tr>
-        <tr><td colspan="2"><strong>9.</strong>Do you participate in any waivers for whole grain-rich foods? If yes, for what items?
+        <tr><td colspan="2"><strong>7.</strong>Do you participate in any waivers for whole grain-rich foods? If yes, for what items?
             <input type="text" name="participateWaivers" value="${customerInstance?.participateWaivers}" size="55" maxlength="1000"></td>
         </tr>
         <!-- Order Form, 2015 -->

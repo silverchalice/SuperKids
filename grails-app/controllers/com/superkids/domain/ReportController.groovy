@@ -125,14 +125,11 @@ class ReportController {
                 m.useUltragrainWhiteFlour = (customer.useUltragrainWhiteFlour == null) ? "N/A" : customer.useUltragrainWhiteFlour ? "YES" : "NO"
                 m.otherFlours = customer.otherFlours
                 m.otherFlourIssues = customer.otherFlourIssues
-                m.interestedInMixes = (customer.interestedInMixes == null) ? "N/A" : customer.interestedInMixes ? "YES" : "NO"
-                m.mixTypes = customer.mixTypes
-                m.mixSizes = customer.mixSizes
                 m.addedPastItemsToMenu = (customer.addedPastItemsToMenu == null) ? "N/A" : customer.addedPastItemsToMenu ? "YES" : "NO"
                 m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
                 m.lookForUltragrain = (customer.lookForUltragrain == null) ? "N/A" : customer.lookForUltragrain ? "YES" : "NO"
-                m.bidTimeForNewItems = customer.bidTimeForNewItems
                 m.participateWaivers = customer.participateWaivers
+                m.participateWaiversItems = customer.participateWaiversItems
 
                 m.pastParticipant = (customer.pastParticipant == null) ? "N/A" : customer.pastParticipant ? "YES" : "NO"
                 m.doNotReceiveAdditionalInformation = (customer.doNotReceiveAdditionalInformation == null) ? "N/A" : customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
@@ -250,14 +247,11 @@ class ReportController {
                        "useUltragrainWhiteFlour",
                        "otherFlours",
                        "otherFlourIssues",
-                       "interestedInMixes",
-                       "mixTypes",
-                       "mixSizes",
                        "addedPastItemsToMenu",
                        "pastItemsAddedToMenu",
                        "lookForUltragrain",
-                       "bidTimeForNewItems",
                        "participateWaivers",
+                       "participateWaiversItems",
 
                        "pastParticipant",
                        "doNotReceiveAdditionalInformation",
@@ -306,14 +300,11 @@ class ReportController {
                       "useUltragrainWhiteFlour"          : "Use Ultragrain T2% whole wheat flour",
                       "otherFlours"                      : "What other flours do you use? ",
                       "otherFlourIssues"                 : "Do you experience any issues with the flours? ",
-                      "interestedInMixes"                : "Interested in complete mixes made from Ultragrain ",
-                      "mixTypes"                         : "Prefer mix types",
-                      "mixSizes"                         : "Preferred mix sizes",
                       "addedPastItemsToMenu"             : "Added previous items to menu",
                       "pastItemsAddedToMenu"             : "Past items added to menu",
                       "lookForUltragrain"                : "Look for 'Ultragrain' when trying new foods",
-                      "bidTimeForNewItems"               : "When do you send out your bid/select new items for your menu?",
                       "participateWaivers"              : "Waiver programs participated in",
+                      "participateWaiversItems"         : "Waiver programs for items",
 
                       "pastParticipant"                  : "Previous Participant",
                       "doNotReceiveAdditionalInformation": "Opted out of additional information",

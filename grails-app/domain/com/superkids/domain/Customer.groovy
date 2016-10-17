@@ -63,16 +63,21 @@ class Customer extends User {
     Boolean useUltragrainWhiteFlour = null      //Order Form Question #4b
     String otherFlours                          //Order Form Question #4c
     String otherFlourIssues                     //Order Form Question #4d
-    Boolean interestedInMixes = null            //Order Form Question #5
-    String mixTypes                             //Order Form Question #5a
-    String mixSizes                             //Order Form Question #5b
-    Boolean addedPastItemsToMenu = null         //Order Form Question #6
-    Boolean addedPastItemsToMenuA = null         //Order Form Question #6
-    String pastItemsAddedToMenu                 //Order Form Question #6a
-    Boolean lookForUltragrain = null            //Order Form Question #7
-    String bidTimeForNewItems                   //Order Form Question #8
-    String participateWaivers                   //Order Form Question #9
-    String participateWaiversItems              //Order Form Question #10?
+
+    Boolean addedPastItemsToMenu = null         //Order Form Question #5
+    Boolean addedPastItemsToMenuA = null        //Order Form Question #5
+    String pastItemsAddedToMenu                 //Order Form Question #5a
+    Boolean lookForUltragrain = null            //Order Form Question #6
+    String participateWaivers                   //Order Form Question #7
+    String participateWaiversItems              //Order Form Question #7a
+
+
+
+    //Old questions:
+    Boolean interestedInMixes = null
+    String mixTypes
+    String mixSizes
+    String bidTimeForNewItems
 
 
     Boolean doNotReceiveAdditionalInformation = null

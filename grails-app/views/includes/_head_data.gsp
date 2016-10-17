@@ -3,7 +3,7 @@
 <meta name="keywords" content="foodservice, school lunch, lunch food, superkids, super kids, food sampling program, conagra mills, conagra foods, ultragrain, sustagrain" />
 
 <link rel="stylesheet" href="${resource(dir:'css',file:'reset.css')}" />
-<link rel="stylesheet" href="${resource(dir:'css',file:'screen_2.0.css')}" />
+<link rel="stylesheet" href="${resource(dir:'css',file:'screen_3.0.css')}" />
 
 <script type="text/javascript">
     var _gaq = _gaq || [];
