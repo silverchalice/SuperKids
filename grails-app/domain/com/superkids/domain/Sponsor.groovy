@@ -16,6 +16,8 @@ class Sponsor {
 
 	byte[] logo
 
+	String logoSnippet
+
 	static hasMany = [products: Product]
 
     static constraints = {
@@ -33,12 +35,14 @@ class Sponsor {
         details nullable:true, maxSize: 500000
 
 		products nullable:true
+		logoSnippet nullable:true
     }
 
     static mapping = {
         logo sqlType:"longblob"
         description sqlType:"longtext"
         details sqlType:"longtext"
+		logoSnippet sqlType:"longtext"
     }
 
 	String toString() {

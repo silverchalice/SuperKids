@@ -46,10 +46,14 @@
     </div>
 </div>
 
-<div id="footer-container">
-    <div id="footer">
-        <g:render template="/includes/footer" />
+<div id="logo-container">
+    <div id="logos">
+
     </div>
+</div>
+</div><div id="footer-container"><div id="footer">
+    <g:render template="/includes/footer" />
+</div>
 </div>
 </body>
 </html>
