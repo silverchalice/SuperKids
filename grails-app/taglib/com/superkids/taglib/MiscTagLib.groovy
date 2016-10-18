@@ -604,18 +604,15 @@ Modified: get menuButton text from new 'msg' attr
 
     def sponsorLogos = { attrs ->
 
-        println attrs
-
         Integer min = attrs.min.toInteger()
         Integer max = attrs.max.toInteger()
 
         def sponsors = Sponsor.findAllByInactive(false).sort { it.name }.take(max)
 
-        println sponsors
-        println sponsors[min..-1]
-
         sponsors[min..-1].each { sponsor ->
-            out <<  "<a href=\"${sponsor.website}\" target=\"_blank\"><img style=\"height:45px\" src=\"${createLink(controller: 'sponsor', action: 'displayImage', id: sponsor.id)}\" alt=\"${sponsor.name} logo\" /></a>"
+
+            def output = sponsor.logoSnippet ?: "<a href=\"${sponsor.website}\" target=\"_blank\"><img style=\"height:45px\" src=\"${createLink(controller: 'sponsor', action: 'displayImage', id: sponsor.id)}\" alt=\"${sponsor.name} logo\" /></a>"
+            out <<  output
         }
     }
 
