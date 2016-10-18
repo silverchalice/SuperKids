@@ -33,3 +33,5 @@
  <link href="css/ie6.css" rel="stylesheet" type="text/css" media="screen"   />
  <![endif]-->
 <link rel="shortcut icon" type="image/ico" href="${resource(dir: 'images', file: 'favicon.ico')}" />
+<script src="https://use.typekit.net/kcd8hbe.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script
