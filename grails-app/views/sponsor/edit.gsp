@@ -108,6 +108,15 @@
                                 </td>
                             </tr>
 
+                        <tr class="prop">
+                            <td valign="top" class="name">
+                                <label for="logoSnippet"><g:message code="sponsor.logoSnippet.label" default="Logo Snippet" /></label>
+                            </td>
+                            <td valign="top" class="value ${hasErrors(bean: sponsorInstance, field: 'logoSnippet', 'errors')}">
+                                <g:textField name="logoSnippet" value="${sponsorInstance?.logoSnippet}" />
+                            </td>
+                        </tr>
+
                             <tr class="prop">
                                 <td valign="top" class="name">
                                   <label for="salesContact"><g:message code="sponsor.salesContact.label" default="Sales Contact" /></label>

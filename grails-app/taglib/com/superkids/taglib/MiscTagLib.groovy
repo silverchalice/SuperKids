@@ -609,11 +609,13 @@ Modified: get menuButton text from new 'msg' attr
         Integer min = attrs.min.toInteger()
         Integer max = attrs.max.toInteger()
 
-        def sponsors = Sponsor.list().sort { it.name }.take(max)
+        def sponsors = Sponsor.findAllByInactive(false).sort { it.name }.take(max)
+
+        println sponsors
+        println sponsors[min..-1]
 
         sponsors[min..-1].each { sponsor ->
-            out << sponsor.logoSnippet ?: "<a href=\"${sponsor.website}\" target=\"_blank\"><img style=\"height:40px\" src=\"${createLink(controller: 'sponsor', action: 'displayImage', id: sponsor.id)}\" alt=\"${sponsor.name} logo\" /></a>"
-
+            out <<  "<a href=\"${sponsor.website}\" target=\"_blank\"><img style=\"height:45px\" src=\"${createLink(controller: 'sponsor', action: 'displayImage', id: sponsor.id)}\" alt=\"${sponsor.name} logo\" /></a>"
         }
     }
 
