@@ -2,11 +2,11 @@
 
 <div class="set-01">
 
-    <sks:sponsorLogos min="1" max="9" />
+    <sks:sponsorLogos min="0" max="8" />
 </div>
 <div class="set-02">
 
 
-    <sks:sponsorLogos min="10" max="25" />
+    <sks:sponsorLogos min="8" max="25" />
 
 </div>
