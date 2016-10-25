@@ -114,6 +114,7 @@ em, i {
     padding-top:10px;
     position:relative;
     top:24px;
+    clear: right;
 }
 #home #logo h2 {
     top:20px;
@@ -1066,6 +1067,48 @@ img.money-books {
     color:#000;
     text-shadow:0 1px 0 rgba(255,255,255,.3);
 }
+
+
+#login input.btn {
+    padding:8px 20px;
+    color:#d9e6ed;
+    text-decoration:none;
+    font-weight:normal;
+    display:inline-block;
+    text-align:center;
+    letter-spacing:0.03em;
+    margin:10px 0;
+    border-radius:5px;
+    border:1px solid #185098;
+    text-shadow:0 -1px 0 rgba(0,0,0,0.3);
+    box-shadow:0 1px 0 #009bda inset;
+    /* CSS3 gradients */
+    background: rgb(11,119,181); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(11,119,181,1) 0%, rgba(26,84,158,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(11,119,181,1)), color-stop(100%,rgba(26,84,158,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(11,119,181,1) 0%,rgba(26,84,158,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(11,119,181,1) 0%,rgba(26,84,158,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(11,119,181,1) 0%,rgba(26,84,158,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(11,119,181,1) 0%,rgba(26,84,158,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b77b5', endColorstr='#1a549e',GradientType=0 ); /* IE6-9 */
+}
+#login .ad input.btn {
+}
+#login input.btn.arrow:after {
+    content:"›";
+    padding-left:8px;
+}
+#login input.btn:hover {
+    color:#fff;
+    box-shadow:0 1px 0 #088cc1 inset, 0 -50px rgba(0,0,0,0.2) inset;
+}
+#login input.btn.complete {
+    color:#000;
+    text-shadow:0 1px 0 rgba(255,255,255,.3);
+}
+
+
+
 #feedback #main a.btn.complete {
     color:#fff;
     text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
@@ -1279,7 +1322,7 @@ td {
     width:1230px
 }
 #logos div.set-02 {
-    width: 1050px;
+    width: 1200px;
 }
 #logos img {
     margin:25px 45px 25px 0;

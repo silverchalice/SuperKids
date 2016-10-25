@@ -1,4 +1,4 @@
-<h5>We&#8217;re proud to feature these great brands made with Ultragrain&reg;</h5>
+<h5>We&#8217;re proud to feature these great brands made with Ultragrain<sup>&reg;</sup></h5>
 
 <div class="set-01">
 

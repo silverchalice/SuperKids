@@ -39,7 +39,7 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="pageText.content.label" default="Content" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: pageTextInstance, field: "content")}</td>
+                            <td valign="top" class="value">${pageTextInstance.content}</td>
                             
                         </tr>
                     

@@ -18,6 +18,11 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
+
+                <g:form action="list">
+                    <label for="query">Search: </label><g:textField name="query" /> <g:submitButton name="submit" value="Search" />
+                </g:form>
+
                 <table>
                     <thead>
                         <tr>
@@ -36,7 +41,7 @@
                         
                             <td><g:link action="show" id="${pageTextInstance.id}">${fieldValue(bean: pageTextInstance, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: pageTextInstance, field: "name")}</td>
+                            <td><g:link action="show" id="${pageTextInstance.id}">${fieldValue(bean: pageTextInstance, field: "name")}</g:link></td>
 
                         
                         </tr>

@@ -9,11 +9,6 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $("#submitLoginButton").click(function () {
-                $("#loginForm").submit();
-            });
-        })
 
         (function () {
             document.forms['loginForm'].elements['j_username'].focus();
@@ -25,7 +20,7 @@
 <body>
 
 
-<div>
+<div id="login">
 
     <div style="float:left; width: 600px; height: 400px">
 
@@ -46,7 +41,7 @@
                                                                                       type='password' class='text_'
                                                                                       name='j_password'
                                                                                       id='password'/> <br/> <br/>
-                <a id="submitLoginButton" href="#" class="btn arrow"><span>Login</span></a>
+                <input type="submit" class="btn arrow" value="Login" />
                 <a href="${createLink(controller: 'home', action: 'c_forgot_password')}">(Forgot your Password?)</a>
 
             </div>

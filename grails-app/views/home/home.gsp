@@ -21,7 +21,7 @@
     <div id="intro-container">
           <div id="intro">
               <h1>Healthier Meals Start Here.</h1>
-              <p>SuperKids is the free and convenient way to try foods and ingredients made with the whole grain goodness of Ultragrain® from a variety of trusted food companies.</p>
+              <p>SuperKids is the free and convenient way to try foods and ingredients made with the whole grain goodness of Ultragrain<sup>®</sup> from a variety of trusted food companies.</p>
               <p><a href="${createLink(controller: 'home', action: 'order')}" class="btn arrow" title="Browse our free products"><span>Browse our free samples</span></a></p> <!--<a href="#" title="Learn about our order restrictions" class="note">Who can order?</a>--></p>
           </div>
         </div>
@@ -29,7 +29,7 @@
             <h3>SuperKids <span>can help you introduce whole grain and higher-fiber options for breakfast, lunch, and snacks.</span></h3>
             <div class="col-01">
                 <div>
-                    <a href="${createLink(controller: 'home', action: 'about')}"><img src="${resource(dir:'images',file:'img_kids_eating_2.0.jpg')}" alt="Kids happily eating lunch" /></a>
+                    <a href="${createLink(controller: 'home', action: 'about')}"></a>
                     <h4>About Us </h4>
                     <p>Learn more about <br />
                       the
@@ -44,7 +44,7 @@
           </div>
           <div class="col-02">
               <div>
-                  <a href="${createLink(controller: 'home', action: 'ultragrain')}"><img src="${resource(dir:'images',file:'img_wheat_2.0.jpg')}" alt="Wheat swaying in the wind" /></a>
+                  <a href="${createLink(controller: 'home', action: 'ultragrain')}"></a>
                   <h4>Our Grains </h4>
                   <p>Learn more about the benefits <br /> of Ultragrain&reg;</p>
               </div>
@@ -55,7 +55,7 @@
           </div>
           <div class="col-03">
               <div>
-              <a href="${createLink(controller: 'home', action: 'order')}"><img src="${resource(dir:'images',file:'img_product_samples_2.0.jpg')}" alt="Pizza in a school lunch" /></a>
+              <a href="${createLink(controller: 'home', action: 'order')}"></a>
                 <h4>Product Samples </h4>
                 <p>Order from our list <br />
                   of free
@@ -67,7 +67,7 @@
               <li><a href="${createLink(controller: 'login', action: 'auth')}" title="Sampling Login">Sampling Login</a></li>
             </ul>
           </div>
-          <div class="col-04"><div> <a href="${createLink(controller: 'home', action: 'learn')}"><img src="${resource(dir:'images',file:'img_lunch_ladies_2.0.jpg')}" alt="A school foodservice worker serving lunch" /></a>
+          <div class="col-04"><div> <a href="${createLink(controller: 'home', action: 'learn')}"></a>
             <h4>Resources</h4>
             <p>Access a range of information about our product samples</p>
           </div>
@@ -80,10 +80,11 @@
         </div>
         <div id="grains-container">
           <div id="grains">
-              <h3>Meet our award-winning grain</h3>
-              <div><img src="${resource(dir:'images',file:'logo_ultragrain_home_2.0.png')}" alt="Ultragrain logo" />
-                  <h4>Ultragrain <span>Whole grain nutrition. White flour appeal.</span></h4>
+              <h4>Meet Our Award Winning Grain</h4>
+              <div><img id="grain-logo" src="${resource(dir:'images',file:'ultragrain_logo_3.0.png')}" alt="Ultragrain logo" />
+                  <h5>Ultragrain<sup>®</sup></h5>
                   <p>Made with specially selected white wheat and ground using all-natural patenting milling, Ultragrain<sup>®</sup> delivers 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of refined white flour. <a href="${createLink(controller: 'home', action: 'ultragrain_general')}" title="Learn more">Learn more »</a></p>
+                  <img class="loaf" src="${resource(dir: 'images', file: 'img_loaf.jpg')}" alt="A sliced loaf of white bread">
             </div>
           </div>
         </div>

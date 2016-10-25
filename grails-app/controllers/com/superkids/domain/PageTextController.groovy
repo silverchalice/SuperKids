@@ -9,8 +9,18 @@ class PageTextController {
     }
 
     def list = {
+        println params
         params.max = Math.min(params.max ? params.int('max') : 20, 100)
-        [pageTextInstanceList: PageText.list(params), pageTextInstanceTotal: PageText.count()]
+
+        def pageTextInstanceList = []
+
+        if(params.query && params.query != '') {
+            pageTextInstanceList = PageText.findAllByNameIlike("%${params.query}%")
+        } else {
+            pageTextInstanceList = PageText.list(params)
+        }
+
+        [pageTextInstanceList: pageTextInstanceList, pageTextInstanceTotal: PageText.count()]
     }
 
     def create = {
