@@ -15,7 +15,7 @@
       <a href="#" title="Return to the homepage"><img src="${resource(dir:'images',file:'logo_superkids.png')}" alt="SuperKids Logo" /></a>
       <h2>SuperKids <span>The whole grain sampling program featuring</span></h2>
 
-      <div id="grain-logos"><a href="#" title="Learn more about Ultragrain"><img src="${resource(dir:'images',file:'ultragrain_logo_small_2.0.png')}" alt="Ultragrain logo" class="first" /></a>
+      <div id="grain-logos"><a href="#" title="Learn more about Ultragrain"><img src="${resource(dir:'images',file:'ultragrain_logo_3.0.png')}" alt="Ultragrain logo" class="first" /></a>
       </div>
     </div>
       <g:render template="/includes/nav"/>
@@ -25,14 +25,17 @@
 <div id="main-container">
    <g:layoutBody/>
 </div>
+
 <div id="logo-container">
     <div id="logos">
         <g:render template="/includes/logos" />
     </div>
 </div>
-</div><div id="footer-container"><div id="footer">
-    <g:render template="/includes/footer" />
+<div id="footer-container">
+    <div id="footer">
+        <g:render template="/includes/footer" />
+    </div>
 </div>
-</div>
+
 </body>
 </html>

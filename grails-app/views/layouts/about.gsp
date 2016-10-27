@@ -50,9 +50,10 @@
         <g:render template="/includes/logos" />
     </div>
 </div>
-</div><div id="footer-container"><div id="footer">
+<div id="footer-container">
+    <div id="footer">
     <g:render template="/includes/footer" />
-</div>
+    </div>
 </div>
 </body>
 </html>

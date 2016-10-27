@@ -49,10 +49,12 @@
         <g:layoutBody/>
     </div>
 </div>
-<div id="footer-container">
+<div id="logo-container">
     <div id="logos">
         <g:render template="/includes/logos" />
     </div>
+</div>
+<div id="footer-container">
     <div id="footer">
         <g:render template="/includes/footer" />
     </div>
