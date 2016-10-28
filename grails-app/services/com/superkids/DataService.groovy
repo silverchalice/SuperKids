@@ -19,8 +19,7 @@ class DataService {
 			println "email " + cell(15)
 
 			customer.with {
-//(0)
-				//seq= new Integer("${cell(1)}".tokenize('.')[0])
+				doNotCall = (cell(0) == "x")
 				customerRanking = rankingString(cell(2))
 				source = cell(3)
 				fsdName = cell(4) ?: " "
@@ -57,14 +56,13 @@ class DataService {
 				otherFlours = (cell(27) == "YES") ? true : null
 				otherFlourIssues = (cell(28) == "YES") ? true : null
 
-				addedPastItemsToMenu = (cell(29) == "YES") ? true : null
+				addedPastItemsToMenu = (cell(29) == "YES") ? true : (cell(29) == 'NO') ? false : null
 				pastItemsAddedToMenu = (cell(30)) ?: ""
 
 				lookForUltragrain = (cell(31) == "YES") ? true : (cell(31) == 'NO') ? false : null
 				participateWaivers = cell(32) ?: ""
 				participateWaiversItems = cell(33) ?: ""
-				doNotCall = (cell(37) == "x")
-				timezone = cell(39) ?: " "
+				timezone = cell(34) ?: " "
 
 //				coOpMember = (cell(25) == 'YES') ? true : null
 //				coOpName = cell(26)
@@ -82,7 +80,6 @@ class DataService {
 //				programsParticipatedIn = (cell(40))
 //				pastParticipant = (cell(41) == 'YES') ? true : null
 //				doNotReceiveAdditionalInformation = (cell(41) == 'YES') ? true : null
-				timezone = cell(42) ?: " "
 
 			}
 			customer.password = springSecurityService.encodePassword("superkids")
@@ -311,17 +308,17 @@ class DataService {
 		switch (string?.toUpperCase()) {
 			case "TOP 100":
 				return 1
-			case "50,000 +":
+			case "20,000 - 46,999":
 				return 2
-			case "40000 - 49999":
+			case "10,000 - 19,999":
 				return 3
-			case "30,000 - 39,999":
+			case "5,000 - 9,999":
 				return 4
-			case "20000 - 29999":
+			case "3,000 - 5,000":
 				return 5
-			case "10000 - 19999":
+			case "Under 3,000":
 				return 6
-			case "NO":
+			case "NA":
 				return 8
 			default:
 				return null
