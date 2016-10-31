@@ -23,9 +23,18 @@ class ProductController {
     }
 
     def admin = {
+
+        def productInstanceList = []
+
+        if(params.query && params.query != '') {
+            productInstanceList = Product.findAllByNameIlikeOrTitleIlike("%${params.query}%", "%${params.query}%")
+        } else {
+            productInstanceList = Product.list(params)
+        }
+
         params.max = Math.min(params.max ? params.int('max') : 23, 100)
         params.sort = params.sort ?: "sortOrder"
-        render view:"list", model:[productInstanceList: Product.list(params), productInstanceTotal: Product.count()]
+        render view:"list", model:[productInstanceList: productInstanceList, productInstanceTotal: Product.count()]
     }
 
     def create = {

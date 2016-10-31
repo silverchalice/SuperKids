@@ -574,7 +574,7 @@ a#timezone-button {
                     </tr>
 
                     <tr><td colspan="2"><strong>7.</strong>Do you participate in any waivers for whole grain-rich foods?
-                    <g:select name="participateWaivers" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateWaiversItems}"/>
+                    <g:select name="participateWaivers" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateWaivers}"/>
                     </td>
                     </tr>
                     <tr>
@@ -585,11 +585,11 @@ a#timezone-button {
                     <!-- Order Form, 2016 -->
 
                     <tr>
-                        <td colspan="2"><strong>8.</strong> By subscribing to SuperKids, ConAgra Foods and/or its affiliates
+                        <td colspan="2"><strong>8.</strong> By subscribing to SuperKids, Ardent Mills and/or its affiliates
                             <br/>may send you information about related events, webinars, products
                             <br/> and services which we believe will be of interest to you.<br/>
                             <br/>Check this box if you DO NOT wish to receive additional information
-                            <br/>from ConAgra Foods and its affiliates.
+                            <br/>from Ardent Mills and its affiliates.
                         <g:checkBox name="doNotReceiveAdditionalInformation"
                                     value="${customerInstance?.doNotReceiveAdditionalInformation}"/>
                         </td>

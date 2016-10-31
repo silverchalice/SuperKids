@@ -2,7 +2,7 @@
 <%@ page import="com.superkids.domain.Product" %>
 <html>
     <head>
-        <title>${productInstance.name} - SuperKids Sampling Program | From ConAgra Foods</title>
+        <title>${productInstance.name} - SuperKids Sampling Program | From Ardent Mills</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="layout" content="products" />
         <meta name="active" content="${productInstance?.id}" />

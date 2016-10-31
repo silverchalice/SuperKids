@@ -12,7 +12,7 @@
 					<g:each in="${products.sort{it.sortOrder}}" var="product" status="i">
 						<tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
 							<td><img style="float:left; width:50px; margin-right:10px" src="${createLink(controller:'product', action:'displayImage', id:product.id)}" alt="" />
-						${product?.sponsor?.name}<sup>®</sup> ${product?.name}</td>
+						${product?.sponsor?.name} - ${product?.title}</td>
 							<td><input type="checkbox" name="product" value="${product.id}" /></td>
 						</tr>
 						<tr>

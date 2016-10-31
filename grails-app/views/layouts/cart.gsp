@@ -3,7 +3,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title><g:layoutTitle default="Review Your Order - SuperKids Sampling Program | From ConAgra Foods"/> </title>
+    <title><g:layoutTitle default="Review Your Order - SuperKids Sampling Program | From Ardent Mills"/> </title>
     <g:render template="/includes/head_data" />
     <g:layoutHead />
     <g:set var="products" value="${Product.findAllByLiveProduct(true)}" />
@@ -32,7 +32,7 @@
             <h2>SuperKids <span>The whole grain sampling program featuring</span></h2>
             <div id="grain-logos">
                 <a href="#" title="Learn more about Ultragrain">
-                    <img src="${resource(dir:'images',file:'ultragrain_logo_small_2.0.png')}" alt="Ultragrain logo" class="first" />
+                    <img src="${resource(dir:'images',file:'ultragrain_logo_3.0.png')}" alt="Ultragrain logo" class="first" />
                 </a>
             </div>
         </div>

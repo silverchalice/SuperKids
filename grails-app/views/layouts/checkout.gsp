@@ -81,7 +81,7 @@
         <li><a href="${createLink(controller:'contactRequest', action:'create')}">Contact Us</a></li><br/>
         <li><a href="http://www.conagrafoods.com/utilities/legal.jsp">Legal Policy</a> | </li>
         <li><a href="http://www.conagrafoods.com/utilities/privacy.jsp">Privacy Policy</a> | </li>
-        <li>&copy; ConAgra Foods, Inc. All rights reserved.</li>
+        <li>&copy; Ardent Mills, Inc. All rights reserved.</li>
       </ul>
 
     </div>

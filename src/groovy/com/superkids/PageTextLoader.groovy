@@ -412,7 +412,7 @@ class PageTextLoader {
             <td width="400" valign="top">VitoGrain Whole Wheat Bread Mix, 7 Grain Bread Mix, and Krunchy Wheat Bread Mix</td>
         </tr>
         <tr>
-            <td width="200" valign="top"><a href="http://www.conagrafoodservice.com/contact_us/contact_us.jsp" target="_blank"><strong><span style="color: rgb(255, 102, 0);">ConAgra Foods, Consumer Foods School Foodservice</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
+            <td width="200" valign="top"><a href="http://www.conagrafoodservice.com/contact_us/contact_us.jsp" target="_blank"><strong><span style="color: rgb(255, 102, 0);">Ardent Mills, Consumer Foods School Foodservice</span></strong></a><strong><span style="color: rgb(255, 102, 0);"><br />
             </span></strong>937-498-4511</td>
             <td width="400" valign="top">
             <p>Healthy Choice<sup>&reg;</sup> Cinnamon Bakes&trade; (Strawberry and Apple)<br />

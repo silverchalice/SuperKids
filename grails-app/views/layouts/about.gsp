@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title><g:layoutTitle default="Welcome to the SuperKids Sampling Program! | From ConAgra Foods"/> </title>
+    <title><g:layoutTitle default="Welcome to the SuperKids Sampling Program! | From Ardent Mills"/> </title>
     <g:render template="/includes/head_data" />
     <g:layoutHead />
 </head>
@@ -16,7 +16,7 @@
             <h2>SuperKids <span>The whole grain sampling program featuring</span></h2>
             <div id="grain-logos">
                 <a href="#" title="Learn more about Ultragrain">
-                    <img src="${resource(dir:'images',file:'ultragrain_logo_small_2.0.png')}" alt="Ultragrain logo" class="first" />
+                    <img src="${resource(dir:'images',file:'ultragrain_logo_3.0.png')}" alt="Ultragrain logo" class="first" />
                 </a>
             </div>
         </div>
@@ -39,7 +39,7 @@
         </div>   -->
             <div class="ad">
                 <h3>Whole Grain Nutrition, White Flour Appeal</h3>
-                <p><img src="${resource(dir:'images',file:'ultragrain_logo_small_2.0.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of white flour. <a href="${createLink(controller: 'home', action: 'ultragrain')}">Learn more »</a></p>
+                <p><img src="${resource(dir:'images',file:'ultragrain_logo_3.0.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of white flour. <a href="${createLink(controller: 'home', action: 'ultragrain')}">Learn more »</a></p>
             </div>
         </div>
         <g:layoutBody/>

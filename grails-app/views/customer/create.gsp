@@ -319,7 +319,7 @@
 <div style="float:left; margin-left:10px; width:420px;">
     <table style="width: auto">
         <tbody>
-        <!-- Order Form, 2015 -->
+        <!-- Order Form, 2016 -->
         <tr>
             <td colspan="2">
                 <strong>1.</strong> Approximately how many students are in your district?
@@ -382,18 +382,24 @@
             </td>
         </tr>
 
-        <tr><td colspan="2"><strong>7.</strong>Do you participate in any waivers for whole grain-rich foods? If yes, for what items?
-            <input type="text" name="participateWaivers" value="${customerInstance?.participateWaivers}" size="55" maxlength="1000"></td>
+        <tr><td colspan="2"><strong>7.</strong>Do you participate in any waivers for whole grain-rich foods?
+        <g:select name="participateWaivers" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateWaivers}"/>
+        </td>
         </tr>
-        <!-- Order Form, 2015 -->
+        <tr>
+            <td colspan="2">If yes, for what items?
+                <input type="text" name="participateWaiversItems" value="${customerInstance?.participateWaiversItems}" size="55" maxlength="1000">
+            </td>
+        </tr>
+        <!-- Order Form, 2016 -->
 
         <tr>
             <td colspan="2">
-                <strong>10.</strong>	By subscribing to SuperKids, ConAgra Foods and/or its affiliates
+                <strong>10.</strong>	By subscribing to SuperKids, Ardent Mills and/or its affiliates
               <br />may send you information about related events, webinars, products
               <br /> and services which we believe will be of interest to you.<br />
               <br />Check this box if you DO NOT wish to receive additional information
-              <br />from ConAgra Foods and its affiliates. 
+              <br />from Ardent Mills and its affiliates.
 
                 <g:checkBox name="doNotReceiveAdditionalInformation" value="${customerInstance?.doNotReceiveAdditionalInformation}" /></td>
         </tr>

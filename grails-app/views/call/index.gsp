@@ -59,9 +59,16 @@
         </g:link>
     </div>
 
+
     <g:link class="order" action="start_order_call" params="[queue:'prev']" style="padding-right:0; margin-right:0; float:left">
         <h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; font-size:18pt;">
             Previously Called - Order
+        </h1>
+    </g:link>
+
+    <g:link class="order" action="start_order_call" params="[queue:'top100']" style="padding-right:0; margin-right:0; float:left">
+        <h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; font-size:18pt;">
+            Top 100 - Order
         </h1>
     </g:link>
     <div style="clear:both">&nbsp;</div>

@@ -1,6 +1,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="SuperKids is a unique, FREE sampling program for K-12 foodservice directors featuring whole grain products made with Ultragrain whole wheat and Sustagrain, the ultra-high fiber whole grain. It offers multiple options for introducing higher fiber and healthy whole grains into snack, breakfast and lunch school district menus. SuperKids gives foodservice directors the opportunity to easily evaluate new whole grain products for taste, texture and appearance. With SuperKids, every snack and meal can deliver more whole grains and taste great. " />
-<meta name="keywords" content="foodservice, school lunch, lunch food, superkids, super kids, food sampling program, conagra mills, conagra foods, ultragrain, sustagrain" />
+<meta name="keywords" content="foodservice, school lunch, lunch food, superkids, super kids, food sampling program, conagra mills, Ardent Mills, ultragrain, sustagrain" />
 
 <link rel="stylesheet" href="${resource(dir:'css',file:'reset.css')}" />
 <link rel="stylesheet" href="${resource(dir:'css',file:'screen_3.0.css')}" />

@@ -97,7 +97,7 @@
             <li>VitoGrain Whole Wheat Bread Mix, 7 Grain Bread Mix, and Krunchy Wheat Bread Mix </li>
         </ul>
         
-        <p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.conagrafoodservice.com/index.jsp" target="_blank"><u>ConAgra Foodservice</u></a></span></strong></p>
+        <p><strong><span style="color: rgb(153, 51, 0);"><a href="http://www.conagrafoodservice.com/index.jsp" target="_blank"><u>Ardent Millservice</u></a></span></strong></p>
         <ul>
             <li>Healthy Choice&reg; Cinnamon Bakes&trade; (Strawberry and Apple)</li>
             <li>The Max&reg; Stuffed Crust Cheese Pizza</li>

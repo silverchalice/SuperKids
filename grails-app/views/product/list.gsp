@@ -20,6 +20,11 @@
             </g:if>
             <p>Please choose a product to edit:</p><br />
             <div class="list">
+
+                <g:form action="admin">
+                    <label for="query">Search: </label><g:textField name="query" /> <g:submitButton name="submit" value="Search" />
+                </g:form>
+
                 <table>
                     <thead>
                         <tr>

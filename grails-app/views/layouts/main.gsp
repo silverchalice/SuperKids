@@ -58,8 +58,8 @@
 						<li><sks:formats controller="report" action="exportPotentialParticipants" formats="['excel']" msg="Potential Participants" /></li>
                         <li><hr /></li>
                         <li><h1>Master Report</h1></li>
-                        <li><span class='menuButton'><a href="/SuperKids/report/exportCustomers?withAssessments=true" onclick="jQuery.ajax({type:'post', data:{'withAssessments': 'true','format': 'csv','extension': 'csv'}, url:'/SuperKids/report/exportCustomers',success:function(data,textStatus){jQuery('#downloadLink').html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){}});return false;" class="excel">Download Excel</a></span></li>
-                        <li><span class='menuButton'><a href="/SuperKids/report/exportCustomers" onclick="jQuery.ajax({type:'post', data:{'format': 'csv', 'extension': 'csv'}, url:'/SuperKids/report/exportCustomers',success:function(data,textStatus){jQuery('#downloadLink').html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){}});return false;" class="excel">Excel (no assessments)</a></span></li>
+                        <li><span class='menuButton'><a href="/report/exportCustomers?withAssessments=true" onclick="jQuery.ajax({type:'post', data:{'withAssessments': 'true','format': 'csv','extension': 'csv'}, url:'/SuperKids/report/exportCustomers',success:function(data,textStatus){jQuery('#downloadLink').html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){}});return false;" class="excel">Download Excel</a></span></li>
+                        <li><span class='menuButton'><a href="/report/exportCustomers" onclick="jQuery.ajax({type:'post', data:{'format': 'csv', 'extension': 'csv'}, url:'/SuperKids/report/exportCustomers',success:function(data,textStatus){jQuery('#downloadLink').html(data);},error:function(XMLHttpRequest,textStatus,errorThrown){}});return false;" class="excel">Excel (no assessments)</a></span></li>
 
                         <li><hr /></li>
                         <li><g:link controller="home" action="change_password">Change Password</g:link></li>

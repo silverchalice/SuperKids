@@ -15,7 +15,7 @@ class PageTextController {
         def pageTextInstanceList = []
 
         if(params.query && params.query != '') {
-            pageTextInstanceList = PageText.findAllByNameIlike("%${params.query}%")
+            pageTextInstanceList = PageText.findAllByNameIlikeOrContentIlike("%${params.query}%", "%${params.query}%")
         } else {
             pageTextInstanceList = PageText.list(params)
         }
