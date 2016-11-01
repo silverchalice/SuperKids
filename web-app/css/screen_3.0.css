@@ -492,6 +492,11 @@ ul#nav .amp {
     margin-bottom:0;
     border-bottom:none;
 }
+
+.ad p img {
+    max-width: 100px!important;
+}
+
 #content {
     float:left;
     width:auto;
