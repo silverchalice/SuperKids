@@ -63,25 +63,11 @@ class DataService {
 				participateWaivers = cell(32) ?: ""
 				participateWaiversItems = cell(33) ?: ""
 				timezone = cell(34) ?: " "
-
-//				coOpMember = (cell(25) == 'YES') ? true : null
-//				coOpName = cell(26)
-//				coOpAddress = cell(27)
-//				secondaryDistributors = cell(29)
-//				hasBakery = (cell(30) == "YES") ? true : null
-
-//				lookForUltragrain = (cell(33) == "YES") ? true : null
-//				buyCommodityFlour = (cell(34) == "YES") ? true : null
-//				likesBagHandles = (cell(35) == "YES") ? true : null
-//				preferredBagSize = (cell(36))
-//				addedPastItemsToMenu = (cell(37)) ? true : null
-//				participateInRewardsPrograms = (cell(38)) ? true : null
-//				participateInCoolSchoolCafe = (cell(39)) ? true : null
-//				programsParticipatedIn = (cell(40))
-//				pastParticipant = (cell(41) == 'YES') ? true : null
-//				doNotReceiveAdditionalInformation = (cell(41) == 'YES') ? true : null
-
 			}
+
+			println "DO NOT CALL $customer - ${customer.customerRanking}"
+			if([6,7].contains(customer.customerRanking)) customer.doNotCall = true
+
 			customer.password = springSecurityService.encodePassword("superkids")
 			customer.enabled = true
 			customer.accountExpired = false
@@ -304,20 +290,23 @@ class DataService {
 
 
 	def rankingString(String string) {
+		println "${string}"
 
-		switch (string?.toUpperCase()) {
-			case "TOP 100":
+		switch (string) {
+			case "Top 100":
 				return 1
 			case "20,000 - 46,999":
 				return 2
-			case "10,000 - 19,999":
+			case "10,001 - 20,000":
 				return 3
-			case "5,000 - 9,999":
+			case "10,000 - 19,999":
 				return 4
-			case "3,000 - 5,000":
+			case "5,000 - 9,999":
 				return 5
-			case "Under 3,000":
+			case "3,000 - 5,000":
 				return 6
+			case "Under 3,000":
+				return 7
 			case "NA":
 				return 8
 			default:
