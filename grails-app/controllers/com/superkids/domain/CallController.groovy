@@ -425,19 +425,16 @@ class CallController {
 	    //make sure the last customer is no longer 'in call'
 	    def currentCustomer = Customer.get(params?.id)
 
-		Integer currentSeq
 		Long currentId
 
 		if(currentCustomer) {
 			currentCustomer.inCall = null
 			currentCustomer.save(flush:true)
 
-            currentSeq = currentCustomer.seq
             currentId = currentCustomer.id
 
 		} else {
-              currentSeq = 1
-              currentId =  1
+              currentId =  0
         }
 		def order = new CustomerOrder()
 		def call = new Call()
@@ -456,7 +453,7 @@ class CallController {
         def twentyFourHoursAgo = new Date(new Date().time - 86400000)
 
 		//order calls are all customers with out a current order AND who are not being called atm
-		def customer = c.list(sort: 'seq') {
+		def customer = c.list(sort: 'id') {
             eq 'timezone', currentTimezone
 			or {
 				eq 'status', CustomerStatus.HAS_NOT_ORDERED
@@ -501,13 +498,8 @@ class CallController {
 				isNull('duplicate')
 			}
 
-		  or{
-              and {
-                  eq('seq', currentSeq)
-                  gt('id', currentId)
-              }
-              gt('seq', currentSeq)
-            }
+		  gt('id', currentId)
+
           maxResults(1)
 		}.getAt(0)
 
@@ -534,7 +526,7 @@ class CallController {
 			}
 
 		} else {
-			customer = c2.list(max: 1, sort: 'seq') {
+			customer = c2.list(max: 1, sort: 'id') {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_NOT_ORDERED
 			    isNull 'inCall'
@@ -671,19 +663,16 @@ class CallController {
         //make sure the last customer is no longer 'in call'
         def currentCustomer = Customer.get(params?.id)
 
-        Integer currentSeq
         Long currentId
 
         if(currentCustomer) {
             currentCustomer.inCall = null
             currentCustomer.save(flush:true)
 
-            currentSeq = currentCustomer.seq
             currentId = currentCustomer.id
 
         } else {
-              currentSeq = 1
-              currentId =  1
+              currentId =  0
         }
         def call = new Call()
 
@@ -705,7 +694,7 @@ class CallController {
         def fortyEightHoursAgo = new Date(new Date().time - 172800000)
         def twentyFourHoursAgo = new Date(new Date().time - 86400000)
 		//assess calls are all customers with a current order AND who are not being called atm
-		Customer customer = c.list(sort: 'seq') {
+		Customer customer = c.list(sort: 'id') {
             eq 'timezone', currentTimezone
 			eq 'hasCompletedCurrentAssessment', false
 
@@ -750,13 +739,7 @@ class CallController {
 				isNull('duplicate')
 			}
 
-		    or{
-                and {
-                    eq('seq', currentSeq)
-                    gt('id', currentId)
-                }
-                gt('seq', currentSeq)
-            }
+			gt('id', currentId)
             maxResults(1)
 		}.getAt(0)
 
@@ -776,7 +759,7 @@ class CallController {
 		} else {
 
 
-			customer = c2.list(max: 1, sort: 'seq') {
+			customer = c2.list(max: 1, sort: 'id') {
                 eq 'timezone', currentTimezone
 			    eq 'status', CustomerStatus.HAS_ORDERED
 
@@ -1148,7 +1131,7 @@ class CallController {
     def assess_list = {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
-        def sort = params.sort ?: "seq"
+        def sort = params.sort ?: "customerRanking"
 		def customers = Customer.findAllByStatus(CustomerStatus.HAS_ORDERED, [max:max, offset:offset, sort: sort])
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_ORDERED)]
@@ -1157,7 +1140,7 @@ class CallController {
     def order_list = {
 		def max = params.max ?: 35
 		def offset = params.offset ?: 0
-        def sort = params.sort ?: "seq"
+        def sort = params.sort ?: "customerRanking"
 		def customers = Customer.findAllByStatus(CustomerStatus.HAS_NOT_ORDERED, [max:max, offset:offset, sort:sort])
 
         [customerInstanceList:customers, customerInstanceTotal: Customer.countByStatus(CustomerStatus.HAS_NOT_ORDERED)]
