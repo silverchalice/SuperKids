@@ -162,10 +162,10 @@ em, i {
     width:70px;
 }
 
-#grain-logos img, #home #grain-logos img, #grain #grain-logos img, #about #grain-logos img {
+#grain-logos img, #home #grain-logos img, #grain #grain-logos img, #about #grain-logos img, #learn #grain-logos img {
     margin:0;
 }
-#grain-logos img.first, #home #grain-logos img.first, #grain #grain-logos img.first, #about #grain-logos img.first {
+#grain-logos img.first, #home #grain-logos img.first, #grain #grain-logos img.first, #about #grain-logos img.first, #learn #grain-logos img.first {
     margin:0 15px 10px 0;
     width: 90px;
 }
