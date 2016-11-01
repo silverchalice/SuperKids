@@ -65,8 +65,11 @@ class DataService {
 				timezone = cell(34) ?: " "
 			}
 
-			println "DO NOT CALL $customer - ${customer.customerRanking}"
-			if([6,7].contains(customer.customerRanking)) customer.doNotCall = true
+
+			if(customer.customerRanking == 6 || customer.customerRanking == 7) {
+				println "DO NOT CALL $customer - ${customer.customerRanking}"
+				customer.doNotCall = true
+			}
 
 			customer.password = springSecurityService.encodePassword("superkids")
 			customer.enabled = true

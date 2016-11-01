@@ -319,17 +319,17 @@ class Customer extends User {
                 case 1:
                     return "Top 100"
                 case 2:
-                    return "50,000+"
+                    return "20,000 - 46,999"
                 case 3:
-                    return "40,000 - 49,999"
+                    return "10,001 - 20,000"
                 case 4:
-                    return "30,000 - 39,999"
-                case 5:
-                    return "20,000 - 29,999"
-                case 6:
                     return "10,000 - 19,999"
-                case 8:
-                    return "NO"
+                case 5:
+                    return "5,000 - 9,999"
+                case 6:
+                    return "3,000 - 5,000"
+                case 7:
+                    return "Under 3,000"
                 default:
                     return "NA"
             }
