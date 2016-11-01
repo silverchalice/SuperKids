@@ -161,12 +161,13 @@ em, i {
     float:left;
     width:70px;
 }
-#grain-logos img, #home #grain-logos img {
+
+#grain-logos img, #home #grain-logos img, #grain #grain-logos img, #about #grain-logos img {
     margin:0;
 }
-#grain-logos img.first, #home #grain-logos img.first {
+#grain-logos img.first, #home #grain-logos img.first, #grain #grain-logos img.first, #about #grain-logos img.first {
     margin:0 15px 10px 0;
-    width:90px;
+    width: 90px;
 }
 #grain-logos p {
     color:#DEE9F2;

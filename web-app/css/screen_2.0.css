@@ -182,10 +182,10 @@ em, i {
     float:left;
     width:232px;
 }
-#grain-logos img, #home #grain-logos img {
+#grain-logos img, #home #grain-logos img, #grain #grain-logos img, #about #grain-logos img {
     margin:0;
 }
-#grain-logos img.first, #home #grain-logos img.first {
+#grain-logos img.first, #home #grain-logos img.first, #grain #grain-logos img.first, #about #grain-logos img.first {
     margin:0 15px 10px 0;
 }
 #grain-logos p {
@@ -541,6 +541,11 @@ ul#nav .amp {
     margin-bottom:0;
     border-bottom:none;
 }
+
+.ad p img {
+    width: 100px;
+}
+
 #content {
     float:left;
     width:auto;
