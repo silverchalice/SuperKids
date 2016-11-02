@@ -105,17 +105,19 @@ class SponsorController {
 
     def displayImage = {
 
+        def sponsorInstance = Sponsor.get(params.id)
+
         try {
-            def sponsorInstance = Sponsor.get(params.id)
 
             response.contentType = "image/jpeg"
             response.contentLength = sponsorInstance.logo.size()
             response.outputStream.write(sponsorInstance.logo)
 
-            sponsorInstance.discard()
         } catch(e) {
             println "sponsor:displayImage Exception: ${e} - ${e.message}"
         }
+
+        sponsorInstance.discard()
 
 
     }
