@@ -197,11 +197,16 @@ class ProductController {
     }
 
 	def displayImage = {
-		def productInstance = Product.get(params.id)
 
-		response.contentType = "image/jpeg"
-		response.contentLength = productInstance.image.size()
-		response.outputStream.write(productInstance.image)
+        try {
+            def productInstance = Product.get(params.id)
+
+            response.contentType = "image/jpeg"
+            response.contentLength = productInstance.image.size()
+            response.outputStream.write(productInstance.image)
+        } catch(e) {
+            println "product:displayImage exception: $e - ${e.message}"
+        }
 	}
 
 	def displayHoverImage = {
