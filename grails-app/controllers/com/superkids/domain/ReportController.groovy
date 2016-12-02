@@ -152,9 +152,11 @@ class ReportController {
 
                     for (prod in prods) {
                         def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
-                        def assessment = Assessment.findByProductAndCustomer(orderedProduct.product, orderedProduct.order.customer)
 
                         if (orderedProduct) {
+
+                            def assessment = Assessment.findByProductAndCustomer(orderedProduct.product, orderedProduct.order.customer)
+
                             if (!orderedProduct?.received) {
                                 m."${prod.name}_Q1" = "Did Not Receive"
                                 m."${prod.name}_Q2" = "Did Not Receive"
