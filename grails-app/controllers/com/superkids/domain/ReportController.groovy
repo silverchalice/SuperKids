@@ -153,7 +153,7 @@ class ReportController {
                     for (prod in prods) {
                         def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
 
-                        if (orderedProduct && !orderedProduct.product.isVarietyPack()) {
+                        if (orderedProduct && !Product.countByParent(orderedProduct.product)) {
 
                             println "Product: ${orderedProduct.product}"
                             def assessment = Assessment.findByProductAndCustomer(prod, customer)
