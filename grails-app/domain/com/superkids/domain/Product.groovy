@@ -83,5 +83,9 @@ class Product implements IShoppable {
 
     }
 
+	Boolean isVarietyPack() {
+		return (!parent && Product.any { it.parent.id == id })
+	}
+
 
 }

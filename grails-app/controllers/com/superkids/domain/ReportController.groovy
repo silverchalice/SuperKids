@@ -153,19 +153,23 @@ class ReportController {
                     for (prod in prods) {
                         def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
 
-                        if (orderedProduct) {
+                        if (orderedProduct && !orderedProduct.product.isVarietyPack()) {
 
+                            println "Product: ${orderedProduct.product}"
                             def assessment = Assessment.findByProductAndCustomer(prod, customer)
 
                             if (!orderedProduct?.received) {
+                                println "not received"
                                 m."${prod.name}_Q1" = "Did Not Receive"
                                 m."${prod.name}_Q2" = "Did Not Receive"
                                 m."${prod.name}_Q3" = "Did Not Receive"
                             } else if (!orderedProduct?.sampled) {
+                                println "not sampled"
                                 m."${prod.name}_Q1" = "Did Not Sample"
                                 m."${prod.name}_Q2" = "Did Not Sample"
                                 m."${prod.name}_Q3" = "Did Not Sample"
                             } else if(assessment) {
+                                println "assessed"
                                 m."${prod.name}_Q1" = assessment?.likeRating
                                 m."${prod.name}_Q2" = assessment?.likeComment
                                 m."${prod.name}_Q3" = assessment?.changeComment
@@ -173,8 +177,6 @@ class ReportController {
                             } else {
                                 println "something went wrong here..."
                                 println "product: ${prod?.id}, customer: ${customer.id}, pOrder: ${orderedProduct.id} assessment: ${assessment})"
-
-                                Assessment.findAllByCustomer(customer).each { println "assessment: ${it.id}, product ${it.product.id}"}
                             }
                         }
 
