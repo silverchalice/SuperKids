@@ -170,6 +170,13 @@ class ReportController {
                                 m."${prod.name}_Q3" = "Did Not Sample"
                             } else if(assessment) {
                                 println "assessed"
+
+                                if(prod.id.intValue() == 110) {
+                                    println "likeRating: ${assessment.likeRating}"
+                                    println "likeComment: ${assessment.likeComment}"
+                                    println "changeComment: ${assessment.changeComment}"
+                                }
+
                                 m."${prod.name}_Q1" = assessment?.likeRating
                                 m."${prod.name}_Q2" = assessment?.likeComment
                                 m."${prod.name}_Q3" = assessment?.changeComment
