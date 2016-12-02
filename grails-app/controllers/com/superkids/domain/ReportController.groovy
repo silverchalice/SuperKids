@@ -155,7 +155,7 @@ class ReportController {
 
                         if (orderedProduct) {
 
-                            def assessment = Assessment.findByProductAndCustomer(orderedProduct.product, orderedProduct.order.customer)
+                            def assessment = Assessment.findByProductAndCustomer(prod, customer)
 
                             if (!orderedProduct?.received) {
                                 m."${prod.name}_Q1" = "Did Not Receive"
@@ -171,8 +171,10 @@ class ReportController {
                                 m."${prod.name}_Q3" = assessment?.changeComment
                                 m.type = assessment.type
                             } else {
-                                println "something when wrong here..."
+                                println "something went wrong here..."
                                 println "product: ${prod?.id}, customer: ${customer.id}, pOrder: ${orderedProduct.id} assessment: ${assessment})"
+
+                                Assessment.findAllByCustomer(customer).each { println "assessment: ${it.id}, product ${it.product.id}"}
                             }
                         }
 
