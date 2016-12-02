@@ -82,10 +82,4 @@ class Product implements IShoppable {
         }.sort { it?.sponsor?.name }
 
     }
-
-	Boolean isVarietyPack() {
-		return (!parent && findByParent(this))
-	}
-
-
 }

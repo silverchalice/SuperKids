@@ -151,39 +151,32 @@ class ReportController {
                 if (withAssessments == 'true') {
 
                     for (prod in prods) {
-                        def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
+                        if(!Product.findByParent(prod)) {
 
-                        if (orderedProduct && !Product.countByParent(orderedProduct.product)) {
+                            def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
 
-                            println "Product: ${orderedProduct.product}"
-                            def assessment = Assessment.findByProductAndCustomer(prod, customer)
+                            if (orderedProduct) {
+                                def assessment = Assessment.findByProductAndCustomer(prod, customer)
 
-                            if (!orderedProduct?.received) {
-                                println "not received"
-                                m."${prod.name}_Q1" = "Did Not Receive"
-                                m."${prod.name}_Q2" = "Did Not Receive"
-                                m."${prod.name}_Q3" = "Did Not Receive"
-                            } else if (!orderedProduct?.sampled) {
-                                println "not sampled"
-                                m."${prod.name}_Q1" = "Did Not Sample"
-                                m."${prod.name}_Q2" = "Did Not Sample"
-                                m."${prod.name}_Q3" = "Did Not Sample"
-                            } else if(assessment) {
-                                println "assessed"
-
-                                if(prod.id.intValue() == 110) {
-                                    println "likeRating: ${assessment.likeRating}"
-                                    println "likeComment: ${assessment.likeComment}"
-                                    println "changeComment: ${assessment.changeComment}"
+                                if (!orderedProduct?.received) {
+                                    m."${prod.name}_Q1" = "Did Not Receive"
+                                    m."${prod.name}_Q2" = "Did Not Receive"
+                                    m."${prod.name}_Q3" = "Did Not Receive"
+                                } else if (!orderedProduct?.sampled) {
+                                    m."${prod.name}_Q1" = "Did Not Sample"
+                                    m."${prod.name}_Q2" = "Did Not Sample"
+                                    m."${prod.name}_Q3" = "Did Not Sample"
+                                } else if(assessment) {
+                                    if(prod.id.intValue() == 110) {
+                                        println "likeRating: ${assessment.likeRating}"
+                                        println "likeComment: ${assessment.likeComment}"
+                                        println "changeComment: ${assessment.changeComment}"
+                                    }
+                                    m."${prod.name}_Q1" = assessment?.likeRating
+                                    m."${prod.name}_Q2" = assessment?.likeComment
+                                    m."${prod.name}_Q3" = assessment?.changeComment
+                                    m.type = assessment.type
                                 }
-
-                                m."${prod.name}_Q1" = assessment?.likeRating
-                                m."${prod.name}_Q2" = assessment?.likeComment
-                                m."${prod.name}_Q3" = assessment?.changeComment
-                                m.type = assessment.type
-                            } else {
-                                println "something went wrong here..."
-                                println "product: ${prod?.id}, customer: ${customer.id}, pOrder: ${orderedProduct.id} assessment: ${assessment})"
                             }
                         }
 

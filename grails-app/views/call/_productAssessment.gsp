@@ -1,6 +1,6 @@
 <table style="width:440px; height: 300px; float:left; margin:10px 5px 0px 5px;">
     <tr class="prop">
-      <td colspan="2"><label>${product?.name}</label></td>
+      <td colspan="2"><label>${product.sponsor?.name} - ${product?.title}</label></td>
     </tr>
 	<tr class="prop">
 		<td class="name" valign="top"><label for="assessment.${product?.id}.likeRating"> <g:message code="assessment.likeRating" default="Product Interest" /></label> </td>
