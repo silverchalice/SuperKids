@@ -151,8 +151,8 @@ class ReportController {
                 if (withAssessments == 'true') {
 
                     for (prod in prods) {
-                        Assessment assessment = Assessment.findByCustomerAndProduct(customer, prod)
                         def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
+                        def assessment = Assessment.findByProductAndCustomer(orderedProduct.product, orderedProduct.order.customer)
 
                         if (orderedProduct) {
                             if (!orderedProduct?.received) {
@@ -170,8 +170,7 @@ class ReportController {
                                 m.type = assessment.type
                             } else {
                                 println "something when wrong here..."
-                                println "product: ${prod?.id}, customer ${customer.id} assessment: ${assessment})"
-                                println "${customer.assessments.collect { it.id + '-' + it.product?.id }.join(',')}"
+                                println "product: ${prod?.id}, customer: ${customer.id}, pOrder: ${orderedProduct.id} assessment: ${assessment})"
                             }
                         }
 
