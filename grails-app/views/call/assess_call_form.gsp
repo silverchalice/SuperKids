@@ -200,7 +200,7 @@
 
 		<div class="body" style="width:1250px">
 			<ul class="tabs">
-				<li><a href="#tab1">Customer Information</a></li>
+				<li><a href="#tab1">C. Info</a></li>
 				<sks:productAssessmentNav id="${customerInstance?.id}"/>
 				<!-- <li><a href="#tab4">Final Questions</a></li> -->
 			</ul>

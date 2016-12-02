@@ -485,17 +485,17 @@ Modified: get menuButton text from new 'msg' attr
             }
 			def totalProducts = products.size()
 			def tabIndex = 2
-			out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
+			out << "<li><a href='#tab${tabIndex}'>Sponsor ${tabIndex - 1}</a></li>"
 			products.eachWithIndex{product, i ->
 				def idx = i + 1
 				if ((idx % 4 == 0) && totalProducts > idx){
 					tabIndex++
-					out << "<li><a href='#tab${tabIndex}'>Sponsors ${tabIndex - 1}</a></li>"
+					out << "<li><a href='#tab${tabIndex}'>Sponsor ${tabIndex - 1}</a></li>"
 				}
 			}
 			
 			tabIndex++
-			out << "<li><a href='#tab${tabIndex}'>Final Questions</a></li>"
+			out << "<li><a href='#tab${tabIndex}'>Final Qs</a></li>"
 		}
 
 	}

@@ -151,26 +151,8 @@ class ReportController {
                 if (withAssessments == 'true') {
 
                     for (prod in prods) {
-                        Assessment assessment = customer?.assessments?.find { it?.product?.id == prod?.id }
-
-                        def orderedProduct = customer?.customerOrder?.products?.find { it?.product?.id == prod.id }
-
-
-                        if(prod?.id?.toInteger() == 76) {
-                            println "This is the one!"
-
-                            if(orderedProduct) {
-                                println "They got this one!"
-
-                                if(assessment) {
-                                    println "They assessed this one!"
-                                    println "likeRating:" + assessment?.likeRating
-                                    println "likeComment:" + assessment?.likeComment
-                                    println "changeComment:" + assessment?.changeComment
-
-                                }
-                            }
-                        }
+                        Assessment assessment = Assessment.findByCustomerAndProduct(customer, prod)
+                        def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
 
                         if (orderedProduct) {
                             if (!orderedProduct?.received) {
@@ -181,17 +163,15 @@ class ReportController {
                                 m."${prod.name}_Q1" = "Did Not Sample"
                                 m."${prod.name}_Q2" = "Did Not Sample"
                                 m."${prod.name}_Q3" = "Did Not Sample"
-                            } else if (assessment) {
+                            } else if(assessment) {
                                 m."${prod.name}_Q1" = assessment?.likeRating
                                 m."${prod.name}_Q2" = assessment?.likeComment
                                 m."${prod.name}_Q3" = assessment?.changeComment
                                 m.type = assessment.type
-                                /*if(prod?.id == 23) {
-                                  m."${prod.name}_Q4" = assessment.favorite
-                                }*/
                             } else {
                                 println "something when wrong here..."
-                                println "(the prod.id was ${prod?.id})"
+                                println "product: ${prod?.id}, customer ${customer.id} assessment: ${assessment})"
+                                println "${customer.assessments.collect { it.id + '-' + it.product?.id }.join(',')}"
                             }
                         }
 
