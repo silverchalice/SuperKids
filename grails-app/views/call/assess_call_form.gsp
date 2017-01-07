@@ -182,7 +182,7 @@ table {
                 id="${customerInstance?.id}"><g:message code="default.home.label"/></g:link>
         <g:if test="${queue && !start}">
             <g:hiddenField name="queue" value="${queue}"/>
-            <span style="position:absolute; width:100px; left:1120px; top:60px;"><g:actionSubmit id="submit"
+            <span style="position:absolute; width:100px; left:1120px; top:5px;"><g:actionSubmit id="submit"
                                                                                                  class="callerButton"
                                                                                                  action="save_assess_call"
                                                                                                  value="Next Call"/></span>
@@ -202,9 +202,9 @@ table {
         <g:if test="${start && queue}">
             <g:hiddenField name="queue" value="${queue}"/>
             <g:actionSubmit id="submit" controller="call" class="callerButton"
-                            style="position:absolute; left:1070px; top:62px" action="next_assess_call"
+                            style="position:absolute; left:1070px; top:5px" action="next_assess_call"
                             value="Start Calling"/>
-            <span style="position:absolute; left:975px; top:64px"><g:select id="timezone" name="timezone"
+            <span style="position:absolute; left:975px; top:5px"><g:select id="timezone" name="timezone"
                                                                             from="${timezones}"/></span>
             <img id="loader" style="position:absolute; left:1175px; padding-top:3px; height:25px; display:none;"
                  src="${resource(dir: 'images', file: 'ajax-loader.gif')}" alt=""/>
