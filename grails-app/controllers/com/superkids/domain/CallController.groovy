@@ -699,9 +699,9 @@ class CallController {
 			eq 'hasCompletedCurrentAssessment', false
 
 			//TODO: Remove to enable Feb orders
-			//customerOrder {
-			//	eq 'shippingDate', ShippingDate.get(4)
-			//}
+			customerOrder {
+				eq 'shippingDate', ShippingDate.get(4)
+			}
 
 			or {
 				eq 'status', CustomerStatus.HAS_ORDERED
@@ -765,9 +765,9 @@ class CallController {
 
 
 				//TODO: Remove to enable Feb orders
-				//customerOrder {
-				//	eq 'shippingDate', ShippingDate.get(4)
-				//}
+				customerOrder {
+					eq 'shippingDate', ShippingDate.get(4)
+				}
 
 				isNull 'inCall'
 				eq 'deleted', false
