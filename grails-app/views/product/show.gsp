@@ -29,11 +29,11 @@
 	    </g:if>
 	    </a>
             <div class="order-info">
-                <sec:ifNotLoggedIn>
-                    <p>To order samples, you must be a foodservice director & you must <a href="${createLink(controller: 'login', action: 'auth')}" title="Log in to order free samples">log in</a>.</p>
-                </sec:ifNotLoggedIn>
-                <sec:ifLoggedIn>
-                    <!--   <p>Sample ordering for this school year is no longer open - come back next year!</p> -->
+                %{--<sec:ifNotLoggedIn>--}%
+                    %{--<p>To order samples, you must be a foodservice director & you must <a href="${createLink(controller: 'login', action: 'auth')}" title="Log in to order free samples">log in</a>.</p>--}%
+                %{--</sec:ifNotLoggedIn>--}%
+                %{--<sec:ifLoggedIn>--}%
+                     <p>Sample ordering for this school year is no longer open - come back next year!</p>
 
                     <g:if test="${customer?.hasPlacedCurrentOrder}">
                         Your Order Has Been Placed
