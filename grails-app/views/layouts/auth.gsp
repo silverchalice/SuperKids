@@ -28,7 +28,6 @@
 
 <div id="logo-container">
     <div id="logos">
-        <g:render template="/includes/logos" />
     </div>
 </div>
 <div id="footer-container">
