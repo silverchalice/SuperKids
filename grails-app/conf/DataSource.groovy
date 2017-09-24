@@ -28,7 +28,7 @@ environments {
     production {
         dataSource {
 	    dbCreate = "update"			
-            url = "jdbc:mysql://localhost:3306/sksdb?useSSL=false"
+            url = "jdbc:mysql://127.0.0.1:3306/sksdb?useSSL=false"
             autoReconnect=true
 
         }

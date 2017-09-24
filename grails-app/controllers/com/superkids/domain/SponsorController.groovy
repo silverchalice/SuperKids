@@ -1,5 +1,7 @@
 package com.superkids.domain
 
+import org.springframework.dao.DataIntegrityViolationException
+
 class SponsorController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -92,7 +94,7 @@ class SponsorController {
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'sponsor.label', default: 'Sponsor'), params.id])}"
                 redirect(action: "list")
             }
-            catch (org.springframework.dao.DataIntegrityViolationException e) {
+            catch (DataIntegrityViolationException e) {
                 flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'sponsor.label', default: 'Sponsor'), params.id])}"
                 redirect(action: "show", id: params.id)
             }
@@ -104,22 +106,23 @@ class SponsorController {
     }
 
     def displayImage = {
-
         def sponsorInstance = Sponsor.get(params.id)
+        if(sponsorInstance) {
+            def logo = sponsorInstance.logo
+            sponsorInstance.discard()
 
-        try {
+            try {
 
-            response.contentType = "image/jpeg"
-            response.contentLength = sponsorInstance.logo.size()
-            response.outputStream.write(sponsorInstance.logo)
+                response.contentType = "image/jpeg"
+                response.contentLength = logo.size()
+                response.outputStream.write(logo)
 
-        } catch(e) {
-            println "sponsor:displayImage Exception: ${e} - ${e.message}"
+            } catch(e) {
+                println "sponsor:displayImage Exception: ${e} - ${e.message}"
+            }
+        } else {
+            response.status = 404
         }
-
-        sponsorInstance.discard()
-
-
     }
 
 }
