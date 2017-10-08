@@ -62,7 +62,8 @@ class DataService {
 				lookForUltragrain = (cell(31) == "YES") ? true : (cell(31) == 'NO') ? false : null
 				participateWaivers = cell(32) ?: ""
 				participateWaiversItems = cell(33) ?: ""
-				timezone = cell(34) ?: " "
+				doNotReceiveAdditionalInformation = (cell(31) == "YES") ? true : null
+				timezone = cell(35) ?: ""
 			}
 
 
