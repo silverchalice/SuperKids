@@ -1,4 +1,4 @@
-epackage com.superkids
+package com.superkids
 
 import com.superkids.domain.*
 
