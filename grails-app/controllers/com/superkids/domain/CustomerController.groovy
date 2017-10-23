@@ -117,10 +117,6 @@ class CustomerController {
             if(!customerInstance.customerOrder) {
                 products = Product.findAllByParentIsNullAndLiveProduct(true)
 
-				products.each {
-					println it
-					println it?.parent
-				}
                 return [customerInstance: customerInstance, products: products, states: states, broker:broker, statusList:statusList,
 				rController:params?.rController, rAction:params?.rAction, sort:params?.sort, offset:params?.offset, query:params?.query]
             } else {
