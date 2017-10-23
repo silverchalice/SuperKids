@@ -1,4 +1,4 @@
-package com.superkids
+epackage com.superkids
 
 import com.superkids.domain.*
 
@@ -62,8 +62,8 @@ class DataService {
 				lookForUltragrain = (cell(31) == "YES") ? true : (cell(31) == 'NO') ? false : null
 				participateWaivers = cell(32) ?: ""
 				participateWaiversItems = cell(33) ?: ""
-				doNotReceiveAdditionalInformation = (cell(31) == "YES") ? true : null
-				timezone = cell(35) ?: ""
+				doNotReceiveAdditionalInformation = (cell(34) == "YES") ? true : null
+				timezone = cell(36) ?: ""
 			}
 
 
