@@ -1,4 +1,3 @@
-
 grails.project.class.dir = "target/classes"
 grails.project.test.class.dir = "target/test-classes"
 grails.project.test.reports.dir = "target/test-reports"
@@ -28,11 +27,13 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-	runtime 'mysql:mysql-connector-java:5.1.29'
-	compile 'antlr:antlr:2.7.7'
+        runtime 'mysql:mysql-connector-java:5.1.29'
+        compile 'antlr:antlr:2.7.7'
+        compile 'org.slf4j:jcl-over-slf4j:1.7.5'
+        compile 'org.slf4j:slf4j-api:1.7.5'
     }
     plugins {
-	build ":tomcat:7.0.54"
+        build ":tomcat:7.0.54"
 
         compile ":scaffolding:2.0.3"
         compile ':cache:1.1.7'

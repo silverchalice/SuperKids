@@ -510,17 +510,19 @@ a#timezone-button {
                         </td>
                     </tr>
 
-                    <!-- Order Form, 2016 -->
+                    <!-- Order Form, 2017 -->
                     <tr>
                         <td colspan="2">
-                            <strong>1.</strong> Approximately how many students are in your district?
+                            <strong>1.</strong> How many students are in your district?
                             <input type="text" name="studentsInDistrict" size="4" maxlength="6" value="${customerInstance?.studentsInDistrict}">
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <strong>2.</strong>	Approximately how many students participate<br/> in your foodservice program?
-                            <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"></td>
+                            <strong>2.</strong>	How many students participate in your<br/> school foodservice program?<br/>
+                            Breakfast: <input type="text" name="studentsParticipateBreakfast" size="4" maxlength="6" value="${customerInstance?.studentsParticipateBreakfast}">
+                            Lunch: <input type="text" name="studentsParticipateLunch" size="4" maxlength="6" value="${customerInstance?.studentsParticipateLunch}">
+                            After School: <input type="text" name="studentsParticipateAfterSchool" size="4" maxlength="6" value="${customerInstance?.studentsParticipateAfterSchool}"></td>
                     </tr>
 
                     <tr>
@@ -531,7 +533,7 @@ a#timezone-button {
                     </tr>
 
                     <tr>
-                        <td colspan="2"><strong>4.</strong> Do you bake from scratch in your district?
+                        <td colspan="2"><strong>4.</strong> Do you bake from scratch using flour or mixes in your district (do not include parbaked items)?
                         <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
                         </td>
                     </tr>
@@ -543,17 +545,34 @@ a#timezone-button {
                     </tr>
 
                     <tr>
-                        <td colspan="2">b)	Ultragrain T-2 (55% Ultragrain/45% white flour?)
+                        <td colspan="2">b)	Do you use Ultragrain T-2 (55% Ultragrain/45% white flour?)
                         <g:select name="useUltragrainWhiteFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainWhiteFlour}"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td colspan="2">c)	If you don’t use Ultragrain or T-2, what flour do you use? (Commodity, other brand?)
-                            <input type="text" name="otherFlours" value="${customerInstance?.otherFlours}" size="55" maxlength="1000"></td>
+                        <td colspan="2">c)	Do you use Commodity Flour?
+                        <g:select name="buyCommodityFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
+                        </td>
                     </tr>
 
-                    <tr><td colspan="2">d) Do you experience any issues with the flours? <br/>
+                    <tr><td colspan="2">d) Do you use other flours (please list)? <br/>
+                        <input type="text" name="otherFlours" value="${customerInstance?.otherFlours}" size="55" maxlength="1000"></td>
+                    </tr>
+
+                    <tr><td colspan="2">e) Do you use mixes (please list)? <br/>
+                        <input type="text" name="otherFlours" value="${customerInstance?.otherMixes}" size="55" maxlength="1000"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            Do you experience any challenges when scratch baking?
+                            <g:select name="bakingChallenges" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.bakingChallenges}"/>
+
+                        </td>
+                    </tr>
+
+                    <tr><td colspan="2">If yes, which items? <br/>
                         <input type="text" name="otherFlourIssues" value="${customerInstance?.otherFlourIssues}" size="55" maxlength="1000"></td>
                     </tr>
 
@@ -582,7 +601,7 @@ a#timezone-button {
                             <input type="text" name="participateWaiversItems" value="${customerInstance?.participateWaiversItems}" size="55" maxlength="1000">
                         </td>
                     </tr>
-                    <!-- Order Form, 2016 -->
+                    <!-- END Order Form, 2017 -->
 
                     <tr>
                         <td colspan="2"><strong>8.</strong> By subscribing to SuperKids, Ardent Mills and/or its affiliates

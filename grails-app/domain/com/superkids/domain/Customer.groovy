@@ -56,14 +56,18 @@ class Customer extends User {
 //	Order Form Questions
 
     String studentsInDistrict                   //Order Form Question #1
-    String studentsParticipate                  //Order Form Question #2
+    String studentsParticipateBreakfast         //Order Form Question #2a
+    String studentsParticipateLunch             //Order Form Question #2b
+    String studentsParticipateAfterSchool       //Order Form Question #2c
     String callerBrokers                        //Order Form Question #3  (primary foodservice distributors)
     Boolean hasBakery = null                    //Order Form Question #4
     Boolean useUltragrainFlour = null           //Order Form Question #4a
     Boolean useUltragrainWhiteFlour = null      //Order Form Question #4b
-    String otherFlours                          //Order Form Question #4c
-    String otherFlourIssues                     //Order Form Question #4d
-
+    Boolean buyCommodityFlour = null            //Order Form Question #4c
+    String otherFlours                          //Order Form Question #4d
+    String otherMixes                           //Order Form Question #4e
+    Boolean bakingChallenges                    //Order Form Question #4f
+    String otherFlourIssues                     //Order Form Question #4g
     Boolean addedPastItemsToMenu = null         //Order Form Question #5
     Boolean addedPastItemsToMenuA = null        //Order Form Question #5
     String pastItemsAddedToMenu                 //Order Form Question #5a
@@ -78,7 +82,7 @@ class Customer extends User {
     String mixTypes
     String mixSizes
     String bidTimeForNewItems
-
+    String studentsParticipate
 
     Boolean doNotReceiveAdditionalInformation = null
 
@@ -87,18 +91,12 @@ class Customer extends User {
     //Assessment Questions
     String programFeedback
     String overallPerceptions
-
-
-//    String expectationsNotMetFeedback
-//    String expectationsNotMetManufacturer
-//    String expectationsNotMetProductName
-//    String expectationsNotMetReason
 	String reformulations
   	String otherProducts
     String addedSampleProducts
     String sampleProductsAdded
     String pastCompanies
-    Boolean buyCommodityFlour
+
 
     Integer customerRanking
 
@@ -216,6 +214,12 @@ class Customer extends User {
 		studentsInDistrict nullable: true
         studentsParticipate nullable:  true
         freeStudents nullable: true
+
+        otherMixes nullable: true
+        bakingChallenges nullable: true
+        studentsParticipateBreakfast nullable: true
+        studentsParticipateLunch nullable: true
+        studentsParticipateAfterSchool nullable: true
 
         startBidding nullable: true
         startLooking nullable:  true
