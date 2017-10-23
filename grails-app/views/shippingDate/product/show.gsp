@@ -69,7 +69,7 @@
 			  right:0;
 			  width:815px;
 		      margin-right:0;
-			  background:url('/SuperKids/images/layout/contentFooter-bg.gif') repeat-x;
+			  background:url('/images/layout/contentFooter-bg.gif') repeat-x;
 			}
 
 			.productAd {
@@ -176,31 +176,31 @@
 
 
 
-			#orderSample a { background-image:url('/SuperKids/images/layout/buttons/OrderOrderButton.gif'); }
-			#orderSample a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderOrderButton-on.gif'); }
+			#orderSample a { background-image:url('/images/layout/buttons/OrderOrderButton.gif'); }
+			#orderSample a:hover { background-image:url('/images/layout/buttons/OrderOrderButton-on.gif'); }
 			
 			#viewCart { margin-bottom:58px }
-			#viewCart a { background-image:url('/SuperKids/images/layout/buttons/OrderCartButton.gif'); }
-			#viewCart a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderCartButton-on.gif'); }
+			#viewCart a { background-image:url('/images/layout/buttons/OrderCartButton.gif'); }
+			#viewCart a:hover { background-image:url('/images/layout/buttons/OrderCartButton-on.gif'); }
 
 			#productAd { margin-bottom:10px; }
-			#productAd a { background-image:url('/SuperKids/images/layout/buttons/OrderProductButton.gif'); }
-			#productAd a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderProductButton-on.gif'); }
+			#productAd a { background-image:url('/images/layout/buttons/OrderProductButton.gif'); }
+			#productAd a:hover { background-image:url('/images/layout/buttons/OrderProductButton-on.gif'); }
 
 			#details { margin-bottom:13px; }
-			#details a { background-image:url('/SuperKids/images/layout/buttons/OrderSamplePackButton.gif'); }
-			#details a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderSamplePackButton-on.gif'); }
+			#details a { background-image:url('/images/layout/buttons/OrderSamplePackButton.gif'); }
+			#details a:hover { background-image:url('/images/layout/buttons/OrderSamplePackButton-on.gif'); }
 
 			#nutritional { margin-bottom: 9px }
-			#nutritional a { background-image:url('/SuperKids/images/layout/buttons/OrderNutriButton.gif'); }
-			#nutritional a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderNutriButton-on.gif'); }
+			#nutritional a { background-image:url('/images/layout/buttons/OrderNutriButton.gif'); }
+			#nutritional a:hover { background-image:url('/images/layout/buttons/OrderNutriButton-on.gif'); }
 
 			#manufacturer { margin-bottom:68px; }
-			#manufacturer a { background-image:url('/SuperKids/images/layout/buttons/OrderManufButton.gif'); }
-			#manufacturer a:hover { background-image:url('/SuperKids/images/layout/buttons/OrderManufButton-on.gif'); }
+			#manufacturer a { background-image:url('/images/layout/buttons/OrderManufButton.gif'); }
+			#manufacturer a:hover { background-image:url('/images/layout/buttons/OrderManufButton-on.gif'); }
 
-			#viewSummary a { background-image:url('/SuperKids/images/layout/buttons/PrintAdButton.gif'); }
-			#viewSummary a:hover { background-image:url('/SuperKids/images/layout/buttons/PrintAdButton-on.gif'); }
+			#viewSummary a { background-image:url('/images/layout/buttons/PrintAdButton.gif'); }
+			#viewSummary a:hover { background-image:url('/images/layout/buttons/PrintAdButton-on.gif'); }
 
 
 		</style>
@@ -233,8 +233,8 @@
 			</div>
 
 			<div class="contentFooter">
-				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+				<img class="contentFooterBL" style="float:left" alt="" src="/images/layout/contentFooter-bl-bg.gif"/>
+				<img class="contentFooterBR" style="float:right" alt="" src="/images/layout/contentFooter-br-bg.gif"/>
 			</div>
 		</div>
 
@@ -259,8 +259,8 @@
 
 
 			<div class="contentFooter">
-				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+				<img class="contentFooterBL" style="float:left" alt="" src="/images/layout/contentFooter-bl-bg.gif"/>
+				<img class="contentFooterBR" style="float:right" alt="" src="/images/layout/contentFooter-br-bg.gif"/>
 			</div>
 		</div>
 
@@ -283,8 +283,8 @@
 
 
 			<div class="contentFooter">
-				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+				<img class="contentFooterBL" style="float:left" alt="" src="/images/layout/contentFooter-bl-bg.gif"/>
+				<img class="contentFooterBR" style="float:right" alt="" src="/images/layout/contentFooter-br-bg.gif"/>
 			</div>
 		</div>
 
@@ -308,8 +308,8 @@
 
 
 			<div class="contentFooter">
-				<img class="contentFooterBL" style="float:left" alt="" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-				<img class="contentFooterBR" style="float:right" alt="" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+				<img class="contentFooterBL" style="float:left" alt="" src="/images/layout/contentFooter-bl-bg.gif"/>
+				<img class="contentFooterBR" style="float:right" alt="" src="/images/layout/contentFooter-br-bg.gif"/>
 			</div>
 		</div>
 

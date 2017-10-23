@@ -97,18 +97,18 @@
 
                             <td width="25px">
                                     <g:if test="${customerInstance.newCustomer}">
-                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params='[newCustomer:"false", rController:"customer", rAction:"list", sort: "${sort}", offset: "${offset}"]'><img src="/SuperKids/images/true-g.png" height="18" width="18"></g:link>
+                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params='[newCustomer:"false", rController:"customer", rAction:"list", sort: "${sort}", offset: "${offset}"]'><img src="/images/true-g.png" height="18" width="18"></g:link>
                                     </g:if>
                                     <g:else>
-                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params='[newCustomer:"true", rController:"customer", rAction:"list", sort: "${sort}", offset: "${offset}"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
+                                        <g:link controller="customer" action="toggleNew" id="${customerInstance.id}" params='[newCustomer:"true", rController:"customer", rAction:"list", sort: "${sort}", offset: "${offset}"]'><img src="/images/false.png" height="18" width="18"></g:link>
                                     </g:else>
                             </td>
 							<td width="50px">
                           	    <g:if test="${customerInstance.duplicate}">
-									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"false", rController:"customer", rAction:"list", sort: "${sort}", offset: "${offset}"]'><img src="/SuperKids/images/true-r.png" height="18" width="18"></g:link>
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"false", rController:"customer", rAction:"list", sort: "${sort}", offset: "${offset}"]'><img src="/images/true-r.png" height="18" width="18"></g:link>
 								</g:if>
 								<g:else>
-									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"true", rController:"customer", rAction:"list", sort: "${sort}", offset: "${offset}"]'><img src="/SuperKids/images/false.png" height="18" width="18"></g:link>
+									<g:link controller="customer" action="toggleDuplicate" id="${customerInstance.id}" params='[duplicate:"true", rController:"customer", rAction:"list", sort: "${sort}", offset: "${offset}"]'><img src="/images/false.png" height="18" width="18"></g:link>
 								</g:else>
 
                             </td>

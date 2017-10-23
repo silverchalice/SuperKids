@@ -25,7 +25,7 @@
 							<img alt="${productInstance?.name}" src="/SuperKids/uploads/${productInstance?.backgroundImage}" style="width:150px; height:180px; margin-bottom:15px; border:1px yellow solid; float:left" /><br />
 							<br />
 							<div style="line-height:30px;">
-							    <img style="float:left; border:0; height:30px; width:30px" alt="Download PDF" src="/SuperKids/images/pdficon.gif" />&nbsp; <a target="_blank" href="/userfiles/file/PDF/ConAgra%20Foods%20Downloadable%20PDF.pdf"><span style="color: rgb(255, 102, 0);">Download PDF</span></a>
+							    <img style="float:left; border:0; height:30px; width:30px" alt="Download PDF" src="/images/pdficon.gif" />&nbsp; <a target="_blank" href="/userfiles/file/PDF/ConAgra%20Foods%20Downloadable%20PDF.pdf"><span style="color: rgb(255, 102, 0);">Download PDF</span></a>
 							</div>
 							</td>
 							<td>

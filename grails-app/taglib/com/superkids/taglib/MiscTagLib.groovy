@@ -148,7 +148,7 @@ class MiscTagLib {
 
     def orderCheckbox = { attrs ->
         def customerInstance = Customer.get(attrs.id)
-        out << "<img src='/SuperKids/images/"
+        out << "<img src='/images/"
         if(customerInstance?.customerOrder?.products){
             out << "true-y.png"
         } else {
@@ -171,7 +171,7 @@ class MiscTagLib {
 
     def assessmentCheckbox = { attrs ->
         def customerInstance = Customer.get(attrs.id)
-        out << "<img src='/SuperKids/images/"
+        out << "<img src='/images/"
         if(customerInstance.status == CustomerStatus.QUALIFIED){
             out << "true-r.png"
         } else {

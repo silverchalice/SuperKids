@@ -20,7 +20,7 @@
 			} 
 		</script>
     </head>
-    <body>
+    <body style="min-width:1200px;">
         <div id="spinner" class="spinner" style="display:none;">
             <img src="${resource(dir:'images',file:'spinner.gif')}" alt="${message(code:'spinner.alt',default:'Loading...')}" />
         </div>

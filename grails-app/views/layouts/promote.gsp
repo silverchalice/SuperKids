@@ -76,8 +76,8 @@
 
 
 		<div id="contentFooter">
-			<img id="contentFooterBL" src="/SuperKids/images/layout/contentFooter-bl-bg.gif"/>
-			<img id="contentFooterBR" src="/SuperKids/images/layout/contentFooter-br-bg.gif"/>
+			<img id="contentFooterBL" src="/images/layout/contentFooter-bl-bg.gif"/>
+			<img id="contentFooterBR" src="/images/layout/contentFooter-br-bg.gif"/>
 		</div>
 	</div>
 
