@@ -89,7 +89,7 @@ class ReportController {
 
         def prods = Product.findAllByLiveProduct(true, [sort: 'sortOrder'])
         println("After Product.list - ${new Date().time - startTime}")
-        Customer.list(sort: "seq").each { customer ->
+        Customer.list(sort: "seq").each { Customer customer ->
             if (!customer.deleted) {
                 def productIds = customer.customerOrder?.products?.collect { customer.id }
 
@@ -116,14 +116,18 @@ class ReportController {
                 m.deliveryAddress.city = customer.deliveryAddress?.city
                 m.deliveryAddress.state = customer?.address?.state
                 m.deliveryAddress.zip = customer.deliveryAddress?.zip
-
                 m.studentsInDistrict = customer.studentsInDistrict
-                m.studentsParticipate = customer.studentsParticipate
+                m.studentsParticipateBreakfast = customer.studentsParticipateBreakfast
+                m.studentsParticipateLunch = customer.studentsParticipateLunch
+                m.studentsParticipateAfterSchool = customer.studentsParticipateAfterSchool
                 m.callerBrokers = customer.callerBrokers
                 m.hasBakery = (customer.hasBakery == null) ? "N/A" : customer.hasBakery ? "YES" : "NO"
                 m.useUltragrainFlour = (customer.useUltragrainFlour == null) ? "N/A" : customer.useUltragrainFlour ? "YES" : "NO"
                 m.useUltragrainWhiteFlour = (customer.useUltragrainWhiteFlour == null) ? "N/A" : customer.useUltragrainWhiteFlour ? "YES" : "NO"
+                m.buyCommodityFlour = (customer.buyCommodityFlour == null) ? "N/A" : customer.buyCommodityFlour ? "YES" : "NO"
                 m.otherFlours = customer.otherFlours
+                m.otherMixes = customer.otherMixes
+                m.bakingChallenges = (customer.bakingChallenges == null) ? "N/A" : customer.bakingChallenges ? "YES" : "NO"
                 m.otherFlourIssues = customer.otherFlourIssues
                 m.addedPastItemsToMenu = (customer.addedPastItemsToMenu == null) ? "N/A" : customer.addedPastItemsToMenu ? "YES" : "NO"
                 m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
@@ -225,12 +229,17 @@ class ReportController {
                        "deliveryAddress.zip",
 
                        "studentsInDistrict",
-                       "studentsParticipate",
+                       "studentsParticipateBreakfast",
+                       "studentsParticipateLunch",
+                       "studentsParticipateAfterSchool",
                        "callerBrokers",
                        "hasBakery",
                        "useUltragrainFlour",
                        "useUltragrainWhiteFlour",
+                       "buyCommodityFlour",
                        "otherFlours",
+                       "otherMixes",
+                       "bakingChallenges",
                        "otherFlourIssues",
                        "addedPastItemsToMenu",
                        "pastItemsAddedToMenu",
@@ -278,18 +287,23 @@ class ReportController {
                       "deliveryAddress.zip"              : "Delivery Zip",
 
                       "studentsInDistrict"               : "Students in District",
-                      "studentsParticipate"              : "Participating Students",
+                      "studentsParticipateBreakfast"     : "Participating Students - Breakfast",
+                      "studentsParticipateLunch"         : "Participating Students - Lunch",
+                      "studentsParticipateAfterSchool"   : "Participating Students - After School",
                       "callerBrokers"                    : "Primary foodservice distributors",
                       "hasBakery"                        : "Bake from Scratch",
                       "useUltragrainFlour"               : "Use Ultragrain 100% whole wheat flour",
                       "useUltragrainWhiteFlour"          : "Use Ultragrain T2% whole wheat flour",
+                      "buyCommodityFlour"                : "Buy Commodity flour",
                       "otherFlours"                      : "What other flours do you use? ",
+                      "otherMixes"                       : "What mixes do you use?",
+                      "bakingChallenges"                 : "Do you experience any challenges when scratch baking?",
                       "otherFlourIssues"                 : "Do you experience any issues with the flours? ",
                       "addedPastItemsToMenu"             : "Added previous items to menu",
                       "pastItemsAddedToMenu"             : "Past items added to menu",
                       "lookForUltragrain"                : "Look for 'Ultragrain' when trying new foods",
-                      "participateWaivers"              : "Waiver programs participated in",
-                      "participateWaiversItems"         : "Waiver programs for items",
+                      "participateWaivers"               : "Waiver programs participated in",
+                      "participateWaiversItems"          : "Waiver programs for items",
 
                       "pastParticipant"                  : "Previous Participant",
                       "doNotReceiveAdditionalInformation": "Opted out of additional information",
