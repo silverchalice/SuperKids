@@ -360,7 +360,7 @@
 <div style="float:left; margin-left:10px; width:420px;">
     <table style="width: auto">
         <tbody>
-        <!-- Order Form, 2016 -->
+        <!-- Order Form, 2017 -->
         <tr>
             <td colspan="2">
                 <strong>1.</strong> Approximately how many students are in your district?
@@ -432,7 +432,7 @@
                 <input type="text" name="participateWaiversItems" value="${customerInstance?.participateWaiversItems}" size="55" maxlength="1000">
             </td>
         </tr>
-        <!-- Order Form, 2016 -->
+        <!-- Order Form, 2017 -->
 
         <tr>
             <td colspan="2">
