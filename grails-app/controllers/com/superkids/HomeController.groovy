@@ -90,7 +90,7 @@ class HomeController {
            Customer customerInstance = new Customer()
 
 
-           if(checkParams(params)){
+           if(checkParams(params, false)){
 
            customerInstance.properties = userService.bindParams(params)
 
@@ -941,7 +941,7 @@ class HomeController {
            }
        }
 
-       def checkParams(params, update = false){
+       def checkParams(params, update){
            println params
            if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || Customer.findByEmail(params.email)){
                if(!params.fsdName){
