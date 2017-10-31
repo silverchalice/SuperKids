@@ -277,6 +277,7 @@
         <label><g:message code="customer.address.state.label" default="State"/></label>
     </td>
     <td valign="top">
+        <!-- State: ${customerInstance?.address?.state} -->
         <g:select name="address.state" from="${states}" value="${customerInstance?.address?.state}" noSelection="['':'Select a State']"/>
     </td>
 </tr>
