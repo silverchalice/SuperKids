@@ -943,7 +943,7 @@ class HomeController {
 
        def checkParams(params, update){
            println params
-           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || Customer.findByEmail(params.email)){
+           if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || (!update && Customer.findByEmail(params.email))){
                if(!params.fsdName){
                    if(flash.message){
                        flash.message += "Please enter your name <br />"
@@ -986,13 +986,16 @@ class HomeController {
                        flash.message = "Please enter the address of your school district <br />"
                    }
                }
-               if(!update && Customer.findByEmail(params.email)){
-                   if(flash.message){
-                       flash.message += "The email address you have entered is already assigned to an account <br />"
-                   } else {
-                       flash.message = "The email address you have entered is already assigned to an account <br />"
+               if(!update) {
+                   if(Customer.findByEmail(params.email)){
+                       if(flash.message){
+                           flash.message += "The email address you have entered is already assigned to an account <br />"
+                       } else {
+                           flash.message = "The email address you have entered is already assigned to an account <br />"
+                       }
                    }
                }
+
                return false
            } else {
                return true
