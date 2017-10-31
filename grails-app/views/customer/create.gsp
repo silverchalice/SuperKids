@@ -328,7 +328,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <strong>2.</strong>	How many students participate in your<br/> school foodservice program?<br/>
+                <strong>2.</strong>	How many students participate in your<br/> school foodservice program? <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}">
                 Breakfast: <input type="text" name="studentsParticipateBreakfast" size="4" maxlength="6" value="${customerInstance?.studentsParticipateBreakfast}">
                 Lunch: <input type="text" name="studentsParticipateLunch" size="4" maxlength="6" value="${customerInstance?.studentsParticipateLunch}">
                 After School: <input type="text" name="studentsParticipateAfterSchool" size="4" maxlength="6" value="${customerInstance?.studentsParticipateAfterSchool}"></td>

@@ -91,7 +91,6 @@ class ReportController {
         println("After Product.list - ${new Date().time - startTime}")
         Customer.list(sort: "seq").each { Customer customer ->
             if (!customer.deleted) {
-                def productIds = customer.customerOrder?.products?.collect { customer.id }
 
                 def m = [:]
                 m.id = customer.id
@@ -117,6 +116,7 @@ class ReportController {
                 m.deliveryAddress.state = customer?.address?.state
                 m.deliveryAddress.zip = customer.deliveryAddress?.zip
                 m.studentsInDistrict = customer.studentsInDistrict
+                m.studentsParticipate = customer.studentsParticipate
                 m.studentsParticipateBreakfast = customer.studentsParticipateBreakfast
                 m.studentsParticipateLunch = customer.studentsParticipateLunch
                 m.studentsParticipateAfterSchool = customer.studentsParticipateAfterSchool
@@ -229,6 +229,7 @@ class ReportController {
                        "deliveryAddress.zip",
 
                        "studentsInDistrict",
+                       "studentsParticipate",
                        "studentsParticipateBreakfast",
                        "studentsParticipateLunch",
                        "studentsParticipateAfterSchool",
@@ -287,6 +288,7 @@ class ReportController {
                       "deliveryAddress.zip"              : "Delivery Zip",
 
                       "studentsInDistrict"               : "Students in District",
+                      "studentsParticipate"              : "Participating Students",
                       "studentsParticipateBreakfast"     : "Participating Students - Breakfast",
                       "studentsParticipateLunch"         : "Participating Students - Lunch",
                       "studentsParticipateAfterSchool"   : "Participating Students - After School",
