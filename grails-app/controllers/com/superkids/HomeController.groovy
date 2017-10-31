@@ -159,7 +159,7 @@ class HomeController {
                        return
                    }
                }
-               if(checkParams(params)){
+               if(checkParams(params, true)){
                    customerInstance.properties = userService.bindParams(params)
                    if(params.email){
                        def u = User.get(params.id)
@@ -941,7 +941,7 @@ class HomeController {
            }
        }
 
-       def checkParams(params){
+       def checkParams(params, update = false){
            println params
            if(!params.fsdName || !params.email || !params.district || !params.address.city || !params.address.zip || !params.address.street || Customer.findByEmail(params.email)){
                if(!params.fsdName){
@@ -986,7 +986,7 @@ class HomeController {
                        flash.message = "Please enter the address of your school district <br />"
                    }
                }
-               if(Customer.findByEmail(params.email)){
+               if(!update && Customer.findByEmail(params.email)){
                    if(flash.message){
                        flash.message += "The email address you have entered is already assigned to an account <br />"
                    } else {
