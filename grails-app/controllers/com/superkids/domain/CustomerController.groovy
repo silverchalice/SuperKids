@@ -138,7 +138,7 @@ class CustomerController {
 		println params
 
 		def rController = params?.rController ?: "customer"
-		def rAction = params?.rAction ?: "list"
+		def rAction = params?.rAction ?: "show"
 
         def customerInstance = Customer.get(params.id)
         if (customerInstance) {
@@ -169,7 +169,7 @@ class CustomerController {
             }
             if(customerInstance.save(flush: true)){
                 flash.message = "Updated profile for customer ${customerInstance.district}"
-                redirect(controller: rController, action: rAction, params:[sort:params?.sort, offset:params?.offset, query:params?.query])
+                redirect(controller: rController, action: rAction, id: customerInstance.id, params:[sort:params?.sort, offset:params?.offset, query:params?.query])
             } else {
                 customerInstance.errors.allErrors.each { println it }
                 flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
