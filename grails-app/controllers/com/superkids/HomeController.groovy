@@ -152,7 +152,7 @@ class HomeController {
     }
 
     def update = {
-
+        println "update profile..."
         def customerInstance = Customer.get(params.id)
         if (customerInstance) {
             if (params.version) {
