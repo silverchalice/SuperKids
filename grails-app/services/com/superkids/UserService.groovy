@@ -25,6 +25,12 @@ class UserService {
         if(params.lookForUltragrain == 'NA') {
             params.lookForUltragrain = null
         }
+        if(params.buyCommodityFlour == 'NA') {
+            params.buyCommodityFlour = null
+        }
+        if(params.buyCommodityFlour == 'NA') {
+            params.bakingChallenges = null
+        }
 
         println params
 

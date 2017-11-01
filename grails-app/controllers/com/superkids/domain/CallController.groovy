@@ -249,7 +249,7 @@ class CallController {
 			}  else {
 				println "$caller could not save customer " + customer.fsdName
 
-				if(customer.errors.getFieldError("username").code == "unique") {
+				if(customer.errors.getFieldError("username")?.code == "unique") {
 					flash.message = 'Another Customer is already using this email address - this is probably a duplicate. If you are using a noemail@noemail.com address, please try adding some numbers to make the address unique'
 				    println "$caller used a duplicate customer email for customer " + customer.fsdName
 				} else {

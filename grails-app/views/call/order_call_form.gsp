@@ -483,7 +483,7 @@ a#timezone-button {
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <strong>2.</strong>	How many students participate in your<br/> school foodservice program? <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}">
+                            <strong>2.</strong>	How many students participate in your school foodservice program? <input type="text" name="studentsParticipate" size="4" maxlength="6" value="${customerInstance?.studentsParticipate}"><br/>
                             Breakfast: <input type="text" name="studentsParticipateBreakfast" size="4" maxlength="6" value="${customerInstance?.studentsParticipateBreakfast}">
                             Lunch: <input type="text" name="studentsParticipateLunch" size="4" maxlength="6" value="${customerInstance?.studentsParticipateLunch}">
                             After School: <input type="text" name="studentsParticipateAfterSchool" size="4" maxlength="6" value="${customerInstance?.studentsParticipateAfterSchool}"></td>
