@@ -98,7 +98,7 @@ class CustomerController {
 	}
 
     def edit = {
-		println "in Edit for CustomerController"
+		println "customerController:edit"
 		println params
 
          def broker = null
