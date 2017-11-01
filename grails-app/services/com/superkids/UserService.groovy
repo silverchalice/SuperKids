@@ -28,7 +28,7 @@ class UserService {
         if(params.buyCommodityFlour == 'NA') {
             params.buyCommodityFlour = null
         }
-        if(params.buyCommodityFlour == 'NA') {
+        if(params.bakingChallenges == 'NA') {
             params.bakingChallenges = null
         }
 
