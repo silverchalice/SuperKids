@@ -32,7 +32,7 @@ class UserService {
             params.bakingChallenges = null
         }
 
-        println params
+        println "bindParams: ${params}"
 
         return params
     }

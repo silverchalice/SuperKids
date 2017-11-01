@@ -134,7 +134,7 @@ class CustomerController {
     }
 
     def update = {
-		println "In Update for CustomerController"
+		println "CustomerController:update"
 		println params
 
 		def rController = params?.rController ?: "customer"
