@@ -445,42 +445,6 @@ a#timezone-button {
 
                     </tbody>
                 </table>
-                <table class="contact">
-                    <tbody>
-                    <tr class="prop">
-                        <td class="name"></td>
-                        <td class="value">
-                            <h3>Alternate Contact</h3>
-                        </td>
-                    </tr>
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="cdName"><g:message code="customer.cdName.label" default="Name"/></label>
-                        </td>
-                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdName', 'errors')}">
-                            <g:textField class="textField" name="cdName" value="${customerInstance?.cdName}"/>
-                        </td>
-                    </tr>
-
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="cdEmail"><g:message code="customer.cdEmail.label" default="Email"/></label>
-                        </td>
-                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdEmail', 'errors')}">
-                            <g:textField class="textField" name="cdEmail" value="${customerInstance?.cdEmail}"/>
-                        </td>
-                    </tr>
-
-                    <tr class="prop">
-                        <td valign="top" class="name">
-                            <label for="cdTitle"><g:message code="customer.cdTitle.label" default="Title"/></label>
-                        </td>
-                        <td valign="top" class="value ${hasErrors(bean: customerInstance, field: 'cdTitle', 'errors')}">
-                            <g:textField class="textField" name="cdTitle" value="${customerInstance?.cdTitle}"/>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
 
                 <table style="margin:10px 10px 0px 0px; width:400px; border:none; height:250px;">
                     <tbody>
