@@ -43,7 +43,7 @@
 </div>
 
 <div id="logo-container">
-    <div id="logos">
+    <div id="logos" style="text-align:center">
       <g:render template="/includes/logos" />
   </div>
 </div>

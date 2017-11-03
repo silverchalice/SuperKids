@@ -28,7 +28,7 @@
   </div>
 </div>
 <div id="footer-container">
-  <div id="logos">
+  <div id="logos" style="text-align:center">
       <g:render template="/includes/logos" />
   </div>
   <div id="footer">

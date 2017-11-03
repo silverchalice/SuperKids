@@ -47,7 +47,7 @@
 </div>
 
 <div id="logo-container">
-    <div id="logos">
+    <div id="logos" style="text-align:center">
 
     </div>
 </div>
