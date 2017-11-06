@@ -383,25 +383,25 @@
         </tr>
 
         <tr>
-            <td colspan="2"><strong>4.</strong> Do you bake from scratch using flour or mixes in your district (do not include parbaked items)?
+            <td colspan="2"><strong>4.</strong> Do you bake from scratch using flour or mixes in your district (do not include parbaked items)? <b>A: ${customerInstance?.hasBakery}</b>
             <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2">a)	Do you use Ultragrain 100% whole wheat flour?
+            <td colspan="2">a)	Do you use Ultragrain 100% whole wheat flour? <b>A: ${customerInstance?.useUltragrainFlour}</b>
             <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2">b)	Do you use Ultragrain T-2 (55% Ultragrain/45% white flour?)
+            <td colspan="2">b)	Do you use Ultragrain T-2 (55% Ultragrain/45% white flour?) <b>A: ${customerInstance?.useUltragrainWhiteFlour}</b>
             <g:select name="useUltragrainWhiteFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainWhiteFlour}"/>
             </td>
         </tr>
 
         <tr>
-            <td colspan="2">c)	Do you use Commodity Flour?
+            <td colspan="2">c)	Do you use Commodity Flour?<b>A: ${customerInstance?.buyCommodityFlour}</b>
             <g:select name="buyCommodityFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.buyCommodityFlour}"/>
             </td>
         </tr>
