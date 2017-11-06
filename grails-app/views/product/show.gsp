@@ -48,7 +48,7 @@
                 </sec:ifLoggedIn>
 
             </div>
-            <p><g:link class="pdf" action="downloadSummary" id="${productInstance.id}">Download Summary</g:link> <span class="sep">|</span> <a href="/SuperKids/uploads/${productInstance?.backgroundImage}">View Product Ad</a></p>
+            <p><g:link class="pdf" action="downloadSummary" id="${productInstance.id}">Download Summary</g:link> <span class="sep">|</span> <a href="/uploads/${productInstance?.backgroundImage}">View Product Ad</a></p>
         </div>
         <div id="order-intro">
             ${productInstance?.description}

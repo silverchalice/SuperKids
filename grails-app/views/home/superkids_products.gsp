@@ -55,7 +55,7 @@
               <g:each in="${products}" var="productInstance">
                   <div class="productListItem">
 
-                      <a href="/SuperKids/uploads/${productInstance?.backgroundImage}" target="_blank"><img class="ad" src="/SuperKids/uploads/${productInstance?.backgroundImage}" /></a>
+                      <a href="/uploads/${productInstance?.backgroundImage}" target="_blank"><img class="ad" src="/uploads/${productInstance?.backgroundImage}" /></a>
                       ${productInstance.description}
                       <p><g:link class="pdf" controller="product" action="downloadSummary" id="${productInstance.id}">Download Summary</g:link></p>
 

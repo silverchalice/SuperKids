@@ -227,7 +227,7 @@
 			<div class="productAd">
 
 				<div id="productAdContainer">
-					<img src="/SuperKids/uploads/${productInstance?.backgroundImage}" alt="Background Image" class="productAdImage" />
+					<img src="/uploads/${productInstance?.backgroundImage}" alt="Background Image" class="productAdImage" />
 				</div>
 
 			</div>
