@@ -48,7 +48,7 @@
 </tr>
 
 <tr><td colspan="2">e) Do you use mixes (please list)? <br/>
-    <input type="text" name="otherFlours" value="${customerInstance?.otherMixes}" size="55" maxlength="1000"></td>
+    <input type="text" name="otherMixes" value="${customerInstance?.otherMixes}" size="55" maxlength="1000"></td>
 </tr>
 
 <tr>
