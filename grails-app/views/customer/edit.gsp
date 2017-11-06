@@ -384,13 +384,13 @@
 
         <tr>
             <td colspan="2"><strong>4.</strong> Do you bake from scratch using flour or mixes in your district (do not include parbaked items)? <b>A: ${customerInstance?.hasBakery}</b>
-            <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery}"/>
+            <g:select name="hasBakery" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.hasBakery?.toString()}"/>
             </td>
         </tr>
 
         <tr>
             <td colspan="2">a)	Do you use Ultragrain 100% whole wheat flour? <b>A: ${customerInstance?.useUltragrainFlour}</b>
-            <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour}"/>
+            <g:select name="useUltragrainFlour" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.useUltragrainFlour?.toString()}"/>
             </td>
         </tr>
 
