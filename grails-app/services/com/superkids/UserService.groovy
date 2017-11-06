@@ -32,18 +32,6 @@ class UserService {
             params.bakingChallenges = null
         }
 
-        println """bindParams: 
-        hasBakery: ${params.hasBakery}
-        useUltragrainFlour: ${params.useUltragrainFlour}
-        useUltragrainWhiteFlour: ${params.useUltragrainWhiteFlour}
-        interestedInMixes: ${params.interestedInMixes}
-        addedPastItemsToMenu: ${params.addedPastItemsToMenu}
-        addedPastItemsToMenuA: ${params.addedPastItemsToMenuA}
-        lookForUltragrain: ${params.lookForUltragrain}
-        buyCommodityFlour: ${params.buyCommodityFlour}
-        bakingChallenges: ${params.bakingChallenges}
-        """
-
         return params
     }
 }
