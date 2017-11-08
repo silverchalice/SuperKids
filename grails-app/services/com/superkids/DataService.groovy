@@ -15,10 +15,13 @@ class DataService {
 			println "Loading row $i..."
 			i++
 
-			def customer = new Customer()
+			def customer = Customer.findByUsername(cell(15))
+			if(customer) {
+				println "updating ${customer.username}"
+			} else {
+				customer = new Customer()
+			}
 			println "email " + cell(15)
-			println "state (1) " + cell(11)
-			println "state (2) " + cell(19)
 
 			customer.with {
 				doNotCall = (cell(0) == "x")
