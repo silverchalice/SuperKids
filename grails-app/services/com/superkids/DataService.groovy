@@ -39,7 +39,7 @@ class DataService {
 						zip: cell(12) ?: " ")
 				phone = cell(13)
 				fax = cell(14) ?: " "
-				if(!cell(15) || Customer.findByUsername(cell(15))){
+				if(!cell(15)){
 					customer.username = "no-email@no-email0${i}.com"
 					customer.email = "no-email@no-email0${i}.com"
 				} else {
