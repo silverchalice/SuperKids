@@ -17,6 +17,8 @@ class DataService {
 
 			def customer = new Customer()
 			println "email " + cell(15)
+			println "state (1) " + cell(11)
+			println "state (2) " + cell(19)
 
 			customer.with {
 				doNotCall = (cell(0) == "x")
@@ -42,7 +44,12 @@ class DataService {
 					customer.email = cell(15)
 				}
 
-				deliveryAddress = new Address(street: cell(16) ?: " ", street2: cell(17) ?: " ", city: cell(18) ?: " ", state: cell(19) ?: " ", zip: cell(20) ?: " ")
+				deliveryAddress = new Address(
+						street: cell(16) ?: " ",
+						street2: cell(17) ?: " ",
+						city: cell(18) ?: " ",
+						state: cell(19) ?: " ",
+						zip: cell(20) ?: " ")
 
 				status = CustomerStatus.HAS_NOT_ORDERED
 
