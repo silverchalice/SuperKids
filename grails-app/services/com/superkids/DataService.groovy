@@ -11,6 +11,7 @@ class DataService {
 	def importCustomers(file) {
 		def i = 0
 		def is = file.inputStream
+		def role = Role.findByAuthority("ROLE_USER")
 		new ExcelBuilder(is).eachLine([labels:true]) {
 			println "Loading row $i..."
 			i++
@@ -90,11 +91,10 @@ class DataService {
 			if (!customer.save()) {
 				customer.errors.each {println it}
 			}
-			def userRole = Role.findByAuthority("ROLE_USER")
-			if(!userRole){
-				userRole = new Role(authority:"ROLE_USER").save(failOnError:true)
+
+			if(!UserRole.findByUser(customer)) {
+				UserRole.create(customer, role, true)
 			}
-			UserRole.create customer, userRole, true
 		}
 	}
 
