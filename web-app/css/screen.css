@@ -966,6 +966,7 @@ ol#order-process li a:hover span {
 .order-item img {
 	float:left;
 	height:80px;
+	max-width:100px;
 	margin-bottom:20px; /* in case the product name goes onto two lines */
 }
 img.money-books {
