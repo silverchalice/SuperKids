@@ -253,7 +253,7 @@ class CallController {
 					flash.message = 'Another Customer is already using this email address - this is probably a duplicate. If you are using a noemail@noemail.com address, please try adding some numbers to make the address unique'
 				    println "$caller used a duplicate customer email for customer " + customer.fsdName
 				} else {
-					println "invalid customer data"
+					customer.errors.allErrors.each { println it }
 					flash.message = 'invalid customer data'
 				}
 
@@ -473,7 +473,7 @@ class CallController {
                 not {
                     eq('customerRanking', 1)
                 }
-			} else if(params?.queue == "top100") {
+			} else if(params/?.queue == "top100") {
                 println "$caller is using the top100 calls queue"
                 eq('customerRanking', 1)
 
