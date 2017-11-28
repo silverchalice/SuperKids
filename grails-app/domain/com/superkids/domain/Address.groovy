@@ -14,8 +14,8 @@ class Address {
         street(nullable:false)
         street2(nullable:true)
         city(nullable:false)
-        state nullable:false
-        zip(nullable:false)
+        state nullable:true
+        zip(nullable:true)
         customer(nullable:true)
         sponsor(nullable:true)
     }
