@@ -82,7 +82,7 @@ class ReportController {
         println "exporting test customers..."
         def startTime = new Date().time
 
-        Map result = generateReport('true', true)
+        Map result = generateReport(true, true)
 
         Date now = new Date()
         def df = new java.text.SimpleDateFormat('MM-dd-yyyy')
@@ -187,11 +187,12 @@ class ReportController {
                 m.order = new Expando()
                 m.order.shippingDate = customer.customerOrder?.shippingDate
 
-                if (withAssessments == 'true') {
+                if (withAssessments) {
 
                     for (prod in prods) {
-                        if(test) println "Assessment for ${prod}"
+
                         if(!Product.findByParent(prod)) {
+                            if(test) println "Assessment for ${prod}"
 
                             def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
 
@@ -208,7 +209,7 @@ class ReportController {
                                     m."${prod.name}_Q2" = "Did Not Sample"
                                     m."${prod.name}_Q3" = "Did Not Sample"
                                 } else if(assessment) {
-                                    if(test) println "likeComment for ${prod}: ${assessment?.likeComment}"
+                                    if(test) println "${prod.name}_Q1 for ${prod}: ${assessment?.likeComment}"
 
                                     m."${prod.name}_Q1" = assessment?.likeRating
                                     m."${prod.name}_Q2" = assessment?.likeComment
@@ -368,6 +369,7 @@ class ReportController {
 
             prods.each { prod ->
                 if (!Product.findByParent(prod)) {
+                    println "setting prod name field: ${prod.name}_Q1"
                     assessFields << "${prod.name}_Q1"
                     assessFields << "${prod.name}_Q2"
                     assessFields << "${prod.name}_Q3"
