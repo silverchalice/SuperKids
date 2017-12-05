@@ -473,7 +473,7 @@ class CallController {
                 not {
                     eq('customerRanking', 1)
                 }
-			} else if(params/?.queue == "top100") {
+			} else if(params?.queue == "top100") {
                 println "$caller is using the top100 calls queue"
                 eq('customerRanking', 1)
 
