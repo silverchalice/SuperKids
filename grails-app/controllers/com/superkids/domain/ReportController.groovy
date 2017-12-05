@@ -82,7 +82,7 @@ class ReportController {
         println "exporting test customers..."
         def startTime = new Date().time
 
-        Map result = generateReport(true, true)
+        Map result = generateReport('true', true)
 
         Date now = new Date()
         def df = new java.text.SimpleDateFormat('MM-dd-yyyy')
