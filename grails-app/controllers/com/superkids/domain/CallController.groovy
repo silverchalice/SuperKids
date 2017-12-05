@@ -119,7 +119,7 @@ class CallController {
 						call.callbackDate = df.parse(params.callbackDateString);
 						call.callbackTime = params.callbackTime
 					} else {
-                    	println " "
+						println "No callback string"	
 					}
 				} else if(call.result == CallResult.DUPLICATE) {
 					println "$caller found a duplicate..."
@@ -156,11 +156,11 @@ class CallController {
                                     }
                                 }
 
-								if(!pOrder.save()) {
-									pOrder.errors.allErrors.each {println it}
-								}
-		           	        }
-						}
+				if(!pOrder.save()) {
+					pOrder.errors.allErrors.each {println it}
+				}
+	              }
+		}
 					}
 
 					if(order.save(flush:true)) {
@@ -473,7 +473,7 @@ class CallController {
                 not {
                     eq('customerRanking', 1)
                 }
-			} else if(params.queue == "top100") {
+			} else if(params?.queue == "top100") {
                 println "$caller is using the top100 calls queue"
                 eq('customerRanking', 1)
 
