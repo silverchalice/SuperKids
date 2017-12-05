@@ -78,18 +78,53 @@ class ReportController {
         exportService.export("excel", response.outputStream, export, fields, labels, formatters, parameters)
     }
 
+    def exportTestCustomers = {
+        println "exporting test customers..."
+        def startTime = new Date().time
+
+        Map result = generateReport(true, true)
+
+        Date now = new Date()
+        def df = new java.text.SimpleDateFormat('MM-dd-yyyy')
+        String exDate = df.format(now)
+
+        def fileName = "SK_TEST_Customers-${exDate}.csv"
+
+
+        response.setHeader "Content-disposition", "attachment; filename=${fileName}"
+        response.contentType = 'text/csv'
+        exportService.export('csv', response.outputStream, result.export, result.fields, result.labels, [:], [:])
+        response.outputStream.flush()
+    }
+
+
     def exportCustomers = {
         println "exporting customers..."
         def startTime = new Date().time
         def withAssessments = params.withAssessments
-
         if (withAssessments) println "with assessments..."
 
+        Map result = generateReport(withAssessments, false)
+
+        Date now = new Date()
+        def df = new java.text.SimpleDateFormat('MM-dd-yyyy')
+        String exDate = df.format(now)
+
+        def fileName = "SK_Customers-${exDate}.csv"
+
+
+        response.setHeader "Content-disposition", "attachment; filename=${fileName}"
+        response.contentType = 'text/csv'
+        exportService.export('csv', response.outputStream, result.export, result.fields, result.labels, [:], [:])
+        response.outputStream.flush()
+    }
+
+    private generateReport(withAssessments = false, test = false) {
         def thatWhichIsContainedInOurExportation = []
 
         def prods = Product.findAllByLiveProduct(true, [sort: 'sortOrder'])
-        println("After Product.list - ${new Date().time - startTime}")
-        Customer.list(sort: "seq").each { Customer customer ->
+        def customers = test ? Customer.findAllBySource("TEST") : Customer.list(sort: "seq")
+        customers.each { Customer customer ->
             if (!customer.deleted) {
 
                 def m = [:]
@@ -155,11 +190,13 @@ class ReportController {
                 if (withAssessments == 'true') {
 
                     for (prod in prods) {
+                        if(test) println "Assessment for ${prod}"
                         if(!Product.findByParent(prod)) {
 
                             def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
 
                             if (orderedProduct) {
+                                if(test) println "orderedProduct for ${prod}"
                                 def assessment = Assessment.findByProductAndCustomer(prod, customer)
 
                                 if (!orderedProduct?.received) {
@@ -171,11 +208,8 @@ class ReportController {
                                     m."${prod.name}_Q2" = "Did Not Sample"
                                     m."${prod.name}_Q3" = "Did Not Sample"
                                 } else if(assessment) {
-                                    if(prod.id.intValue() == 110) {
-                                        println "likeRating: ${assessment.likeRating}"
-                                        println "likeComment: ${assessment.likeComment}"
-                                        println "changeComment: ${assessment.changeComment}"
-                                    }
+                                    if(test) println "likeComment for ${prod}: ${assessment?.likeComment}"
+
                                     m."${prod.name}_Q1" = assessment?.likeRating
                                     m."${prod.name}_Q2" = assessment?.likeComment
                                     m."${prod.name}_Q3" = assessment?.changeComment
@@ -202,8 +236,6 @@ class ReportController {
                 thatWhichIsContainedInOurExportation << m
             }
         }
-
-        println("After Customer.list - ${new Date().time - startTime}")
 
         List fields = ["id",
                        "seq",
@@ -259,8 +291,6 @@ class ReportController {
                 fields << foo
             }
         }
-
-        println("After prods.each - ${new Date().time - startTime}")
 
         fields << "order.shippingDate"
 
@@ -318,7 +348,6 @@ class ReportController {
             }
         }
 
-        println("After prods.each 2 - ${new Date().time - startTime}")
 
         def bar = "order.shippingDate"
         labels."${bar}" = "Req'd Ship Date"
@@ -337,7 +366,7 @@ class ReportController {
             assessFields << "overallPerceptions"
             assessFields << "assessmentOrigin"
 
-            for (prod in prods) {
+            prods.each { prod ->
                 if (!Product.findByParent(prod)) {
                     assessFields << "${prod.name}_Q1"
                     assessFields << "${prod.name}_Q2"
@@ -346,38 +375,16 @@ class ReportController {
                     assessLabels."${prod.name}_Q1" = "Interest in ${prod.name}"
                     assessLabels."${prod.name}_Q2" = "${prod.name} Like Comments"
                     assessLabels."${prod.name}_Q3" = "${prod.name} Change Comment"
-
-                    /*if(prod.id == 23) {
-                      assessFields << "${prod.name}_Q4"
-                      assessLabels."${prod.name}_Q4" = "${prod.name} Favorite Pasta"
-                    }*/
                 }
             }
 
-            println("After prods.each 3 - ${new Date().time - startTime}")
             labels = labels + assessLabels
             fields = fields + assessFields
         }
 
-        def upperCase = { domain, value ->
-            return value.toUpperCase()
-        }
-
-        Map formatters = [:]
-        Map parameters = [:]
-
-        Date now = new Date()
-        def df = new java.text.SimpleDateFormat('MM-dd-yyyy')
-        String exDate = df.format(now)
-
-        def fileName = "SK_Customers-${exDate}.csv"
-
-
-        response.setHeader "Content-disposition", "attachment; filename=${fileName}"
-        response.contentType = 'text/csv'
-        exportService.export('csv', response.outputStream, thatWhichIsContainedInOurExportation, fields, labels, formatters, parameters)
-        response.outputStream.flush()
+        [export: thatWhichIsContainedInOurExportation, labels: labels, fields: fields]
     }
+
 
     def exportCalls = {
         println "Exporing Calls..."
