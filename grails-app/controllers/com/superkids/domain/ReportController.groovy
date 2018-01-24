@@ -126,7 +126,7 @@ class ReportController {
         def customers = test ? Customer.findAllBySource("TEST") : Customer.list()
         customers.each { Customer customer ->
 
-            println "$m.id: $m.district $m.fsdName"
+            println "$customer.id: $customer.district $customer.fsdName"
             if (!customer.deleted) {
 
                 def m = [:]
