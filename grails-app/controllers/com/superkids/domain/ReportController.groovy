@@ -123,8 +123,10 @@ class ReportController {
         def thatWhichIsContainedInOurExportation = []
 
         def prods = Product.findAllByLiveProduct(true, [sort: 'sortOrder'])
-        def customers = test ? Customer.findAllBySource("TEST") : Customer.list(sort: "seq")
+        def customers = test ? Customer.findAllBySource("TEST") : Customer.list()
         customers.each { Customer customer ->
+
+            println "$m.id: $m.district $m.fsdName"
             if (!customer.deleted) {
 
                 def m = [:]
@@ -231,10 +233,12 @@ class ReportController {
 
                 }
 
-                println "$m.id: $m.district $m.fsdName"
+
 
 
                 thatWhichIsContainedInOurExportation << m
+            } else {
+                println "${customer.id} is deleted!"
             }
         }
 
