@@ -32,13 +32,13 @@
         $('#completeAssessmentForm').dialog({autoOpen: false, width: 500, modal: true});
         $('#submitAssessment').button();
         $('#addBrokerButton').button();
-        var checkboxes = document.getElementsByTagName('input');
-
-        for (var i = 0; i < checkboxes.length; i++) {
-          if (checkboxes[i].type == 'checkbox') {
-            checkboxes[i].checked = false;
-          }
-        }
+        // var checkboxes = document.getElementsByTagName('input');
+        //
+        // for (var i = 0; i < checkboxes.length; i++) {
+        //   if (checkboxes[i].type == 'checkbox') {
+        //     checkboxes[i].checked = false;
+        //   }
+        // }
       });
 
       function showAssessForm(poId) {
@@ -220,8 +220,7 @@
                             <label for="deleted">Deleted</label>
                         </td>
                         <td valign="top">
-                            <b>Deleted: ${customerInstance?.deleted ? 'YES' : 'NO'}</b>
-                            <g:checkBox name="deleted" checked="${customerInstance?.deleted}"/>
+                            <g:checkBox name="deleted" value="${customerInstance?.deleted}"/>
                         </td>
                     </tr>
                     <tr class="prop">
