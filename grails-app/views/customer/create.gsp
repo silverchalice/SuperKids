@@ -182,7 +182,7 @@
         <label for="deleted">Deleted</label>
     </td>
     <td valign="top">
-        <g:checkBox name="deleted" value="${customerInstance?.deleted}"/>
+        <g:checkBox name="deleted" checked="${customerInstance?.deleted}"/>
     </td>
 </tr>
 
