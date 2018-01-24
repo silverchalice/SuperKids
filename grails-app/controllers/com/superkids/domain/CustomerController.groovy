@@ -140,7 +140,7 @@ class CustomerController {
 
     def update = {
         def rController = params?.rController ?: "customer"
-        def rAction = params?.rAction ?: "show"
+        def rAction = params?.rAction ?: "edit"
 
         def customerInstance = Customer.get(params.id)
         if (customerInstance) {
