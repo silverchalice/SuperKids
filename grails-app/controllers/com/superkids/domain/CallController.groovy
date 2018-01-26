@@ -470,6 +470,10 @@ class CallController {
 
             isNull 'inCall'
             eq 'doNotCall', false
+            or {
+                eq 'deleted', false
+                isNull('deleted')
+            }
 
             if (params?.queue == "new") {
                 println "$caller is using the new calls queue"
@@ -535,6 +539,7 @@ class CallController {
                 eq 'timezone', currentTimezone
                 eq 'status', CustomerStatus.HAS_NOT_ORDERED
                 isNull 'inCall'
+                eq 'deleted', false
                 eq 'doNotCall', false
                 if (params?.queue == "new") {
                     println "$caller is using the new calls queue"
@@ -725,8 +730,10 @@ class CallController {
             }
             eq 'doNotCall', false
             isNull 'inCall'
-
-
+            or {
+                eq 'deleted', false
+                isNull('deleted')
+            }
 
             if (params?.queue == "new") {
                 println "$caller is using the new calls queue"
@@ -783,6 +790,7 @@ class CallController {
 				}
 
                 isNull 'inCall'
+                eq 'deleted', false
                 eq 'doNotCall', false
 
                 or {
@@ -1158,7 +1166,10 @@ class CallController {
         def currentUser = springSecurityService.principal
 
         def customers = Customer.createCriteria().list {
-
+            or {
+                eq 'deleted', false
+                isNull('deleted')
+            }
             lastCall {
 
                 eq('result', CallResult.CALLBACK)
@@ -1225,7 +1236,7 @@ class CallController {
 
             Customer.search(params?.query, [max: 100]).results?.each {
                 def customer = Customer.get(it.id)
-                if (customer && (!customer.doNotCall)) {
+                if (customer && (!customer?.deleted && !customer.doNotCall)) {
                     customers << customer
                 }
 

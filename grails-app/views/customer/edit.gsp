@@ -217,6 +217,14 @@
 
                     <tr class="prop">
                         <td valign="top" class="name">
+                            <label for="deleted">Deleted</label>
+                        </td>
+                        <td valign="top">
+                            <g:checkBox name="deleted" value="${customerInstance?.deleted}"/>
+                        </td>
+                    </tr>
+                    <tr class="prop">
+                        <td valign="top" class="name">
                             <label for="didNotReceiveMailing">Did Not Receive Email/Mailing</label>
                         </td>
                         <td valign="top">

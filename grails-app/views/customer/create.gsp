@@ -178,6 +178,15 @@
 </tr>
 
 <tr class="prop">
+    <td valign="top" class="name">
+        <label for="deleted">Deleted</label>
+    </td>
+    <td valign="top">
+        <g:checkBox name="deleted" checked="${customerInstance?.deleted}"/>
+    </td>
+</tr>
+
+<tr class="prop">
     <td class="name"></td>
     <td class="value">
         <h3>School District</h3>

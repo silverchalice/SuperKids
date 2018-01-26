@@ -127,116 +127,119 @@ class ReportController {
         customers.each { Customer customer ->
 
             println "$customer.id: $customer.district $customer.fsdName"
+            if (!customer.deleted) {
 
-            def m = [:]
-            m.id = customer.id
-            m.lastUpdated = customer.lastUpdated
-            m.source = customer.source
-            m.fsdName = customer.fsdName
-            m.fsdTitle = customer.fsdTitle
-            m.district = customer.district
-            m.recipientAgency = customer.recipientAgency
-            m.address = new Expando()
-            m.address.street = customer.address?.street
-            m.address.street2 = customer.address?.street2
-            m.address.city = customer.address?.city
-            m.address.state = customer?.address?.state
-            m.address.zip = customer.address?.zip
-            m.phone = customer.phone
-            m.fax = customer.fax
-            m.email = customer.email
-            m.deliveryAddress = new Expando()
-            m.deliveryAddress.street = customer.deliveryAddress?.street
-            m.deliveryAddress.street2 = customer.deliveryAddress?.street2
-            m.deliveryAddress.city = customer.deliveryAddress?.city
-            m.deliveryAddress.state = customer?.address?.state
-            m.deliveryAddress.zip = customer.deliveryAddress?.zip
-            m.studentsInDistrict = customer.studentsInDistrict
-            m.studentsParticipate = customer.studentsParticipate
-            m.studentsParticipateBreakfast = customer.studentsParticipateBreakfast
-            m.studentsParticipateLunch = customer.studentsParticipateLunch
-            m.studentsParticipateAfterSchool = customer.studentsParticipateAfterSchool
-            m.callerBrokers = customer.callerBrokers
-            m.hasBakery = (customer.hasBakery == null) ? "N/A" : customer.hasBakery ? "YES" : "NO"
-            m.useUltragrainFlour = (customer.useUltragrainFlour == null) ? "N/A" : customer.useUltragrainFlour ? "YES" : "NO"
-            m.useUltragrainWhiteFlour = (customer.useUltragrainWhiteFlour == null) ? "N/A" : customer.useUltragrainWhiteFlour ? "YES" : "NO"
-            m.buyCommodityFlour = (customer.buyCommodityFlour == null) ? "N/A" : customer.buyCommodityFlour ? "YES" : "NO"
-            m.otherFlours = customer.otherFlours
-            m.otherMixes = customer.otherMixes
-            m.bakingChallenges = (customer.bakingChallenges == null) ? "N/A" : customer.bakingChallenges ? "YES" : "NO"
-            m.otherFlourIssues = customer.otherFlourIssues
-            m.addedPastItemsToMenu = (customer.addedPastItemsToMenu == null) ? "N/A" : customer.addedPastItemsToMenu ? "YES" : "NO"
-            m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
-            m.lookForUltragrain = (customer.lookForUltragrain == null) ? "N/A" : customer.lookForUltragrain ? "YES" : "NO"
-            m.participateWaivers = customer.participateWaivers
-            m.participateWaiversItems = customer.participateWaiversItems
+                def m = [:]
+                m.id = customer.id
+                m.lastUpdated = customer.lastUpdated
+                m.source = customer.source
+                m.fsdName = customer.fsdName
+                m.fsdTitle = customer.fsdTitle
+                m.district = customer.district
+                m.recipientAgency = customer.recipientAgency
+                m.address = new Expando()
+                m.address.street = customer.address?.street
+                m.address.street2 = customer.address?.street2
+                m.address.city = customer.address?.city
+                m.address.state = customer?.address?.state
+                m.address.zip = customer.address?.zip
+                m.phone = customer.phone
+                m.fax = customer.fax
+                m.email = customer.email
+                m.deliveryAddress = new Expando()
+                m.deliveryAddress.street = customer.deliveryAddress?.street
+                m.deliveryAddress.street2 = customer.deliveryAddress?.street2
+                m.deliveryAddress.city = customer.deliveryAddress?.city
+                m.deliveryAddress.state = customer?.address?.state
+                m.deliveryAddress.zip = customer.deliveryAddress?.zip
+                m.studentsInDistrict = customer.studentsInDistrict
+                m.studentsParticipate = customer.studentsParticipate
+                m.studentsParticipateBreakfast = customer.studentsParticipateBreakfast
+                m.studentsParticipateLunch = customer.studentsParticipateLunch
+                m.studentsParticipateAfterSchool = customer.studentsParticipateAfterSchool
+                m.callerBrokers = customer.callerBrokers
+                m.hasBakery = (customer.hasBakery == null) ? "N/A" : customer.hasBakery ? "YES" : "NO"
+                m.useUltragrainFlour = (customer.useUltragrainFlour == null) ? "N/A" : customer.useUltragrainFlour ? "YES" : "NO"
+                m.useUltragrainWhiteFlour = (customer.useUltragrainWhiteFlour == null) ? "N/A" : customer.useUltragrainWhiteFlour ? "YES" : "NO"
+                m.buyCommodityFlour = (customer.buyCommodityFlour == null) ? "N/A" : customer.buyCommodityFlour ? "YES" : "NO"
+                m.otherFlours = customer.otherFlours
+                m.otherMixes = customer.otherMixes
+                m.bakingChallenges = (customer.bakingChallenges == null) ? "N/A" : customer.bakingChallenges ? "YES" : "NO"
+                m.otherFlourIssues = customer.otherFlourIssues
+                m.addedPastItemsToMenu = (customer.addedPastItemsToMenu == null) ? "N/A" : customer.addedPastItemsToMenu ? "YES" : "NO"
+                m.pastItemsAddedToMenu = customer.pastItemsAddedToMenu
+                m.lookForUltragrain = (customer.lookForUltragrain == null) ? "N/A" : customer.lookForUltragrain ? "YES" : "NO"
+                m.participateWaivers = customer.participateWaivers
+                m.participateWaiversItems = customer.participateWaiversItems
 
-            m.pastParticipant = (customer.pastParticipant == null) ? "N/A" : customer.pastParticipant ? "YES" : "NO"
-            m.doNotReceiveAdditionalInformation = (customer.doNotReceiveAdditionalInformation == null) ? "N/A" : customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
-            m.didNotReceiveMailing = (customer.didNotReceiveMailing == null) ? "N/A" : customer.didNotReceiveMailing ? "YES" : "NO"
-            m.seq = customer.seq
-            m.customerRanking = customer.ranking
-            m.notes = customer.opNotes
+                m.pastParticipant = (customer.pastParticipant == null) ? "N/A" : customer.pastParticipant ? "YES" : "NO"
+                m.doNotReceiveAdditionalInformation = (customer.doNotReceiveAdditionalInformation == null) ? "N/A" : customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
+                m.didNotReceiveMailing = (customer.didNotReceiveMailing == null) ? "N/A" : customer.didNotReceiveMailing ? "YES" : "NO"
+                m.seq = customer.seq
+                m.customerRanking = customer.ranking
+                m.notes = customer.opNotes
 
-            def order = customer.customerOrder
-            prods.each { prod ->
-                m."${prod.name}" = order?.products?.find {
-                    it?.product?.id == prod?.id
-                } ? "Ordered : " + order?.orderType : ''
-            }
+                def order = customer.customerOrder
+                prods.each { prod ->
+                    m."${prod.name}" = order?.products?.find {
+                        it?.product?.id == prod?.id
+                    } ? "Ordered : " + order?.orderType : ''
+                }
 
-            m.order = new Expando()
-            m.order.shippingDate = customer.customerOrder?.shippingDate
+                m.order = new Expando()
+                m.order.shippingDate = customer.customerOrder?.shippingDate
 
-            if (withAssessments) {
+                if (withAssessments) {
 
-                for (prod in prods) {
+                    for (prod in prods) {
 
-                    if (!Product.findByParent(prod)) {
-                        if (test) println "Assessment for ${prod}"
+                        if(!Product.findByParent(prod)) {
+                            if(test) println "Assessment for ${prod}"
 
-                        def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
+                            def orderedProduct = ProductOrder.findByOrderAndProduct(customer.customerOrder, prod)
 
-                        if (orderedProduct) {
-                            if (test) println "orderedProduct for ${prod}"
-                            def assessment = Assessment.findByProductAndCustomer(prod, customer)
+                            if (orderedProduct) {
+                                if(test) println "orderedProduct for ${prod}"
+                                def assessment = Assessment.findByProductAndCustomer(prod, customer)
 
-                            if (!orderedProduct?.received) {
-                                m."${prod.name}_Q1" = "Did Not Receive"
-                                m."${prod.name}_Q2" = "Did Not Receive"
-                                m."${prod.name}_Q3" = "Did Not Receive"
-                            } else if (!orderedProduct?.sampled) {
-                                m."${prod.name}_Q1" = "Did Not Sample"
-                                m."${prod.name}_Q2" = "Did Not Sample"
-                                m."${prod.name}_Q3" = "Did Not Sample"
-                            } else if (assessment) {
-                                if (test) println "${prod.name}_Q1 for ${prod}: ${assessment?.likeComment}"
+                                if (!orderedProduct?.received) {
+                                    m."${prod.name}_Q1" = "Did Not Receive"
+                                    m."${prod.name}_Q2" = "Did Not Receive"
+                                    m."${prod.name}_Q3" = "Did Not Receive"
+                                } else if (!orderedProduct?.sampled) {
+                                    m."${prod.name}_Q1" = "Did Not Sample"
+                                    m."${prod.name}_Q2" = "Did Not Sample"
+                                    m."${prod.name}_Q3" = "Did Not Sample"
+                                } else if(assessment) {
+                                    if(test) println "${prod.name}_Q1 for ${prod}: ${assessment?.likeComment}"
 
-                                m."${prod.name}_Q1" = assessment?.likeRating
-                                m."${prod.name}_Q2" = assessment?.likeComment
-                                m."${prod.name}_Q3" = assessment?.changeComment
-                                m.type = assessment.type
+                                    m."${prod.name}_Q1" = assessment?.likeRating
+                                    m."${prod.name}_Q2" = assessment?.likeComment
+                                    m."${prod.name}_Q3" = assessment?.changeComment
+                                    m.type = assessment.type
+                                }
                             }
                         }
+
                     }
+
+                    def rA = customer?.assessments?.find { it }
+
+                    m.assessmentOrigin = rA?.type
+                    m.overallPerceptions = customer.overallPerceptions ?: ""
+                    m.programFeedback = customer.programFeedback
+                    m.addedPastItemsToMenuA = (customer.addedPastItemsToMenuA == null) ? "N/A" : customer.addedPastItemsToMenuA ? "YES" : "NO"
+
 
                 }
 
-                def rA = customer?.assessments?.find { it }
-
-                m.assessmentOrigin = rA?.type
-                m.overallPerceptions = customer.overallPerceptions ?: ""
-                m.programFeedback = customer.programFeedback
-                m.addedPastItemsToMenuA = (customer.addedPastItemsToMenuA == null) ? "N/A" : customer.addedPastItemsToMenuA ? "YES" : "NO"
 
 
+
+                thatWhichIsContainedInOurExportation << m
+            } else {
+                println "${customer.id} is deleted!"
             }
-
-
-
-
-            thatWhichIsContainedInOurExportation << m
-
         }
 
         List fields = ["id",
@@ -396,21 +399,22 @@ class ReportController {
         def calls = []
 
         Call.list(sort: "dateCreated").each { call ->
+            if (!call?.customer?.deleted) {
 
-            def sdf = new java.text.SimpleDateFormat('MM/dd/yyyy')
-            def sdf2 = new java.text.SimpleDateFormat('h:mm a z')
-            def dateCreated = sdf.format(call?.dateCreated)
-            def timeCreated = sdf2.format(call?.dateCreated)
+                def sdf = new java.text.SimpleDateFormat('MM/dd/yyyy')
+                def sdf2 = new java.text.SimpleDateFormat('h:mm a z')
+                def dateCreated = sdf.format(call?.dateCreated)
+                def timeCreated = sdf2.format(call?.dateCreated)
 
-            def m = [:]
-            m.id = call.id
-            m.dateCreated = dateCreated
-            m.timeCreated = timeCreated
-            m.customer = call?.customer?.district
-            m.caller = call?.caller?.username
-            m.result = call?.result
-            calls << m
-
+                def m = [:]
+                m.id = call.id
+                m.dateCreated = dateCreated
+                m.timeCreated = timeCreated
+                m.customer = call?.customer?.district
+                m.caller = call?.caller?.username
+                m.result = call?.result
+                calls << m
+            }
         }
 
         println("After Calls.list - ${new Date().time - startTime}")
@@ -444,15 +448,16 @@ class ReportController {
         c.list(sort: "seq") {
             eq 'didNotReceiveMailing', true
         }.each { customer ->
-            def m = [:]
-            m.id = customer.id
-            m.district = customer?.district
-            m.fsdName = customer?.fsdName
-            m.email = customer?.email
-            m.address = customer?.address
+            if (!customer.deleted) {
+                def m = [:]
+                m.id = customer.id
+                m.district = customer?.district
+                m.fsdName = customer?.fsdName
+                m.email = customer?.email
+                m.address = customer?.address
 
-            customers << m
-
+                customers << m
+            }
         }
 
         println("After Customers.list - ${new Date().time - startTime}")
