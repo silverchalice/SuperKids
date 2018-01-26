@@ -180,23 +180,6 @@ class CustomerController {
         }
     }
 
-    def delete = {
-        def customerInstance = Customer.get(params.id)
-        if (customerInstance) {
-            try {
-                customerInstance.deleted = true
-                flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
-                redirect(action: "list")
-            }
-            catch (org.springframework.dao.DataIntegrityViolationException e) {
-                flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
-                redirect(action: "edit", id: params.id)
-            }
-        } else {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
-            redirect(action: "list")
-        }
-    }
 
     def findSchoolDistrict = {
         println "CustomerController: findSchoolDistrict: ${params}"
@@ -207,7 +190,7 @@ class CustomerController {
             def customers = []
             Customer.search(params?.query, [max: 100]).results?.each {
                 def customer = Customer.get(it.id)
-                if (customer && !customer?.deleted) {
+                if (customer) {
                     customers << customer
                 }
 
@@ -277,35 +260,7 @@ class CustomerController {
         }
     }
 
-    def other_delete = {
-        if (springSecurityService.isLoggedIn()) {
-            if (User.get(springSecurityService.principal.id).isAdmin()) {
-                def customerInstance = Customer.get(params.id)
-                def userRole = Role.findByAuthority("ROLE_USER")
-                if (customerInstance) {
-                    UserRole.findByUserAndRole(customerInstance, userRole).delete()
-                    try {
-                        customerInstance.delete()
-                        flash.message = "Deleted this customer record."
-                        redirect(action: "list")
-                    }
-                    catch (org.springframework.dao.DataIntegrityViolationException e) {
-                        flash.message = "This customer record could not be deleted."
-                        redirect(action: "list")
-                    }
-                } else {
-                    flash.message = "Customer record not found."
-                    redirect(action: "list")
-                }
-            } else {
-                flash.message = "You aren't allowed to access this page."
-                redirect controller: "home", action: "index"
-            }
-        } else {
-            flash.message = "Please log in.."
-            redirect controller: "home", action: "index"
-        }
-    }
+
 
     def toggleNew = {
         def id

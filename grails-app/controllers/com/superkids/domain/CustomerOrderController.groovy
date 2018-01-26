@@ -133,38 +133,7 @@ class CustomerOrderController {
         }
     }
 
-    def delete = {
-		println "CustomerOrderController:delete"
-        def customerOrderInstance = CustomerOrder.get(params.id)
-        if (customerOrderInstance) {
-            def customerInstance = Customer.get(customerOrderInstance?.customer?.id)
 
-			if(customerInstance){
-				println "deleting an asssessment"
-				Assessment.findAllByCustomer(customerInstance)?.each{ it?.delete() }
-				try {
-					customerInstance.customerOrder = null
-					customerInstance.status = CustomerStatus.HAS_NOT_ORDERED
-					customerInstance.hasPlacedCurrentOrder = false
-					customerInstance.save(failOnError:true)
-
-				}
-				catch (org.springframework.dao.DataIntegrityViolationException e) {
-					flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
-					redirect(action: "show", id: params.id)
-				}
-			}
-			println "deleting an order"
-			customerOrderInstance.delete(flush: true)
-			flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
-			redirect(action: "list")
-
-        }
-        else {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'customerOrder.label', default: 'CustomerOrder'), params.id])}"
-            redirect(action: "list")
-        }
-    }
 
     def other_delete = {
 		println "CustomerOrderController:other_delete"

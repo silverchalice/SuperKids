@@ -106,7 +106,6 @@ class Customer extends User {
 
     Boolean invalidEmail
     Boolean duplicate
-    Boolean deleted = false
 
 	Call lastCall
 
