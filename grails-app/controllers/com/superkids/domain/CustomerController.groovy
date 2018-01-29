@@ -184,8 +184,7 @@ class CustomerController {
         def customerInstance = Customer.get(params.id)
         if (customerInstance) {
             try {
-                customerInstance.deleted = true
-                flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])}"
+                flash.message = "Deleting not allowed!"
                 redirect(action: "list")
             }
             catch (org.springframework.dao.DataIntegrityViolationException e) {
@@ -207,7 +206,7 @@ class CustomerController {
             def customers = []
             Customer.search(params?.query, [max: 100]).results?.each {
                 def customer = Customer.get(it.id)
-                if (customer && !customer?.deleted) {
+                if (customer) {
                     customers << customer
                 }
 
@@ -285,8 +284,8 @@ class CustomerController {
                 if (customerInstance) {
                     UserRole.findByUserAndRole(customerInstance, userRole).delete()
                     try {
-                        customerInstance.delete()
-                        flash.message = "Deleted this customer record."
+
+                        flash.message = "Deletion not allowed."
                         redirect(action: "list")
                     }
                     catch (org.springframework.dao.DataIntegrityViolationException e) {

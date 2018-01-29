@@ -275,9 +275,7 @@ class DataService {
 								println "deleted IncompleteOrder"
 							}
 
-
 						}
-
 					}
 				}
 			}
