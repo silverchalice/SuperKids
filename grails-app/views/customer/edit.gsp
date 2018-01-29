@@ -217,6 +217,43 @@
 
                     <tr class="prop">
                         <td valign="top" class="name">
+                            <label for="duplicate">Enabled</label>
+                        </td>
+                        <td valign="top">
+                            <g:checkBox name="enabled" value="${customerInstance?.enabled}"/>
+                        </td>
+                    </tr>
+
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="duplicate">Expired</label>
+                        </td>
+                        <td valign="top">
+                            <g:checkBox name="accountExpired" value="${customerInstance?.accountExpired}"/>
+                        </td>
+                    </tr>
+
+
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="duplicate">Password Expired</label>
+                        </td>
+                        <td valign="top">
+                            <g:checkBox name="passwordExpired" value="${customerInstance?.passwordExpired}"/>
+                        </td>
+                    </tr>
+
+                    <tr class="prop">
+                        <td valign="top" class="name">
+                            <label for="duplicate">Locked</label>
+                        </td>
+                        <td valign="top">
+                            <g:checkBox name="accountLocked" value="${customerInstance?.accountLocked}"/>
+                        </td>
+                    </tr>
+
+                    <tr class="prop">
+                        <td valign="top" class="name">
                             <label for="deleted">Deleted</label>
                         </td>
                         <td valign="top">

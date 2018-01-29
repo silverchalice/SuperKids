@@ -127,7 +127,7 @@ class LoginController {
    def admin_login = {
 
 		println "entering login:admin_login"
-
+c
 		session.current_view = "admin_login"
 
 		def config = SpringSecurityUtils.securityConfig

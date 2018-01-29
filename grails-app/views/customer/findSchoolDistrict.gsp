@@ -62,7 +62,7 @@
                           <td style="width:32px;">${customerInstance?.seq} </td>
 
 
-                            <td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
+                            <td><g:link action="edit" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "district")}</g:link></td>
 
                             <td>${fieldValue(bean: customerInstance, field: "fsdName")}</td>
 
