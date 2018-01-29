@@ -770,7 +770,9 @@ class HomeController {
         if (params.password) {
             if (params.password == params.confirmpassword) {
                 customerInstance.password = springSecurityService.encodePassword(params.password)
-                customerInstance.save()
+                if(!customerInstance.save()) {
+                    customerInstance.errors.allErrors.each { println it }
+                }
                 flash.message = "Password for user ${customerInstance.district} updated."
                 log.info flash.message
                 redirect controller: "customer", action: "list"
