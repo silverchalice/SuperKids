@@ -496,7 +496,7 @@ class CallController {
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
-                    le('dateCreated', seventyTwoHoursAgo)
+                    le('dateCreated', twentyFourHoursAgo)
 
                 }
             }
@@ -564,7 +564,7 @@ class CallController {
                         eq('customerRanking', 1)
                     }
                     lastCall {
-                        le('dateCreated', seventyTwoHoursAgo)
+                        le('dateCreated', twentyFourHoursAgo)
                         ne('result', CallResult.REFUSED)
                     }
                 }
