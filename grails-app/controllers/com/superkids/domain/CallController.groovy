@@ -672,9 +672,7 @@ class CallController {
     }
 
     def next_assess_call = {
-        def caller
-        if (Caller.get(springSecurityService.principal.id))
-            caller = Caller.get(springSecurityService.principal.id)
+        def caller = Caller.get(springSecurityService.principal.id)
         println "$caller is in next_assess_call for CallController"
         //make sure the last customer is no longer 'in call'
         def currentCustomer = Customer.get(params?.id)
@@ -757,13 +755,18 @@ class CallController {
 
         if (customer) {
             println "$caller got $customer from the assess queue"
+            println "$customer: doNotCall: ${customer.doNotCall}; passwordExpired: ${customer.passwordExpired}, completed: ${customer.hasCompletedCurrentAssessment}"
+
+
             customer.inCall = new Date()
             if (customer.save(flush: true)) {
-                println "$caller is calling $customer?.fsdName"
+                println "$caller is calling ${customer}:${customer?.fsdName}"
+                println "$customer: doNotCall: ${customer.doNotCall}; passwordExpired: ${customer.passwordExpired}, completed: ${customer.hasCompletedCurrentAssessment}"
+
                 render view: 'assess_call_form', model: [customerInstance: customer, call: call, queue: params?.queue, currentTimezone: currentTimezone, timezones: timezones, states: states]
             } else {
                 customer.errors.allErrors.each { println it }
-                flash.message = "Oops! An error occured"
+                flash.message = "Oops! An error occurred"
                 redirect action: index
                 return
             }
