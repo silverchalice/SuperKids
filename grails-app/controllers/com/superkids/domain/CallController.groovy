@@ -755,10 +755,22 @@ class CallController {
 
         if (customer) {
             println "$caller got $customer from the assess queue"
+
+            //TODO: Need to figure out why these fields are getting set, for now manually reset them:
+
             println "$customer: doNotCall: ${customer.doNotCall}; passwordExpired: ${customer.passwordExpired}, completed: ${customer.hasCompletedCurrentAssessment}"
 
 
-            customer.inCall = new Date()
+            customer.with {
+                doNotCall = false
+                passwordExpired = false
+                accountExpired = false
+                accountLocked = false
+                deleted = false
+                hasCompletedCurrentAssessment = false
+                inCall = new Date()
+            }
+
             if (customer.save(flush: true)) {
                 println "$caller is calling ${customer}:${customer?.fsdName}"
                 println "$customer: doNotCall: ${customer.doNotCall}; passwordExpired: ${customer.passwordExpired}, completed: ${customer.hasCompletedCurrentAssessment}"
@@ -885,9 +897,9 @@ class CallController {
         def customer = Customer.get(params.id)
 
         println "$caller is in save_assess_call for CallController, customer $customer"
-        params.each { key, val ->
-            println "$key = $val"
-        }
+//        params.each { key, val ->
+//            println "$key = $val"
+//        }
 
         def currentTimezone
         if (params?.timezone)
@@ -950,7 +962,7 @@ class CallController {
                 customer.addToBrokers(broker2)
             }
 
-
+            println "$customer: doNotCall: ${customer.doNotCall}; passwordExpired: ${customer.passwordExpired}, completed: ${customer.hasCompletedCurrentAssessment}"
             if (customer.save(flush: true)) {
                 def call = new Call(params)
                 call.caller = caller
@@ -1073,6 +1085,8 @@ class CallController {
                     redirect action: index
                     return
                 }
+
+                println "$customer: doNotCall: ${customer.doNotCall}; passwordExpired: ${customer.passwordExpired}, completed: ${customer.hasCompletedCurrentAssessment}"
 
                 customer.inCall = null
                 customer.lastCall = call
