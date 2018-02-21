@@ -29,7 +29,6 @@
             <ul id="side-nav">
                 <h3>Assess Menu</h3>
                 <li><g:link controller="assessment" action="start"><span>Begin Online Assessment</span></g:link></li>
-                <li><g:link controller="home" action="assessment_drawing_rules"><span>Drawing Rules</span></g:link></li>
                 <li><g:link controller="home" action="assessment_tools"><span>Other Assessment Tools</span></g:link></li>
 
             </ul>

@@ -32,13 +32,7 @@
         $('#completeAssessmentForm').dialog({autoOpen: false, width: 500, modal: true});
         $('#submitAssessment').button();
         $('#addBrokerButton').button();
-        // var checkboxes = document.getElementsByTagName('input');
-        //
-        // for (var i = 0; i < checkboxes.length; i++) {
-        //   if (checkboxes[i].type == 'checkbox') {
-        //     checkboxes[i].checked = false;
-        //   }
-        // }
+
       });
 
       function showAssessForm(poId) {
