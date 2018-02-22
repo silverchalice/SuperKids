@@ -807,7 +807,17 @@ class CallController {
 
             if (customer) {
                 println "$caller is coming around the end of the assess list"
-                customer.inCall = new Date()
+
+                customer.with {
+                    doNotCall = false
+                    passwordExpired = false
+                    accountExpired = false
+                    accountLocked = false
+                    deleted = false
+                    hasCompletedCurrentAssessment = false
+                    inCall = new Date()
+                }
+
                 if (customer.save(flush: true)) {
                     println "$caller is calling $customer?.fsdName"
                     render view: 'assess_call_form', model: [customerInstance: customer, call: call, queue: params?.queue, currentTimezone: currentTimezone, timezones: timezones, states: states]
