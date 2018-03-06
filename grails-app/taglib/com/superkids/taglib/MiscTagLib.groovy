@@ -473,7 +473,7 @@ Modified: get menuButton text from new 'msg' attr
 	def productAssessmentNav = { attrs ->
 		def customer = Customer.get(attrs?.id)
 		if(customer) {
-			def products = customer?.customerOrder?.products*.product.sort { it?.id }
+			def products = customer?.customerOrder?.products*.product?.sort { it?.id }
             products.each { p ->
 				if(p) {
 					if(Product.findByParent(p))  {
