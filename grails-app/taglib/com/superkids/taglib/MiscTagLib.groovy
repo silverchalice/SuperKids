@@ -483,7 +483,7 @@ Modified: get menuButton text from new 'msg' attr
 				}
 
             }
-			def totalProducts = products.size()
+			def totalProducts = products?.size()
 			def tabIndex = 2
 			out << "<li><a href='#tab${tabIndex}'>Sponsor ${tabIndex - 1}</a></li>"
 			products.eachWithIndex{product, i ->
