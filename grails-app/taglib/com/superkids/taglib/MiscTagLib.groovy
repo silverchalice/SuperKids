@@ -431,7 +431,7 @@ Modified: get menuButton text from new 'msg' attr
 	def productAssessmentTabs = { attrs ->
 		def customer = Customer.get(attrs?.id)
 		if(customer) {
-			def products = customer.customerOrder.products*.product?.sort { it?.id }
+			def products = customer.customerOrder?.products*.product?.sort { it?.id }
 
 
             // remove variety packs - we only want the subproducts
