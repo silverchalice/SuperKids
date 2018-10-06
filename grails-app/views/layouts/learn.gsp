@@ -29,15 +29,13 @@
       <ul id="side-nav">
         <h3>All Resources</h3>
 		<li id="${link=='recipes' ? 'current' : ''}"><g:link controller="home" action="recipes"><span>Ultragrain Recipes</span></g:link></li>
-        <li id="${link=='usda_standards' ? 'current' : ''}"><g:link controller="home" action="usda_standards"><span>New USDA Nutrition Standards </span></g:link></li>
+        <li id="${link=='usda_standards' ? 'current' : ''}"><g:link controller="home" action="usda_standards"><span>USDA Nutrition Standards </span></g:link></li>
           <li id="${link=='coolschool' ? 'current' : ''}"><g:link controller="home" action="coolschool"><span>Cool School Caf&#233;</span></g:link></li>
 		<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity"><span>Baking Smart Snack Foods</span></g:link></li>
 		<li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips"><span>Whole Grains Council Tips</span></g:link></li>
 		<li id="${link=='association' ? 'current' : ''}"><g:link controller="home" action="association"><span>Home Baking Association</span></g:link></li>
-          <li id="${link=='learning_zone' ? 'current' : ''}"><g:link controller="home" action="learning_zone"><span>Learning ZoneXpress </span></g:link></li>
           <li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate"><span>MyPlate</span></g:link></li>
-         <li id="${link=='promotion_tools_and_resources' ? 'current' : ''}"><g:link controller="home" action="promotion_tools_and_resources"><span>Promotional Tools & Resources</span></g:link></li>
-        <li id="${link=='additional_promotional_ideas' ? 'current' : ''}"><g:link controller="home" action="additional_promotional_ideas"><span>Additional Promotional Ideas</span></g:link></li>
+        <li id="${link=='additional_promotional_ideas' ? 'current' : ''}"><g:link controller="home" action="additional_promotional_ideas"><span>Promotional Ideas</span></g:link></li>
 
       </ul>
       <!--<div class="ad">

@@ -33,9 +33,8 @@
                 <ul>
                     <li id="${link=='ecards' ? 'current' : ''}"><g:link controller="home" action="ecards">Send an eCard</g:link></li>
 
-                    <li id="${link=='promotion_tools_and_resources' ? 'current' : ''}"><g:link controller="home" action="promotion_tools_and_resources">Promotional Tools & Resources</g:link></li>
 
-                    <li id="${link=='additional_promotional_ideas' ? 'current' : ''}"><g:link controller="home" action="additional_promotional_ideas">Additional Promotional Ideas</g:link></li>
+                    <li id="${link=='additional_promotional_ideas' ? 'current' : ''}"><g:link controller="home" action="additional_promotional_ideas">Promotional Ideas</g:link></li>
 
                 </ul>
         </div>

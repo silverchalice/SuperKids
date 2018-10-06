@@ -72,7 +72,7 @@
             <p>Access a range of information about our product samples</p>
           </div>
             <ul>
-              <li><a href="${createLink(controller:'home', action: 'usda_standards')}" title="New USDA Standards">New USDA Standards</a></li>
+              <li><a href="${createLink(controller:'home', action: 'usda_standards')}" title="USDA Standards">USDA Standards</a></li>
               <li><a href="${createLink(controller:'home', action: 'association')}" title="Home Baking Association">Home Baking Association </a></li>
               <li><a href="${createLink(controller:'home', action: 'recipes')}" title="Recipes">Recipes</a></li>
               <li><a href="http://Sales-Development-Associates-Inc.dcatalog.com/v/SuperKids-Sampling-Program" target="_blank" title="SuperKids 2016 Directory">SuperKids 2016 Directory</a></li>
