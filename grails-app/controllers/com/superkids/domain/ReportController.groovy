@@ -171,6 +171,7 @@ class ReportController {
             m.lookForUltragrain = (customer.lookForUltragrain == null) ? "N/A" : customer.lookForUltragrain ? "YES" : "NO"
             m.participateWaivers = customer.participateWaivers
             m.participateWaiversItems = customer.participateWaiversItems
+            m.packaging = customer.packaging
 
             m.pastParticipant = (customer.pastParticipant == null) ? "N/A" : customer.pastParticipant ? "YES" : "NO"
             m.doNotReceiveAdditionalInformation = (customer.doNotReceiveAdditionalInformation == null) ? "N/A" : customer.doNotReceiveAdditionalInformation ? "YES" : "NO"
@@ -282,6 +283,7 @@ class ReportController {
                        "lookForUltragrain",
                        "participateWaivers",
                        "participateWaiversItems",
+                       "packaging",
 
                        "pastParticipant",
                        "doNotReceiveAdditionalInformation",
@@ -339,6 +341,7 @@ class ReportController {
                       "lookForUltragrain"                : "Look for 'Ultragrain' when trying new foods",
                       "participateWaivers"               : "Waiver programs participated in",
                       "participateWaiversItems"          : "Waiver programs for items",
+                      "packaging"                        : "Preferred Packaging",
 
                       "pastParticipant"                  : "Previous Participant",
                       "doNotReceiveAdditionalInformation": "Opted out of additional information",
