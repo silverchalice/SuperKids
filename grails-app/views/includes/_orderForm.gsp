@@ -79,7 +79,7 @@
     </td>
 </tr>
 
-<tr><td colspan="2"><strong>7.</strong>Do you participate in any waivers for whole grain-rich foods?
+<tr><td colspan="2"><strong>7.</strong> Do you participate in any waivers for whole grain-rich foods?
 <g:select name="participateWaivers" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.participateWaivers?.toString()}"/>
 </td>
 </tr>
@@ -90,7 +90,7 @@
 </tr>
 
 <tr>
-    <td colspan="2"><strong>8.</strong> 8.	Do you prefer items that are bulk packed or individually wrapped?
+    <td colspan="2"><strong>8.</strong> Do you prefer items that are bulk packed or individually wrapped?
     <g:select name="packaging" from="['BULK', 'IW', 'Both']" value="${customerInstance?.packaging}"/>
     </td>
 </tr>
