@@ -31,7 +31,6 @@ class DataService {
 				fsdName = cell(4) ?: " "
 				fsdTitle = cell(5)
 				district = cell(6) ?: "[none given]"
-				recipientAgency = cell(7) ?: ""
 				address = new Address(
 						street: cell(8) ?: " ",
 						street2: cell(9) ?: " ",

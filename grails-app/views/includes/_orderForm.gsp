@@ -88,3 +88,9 @@
         <input type="text" name="participateWaiversItems" value="${customerInstance?.participateWaiversItems}" size="55" maxlength="1000">
     </td>
 </tr>
+
+<tr>
+    <td colspan="2"><strong>8.</strong> 8.	Do you prefer items that are bulk packed or individually wrapped?
+    <g:select name="packaging" from="['BULK', 'IW', 'Both']" value="${customerInstance?.packaging}"/>
+    </td>
+</tr>

@@ -74,6 +74,7 @@ class Customer extends User {
     Boolean lookForUltragrain = null            //Order Form Question #6
     String participateWaivers                   //Order Form Question #7
     String participateWaiversItems              //Order Form Question #7a
+    String packaging                            //Order Form Question 8
 
 
 
@@ -291,6 +292,7 @@ class Customer extends User {
         pastParticipant nullable:true
         notes nullable:true, blank:true, maxSize: 12000
         opNotes nullable:true, blank:true, maxSize: 12000
+        packaging nullable: true, blank: true
     }
 	
 	static namedQueries = {

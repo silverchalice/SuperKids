@@ -409,7 +409,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <strong>8.</strong>    By subscribing to SuperKids, Ardent Mills and/or its affiliates
+                        <strong>9.</strong> By subscribing to SuperKids, Ardent Mills and/or its affiliates
                         <br/>may send you information about related events, webinars, products
                         <br/> and services which we believe will be of interest to you.<br/>
                         <br/>Check this box if you DO NOT wish to receive additional information

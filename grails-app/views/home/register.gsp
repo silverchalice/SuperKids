@@ -244,7 +244,7 @@
         <g:render template="/includes/orderForm" model="[customerInstance: customerInstance]" />
 
         <tr>
-            <td colspan="2"><strong>8.</strong> By subscribing to SuperKids, Ardent Mills and/or its affiliates
+            <td colspan="2"><strong>9.</strong> By subscribing to SuperKids, Ardent Mills and/or its affiliates
                 <br />may send you information about related events, webinars, products
                 <br /> and services which we believe will be of interest to you.<br />
                 <br />Check this box if you DO NOT wish to receive additional information
@@ -256,26 +256,6 @@
     </table>
     <p>&nbsp;</p>
 
-    <!--<table class="manufacturerForm">
-        <tr>
-            <td colspan="2">
-                <strong>11. Please let us know if you would like any of these manufacturers to contact you immediately.</strong>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <g:each in="${sponsors}" var="sponsor">
-        <span style="display: block; width: 220px; float: left"><g:checkBox name="sponsor.${sponsor.id}"
-                                                                            checked="${customerInstance.contactManufacturers?.contains(sponsor)}"/>${sponsor.name}</span>
-    </g:each>
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2">Please list any special requests for the manufacturers you checked: <br/>
-                <input type="text" name="otherComments" value="" size="75" maxlength="1000"></td>
-        </tr>
-    </table>  -->
 
 </div>
 
@@ -284,46 +264,9 @@
     <a  id="submitButton" class="btn arrow"><span>Save Your Information & Continue</span></a>
 </div>
 
-<!--<div style="clear: both" class="brokerInfo">
-     <h2>Optional Broker/Distributor Information</h2>
-    <p>One of the objectives of the SuperKids Whole Grain Sampling Program is to communicate demand for these products to foodservice distributors and brokers. <br/><br/>
-    </p>
-    <p>
-        Although it is not mandatory that you provide broker or distributor information below, it will help ensure that the right people know about your interest in these products and improve the  likelihood that you will receive more whole grain foods in the future.  Please provide the following if available. <br/><br/>
-    </p>
+
 <g:hiddenField name="seq" value="9998"/>
-<table cellpadding="3" cellspacing="0" style="border:none; width:300px">
-<tr>
-<td><strong>Broker/Distributor Name:</strong></td>
-<td><input type="text" name="brokerName" size="25" maxlength="50" value=""></td>
-</tr>
-<tr>
-<td><strong>Email:</strong></td>
-<td><input type="text" name="brokerEmail" size="25" maxlength="50" value=""></td>
-</tr>
-<tr>
-<td><strong>Telephone:</strong></td>
-<td><input type="text" name="brokerPhone" size="25" maxlength="50" value=""></td>
-</tr>
-<tr>
-<td><strong>Fax:</strong></td>
-<td><input type="text" name="brokerFax" size="25" maxlength="50" value=""></td>
-</tr>
-<tr>
-<td><strong>Address:</strong></td>
-<td><input type="text" name="brokerStreet" size="25" maxlength="255" value=""></td>
-</tr>
-<tr>
-<td><strong></strong></td>
-<td><input type="text" name="brokerStreet2" size="25" maxlength="255" value=""></td>
-</tr>
-<tr>
-<td><strong>City:</strong></td>
-<td><input type="text" name="brokerCity" size="25" maxlength="50" value=""></td>
-</tr>
-<tr>
-<td>State</td>
-<td style="text-align:left">
+
 <g:select name="brokerState" from="${states}"/>
 </td>
       </tr>
