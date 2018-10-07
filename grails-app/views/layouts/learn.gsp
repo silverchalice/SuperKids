@@ -28,21 +28,15 @@
     <div id="sidebar">
       <ul id="side-nav">
         <h3>All Resources</h3>
-		<li id="${link=='recipes' ? 'current' : ''}"><g:link controller="home" action="recipes"><span>Ultragrain Recipes</span></g:link></li>
-        <li id="${link=='usda_standards' ? 'current' : ''}"><g:link controller="home" action="usda_standards"><span>USDA Nutrition Standards </span></g:link></li>
-          <li id="${link=='coolschool' ? 'current' : ''}"><g:link controller="home" action="coolschool"><span>Cool School Caf&#233;</span></g:link></li>
-		<li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity"><span>Baking Smart Snack Foods</span></g:link></li>
-		<li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips"><span>Whole Grains Council Tips</span></g:link></li>
-		<li id="${link=='association' ? 'current' : ''}"><g:link controller="home" action="association"><span>Home Baking Association</span></g:link></li>
+		  <li id="${link=='recipes' ? 'current' : ''}"><g:link controller="home" action="recipes"><span>Ultragrain Recipes</span></g:link></li>
+          <li id="${link=='usda_standards' ? 'current' : ''}"><g:link controller="home" action="usda_standards"><span>USDA Nutrition Standards </span></g:link></li><li id="${link=='coolschool' ? 'current' : ''}"><g:link controller="home" action="coolschool"><span>Cool School Cafe</span></g:link></li>
+		  <li id="${link=='childhood_obesity' ? 'current' : ''}"><g:link controller="home" action="childhood_obesity"><span>Baking Smart Snack Foods</span></g:link></li>
+		  <li id="${link=='council_tips' ? 'current' : ''}"><g:link controller="home" action="council_tips"><span>Whole Grains Council Tips</span></g:link></li>
+		  <li id="${link=='association' ? 'current' : ''}"><g:link controller="home" action="association"><span>Home Baking Association</span></g:link></li>
           <li id="${link=='my_plate' ? 'current' : ''}"><g:link controller="home" action="my_plate"><span>MyPlate</span></g:link></li>
-        <li id="${link=='additional_promotional_ideas' ? 'current' : ''}"><g:link controller="home" action="additional_promotional_ideas"><span>Promotional Ideas</span></g:link></li>
+          <li id="${link=='additional_promotional_ideas' ? 'current' : ''}"><g:link controller="home" action="additional_promotional_ideas"><span>Promotional Ideas</span></g:link></li>
 
       </ul>
-      <!--<div class="ad">
-        <h3>Win Prizes <span>for Your School District</span></h3>
-        <p><img src="${resource(dir:'images',file:'img_bills.jpg')}" title="Money" class="left" />If you’ve already received your free samples, you could win a $100 gift card for your school district just for sharing your opinion.</p>
-        <p><a href="${createLink(controller: 'home', action: 'assess')}" title="" class="btn"><span>Tell us what you think</span></a>
-      </div>   -->
       <div class="ad">
         <h3>Whole Grain Nutrition, White Flour Appeal</h3>
         <p><img src="${resource(dir:'images',file:'ultragrain_logo_3.0.png')}" title="Ultragrain logo" class="left" />Did you know that Ultragrain flour provides 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of white flour. <a href="${createLink(controller: 'home', action: 'ultragrain')}">Learn more »</a></p>
