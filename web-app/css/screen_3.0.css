@@ -737,6 +737,7 @@ p {
     font-family:"filson-pro", sans-serif;
     color:#555;
     font-weight:normal;
+    line-height: 36px;
 }
 #sidebar #side-nav h3 {
     text-shadow:0 1px 0 rgba(255,255,255, 0.2);
