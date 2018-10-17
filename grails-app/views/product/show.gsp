@@ -42,20 +42,22 @@
                     title="Log in to order free samples">log in</a>.</p>
         </sec:ifNotLoggedIn>
         <sec:ifLoggedIn>
-            <p>Sample ordering for this school year is no longer open - come back next year!</p>
-        %{--
-                            <g:if test="${customer?.hasPlacedCurrentOrder}">
-                                Your Order Has Been Placed
-                            </g:if>
-                            <g:elseif test="${inCart}">
-                                <p class="remove"><a href="${createLink(controller: 'product', action: 'remove', id: productInstance.id)}" title="Remove this sample from your free order">Remove from your order</a></p>
-                                <a class="btn arrow" href="${createLink(controller: 'shopping', action: 'index')}" title="Place your free order" class="btn arrow"><span>Checkout</span></a>
-                            </g:elseif>
-                            <g:else>
-                                <a href="${createLink(controller: 'product', action: 'add', id: productInstance?.id)}" title="Add this product to your order" class="btn"><span>Add to your free order</span></a>
-                            </g:else>
 
-                            --}%
+            <g:if test="${customer?.hasPlacedCurrentOrder}">
+                Your Order Has Been Placed
+            </g:if>
+            <g:elseif test="${inCart}">
+                <p class="remove"><a
+                        href="${createLink(controller: 'product', action: 'remove', id: productInstance.id)}"
+                        title="Remove this sample from your free order">Remove from your order</a></p>
+                <a class="btn arrow" href="${createLink(controller: 'shopping', action: 'index')}"
+                   title="Place your free order" class="btn arrow"><span>Checkout</span></a>
+            </g:elseif>
+            <g:else>
+                <a href="${createLink(controller: 'product', action: 'add', id: productInstance?.id)}"
+                   title="Add this product to your order" class="btn"><span>Add to your free order</span></a>
+            </g:else>
+
         </sec:ifLoggedIn>
 
     </div>
