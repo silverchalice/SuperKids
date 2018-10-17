@@ -91,6 +91,6 @@
 
 <tr>
     <td colspan="2"><strong>8.</strong> Do you prefer items that are bulk packed or individually wrapped?
-    <g:select name="packaging" from="['BULK', 'IW', 'Both']" value="${customerInstance?.packaging}"/>
+    <g:select name="packaging" from="['NA', 'BULK', 'IW', 'Both']" value="${customerInstance?.packaging}"/>
     </td>
 </tr>
