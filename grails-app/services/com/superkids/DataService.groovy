@@ -306,7 +306,7 @@ class DataService {
 		switch (string) {
 			case "Top 100":
 				return 1
-			case "20,000 - 46,999":
+			case "20,000 - 49,000":
 				return 2
 			case "10,001 - 20,000":
 				return 3
@@ -314,7 +314,7 @@ class DataService {
 				return 4
 			case "5,000 - 9,999":
 				return 5
-			case "3,000 - 5,000":
+			case "3,000 - 4,999":
 				return 6
 			case "Under 3,000":
 				return 7
