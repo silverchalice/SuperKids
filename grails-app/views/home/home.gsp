@@ -26,7 +26,7 @@
           </div>
         </div>
         <div id="overview">
-            <h3>SuperKids <span> can help you deliver breakfast, lunch and snack options that meet whole grain requirements and actually <strong>taste great</strong></span></h3>
+            <h3>SuperKids <span> can help you deliver breakfast, lunch and snack options that meet whole grain requirements and actually <strong>taste great.</strong></span></h3>
             <div class="col-01">
                 <div>
                     <a href="${createLink(controller: 'home', action: 'about')}"></a>
