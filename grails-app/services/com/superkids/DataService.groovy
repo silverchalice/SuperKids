@@ -56,24 +56,32 @@ class DataService {
 
 				status = CustomerStatus.HAS_NOT_ORDERED
 
-				studentsInDistrict = cell(21) ?: 0
-				studentsParticipate = cell(22) ?: 0
-				//contractManaged = (cell(23) == 'YES') ? true : (cell(23) == 'NO') ? false : null
-				callerBrokers = cell(23)
-				hasBakery = (cell(24) == "YES") ? true : (cell(24) == 'NO') ? false : null
-				useUltragrainFlour = (cell(25) == "YES") ? true : (cell(25) == 'NO') ? false : null
-				useUltragrainWhiteFlour = (cell(26) == "YES") ? true : (cell(26) == 'NO') ? false : null
-				otherFlours = (cell(27) == "YES") ? true : null
-				otherFlourIssues = (cell(28) == "YES") ? true : null
+				studentsInDistrict = cell(21) != 'NA' ? cell(21) : 0
+				studentsParticipate = cell(22) != 'NA' ? cell(22) : 0
+				studentsParticipateBreakfast =  cell(23) != 'NA' ? cell(23) : 0
+				studentsParticipateLunch =  cell(24) != 'NA' ? cell(24) : 0
+				studentsParticipateAfterSchool =  cell(25) != 'NA' ? cell(25) : 0
+				callerBrokers = cell(26) ?: ""
+				hasBakery = (cell(27) == "YES") ? true : (cell(27) == 'NO') ? false : null
+				useUltragrainFlour = (cell(28) == "YES") ? true : (cell(28) == 'NO') ? false : null
+				useUltragrainWhiteFlour = (cell(29) == "YES") ? true : (cell(29) == 'NO') ? false : null
+				buyCommodityFlour = (cell(30) == "YES") ? true : null
+				otherFlours = cell(31) ?: ""
+				otherMixes = cell(32) ?: ""
+				bakingChallenges = (cell(33) == "YES") ? true : null
+				otherFlourIssues = (cell(34) == "YES") ? true : null
 
-				addedPastItemsToMenu = (cell(29) == "YES") ? true : (cell(29) == 'NO') ? false : null
-				pastItemsAddedToMenu = (cell(30)) ?: ""
+				addedPastItemsToMenu = (cell(35) == "YES") ? true : (cell(32) == 'NO') ? false : null
+				pastItemsAddedToMenu = (cell(36)) ?: ""
 
-				lookForUltragrain = (cell(31) == "YES") ? true : (cell(31) == 'NO') ? false : null
-				participateWaivers = cell(32) ?: ""
-				participateWaiversItems = cell(33) ?: ""
-				doNotReceiveAdditionalInformation = (cell(34) == "YES") ? true : null
-				timezone = cell(36) ?: ""
+				lookForUltragrain = (cell(37) == "YES") ? true : (cell(37) == 'NO') ? false : null
+				participateWaivers = cell(38) ?: ""
+				participateWaiversItems = cell(39) ?: ""
+				pastParticipant = (cell(40) == "YES") ? true : (cell(40) == 'NO') ? false : null
+				doNotReceiveAdditionalInformation = (cell(41) == "YES") ? true : null
+				didNotReceiveMailing = (cell(42) == "YES") ? true : null
+				otherComments = cell(43) ?: ""
+				timezone = cell(44) ?: ""
 			}
 
 
