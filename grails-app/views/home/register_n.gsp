@@ -19,7 +19,7 @@
 
             <address>
                 Melissa Chambers<br/>
-                <span><a href="mailto:melissac@sdastl.com">melissac@sdastl.com</a></span><br />
+                <span><a href="mailto:mchambers@stealthcreative.com">mchambers@stealthcreative.com</a></span><br />
                 Toll Free: 1-877-862-8828<br />
                 Fax: 314-862-8829<br />
                 P.O. Box 16170<br />

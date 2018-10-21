@@ -264,22 +264,6 @@
     <a  id="submitButton" class="btn arrow"><span>Save Your Information & Continue</span></a>
 </div>
 
-
-<g:hiddenField name="seq" value="9998"/>
-
-<g:select name="brokerState" from="${states}"/>
-</td>
-      </tr>
-      <tr>
-          <td><strong>Zip:</strong></td>
-          <td><input type="text" name="brokerZip" size="10" maxlength="20" value=""></td>
-      </tr>
-  </table>
-
-</div>  -->
-
-</g:form>
-
 </div>
 
 

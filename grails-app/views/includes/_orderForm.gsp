@@ -64,7 +64,7 @@
 </tr>
 
 <tr>
-    <td colspan="2"><strong>5.</strong> If you've participated in SuperKids in the past, did you add any of the items <br />you sampled to your menu?
+    <td colspan="2"><strong>5.</strong> If you've participated in SuperKids in the last year, did you add any of the items <br />you sampled to your menu?
     <g:select name="addedPastItemsToMenu" keys="['NA', 'true', 'false']" from="['Select…', 'Yes', 'No']"  value="${customerInstance?.addedPastItemsToMenu?.toString()}"/>
     </td>
 </tr>

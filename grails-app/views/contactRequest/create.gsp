@@ -65,8 +65,8 @@
 						<span style="color: #000000">P.O. Box 16170</span><br />
 						St. Louis MO 63105-9713 <br />
 						<br />
-					Toll Free: (877) 862-8828&nbsp; *&nbsp; Fax: (314) 862-8829<br />
-					<span style="color: #ff9900"><a href="mailto:melissac@sdastl.com"><strong><span style="color: #ff6600">melissac@sdastl.com</span></strong></a></span><strong><span style="color: #ff9900"><span style="color: #ff6600"> </span></span></strong></p>
+					Toll Free: (877) 862-8828<br />
+					<span style="color: #ff9900"><a href="mailto:mchambers@stealthcreative.com"><strong><span style="color: #ff6600">mchambers@stealthcreative.com</span></strong></a></span><strong><span style="color: #ff9900"><span style="color: #ff6600"> </span></span></strong></p>
 					<br/>
 					<p>&nbsp;</p>
 					<p>&nbsp;</p>

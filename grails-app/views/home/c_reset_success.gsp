@@ -17,7 +17,7 @@
             <p>Your password has been reset. You will receive an email with your new password and you will be required to change your password again once you have logged in.</p>
 
 <span style="text-align:center;"><h2>For Assistance</h2></span>
-<p style="text-align:center;"><a href="mailto:melissac@sdastl.com">melissac@sdastl.com</a><br />
+<p style="text-align:center;"><a href="mailto:mchambers@stealthcreative.com">mchambers@stealthcreative.com</a><br />
 Toll Free: 1-877-862-8828<br />
 Fax: 314-862-8829<br />
 P.O. Box 16170 <br />
