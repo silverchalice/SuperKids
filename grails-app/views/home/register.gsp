@@ -266,7 +266,7 @@
 
 </div>
 
-
+</g:form>
 
 </div>
 </div>
