@@ -11,13 +11,16 @@ class CallController {
     def callService
     def userService
 
-    static
-    def states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME',
+    static List<String> states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME',
                   'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA',
                   'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY']
 
-    static def timezones = ['Eastern', 'Mountain', 'Central', 'Pacific', 'Alaska', 'Hawaii']
+    static List<String> timezones = ['Eastern', 'Mountain', 'Central', 'Pacific', 'Alaska', 'Hawaii']
 
+
+    private Date seventyTwoHoursAgo() { new Date(new Date().time - 259200000) }
+    private Date fortyEightHoursAgo() { new Date(new Date().time - 172800000) }
+    private Date twentyFourHoursAgo() { new Date(new Date().time - 86400000) }
 
     def index = {
 
@@ -457,9 +460,6 @@ class CallController {
         def c = Customer.createCriteria()
         def c2 = Customer.createCriteria()
 
-        def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
-        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
-
         //order calls are all customers with out a current order AND who are not being called atm
         def customer = c.list(sort: 'id') {
             eq 'timezone', currentTimezone
@@ -492,7 +492,9 @@ class CallController {
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
-                    le('dateCreated', twentyFourHoursAgo)
+                    le('dateCreated', fortyEightHoursAgo()
+
+                    )
 
                 }
             }
@@ -548,7 +550,7 @@ class CallController {
 //					or {
 //						isNull "lastCall"
 //						lastCall {
-//							//le('dateCreated', twentyFourHoursAgo)
+//							//le('dateCreated', twentyFourHoursAgo())
 //							ne('result', CallResult.REFUSED)
 //						}
 
@@ -559,7 +561,7 @@ class CallController {
                         eq('customerRanking', 1)
                     }
                     lastCall {
-                        le('dateCreated', twentyFourHoursAgo)
+                        le('dateCreated', fortyEightHoursAgo())
                         ne('result', CallResult.REFUSED)
                     }
                 }
@@ -704,9 +706,6 @@ class CallController {
         def c2 = Customer.createCriteria()
 
         def now = new Date()
-        def seventyTwoHoursAgo = new Date(new Date().time - 259200000)
-        def fortyEightHoursAgo = new Date(new Date().time - 172800000)
-        def twentyFourHoursAgo = new Date(new Date().time - 86400000)
         //assess calls are all customers with a current order AND who are not being called atm
         Customer customer = c.list(sort: 'id') {
             eq 'timezone', currentTimezone
@@ -739,7 +738,7 @@ class CallController {
                     ne('result', CallResult.NOT_QUALIFIED)
                     ne('result', CallResult.CALLBACK)
 
-                    le('dateCreated', twentyFourHoursAgo)
+                    le('dateCreated', fortyEightHoursAgo())
 
                 }
             }

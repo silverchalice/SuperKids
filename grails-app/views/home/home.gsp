@@ -84,7 +84,7 @@
               <h4>Meet Our Award Winning Grain</h4>
               <div><img id="grain-logo" src="${resource(dir:'images',file:'ultragrain_logo_3.0.png')}" alt="Ultragrain logo" />
                   <h5>Ultragrain<sup>®</sup></h5>
-                  <p>Made with specially selected white wheat and ground using all-natural patenting milling, Ultragrain<sup>®</sup> delivers 100% whole grain nutrition without sacrificing the appealing taste, texture and appearance of refined white flour. <a href="${createLink(controller: 'home', action: 'ultragrain_general')}" title="Learn more">Learn more »</a></p>
+                  <p>Made with specially selected white wheat and ground using our patented milling technique, Ultragrain<sup>®</sup> delivers 100% whole grain nutrition without sacrificing the desirable taste, texture and appearance of refined white flour. <a href="${createLink(controller: 'home', action: 'ultragrain_general')}" title="Learn more">Learn more »</a></p>
                   <img class="loaf" src="${resource(dir: 'images', file: 'img_loaf.jpg')}" alt="A sliced loaf of white bread">
             </div>
           </div>
