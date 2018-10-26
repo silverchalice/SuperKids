@@ -5,17 +5,8 @@
 <link rel="stylesheet" href="${resource(dir:'css',file:'reset.css')}" />
 <link rel="stylesheet" href="${resource(dir:'css',file:'screen_3.0.css')}" />
 
-<script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-18800741-2']);
-    _gaq.push(['_trackPageview']);
+<g:render template="/includes/google_analytics"/>
 
-   (function() {
-       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-   })();
-</script>
 <!--[if gte IE 9]>
   <style type="text/css">
     .gradient {

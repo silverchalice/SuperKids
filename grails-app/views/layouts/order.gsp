@@ -13,14 +13,7 @@
         <g:javascript library="jquery" plugin="jquery"/>
        <g:set var="products" value="${Product.findAllByLiveProduct(true)}" />
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10797669-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-10797669-2');
-</script>
+        <g:render template="/includes/google_analytics"/>
     </head>
     <body>
   <div id="body">

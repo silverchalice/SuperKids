@@ -16,14 +16,7 @@
 			});
 		</script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10797669-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-10797669-2');
-</script>
+        <g:render template="/includes/google_analytics"/>
     </head>
     <body>
 %{--        <div style="margin:0px 0px; border:0; padding:15px 375px;">
