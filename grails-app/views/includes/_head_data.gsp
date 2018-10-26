@@ -4,8 +4,7 @@
 
 <link rel="stylesheet" href="${resource(dir:'css',file:'reset.css')}" />
 <link rel="stylesheet" href="${resource(dir:'css',file:'screen_3.0.css')}" />
-
-<g:render template="/includes/google_analytics"/>
+<!-- nothing here -->
 
 <!--[if gte IE 9]>
   <style type="text/css">
