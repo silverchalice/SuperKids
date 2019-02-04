@@ -40,7 +40,7 @@
                 Start Assess Call<br/> (New Customers)
             </h1>
         </g:link>
-    </div>
+    </div>  
 
     <g:link class="order" action="start_assess_call" params="[queue:'prev']" style="padding-right:0; margin-right:0; float:left">
     <h1 style="background: url(${resource(dir:'images', file:'/skin/database_add.png')}) center left no-repeat; padding-left:10px; font-size:18pt;">
