@@ -65,7 +65,7 @@
               <li><a href="${createLink(controller:'home', action: 'usda_standards')}" title="USDA Standards">USDA Standards</a></li>
               <li><a href="${createLink(controller:'home', action: 'association')}" title="Home Baking Association">Home Baking Association </a></li>
               <li><a href="${createLink(controller:'home', action: 'recipes')}" title="Recipes">Recipes</a></li>
-              <li><a href="http://Sales-Development-Associates-Inc.dcatalog.com/v/SuperKids-Sampling-Program" target="_blank" title="SuperKids 2016 Directory">SuperKids 2016 Directory</a></li>
+              <li><a href="https://Sales-Development-Associates-Inc.dcatalog.com/v/2018-2019-SuperKids-Whole-Grain-Sampling-Program-Directory/" target="_blank" title="SuperKids 2018 Directory">SuperKids 2018 Directory</a></li>
             </ul>
           </div>
         </div>
